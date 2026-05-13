@@ -8,3 +8,5 @@ typechain-types/
 deployments/**/*.local.json
 .DS_Store
 __MACOSX/
+# Generated whitelist outputs
+scripts/whitelist/output/
