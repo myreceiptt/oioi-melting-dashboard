@@ -1,0 +1,48 @@
+{
+  "name": "oioi-melting-dashboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "hardhat test",
+    "compile": "hardhat compile",
+    "clean": "hardhat clean",
+    "check": "npm run compile && npm run test",
+    "whitelist:clean": "tsx scripts/whitelist/clean-roty-whitelist.ts",
+    "whitelist:merkle": "tsx scripts/whitelist/generate-roty-merkle.ts",
+    "reward:calc": "tsx scripts/rewards/calculate-round.ts",
+    "reward:merkle": "tsx scripts/rewards/generate-reward-merkle.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/myreceiptt/oioi-melting-dashboard.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/myreceiptt/oioi-melting-dashboard/issues"
+  },
+  "homepage": "https://github.com/myreceiptt/oioi-melting-dashboard#readme",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox-viem": "^5.0.5",
+    "@types/node": "^25.7.0",
+    "dotenv": "^17.4.2",
+    "hardhat": "^3.4.5",
+    "prettier": "^3.8.3",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.6.1",
+    "@openzeppelin/merkle-tree": "^1.0.8",
+    "csv-parse": "^6.2.1",
+    "viem": "^2.48.11",
+    "zod": "^3.25.76"
+  }
+}

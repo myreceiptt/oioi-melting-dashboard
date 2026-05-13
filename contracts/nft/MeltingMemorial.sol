@@ -1,0 +1,11 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.24;
+
+import {MemorialNFTCore} from "./MemorialNFTCore.sol";
+
+/// @title MeltingMemorial
+/// @notice Melting NFT contract skeleton.
+/// @dev TODO: Add staking-gated paid mint requiring valid ROTY stake.
+contract MeltingMemorial is MemorialNFTCore {
+    // TODO: implement Melting-specific logic.
+}
