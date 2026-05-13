@@ -21,11 +21,23 @@
 pragma solidity ^0.8.24;
 
 import {MemorialNFTCore} from "./MemorialNFTCore.sol";
+import {IOiOiSoftStaking} from "../interfaces/IOiOiSoftStaking.sol";
 
 /**
  * @title AmandaMemorial
  * @notice Collection contract for Amanda BASE and Amanda dETH.
- * @dev Staking-gated paid mint logic will be added after OiOiSoftStaking v1.
+ * @dev One codebase, two deployments:
+ * - Base: Amanda BASE / AMANBASE
+ * - Ethereum: Amanda dETH / AMANDETH
+ *
+ * Mint model:
+ * - No free mint
+ * - No open public mint
+ * - Staking-gated paid mint only
+ *
+ * Eligibility:
+ * - User must have a valid soft-staked ROTY NFT
+ *   OR a valid soft-staked Melting NFT in the same chain set.
  */
 contract AmandaMemorial is MemorialNFTCore {
     uint256 public constant AMANDA_MAX_SUPPLY = 2020;
@@ -36,7 +48,18 @@ contract AmandaMemorial is MemorialNFTCore {
     address public immutable rotyCollection;
     address public immutable meltingCollection;
 
+    bool public gatedMintEnabled;
+
+    event GatedMintEnabledUpdated(bool enabled);
+    event GatedMinted(
+        address indexed minter,
+        uint256 quantity,
+        uint256 indexed firstTokenId
+    );
+
     error InvalidDependency();
+    error GatedMintClosed();
+    error MintAccessDenied(address user);
 
     constructor(
         string memory name_,
@@ -77,5 +100,34 @@ contract AmandaMemorial is MemorialNFTCore {
         stakingContract = stakingContract_;
         rotyCollection = rotyCollection_;
         meltingCollection = meltingCollection_;
+    }
+
+    function setGatedMintEnabled(bool enabled) external onlyOwner {
+        gatedMintEnabled = enabled;
+
+        emit GatedMintEnabledUpdated(enabled);
+    }
+
+    function mint(
+        uint256 quantity
+    ) external payable nonReentrant returns (uint256 firstTokenId) {
+        if (!gatedMintEnabled) revert GatedMintClosed();
+
+        address[] memory eligibleCollections = new address[](2);
+        eligibleCollections[0] = rotyCollection;
+        eligibleCollections[1] = meltingCollection;
+
+        if (
+            !IOiOiSoftStaking(stakingContract).hasValidStakeInCollections(
+                msg.sender,
+                eligibleCollections
+            )
+        ) {
+            revert MintAccessDenied(msg.sender);
+        }
+
+        firstTokenId = _paidMint(msg.sender, quantity);
+
+        emit GatedMinted(msg.sender, quantity, firstTokenId);
     }
 }
