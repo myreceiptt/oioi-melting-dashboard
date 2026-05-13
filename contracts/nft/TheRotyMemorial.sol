@@ -20,12 +20,21 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
+import {
+    MerkleProof
+} from "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
+
 import {MemorialNFTCore} from "./MemorialNFTCore.sol";
 
 /**
  * @title TheRotyMemorial
  * @notice Collection contract for The ROTY BASE and The ROTY dETH.
- * @dev ROTY-specific Merkle whitelist and public mint logic will be added next.
+ * @dev One codebase, two deployments:
+ * - Base: The ROTY BASE / ROTYBASE
+ * - Ethereum: The ROTY dETH / ROTYDETH
+ *
+ * Whitelist leaf format follows OpenZeppelin StandardMerkleTree:
+ * leaf = keccak256(bytes.concat(keccak256(abi.encode(account))))
  */
 contract TheRotyMemorial is MemorialNFTCore {
     uint256 public constant ORIGIN_CHAIN_ID = 137;
@@ -38,6 +47,30 @@ contract TheRotyMemorial is MemorialNFTCore {
     uint96 public constant ROTY_ROYALTY_FEE = 1_100;
 
     bytes32 public merkleRoot;
+
+    bool public whitelistMintEnabled;
+    bool public publicMintEnabled;
+
+    mapping(address => bool) public whitelistClaimed;
+
+    event MerkleRootUpdated(
+        bytes32 indexed oldMerkleRoot,
+        bytes32 indexed newMerkleRoot
+    );
+    event WhitelistMintEnabledUpdated(bool enabled);
+    event PublicMintEnabledUpdated(bool enabled);
+    event WhitelistMinted(address indexed minter, uint256 indexed tokenId);
+    event PublicMinted(
+        address indexed minter,
+        uint256 quantity,
+        uint256 indexed firstTokenId
+    );
+
+    error WhitelistMintClosed();
+    error PublicMintClosed();
+    error EmptyMerkleRoot();
+    error AlreadyClaimedWhitelist();
+    error InvalidMerkleProof();
 
     constructor(
         string memory name_,
@@ -66,5 +99,58 @@ contract TheRotyMemorial is MemorialNFTCore {
         )
     {
         merkleRoot = merkleRoot_;
+    }
+
+    function setMerkleRoot(bytes32 newMerkleRoot) external onlyOwner {
+        bytes32 oldMerkleRoot = merkleRoot;
+        merkleRoot = newMerkleRoot;
+
+        emit MerkleRootUpdated(oldMerkleRoot, newMerkleRoot);
+    }
+
+    function setWhitelistMintEnabled(bool enabled) external onlyOwner {
+        whitelistMintEnabled = enabled;
+
+        emit WhitelistMintEnabledUpdated(enabled);
+    }
+
+    function setPublicMintEnabled(bool enabled) external onlyOwner {
+        publicMintEnabled = enabled;
+
+        emit PublicMintEnabledUpdated(enabled);
+    }
+
+    function whitelistMint(
+        bytes32[] calldata proof
+    ) external nonReentrant returns (uint256 tokenId) {
+        if (!whitelistMintEnabled) revert WhitelistMintClosed();
+        if (merkleRoot == bytes32(0)) revert EmptyMerkleRoot();
+        if (whitelistClaimed[msg.sender]) revert AlreadyClaimedWhitelist();
+
+        bytes32 leaf = whitelistLeaf(msg.sender);
+
+        if (!MerkleProof.verify(proof, merkleRoot, leaf)) {
+            revert InvalidMerkleProof();
+        }
+
+        whitelistClaimed[msg.sender] = true;
+
+        tokenId = _mintSequential(msg.sender, 1);
+
+        emit WhitelistMinted(msg.sender, tokenId);
+    }
+
+    function publicMint(
+        uint256 quantity
+    ) external payable nonReentrant returns (uint256 firstTokenId) {
+        if (!publicMintEnabled) revert PublicMintClosed();
+
+        firstTokenId = _paidMint(msg.sender, quantity);
+
+        emit PublicMinted(msg.sender, quantity, firstTokenId);
+    }
+
+    function whitelistLeaf(address account) public pure returns (bytes32) {
+        return keccak256(bytes.concat(keccak256(abi.encode(account))));
     }
 }
