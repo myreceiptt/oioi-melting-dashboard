@@ -1,13 +1,6 @@
-export type SupportedRewardChain =
-  | "base"
-  | "ethereum";
+export type SupportedRewardChain = "base" | "ethereum";
 
-export type RewardCollectionKey =
-  | "roty"
-  | "melting"
-  | "amanda";
-
-export type HexAddress = `0x${string}`;
+export type CollectionKey = "roty" | "melting" | "amanda";
 
 export type RewardRoundInput = {
   chain: SupportedRewardChain;
@@ -15,42 +8,39 @@ export type RewardRoundInput = {
   periodStartTimestamp: number;
   periodEndTimestamp: number;
   rewardAmountWei: string;
-  stakingContract: HexAddress;
-  rewardDistributor: HexAddress;
+  stakingContract: `0x${string}`;
+  rewardDistributor: `0x${string}`;
   collections: {
-    key: RewardCollectionKey;
-    address: HexAddress;
+    key: CollectionKey;
+    address: `0x${string}`;
     weight: number;
   }[];
 };
 
-export type StakeEventRecord = {
-  wallet: HexAddress;
-  collection: HexAddress;
-  tokenId: string;
-  timestamp: number;
-  txHash: HexAddress;
-};
-
-export type UnstakeEventRecord = {
-  wallet: HexAddress;
-  collection: HexAddress;
-  tokenId: string;
-  timestamp: number;
-  txHash: HexAddress;
-};
-
-export type TransferEventRecord = {
-  collection: HexAddress;
-  tokenId: string;
-  from: HexAddress;
-  to: HexAddress;
-  timestamp: number;
-  txHash: HexAddress;
-};
-
 export type RewardAllocation = {
-  wallet: HexAddress;
-  weightedDuration: string;
+  wallet: `0x${string}`;
   amountWei: string;
+  weightedDuration?: string;
+};
+
+export type RewardMerkleInput = {
+  chain: SupportedRewardChain;
+  roundId: number;
+  rewardAmountWei: string;
+  allocations: RewardAllocation[];
+};
+
+export type RewardProofEntry = {
+  wallet: `0x${string}`;
+  amountWei: string;
+  proof: `0x${string}`[];
+};
+
+export type RewardMerkleOutput = {
+  chain: SupportedRewardChain;
+  roundId: number;
+  rewardAmountWei: string;
+  totalAllocatedWei: string;
+  merkleRoot: `0x${string}`;
+  proofs: RewardProofEntry[];
 };
