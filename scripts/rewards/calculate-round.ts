@@ -1,4 +1,4 @@
-import type { RewardAllocation, RewardRoundInput } from "./types";
+import type { RewardAllocation, RewardRoundInput } from "./types.ts";
 
 function main() {
   console.log("TODO: calculate reward round allocations.");

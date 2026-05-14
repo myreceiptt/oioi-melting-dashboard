@@ -2,6 +2,8 @@ import "dotenv/config";
 import { getAddress, parseEther, zeroAddress, type Address } from "viem";
 
 export type DeployNetworkKey =
+  | "hardhatBase"
+  | "hardhatMainnet"
   | "baseSepolia"
   | "ethereumSepolia"
   | "baseMainnet"
@@ -39,8 +41,7 @@ export type NetworkDeployConfig = {
 };
 
 export const DEPLOYER_ADDRESS = normalizeAddress(
-  process.env.DEPLOYER_ADDRESS ||
-    "0x29bf68e3969e0b6686ea55b7c48241ba3f6b9ba0",
+  process.env.DEPLOYER_ADDRESS || "0x29bf68e3969e0b6686ea55b7c48241ba3f6b9ba0",
 );
 
 export const MINT_TREASURY_ADDRESS = normalizeAddress(
@@ -92,11 +93,9 @@ export const DOMAINS = {
     process.env.NEXT_PUBLIC_ROTY_BROI_ORIGIN_URL ||
     "https://rotybroi.endhonesa.com/",
   rotyBase:
-    process.env.NEXT_PUBLIC_ROTY_BASE_URL ||
-    "https://rotybase.endhonesa.com/",
+    process.env.NEXT_PUBLIC_ROTY_BASE_URL || "https://rotybase.endhonesa.com/",
   rotyDETH:
-    process.env.NEXT_PUBLIC_ROTY_DETH_URL ||
-    "https://rotydeth.endhonesa.com/",
+    process.env.NEXT_PUBLIC_ROTY_DETH_URL || "https://rotydeth.endhonesa.com/",
   meltingBase:
     process.env.NEXT_PUBLIC_MELTING_BASE_URL ||
     "https://meltingbase.endhonesa.com/",
@@ -121,6 +120,28 @@ export const MAINNET_OIOI = {
 
 export function getDeployConfig(networkName: string): NetworkDeployConfig {
   switch (networkName) {
+    case "hardhatBase":
+      return buildBaseConfig({
+        key: "hardhatBase",
+        chainId: 8453,
+        label: "Hardhat Base Simulated",
+        deploymentOutputDir: "deployments/hardhat-base",
+        explorerName: "Local",
+        explorerUrl: "",
+        oioiTokenAddress: MAINNET_OIOI.base,
+      });
+
+    case "hardhatMainnet":
+      return buildEthereumConfig({
+        key: "hardhatMainnet",
+        chainId: 31337,
+        label: "Hardhat Ethereum Simulated",
+        deploymentOutputDir: "deployments/hardhat-mainnet",
+        explorerName: "Local",
+        explorerUrl: "",
+        oioiTokenAddress: MAINNET_OIOI.ethereum,
+      });
+
     case "baseSepolia":
       return buildBaseConfig({
         key: "baseSepolia",
@@ -167,7 +188,7 @@ export function getDeployConfig(networkName: string): NetworkDeployConfig {
 
     default:
       throw new Error(
-        `Unsupported deploy network "${networkName}". Expected baseSepolia, baseMainnet, ethereumSepolia, or ethereumMainnet.`,
+        `Unsupported deploy network "${networkName}". Expected hardhatBase, hardhatMainnet, baseSepolia, baseMainnet, ethereumSepolia, or ethereumMainnet.`,
       );
   }
 }
@@ -294,4 +315,19 @@ function getOptionalAddressEnv(name: string): Address {
   }
 
   return normalizeAddress(value);
+}
+
+export function isLocalSimulatedDeployNetwork(networkName: string) {
+  return networkName === "hardhatBase" || networkName === "hardhatMainnet";
+}
+
+export function getInitialOwnerForNetwork(
+  networkName: string,
+  deployerAddress: Address,
+): Address {
+  if (isLocalSimulatedDeployNetwork(networkName)) {
+    return getAddress(deployerAddress) as Address;
+  }
+
+  return DEPLOYER_ADDRESS;
 }

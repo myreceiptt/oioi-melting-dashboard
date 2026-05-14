@@ -2,20 +2,16 @@ import { network } from "hardhat";
 import { getAddress } from "viem";
 
 import {
-  getDeployConfig,
-  MINT_TREASURY_ADDRESS,
-  ROYALTY_RECEIVER_ADDRESS,
   DEPLOYER_ADDRESS,
+  getDeployConfig,
   getInitialOwnerForNetwork,
   isLocalSimulatedDeployNetwork,
 } from "./00-config.js";
 import {
-  createBaseDeploymentRecord,
   readDeploymentRecord,
   touchDeploymentRecord,
   writeDeploymentRecord,
 } from "./deployment-state.js";
-import { readRotyMerkleRoot } from "./whitelist-root.js";
 
 async function main() {
   const connection = await network.create();
@@ -27,19 +23,19 @@ async function main() {
 
   const deployerAddress = getAddress(deployer.account.address);
   const expectedDeployer = getAddress(DEPLOYER_ADDRESS);
-
   const initialOwner = getInitialOwnerForNetwork(
     networkName,
     deployer.account.address,
   );
 
-  console.log("Deploying ROTY...");
+  console.log("Deploying OiOiSoftStaking...");
   console.log({
     network: networkName,
     chainId: config.chainId,
     label: config.label,
     deployer: deployerAddress,
     expectedDeployer,
+    initialOwner,
   });
 
   const isLocalSimulatedNetwork = isLocalSimulatedDeployNetwork(networkName);
@@ -56,50 +52,28 @@ async function main() {
     );
   }
 
-  const merkleRoot = readRotyMerkleRoot();
+  const record = readDeploymentRecord(config.deploymentOutputDir);
 
-  const existingRecord = readDeploymentRecord(config.deploymentOutputDir);
+  if (!record?.contracts.roty) {
+    throw new Error(`Deploy ROTY first for ${config.key}.`);
+  }
 
-  if (existingRecord?.contracts.roty) {
+  if (record.contracts.staking) {
     throw new Error(
-      `ROTY already deployed for ${config.key}: ${existingRecord.contracts.roty}`,
+      `OiOiSoftStaking already deployed for ${config.key}: ${record.contracts.staking}`,
     );
   }
 
-  const rotyConfig = config.collections.roty;
+  const staking = await viem.deployContract("OiOiSoftStaking", [initialOwner]);
 
-  const roty = await viem.deployContract("TheRotyMemorial", [
-    rotyConfig.name,
-    rotyConfig.symbol,
-    rotyConfig.mintPriceWei,
-    merkleRoot,
-    MINT_TREASURY_ADDRESS,
-    ROYALTY_RECEIVER_ADDRESS,
-    rotyConfig.unrevealedURI,
-    rotyConfig.revealedBaseURI,
-    initialOwner,
-  ]);
-
-  console.log("ROTY deployed.");
+  console.log("OiOiSoftStaking deployed.");
   console.log({
-    address: roty.address,
-    name: rotyConfig.name,
-    symbol: rotyConfig.symbol,
-    mintPriceWei: rotyConfig.mintPriceWei.toString(),
-    merkleRoot,
+    address: staking.address,
     initialOwner,
   });
 
-  const record =
-    existingRecord ??
-    createBaseDeploymentRecord({
-      networkKey: config.key,
-      chainId: config.chainId,
-      label: config.label,
-      oioiToken: config.oioiTokenAddress,
-    });
+  record.contracts.staking = staking.address;
 
-  record.contracts.roty = roty.address;
   writeDeploymentRecord(
     config.deploymentOutputDir,
     touchDeploymentRecord(record),

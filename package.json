@@ -17,7 +17,10 @@
     "reward:calc": "tsx scripts/rewards/calculate-round.ts",
     "reward:merkle": "tsx scripts/rewards/generate-reward-merkle.ts",
     "deploy:config": "tsx scripts/deploy/00-print-config.ts",
-    "deploy:roty": "hardhat run scripts/deploy/01-deploy-roty.ts"
+    "deploy:roty": "hardhat run scripts/deploy/01-deploy-roty.ts",
+    "deploy:staking": "hardhat run scripts/deploy/02-deploy-staking.ts",
+    "deploy:register-roty": "hardhat run scripts/deploy/03-register-roty.ts",
+    "deploy:local-roty-staking": "hardhat run scripts/deploy/local-smoke-roty-staking.ts"
   },
   "repository": {
     "type": "git",

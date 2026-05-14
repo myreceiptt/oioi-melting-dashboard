@@ -1,9 +1,9 @@
-import type { NetworkConfig } from "./types";
+import type { NetworkConfig } from "./types.ts";
 import {
   baseCollections,
   ethereumCollections,
   ZERO_ADDRESS,
-} from "./collections";
+} from "./collections.js";
 
 export const OIOI_TOKEN_ADDRESSES = {
   base: "0xba0032620d88D9b16752CbDE75593c080C3d38de",

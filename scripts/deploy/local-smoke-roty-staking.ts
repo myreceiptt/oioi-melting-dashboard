@@ -5,13 +5,11 @@ import {
   getDeployConfig,
   MINT_TREASURY_ADDRESS,
   ROYALTY_RECEIVER_ADDRESS,
-  DEPLOYER_ADDRESS,
   getInitialOwnerForNetwork,
   isLocalSimulatedDeployNetwork,
 } from "./00-config.js";
 import {
   createBaseDeploymentRecord,
-  readDeploymentRecord,
   touchDeploymentRecord,
   writeDeploymentRecord,
 } from "./deployment-state.js";
@@ -22,50 +20,32 @@ async function main() {
   const { viem } = connection;
 
   const networkName = connection.networkName;
+
+  if (!isLocalSimulatedDeployNetwork(networkName)) {
+    throw new Error(
+      `local-smoke-roty-staking is only for local simulated networks. Got: ${networkName}`,
+    );
+  }
+
   const config = getDeployConfig(networkName);
   const [deployer] = await viem.getWalletClients();
 
   const deployerAddress = getAddress(deployer.account.address);
-  const expectedDeployer = getAddress(DEPLOYER_ADDRESS);
-
   const initialOwner = getInitialOwnerForNetwork(
     networkName,
     deployer.account.address,
   );
 
-  console.log("Deploying ROTY...");
+  console.log("Running local ROTY + staking smoke deployment...");
   console.log({
     network: networkName,
     chainId: config.chainId,
     label: config.label,
     deployer: deployerAddress,
-    expectedDeployer,
+    initialOwner,
   });
 
-  const isLocalSimulatedNetwork = isLocalSimulatedDeployNetwork(networkName);
-
-  if (!isLocalSimulatedNetwork && deployerAddress !== expectedDeployer) {
-    throw new Error(
-      `Unexpected deployer. Got ${deployerAddress}, expected ${expectedDeployer}`,
-    );
-  }
-
-  if (isLocalSimulatedNetwork) {
-    console.warn(
-      `Skipping final deployer check on local simulated network: ${networkName}`,
-    );
-  }
-
   const merkleRoot = readRotyMerkleRoot();
-
-  const existingRecord = readDeploymentRecord(config.deploymentOutputDir);
-
-  if (existingRecord?.contracts.roty) {
-    throw new Error(
-      `ROTY already deployed for ${config.key}: ${existingRecord.contracts.roty}`,
-    );
-  }
-
   const rotyConfig = config.collections.roty;
 
   const roty = await viem.deployContract("TheRotyMemorial", [
@@ -80,30 +60,48 @@ async function main() {
     initialOwner,
   ]);
 
-  console.log("ROTY deployed.");
-  console.log({
+  console.log("ROTY deployed.", {
     address: roty.address,
     name: rotyConfig.name,
     symbol: rotyConfig.symbol,
-    mintPriceWei: rotyConfig.mintPriceWei.toString(),
-    merkleRoot,
-    initialOwner,
   });
 
-  const record =
-    existingRecord ??
-    createBaseDeploymentRecord({
-      networkKey: config.key,
-      chainId: config.chainId,
-      label: config.label,
-      oioiToken: config.oioiTokenAddress,
-    });
+  const staking = await viem.deployContract("OiOiSoftStaking", [
+    initialOwner,
+  ]);
+
+  console.log("OiOiSoftStaking deployed.", {
+    address: staking.address,
+  });
+
+  await staking.write.setCollectionApproved([roty.address, true]);
+
+  const approved = await staking.read.approvedCollection([roty.address]);
+
+  if (!approved) {
+    throw new Error("ROTY registration failed in local smoke deployment.");
+  }
+
+  console.log("ROTY approved in OiOiSoftStaking.", {
+    roty: roty.address,
+    staking: staking.address,
+    approved,
+  });
+
+  const record = createBaseDeploymentRecord({
+    networkKey: config.key,
+    chainId: config.chainId,
+    label: config.label,
+    oioiToken: config.oioiTokenAddress,
+  });
 
   record.contracts.roty = roty.address;
-  writeDeploymentRecord(
-    config.deploymentOutputDir,
-    touchDeploymentRecord(record),
-  );
+  record.contracts.staking = staking.address;
+  record.registrations.rotyApprovedInStaking = true;
+
+  writeDeploymentRecord(config.deploymentOutputDir, touchDeploymentRecord(record));
+
+  console.log("Local ROTY + staking smoke deployment complete.");
 }
 
 main().catch((error) => {

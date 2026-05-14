@@ -14,3 +14,7 @@ scripts/whitelist/output/
 
 # Generated reward outputs
 scripts/rewards/output/
+
+# Local simulated deployment records
+deployments/hardhat-base/
+deployments/hardhat-mainnet/
