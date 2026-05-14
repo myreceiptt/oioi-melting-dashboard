@@ -24,7 +24,8 @@
     "deploy:melting": "hardhat run scripts/deploy/04-deploy-melting.ts",
     "deploy:register-melting": "hardhat run scripts/deploy/05-register-melting.ts",
     "deploy:amanda": "hardhat run scripts/deploy/06-deploy-amanda.ts",
-    "deploy:register-amanda": "hardhat run scripts/deploy/07-register-amanda.ts"
+    "deploy:register-amanda": "hardhat run scripts/deploy/07-register-amanda.ts",
+    "deploy:reward-distributor": "hardhat run scripts/deploy/08-deploy-reward-distributor.ts"
   },
   "repository": {
     "type": "git",
