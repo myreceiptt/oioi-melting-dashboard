@@ -15,7 +15,8 @@
     "whitelist:clean": "tsx scripts/whitelist/clean-roty-whitelist.ts",
     "whitelist:merkle": "tsx scripts/whitelist/generate-roty-merkle.ts",
     "reward:calc": "tsx scripts/rewards/calculate-round.ts",
-    "reward:merkle": "tsx scripts/rewards/generate-reward-merkle.ts"
+    "reward:merkle": "tsx scripts/rewards/generate-reward-merkle.ts",
+    "deploy:config": "tsx scripts/deploy/00-print-config.ts"
   },
   "repository": {
     "type": "git",
