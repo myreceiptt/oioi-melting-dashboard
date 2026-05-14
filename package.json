@@ -22,7 +22,9 @@
     "deploy:register-roty": "hardhat run scripts/deploy/03-register-roty.ts",
     "deploy:local-roty-staking": "hardhat run scripts/deploy/local-smoke-roty-staking.ts",
     "deploy:melting": "hardhat run scripts/deploy/04-deploy-melting.ts",
-    "deploy:register-melting": "hardhat run scripts/deploy/05-register-melting.ts"
+    "deploy:register-melting": "hardhat run scripts/deploy/05-register-melting.ts",
+    "deploy:amanda": "hardhat run scripts/deploy/06-deploy-amanda.ts",
+    "deploy:register-amanda": "hardhat run scripts/deploy/07-register-amanda.ts"
   },
   "repository": {
     "type": "git",
