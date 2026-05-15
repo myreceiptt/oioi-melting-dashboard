@@ -30,7 +30,8 @@
     "verify:args": "tsx scripts/verify/export-constructor-args.ts",
     "deploy:preflight": "tsx scripts/deploy/preflight.ts",
     "deploy:read-check": "hardhat run scripts/deploy/read-check.ts",
-    "test:base-sepolia-functional": "hardhat run scripts/deploy/base-sepolia-functional-test.ts"
+    "test:base-sepolia-functional": "hardhat run scripts/deploy/base-sepolia-functional-test.ts",
+    "deploy:restore-mint-phases": "hardhat run scripts/deploy/restore-mint-phases.ts"
   },
   "repository": {
     "type": "git",
