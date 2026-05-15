@@ -1,8 +1,0 @@
-{
-  "/_global-error/page": "/_global-error",
-  "/_not-found/page": "/_not-found",
-  "/dashboard/[chain]/page": "/dashboard/[chain]",
-  "/dashboard/page": "/dashboard",
-  "/mint/[collection]/[chain]/page": "/mint/[collection]/[chain]",
-  "/page": "/"
-}
