@@ -1,0 +1,26 @@
+{
+  "network": {
+    "key": "baseSepolia",
+    "chainId": 84532,
+    "label": "Base Sepolia"
+  },
+  "contracts": {
+    "roty": "0x6ce0b10b2c98c1f397c45c695d504a7271677984",
+    "staking": "0x72939f96cb030235b691ea7716e213c06ae87494",
+    "melting": "0x824d8e5028cca6437b01ae3a764105a61d5555e8",
+    "amanda": "0xdf14908ae4f1d4c7d9a2b4cc094983301c1107fc",
+    "rewardDistributor": "0x168b41b4a2f59be51917f1c0517b05f7b43f5b44"
+  },
+  "tokens": {
+    "oioi": "0xcB2208E9Fb77591D3A0688C4459d976b1f16Ab53"
+  },
+  "registrations": {
+    "rotyApprovedInStaking": true,
+    "meltingApprovedInStaking": true,
+    "amandaApprovedInStaking": true
+  },
+  "metadata": {
+    "createdAt": "2026-05-15T08:48:39.011Z",
+    "updatedAt": "2026-05-15T08:57:22.496Z"
+  }
+}
