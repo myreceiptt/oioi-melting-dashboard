@@ -27,7 +27,8 @@
     "deploy:register-amanda": "hardhat run scripts/deploy/07-register-amanda.ts",
     "deploy:reward-distributor": "hardhat run scripts/deploy/08-deploy-reward-distributor.ts",
     "deploy:local-full": "hardhat run scripts/deploy/local-smoke-full-deploy.ts",
-    "verify:args": "tsx scripts/verify/export-constructor-args.ts"
+    "verify:args": "tsx scripts/verify/export-constructor-args.ts",
+    "deploy:preflight": "tsx scripts/deploy/preflight.ts"
   },
   "repository": {
     "type": "git",

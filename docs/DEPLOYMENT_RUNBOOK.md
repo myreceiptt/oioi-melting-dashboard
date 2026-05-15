@@ -538,6 +538,33 @@ Recommended order:
 
 ---
 
+## 17. Deployment Preflight
+
+Before deploying to any real network, run:
+
+```bash
+npm run deploy:preflight -- baseSepolia
+npm run deploy:preflight -- ethereumSepolia
+npm run deploy:preflight -- baseMainnet
+npm run deploy:preflight -- ethereumMainnet
+```
+
+Preflight checks:
+
+- network is supported
+- chain ID matches expected network
+- RPC URL is present and points to the correct chain
+- PRIVATE_KEY matches DEPLOYER_ADDRESS
+- $OiOi token address is not zero
+- testnet $OiOi env value matches deploy config
+- ROTY Merkle root exists
+- collection config is valid
+- existing deployment record is detected before redeploying
+
+Do not deploy if preflight fails.
+
+---
+
 P.S. Read this document freely for information and guidance. Do not redistribute or restate—no quotes, summaries, paraphrases, or derivatives—without prior written permission from [**Prof. NOTA**](https://nota.endhonesa.com/). Sharing the link is allowed. So, share the link, not the text. Do not discuss or re-tell the contents in any form—written, spoken, or recorded—without prior written permission.
 
 ---
