@@ -6,8 +6,11 @@ cache/
 artifacts/
 typechain-types/
 deployments/**/*.local.json
-.DS_Store
+
+# macOS archive artifacts
 __MACOSX/
+.DS_Store
+**/.DS_Store
 
 # Generated whitelist outputs
 scripts/whitelist/output/
@@ -21,3 +24,4 @@ deployments/hardhat-mainnet/
 
 # Generated verification constructor args
 deployments/**/constructor-args/
+
