@@ -451,6 +451,93 @@ If metadata is already locked:
 
 ---
 
+## 15. Constructor Args Export
+
+After deploying a real network, export constructor args:
+
+```bash
+npm run verify:args -- baseSepolia
+npm run verify:args -- ethereumSepolia
+npm run verify:args -- baseMainnet
+npm run verify:args -- ethereumMainnet
+```
+
+This generates:
+
+```text
+deployments/<network>/constructor-args/TheRotyMemorial.ts
+deployments/<network>/constructor-args/OiOiSoftStaking.ts
+deployments/<network>/constructor-args/MeltingMemorial.ts
+deployments/<network>/constructor-args/AmandaMemorial.ts
+deployments/<network>/constructor-args/OiOiRewardDistributor.ts
+```
+
+These files are generated artifacts and are not committed.
+
+---
+
+## 16. Manual Verification Commands
+
+Use the deployment record address and constructor args path.
+
+### TheRotyMemorial
+
+```bash
+npx hardhat verify \
+  --network <network> \
+  --constructor-args-path deployments/<network-folder>/constructor-args/TheRotyMemorial.ts \
+  <ROTY_ADDRESS>
+```
+
+### OiOiSoftStaking
+
+```bash
+npx hardhat verify \
+  --network <network> \
+  --constructor-args-path deployments/<network-folder>/constructor-args/OiOiSoftStaking.ts \
+  <STAKING_ADDRESS>
+```
+
+### MeltingMemorial
+
+```bash
+npx hardhat verify \
+  --network <network> \
+  --constructor-args-path deployments/<network-folder>/constructor-args/MeltingMemorial.ts \
+  <MELTING_ADDRESS>
+```
+
+### AmandaMemorial
+
+```bash
+npx hardhat verify \
+  --network <network> \
+  --constructor-args-path deployments/<network-folder>/constructor-args/AmandaMemorial.ts \
+  <AMANDA_ADDRESS>
+```
+
+### OiOiRewardDistributor
+
+```bash
+npx hardhat verify \
+  --network <network> \
+  --constructor-args-path deployments/<network-folder>/constructor-args/OiOiRewardDistributor.ts \
+  <REWARD_DISTRIBUTOR_ADDRESS>
+```
+
+Recommended order:
+
+1. Wait until explorer indexes the deployment.
+2. Export constructor args.
+3. Verify ROTY.
+4. Verify staking.
+5. Verify Melting.
+6. Verify Amanda.
+7. Verify RewardDistributor.
+8. Open explorer pages and confirm “Contract Source Code Verified”.
+
+---
+
 P.S. Read this document freely for information and guidance. Do not redistribute or restate—no quotes, summaries, paraphrases, or derivatives—without prior written permission from [**Prof. NOTA**](https://nota.endhonesa.com/). Sharing the link is allowed. So, share the link, not the text. Do not discuss or re-tell the contents in any form—written, spoken, or recorded—without prior written permission.
 
 ---
