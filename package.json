@@ -29,7 +29,8 @@
     "deploy:local-full": "hardhat run scripts/deploy/local-smoke-full-deploy.ts",
     "verify:args": "tsx scripts/verify/export-constructor-args.ts",
     "deploy:preflight": "tsx scripts/deploy/preflight.ts",
-    "deploy:read-check": "hardhat run scripts/deploy/read-check.ts"
+    "deploy:read-check": "hardhat run scripts/deploy/read-check.ts",
+    "test:base-sepolia-functional": "hardhat run scripts/deploy/base-sepolia-functional-test.ts"
   },
   "repository": {
     "type": "git",
