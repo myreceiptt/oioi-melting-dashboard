@@ -1,10 +1,12 @@
 import { network } from "hardhat";
-import { getAddress, parseEther, type Address } from "viem";
+import { getAddress, parseEther, type Address, type TransactionReceipt } from "viem";
 
 import { DEPLOYER_ADDRESS, getDeployConfig } from "./00-config.js";
 import { readDeploymentRecord } from "./deployment-state.js";
 
 const REWARD_AMOUNT = parseEther("1");
+const STATE_RETRY_ATTEMPTS = 20;
+const STATE_RETRY_DELAY_MS = 3_000;
 
 function sameAddress(a: unknown, b: unknown) {
   if (typeof a !== "string" || typeof b !== "string") {
@@ -14,13 +16,22 @@ function sameAddress(a: unknown, b: unknown) {
   return getAddress(a as Address) === getAddress(b as Address);
 }
 
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 async function main() {
   const connection = await network.create();
   const { viem } = connection;
   const publicClient = await viem.getPublicClient();
 
-  async function waitForTx(hash: `0x${string}`, label: string) {
-    const receipt = await publicClient.waitForTransactionReceipt({ hash });
+  async function waitForTx(hash: `0x${string}`, label: string): Promise<TransactionReceipt> {
+    const receipt = await publicClient.waitForTransactionReceipt({
+      hash,
+      confirmations: 2,
+      retryCount: 30,
+      retryDelay: 2_000,
+    });
 
     if (receipt.status !== "success") {
       throw new Error(`${label} failed. tx=${hash}`);
@@ -32,6 +43,24 @@ async function main() {
     });
 
     return receipt;
+  }
+
+  async function waitForCondition(label: string, check: () => Promise<boolean>) {
+    for (let attempt = 1; attempt <= STATE_RETRY_ATTEMPTS; attempt++) {
+      if (await check()) {
+        console.log(`${label} confirmed.`, { attempt });
+        return;
+      }
+
+      console.log(`${label} not visible yet; retrying...`, {
+        attempt,
+        maxAttempts: STATE_RETRY_ATTEMPTS,
+      });
+
+      await sleep(STATE_RETRY_DELAY_MS);
+    }
+
+    throw new Error(`${label} was not confirmed after waiting.`);
   }
 
   const networkName = connection.networkName;
@@ -102,21 +131,18 @@ async function main() {
   const meltingPrice = (await melting.read.mintPrice()) as bigint;
   const amandaPrice = (await amanda.read.mintPrice()) as bigint;
 
-  const rotyTokenId = ((await roty.read.totalMinted()) as bigint) + 1n;
-
   try {
     console.log("Enabling ROTY public mint for functional test...");
     if (!initialRotyPublicMintEnabled) {
-      const enableRotyTx = await roty.write.setPublicMintEnabled([true]);
-      await waitForTx(enableRotyTx, "ROTY public mint enabled");
-    } else {
-      console.log("ROTY public mint was already enabled.");
+      const tx = await roty.write.setPublicMintEnabled([true]);
+      await waitForTx(tx, "ROTY public mint enabled");
+      await waitForCondition(
+        "ROTY public mint enabled state",
+        async () => (await roty.read.publicMintEnabled()) === true,
+      );
     }
 
-    const rotyPublicMintEnabled = (await roty.read.publicMintEnabled()) as boolean;
-    if (!rotyPublicMintEnabled) {
-      throw new Error("ROTY public mint is still closed after enable transaction.");
-    }
+    const rotyTokenId = ((await roty.read.totalMinted()) as bigint) + 1n;
 
     console.log("Minting ROTY public mint...");
     const rotyMintTx = await roty.write.publicMint([1n], {
@@ -127,37 +153,36 @@ async function main() {
 
     console.log("ROTY minted.", { rotyTokenId: rotyTokenId.toString() });
 
+    await waitForCondition(
+      "ROTY ownerOf minted token",
+      async () => sameAddress(await roty.read.ownerOf([rotyTokenId]), deployerAddress),
+    );
+
     console.log("Staking ROTY...");
-    const stakeRotyTx = await staking.write.stake([record.contracts.roty, rotyTokenId], {
+    const rotyStakeTx = await staking.write.stake([record.contracts.roty, rotyTokenId], {
       account: deployer.account,
     });
-    await waitForTx(stakeRotyTx, "ROTY stake");
+    await waitForTx(rotyStakeTx, "ROTY stake");
 
-    const rotyStakeValid = await staking.read.hasValidStake([
-      deployerAddress,
-      record.contracts.roty,
-    ]);
-
-    if (!rotyStakeValid) {
-      throw new Error("ROTY stake is not valid after staking.");
-    }
+    await waitForCondition(
+      "ROTY stake valid",
+      async () =>
+        (await staking.read.hasValidStake([deployerAddress, record.contracts.roty])) === true,
+    );
 
     console.log("ROTY stake valid.");
 
-    const meltingTokenId = ((await melting.read.totalMinted()) as bigint) + 1n;
-
     console.log("Enabling Melting gated mint for functional test...");
     if (!initialMeltingGatedMintEnabled) {
-      const enableMeltingTx = await melting.write.setGatedMintEnabled([true]);
-      await waitForTx(enableMeltingTx, "Melting gated mint enabled");
-    } else {
-      console.log("Melting gated mint was already enabled.");
+      const tx = await melting.write.setGatedMintEnabled([true]);
+      await waitForTx(tx, "Melting gated mint enabled");
+      await waitForCondition(
+        "Melting gated mint enabled state",
+        async () => (await melting.read.gatedMintEnabled()) === true,
+      );
     }
 
-    const meltingGatedMintEnabled = (await melting.read.gatedMintEnabled()) as boolean;
-    if (!meltingGatedMintEnabled) {
-      throw new Error("Melting gated mint is still closed after enable transaction.");
-    }
+    const meltingTokenId = ((await melting.read.totalMinted()) as bigint) + 1n;
 
     console.log("Minting Melting...");
     const meltingMintTx = await melting.write.mint([1n], {
@@ -168,37 +193,36 @@ async function main() {
 
     console.log("Melting minted.", { meltingTokenId: meltingTokenId.toString() });
 
+    await waitForCondition(
+      "Melting ownerOf minted token",
+      async () => sameAddress(await melting.read.ownerOf([meltingTokenId]), deployerAddress),
+    );
+
     console.log("Staking Melting...");
-    const stakeMeltingTx = await staking.write.stake([record.contracts.melting, meltingTokenId], {
+    const meltingStakeTx = await staking.write.stake([record.contracts.melting, meltingTokenId], {
       account: deployer.account,
     });
-    await waitForTx(stakeMeltingTx, "Melting stake");
+    await waitForTx(meltingStakeTx, "Melting stake");
 
-    const meltingStakeValid = await staking.read.hasValidStake([
-      deployerAddress,
-      record.contracts.melting,
-    ]);
-
-    if (!meltingStakeValid) {
-      throw new Error("Melting stake is not valid after staking.");
-    }
+    await waitForCondition(
+      "Melting stake valid",
+      async () =>
+        (await staking.read.hasValidStake([deployerAddress, record.contracts.melting])) === true,
+    );
 
     console.log("Melting stake valid.");
 
-    const amandaTokenId = ((await amanda.read.totalMinted()) as bigint) + 1n;
-
     console.log("Enabling Amanda gated mint for functional test...");
     if (!initialAmandaGatedMintEnabled) {
-      const enableAmandaTx = await amanda.write.setGatedMintEnabled([true]);
-      await waitForTx(enableAmandaTx, "Amanda gated mint enabled");
-    } else {
-      console.log("Amanda gated mint was already enabled.");
+      const tx = await amanda.write.setGatedMintEnabled([true]);
+      await waitForTx(tx, "Amanda gated mint enabled");
+      await waitForCondition(
+        "Amanda gated mint enabled state",
+        async () => (await amanda.read.gatedMintEnabled()) === true,
+      );
     }
 
-    const amandaGatedMintEnabled = (await amanda.read.gatedMintEnabled()) as boolean;
-    if (!amandaGatedMintEnabled) {
-      throw new Error("Amanda gated mint is still closed after enable transaction.");
-    }
+    const amandaTokenId = ((await amanda.read.totalMinted()) as bigint) + 1n;
 
     console.log("Minting Amanda...");
     const amandaMintTx = await amanda.write.mint([1n], {
@@ -209,20 +233,22 @@ async function main() {
 
     console.log("Amanda minted.", { amandaTokenId: amandaTokenId.toString() });
 
+    await waitForCondition(
+      "Amanda ownerOf minted token",
+      async () => sameAddress(await amanda.read.ownerOf([amandaTokenId]), deployerAddress),
+    );
+
     console.log("Staking Amanda...");
-    const stakeAmandaTx = await staking.write.stake([record.contracts.amanda, amandaTokenId], {
+    const amandaStakeTx = await staking.write.stake([record.contracts.amanda, amandaTokenId], {
       account: deployer.account,
     });
-    await waitForTx(stakeAmandaTx, "Amanda stake");
+    await waitForTx(amandaStakeTx, "Amanda stake");
 
-    const amandaStakeValid = await staking.read.hasValidStake([
-      deployerAddress,
-      record.contracts.amanda,
-    ]);
-
-    if (!amandaStakeValid) {
-      throw new Error("Amanda stake is not valid after staking.");
-    }
+    await waitForCondition(
+      "Amanda stake valid",
+      async () =>
+        (await staking.read.hasValidStake([deployerAddress, record.contracts.amanda])) === true,
+    );
 
     console.log("Amanda stake valid.");
 
@@ -256,23 +282,22 @@ async function main() {
       REWARD_AMOUNT,
       rewardRoot,
     ]);
-    await waitForTx(createRoundTx, "Reward round created");
+    await waitForTx(createRoundTx, "Reward round creation");
 
     console.log("Approving $OiOi funding...");
     const approveTx = await oioi.write.approve([record.contracts.rewardDistributor, REWARD_AMOUNT], {
       account: deployer.account,
     });
-    await waitForTx(approveTx, "$OiOi approval");
+    await waitForTx(approveTx, "$OiOi funding approval");
 
     console.log("Funding reward round...");
-    const fundRoundTx = await distributor.write.fundRewardRound([roundId, REWARD_AMOUNT]);
-    await waitForTx(fundRoundTx, "Reward round funded");
+    const fundTx = await distributor.write.fundRewardRound([roundId, REWARD_AMOUNT]);
+    await waitForTx(fundTx, "Reward round funding");
 
-    const roundFunded = await distributor.read.isRoundFunded([roundId]);
-
-    if (!roundFunded) {
-      throw new Error("Reward round is not funded after funding.");
-    }
+    await waitForCondition(
+      "Reward round funded",
+      async () => (await distributor.read.isRoundFunded([roundId])) === true,
+    );
 
     const beforeClaim = (await oioi.read.balanceOf([deployerAddress])) as bigint;
 
@@ -284,16 +309,15 @@ async function main() {
     });
     await waitForTx(claimTx, "Reward claim");
 
+    await waitForCondition(
+      "Reward claim status",
+      async () => (await distributor.read.hasClaimed([roundId, deployerAddress])) === true,
+    );
+
     const afterClaim = (await oioi.read.balanceOf([deployerAddress])) as bigint;
 
     if (afterClaim - beforeClaim !== REWARD_AMOUNT) {
       throw new Error("Reward claim amount mismatch.");
-    }
-
-    const claimed = await distributor.read.hasClaimed([roundId, deployerAddress]);
-
-    if (!claimed) {
-      throw new Error("Reward claim status is false after claim.");
     }
 
     console.log("Reward claim succeeded.", {
@@ -306,24 +330,30 @@ async function main() {
     console.log("Restoring mint phase states...");
 
     if ((await roty.read.publicMintEnabled()) !== initialRotyPublicMintEnabled) {
-      const restoreRotyTx = await roty.write.setPublicMintEnabled([
-        initialRotyPublicMintEnabled,
-      ]);
-      await waitForTx(restoreRotyTx, "ROTY public mint restored");
+      const tx = await roty.write.setPublicMintEnabled([initialRotyPublicMintEnabled]);
+      await waitForTx(tx, "ROTY public mint restored");
+      await waitForCondition(
+        "ROTY public mint restored state",
+        async () => (await roty.read.publicMintEnabled()) === initialRotyPublicMintEnabled,
+      );
     }
 
     if ((await melting.read.gatedMintEnabled()) !== initialMeltingGatedMintEnabled) {
-      const restoreMeltingTx = await melting.write.setGatedMintEnabled([
-        initialMeltingGatedMintEnabled,
-      ]);
-      await waitForTx(restoreMeltingTx, "Melting gated mint restored");
+      const tx = await melting.write.setGatedMintEnabled([initialMeltingGatedMintEnabled]);
+      await waitForTx(tx, "Melting gated mint restored");
+      await waitForCondition(
+        "Melting gated mint restored state",
+        async () => (await melting.read.gatedMintEnabled()) === initialMeltingGatedMintEnabled,
+      );
     }
 
     if ((await amanda.read.gatedMintEnabled()) !== initialAmandaGatedMintEnabled) {
-      const restoreAmandaTx = await amanda.write.setGatedMintEnabled([
-        initialAmandaGatedMintEnabled,
-      ]);
-      await waitForTx(restoreAmandaTx, "Amanda gated mint restored");
+      const tx = await amanda.write.setGatedMintEnabled([initialAmandaGatedMintEnabled]);
+      await waitForTx(tx, "Amanda gated mint restored");
+      await waitForCondition(
+        "Amanda gated mint restored state",
+        async () => (await amanda.read.gatedMintEnabled()) === initialAmandaGatedMintEnabled,
+      );
     }
 
     console.log("Mint phase states restored.");
