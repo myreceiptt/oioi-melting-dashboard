@@ -1,0 +1,26 @@
+{
+  "network": {
+    "key": "ethereumSepolia",
+    "chainId": 11155111,
+    "label": "Ethereum Sepolia"
+  },
+  "contracts": {
+    "roty": "0xb444f60600d5c83676d733ce159cc58ddf0a6c50",
+    "staking": "0x09392894be59d4711be7920b6efc2acd463dd4e2",
+    "melting": "0xf43ef187150086ada6f53a15caf3bcdb05be2507",
+    "amanda": "0x3ef198c94a43167c594f54d19775fdb4a44edcaa",
+    "rewardDistributor": "0x6bd6a392bf5bd88c28ba7b59816c29c995e9f39a"
+  },
+  "tokens": {
+    "oioi": "0x788Eb9930B9f4799f79Bc25a07238A77b8779e91"
+  },
+  "registrations": {
+    "rotyApprovedInStaking": true,
+    "meltingApprovedInStaking": true,
+    "amandaApprovedInStaking": true
+  },
+  "metadata": {
+    "createdAt": "2026-05-15T11:12:02.889Z",
+    "updatedAt": "2026-05-15T11:15:37.180Z"
+  }
+}
