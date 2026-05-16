@@ -1,5 +1,6 @@
 import { ConnectWalletButton } from "@/components/wallet/ConnectWalletButton";
 import { ChainGuard } from "@/components/wallet/ChainGuard";
+import { GatedMintPanel } from "@/components/mint/GatedMintPanel";
 import { MintStatusCard } from "@/components/mint/MintStatusCard";
 import { RotyMintPanel } from "@/components/mint/RotyMintPanel";
 import {
@@ -59,13 +60,7 @@ export default async function MintPage({
         {config.collectionKey === "roty" ? (
           <RotyMintPanel config={config} />
         ) : (
-          <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
-            <h2 className="text-xl font-semibold">Gated mint coming next</h2>
-            <p className="mt-2 text-white/60">
-              Melting and Amanda mint actions will be added after ROTY public
-              mint UI is stable.
-            </p>
-          </section>
+          <GatedMintPanel config={config} />
         )}
       </ChainGuard>
     </main>
