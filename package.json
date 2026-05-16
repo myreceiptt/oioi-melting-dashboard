@@ -37,7 +37,10 @@
     "build": "next build",
     "start": "next start",
     "lint:frontend": "next lint",
-    "whitelist:frontend": "tsx scripts/whitelist/export-frontend-proofs.ts"
+    "whitelist:frontend": "tsx scripts/whitelist/export-frontend-proofs.ts",
+    "indexer:sync": "tsx scripts/indexer/sync.ts",
+    "indexer:status": "tsx scripts/indexer/status.ts",
+    "indexer:rebuild": "tsx scripts/indexer/rebuild.ts"
   },
   "repository": {
     "type": "git",

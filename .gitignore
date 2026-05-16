@@ -60,3 +60,7 @@ deployments/**/*.local.json
 
 # Generated verification constructor args
 deployments/**/constructor-args/
+
+# Generated indexer output
+scripts/indexer/output/**
+!scripts/indexer/output/.gitkeep
