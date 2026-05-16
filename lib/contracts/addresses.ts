@@ -1,7 +1,7 @@
 import type { Address } from "viem";
 import type { ChainSet } from "@/lib/chains/chainConfig";
 import { parseAddress } from "@/lib/utils/address";
-import { getAppEnv, getRequiredEnv } from "@/lib/utils/env";
+import { getAppEnv } from "@/lib/utils/env";
 
 export type ContractAddressSet = {
   roty: Address;
@@ -12,77 +12,140 @@ export type ContractAddressSet = {
   oioi: Address;
 };
 
-function fromEnv(label: string, name: string) {
-  return parseAddress(label, getRequiredEnv(name));
-}
-
-function getSepoliaAddressSet(chainSet: ChainSet): ContractAddressSet {
-  if (chainSet === "base") {
-    return {
-      roty: fromEnv("Base Sepolia ROTY", "NEXT_PUBLIC_BASE_SEPOLIA_ROTY_CONTRACT"),
-      melting: fromEnv("Base Sepolia Melting", "NEXT_PUBLIC_BASE_SEPOLIA_MELTING_CONTRACT"),
-      amanda: fromEnv("Base Sepolia Amanda", "NEXT_PUBLIC_BASE_SEPOLIA_AMANDA_CONTRACT"),
-      staking: fromEnv("Base Sepolia Staking", "NEXT_PUBLIC_BASE_SEPOLIA_STAKING_CONTRACT"),
-      rewardDistributor: fromEnv(
-        "Base Sepolia RewardDistributor",
-        "NEXT_PUBLIC_BASE_SEPOLIA_REWARD_DISTRIBUTOR",
-      ),
-      oioi: fromEnv("Base Sepolia $OiOi", "NEXT_PUBLIC_BASE_SEPOLIA_OIOI_TOKEN"),
-    };
+function requiredAddress(label: string, value: string | undefined) {
+  if (!value || value.trim() === "") {
+    throw new Error(`Missing required environment variable: ${label}`);
   }
 
+  return parseAddress(label, value.trim());
+}
+
+function getBaseSepoliaAddressSet(): ContractAddressSet {
   return {
-    roty: fromEnv("Ethereum Sepolia ROTY", "NEXT_PUBLIC_ETHEREUM_SEPOLIA_ROTY_CONTRACT"),
-    melting: fromEnv(
-      "Ethereum Sepolia Melting",
-      "NEXT_PUBLIC_ETHEREUM_SEPOLIA_MELTING_CONTRACT",
+    roty: requiredAddress(
+      "NEXT_PUBLIC_BASE_SEPOLIA_ROTY_CONTRACT",
+      process.env.NEXT_PUBLIC_BASE_SEPOLIA_ROTY_CONTRACT,
     ),
-    amanda: fromEnv(
-      "Ethereum Sepolia Amanda",
-      "NEXT_PUBLIC_ETHEREUM_SEPOLIA_AMANDA_CONTRACT",
+    melting: requiredAddress(
+      "NEXT_PUBLIC_BASE_SEPOLIA_MELTING_CONTRACT",
+      process.env.NEXT_PUBLIC_BASE_SEPOLIA_MELTING_CONTRACT,
     ),
-    staking: fromEnv(
-      "Ethereum Sepolia Staking",
-      "NEXT_PUBLIC_ETHEREUM_SEPOLIA_STAKING_CONTRACT",
+    amanda: requiredAddress(
+      "NEXT_PUBLIC_BASE_SEPOLIA_AMANDA_CONTRACT",
+      process.env.NEXT_PUBLIC_BASE_SEPOLIA_AMANDA_CONTRACT,
     ),
-    rewardDistributor: fromEnv(
-      "Ethereum Sepolia RewardDistributor",
-      "NEXT_PUBLIC_ETHEREUM_SEPOLIA_REWARD_DISTRIBUTOR",
+    staking: requiredAddress(
+      "NEXT_PUBLIC_BASE_SEPOLIA_STAKING_CONTRACT",
+      process.env.NEXT_PUBLIC_BASE_SEPOLIA_STAKING_CONTRACT,
     ),
-    oioi: fromEnv("Ethereum Sepolia $OiOi", "NEXT_PUBLIC_ETHEREUM_SEPOLIA_OIOI_TOKEN"),
+    rewardDistributor: requiredAddress(
+      "NEXT_PUBLIC_BASE_SEPOLIA_REWARD_DISTRIBUTOR",
+      process.env.NEXT_PUBLIC_BASE_SEPOLIA_REWARD_DISTRIBUTOR,
+    ),
+    oioi: requiredAddress(
+      "NEXT_PUBLIC_BASE_SEPOLIA_OIOI_TOKEN",
+      process.env.NEXT_PUBLIC_BASE_SEPOLIA_OIOI_TOKEN,
+    ),
   };
 }
 
-function getMainnetAddressSet(chainSet: ChainSet): ContractAddressSet {
-  if (chainSet === "base") {
-    return {
-      roty: fromEnv("Base ROTY", "NEXT_PUBLIC_BASE_ROTY_CONTRACT"),
-      melting: fromEnv("Base Melting", "NEXT_PUBLIC_BASE_MELTING_CONTRACT"),
-      amanda: fromEnv("Base Amanda", "NEXT_PUBLIC_BASE_AMANDA_CONTRACT"),
-      staking: fromEnv("Base Staking", "NEXT_PUBLIC_BASE_STAKING_CONTRACT"),
-      rewardDistributor: fromEnv(
-        "Base RewardDistributor",
-        "NEXT_PUBLIC_BASE_REWARD_DISTRIBUTOR",
-      ),
-      oioi: fromEnv("Base $OiOi", "NEXT_PUBLIC_BASE_OIOI_TOKEN"),
-    };
-  }
-
+function getEthereumSepoliaAddressSet(): ContractAddressSet {
   return {
-    roty: fromEnv("Ethereum ROTY", "NEXT_PUBLIC_ETH_ROTY_CONTRACT"),
-    melting: fromEnv("Ethereum Melting", "NEXT_PUBLIC_ETH_MELTING_CONTRACT"),
-    amanda: fromEnv("Ethereum Amanda", "NEXT_PUBLIC_ETH_AMANDA_CONTRACT"),
-    staking: fromEnv("Ethereum Staking", "NEXT_PUBLIC_ETH_STAKING_CONTRACT"),
-    rewardDistributor: fromEnv(
-      "Ethereum RewardDistributor",
-      "NEXT_PUBLIC_ETH_REWARD_DISTRIBUTOR",
+    roty: requiredAddress(
+      "NEXT_PUBLIC_ETHEREUM_SEPOLIA_ROTY_CONTRACT",
+      process.env.NEXT_PUBLIC_ETHEREUM_SEPOLIA_ROTY_CONTRACT,
     ),
-    oioi: fromEnv("Ethereum $OiOi", "NEXT_PUBLIC_ETH_OIOI_TOKEN"),
+    melting: requiredAddress(
+      "NEXT_PUBLIC_ETHEREUM_SEPOLIA_MELTING_CONTRACT",
+      process.env.NEXT_PUBLIC_ETHEREUM_SEPOLIA_MELTING_CONTRACT,
+    ),
+    amanda: requiredAddress(
+      "NEXT_PUBLIC_ETHEREUM_SEPOLIA_AMANDA_CONTRACT",
+      process.env.NEXT_PUBLIC_ETHEREUM_SEPOLIA_AMANDA_CONTRACT,
+    ),
+    staking: requiredAddress(
+      "NEXT_PUBLIC_ETHEREUM_SEPOLIA_STAKING_CONTRACT",
+      process.env.NEXT_PUBLIC_ETHEREUM_SEPOLIA_STAKING_CONTRACT,
+    ),
+    rewardDistributor: requiredAddress(
+      "NEXT_PUBLIC_ETHEREUM_SEPOLIA_REWARD_DISTRIBUTOR",
+      process.env.NEXT_PUBLIC_ETHEREUM_SEPOLIA_REWARD_DISTRIBUTOR,
+    ),
+    oioi: requiredAddress(
+      "NEXT_PUBLIC_ETHEREUM_SEPOLIA_OIOI_TOKEN",
+      process.env.NEXT_PUBLIC_ETHEREUM_SEPOLIA_OIOI_TOKEN,
+    ),
+  };
+}
+
+function getBaseMainnetAddressSet(): ContractAddressSet {
+  return {
+    roty: requiredAddress(
+      "NEXT_PUBLIC_BASE_ROTY_CONTRACT",
+      process.env.NEXT_PUBLIC_BASE_ROTY_CONTRACT,
+    ),
+    melting: requiredAddress(
+      "NEXT_PUBLIC_BASE_MELTING_CONTRACT",
+      process.env.NEXT_PUBLIC_BASE_MELTING_CONTRACT,
+    ),
+    amanda: requiredAddress(
+      "NEXT_PUBLIC_BASE_AMANDA_CONTRACT",
+      process.env.NEXT_PUBLIC_BASE_AMANDA_CONTRACT,
+    ),
+    staking: requiredAddress(
+      "NEXT_PUBLIC_BASE_STAKING_CONTRACT",
+      process.env.NEXT_PUBLIC_BASE_STAKING_CONTRACT,
+    ),
+    rewardDistributor: requiredAddress(
+      "NEXT_PUBLIC_BASE_REWARD_DISTRIBUTOR",
+      process.env.NEXT_PUBLIC_BASE_REWARD_DISTRIBUTOR,
+    ),
+    oioi: requiredAddress(
+      "NEXT_PUBLIC_BASE_OIOI_TOKEN",
+      process.env.NEXT_PUBLIC_BASE_OIOI_TOKEN,
+    ),
+  };
+}
+
+function getEthereumMainnetAddressSet(): ContractAddressSet {
+  return {
+    roty: requiredAddress(
+      "NEXT_PUBLIC_ETH_ROTY_CONTRACT",
+      process.env.NEXT_PUBLIC_ETH_ROTY_CONTRACT,
+    ),
+    melting: requiredAddress(
+      "NEXT_PUBLIC_ETH_MELTING_CONTRACT",
+      process.env.NEXT_PUBLIC_ETH_MELTING_CONTRACT,
+    ),
+    amanda: requiredAddress(
+      "NEXT_PUBLIC_ETH_AMANDA_CONTRACT",
+      process.env.NEXT_PUBLIC_ETH_AMANDA_CONTRACT,
+    ),
+    staking: requiredAddress(
+      "NEXT_PUBLIC_ETH_STAKING_CONTRACT",
+      process.env.NEXT_PUBLIC_ETH_STAKING_CONTRACT,
+    ),
+    rewardDistributor: requiredAddress(
+      "NEXT_PUBLIC_ETH_REWARD_DISTRIBUTOR",
+      process.env.NEXT_PUBLIC_ETH_REWARD_DISTRIBUTOR,
+    ),
+    oioi: requiredAddress(
+      "NEXT_PUBLIC_ETH_OIOI_TOKEN",
+      process.env.NEXT_PUBLIC_ETH_OIOI_TOKEN,
+    ),
   };
 }
 
 export function getContractAddresses(chainSet: ChainSet): ContractAddressSet {
-  return getAppEnv() === "mainnet"
-    ? getMainnetAddressSet(chainSet)
-    : getSepoliaAddressSet(chainSet);
+  const appEnv = getAppEnv();
+
+  if (appEnv === "mainnet") {
+    return chainSet === "base"
+      ? getBaseMainnetAddressSet()
+      : getEthereumMainnetAddressSet();
+  }
+
+  return chainSet === "base"
+    ? getBaseSepoliaAddressSet()
+    : getEthereumSepoliaAddressSet();
 }
