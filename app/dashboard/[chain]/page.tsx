@@ -1,6 +1,7 @@
 import { ConnectWalletButton } from "@/components/wallet/ConnectWalletButton";
 import { ChainGuard } from "@/components/wallet/ChainGuard";
 import { DashboardReadPanel } from "@/components/dashboard/DashboardReadPanel";
+import { StakeActionPanel } from "@/components/dashboard/StakeActionPanel";
 import type { ChainSet } from "@/lib/chains/chainConfig";
 
 const allowedChains = ["base", "ethereum"] as const;
@@ -40,6 +41,7 @@ export default async function ChainDashboardPage({
 
       <ChainGuard chainSet={chain}>
         <DashboardReadPanel chainSet={chain} />
+        <StakeActionPanel chainSet={chain} />
       </ChainGuard>
     </main>
   );

@@ -210,8 +210,7 @@ export function GatedMintPanel({ config }: { config: CollectionConfig }) {
           className="rounded-2xl bg-white px-5 py-3 font-medium text-black hover:bg-white/80 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={Boolean(disabledReason)}
           type="button"
-          onClick={handleMint}
-        >
+          onClick={handleMint}>
           {isWritePending
             ? "Confirm in wallet..."
             : isConfirming
@@ -231,8 +230,7 @@ export function GatedMintPanel({ config }: { config: CollectionConfig }) {
             className="mt-1 block break-all font-mono text-sm text-white underline underline-offset-4"
             href={getTxUrl(config.chainSet, txHash)}
             rel="noreferrer"
-            target="_blank"
-          >
+            target="_blank">
             {txHash}
           </a>
         </div>
@@ -247,7 +245,7 @@ export function GatedMintPanel({ config }: { config: CollectionConfig }) {
       {writeError || receiptError ? (
         <div className="mt-6 rounded-2xl border border-red-500/30 bg-red-500/10 p-4">
           <h3 className="font-medium text-red-100">Transaction failed</h3>
-          <p className="mt-2 break-words text-sm text-red-100/80">
+          <p className="mt-2 wrap-break-word text-sm text-red-100/80">
             {(writeError || receiptError)?.message}
           </p>
         </div>

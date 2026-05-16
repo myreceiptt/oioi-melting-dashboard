@@ -1,7 +1,11 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { useAccount, useWaitForTransactionReceipt, useWriteContract } from "wagmi";
+import {
+  useAccount,
+  useWaitForTransactionReceipt,
+  useWriteContract,
+} from "wagmi";
 import type { CollectionConfig } from "@/lib/contracts/collectionConfig";
 import { rotyAbi } from "@/lib/contracts/abis";
 import { useMintReadState } from "@/lib/hooks/useMintReadState";
@@ -149,7 +153,9 @@ export function RotyMintPanel({ config }: { config: CollectionConfig }) {
 
         <div className="flex items-center justify-between gap-4">
           <span className="text-sm text-white/60">Unit price</span>
-          <span className="font-mono text-sm">{formatEth(mintState.mintPrice)}</span>
+          <span className="font-mono text-sm">
+            {formatEth(mintState.mintPrice)}
+          </span>
         </div>
       </div>
 
@@ -176,8 +182,7 @@ export function RotyMintPanel({ config }: { config: CollectionConfig }) {
           className="rounded-2xl bg-white px-5 py-3 font-medium text-black hover:bg-white/80 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={Boolean(disabledReason)}
           type="button"
-          onClick={handlePublicMint}
-        >
+          onClick={handlePublicMint}>
           {isWritePending
             ? "Confirm in wallet..."
             : isConfirming
@@ -215,8 +220,7 @@ export function RotyMintPanel({ config }: { config: CollectionConfig }) {
             className="mt-1 block break-all font-mono text-sm text-white underline underline-offset-4"
             href={getTxUrl(config.chainSet, txHash)}
             rel="noreferrer"
-            target="_blank"
-          >
+            target="_blank">
             {txHash}
           </a>
         </div>
@@ -231,7 +235,7 @@ export function RotyMintPanel({ config }: { config: CollectionConfig }) {
       {writeError || receiptError ? (
         <div className="mt-6 rounded-2xl border border-red-500/30 bg-red-500/10 p-4">
           <h3 className="font-medium text-red-100">Transaction failed</h3>
-          <p className="mt-2 break-words text-sm text-red-100/80">
+          <p className="mt-2 wrap-break-word text-sm text-red-100/80">
             {(writeError || receiptError)?.message}
           </p>
         </div>
