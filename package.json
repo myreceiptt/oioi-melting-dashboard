@@ -36,7 +36,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint:frontend": "next lint"
+    "lint:frontend": "next lint",
+    "whitelist:frontend": "tsx scripts/whitelist/export-frontend-proofs.ts"
   },
   "repository": {
     "type": "git",
