@@ -1,5 +1,6 @@
 import { ConnectWalletButton } from "@/components/wallet/ConnectWalletButton";
 import { ChainGuard } from "@/components/wallet/ChainGuard";
+import { MintStatusCard } from "@/components/mint/MintStatusCard";
 import {
   getCollectionConfig,
   type CollectionKey,
@@ -53,12 +54,7 @@ export default async function MintPage({
       </header>
 
       <ChainGuard chainSet={chain}>
-        <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
-          <h2 className="text-xl font-semibold">Mint panel placeholder</h2>
-          <p className="mt-2 text-white/60">
-            Contract reads and mint actions will be added in the next phase.
-          </p>
-        </section>
+        <MintStatusCard config={config} />
       </ChainGuard>
     </main>
   );

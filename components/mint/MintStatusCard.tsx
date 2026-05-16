@@ -1,0 +1,95 @@
+"use client";
+
+import type { CollectionConfig } from "@/lib/contracts/collectionConfig";
+import { useGatedEligibility } from "@/lib/hooks/useGatedEligibility";
+import { useMintReadState } from "@/lib/hooks/useMintReadState";
+import { formatBool, formatEth, formatNumber } from "@/lib/utils/format";
+
+function Row({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="flex items-center justify-between gap-4 border-b border-white/10 py-3 last:border-b-0">
+      <div className="text-sm text-white/60">{label}</div>
+      <div className="text-right font-mono text-sm">{value}</div>
+    </div>
+  );
+}
+
+export function MintStatusCard({ config }: { config: CollectionConfig }) {
+  const mintState = useMintReadState(config);
+  const eligibility = useGatedEligibility(config);
+
+  if (mintState.error) {
+    return (
+      <div className="rounded-3xl border border-red-500/30 bg-red-500/10 p-6">
+        <h2 className="text-xl font-semibold">Contract read failed</h2>
+        <p className="mt-2 break-words text-sm text-red-100/80">
+          {mintState.error.message}
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
+      <div className="flex flex-col gap-2">
+        <p className="text-sm uppercase tracking-[0.25em] text-white/50">
+          Live Contract State
+        </p>
+        <h2 className="text-2xl font-semibold">{config.name}</h2>
+        <p className="break-all font-mono text-xs text-white/40">
+          {config.contractAddress}
+        </p>
+      </div>
+
+      {mintState.isLoading ? (
+        <div className="mt-6 rounded-2xl border border-white/10 bg-black/20 p-4 text-white/60">
+          Loading contract state...
+        </div>
+      ) : (
+        <div className="mt-6 rounded-2xl border border-white/10 bg-black/20 px-4">
+          <Row label="Total minted" value={formatNumber(mintState.totalMinted)} />
+          <Row label="Remaining supply" value={formatNumber(mintState.remainingSupply)} />
+          <Row label="Max supply" value={formatNumber(mintState.maxSupply)} />
+          <Row label="Max mint per tx" value={formatNumber(mintState.maxMintPerTx)} />
+          <Row label="Mint price" value={formatEth(mintState.mintPrice)} />
+          <Row label="Revealed" value={formatBool(mintState.revealed)} />
+          <Row label="Metadata locked" value={formatBool(mintState.metadataLocked)} />
+
+          {config.mintType === "roty" ? (
+            <>
+              <Row
+                label="Whitelist mint enabled"
+                value={formatBool(mintState.whitelistMintEnabled)}
+              />
+              <Row
+                label="Public mint enabled"
+                value={formatBool(mintState.publicMintEnabled)}
+              />
+              <Row
+                label="This wallet whitelist claimed"
+                value={formatBool(mintState.whitelistClaimed)}
+              />
+            </>
+          ) : (
+            <>
+              <Row
+                label="Gated mint enabled"
+                value={formatBool(mintState.gatedMintEnabled)}
+              />
+              <Row
+                label="This wallet eligible"
+                value={formatBool(eligibility.eligible)}
+              />
+            </>
+          )}
+        </div>
+      )}
+
+      {config.mintType === "gated" ? (
+        <div className="mt-4 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm text-white/60">
+          {eligibility.reason}
+        </div>
+      ) : null}
+    </section>
+  );
+}
