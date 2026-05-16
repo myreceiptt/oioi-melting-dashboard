@@ -1,4 +1,4 @@
-import { formatEther } from "viem";
+import { formatEther, formatUnits } from "viem";
 
 export function formatEth(value: bigint | undefined) {
   if (value === undefined) {
@@ -8,6 +8,22 @@ export function formatEth(value: bigint | undefined) {
   const formatted = formatEther(value);
 
   return `${formatted} ETH`;
+}
+
+export function formatTokenAmount({
+  value,
+  symbol = "OiOi",
+  decimals = 18,
+}: {
+  value: bigint | undefined;
+  symbol?: string;
+  decimals?: number;
+}) {
+  if (value === undefined) {
+    return "—";
+  }
+
+  return `${formatUnits(value, decimals)} ${symbol}`;
 }
 
 export function formatNumber(value: bigint | number | undefined) {
