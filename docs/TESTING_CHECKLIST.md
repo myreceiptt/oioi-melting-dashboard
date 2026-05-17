@@ -1,327 +1,307 @@
-# OiOi Melting Dashboard — Testnet Readiness Checklist v1
+# OiOi Melting Dashboard — Testing Checklist v2
 
-This checklist must pass before deploying to Base Sepolia or Ethereum Sepolia.
+This checklist defines required testing layers for contracts, deployment, frontend, admin dashboard, indexer, reward calculator, and browser E2E.
 
 ---
 
-## 1. Repository State
+## 1. Core Repository Health
 
 Run:
 
 ```bash
 git status
+npm run build
 npm run compile
 npm run test
-npm run reward:merkle
 ```
 
 Required:
 
-- working tree clean
-- compile passes
-- all tests pass
-- reward Merkle generator works
+```text
+working tree clean
+build passes
+compile passes
+tests pass
+```
 
 ---
 
-## 2. Local Smoke Deployment
+## 2. Contract Tests
 
-Run:
+Required:
+
+```bash
+npm run compile
+npm run test
+```
+
+Must cover:
+
+```text
+ROTY minting
+whitelist mint
+public mint
+max supply
+max mint per tx
+gated mint eligibility
+soft staking
+stake/unstake
+valid stake checks
+reward round creation
+reward funding
+claim
+double claim prevention
+claim pause
+royalty
+metadata controls
+ownership controls
+```
+
+---
+
+## 3. Deployment Tests
+
+### Local Smoke
 
 ```bash
 rm -rf deployments/hardhat-base deployments/hardhat-mainnet
-
 npm run deploy:local-full -- --network hardhatBase
 npm run deploy:local-full -- --network hardhatMainnet
 ```
 
 Required:
 
-- ROTY deployed
-- OiOiSoftStaking deployed
-- ROTY approved in staking
-- Melting deployed
-- Melting approved in staking
-- Amanda deployed
-- Amanda approved in staking
-- Mock $OiOi deployed
-- OiOiRewardDistributor deployed
-- deployment.json written
-
----
-
-## 3. Environment Variables
-
-Required in `.env`:
-
-```env
-PRIVATE_KEY=
-BASE_SEPOLIA_RPC_URL=
-ETHEREUM_SEPOLIA_RPC_URL=
-ETHERSCAN_API_KEY=
-
-BASE_SEPOLIA_OIOI_TOKEN=
-ETHEREUM_SEPOLIA_OIOI_TOKEN=
+```text
+all contracts deployed
+registrations true
+mock reward token deployed
+deployment.json written
 ```
 
-Mainnet variables may also be present, but do not use mainnet deploy commands during testnet phase.
+### Testnet Read Checks
 
----
+```bash
+npm run deploy:read-check -- --network baseSepolia
+npm run deploy:read-check -- --network ethereumSepolia
+```
 
-## 4. Deployer Wallet
-
-Expected deployer / owner wallet:
+Required:
 
 ```text
-0x29bf68e3969e0b6686ea55b7c48241ba3f6b9ba0
+owners correct
+treasury correct
+royalty correct
+prices correct
+URIs correct
+mint phases expected
+staking approvals true
+reward token correct
+reward counters valid
 ```
-
-Before testnet deploy, confirm the private key in `.env` belongs to this wallet.
-
-Do not continue if the deploy script reports a different deployer.
 
 ---
 
-## 5. Testnet Funds
+## 4. Frontend Sepolia Current MVP QA
 
-Before deploying:
+Defined in:
 
-### Base Sepolia Funds
+```text
+docs/FRONTEND_SEPOLIA_BROWSER_QA.md
+```
+
+Current status:
+
+```text
+PASS for read/OFF-phase/stake flows.
+```
+
+---
+
+## 5. Admin Dashboard Testing
+
+Status: Pending.
+
+Required after implementation:
+
+```text
+owner wallet can access admin controls
+non-owner wallet cannot execute writes
+read surfaces display current contract state
+mint phase controls work
+phase restore OFF works
+metadata/reveal controls show warnings
+lockMetadata requires typed confirmation
+staking approval controls work
+reward round creation works
+reward round funding works
+claim pause/unpause works
+post-transaction state refresh works
+errors are readable
+explorer links work
+```
+
+---
+
+## 6. Supabase Indexer Testing
+
+Status: Pending.
 
 Required:
 
-- enough Base Sepolia ETH for deployment gas
-- enough Base Sepolia `$OiOi` test token for reward distributor testing
+```text
+Supabase migration runs
+tables exist
+service role can write
+browser cannot access service-only operations
+contracts seeded correctly
+FROM_BLOCK fallback works
+checkpoint resume works
+TO_BLOCK bounded backfill works
+duplicate event insert is prevented
+event decoding works
+RPC rate limit handling works
+current owners match ownerOf
+stake state matches isStakeActive/isStakeValid
+reward events match RewardDistributor reads
+```
 
-### Ethereum Sepolia Funds
+---
+
+## 7. Reward Calculator Testing
+
+Status: Pending.
 
 Required:
 
-- enough Sepolia ETH for deployment gas
-- enough Ethereum Sepolia `$OiOi` test token for reward distributor testing
+```text
+ownership windows built correctly
+stake windows built correctly
+reward period boundaries handled correctly
+transfer-out period excluded
+transfer-back period included
+unstaked period excluded
+collection weights applied correctly
+wallet weighted duration calculated correctly
+allocation sum equals reward amount
+dust assigned explicitly
+Merkle proof verifies
+```
 
 ---
 
-## 6. Testnet $OiOi Token Addresses
+## 8. Reward Claim Browser Testing
 
-RewardDistributor requires immutable reward token address.
-
-Before deploying reward distributor on testnet:
-
-```env
-BASE_SEPOLIA_OIOI_TOKEN=0x...
-ETHEREUM_SEPOLIA_OIOI_TOKEN=0x...
-```
-
-Do not deploy `OiOiRewardDistributor` on testnet while these are blank or zero address.
-
-If a testnet $OiOi token is not available yet, deploy a testnet mock $OiOi token first.
-
----
-
-## 7. ROTY Whitelist Merkle Root
-
-Run:
-
-```bash
-npm run whitelist:clean
-npm run whitelist:merkle
-cat scripts/whitelist/output/roty-whitelist.root.txt
-```
+Status: Pending.
 
 Required:
 
-- clean whitelist generated
-- rejected rows reviewed
-- root exists
-- root is `0x` + 64 hex chars
-- same root can be used for ROTY BASE and ROTY dETH
+```text
+reward rounds displayed
+wallet allocation displayed
+proof fetched
+claimable amount displayed
+claim transaction succeeds
+claimed status updates
+already claimed wallet is blocked
+non-eligible wallet gets safe empty state
+claim pause state respected
+```
 
 ---
 
-## 8. Deployment Config Smoke Check
+## 9. Stage-by-Stage Browser Testing
 
-Run:
+Each stage must pass before Full Browser E2E:
 
-```bash
-npm run deploy:config -- baseSepolia
-npm run deploy:config -- ethereumSepolia
+```text
+Mint page testing
+User dashboard stake/unstake testing
+Admin dashboard testing
+Indexer/reward API testing
+Reward claim browser testing
 ```
+
+---
+
+## 10. Full Testnet Browser E2E
+
+Status: Pending.
+
+Required Base Sepolia flow:
+
+```text
+connect wallet
+mint ROTY
+stake ROTY
+mint Melting
+stake Melting
+mint Amanda
+stake Amanda
+admin create reward round
+admin fund reward round
+indexer sync
+reward calculation
+proof API
+claim $OiOi
+claimed status refresh
+restore phases OFF if needed
+```
+
+Repeat on Ethereum Sepolia.
+
+---
+
+## 11. Testnet Release Candidate Gate
 
 Required:
 
-- correct chain labels
-- correct collection names
-- correct symbols
-- correct prices
-- correct unrevealed URIs
-- correct testnet `$OiOi` token addresses
-- no unexpected zero address for reward token
-
----
-
-## 9. Testnet Deployment Order
-
-Only after all readiness checks pass:
-
-### Base Sepolia
-
-```bash
-npm run deploy:roty -- --network baseSepolia
-npm run deploy:staking -- --network baseSepolia
-npm run deploy:register-roty -- --network baseSepolia
-npm run deploy:melting -- --network baseSepolia
-npm run deploy:register-melting -- --network baseSepolia
-npm run deploy:amanda -- --network baseSepolia
-npm run deploy:register-amanda -- --network baseSepolia
-npm run deploy:reward-distributor -- --network baseSepolia
-```
-
-### Ethereum Sepolia
-
-```bash
-npm run deploy:roty -- --network ethereumSepolia
-npm run deploy:staking -- --network ethereumSepolia
-npm run deploy:register-roty -- --network ethereumSepolia
-npm run deploy:melting -- --network ethereumSepolia
-npm run deploy:register-melting -- --network ethereumSepolia
-npm run deploy:amanda -- --network ethereumSepolia
-npm run deploy:register-amanda -- --network ethereumSepolia
-npm run deploy:reward-distributor -- --network ethereumSepolia
+```text
+all contract tests pass
+all read-checks pass
+all stage browser tests pass
+full browser E2E pass on both testnets
+admin procedures documented
+indexer/reward procedures documented
+docs updated
+no critical blocker
 ```
 
 ---
 
-## 10. Testnet Deployment Record Check
+## 12. Mainnet Testing
 
-After each chain deployment:
+Mainnet deployment is deferred until Testnet Release Candidate.
 
-```bash
-cat deployments/base-sepolia/deployment.json
-cat deployments/ethereum-sepolia/deployment.json
+After mainnet deployment:
+
+```text
+verification
+read-check
+mainnet frontend env wiring
+mainnet read-only browser QA
+admin read-only state check
+mint phases remain OFF
 ```
 
-Required fields:
+Do not run mainnet functional mint tests unless intentionally minting real NFTs.
 
-```json
-{
-  "contracts": {
-    "roty": "0x...",
-    "staking": "0x...",
-    "melting": "0x...",
-    "amanda": "0x...",
-    "rewardDistributor": "0x..."
-  },
-  "tokens": {
-    "oioi": "0x..."
-  },
-  "registrations": {
-    "rotyApprovedInStaking": true,
-    "meltingApprovedInStaking": true,
-    "amandaApprovedInStaking": true
-  }
-}
+---
+
+## 13. Public Opening Testing
+
+Before controlled opening:
+
+```text
+enable one phase at a time
+small controlled mint
+monitor tx
+restore/disable if needed
+confirm frontend state
+confirm explorer indexing
+confirm admin controls
 ```
 
----
-
-## 11. Constructor Args Export
-
-After deployment:
-
-```bash
-npm run verify:args -- baseSepolia
-npm run verify:args -- ethereumSepolia
-```
-
-Required:
-
-- constructor args generated for all five contracts
-- summary.json generated
-- files are not committed
-
----
-
-## 12. Contract Verification
-
-Verify after explorer indexing is ready.
-
-Required contracts per chain:
-
-1. TheRotyMemorial
-2. OiOiSoftStaking
-3. MeltingMemorial
-4. AmandaMemorial
-5. OiOiRewardDistributor
-
-Do not proceed to frontend testing until contracts are verified or verification failure is understood.
-
----
-
-## 13. Testnet Functional Checks
-
-After deployment and verification:
-
-### ROTY
-
-- whitelist mint works
-- public mint works
-- whitelist wallet cannot claim free mint twice
-- whitelist wallet can public mint after free mint
-- payment goes to treasury
-
-### Staking
-
-- ROTY can be staked
-- Melting can be staked
-- Amanda can be staked
-- NFT remains in wallet
-- `hasValidStake()` returns true while NFT is owned
-- `hasValidStake()` returns false when NFT leaves wallet
-- `hasValidStake()` returns true again if NFT returns
-
-### Melting
-
-- mint is closed by default
-- non-staker cannot mint
-- ROTY staker can mint after gated mint enabled
-- payment goes to treasury
-
-### Amanda
-
-- mint is closed by default
-- non-staker cannot mint
-- ROTY staker can mint
-- Melting staker can mint
-- payment goes to treasury
-
-### RewardDistributor
-
-- reward round can be created
-- reward round can be funded
-- valid proof can claim
-- invalid proof cannot claim
-- double claim fails
-- unclaimed allocation remains claimable
-
----
-
-## 14. Stop Conditions
-
-Stop immediately if:
-
-- wrong deployer wallet appears
-- wrong chain appears
-- reward token is zero address
-- deployment record contains wrong address
-- contract verification fails for unknown reason
-- treasury address is wrong
-- royalty receiver is wrong
-- mint price is wrong
-- staking references wrong collection
-- reward distributor references wrong token
-
-Do not “fix forward” on mainnet. Diagnose first.
+Reward claim opening requires production reward proof flow.
 
 ---
 

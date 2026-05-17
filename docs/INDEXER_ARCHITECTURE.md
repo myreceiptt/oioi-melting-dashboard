@@ -1,4 +1,4 @@
-# OiOi Melting Dashboard — Indexer Architecture v1
+# OiOi Melting Dashboard — Indexer Architecture v2
 
 This document defines the indexer/backend architecture for OiOi Melting Dashboard.
 
@@ -17,7 +17,7 @@ valid staking duration = active soft-stake intent ∩ actual NFT ownership durat
 
 ## 1. Purpose
 
-The indexer/backend must eventually support:
+The indexer/backend must support:
 
 1. Owned NFT discovery.
 2. Soft staking timeline reconstruction.
@@ -40,13 +40,15 @@ Current accepted state:
 
 ```text
 Indexer skeleton: implemented.
-Indexer Transfer Sync: paused / experimental draft.
-Indexer Operational Model: required before continuing implementation.
+Transfer Sync: paused / experimental draft.
+Supabase Postgres: locked as primary storage.
+Reward calculator: not production-complete.
+Reward proof API: not implemented.
 ```
 
 Do not treat raw `getLogs` sync as production-ready.
 
-Do not continue staking sync, reward sync, duration calculator, or reward automation until the operational model is accepted.
+Do not continue staking sync, reward sync, duration calculator, or reward automation until the Supabase-first plan is accepted and implemented.
 
 ---
 
@@ -77,7 +79,68 @@ Ethereum NFTs → Ethereum staking → Ethereum RewardDistributor → Ethereum $
 
 ---
 
-## 4. Chain Sets
+## 4. Storage Decision
+
+Accepted storage:
+
+```text
+Supabase Postgres-first.
+```
+
+Supabase Postgres is the primary storage for:
+
+```text
+chains
+contracts
+sync checkpoints
+indexed events
+NFT transfers
+staking events
+reward events
+current NFT owners
+current stake positions
+reward rounds
+reward allocations
+reward proofs
+claim status snapshots
+```
+
+Local JSON is not the primary indexer storage.
+
+Allowed JSON/static outputs:
+
+```text
+Merkle output files
+public proof snapshots
+audit exports
+debug backups
+```
+
+---
+
+## 5. Operational Model
+
+The operational model is documented in:
+
+```text
+docs/INDEXER_OPERATIONAL_MODEL.md
+```
+
+Key rules:
+
+```text
+Indexer does not run in browser.
+Frontend never scans blockchain history.
+Indexer runs as backend/admin worker or CLI.
+Deployment scripts do not need to be rewritten only to capture block numbers.
+FROM_BLOCK is manually read from block explorer and stored in .env.
+TO_BLOCK is optional and only for bounded backfill/testing.
+Checkpoint controls resume after successful sync.
+```
+
+---
+
+## 6. Chain Sets
 
 ### Base Set
 
@@ -119,42 +182,9 @@ Contracts:
 
 ---
 
-## 5. Operational Model v1
+## 7. Data Sources
 
-The v1 operational model is documented in:
-
-```text
-docs/INDEXER_OPERATIONAL_MODEL.md
-```
-
-Key decisions:
-
-```text
-Indexer does not run in browser.
-Frontend never scans blockchain history.
-Indexer runs as backend/admin worker or CLI.
-Deployment scripts do not need to be rewritten only to capture block numbers.
-For v1, FROM_BLOCK is manually read from block explorer and stored in .env.
-TO_BLOCK is optional and only for bounded backfill/testing.
-Checkpoint controls resume after successful sync.
-Transfer sync remains paused/experimental until operational model is accepted.
-```
-
----
-
-## 6. Data Sources
-
-### 6.1 On-chain events
-
-The indexer must eventually read events from:
-
-#### OiOiSoftStaking
-
-```text
-Staked(user, collection, tokenId, timestamp)
-Unstaked(user, collection, tokenId, timestamp)
-CollectionApprovalUpdated(collection, approved)
-```
+### 7.1 On-chain events
 
 #### ERC721 NFT contracts
 
@@ -170,6 +200,14 @@ Melting
 Amanda
 ```
 
+#### OiOiSoftStaking
+
+```text
+Staked(user, collection, tokenId, timestamp)
+Unstaked(user, collection, tokenId, timestamp)
+CollectionApprovalUpdated(collection, approved)
+```
+
 #### OiOiRewardDistributor
 
 ```text
@@ -180,9 +218,9 @@ ClaimPausedUpdated(roundId, paused)
 MerkleRootUpdated(roundId, oldMerkleRoot, newMerkleRoot)
 ```
 
-### 6.2 Direct on-chain reads
+### 7.2 Direct on-chain reads
 
-The indexer may also use contract reads for sanity checks:
+The indexer may use direct reads for sanity checks:
 
 ```text
 ownerOf(tokenId)
@@ -195,9 +233,9 @@ getRewardRound(roundId)
 hasClaimed(roundId, account)
 ```
 
-### 6.3 Deployment records
+### 7.3 Deployment records
 
-The indexer should read deployment addresses from:
+The indexer reads deployment addresses from:
 
 ```text
 deployments/base-sepolia/deployment.json
@@ -206,39 +244,28 @@ deployments/base-mainnet/deployment.json
 deployments/ethereum-mainnet/deployment.json
 ```
 
-Block start values are read from `.env`, not deployment records, for v1.
+Block start values are read from `.env`.
 
 ---
 
-## 7. Event Sync Strategy
-
-The indexer should sync by chain.
-
-Potential future commands:
-
-```bash
-npm run indexer:sync -- baseSepolia
-npm run indexer:sync -- ethereumSepolia
-npm run indexer:sync -- baseMainnet
-npm run indexer:sync -- ethereumMainnet
-```
+## 8. Event Sync Strategy
 
 Each sync run should:
 
 1. Load network config.
 2. Load deployment record.
-3. Determine last synced block from checkpoint.
-4. If no checkpoint exists, use manual `*_INDEXER_FROM_BLOCK`.
-5. Respect optional `*_INDEXER_TO_BLOCK`.
-6. Fetch logs in safe block ranges.
-7. Decode events.
-8. Upsert normalized rows.
-9. Update checkpoint only after successful sync.
-10. Re-run safely if interrupted.
+3. Load Supabase connection.
+4. Load last synced block from `sync_checkpoints`.
+5. If no checkpoint exists, use manual `*_INDEXER_FROM_BLOCK`.
+6. Respect optional `*_INDEXER_TO_BLOCK`.
+7. Fetch logs in safe block ranges.
+8. Decode events.
+9. Upsert normalized rows.
+10. Rebuild or update derived state.
+11. Update checkpoint only after successful sync.
+12. Re-run safely if interrupted.
 
 The sync must be idempotent.
-
-If the same event is encountered twice, it must not duplicate state.
 
 Unique event key:
 
@@ -248,11 +275,9 @@ chainId + txHash + logIndex
 
 ---
 
-## 8. Finality and Reorg Handling
+## 9. Finality and Reorg Handling
 
-For v1, use a confirmation delay.
-
-Suggested confirmation delay:
+For v1, use confirmation delay:
 
 ```text
 Base / Base Sepolia: 20 blocks
@@ -265,8 +290,6 @@ The indexer should sync only up to:
 latestBlock - confirmationDelay
 ```
 
-This reduces reorg risk.
-
 Future improvement:
 
 ```text
@@ -275,245 +298,189 @@ reorg detection by blockHash comparison
 
 ---
 
-## 9. Storage Choice
+## 10. Supabase Schema v1
 
-Accepted MVP storage:
-
-```text
-Local JSON storage first.
-```
-
-Future production storage:
-
-```text
-PostgreSQL / Supabase Postgres
-or managed indexing service
-```
-
-Reason for local JSON first:
-
-- faster to debug
-- easier to inspect
-- no database setup needed
-- suitable for Sepolia proof-of-concept
-- can be replaced via storage adapter later
-
-Reason production should upgrade:
-
-- reward calculation requires historical data
-- event history must be queryable
-- dashboard needs reliable API reads
-- reward proofs need persistent round records
-
----
-
-## 10. Storage Adapter Principle
-
-Do not hardwire reward logic directly to JSON.
-
-Use a boundary like:
-
-```text
-readEvents()
-writeEvents()
-readCheckpoint()
-writeCheckpoint()
-readCurrentOwners()
-writeCurrentOwners()
-readCurrentStakes()
-writeCurrentStakes()
-```
-
-Then future upgrade changes only storage implementation:
-
-```text
-Local JSON → Postgres/Supabase/managed indexer
-```
-
-Core logic should remain reusable:
-
-```text
-event decoder
-ownership builder
-staking builder
-duration calculator
-reward calculator
-Merkle input generator
-```
-
----
-
-## 11. Future Database Schema v1
-
-Production may use the following schema.
-
-### 11.1 chains
+### 10.1 chains
 
 ```sql
-chain_id BIGINT PRIMARY KEY,
-chain_key TEXT NOT NULL,
-name TEXT NOT NULL,
-is_testnet BOOLEAN NOT NULL
+create table if not exists chains (
+  chain_id bigint primary key,
+  chain_key text not null unique,
+  name text not null,
+  is_testnet boolean not null,
+  created_at timestamptz not null default now()
+);
 ```
 
-### 11.2 contracts
+### 10.2 contracts
 
 ```sql
-id UUID PRIMARY KEY,
-chain_id BIGINT NOT NULL,
-contract_key TEXT NOT NULL,
-address TEXT NOT NULL,
-created_at TIMESTAMP NOT NULL DEFAULT NOW(),
-UNIQUE(chain_id, contract_key),
-UNIQUE(chain_id, address)
+create table if not exists contracts (
+  id uuid primary key default gen_random_uuid(),
+  chain_id bigint not null references chains(chain_id),
+  contract_key text not null,
+  address text not null,
+  created_at timestamptz not null default now(),
+  unique(chain_id, contract_key),
+  unique(chain_id, address)
+);
 ```
 
-Contract keys:
-
-```text
-roty
-melting
-amanda
-staking
-rewardDistributor
-oioi
-```
-
-### 11.3 sync_checkpoints
+### 10.3 sync_checkpoints
 
 ```sql
-chain_id BIGINT NOT NULL,
-source_key TEXT NOT NULL,
-last_synced_block BIGINT NOT NULL,
-updated_at TIMESTAMP NOT NULL DEFAULT NOW(),
-PRIMARY KEY(chain_id, source_key)
+create table if not exists sync_checkpoints (
+  chain_id bigint not null references chains(chain_id),
+  source_key text not null,
+  last_synced_block bigint not null,
+  updated_at timestamptz not null default now(),
+  primary key(chain_id, source_key)
+);
 ```
 
-Source keys:
-
-```text
-staking
-roty
-melting
-amanda
-rewardDistributor
-```
-
-### 11.4 indexed_events
+### 10.4 indexed_events
 
 ```sql
-chain_id BIGINT NOT NULL,
-tx_hash TEXT NOT NULL,
-log_index INTEGER NOT NULL,
-block_number BIGINT NOT NULL,
-block_timestamp BIGINT NOT NULL,
-contract_address TEXT NOT NULL,
-event_name TEXT NOT NULL,
-payload JSONB NOT NULL,
-created_at TIMESTAMP NOT NULL DEFAULT NOW(),
-PRIMARY KEY(chain_id, tx_hash, log_index)
+create table if not exists indexed_events (
+  chain_id bigint not null,
+  tx_hash text not null,
+  log_index integer not null,
+  block_number bigint not null,
+  block_timestamp bigint not null,
+  contract_address text not null,
+  event_name text not null,
+  payload jsonb not null,
+  created_at timestamptz not null default now(),
+  primary key(chain_id, tx_hash, log_index)
+);
 ```
 
-### 11.5 nft_transfers
+### 10.5 nft_transfers
 
 ```sql
-chain_id BIGINT NOT NULL,
-collection_address TEXT NOT NULL,
-token_id NUMERIC NOT NULL,
-from_address TEXT NOT NULL,
-to_address TEXT NOT NULL,
-tx_hash TEXT NOT NULL,
-log_index INTEGER NOT NULL,
-block_number BIGINT NOT NULL,
-block_timestamp BIGINT NOT NULL,
-PRIMARY KEY(chain_id, tx_hash, log_index)
+create table if not exists nft_transfers (
+  chain_id bigint not null,
+  collection_address text not null,
+  collection_key text not null,
+  token_id numeric not null,
+  from_address text not null,
+  to_address text not null,
+  tx_hash text not null,
+  log_index integer not null,
+  block_number bigint not null,
+  block_timestamp bigint not null,
+  primary key(chain_id, tx_hash, log_index)
+);
 ```
 
-### 11.6 staking_events
+### 10.6 staking_events
 
 ```sql
-chain_id BIGINT NOT NULL,
-event_type TEXT NOT NULL,
-user_address TEXT NOT NULL,
-collection_address TEXT NOT NULL,
-token_id NUMERIC NOT NULL,
-tx_hash TEXT NOT NULL,
-log_index INTEGER NOT NULL,
-block_number BIGINT NOT NULL,
-block_timestamp BIGINT NOT NULL,
-PRIMARY KEY(chain_id, tx_hash, log_index)
+create table if not exists staking_events (
+  chain_id bigint not null,
+  event_type text not null,
+  user_address text not null,
+  collection_address text not null,
+  collection_key text not null,
+  token_id numeric not null,
+  tx_hash text not null,
+  log_index integer not null,
+  block_number bigint not null,
+  block_timestamp bigint not null,
+  primary key(chain_id, tx_hash, log_index)
+);
 ```
 
-Event types:
-
-```text
-staked
-unstaked
-```
-
-### 11.7 current_nft_owners
+### 10.7 reward_events
 
 ```sql
-chain_id BIGINT NOT NULL,
-collection_address TEXT NOT NULL,
-token_id NUMERIC NOT NULL,
-owner_address TEXT NOT NULL,
-updated_block_number BIGINT NOT NULL,
-updated_block_timestamp BIGINT NOT NULL,
-PRIMARY KEY(chain_id, collection_address, token_id)
+create table if not exists reward_events (
+  chain_id bigint not null,
+  event_name text not null,
+  round_id numeric,
+  tx_hash text not null,
+  log_index integer not null,
+  block_number bigint not null,
+  block_timestamp bigint not null,
+  payload jsonb not null,
+  primary key(chain_id, tx_hash, log_index)
+);
 ```
 
-### 11.8 current_stake_positions
+### 10.8 current_nft_owners
 
 ```sql
-chain_id BIGINT NOT NULL,
-user_address TEXT NOT NULL,
-collection_address TEXT NOT NULL,
-token_id NUMERIC NOT NULL,
-active BOOLEAN NOT NULL,
-currently_owned BOOLEAN NOT NULL,
-valid BOOLEAN NOT NULL,
-staked_at BIGINT,
-unstaked_at BIGINT,
-updated_block_number BIGINT NOT NULL,
-updated_block_timestamp BIGINT NOT NULL,
-PRIMARY KEY(chain_id, user_address, collection_address, token_id)
+create table if not exists current_nft_owners (
+  chain_id bigint not null,
+  collection_address text not null,
+  collection_key text not null,
+  token_id numeric not null,
+  owner_address text not null,
+  updated_block_number bigint not null,
+  updated_block_timestamp bigint not null,
+  primary key(chain_id, collection_address, token_id)
+);
 ```
 
-### 11.9 reward_rounds
+### 10.9 current_stake_positions
 
 ```sql
-chain_id BIGINT NOT NULL,
-round_id NUMERIC NOT NULL,
-period_start BIGINT NOT NULL,
-period_end BIGINT NOT NULL,
-reward_amount_wei NUMERIC NOT NULL,
-merkle_root TEXT,
-funded_amount_wei NUMERIC NOT NULL DEFAULT 0,
-claimed_amount_wei NUMERIC NOT NULL DEFAULT 0,
-claim_paused BOOLEAN NOT NULL DEFAULT FALSE,
-created_tx_hash TEXT,
-created_at TIMESTAMP NOT NULL DEFAULT NOW(),
-PRIMARY KEY(chain_id, round_id)
+create table if not exists current_stake_positions (
+  chain_id bigint not null,
+  user_address text not null,
+  collection_address text not null,
+  collection_key text not null,
+  token_id numeric not null,
+  active boolean not null,
+  currently_owned boolean not null,
+  valid boolean not null,
+  staked_at bigint,
+  unstaked_at bigint,
+  updated_block_number bigint not null,
+  updated_block_timestamp bigint not null,
+  primary key(chain_id, user_address, collection_address, token_id)
+);
 ```
 
-### 11.10 reward_allocations
+### 10.10 reward_rounds
 
 ```sql
-chain_id BIGINT NOT NULL,
-round_id NUMERIC NOT NULL,
-wallet_address TEXT NOT NULL,
-amount_wei NUMERIC NOT NULL,
-weighted_duration NUMERIC NOT NULL,
-proof JSONB NOT NULL,
-claimed BOOLEAN NOT NULL DEFAULT FALSE,
-created_at TIMESTAMP NOT NULL DEFAULT NOW(),
-PRIMARY KEY(chain_id, round_id, wallet_address)
+create table if not exists reward_rounds (
+  chain_id bigint not null,
+  round_id numeric not null,
+  period_start bigint not null,
+  period_end bigint not null,
+  reward_amount_wei numeric not null,
+  merkle_root text,
+  funded_amount_wei numeric not null default 0,
+  claimed_amount_wei numeric not null default 0,
+  claim_paused boolean not null default false,
+  created_tx_hash text,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  primary key(chain_id, round_id)
+);
+```
+
+### 10.11 reward_allocations
+
+```sql
+create table if not exists reward_allocations (
+  chain_id bigint not null,
+  round_id numeric not null,
+  wallet_address text not null,
+  amount_wei numeric not null,
+  weighted_duration numeric not null,
+  proof jsonb not null,
+  claimed boolean not null default false,
+  created_at timestamptz not null default now(),
+  primary key(chain_id, round_id, wallet_address)
+);
 ```
 
 ---
 
-## 12. Ownership Reconstruction
+## 11. Ownership Reconstruction
 
 NFT ownership is reconstructed from ERC721 `Transfer` events.
 
@@ -525,17 +492,15 @@ Transfer(from, 0x0, tokenId) = burn, if ever supported
 Transfer(from, to, tokenId) = ownership change
 ```
 
-For each NFT:
+Current owner:
 
 ```text
-current owner = latest Transfer.to for that chain + collection + tokenId
+latest Transfer.to for chain + collection + tokenId
 ```
-
-The indexer should update current ownership after each Transfer.
 
 ---
 
-## 13. Stake Intent Reconstruction
+## 12. Stake Intent Reconstruction
 
 Stake intent is reconstructed from staking events.
 
@@ -548,9 +513,7 @@ Unstaked(user, collection, tokenId) → active intent ends
 
 Soft staking does not move the NFT.
 
-Therefore, stake intent alone is not enough.
-
-A stake is valid only when:
+Stake is valid only when:
 
 ```text
 stake intent is active
@@ -560,7 +523,7 @@ current owner of NFT == staker
 
 ---
 
-## 14. Valid Duration Calculation
+## 13. Valid Duration Calculation
 
 For a reward period:
 
@@ -569,19 +532,10 @@ periodStart
 periodEnd
 ```
 
-The indexer must compute valid duration per NFT.
-
-For each stake position:
+Compute valid duration per NFT:
 
 ```text
-stake windows:
-[stakedAt, unstakedAt or periodEnd]
-
-ownership windows:
-intervals where owner == staker
-
-valid windows:
-intersection(stake windows, ownership windows, reward period)
+stake windows ∩ ownership windows ∩ reward period
 ```
 
 Formula:
@@ -590,37 +544,9 @@ Formula:
 validDurationSeconds = sum(duration(valid windows))
 ```
 
-Example:
-
-```text
-Reward period:
-1 May → 31 May
-
-Stake intent:
-1 May → 31 May
-
-Ownership:
-1 May → 10 May
-20 May → 31 May
-
-Valid duration:
-1 May → 10 May
-20 May → 31 May
-```
-
-The invalid period:
-
-```text
-11 May → 19 May
-```
-
-is excluded because the NFT left the wallet.
-
 ---
 
-## 15. Collection Weights
-
-Weights are chain-specific but currently identical for Base and Ethereum.
+## 14. Collection Weights
 
 ```text
 DENOMINATOR = 1,000,000
@@ -630,7 +556,7 @@ MELTING  = 362,900
 AMANDA   = 419,609
 ```
 
-Weighted duration per NFT:
+Weighted duration:
 
 ```text
 weightedDuration = validDurationSeconds * collectionWeight
@@ -644,210 +570,93 @@ walletWeightedDuration = sum(weightedDuration for all valid staked NFTs)
 
 ---
 
-## 16. Reward Allocation Formula
-
-For a reward round:
+## 15. Reward Allocation Formula
 
 ```text
-rewardAmountWei
-totalWeightedDuration
-walletWeightedDuration
+walletAmountWei = floor(rewardAmountWei * walletWeightedDuration / totalWeightedDuration)
 ```
 
-Allocation:
+Dust policy:
 
 ```text
-walletAmountWei = floor(
-  rewardAmountWei * walletWeightedDuration / totalWeightedDuration
-)
+assign dust to treasury/admin allocation explicitly
 ```
 
-Dust handling:
-
-```text
-dust = rewardAmountWei - sum(walletAmountWei)
-```
-
-Preferred v1:
-
-```text
-assign dust to treasury/admin wallet explicitly in allocation output
-```
-
-This makes:
+This ensures:
 
 ```text
 sum(allocation.amountWei) == rewardAmountWei
 ```
 
-which is required by the Merkle generator.
-
 ---
 
-## 17. Reward Round Output
+## 16. API Surface for Frontend
 
-The reward calculator should generate a Merkle input file:
-
-```json
-{
-  "chain": "base",
-  "roundId": 1,
-  "rewardAmountWei": "11000000000000000000",
-  "allocations": [
-    {
-      "wallet": "0x...",
-      "amountWei": "1000000000000000000",
-      "weightedDuration": "123456789"
-    }
-  ]
-}
-```
-
-Then run:
-
-```bash
-npm run reward:merkle -- --input scripts/rewards/input/<round-file>.json
-```
-
-Generated output:
-
-```text
-scripts/rewards/output/<chain>-round-<id>.root.txt
-scripts/rewards/output/<chain>-round-<id>.merkle.json
-scripts/rewards/output/<chain>-round-<id>.proofs.json
-scripts/rewards/output/<chain>-round-<id>.tree.json
-```
-
-Generated output should not be committed unless intentionally published as public claim data.
-
----
-
-## 18. API Surface for Frontend
-
-### 18.1 Owned NFTs
+### Owned NFTs
 
 ```http
 GET /api/:chain/wallet/:address/nfts
 ```
 
-### 18.2 Stake Status
+### Stake Status
 
 ```http
 GET /api/:chain/wallet/:address/stakes
 ```
 
-### 18.3 Reward Rounds
+### Reward Rounds
 
 ```http
 GET /api/:chain/rewards/rounds
 ```
 
-### 18.4 Wallet Reward Proof
+### Wallet Reward Proof
 
 ```http
 GET /api/:chain/rewards/:roundId/:address
 ```
 
-These APIs are future surfaces.
+---
 
-Current frontend only has:
+## 17. Implementation Order
+
+1. Supabase project setup.
+2. Environment variables.
+3. SQL migrations.
+4. Database client/service role setup.
+5. Chain and contract seed.
+6. Checkpoint read/write.
+7. Event ABI definitions.
+8. Bounded Transfer sync.
+9. Bounded Staked/Unstaked sync.
+10. Reward event sync.
+11. Current owner builder.
+12. Current stake builder.
+13. Duration calculator.
+14. Reward allocation calculator.
+15. Merkle proof generator integration.
+16. API routes.
+17. Frontend reward claim integration.
+18. Testnet E2E.
+19. Mainnet switch after Testnet RC.
+
+---
+
+## 18. Testing Strategy
+
+Unit tests:
 
 ```text
-/api/whitelist/roty/[chain]/[address]
+interval intersection
+ownership windows
+stake windows
+valid duration
+collection weights
+reward allocation
+dust handling
 ```
 
-Reward claim is placeholder only.
-
----
-
-## 19. CLI Commands v1
-
-Accepted current commands:
-
-```json
-{
-  "indexer:status": "tsx scripts/indexer/status.ts",
-  "indexer:rebuild": "tsx scripts/indexer/rebuild.ts"
-}
-```
-
-Potential future commands:
-
-```json
-{
-  "indexer:sync": "tsx scripts/indexer/sync.ts",
-  "rewards:calculate": "tsx scripts/rewards/calculate-round.ts"
-}
-```
-
-Do not treat `indexer:sync` as production-ready until operational model is accepted and rate-limit/backfill behavior is validated.
-
----
-
-## 20. Indexer Implementation Order
-
-Recommended order:
-
-1. Commit Indexer Operational Model v1.
-2. Decide whether paused transfer sync draft is kept, cleaned, or rewritten.
-3. Define storage adapter boundary.
-4. Stabilize event ABI definitions.
-5. Implement safe bounded `getLogs` range sync.
-6. Sync NFT Transfer events.
-7. Build current ownership snapshot.
-8. Sync staking events.
-9. Build current stake position snapshot.
-10. Sync reward distributor events.
-11. Build valid duration calculator.
-12. Build reward allocation calculator.
-13. Generate Merkle input JSON.
-14. Connect to existing reward Merkle generator.
-15. Add API route/static data for owned NFTs.
-16. Add API route/static data for stake status.
-17. Add API route/static data for reward rounds.
-18. Add API route/static data for reward proof.
-19. Test on Base Sepolia.
-20. Test on Ethereum Sepolia.
-21. Decide production storage upgrade path.
-
----
-
-## 21. MVP Simplification Option
-
-If full backend is too heavy for initial mint launch:
-
-```text
-Minting can launch without reward automation.
-Soft staking can launch with direct contract reads.
-Reward distribution can remain manual/admin-operated.
-Indexer can be added before the first public reward round.
-```
-
-But:
-
-```text
-Do not announce full reward automation until indexer/reward calculation is tested.
-```
-
----
-
-## 22. Testing Strategy
-
-### 22.1 Unit tests
-
-Test:
-
-- interval intersection
-- ownership windows
-- stake windows
-- valid duration
-- collection weights
-- reward allocation
-- dust handling
-
-### 22.2 Integration tests
-
-Use known synthetic event timelines:
+Integration tests:
 
 ```text
 NFT staked
@@ -856,88 +665,46 @@ NFT transferred back
 NFT unstaked
 ```
 
-Expected:
+Sepolia tests:
 
 ```text
-valid duration excludes period when NFT is outside wallet
+sync real events
+compare current owners to contract reads
+compare stake validity to contract reads
+generate reward allocation
+generate Merkle proof
+claim via browser
 ```
 
-### 22.3 Sepolia test
-
-Use deployed Sepolia contracts.
-
-Confirm:
-
-- real events sync
-- minted NFT detected
-- stake detected
-- transfer detected
-- reward allocation generated
-- Merkle root generated
-- claim succeeds
-
-This is not yet complete.
-
 ---
 
-## 23. Operational Notes
-
-Before creating a real reward round:
-
-1. Sync chain events or prepare approved event data.
-2. Confirm sync is up to safe block.
-3. Calculate allocation.
-4. Review allocation summary.
-5. Confirm total allocation equals reward amount.
-6. Generate Merkle root/proofs.
-7. Create reward round on-chain.
-8. Fund reward round.
-9. Publish claim data.
-10. Monitor claims.
-
----
-
-## 24. Stop Conditions
+## 19. Stop Conditions
 
 Stop reward distribution if:
 
-- sync checkpoint is stale
-- event decoding fails
-- ownership reconstruction is inconsistent
-- total allocation does not equal reward amount
-- Merkle root does not match generated proof file
-- frontend proof endpoint returns wrong proof
-- claimable check fails for known eligible wallet
-- claimed status is inconsistent with contract state
-- indexer operational model is unclear or contradicted
+```text
+sync checkpoint is stale
+event decoding fails
+ownership reconstruction is inconsistent
+stake state differs from contract reads
+total allocation does not equal reward amount
+Merkle root does not match generated proof file
+frontend proof endpoint returns wrong proof
+claimable check fails for known eligible wallet
+claimed status is inconsistent with contract state
+```
 
 ---
 
-## 25. Open Items Before Continuing Implementation
-
-Before continuing indexer implementation, confirm:
-
-1. Indexer Operational Model v1.
-2. Whether Transfer Sync draft remains paused or is rewritten.
-3. Whether first reward round will be manual/admin-only.
-4. Dust policy recipient.
-5. Safe block confirmation count per chain.
-6. Whether reward proof data is served from static JSON or database.
-7. Whether owned NFT data comes from indexer only or direct RPC fallback.
-8. Storage adapter design.
-
----
-
-## 26. Readiness Status
+## 20. Readiness Status
 
 ```text
-INDEXER ARCHITECTURE: UPDATED
-INDEXER SKELETON: IMPLEMENTED
-TRANSFER SYNC: PAUSED / EXPERIMENTAL
-INDEXER OPERATIONAL MODEL: REQUIRED BEFORE CONTINUING
+INDEXER ARCHITECTURE: UPDATED FOR SUPABASE POSTGRES-FIRST
+INDEXER IMPLEMENTATION: SKELETON ONLY
+TRANSFER SYNC: PAUSED / EXPERIMENTAL DRAFT
 REWARD AUTOMATION: PENDING
-FRONTEND REWARD CLAIM: PLACEHOLDER ONLY
-PUBLIC REWARD LAUNCH: NOT YET READY
+FRONTEND REWARD CLAIM: DEPENDS ON PROOF API
+PUBLIC REWARD LAUNCH: NOT READY
 ```
 
 ---

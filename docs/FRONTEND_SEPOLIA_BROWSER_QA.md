@@ -1,6 +1,6 @@
-# OiOi Melting Dashboard — Frontend Sepolia Browser QA v1
+# OiOi Melting Dashboard — Frontend Sepolia Browser QA v2
 
-This checklist validates the Sepolia frontend before indexer implementation and before mainnet deployment.
+This checklist records the completed Sepolia frontend QA and defines the next browser QA stages.
 
 Current frontend mode:
 
@@ -16,9 +16,36 @@ Required wallet compatibility, strict EOA-first identity.
 
 ---
 
-## 1. Pre-QA Commands
+## 1. Completed QA Scope
 
-Run:
+Status: Completed for current Sepolia MVP.
+
+Validated:
+
+```text
+homepage routes
+all six mint pages
+dashboard routes
+wallet connect
+ChainGuard
+ROTY mint disabled states while phases OFF
+gated mint disabled states while phases OFF
+whitelist eligibility reads
+staking eligibility reads
+dashboard stake/unstake
+reward placeholder
+browser console review
+```
+
+This QA did not validate active reward claim because proof API and reward calculator are not yet complete.
+
+This QA did not validate Admin Dashboard because Admin Dashboard is not yet implemented.
+
+---
+
+## 2. Pre-QA Commands
+
+Run before each frontend QA pass:
 
 ```bash
 npm run build
@@ -36,7 +63,7 @@ PASS
 
 ---
 
-## 2. Environment Review
+## 3. Environment Review
 
 Confirm `.env` contains:
 
@@ -63,268 +90,7 @@ Do not commit `.env`.
 
 ---
 
-## 3. Start Frontend
-
-```bash
-npm run dev
-```
-
-Open:
-
-```text
-http://localhost:3000
-```
-
-Expected:
-
-- homepage loads
-- no runtime crash
-- wallet connect button appears
-- navigation links appear
-
----
-
-## 4. Wallet QA
-
-Test with:
-
-- injected browser wallet
-- MetaMask
-- WalletConnect
-- Coinbase Wallet if available
-
-Expected:
-
-- wallet modal opens
-- no email login
-- no phone login
-- no passkey login
-- no social login
-- no embedded wallet
-- connected address appears
-- current chain appears
-- disconnect works
-
----
-
-## 5. ChainGuard QA
-
-### Base page while connected to Ethereum Sepolia
-
-Open:
-
-```text
-http://localhost:3000/mint/roty/base
-```
-
-Expected:
-
-- wrong-chain warning appears
-- switch chain button appears
-- mint action blocked
-
-### Ethereum page while connected to Base Sepolia
-
-Open:
-
-```text
-http://localhost:3000/mint/roty/ethereum
-```
-
-Expected:
-
-- wrong-chain warning appears
-- switch chain button appears
-- mint action blocked
-
----
-
-## 6. ROTY Mint Pages
-
-Open:
-
-```text
-http://localhost:3000/mint/roty/base
-http://localhost:3000/mint/roty/ethereum
-```
-
-Expected:
-
-- page loads
-- collection name appears
-- symbol appears
-- contract address appears
-- wallet connect appears
-- live contract state appears
-- totalMinted appears
-- remainingSupply appears
-- maxSupply appears
-- maxMintPerTx appears
-- mintPrice appears
-- revealed appears
-- metadataLocked appears
-- whitelistMintEnabled appears
-- publicMintEnabled appears
-- whitelist eligibility appears after wallet connect
-- whitelist claimed appears after wallet connect
-- Whitelist Mint button appears
-- Public Mint button appears
-- both buttons disabled while mint phases are OFF
-
-Expected disabled messages:
-
-```text
-Whitelist mint is closed.
-Public mint is closed.
-```
-
----
-
-## 7. Gated Mint Pages
-
-Open:
-
-```text
-http://localhost:3000/mint/melting/base
-http://localhost:3000/mint/melting/ethereum
-http://localhost:3000/mint/amanda/base
-http://localhost:3000/mint/amanda/ethereum
-```
-
-Expected:
-
-- page loads
-- collection name appears
-- symbol appears
-- contract address appears
-- wallet connect appears
-- live contract state appears
-- gatedMintEnabled appears
-- eligibility appears after wallet connect
-- mint button appears
-- mint button disabled while gated mint is OFF
-
-Expected disabled message:
-
-```text
-Gated mint is closed.
-```
-
-Eligibility expectations:
-
-```text
-Wallet without valid stake: eligible = No
-Wallet with valid stake: eligible = Yes
-```
-
----
-
-## 8. Dashboard Pages
-
-Open:
-
-```text
-http://localhost:3000/dashboard
-http://localhost:3000/dashboard/base
-http://localhost:3000/dashboard/ethereum
-```
-
-Expected:
-
-- dashboard loads
-- chain selector links appear
-- wallet connect appears
-- ChainGuard works
-- supported collection summary appears
-- stake/unstake panel appears
-- reward placeholder appears
-
----
-
-## 9. Stake / Unstake Panel QA
-
-Open:
-
-```text
-http://localhost:3000/dashboard/base
-http://localhost:3000/dashboard/ethereum
-```
-
-For each collection:
-
-- ROTY
-- Melting
-- Amanda
-
-Enter tokenId:
-
-```text
-1
-```
-
-Expected:
-
-- ownerOf appears if token exists
-- connected wallet owns token = correct
-- stake active = correct
-- stake valid = correct
-- Stake button disabled if already active
-- Unstake button enabled if active
-- Stake button enabled if user owns token and stake inactive
-- Unstake button disabled if stake inactive
-
-Optional transaction QA:
-
-- unstake tokenId 1
-- verify stake active becomes No
-- stake tokenId 1 again
-- verify stake active becomes Yes
-- verify stake valid becomes Yes
-
----
-
-## 10. Reward Placeholder QA
-
-Open:
-
-```text
-http://localhost:3000/dashboard/base
-http://localhost:3000/dashboard/ethereum
-```
-
-Expected:
-
-- RewardDistributor address appears
-- $OiOi token address appears
-- rewardToken from distributor appears
-- totalRewardFunded appears
-- totalRewardClaimed appears
-- allocatedUnclaimedRewardBalance appears
-- excessRewardTokenBalance appears
-- distributor $OiOi balance appears
-- wallet $OiOi balance appears if wallet connected
-- Claim button is disabled
-- “Claim not active yet” message appears
-
----
-
-## 11. Browser Console QA
-
-Open browser devtools.
-
-Expected:
-
-- no red runtime errors
-- no repeated RPC failure loop
-- no missing env error
-- no hydration error
-- no broken route error
-
-Warnings may be reviewed case by case.
-
----
-
-## 12. Routes QA
+## 4. Current Route QA
 
 Valid routes:
 
@@ -341,70 +107,257 @@ Valid routes:
 /mint/amanda/ethereum
 ```
 
-Invalid route examples:
+Expected:
 
 ```text
-/mint/wrong/base
-/mint/roty/wrong
-/dashboard/wrong
+page loads
+wallet connect appears
+chain-aware content appears
+no runtime crash
+```
+
+---
+
+## 5. Wallet QA
+
+Test with:
+
+```text
+injected browser wallet
+MetaMask
+WalletConnect
+Coinbase Wallet if available
 ```
 
 Expected:
 
-- valid routes load
-- invalid routes show invalid page message or not-found behavior
-- app does not crash
+```text
+wallet modal opens
+no email login
+no phone login
+no passkey login
+no social login
+no embedded wallet
+connected address appears
+current chain appears
+disconnect works
+```
 
 ---
 
-## 13. QA Result
+## 6. ChainGuard QA
 
-Base Sepolia frontend:
+Expected:
 
 ```text
-PASS
+wrong-chain warning appears
+switch chain button appears
+wrong-chain actions blocked
+correct-chain actions enabled according to state
 ```
 
-Ethereum Sepolia frontend:
+---
+
+## 7. ROTY Mint Page QA
+
+Routes:
 
 ```text
-PASS
+/mint/roty/base
+/mint/roty/ethereum
 ```
 
-Wallet connection:
+Expected while phases OFF:
 
 ```text
-PASS
+collection name appears
+symbol appears
+contract address appears
+wallet connect appears
+live contract state appears
+remainingSupply appears
+maxSupply appears
+maxMintPerTx appears
+mintPrice appears
+revealed appears
+metadataLocked appears
+whitelistMintEnabled appears
+publicMintEnabled appears
+whitelist eligibility appears after wallet connect
+whitelist claimed appears after wallet connect
+Whitelist Mint button disabled
+Public Mint button disabled
 ```
 
-ChainGuard:
+Expected disabled messages:
 
 ```text
-PASS
+Whitelist mint is closed.
+Public mint is closed.
 ```
 
-Mint read UI:
+---
+
+## 8. Gated Mint Page QA
+
+Routes:
 
 ```text
-PASS
+/mint/melting/base
+/mint/melting/ethereum
+/mint/amanda/base
+/mint/amanda/ethereum
 ```
 
-Stake/unstake UI:
+Expected while phases OFF:
 
 ```text
-PASS
+page loads
+collection name appears
+symbol appears
+contract address appears
+wallet connect appears
+live contract state appears
+gatedMintEnabled appears
+eligibility appears after wallet connect
+mint button disabled
 ```
 
-Reward placeholder:
+Expected disabled message:
 
 ```text
-PASS
+Gated mint is closed.
 ```
 
-Final result:
+---
+
+## 9. Dashboard Stake / Unstake QA
+
+Routes:
 
 ```text
-FRONTEND SEPOLIA BROWSER QA: PASS
+/dashboard/base
+/dashboard/ethereum
+```
+
+Expected:
+
+```text
+supported collection summary appears
+stake/unstake panel appears for ROTY, Melting, Amanda
+input tokenId appears
+ownerOf reads if token exists
+stake active reads
+stake valid reads
+Stake disabled if already active
+Unstake enabled if active
+Stake enabled if inactive and wallet owns token
+```
+
+Completed manual transaction QA:
+
+```text
+unstake succeeded
+stake again succeeded
+Base Sepolia and Ethereum Sepolia states updated correctly
+```
+
+---
+
+## 10. Reward Placeholder QA
+
+Expected:
+
+```text
+RewardDistributor address appears
+$OiOi token address appears
+rewardToken from distributor appears
+totalRewardFunded appears
+totalRewardClaimed appears
+allocatedUnclaimedRewardBalance appears
+excessRewardTokenBalance appears
+distributor $OiOi balance appears
+wallet $OiOi balance appears if connected
+Claim button disabled
+Claim not active yet message appears
+```
+
+---
+
+## 11. Next QA Stages
+
+### Admin Dashboard QA
+
+Pending.
+
+Must validate:
+
+```text
+owner access
+non-owner blocked
+read surfaces
+mint phase ON/OFF controls
+metadata/reveal controls
+staking approval controls
+reward round create/fund
+claim pause/unpause
+warnings/tooltips
+confirmation modals
+post-write refresh
+```
+
+### Mint With Phases ON QA
+
+Pending.
+
+Must validate:
+
+```text
+ROTY whitelist mint
+ROTY public mint
+Melting gated mint
+Amanda gated mint
+wrong-chain protection
+tx status
+explorer links
+phase restore OFF
+```
+
+### Reward Claim QA
+
+Pending.
+
+Must validate:
+
+```text
+proof API
+claimable amount
+claim transaction
+claimed status refresh
+already-claimed state
+non-eligible wallet state
+```
+
+### Full Browser E2E
+
+Pending.
+
+Defined in:
+
+```text
+docs/TESTNET_PRODUCT_COMPLETION_PLAN.md
+```
+
+---
+
+## 12. Current Result
+
+```text
+FRONTEND SEPOLIA BROWSER QA FOR CURRENT MVP: PASS
+ADMIN DASHBOARD QA: PENDING
+ACTIVE MINT QA WITH PHASES ON: PENDING
+REWARD CLAIM QA: PENDING
+FULL TESTNET BROWSER E2E: PENDING
 ```
 
 ---

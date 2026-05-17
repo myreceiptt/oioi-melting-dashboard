@@ -1,4 +1,4 @@
-# OiOi Melting Dashboard — Spec Lock v1
+# OiOi Melting Dashboard — Spec Lock v2
 
 This document defines the locked specification for the OiOi Melting Dashboard ecosystem.
 
@@ -30,7 +30,7 @@ The two ecosystems are separate.
 
 Rewards are not merged cross-chain.
 
-A user chooses Base or Ethereum based on their holdings and preference.
+A user chooses Base or Ethereum based on holdings and preference.
 
 ---
 
@@ -190,6 +190,22 @@ Ownable2Step where applicable
 
 Mint phases default OFF after deployment.
 
+Admin Dashboard is required before Testnet Release Candidate.
+
+Admin Dashboard must audit and expose necessary read/write controls from:
+
+```text
+TheRotyMemorial
+MeltingMemorial
+AmandaMemorial
+MemorialNFTCore
+OiOiSoftStaking
+OiOiRewardDistributor
+ERC20 $OiOi reads
+```
+
+Admin Dashboard must include warnings, tooltips, and confirmations for risky actions.
+
 ---
 
 ## 6. Metadata
@@ -239,6 +255,20 @@ ipfs://pending-amanda-revealed/
 Metadata can be updated until `lockMetadata()` is called.
 
 Do not lock metadata until final revealed metadata is checked.
+
+Admin Dashboard must include reveal and metadata controls because they are future-required operations, but these controls must be guarded.
+
+High-risk metadata controls:
+
+```text
+setRevealed(...)
+setRevealedBaseURI(...)
+setUnrevealedURI(...)
+setBaseExtension(...)
+lockMetadata()
+```
+
+`lockMetadata()` is irreversible and must require explicit confirmation.
 
 ---
 
@@ -333,7 +363,28 @@ AMANDA      = 419,609
 
 ---
 
-## 10. Frontend Identity Lock
+## 10. Indexer / Reward Storage Lock
+
+The indexer + reward pipeline is Supabase Postgres-first.
+
+```text
+Supabase Postgres is the primary storage for indexer checkpoints, indexed events, ownership state, stake state, reward rounds, reward allocations, and claim proof data.
+```
+
+Local JSON is not the primary indexer storage.
+
+Allowed JSON/static outputs:
+
+```text
+Merkle output files
+published public proof snapshots
+audit exports
+backups
+```
+
+---
+
+## 11. Frontend Identity Lock
 
 Frontend v1 identity model:
 
@@ -375,7 +426,7 @@ Required wallet compatibility, strict EOA-first identity.
 
 ---
 
-## 11. Frontend Surfaces
+## 12. Frontend Surfaces
 
 Mint pages:
 
@@ -394,102 +445,56 @@ Dashboard:
 softstaking.endhonesa.com
 ```
 
+Admin Dashboard routes are required before Testnet Release Candidate.
+
+Suggested admin routes:
+
+```text
+/admin
+/admin/base
+/admin/ethereum
+```
+
 One codebase supports all surfaces.
 
-Implemented frontend routes:
-
-```text
-/
-/dashboard
-/dashboard/base
-/dashboard/ethereum
-/mint/roty/base
-/mint/roty/ethereum
-/mint/melting/base
-/mint/melting/ethereum
-/mint/amanda/base
-/mint/amanda/ethereum
-/api/whitelist/roty/[chain]/[address]
-```
-
 ---
 
-## 12. Frontend Implementation Lock
-
-Frontend Sepolia MVP is implemented.
-
-Included:
-
-- wallet connection
-- ChainGuard
-- live contract reads
-- ROTY public mint UI
-- ROTY whitelist proof lookup
-- ROTY whitelist mint UI
-- Melting/Amanda gated mint UI
-- dashboard staking summary
-- manual tokenId stake/unstake UI
-- reward claim placeholder
-- homepage links to all mint pages and dashboard routes
-- Sepolia browser QA
-
-Not yet included:
-
-- automatic owned NFT discovery
-- production reward proof API
-- active reward claim button
-- mainnet frontend environment switch
-- mainnet browser QA
-
----
-
-## 13. Indexer Lock
-
-Accepted current indexer status:
-
-```text
-Indexer skeleton: implemented.
-Indexer Transfer Sync: paused / experimental draft.
-Indexer Operational Model: required before continuing implementation.
-```
-
-Operational decisions:
-
-```text
-Do not rewrite deployment scripts only to capture block numbers.
-For v1, chain-level FROM_BLOCK may be read manually from block explorer and stored in .env.
-TO_BLOCK is optional and only for bounded backfill/testing.
-Checkpoint is written after successful sync and controls resume.
-Indexer does not run in browser.
-Frontend never scans blockchain history.
-```
-
-Storage decision:
-
-```text
-Local JSON storage first.
-Postgres/Supabase or managed indexer later.
-```
-
-This means the current indexer work is not production reward infrastructure yet.
-
----
-
-## 14. Launch Status
+## 13. Launch Status
 
 Current status:
 
 ```text
 CONTRACT SUITE: TESTNET VALIDATED
 DEPLOYMENT TOOLING: TESTNET VALIDATED
-FRONTEND: SEPOLIA MVP IMPLEMENTED AND QA PASSED
-DASHBOARD STAKE/UNSTAKE: SEPOLIA MVP IMPLEMENTED AND QA PASSED
-REWARD CLAIM: PLACEHOLDER ONLY
-INDEXER: SKELETON IMPLEMENTED; TRANSFER SYNC PAUSED / EXPERIMENTAL
-MAINNET DEPLOYMENT: PENDING
+FRONTEND: SEPOLIA MVP IMPLEMENTED
+ADMIN DASHBOARD: ARCHITECTURE NEXT
+INDEXER STORAGE: SUPABASE POSTGRES LOCKED
+INDEXER IMPLEMENTATION: SKELETON ONLY / TRANSFER SYNC PAUSED
+REWARD CALCULATOR: NOT PRODUCTION-COMPLETE
+TESTNET RELEASE CANDIDATE: NOT READY
+MAINNET DEPLOYMENT: READY BUT DEFERRED UNTIL TESTNET RC
 PUBLIC LAUNCH: NOT READY
-PUBLIC REWARD LAUNCH: NOT READY
 ```
+
+---
+
+## 14. Current Execution Principle
+
+The project will use the following sequence:
+
+```text
+Testnet full product completion
+→ Testnet full browser E2E
+→ Testnet Release Candidate
+→ Mainnet deployment
+→ Mainnet env wiring
+→ Mainnet read-only QA
+→ Controlled mainnet opening
+```
+
+Mainnet deployment must not happen merely because contract preflight is ready.
+
+Mainnet deployment waits for Testnet Release Candidate unless there is an explicit strategic override.
 
 ---
 

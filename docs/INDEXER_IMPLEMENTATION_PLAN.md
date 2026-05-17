@@ -1,50 +1,54 @@
-# OiOi Melting Dashboard — Indexer Implementation Plan v1
+# OiOi Melting Dashboard — Indexer Implementation Plan v2
 
-This document defines the practical implementation plan for the indexer MVP.
+This document defines the practical implementation plan for the Supabase Postgres-first indexer and reward pipeline.
 
-The goal is to build a working indexer and reward calculation pipeline without introducing database complexity too early and without allowing raw event sync to derail the mainnet/frontend path.
+The previous Local JSON-first plan is superseded.
 
 ---
 
 ## 1. Decision Lock
 
-Indexer MVP v1 uses:
+Indexer + Reward MVP uses:
 
 ```text
-Local JSON storage first.
-Postgres/Supabase or managed indexer later.
+Supabase Postgres-first.
+```
+
+Local JSON is not the primary storage for the indexer.
+
+Allowed JSON/static output:
+
+```text
+Merkle proof exports
+public proof snapshots
+audit exports
+backup snapshots
 ```
 
 Reason:
 
-- faster to implement
-- easier to debug
-- easier to inspect manually
-- no database setup needed yet
-- good enough for Sepolia proof-of-concept
-- can be migrated to Postgres after event/reward logic is proven
-
-This is not the final production architecture.
-
-Production reward operations should eventually use durable database storage or a managed indexing service.
+```text
+The project should avoid rebuilding indexer storage later.
+Reward allocation needs durable queryable history.
+Frontend/API will need stable indexed data.
+Supabase Postgres is fast to set up and still production-realistic.
+```
 
 ---
 
 ## 2. Operational Lock
 
-Before continuing beyond skeleton, the project must accept `docs/INDEXER_OPERATIONAL_MODEL.md`.
-
-Current operational decisions:
+Accepted decisions:
 
 ```text
 Indexer does not run in browser.
 Frontend never scans blockchain history.
 Indexer runs as backend/admin worker or CLI.
 Do not rewrite deployment scripts only to capture block numbers.
-For v1, FROM_BLOCK is manually read from block explorer and stored in .env.
+FROM_BLOCK is manually read from block explorer and stored in .env.
 TO_BLOCK is optional and only for bounded backfill/testing.
 Checkpoint is written after successful sync and controls resume.
-Transfer sync draft is paused/experimental until operational model is accepted.
+Transfer sync draft is paused/experimental until Supabase-first plan is implemented.
 ```
 
 ---
@@ -57,7 +61,6 @@ Completed:
 Indexer skeleton implemented.
 indexer:status command exists.
 indexer:rebuild skeleton exists.
-Local JSON storage helper exists.
 Generated output is ignored except .gitkeep.
 ```
 
@@ -66,27 +69,27 @@ Paused / Experimental:
 ```text
 Transfer sync draft may exist in scripts/indexer/sync.ts.
 ownership calculator draft may exist in scripts/indexer/calculators/ownership.ts.
-Do not continue Transfer Sync, Staking Sync, Reward Sync, or Duration Calculator yet.
+Do not treat this as accepted production sync.
 ```
 
 Next accepted step:
 
 ```text
-Commit and accept Indexer Operational Model v1.
+Supabase Postgres schema and indexer architecture implementation.
 ```
 
 ---
 
-## 4. MVP Scope
+## 4. Scope
 
-Indexer MVP v1 should support:
+Indexer MVP supports:
 
 ```text
 Base Sepolia
 Ethereum Sepolia
 ```
 
-Mainnet support can be added after Sepolia indexer flow is proven and after mainnet contracts are deployed.
+Mainnet support is added after Testnet Release Candidate and mainnet deployment.
 
 MVP reads:
 
@@ -100,755 +103,484 @@ OiOiRewardDistributor reward events
 MVP produces:
 
 ```text
-current NFT ownership snapshot
-current stake position snapshot
+current NFT ownership state
+current stake position state
 staking timeline
 transfer timeline
 valid staking duration report
-reward allocation input JSON
+reward allocation records
+Merkle proof records
+reward proof API
 ```
 
 ---
 
-## 5. Non-Goals for MVP v1
+## 5. Non-Goals for This Stage
 
 Do not build yet:
 
 ```text
-Postgres schema
-Supabase setup
-hosted worker
-production API server
-automatic scheduled sync
-admin dashboard
-full reward automation
 mainnet reward distribution
+fully automated public reward distribution
+smart account support
+email/social identity
+cross-chain merged rewards
+browser-side getLogs sync
 ```
 
-Do not rely on indexer as the only source of truth.
+Do not rely on indexer as the only source of truth for write permissions.
 
-Contract reads remain authoritative for live actions.
+Contract reads remain authoritative for live transactions.
 
 ---
 
-## 6. Folder Structure
+## 6. Environment Variables
 
-Accepted skeleton:
+Required server-side env:
+
+```env
+SUPABASE_URL=
+SUPABASE_SERVICE_ROLE_KEY=
+SUPABASE_ANON_KEY=
+
+BASE_SEPOLIA_RPC_URL=
+ETHEREUM_SEPOLIA_RPC_URL=
+
+BASE_SEPOLIA_INDEXER_FROM_BLOCK=
+BASE_SEPOLIA_INDEXER_TO_BLOCK=
+
+ETHEREUM_SEPOLIA_INDEXER_FROM_BLOCK=
+ETHEREUM_SEPOLIA_INDEXER_TO_BLOCK=
+
+INDEXER_BLOCK_RANGE=10
+INDEXER_REQUEST_DELAY_MS=250
+```
+
+Mainnet values later:
+
+```env
+BASE_MAINNET_INDEXER_FROM_BLOCK=
+BASE_MAINNET_INDEXER_TO_BLOCK=
+ETHEREUM_MAINNET_INDEXER_FROM_BLOCK=
+ETHEREUM_MAINNET_INDEXER_TO_BLOCK=
+```
+
+Do not expose `SUPABASE_SERVICE_ROLE_KEY` to the browser.
+
+---
+
+## 7. Folder Structure
+
+Proposed:
 
 ```text
 scripts/indexer/
   config.ts
   types.ts
-  storage.ts
+  db.ts
+  schema/
+    001_init.sql
+  seed-contracts.ts
   sync.ts
   status.ts
   rebuild.ts
-  output/
-    .gitkeep
-```
+  calculators/
+    ownership.ts
+    staking.ts
+    duration.ts
+    rewards.ts
 
-Future calculators:
+lib/server/
+  supabaseAdmin.ts
 
-```text
-scripts/indexer/calculators/
-  ownership.ts
-  staking.ts
-  duration.ts
-  rewards.ts
-```
-
-Generated output:
-
-```text
-scripts/indexer/output/base-sepolia/
-scripts/indexer/output/ethereum-sepolia/
-```
-
-Generated output should not be committed unless intentionally used as a fixture.
-
----
-
-## 7. Git Ignore Rules
-
-Required:
-
-```gitignore
-# Generated indexer output
-scripts/indexer/output/**
-!scripts/indexer/output/.gitkeep
-```
-
-Only this should be tracked:
-
-```text
-scripts/indexer/output/.gitkeep
-```
-
-Output JSON should not be tracked.
-
----
-
-## 8. Network Keys
-
-Accepted keys:
-
-```text
-baseSepolia
-ethereumSepolia
-```
-
-Future keys:
-
-```text
-baseMainnet
-ethereumMainnet
-```
-
-The indexer should load deployment records from:
-
-```text
-deployments/base-sepolia/deployment.json
-deployments/ethereum-sepolia/deployment.json
-deployments/base-mainnet/deployment.json
-deployments/ethereum-mainnet/deployment.json
+app/api/
+  base/
+    wallet/[address]/nfts/route.ts
+    wallet/[address]/stakes/route.ts
+    rewards/rounds/route.ts
+    rewards/[roundId]/[address]/route.ts
+  ethereum/
+    wallet/[address]/nfts/route.ts
+    wallet/[address]/stakes/route.ts
+    rewards/rounds/route.ts
+    rewards/[roundId]/[address]/route.ts
 ```
 
 ---
 
-## 9. Start Block Strategy
+## 8. Database Schema
+
+Use the schema defined in:
+
+```text
+docs/INDEXER_ARCHITECTURE.md
+```
+
+Required tables:
+
+```text
+chains
+contracts
+sync_checkpoints
+indexed_events
+nft_transfers
+staking_events
+reward_events
+current_nft_owners
+current_stake_positions
+reward_rounds
+reward_allocations
+```
+
+---
+
+## 9. Implementation Order
+
+### Step 1 — Supabase Setup
+
+Tasks:
+
+```text
+create Supabase project
+add env variables
+create SQL migration
+run migration
+verify tables
+```
+
+Testing:
+
+```text
+migration runs
+tables exist
+service role can write
+anon role cannot write unsafe tables unless explicitly allowed
+```
+
+### Step 2 — Contract Registry Seed
+
+Tasks:
+
+```text
+read deployment records
+seed chains
+seed contracts
+seed $OiOi addresses
+```
+
+Testing:
+
+```text
+baseSepolia contracts seeded
+ethereumSepolia contracts seeded
+addresses match deployment.json
+```
+
+### Step 3 — Checkpoint Layer
+
+Tasks:
+
+```text
+read checkpoint
+write checkpoint
+resume from checkpoint + 1
+fallback to FROM_BLOCK when no checkpoint exists
+respect optional TO_BLOCK
+```
+
+Testing:
+
+```text
+no checkpoint uses FROM_BLOCK
+after sync checkpoint exists
+next run starts from checkpoint + 1
+TO_BLOCK creates bounded run
+```
+
+### Step 4 — Transfer Sync
+
+Tasks:
+
+```text
+sync ERC721 Transfer events
+upsert indexed_events
+upsert nft_transfers
+build current_nft_owners
+```
+
+Testing:
+
+```text
+bounded Base Sepolia sync works
+bounded Ethereum Sepolia sync works
+no duplicate events
+current owner matches ownerOf
+```
+
+### Step 5 — Staking Sync
+
+Tasks:
+
+```text
+sync Staked events
+sync Unstaked events
+upsert staking_events
+build current_stake_positions
+```
+
+Testing:
+
+```text
+stake active matches contract
+stake valid matches contract
+unstake updates state
+```
+
+### Step 6 — Reward Event Sync
+
+Tasks:
+
+```text
+sync RewardRoundCreated
+sync RewardRoundFunded
+sync Claimed
+sync ClaimPausedUpdated
+sync MerkleRootUpdated
+update reward_rounds
+```
+
+Testing:
+
+```text
+round appears in DB
+funded amount appears
+claimed state appears
+claim paused state appears
+```
+
+### Step 7 — Duration Calculator
+
+Tasks:
+
+```text
+build ownership windows
+build stake windows
+intersect with reward period
+compute valid duration seconds
+```
+
+Testing:
+
+```text
+transfer-out period excluded
+transfer-back period included
+unstaked period excluded
+period boundaries handled correctly
+```
+
+### Step 8 — Reward Calculator
+
+Tasks:
+
+```text
+apply collection weights
+sum wallet weighted duration
+calculate amountWei
+handle dust
+write reward_allocations
+generate Merkle input
+```
+
+Testing:
+
+```text
+allocation sum equals reward amount
+wallets with no valid duration receive zero/no allocation
+dust assigned explicitly
+```
+
+### Step 9 — Merkle Integration
+
+Tasks:
+
+```text
+generate root
+generate proofs
+store proofs in reward_allocations
+support proof lookup API
+```
+
+Testing:
+
+```text
+proof verifies locally
+on-chain claim succeeds on testnet
+double claim prevented
+```
+
+### Step 10 — API Routes
+
+Tasks:
+
+```text
+owned NFTs API
+stake status API
+reward rounds API
+reward proof API
+```
+
+Testing:
+
+```text
+wallet NFT list returns correct tokens
+stake list returns active/valid state
+reward proof returns correct amount/proof
+non-eligible wallet gets safe empty state
+```
+
+### Step 11 — Frontend Claim Integration
+
+Tasks:
+
+```text
+replace reward placeholder with active reward claim UI
+fetch reward rounds
+fetch wallet proof
+submit claim transaction
+refresh claimed state
+```
+
+Testing:
+
+```text
+claim via browser succeeds
+claimed status updates
+already claimed state is blocked
+```
+
+---
+
+## 10. Start Block Strategy
 
 The indexer should not guess block numbers.
 
 For v1:
 
 ```text
-FROM_BLOCK is manually read from the block explorer.
+FROM_BLOCK is manually read from block explorer.
 ```
 
-Use the earliest contract creation block for the chain.
-
-Example:
-
-```env
-BASE_SEPOLIA_INDEXER_FROM_BLOCK=
-ETHEREUM_SEPOLIA_INDEXER_FROM_BLOCK=
-BASE_MAINNET_INDEXER_FROM_BLOCK=
-ETHEREUM_MAINNET_INDEXER_FROM_BLOCK=
-```
-
-Optional bounded backfill:
-
-```env
-BASE_SEPOLIA_INDEXER_TO_BLOCK=
-ETHEREUM_SEPOLIA_INDEXER_TO_BLOCK=
-BASE_MAINNET_INDEXER_TO_BLOCK=
-ETHEREUM_MAINNET_INDEXER_TO_BLOCK=
-```
+Use earliest contract creation block for the chain.
 
 Rules:
 
 ```text
 FROM_BLOCK is used only when no checkpoint exists.
 TO_BLOCK limits one sync/backfill run.
-After successful sync, checkpoint stores the last synced block.
+After successful sync, checkpoint stores last synced block.
 Later runs resume from checkpoint + 1.
 If TO_BLOCK remains set and checkpoint already passed it, sync becomes no-op.
 ```
 
 ---
 
-## 10. RPC Range / Rate Limit Strategy
+## 11. RPC Range / Rate Limit Strategy
 
-Default `.env.example` values:
+Default safe values:
 
 ```env
 INDEXER_BLOCK_RANGE=10
 INDEXER_REQUEST_DELAY_MS=250
 ```
 
-Reason:
-
-- some free RPC tiers restrict `eth_getLogs` range
-- large historical sync can trigger rate limits
-- bounded backfills should be preferred during development
-
 Do not run unbounded sync on a free RPC without understanding request volume.
 
----
-
-## 11. Event Sources
-
-### ERC721 Transfer Events
-
-Sources:
-
-```text
-ROTY
-Melting
-Amanda
-```
-
-Event:
-
-```solidity
-Transfer(address indexed from, address indexed to, uint256 indexed tokenId)
-```
-
-Used for:
-
-```text
-mint detection
-current owner reconstruction
-ownership interval reconstruction
-transfer-out / transfer-back detection
-```
-
-### OiOiSoftStaking Events
-
-Sources:
-
-```text
-OiOiSoftStaking
-```
-
-Events:
-
-```solidity
-Staked(address indexed user, address indexed collection, uint256 indexed tokenId, uint256 timestamp)
-Unstaked(address indexed user, address indexed collection, uint256 indexed tokenId, uint256 timestamp)
-```
-
-Used for:
-
-```text
-stake intent windows
-active stake state
-valid stake duration calculation
-```
-
-### RewardDistributor Events
-
-Sources:
-
-```text
-OiOiRewardDistributor
-```
-
-Events:
-
-```text
-RewardRoundCreated
-RewardRoundFunded
-Claimed
-ClaimPausedUpdated
-MerkleRootUpdated
-```
-
-Used for:
-
-```text
-reward round display
-claim status display
-future proof API
-```
+Bounded sync is preferred during development.
 
 ---
 
-## 12. JSON Storage Files
+## 12. Testing Strategy
 
-Per network output folder:
-
-```text
-metadata.json
-checkpoints.json
-events.json
-transfers.json
-staking-events.json
-reward-events.json
-current-owners.json
-current-stakes.json
-duration-report.json
-```
-
-Example:
+### Unit Tests
 
 ```text
-scripts/indexer/output/base-sepolia/current-owners.json
-scripts/indexer/output/base-sepolia/current-stakes.json
-```
-
----
-
-## 13. Checkpoint Format
-
-`checkpoints.json`:
-
-```json
-{
-  "network": "baseSepolia",
-  "chainId": 84532,
-  "updatedAt": "2026-05-16T00:00:00.000Z",
-  "sources": {
-    "roty": {
-      "address": "0x...",
-      "lastSyncedBlock": 0
-    },
-    "melting": {
-      "address": "0x...",
-      "lastSyncedBlock": 0
-    },
-    "amanda": {
-      "address": "0x...",
-      "lastSyncedBlock": 0
-    },
-    "staking": {
-      "address": "0x...",
-      "lastSyncedBlock": 0
-    },
-    "rewardDistributor": {
-      "address": "0x...",
-      "lastSyncedBlock": 0
-    }
-  }
-}
-```
-
----
-
-## 14. Transfer Record Format
-
-`transfers.json`:
-
-```json
-[
-  {
-    "chainId": 84532,
-    "network": "baseSepolia",
-    "collectionKey": "roty",
-    "collectionAddress": "0x...",
-    "tokenId": "1",
-    "from": "0x0000000000000000000000000000000000000000",
-    "to": "0x...",
-    "txHash": "0x...",
-    "logIndex": 0,
-    "blockNumber": 123,
-    "blockTimestamp": 1770000000
-  }
-]
-```
-
----
-
-## 15. Staking Event Format
-
-`staking-events.json`:
-
-```json
-[
-  {
-    "chainId": 84532,
-    "network": "baseSepolia",
-    "eventType": "staked",
-    "user": "0x...",
-    "collectionAddress": "0x...",
-    "collectionKey": "roty",
-    "tokenId": "1",
-    "txHash": "0x...",
-    "logIndex": 0,
-    "blockNumber": 123,
-    "blockTimestamp": 1770000000
-  }
-]
-```
-
----
-
-## 16. Current Owner Format
-
-`current-owners.json`:
-
-```json
-[
-  {
-    "chainId": 84532,
-    "network": "baseSepolia",
-    "collectionKey": "roty",
-    "collectionAddress": "0x...",
-    "tokenId": "1",
-    "owner": "0x...",
-    "updatedBlockNumber": 123,
-    "updatedBlockTimestamp": 1770000000
-  }
-]
-```
-
----
-
-## 17. Current Stake Format
-
-`current-stakes.json`:
-
-```json
-[
-  {
-    "chainId": 84532,
-    "network": "baseSepolia",
-    "user": "0x...",
-    "collectionKey": "roty",
-    "collectionAddress": "0x...",
-    "tokenId": "1",
-    "active": true,
-    "currentlyOwned": true,
-    "valid": true,
-    "stakedAt": 1770000000,
-    "unstakedAt": null,
-    "updatedBlockNumber": 123,
-    "updatedBlockTimestamp": 1770000000
-  }
-]
-```
-
----
-
-## 18. Valid Duration Report Format
-
-`duration-report.json`:
-
-```json
-{
-  "network": "baseSepolia",
-  "chainId": 84532,
-  "periodStart": 1770000000,
-  "periodEnd": 1772600000,
-  "wallets": [
-    {
-      "wallet": "0x...",
-      "totalWeightedDuration": "123456789",
-      "positions": [
-        {
-          "collectionKey": "roty",
-          "collectionAddress": "0x...",
-          "tokenId": "1",
-          "validDurationSeconds": "86400",
-          "collectionWeight": "217491",
-          "weightedDuration": "18791222400"
-        }
-      ]
-    }
-  ]
-}
-```
-
----
-
-## 19. Reward Allocation Output Format
-
-The reward calculator should output Merkle generator input:
-
-```json
-{
-  "chain": "baseSepolia",
-  "roundId": 1,
-  "periodStartTimestamp": 1770000000,
-  "periodEndTimestamp": 1772600000,
-  "rewardAmountWei": "11000000000000000000",
-  "allocations": [
-    {
-      "wallet": "0x...",
-      "amountWei": "1000000000000000000",
-      "weightedDuration": "123456789"
-    }
-  ]
-}
-```
-
-This output should be compatible with the existing reward Merkle generator.
-
----
-
-## 20. Reward Weight Lock
-
-Weights:
-
-```text
-DENOMINATOR = 1,000,000
-
-ROTY     = 217,491
-MELTING  = 362,900
-AMANDA   = 419,609
-```
-
-Formula:
-
-```text
-weightedDuration = validDurationSeconds * collectionWeight
-```
-
-Wallet allocation:
-
-```text
-walletAmountWei = floor(rewardAmountWei * walletWeightedDuration / totalWeightedDuration)
-```
-
-Dust policy v1:
-
-```text
-Assign dust to admin/treasury allocation explicitly.
-```
-
-This ensures:
-
-```text
-sum(allocation.amountWei) == rewardAmountWei
-```
-
----
-
-## 21. CLI Scripts
-
-Current accepted scripts:
-
-```json
-{
-  "indexer:status": "tsx scripts/indexer/status.ts",
-  "indexer:rebuild": "tsx scripts/indexer/rebuild.ts"
-}
-```
-
-Potential future scripts:
-
-```json
-{
-  "indexer:sync": "tsx scripts/indexer/sync.ts",
-  "rewards:calculate": "tsx scripts/rewards/calculate-round.ts"
-}
-```
-
-Do not treat `indexer:sync` as production-ready until operational model is accepted.
-
----
-
-## 22. Implementation Order
-
-### Step 1 — Indexer skeleton
-
-Status: Completed.
-
-Goal:
-
-```text
-npm run indexer:status -- baseSepolia
-npm run indexer:status -- ethereumSepolia
-```
-
-prints deployment config and empty checkpoint state.
-
-### Step 2 — Indexer Operational Model
-
-Status: Current / Required before continuing.
-
-Create and commit:
-
-```text
-docs/INDEXER_OPERATIONAL_MODEL.md
-```
-
-Goal:
-
-```text
-manual FROM_BLOCK policy accepted
-TO_BLOCK behavior understood
-checkpoint behavior understood
-no deployment script rewrite required
-transfer sync marked paused/experimental
-```
-
-### Step 3 — Transfer event sync
-
-Status: Paused / Experimental.
-
-Create or stabilize `sync.ts` only after Step 2.
-
-Goal:
-
-```text
-transfers.json generated
-current-owners.json generated
-```
-
-### Step 4 — Staking event sync
-
-Status: Pending.
-
-Extend sync to Staked and Unstaked events.
-
-Goal:
-
-```text
-staking-events.json generated
-current-stakes.json generated
-```
-
-### Step 5 — Reward event sync
-
-Status: Pending.
-
-Extend sync to RewardDistributor events.
-
-Goal:
-
-```text
-reward-events.json generated
-```
-
-### Step 6 — Duration calculator
-
-Status: Pending.
-
-Create duration calculator.
-
-Goal:
-
-```text
-duration-report.json generated for given period
-```
-
-### Step 7 — Reward calculator
-
-Status: Pending.
-
-Upgrade `scripts/rewards/calculate-round.ts`.
-
-Goal:
-
-```text
-real allocation JSON generated from duration report
-```
-
-### Step 8 — Merkle integration
-
-Status: Pending.
-
-Feed allocation output into:
-
-```text
-npm run reward:merkle
-```
-
-Goal:
-
-```text
-root + proofs generated from real indexed data
-```
-
----
-
-## 23. MVP API Strategy
-
-Frontend currently has:
-
-```text
-whitelist proof API route
-reward placeholder
-```
-
-Reward proof API can be added after reward calculator output exists.
-
-Future API:
-
-```text
-GET /api/rewards/:chain/:roundId/:address
-```
-
-MVP can serve proof data from local/static JSON before database.
-
----
-
-## 24. Testing Strategy
-
-### Unit test candidates
-
-```text
-parse transfer event
-parse staking event
-current owner reconstruction
-current stake reconstruction
 interval intersection
-valid duration calculation
+ownership window builder
+stake window builder
+valid duration
+weight calculation
 reward allocation
-dust assignment
+dust handling
+Merkle proof generation
 ```
 
-### Sepolia manual validation
-
-Use known functional test data:
+### Integration Tests
 
 ```text
-Base Sepolia tokenId #1 for ROTY, Melting, Amanda
-Ethereum Sepolia tokenId #1 for ROTY, Melting, Amanda
+sync bounded event window
+resume from checkpoint
+prevent duplicate inserts
+compare DB state to contract reads
 ```
 
-Expected:
+### Browser Tests
 
 ```text
-owner = deployer
-stake active = true, unless manually unstaked
-stake valid = true, if NFT remains in deployer wallet
+reward round appears
+claimable amount appears
+claim succeeds
+claimed status updates
 ```
 
 ---
 
-## 25. Stop Conditions
+## 13. Stop Conditions
 
-Stop indexer implementation if:
+Stop if:
 
 ```text
-deployment record missing
+Supabase env missing
+service key exposed to browser
 chain ID mismatch
-RPC unavailable
-RPC rate limit prevents reliable sync
+deployment record missing
+FROM_BLOCK missing when no checkpoint exists
 event decoding fails
 duplicate events appear
-current owner reconstruction is wrong
-stake active state differs from contract read
-valid duration calculation is inconsistent
-reward allocation total does not equal reward amount
-operational model is unclear or contradicted
+owner reconstruction mismatches contract
+stake state mismatches contract
+reward allocation sum mismatch
+proof verification fails
+browser claim fails for known eligible wallet
 ```
 
 ---
 
-## 26. Done Criteria for MVP
+## 14. Done Criteria
 
-Indexer MVP is done when:
-
-```text
-npm run indexer:sync -- baseSepolia
-npm run indexer:sync -- ethereumSepolia
-npm run indexer:status -- baseSepolia
-npm run indexer:status -- ethereumSepolia
-```
-
-produce correct JSON outputs, and:
+Indexer + Reward MVP is done when:
 
 ```text
-npm run rewards:calculate -- baseSepolia --round 1
-npm run rewards:calculate -- ethereumSepolia --round 1
+Supabase schema exists
+Base Sepolia events sync
+Ethereum Sepolia events sync
+current owners/stakes match contract reads
+reward duration calculator passes
+reward allocation generated
+Merkle proof generated
+proof API works
+browser claim works
+claimed status updates
 ```
-
-produce allocation JSON compatible with Merkle generation.
-
-This is not currently complete.
 
 ---
 
-## 27. Current Next Step
+## 15. Current Next Step
 
 ```text
-Commit docs/INDEXER_OPERATIONAL_MODEL.md.
-Keep Transfer Sync paused/experimental.
-Do not continue indexer implementation until operational model is accepted.
+Admin Dashboard Architecture v1
 ```
+
+Indexer implementation begins after Admin Dashboard Architecture is planned, unless the execution plan is explicitly adjusted.
 
 ---
 
