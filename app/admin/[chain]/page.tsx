@@ -7,8 +7,9 @@ import { getAdminChainConfig } from "@/lib/admin/adminContractConfig";
 import type { ChainSet } from "@/lib/chains/chainConfig";
 import { AdminReadCards } from "@/components/admin/AdminReadCards";
 import { AdminMintPhaseControls } from "@/components/admin/AdminMintPhaseControls";
-import { AdminRewardRoundControls } from "@/components/admin/AdminRewardRoundControls";
+import { AdminPricingTreasuryRoyaltyControls } from "@/components/admin/AdminPricingTreasuryRoyaltyControls";
 import { AdminMetadataControls } from "@/components/admin/AdminMetadataControls";
+import { AdminRewardRoundControls } from "@/components/admin/AdminRewardRoundControls";
 
 const allowedChains = ["base", "ethereum"] as const;
 
@@ -62,6 +63,7 @@ export default async function AdminChainPage({
         <AdminOwnerGate />
         <AdminReadCards chainSet={chain} />
         <AdminMintPhaseControls chainSet={chain} />
+        <AdminPricingTreasuryRoyaltyControls chainSet={chain} />
         <AdminMetadataControls chainSet={chain} />
         <AdminRewardRoundControls chainSet={chain} />
 
