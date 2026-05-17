@@ -331,7 +331,7 @@ export function RotyMintPanel({ config }: { config: CollectionConfig }) {
       {writeError || receiptError ? (
         <div className="mt-6 rounded-2xl border border-red-500/30 bg-red-500/10 p-4">
           <h3 className="font-medium text-red-100">Transaction failed</h3>
-          <p className="mt-2 break-words text-sm text-red-100/80">
+          <p className="mt-2 wrap-break-word text-sm text-red-100/80">
             {(writeError || receiptError)?.message}
           </p>
         </div>

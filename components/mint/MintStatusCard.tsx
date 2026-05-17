@@ -22,7 +22,7 @@ export function MintStatusCard({ config }: { config: CollectionConfig }) {
     return (
       <div className="rounded-3xl border border-red-500/30 bg-red-500/10 p-6">
         <h2 className="text-xl font-semibold">Contract read failed</h2>
-        <p className="mt-2 break-words text-sm text-red-100/80">
+        <p className="mt-2 wrap-break-word text-sm text-red-100/80">
           {mintState.error.message}
         </p>
       </div>

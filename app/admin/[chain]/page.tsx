@@ -5,6 +5,7 @@ import { ConnectWalletButton } from "@/components/wallet/ConnectWalletButton";
 import { ChainGuard } from "@/components/wallet/ChainGuard";
 import { getAdminChainConfig } from "@/lib/admin/adminContractConfig";
 import type { ChainSet } from "@/lib/chains/chainConfig";
+import { AdminReadCards } from "@/components/admin/AdminReadCards";
 
 const allowedChains = ["base", "ethereum"] as const;
 
@@ -56,6 +57,8 @@ export default async function AdminChainPage({
 
       <ChainGuard chainSet={chain}>
         <AdminOwnerGate />
+
+        <AdminReadCards chainSet={chain} />
 
         <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
           <h2 className="text-2xl font-semibold">Admin action map</h2>
