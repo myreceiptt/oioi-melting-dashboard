@@ -396,19 +396,99 @@ softstaking.endhonesa.com
 
 One codebase supports all surfaces.
 
+Implemented frontend routes:
+
+```text
+/
+/dashboard
+/dashboard/base
+/dashboard/ethereum
+/mint/roty/base
+/mint/roty/ethereum
+/mint/melting/base
+/mint/melting/ethereum
+/mint/amanda/base
+/mint/amanda/ethereum
+/api/whitelist/roty/[chain]/[address]
+```
+
 ---
 
-## 12. Launch Status
+## 12. Frontend Implementation Lock
+
+Frontend Sepolia MVP is implemented.
+
+Included:
+
+- wallet connection
+- ChainGuard
+- live contract reads
+- ROTY public mint UI
+- ROTY whitelist proof lookup
+- ROTY whitelist mint UI
+- Melting/Amanda gated mint UI
+- dashboard staking summary
+- manual tokenId stake/unstake UI
+- reward claim placeholder
+- homepage links to all mint pages and dashboard routes
+- Sepolia browser QA
+
+Not yet included:
+
+- automatic owned NFT discovery
+- production reward proof API
+- active reward claim button
+- mainnet frontend environment switch
+- mainnet browser QA
+
+---
+
+## 13. Indexer Lock
+
+Accepted current indexer status:
+
+```text
+Indexer skeleton: implemented.
+Indexer Transfer Sync: paused / experimental draft.
+Indexer Operational Model: required before continuing implementation.
+```
+
+Operational decisions:
+
+```text
+Do not rewrite deployment scripts only to capture block numbers.
+For v1, chain-level FROM_BLOCK may be read manually from block explorer and stored in .env.
+TO_BLOCK is optional and only for bounded backfill/testing.
+Checkpoint is written after successful sync and controls resume.
+Indexer does not run in browser.
+Frontend never scans blockchain history.
+```
+
+Storage decision:
+
+```text
+Local JSON storage first.
+Postgres/Supabase or managed indexer later.
+```
+
+This means the current indexer work is not production reward infrastructure yet.
+
+---
+
+## 14. Launch Status
 
 Current status:
 
 ```text
 CONTRACT SUITE: TESTNET VALIDATED
 DEPLOYMENT TOOLING: TESTNET VALIDATED
-FRONTEND: ARCHITECTURE READY, IMPLEMENTATION PENDING
-INDEXER: ARCHITECTURE READY, IMPLEMENTATION PENDING
+FRONTEND: SEPOLIA MVP IMPLEMENTED AND QA PASSED
+DASHBOARD STAKE/UNSTAKE: SEPOLIA MVP IMPLEMENTED AND QA PASSED
+REWARD CLAIM: PLACEHOLDER ONLY
+INDEXER: SKELETON IMPLEMENTED; TRANSFER SYNC PAUSED / EXPERIMENTAL
 MAINNET DEPLOYMENT: PENDING
 PUBLIC LAUNCH: NOT READY
+PUBLIC REWARD LAUNCH: NOT READY
 ```
 
 ---

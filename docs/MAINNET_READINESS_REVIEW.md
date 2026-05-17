@@ -1,8 +1,8 @@
 # OiOi Melting Dashboard — Mainnet Readiness Review v1
 
-This document is the final review gate before any Base Mainnet or Ethereum Mainnet deployment.
+This document is the review gate before any Base Mainnet or Ethereum Mainnet deployment.
 
-Mainnet deployment must not be treated as launch readiness. Mainnet deployment only means the contracts are deployed. Public launch requires frontend, indexer, reward tooling, final domain setup, and mint opening decisions.
+Mainnet deployment must not be treated as launch readiness. Mainnet deployment only means the contracts are deployed. Public launch requires frontend mainnet switching, operational review, final domain setup, and explicit mint opening decisions.
 
 ---
 
@@ -27,18 +27,34 @@ Mainnet deployment must not be treated as launch readiness. Mainnet deployment o
 - Ethereum Sepolia read checks completed.
 - Ethereum Sepolia functional test completed.
 - Mint phases are restored to OFF after functional testing.
+- Frontend architecture documented.
+- Frontend Sepolia MVP implemented.
+- ROTY public + whitelist mint UI implemented.
+- Melting/Amanda gated mint UI implemented.
+- Dashboard stake/unstake UI implemented.
+- Reward claim placeholder implemented.
+- Frontend Sepolia browser QA completed.
+- Indexer architecture documented.
+- Indexer implementation plan documented.
+- Indexer skeleton implemented.
+
+### Paused / Experimental
+
+- Transfer sync draft exists but is not accepted as the active operational path yet.
+- Do not continue indexer Transfer Sync, Staking Sync, Reward Sync, or Duration Calculator implementation until `docs/INDEXER_OPERATIONAL_MODEL.md` is committed and accepted.
 
 ### Not Yet Completed
 
-- Frontend mint pages.
-- OiOi Melting Dashboard frontend.
-- Indexer/backend for staking duration and reward calculation.
-- Frontend Sepolia end-to-end browser test.
+- Indexer Operational Model v1.
+- Production indexer/backend for staking duration and reward calculation.
+- Reward proof API / static proof data for frontend.
 - Mainnet deployment.
 - Mainnet verification.
 - Mainnet read checks.
 - Mainnet frontend environment switch.
+- Mainnet browser QA.
 - Final mint opening.
+- Public reward claim launch.
 
 ---
 
@@ -52,10 +68,12 @@ Public mint opening may proceed only after:
 2. Mainnet contracts are verified.
 3. Mainnet read checks pass.
 4. Frontend is connected to mainnet contracts.
-5. Indexer/backend plan is confirmed.
-6. Reward calculation pipeline is documented.
+5. Mainnet browser QA passes.
+6. Indexer/reward operational model is confirmed.
 7. Emergency restore/disable scripts are available.
 8. Final human approval is given.
+
+Reward claim must remain disabled until reward proof data is ready.
 
 ---
 
@@ -69,13 +87,15 @@ Do not deploy mainnet with an unreviewed `.env`.
 
 Do not enable mint immediately after deployment.
 
-Do not launch public frontend before read checks pass.
+Do not launch public frontend before read checks and browser QA pass.
 
 Do not treat reward claim as ready until indexer/reward calculation flow is ready.
 
 Do not lock metadata while revealed metadata is pending.
 
 Do not delete or overwrite mainnet deployment records casually.
+
+Do not continue indexer sync implementation as production workflow until the operational model is accepted.
 
 ---
 
@@ -85,6 +105,7 @@ Before mainnet deployment:
 
 ```bash
 git status
+npm run build
 npm run compile
 npm run test
 npm run reward:merkle
@@ -95,6 +116,7 @@ npm run deploy:preflight -- ethereumMainnet
 Required result:
 
 - working tree clean
+- build passes
 - compile passes
 - tests pass
 - reward Merkle generator passes
@@ -112,6 +134,8 @@ PRIVATE_KEY=
 BASE_RPC_URL=
 ETHEREUM_RPC_URL=
 ETHERSCAN_API_KEY=
+NEXT_PUBLIC_APP_ENV=
+NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=
 ```
 
 Optional but expected for testnet continuity:
@@ -121,6 +145,34 @@ BASE_SEPOLIA_RPC_URL=
 ETHEREUM_SEPOLIA_RPC_URL=
 BASE_SEPOLIA_OIOI_TOKEN=
 ETHEREUM_SEPOLIA_OIOI_TOKEN=
+```
+
+Mainnet frontend values must be filled after deployment:
+
+```env
+NEXT_PUBLIC_BASE_ROTY_CONTRACT=
+NEXT_PUBLIC_BASE_MELTING_CONTRACT=
+NEXT_PUBLIC_BASE_AMANDA_CONTRACT=
+NEXT_PUBLIC_BASE_STAKING_CONTRACT=
+NEXT_PUBLIC_BASE_REWARD_DISTRIBUTOR=
+NEXT_PUBLIC_BASE_OIOI_TOKEN=
+
+NEXT_PUBLIC_ETH_ROTY_CONTRACT=
+NEXT_PUBLIC_ETH_MELTING_CONTRACT=
+NEXT_PUBLIC_ETH_AMANDA_CONTRACT=
+NEXT_PUBLIC_ETH_STAKING_CONTRACT=
+NEXT_PUBLIC_ETH_REWARD_DISTRIBUTOR=
+NEXT_PUBLIC_ETH_OIOI_TOKEN=
+```
+
+Indexer start blocks are manually filled after deployment:
+
+```env
+BASE_MAINNET_INDEXER_FROM_BLOCK=
+BASE_MAINNET_INDEXER_TO_BLOCK=
+
+ETHEREUM_MAINNET_INDEXER_FROM_BLOCK=
+ETHEREUM_MAINNET_INDEXER_TO_BLOCK=
 ```
 
 Mainnet $OiOi addresses are locked in deployment config:
@@ -336,6 +388,7 @@ Before mainnet deployment:
 ```bash
 npm run whitelist:clean
 npm run whitelist:merkle
+npm run whitelist:frontend
 cat scripts/whitelist/output/roty-whitelist.root.txt
 ```
 
@@ -346,7 +399,7 @@ Confirm:
 - unique valid address count understood
 - Merkle root is final
 - same root is intended for Base and Ethereum
-- frontend whitelist proof lookup will use matching proof data
+- frontend whitelist proof lookup uses matching proof data
 
 Do not deploy ROTY mainnet if the Merkle root is uncertain.
 
@@ -404,9 +457,7 @@ DENOM    = 1000000
 
 ## 12. Frontend Readiness Gate
 
-Mainnet deployment may happen before frontend is complete.
-
-Mint opening must not happen before frontend is ready.
+Frontend Sepolia MVP is implemented and QA-passed.
 
 Required frontend surfaces:
 
@@ -419,7 +470,7 @@ Required frontend surfaces:
 - amandabase.endhonesa.com
 - amandadeth.endhonesa.com
 
-Required mint page functions:
+Implemented mint page functions:
 
 - connect wallet
 - detect/switch chain
@@ -427,7 +478,9 @@ Required mint page functions:
 - show mint phase
 - show price
 - show eligibility
-- mint NFT
+- ROTY public mint UI
+- ROTY whitelist mint UI
+- Melting/Amanda gated mint UI
 - show transaction state
 - show explorer link
 
@@ -435,26 +488,42 @@ Required mint page functions:
 
 - softstaking.endhonesa.com
 
-Required dashboard functions:
+Implemented dashboard functions:
 
 - connect wallet
 - choose Base or Ethereum
-- show owned NFTs
+- show supported collections
 - show staking status
-- stake NFT
-- unstake NFT
+- manual tokenId stake
+- manual tokenId unstake
 - show valid stake status
-- show reward rounds
-- show claimable rewards
-- claim $OiOi
+- show reward placeholder
+- show reward distributor state
+- show $OiOi balances
+
+Not yet implemented:
+
+- automatic owned NFT discovery
+- real reward proof lookup
+- active reward claim button
+
+Mint opening must not happen before mainnet frontend environment switch and mainnet browser QA.
 
 ---
 
 ## 13. Indexer / Backend Readiness Gate
 
-The indexer/backend is required before real reward distribution.
+The indexer/backend is required before real public reward distribution.
 
-Minimum MVP:
+Current status:
+
+```text
+Indexer skeleton implemented.
+Transfer sync draft exists but is paused/experimental.
+Indexer Operational Model v1 must be accepted before continuing implementation.
+```
+
+Minimum future MVP:
 
 - sync Base events
 - sync Ethereum events
@@ -466,14 +535,15 @@ Minimum MVP:
 - feed reward Merkle generator
 - expose claim data to frontend
 
-Suggested commands:
+Operational decisions:
 
-```bash
-npm run indexer:sync -- base
-npm run indexer:sync -- ethereum
-npm run rewards:calculate -- base --round <id>
-npm run rewards:calculate -- ethereum --round <id>
-npm run reward:merkle -- --input <allocation-file>
+```text
+Indexer does not run in browser.
+Frontend never scans history.
+Do not rewrite deployment scripts only for block numbers.
+FROM_BLOCK is manually read from block explorer and stored in .env.
+TO_BLOCK is optional bounded backfill/testing only.
+Checkpoint controls resume after successful sync.
 ```
 
 Until indexer/backend is ready:
@@ -493,12 +563,14 @@ Base Mainnet deployment may proceed only if:
 
 - Base Sepolia passed.
 - Ethereum Sepolia passed.
+- frontend Sepolia MVP passed.
 - runbook updated.
 - mainnet readiness review committed.
 - deployer wallet funded.
 - RPC preflight passes.
 - Merkle root final.
 - deployment team understands mint phases remain OFF.
+- indexer operational model has been documented, even if reward automation is still pending.
 
 Ethereum Mainnet deployment may proceed only if:
 
@@ -530,6 +602,12 @@ npm run deploy:read-check -- --network baseMainnet
 
 Do not enable mint yet.
 
+After deployment, manually read the earliest Base contract creation block from the explorer and set:
+
+```env
+BASE_MAINNET_INDEXER_FROM_BLOCK=
+```
+
 Commit:
 
 ```bash
@@ -559,6 +637,12 @@ npm run deploy:read-check -- --network ethereumMainnet
 ```
 
 Do not enable mint yet.
+
+After deployment, manually read the earliest Ethereum contract creation block from the explorer and set:
+
+```env
+ETHEREUM_MAINNET_INDEXER_FROM_BLOCK=
+```
 
 Commit:
 
@@ -621,7 +705,21 @@ Required:
 
 ---
 
-## 19. Final Mint Opening Plan
+## 19. Mainnet Frontend Switch
+
+After contract read checks:
+
+1. Fill mainnet `NEXT_PUBLIC_*` contract env values.
+2. Set `NEXT_PUBLIC_APP_ENV=mainnet`.
+3. Run frontend build.
+4. Run browser QA against mainnet contracts while mint phases remain OFF.
+5. Confirm all mint buttons behave safely.
+6. Confirm dashboard reads mainnet staking contracts.
+7. Confirm reward claim remains disabled until proof data exists.
+
+---
+
+## 20. Final Mint Opening Plan
 
 Mint opening must be a separate decision.
 
@@ -638,7 +736,7 @@ Do not open everything at once unless the frontend and monitoring are ready.
 
 ---
 
-## 20. Emergency Controls
+## 21. Emergency Controls
 
 Available owner controls:
 
@@ -682,7 +780,7 @@ setClaimPaused(roundId, true)
 
 ---
 
-## 21. Stop Conditions
+## 22. Stop Conditions
 
 Stop immediately if:
 
@@ -699,18 +797,21 @@ Stop immediately if:
 - owner is wrong
 - URI is wrong
 - frontend cannot read contract
-- indexer cannot reconstruct staking history
+- indexer operational model is unclear
+- reward proof source is not ready but reward claim is being advertised
 
 ---
 
-## 22. Review Result
+## 23. Review Result
 
 Mainnet readiness status:
 
 ```text
 CONTRACT READINESS: READY AFTER THIS REVIEW PASSES
-FRONTEND READINESS: PENDING
-INDEXER READINESS: PENDING
+FRONTEND SEPOLIA READINESS: COMPLETED
+MAINNET FRONTEND READINESS: PENDING MAINNET ENV SWITCH + QA
+INDEXER READINESS: SKELETON ONLY; OPERATIONAL MODEL PENDING
+REWARD CLAIM READINESS: PLACEHOLDER ONLY
 PUBLIC LAUNCH READINESS: NOT YET READY
 ```
 
@@ -718,7 +819,8 @@ Conclusion:
 
 ```text
 Mainnet deployment may proceed after this review is committed and preflight passes.
-Public launch / mint opening must wait for frontend and operational readiness.
+Public launch / mint opening must wait for mainnet frontend QA and final human approval.
+Public reward launch must wait for indexer/reward proof readiness.
 ```
 
 ---

@@ -2,7 +2,9 @@
 
 Smart contract, deployment, frontend, and indexer workspace for the OiOi Melting Dashboard ecosystem.
 
-The project supports six NFT collections across two chain-specific ecosystems:
+The project supports six NFT collections across two chain-specific ecosystems.
+
+---
 
 ## Base Set
 
@@ -12,6 +14,8 @@ The project supports six NFT collections across two chain-specific ecosystems:
 - OiOiSoftStaking on Base
 - OiOiRewardDistributor on Base
 - Base $OiOi token
+
+---
 
 ## Ethereum Set
 
@@ -66,19 +70,39 @@ Completed:
 - Ethereum Sepolia verification completed.
 - Ethereum Sepolia read checks completed.
 - Ethereum Sepolia functional test completed.
+- Mint phases are restored to OFF after functional testing.
 - Frontend architecture documented.
+- Frontend skeleton implemented.
+- Frontend contract config implemented.
+- Frontend contract read layer implemented.
+- ROTY public mint UI implemented.
+- ROTY whitelist proof lookup and whitelist mint UI implemented.
+- Melting/Amanda gated mint UI implemented.
+- Dashboard stake/unstake UI implemented.
+- Reward claim placeholder implemented.
+- Frontend Sepolia browser QA completed.
+- Homepage links for all mint pages and dashboards completed.
 - Indexer architecture documented.
-- Mainnet readiness review documented.
+- Indexer implementation plan documented.
+- Indexer skeleton implemented.
+
+Paused / Experimental:
+
+- Transfer sync draft exists but is not accepted as the active operational path yet.
+- `scripts/indexer/sync.ts` may contain paused/experimental transfer-sync work.
+- Do not continue Transfer Sync, Staking Sync, Reward Sync, or Duration Calculator implementation until `docs/INDEXER_OPERATIONAL_MODEL.md` is committed and accepted.
 
 Pending:
 
-- Frontend skeleton implementation.
-- Mint pages implementation.
-- OiOi Melting Dashboard implementation.
-- Indexer/backend implementation.
+- Indexer Operational Model v1 documentation.
 - Mainnet deployment.
 - Mainnet verification/read checks.
+- Mainnet frontend environment switch.
+- Mainnet browser QA.
+- Indexer operational implementation.
+- Reward proof API / static reward proof publication.
 - Final mint opening.
+- Public reward claim launch.
 
 ---
 
@@ -97,6 +121,103 @@ contracts/mocks/
 
 ---
 
+## Frontend
+
+Frontend stack:
+
+```text
+Next.js
+TypeScript
+Tailwind
+wagmi
+viem
+TanStack Query
+custom wallet modal
+```
+
+Implemented routes:
+
+```text
+/
+/dashboard
+/dashboard/base
+/dashboard/ethereum
+/mint/roty/base
+/mint/roty/ethereum
+/mint/melting/base
+/mint/melting/ethereum
+/mint/amanda/base
+/mint/amanda/ethereum
+/api/whitelist/roty/[chain]/[address]
+```
+
+Implemented frontend features:
+
+- wallet connection
+- ChainGuard
+- contract state reads
+- ROTY public mint UI
+- ROTY whitelist proof lookup
+- ROTY whitelist mint UI
+- Melting/Amanda gated mint UI
+- dashboard staking summary
+- manual tokenId stake/unstake panel
+- reward claim placeholder
+- explorer links
+
+Reward claim is not active yet because reward proof data still depends on the indexer/reward pipeline.
+
+---
+
+## Indexer
+
+Current accepted indexer status:
+
+```text
+Indexer skeleton: implemented.
+Indexer operational model: pending.
+Transfer sync: paused / experimental draft.
+Production reward indexer: pending.
+```
+
+Important operational decision:
+
+```text
+Do not rewrite deployment scripts only to add deployment block numbers.
+For v1, indexer start blocks can be manually read from block explorers and stored in .env.
+```
+
+Key indexer environment variables:
+
+```env
+INDEXER_BLOCK_RANGE=10
+INDEXER_REQUEST_DELAY_MS=250
+
+BASE_SEPOLIA_INDEXER_FROM_BLOCK=
+BASE_SEPOLIA_INDEXER_TO_BLOCK=
+
+ETHEREUM_SEPOLIA_INDEXER_FROM_BLOCK=
+ETHEREUM_SEPOLIA_INDEXER_TO_BLOCK=
+
+BASE_MAINNET_INDEXER_FROM_BLOCK=
+BASE_MAINNET_INDEXER_TO_BLOCK=
+
+ETHEREUM_MAINNET_INDEXER_FROM_BLOCK=
+ETHEREUM_MAINNET_INDEXER_TO_BLOCK=
+```
+
+Rules:
+
+```text
+FROM_BLOCK = manual start block for first sync.
+TO_BLOCK = optional bounded sync limit for testing/backfill.
+checkpoint = written after successful sync and used for later resume.
+```
+
+The frontend never scans blockchain history in the browser.
+
+---
+
 ## Important Scripts
 
 ### Compile and test
@@ -104,6 +225,13 @@ contracts/mocks/
 ```bash
 npm run compile
 npm run test
+npm run build
+```
+
+### Frontend dev
+
+```bash
+npm run dev
 ```
 
 ### Deployment config
@@ -171,6 +299,15 @@ npm run test:ethereum-sepolia-functional -- --network ethereumSepolia
 
 Do not run functional tests on mainnet unless intentionally minting real NFTs.
 
+### Indexer status
+
+```bash
+npm run indexer:status -- baseSepolia
+npm run indexer:status -- ethereumSepolia
+```
+
+Do not run transfer/staking/reward sync as production workflow until the indexer operational model is accepted.
+
 ---
 
 ## Whitelist
@@ -186,9 +323,16 @@ Generate clean whitelist and Merkle root/proofs:
 ```bash
 npm run whitelist:clean
 npm run whitelist:merkle
+npm run whitelist:frontend
 ```
 
 The same ROTY whitelist root is used for Base and Ethereum.
+
+The frontend whitelist proof route reads static proof data from:
+
+```text
+public/whitelist/roty-proofs.json
+```
 
 ---
 
@@ -204,10 +348,19 @@ Generate reward Merkle data:
 npm run reward:merkle
 ```
 
+Current frontend reward status:
+
+```text
+Reward claim placeholder implemented.
+Claim button intentionally disabled.
+Claim activation requires reward proof data.
+```
+
 Reward architecture is documented in:
 
 ```text
 docs/INDEXER_ARCHITECTURE.md
+docs/INDEXER_OPERATIONAL_MODEL.md
 ```
 
 ---
@@ -223,7 +376,10 @@ docs/DEPLOYMENT_RUNBOOK.md
 docs/TESTING_CHECKLIST.md
 docs/MAINNET_READINESS_REVIEW.md
 docs/FRONTEND_ARCHITECTURE.md
+docs/FRONTEND_SEPOLIA_BROWSER_QA.md
 docs/INDEXER_ARCHITECTURE.md
+docs/INDEXER_IMPLEMENTATION_PLAN.md
+docs/INDEXER_OPERATIONAL_MODEL.md
 ```
 
 ---
@@ -241,6 +397,7 @@ generated constructor args
 local deployment records
 artifacts
 cache
+generated indexer output
 ```
 
 Mainnet deployment is not public launch.

@@ -1,6 +1,6 @@
 # OiOi Melting Dashboard — Implementation Roadmap v1
 
-This roadmap defines the current execution path after successful Base Sepolia and Ethereum Sepolia validation.
+This roadmap defines the current execution path after successful Base Sepolia and Ethereum Sepolia validation and after the Sepolia frontend MVP.
 
 ---
 
@@ -44,6 +44,13 @@ Completed:
 - restore mint phases script
 - constructor args export script
 
+Decision:
+
+```text
+Do not rewrite deployment scripts only to record block numbers.
+For indexer v1, start blocks are manually read from block explorers and stored in .env.
+```
+
 ---
 
 ## Phase 3 — Testnet Validation
@@ -70,7 +77,7 @@ Completed on Ethereum Sepolia:
 
 ## Phase 4 — Documentation Alignment
 
-Status: In progress.
+Status: Completed / continuing.
 
 Completed:
 
@@ -79,22 +86,22 @@ Completed:
 - mainnet readiness review
 - frontend architecture
 - indexer architecture
+- README alignment
+- SPEC_LOCK alignment
+- implementation roadmap alignment
+- frontend Sepolia browser QA
+- indexer implementation plan
 
-To complete:
+Current documentation correction:
 
-- README update
-- SPEC_LOCK update
-- IMPLEMENTATION_ROADMAP update
+- Indexer Operational Model v1 is added to prevent premature raw sync execution.
+- Transfer sync is marked paused/experimental until operational model is accepted.
 
 ---
 
 ## Phase 5 — Frontend Skeleton v1
 
-Status: Pending.
-
-Goal:
-
-Create the Next.js frontend foundation.
+Status: Completed.
 
 Stack:
 
@@ -108,41 +115,49 @@ TanStack Query
 custom wallet modal
 ```
 
-Wallet model:
+Completed:
 
-```text
-Required wallet compatibility, strict EOA-first identity.
-```
-
-Tasks:
-
-1. Install frontend dependencies.
-2. Add app layout.
-3. Add Tailwind baseline.
-4. Add wagmi config.
-5. Add wallet connectors.
-6. Add custom wallet modal.
-7. Add ChainGuard.
-8. Add env validation.
-9. Add contract address config.
-10. Add explorer helpers.
+- dependencies installed
+- Next app shell
+- Tailwind baseline
+- wagmi config
+- wallet connectors
+- custom wallet modal
+- ChainGuard
+- env validation
+- contract address config
+- explorer helpers
+- homepage
 
 Output:
 
-- frontend app compiles
+- frontend app builds
 - wallet connect works
 - chain guard works
 - config loads Sepolia addresses
 
 ---
 
-## Phase 6 — Mint Pages MVP
+## Phase 6 — Frontend Contract Config and Reads
 
-Status: Pending.
+Status: Completed.
 
-Goal:
+Completed:
 
-Build six mint pages from one codebase.
+- contract address config
+- explicit `NEXT_PUBLIC_*` env reads
+- collection config
+- ABI definitions
+- explorer helpers
+- mint page live contract reads
+- dashboard read-only staking summary
+- reward distributor read placeholder
+
+---
+
+## Phase 7 — Mint Pages MVP
+
+Status: Completed for Sepolia.
 
 Routes:
 
@@ -155,31 +170,26 @@ Routes:
 /mint/amanda/ethereum
 ```
 
-Tasks:
+Completed:
 
-1. Build shared MintPageShell.
-2. Build ROTY mint panel.
-3. Build gated mint panel.
-4. Add supply/price/phase reads.
-5. Add whitelist proof strategy.
-6. Add ROTY whitelist mint.
-7. Add ROTY public mint.
-8. Add Melting eligibility check.
-9. Add Melting mint.
-10. Add Amanda eligibility check.
-11. Add Amanda mint.
-12. Test on Base Sepolia.
-13. Test on Ethereum Sepolia.
+- ROTY public mint UI
+- ROTY whitelist proof lookup API
+- ROTY whitelist mint UI
+- Melting gated mint UI
+- Amanda gated mint UI
+- supply/price/phase reads
+- eligibility reads
+- transaction state
+- explorer links
+- disabled states while mint phases are OFF
+- Base Sepolia browser QA
+- Ethereum Sepolia browser QA
 
 ---
 
-## Phase 7 — Dashboard MVP
+## Phase 8 — Dashboard MVP
 
-Status: Pending.
-
-Goal:
-
-Build OiOi Melting Dashboard.
+Status: Completed for Sepolia MVP.
 
 Routes:
 
@@ -189,59 +199,141 @@ Routes:
 /dashboard/ethereum
 ```
 
-Tasks:
+Completed:
 
-1. Add chain selector.
-2. Add owned NFT display.
-3. Add stake status display.
-4. Add stake action.
-5. Add unstake action.
-6. Add valid stake status.
-7. Add reward panel placeholder.
-8. Add reward claim panel after proof source exists.
-9. Test on Base Sepolia.
-10. Test on Ethereum Sepolia.
+- chain selector
+- wallet connect
+- ChainGuard
+- supported collection summary
+- stake status reads
+- manual tokenId stake action
+- manual tokenId unstake action
+- valid stake status reads
+- reward claim placeholder
+- Base Sepolia browser QA
+- Ethereum Sepolia browser QA
+
+Not yet completed:
+
+- automatic owned NFT discovery
+- reward proof API
+- active reward claim button
+- reward rounds UI with real claim data
+
+Those require accepted indexer/reward proof workflow.
 
 ---
 
-## Phase 8 — Indexer MVP
+## Phase 9 — Frontend Sepolia Browser QA
 
-Status: Pending.
+Status: Completed.
+
+Validated:
+
+- homepage routes
+- all six mint pages
+- dashboard routes
+- wallet connect
+- ChainGuard
+- ROTY mint disabled states while phases OFF
+- gated mint disabled states while phases OFF
+- whitelist eligibility reads
+- staking eligibility reads
+- dashboard stake/unstake
+- reward placeholder
+- browser console review
+
+---
+
+## Phase 10 — Indexer Skeleton v1
+
+Status: Completed.
+
+Completed:
+
+- indexer config
+- indexer types
+- local JSON storage helper
+- indexer status command
+- indexer rebuild skeleton
+- output folder gitkeep
+- generated output ignored
+
+Accepted status:
+
+```text
+Indexer skeleton is valid.
+Indexer Transfer Sync is paused/experimental.
+```
+
+---
+
+## Phase 11 — Indexer Operational Model v1
+
+Status: Current / Next.
 
 Goal:
 
-Build backend/indexer foundation for ownership, staking history, and reward allocation.
+Document and accept the operational model before continuing indexer implementation.
 
-Tasks:
+Key decisions:
 
-1. Select database.
-2. Define migrations.
-3. Sync ERC721 Transfer events.
-4. Sync staking events.
-5. Sync reward distributor events.
-6. Build current ownership table.
-7. Build current stake table.
-8. Build valid duration calculator.
-9. Build weighted duration calculator.
-10. Build reward allocation generator.
-11. Generate Merkle input JSON.
-12. Serve owned NFT API.
-13. Serve stake status API.
-14. Serve reward proof API.
-15. Test on Base Sepolia.
-16. Test on Ethereum Sepolia.
+```text
+Indexer does not run in browser.
+Indexer runs as backend/admin worker.
+Do not rewrite deployment scripts for block numbers.
+FROM_BLOCK is manually read from block explorer for v1.
+TO_BLOCK is optional and only for bounded backfill/testing.
+Checkpoint controls resume after first successful sync.
+Transfer sync draft remains paused/experimental.
+Production storage can later upgrade to Postgres/Supabase via storage adapter.
+```
+
+Done criteria:
+
+- `docs/INDEXER_OPERATIONAL_MODEL.md` committed.
+- `docs/INDEXER_IMPLEMENTATION_PLAN.md` updated.
+- `docs/INDEXER_ARCHITECTURE.md` updated.
+- Team agrees whether to continue raw `getLogs` sync, delay it, or move to managed/database-first indexing.
 
 ---
 
-## Phase 9 — Mainnet Deployment
+## Phase 12 — Indexer MVP
+
+Status: Pending.
+
+Do not continue until Phase 11 is accepted.
+
+Potential implementation order after acceptance:
+
+1. Confirm `.env` start blocks.
+2. Keep Transfer Sync as paused draft or clean it.
+3. Implement storage adapter boundary.
+4. Implement transfer sync safely with checkpoints, delays, and bounded backfill.
+5. Implement staking event sync.
+6. Implement reward event sync.
+7. Build current ownership snapshot.
+8. Build current stake snapshot.
+9. Build valid duration calculator.
+10. Build weighted duration calculator.
+11. Generate reward allocation input JSON.
+12. Generate Merkle proof data.
+13. Serve static/API reward proof data.
+14. Test on Base Sepolia.
+15. Test on Ethereum Sepolia.
+
+---
+
+## Phase 13 — Mainnet Deployment
 
 Status: Pending.
 
 Prerequisites:
 
-- frontend architecture committed
-- indexer architecture committed
-- mainnet readiness review committed
+- frontend Sepolia MVP completed
+- frontend browser QA completed
+- indexer operational model documented
+- mainnet readiness review updated
 - Base Mainnet preflight passes
 - Ethereum Mainnet preflight passes
 - deployer wallet funded
@@ -280,9 +372,18 @@ npm run verify:args -- ethereumMainnet
 npm run deploy:read-check -- --network ethereumMainnet
 ```
 
+After each mainnet deployment:
+
+- verify contracts
+- run read checks
+- commit deployment record
+- manually read earliest contract creation block from explorer
+- store chain-level `*_INDEXER_FROM_BLOCK` in `.env`
+- keep mint phases OFF
+
 ---
 
-## Phase 10 — Mainnet Frontend Switch
+## Phase 14 — Mainnet Frontend Switch
 
 Status: Pending.
 
@@ -295,10 +396,11 @@ Tasks:
 5. Confirm dashboard reads staking contracts.
 6. Confirm explorer links point to mainnet explorers.
 7. Confirm domains point to correct routes.
+8. Run mainnet browser QA before mint opening.
 
 ---
 
-## Phase 11 — Final Mint Opening
+## Phase 15 — Final Mint Opening
 
 Status: Pending.
 
@@ -309,20 +411,20 @@ Opening order:
 3. Enable staking dashboard.
 4. Enable Melting gated mint.
 5. Enable Amanda gated mint.
-6. Enable reward claim only after indexer/reward pipeline is ready.
+6. Enable reward claim only after indexer/reward proof flow is ready.
 
 Do not open all phases until frontend and monitoring are ready.
 
 ---
 
-## Phase 12 — Reward Operations
+## Phase 16 — Reward Operations
 
 Status: Pending.
 
 Tasks per reward round:
 
-1. Sync indexer.
-2. Confirm sync checkpoint.
+1. Sync indexer or prepare approved static data.
+2. Confirm sync checkpoint / data freshness.
 3. Calculate weighted duration.
 4. Generate allocation JSON.
 5. Generate Merkle root/proofs.
@@ -332,14 +434,15 @@ Tasks per reward round:
 9. Publish reward proof data.
 10. Monitor claims.
 
+Reward claim remains placeholder until proof data is ready.
+
 ---
 
 ## Current Next Step
 
-After this documentation alignment is committed:
-
 ```text
-Frontend Skeleton v1
+Commit Documentation + Repo State Correction v1.
+Then review Indexer Operational Model v1 before continuing indexer implementation.
 ```
 
 ---

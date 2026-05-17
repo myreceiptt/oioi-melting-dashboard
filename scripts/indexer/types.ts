@@ -2,10 +2,7 @@ export type IndexerNetworkKey = "baseSepolia" | "ethereumSepolia";
 
 export type CollectionKey = "roty" | "melting" | "amanda";
 
-export type IndexerSourceKey =
-  | CollectionKey
-  | "staking"
-  | "rewardDistributor";
+export type IndexerSourceKey = CollectionKey | "staking" | "rewardDistributor";
 
 export type DeploymentRecord = {
   network: {
@@ -125,4 +122,17 @@ export type CurrentStakeRecord = {
   unstakedAt: number | null;
   updatedBlockNumber: number;
   updatedBlockTimestamp: number;
+};
+
+export type IndexerEventRecord = {
+  chainId: number;
+  network: IndexerNetworkKey;
+  sourceKey: IndexerSourceKey;
+  contractAddress: `0x${string}`;
+  eventName: string;
+  txHash: `0x${string}`;
+  logIndex: number;
+  blockNumber: number;
+  blockTimestamp: number;
+  payload: Record<string, string | number | boolean | null>;
 };

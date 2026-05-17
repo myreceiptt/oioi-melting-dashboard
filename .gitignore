@@ -33,14 +33,12 @@ yarn-error.log*
 .env
 .env.local
 .env*.local
-.env.example
 
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
 
 # macOS archive artifacts
 __MACOSX/

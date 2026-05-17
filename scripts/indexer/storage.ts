@@ -40,7 +40,9 @@ export function readDeploymentRecord(
   const record = readJsonFile<DeploymentRecord>(config.deploymentRecordPath);
 
   if (!record) {
-    throw new Error(`Missing deployment record: ${config.deploymentRecordPath}`);
+    throw new Error(
+      `Missing deployment record: ${config.deploymentRecordPath}`,
+    );
   }
 
   return validateDeploymentRecord(config, record);
@@ -116,11 +118,7 @@ export function readOrCreateCheckpoints({
   return empty;
 }
 
-export function writeMetadata({
-  config,
-}: {
-  config: IndexerNetworkConfig;
-}) {
+export function writeMetadata({ config }: { config: IndexerNetworkConfig }) {
   ensureOutputDir(config);
 
   const file = getOutputFile(config, "metadata.json");
@@ -169,4 +167,22 @@ export function readOutputJson<T>(
   fallback: T,
 ): T {
   return readJsonFile<T>(getOutputFile(config, filename)) ?? fallback;
+}
+
+export function writeOutputJson(
+  config: IndexerNetworkConfig,
+  filename: string,
+  value: unknown,
+) {
+  writeJsonFile(getOutputFile(config, filename), value);
+}
+
+export function writeCheckpoints(
+  config: IndexerNetworkConfig,
+  checkpoints: IndexerCheckpoints,
+) {
+  writeJsonFile(getOutputFile(config, "checkpoints.json"), {
+    ...checkpoints,
+    updatedAt: new Date().toISOString(),
+  });
 }
