@@ -9,33 +9,33 @@
 
 ## Routes
 
-| Surface | Testnet URL |
-|---|---|
-| Home | https://testnet.softstaking.endhonesa.com/ |
-| ROTY BASE mint | https://testnet.softstaking.endhonesa.com/mint/roty/base |
-| ROTY dETH mint | https://testnet.softstaking.endhonesa.com/mint/roty/ethereum |
-| Melting BASE mint | https://testnet.softstaking.endhonesa.com/mint/melting/base |
-| Melting dETH mint | https://testnet.softstaking.endhonesa.com/mint/melting/ethereum |
-| Amanda BASE mint | https://testnet.softstaking.endhonesa.com/mint/amanda/base |
-| Amanda dETH mint | https://testnet.softstaking.endhonesa.com/mint/amanda/ethereum |
-| Dashboard | https://testnet.softstaking.endhonesa.com/dashboard |
-| Base dashboard | https://testnet.softstaking.endhonesa.com/dashboard/base |
-| Ethereum dashboard | https://testnet.softstaking.endhonesa.com/dashboard/ethereum |
-| Admin home | https://testnet.softstaking.endhonesa.com/admin |
-| Base admin | https://testnet.softstaking.endhonesa.com/admin/base |
-| Ethereum admin | https://testnet.softstaking.endhonesa.com/admin/ethereum |
+| Surface            | Testnet URL                                                                          |
+| ------------------ | ------------------------------------------------------------------------------------ |
+| Home               | [Home](https://testnet.softstaking.endhonesa.com/)                                   |
+| ROTY BASE mint     | [ROTY BASE mint](https://testnet.softstaking.endhonesa.com/mint/roty/base)           |
+| ROTY dETH mint     | [ROTY dETH mint](https://testnet.softstaking.endhonesa.com/mint/roty/ethereum)       |
+| Melting BASE mint  | [Melting BASE mint](https://testnet.softstaking.endhonesa.com/mint/melting/base)     |
+| Melting dETH mint  | [Melting dETH mint](https://testnet.softstaking.endhonesa.com/mint/melting/ethereum) |
+| Amanda BASE mint   | [Amanda BASE mint](https://testnet.softstaking.endhonesa.com/mint/amanda/base)       |
+| Amanda dETH mint   | [Amanda dETH mint](https://testnet.softstaking.endhonesa.com/mint/amanda/ethereum)   |
+| Dashboard          | [Dashboard](https://testnet.softstaking.endhonesa.com/dashboard)                     |
+| Base dashboard     | [Base dashboard](https://testnet.softstaking.endhonesa.com/dashboard/base)           |
+| Ethereum dashboard | [Ethereum dashboard](https://testnet.softstaking.endhonesa.com/dashboard/ethereum)   |
+| Admin home         | [Admin home](https://testnet.softstaking.endhonesa.com/admin)                        |
+| Base admin         | [Base admin](https://testnet.softstaking.endhonesa.com/admin/base)                   |
+| Ethereum admin     | [Ethereum admin](https://testnet.softstaking.endhonesa.com/admin/ethereum)           |
 
 ## Production Domains Deferred
 
 The following domains are reserved for mainnet production and must not be pointed to testnet rehearsal unless intentionally changed later:
 
-- https://rotybase.endhonesa.com/
-- https://rotydeth.endhonesa.com/
-- https://meltingbase.endhonesa.com/
-- https://meltingdeth.endhonesa.com/
-- https://amandabase.endhonesa.com/
-- https://amandadeth.endhonesa.com/
-- https://softstaking.endhonesa.com/
+- [rotybase](https://rotybase.endhonesa.com/)
+- [rotydeth](https://rotydeth.endhonesa.com/)
+- [meltingbase](https://meltingbase.endhonesa.com/)
+- [meltingdeth](https://meltingdeth.endhonesa.com/)
+- [amandabase](https://amandabase.endhonesa.com/)
+- [amandadeth](https://amandadeth.endhonesa.com/)
+- [softstaking](https://softstaking.endhonesa.com/)
 
 ## QA Checklist
 
@@ -51,3 +51,4 @@ The following domains are reserved for mainnet production and must not be pointe
 - [ ] No missing env error
 - [ ] No major console error
 
+---
