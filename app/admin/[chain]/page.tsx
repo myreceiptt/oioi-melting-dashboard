@@ -11,6 +11,7 @@ import { AdminMintPhaseControls } from "@/components/admin/AdminMintPhaseControl
 import { AdminPricingTreasuryRoyaltyControls } from "@/components/admin/AdminPricingTreasuryRoyaltyControls";
 import { AdminMetadataControls } from "@/components/admin/AdminMetadataControls";
 import { AdminRewardRoundControls } from "@/components/admin/AdminRewardRoundControls";
+import { AdminEmergencyRescueControls } from "@/components/admin/AdminEmergencyRescueControls";
 
 const allowedChains = ["base", "ethereum"] as const;
 
@@ -68,6 +69,7 @@ export default async function AdminChainPage({
         <AdminPricingTreasuryRoyaltyControls chainSet={chain} />
         <AdminMetadataControls chainSet={chain} />
         <AdminRewardRoundControls chainSet={chain} />
+        <AdminEmergencyRescueControls chainSet={chain} />
 
         <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
           <h2 className="text-2xl font-semibold">Admin action map</h2>
