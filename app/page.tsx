@@ -34,6 +34,42 @@ const mintLinks = [
   },
 ];
 
+const dashboardLinks = [
+  {
+    href: "/dashboard",
+    title: "Dashboard Home",
+    description: "Choose Base or Ethereum dashboard.",
+  },
+  {
+    href: "/dashboard/base",
+    title: "Base Dashboard",
+    description: "Stake Base NFTs and review Base $OiOi reward status.",
+  },
+  {
+    href: "/dashboard/ethereum",
+    title: "Ethereum Dashboard",
+    description: "Stake Ethereum NFTs and review Ethereum $OiOi reward status.",
+  },
+];
+
+const adminLinks = [
+  {
+    href: "/admin",
+    title: "Admin Home",
+    description: "Owner-only operational overview for all admin surfaces.",
+  },
+  {
+    href: "/admin/base",
+    title: "Base Admin",
+    description: "Manage Base contracts, mint phases, staking, and rewards.",
+  },
+  {
+    href: "/admin/ethereum",
+    title: "Ethereum Admin",
+    description: "Manage Ethereum contracts, mint phases, staking, and rewards.",
+  },
+];
+
 export default function HomePage() {
   return (
     <main className="mx-auto flex min-h-screen max-w-6xl flex-col gap-8 px-6 py-10">
@@ -84,32 +120,41 @@ export default function HomePage() {
         </div>
 
         <div className="grid gap-4 md:grid-cols-3">
-          <Link
-            className="rounded-3xl border border-white/10 p-6 hover:bg-white/5"
-            href="/dashboard">
-            <div className="text-lg font-semibold">Dashboard Home</div>
-            <p className="mt-2 text-sm text-white/60">
-              Choose Base or Ethereum dashboard.
-            </p>
-          </Link>
+          {dashboardLinks.map((link) => (
+            <Link
+              className="rounded-3xl border border-white/10 p-6 hover:bg-white/5"
+              href={link.href}
+              key={link.href}>
+              <div className="text-lg font-semibold">{link.title}</div>
+              <p className="mt-2 text-sm text-white/60">{link.description}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
 
-          <Link
-            className="rounded-3xl border border-white/10 p-6 hover:bg-white/5"
-            href="/dashboard/base">
-            <div className="text-lg font-semibold">Base Dashboard</div>
-            <p className="mt-2 text-sm text-white/60">
-              Stake Base NFTs and review Base $OiOi reward status.
-            </p>
-          </Link>
+      <section>
+        <div className="mb-4">
+          <h2 className="text-2xl font-semibold">Admin</h2>
+          <p className="mt-2 text-sm text-white/60">
+            Owner-only controls for mint phases, metadata, staking registry,
+            reward rounds, and emergency actions.
+          </p>
+        </div>
 
-          <Link
-            className="rounded-3xl border border-white/10 p-6 hover:bg-white/5"
-            href="/dashboard/ethereum">
-            <div className="text-lg font-semibold">Ethereum Dashboard</div>
-            <p className="mt-2 text-sm text-white/60">
-              Stake Ethereum NFTs and review Ethereum $OiOi reward status.
-            </p>
-          </Link>
+        <div className="grid gap-4 md:grid-cols-3">
+          {adminLinks.map((link) => (
+            <Link
+              className="rounded-3xl border border-yellow-500/30 bg-yellow-500/10 p-6 hover:bg-yellow-500/15"
+              href={link.href}
+              key={link.href}>
+              <div className="text-lg font-semibold text-yellow-100">
+                {link.title}
+              </div>
+              <p className="mt-2 text-sm text-yellow-100/70">
+                {link.description}
+              </p>
+            </Link>
+          ))}
         </div>
       </section>
     </main>
