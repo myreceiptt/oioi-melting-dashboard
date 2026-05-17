@@ -4,7 +4,7 @@
 
 - Date:
 - Commit:
-- Testnet domain: https://testnet.softstaking.endhonesa.com
+- Testnet domain: [testnet.softstaking.endhonesa.com](https://testnet.softstaking.endhonesa.com)
 - App env: sepolia
 
 ## Base Sepolia
@@ -98,4 +98,3 @@
 - [ ] no major console error
 
 ## Notes
-

@@ -9,7 +9,7 @@
 
 ## Base Sepolia
 
-### ROTY
+### ROTY Base
 
 - [ ] Enable whitelist mint
 - [ ] Whitelist mint tested or skipped with reason
@@ -20,7 +20,7 @@
 - [ ] ROTY stake active
 - [ ] ROTY stake valid
 
-### Melting
+### Melting Base
 
 - [ ] Enable gated mint
 - [ ] Eligibility reads Yes
@@ -30,7 +30,7 @@
 - [ ] Melting stake active
 - [ ] Melting stake valid
 
-### Amanda
+### Amanda Base
 
 - [ ] Enable gated mint
 - [ ] Eligibility reads Yes
@@ -40,7 +40,7 @@
 - [ ] Amanda stake active
 - [ ] Amanda stake valid
 
-### Restore
+### Restore Base
 
 - [ ] ROTY whitelist mint OFF
 - [ ] ROTY public mint OFF
@@ -50,7 +50,7 @@
 
 ## Ethereum Sepolia
 
-### ROTY
+### ROTY dETH
 
 - [ ] Enable whitelist mint
 - [ ] Whitelist mint tested or skipped with reason
@@ -61,7 +61,7 @@
 - [ ] ROTY stake active
 - [ ] ROTY stake valid
 
-### Melting
+### Melting dETH
 
 - [ ] Enable gated mint
 - [ ] Eligibility reads Yes
@@ -71,7 +71,7 @@
 - [ ] Melting stake active
 - [ ] Melting stake valid
 
-### Amanda
+### Amanda dETH
 
 - [ ] Enable gated mint
 - [ ] Eligibility reads Yes
@@ -81,7 +81,7 @@
 - [ ] Amanda stake active
 - [ ] Amanda stake valid
 
-### Restore
+### Restore dETH
 
 - [ ] ROTY whitelist mint OFF
 - [ ] ROTY public mint OFF
