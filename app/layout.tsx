@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Web3Providers } from "@/lib/wallet/Web3Providers";
+import { AppEnvironmentBanner } from "@/components/app/AppEnvironmentBanner";
 
 export const metadata: Metadata = {
   title: "OiOi Melting Dashboard",
@@ -16,7 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Web3Providers>{children}</Web3Providers>
+        <Web3Providers>
+          <AppEnvironmentBanner />
+          {children}
+        </Web3Providers>
       </body>
     </html>
   );
