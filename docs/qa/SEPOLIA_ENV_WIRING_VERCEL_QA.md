@@ -4,7 +4,7 @@
 
 - Date:
 - Commit:
-- Vercel URL:
+- Vercel URL: [testnet.softstaking.endhonesa.com](https://testnet.softstaking.endhonesa.com)
 - Testnet domain: [testnet.softstaking.endhonesa.com](https://testnet.softstaking.endhonesa.com)
 - NEXT_PUBLIC_APP_ENV: sepolia
 
