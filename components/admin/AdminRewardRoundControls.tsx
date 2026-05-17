@@ -32,6 +32,8 @@ type TxAction =
   | "pauseClaims"
   | "unpauseClaims";
 
+type RoundMode = "createNew" | "existingManual";
+
 type RewardRoundData = readonly [
   boolean,
   boolean,
@@ -107,6 +109,10 @@ function parseTokenAmount(value: string, decimals: number): bigint | null {
   }
 }
 
+function asBigInt(value: unknown): bigint | undefined {
+  return typeof value === "bigint" ? value : undefined;
+}
+
 function formatUnixTimestamp(value: bigint | undefined) {
   if (value === undefined) {
     return "—";
@@ -121,6 +127,10 @@ function formatUnixTimestamp(value: bigint | undefined) {
   return `${value.toString()} (${date.toISOString()})`;
 }
 
+function maxBigInt(a: bigint, b: bigint) {
+  return a > b ? a : b;
+}
+
 function ReadRow({
   label,
   value,
@@ -131,7 +141,7 @@ function ReadRow({
   warning?: string;
 }) {
   return (
-    <div className="grid gap-2 border-b border-white/10 py-3 last:border-b-0 md:grid-cols-[240px_1fr]">
+    <div className="grid gap-2 border-b border-white/10 py-3 last:border-b-0 md:grid-cols-[260px_1fr]">
       <div>
         <div className="text-sm text-white/60">{label}</div>
         {warning ? (
@@ -150,6 +160,7 @@ function Field({
   onChange,
   placeholder,
   type = "text",
+  readOnly = false,
 }: {
   label: string;
   description?: string;
@@ -157,6 +168,7 @@ function Field({
   onChange: (value: string) => void;
   placeholder?: string;
   type?: string;
+  readOnly?: boolean;
 }) {
   return (
     <label className="block rounded-2xl border border-white/10 bg-black/20 p-4">
@@ -165,9 +177,10 @@ function Field({
         <p className="mt-1 text-xs text-white/50">{description}</p>
       ) : null}
       <input
-        className="mt-3 w-full rounded-xl border border-white/10 bg-black/40 px-3 py-2 font-mono text-sm outline-none focus:border-white/30"
+        className="mt-3 w-full rounded-xl border border-white/10 bg-black/40 px-3 py-2 font-mono text-sm outline-none focus:border-white/30 disabled:cursor-not-allowed disabled:opacity-60"
         onChange={(event) => onChange(event.target.value)}
         placeholder={placeholder}
+        readOnly={readOnly}
         type={type}
         value={value}
       />
@@ -238,6 +251,7 @@ export function AdminRewardRoundControls({
   const { address: connectedAddress, isConnected } = useAccount();
   const addresses = getContractAddresses(chainSet);
 
+  const [roundMode, setRoundMode] = useState<RoundMode>("createNew");
   const [roundIdInput, setRoundIdInput] = useState("");
   const [periodStartInput, setPeriodStartInput] = useState("");
   const [periodEndInput, setPeriodEndInput] = useState("");
@@ -350,10 +364,20 @@ export function AdminRewardRoundControls({
   const roundData = rewardRoundRead.data as RewardRoundData | undefined;
   const roundExists = roundData?.[0] === true;
   const roundClaimPaused = roundData?.[1] === true;
+  const roundRewardAmount = roundData?.[4] ?? 0n;
+  const roundFundedAmount = roundData?.[5] ?? 0n;
+  const roundClaimedAmount = roundData?.[6] ?? 0n;
   const roundIsFunded =
     typeof isRoundFundedRead.data === "boolean"
       ? isRoundFundedRead.data
       : false;
+  const allowance = asBigInt(allowanceRead.data) ?? 0n;
+  const amountNeededToFund = roundExists
+    ? maxBigInt(roundRewardAmount - roundFundedAmount, 0n)
+    : rewardAmount ?? 0n;
+  const allowanceSufficient = allowance >= amountNeededToFund;
+  const roundFullyClaimed =
+    roundExists && roundRewardAmount > 0n && roundClaimedAmount >= roundRewardAmount;
 
   const actionDisabledBase =
     !isConnected || !userIsExpectedOwner || isWritePending || receipt.isLoading;
@@ -397,6 +421,32 @@ export function AdminRewardRoundControls({
     });
   }
 
+  function setPeriodEndAndRoundId(nextValue: string) {
+    setPeriodEndInput(nextValue);
+
+    if (roundMode !== "createNew") {
+      return;
+    }
+
+    const parsedPeriodEnd = parseDateTimeToUnix(nextValue);
+
+    if (parsedPeriodEnd !== null) {
+      setRoundIdInput(parsedPeriodEnd.toString());
+    }
+  }
+
+  function changeRoundMode(nextMode: RoundMode) {
+    setRoundMode(nextMode);
+
+    if (nextMode === "createNew") {
+      const parsedPeriodEnd = parseDateTimeToUnix(periodEndInput);
+
+      if (parsedPeriodEnd !== null) {
+        setRoundIdInput(parsedPeriodEnd.toString());
+      }
+    }
+  }
+
   function confirmAction({
     title,
     lines,
@@ -435,6 +485,8 @@ export function AdminRewardRoundControls({
         `Token: ${addresses.oioi}`,
         `Spender: ${addresses.rewardDistributor}`,
         `Amount: ${approveAmountInput} ${tokenSymbol}`,
+        `Selected round: ${roundId?.toString() ?? "invalid"}`,
+        `Amount still needed to fund: ${formatTokenAmount({ value: amountNeededToFund })}`,
       ],
     });
 
@@ -501,6 +553,8 @@ export function AdminRewardRoundControls({
         `Round ID: ${roundId.toString()}`,
         `Fund amount: ${fundAmountInput} ${tokenSymbol}`,
         `RewardDistributor: ${addresses.rewardDistributor}`,
+        `Current allowance: ${formatTokenAmount({ value: allowance })}`,
+        `Amount still needed to fund: ${formatTokenAmount({ value: amountNeededToFund })}`,
       ],
     });
 
@@ -548,6 +602,7 @@ export function AdminRewardRoundControls({
 
   const createRoundDisabled =
     actionDisabledBase ||
+    roundMode !== "createNew" ||
     roundId === null ||
     periodStart === null ||
     periodEnd === null ||
@@ -555,16 +610,52 @@ export function AdminRewardRoundControls({
     merkleRoot === null ||
     roundExists;
 
-  const approveDisabled = actionDisabledBase || approveAmount === null;
+  const approveDisabled =
+    actionDisabledBase ||
+    approveAmount === null ||
+    !roundExists ||
+    roundIsFunded ||
+    roundFullyClaimed;
 
   const fundDisabled =
     actionDisabledBase ||
     roundId === null ||
     fundAmount === null ||
     !roundExists ||
-    roundIsFunded;
+    roundIsFunded ||
+    !allowanceSufficient ||
+    roundFullyClaimed;
 
-  const pauseDisabled = actionDisabledBase || roundId === null || !roundExists;
+  const pauseDisabled =
+    actionDisabledBase || roundId === null || !roundExists || roundFullyClaimed;
+
+  const suggestedAction = (() => {
+    if (roundId === null) {
+      return "Enter or select a valid round ID.";
+    }
+
+    if (!roundExists) {
+      return "Create the reward round first.";
+    }
+
+    if (roundFullyClaimed) {
+      return "This round appears fully claimed from on-chain counters. Treat as read-only.";
+    }
+
+    if (!roundIsFunded && !allowanceSufficient) {
+      return "Approve enough $OiOi allowance for the selected round.";
+    }
+
+    if (!roundIsFunded && allowanceSufficient) {
+      return "Fund the selected reward round.";
+    }
+
+    if (roundIsFunded) {
+      return "Round is funded. Use pause/unpause only when operationally needed.";
+    }
+
+    return "Review selected round state.";
+  })();
 
   return (
     <section className="grid gap-5">
@@ -572,7 +663,7 @@ export function AdminRewardRoundControls({
         <p className="text-sm uppercase tracking-[0.25em] text-white/50">
           Admin Writes
         </p>
-        <h2 className="mt-2 text-2xl font-semibold">Reward Round Controls</h2>
+        <h2 className="mt-2 text-2xl font-semibold">Reward Round Controls v2</h2>
         <p className="mt-2 text-sm text-white/60">
           Owner-only controls for approving $OiOi, creating reward rounds,
           funding reward rounds, and pausing or unpausing claims.
@@ -581,8 +672,9 @@ export function AdminRewardRoundControls({
         <div className="mt-5 rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-4">
           <div className="font-medium text-yellow-100">Important</div>
           <p className="mt-2 text-sm text-yellow-100/80">
-            This UI does not calculate rewards. Use only with reviewed output
-            from the Supabase-backed indexer and reward calculator.
+            This UI still uses manual/test inputs until Supabase indexer and
+            reward calculator are implemented. The final workflow should use a
+            database-backed round selector and calculator output.
           </p>
         </div>
       </section>
@@ -594,35 +686,72 @@ export function AdminRewardRoundControls({
         <div className="mt-3 grid gap-2 text-sm text-blue-100/80">
           <p>
             The RewardDistributor contract does not auto-generate sequential
-            round IDs. The admin/reward pipeline must provide a unique round ID.
+            round IDs. In the chosen v2 workflow, Admin UI/backend uses periodEnd
+            Unix timestamp as the round ID.
           </p>
           <p>
-            Period start and period end are also explicit inputs. In the final
-            workflow, the Supabase indexer/reward calculator should suggest
-            these values from indexed staking and prior reward data.
+            Period start and period end should ultimately come from the Supabase
+            indexer and reward calculator. Manual date inputs here are only for
+            testing contract write flow.
           </p>
           <p>
-            Approval does not fund the round. Approval only allows the
-            RewardDistributor to pull $OiOi. Funding happens separately through
-            Fund Reward Round.
+            Approval is global ERC20 allowance, not per-round status. The UI
+            treats approval as ready only when allowance is enough to fund the
+            selected round.
           </p>
+        </div>
+      </section>
+
+      <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
+        <h3 className="text-2xl font-semibold">Round selector</h3>
+        <p className="mt-2 text-sm text-white/60">
+          Existing round dropdown will be powered by Supabase reward round data.
+          Until that backend exists, use manual existing round ID mode.
+        </p>
+
+        <div className="mt-5 grid gap-4 md:grid-cols-2">
+          <label className="block rounded-2xl border border-white/10 bg-black/20 p-4">
+            <div className="font-medium">Round mode</div>
+            <p className="mt-1 text-xs text-white/50">
+              Create new auto-fills round ID from period end. Existing round
+              allows manual round ID lookup until Supabase dropdown exists.
+            </p>
+            <select
+              className="mt-3 w-full rounded-xl border border-white/10 bg-black/40 px-3 py-2 text-sm outline-none focus:border-white/30"
+              onChange={(event) => changeRoundMode(event.target.value as RoundMode)}
+              value={roundMode}
+            >
+              <option value="createNew">Create new round</option>
+              <option value="existingManual">Existing round / manual ID</option>
+            </select>
+          </label>
+
+          <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+            <div className="font-medium">Suggested action</div>
+            <p className="mt-3 text-sm text-white/70">{suggestedAction}</p>
+          </div>
         </div>
       </section>
 
       <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
         <h3 className="text-2xl font-semibold">Reward round input</h3>
         <p className="mt-2 text-sm text-white/60">
-          Use the same round ID, period, amount, and Merkle root generated by the
-          reward pipeline. Reward amount auto-fills approve and fund amounts
-          unless you have manually edited them.
+          For create new mode, round ID is automatically set to periodEnd Unix
+          timestamp. Reward amount auto-fills approve and fund amounts unless
+          they were manually edited.
         </p>
 
         <div className="mt-5 grid gap-4 md:grid-cols-2">
           <Field
             label="Round ID"
-            description="Unique uint256 round ID. Later, the reward pipeline can suggest this."
+            description={
+              roundMode === "createNew"
+                ? "Auto-generated from period end Unix timestamp."
+                : "Manual lookup for existing round until Supabase dropdown exists."
+            }
             onChange={setRoundIdInput}
             placeholder="1778842307"
+            readOnly={roundMode === "createNew"}
             value={roundIdInput}
           />
           <Field
@@ -641,7 +770,7 @@ export function AdminRewardRoundControls({
           />
           <Field
             label={`Approve amount (${tokenSymbol})`}
-            description="Amount to approve RewardDistributor to spend. Must be at least fund amount."
+            description="Amount to approve RewardDistributor to spend. Must be at least amount needed to fund."
             onChange={setApproveAmountInput}
             placeholder="1000"
             value={approveAmountInput}
@@ -655,8 +784,8 @@ export function AdminRewardRoundControls({
           />
           <Field
             label="Period end"
-            description="Reward period end. Usually the reward calculation cutoff time."
-            onChange={setPeriodEndInput}
+            description="Reward period end. In create-new mode this becomes roundId."
+            onChange={setPeriodEndAndRoundId}
             type="datetime-local"
             value={periodEndInput}
           />
@@ -676,10 +805,14 @@ export function AdminRewardRoundControls({
       <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
         <h3 className="text-2xl font-semibold">Input validation</h3>
         <p className="mt-2 text-sm text-white/60">
-          This shows how the admin UI parses your reward round inputs.
+          This shows how the admin UI parses your reward round inputs and derives action state.
         </p>
 
         <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 px-4">
+          <ReadRow
+            label="Round mode"
+            value={roundMode === "createNew" ? "Create new" : "Existing manual"}
+          />
           <ReadRow
             label="Round ID parsed"
             value={roundId === null ? "Invalid" : roundId.toString()}
@@ -722,13 +855,22 @@ export function AdminRewardRoundControls({
           <ReadRow label="Round exists" value={formatBool(roundExists)} />
           <ReadRow label="Round funded" value={formatBool(roundIsFunded)} />
           <ReadRow label="Claim paused" value={formatBool(roundClaimPaused)} />
+          <ReadRow
+            label="Amount needed to fund"
+            value={formatTokenAmount({ value: amountNeededToFund })}
+          />
+          <ReadRow
+            label="Allowance sufficient"
+            value={formatBool(allowanceSufficient)}
+          />
+          <ReadRow label="Round fully claimed" value={formatBool(roundFullyClaimed)} />
         </div>
       </section>
 
       <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
         <h3 className="text-2xl font-semibold">Reward round read</h3>
         <p className="mt-2 text-sm text-white/60">
-          Enter a round ID above to inspect the round before writing.
+          Enter or auto-generate a round ID to inspect the round before writing.
         </p>
 
         <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 px-4">
@@ -804,21 +946,21 @@ export function AdminRewardRoundControls({
 
       <section className="grid gap-4 md:grid-cols-2">
         <button
-          className="rounded-3xl border border-blue-500/30 bg-blue-500/10 p-5 font-medium text-blue-100 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={approveDisabled}
-          onClick={() => void approveRewardFunding()}
-          type="button"
-        >
-          Approve $OiOi Funding
-        </button>
-
-        <button
           className="rounded-3xl border border-green-500/30 bg-green-500/10 p-5 font-medium text-green-100 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={createRoundDisabled}
           onClick={() => void createRewardRound()}
           type="button"
         >
           Create Reward Round
+        </button>
+
+        <button
+          className="rounded-3xl border border-blue-500/30 bg-blue-500/10 p-5 font-medium text-blue-100 disabled:cursor-not-allowed disabled:opacity-40"
+          disabled={approveDisabled}
+          onClick={() => void approveRewardFunding()}
+          type="button"
+        >
+          Approve $OiOi Funding
         </button>
 
         <button
