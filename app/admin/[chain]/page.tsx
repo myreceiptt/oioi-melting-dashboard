@@ -6,6 +6,7 @@ import { ChainGuard } from "@/components/wallet/ChainGuard";
 import { getAdminChainConfig } from "@/lib/admin/adminContractConfig";
 import type { ChainSet } from "@/lib/chains/chainConfig";
 import { AdminReadCards } from "@/components/admin/AdminReadCards";
+import { AdminStakingRegistryControls } from "@/components/admin/AdminStakingRegistryControls";
 import { AdminMintPhaseControls } from "@/components/admin/AdminMintPhaseControls";
 import { AdminPricingTreasuryRoyaltyControls } from "@/components/admin/AdminPricingTreasuryRoyaltyControls";
 import { AdminMetadataControls } from "@/components/admin/AdminMetadataControls";
@@ -62,6 +63,7 @@ export default async function AdminChainPage({
       <ChainGuard chainSet={chain}>
         <AdminOwnerGate />
         <AdminReadCards chainSet={chain} />
+        <AdminStakingRegistryControls chainSet={chain} />
         <AdminMintPhaseControls chainSet={chain} />
         <AdminPricingTreasuryRoyaltyControls chainSet={chain} />
         <AdminMetadataControls chainSet={chain} />
