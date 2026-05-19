@@ -150,7 +150,7 @@ export default function HomePage() {
 
       <section>
         <div className="mb-4">
-          <h2 className="text-2xl font-semibold">User Admin</h2>
+          <h2 className="text-2xl font-semibold">Admin Dashboard</h2>
           <p className="mt-2 text-sm text-white/60">
             Owner-only controls for mint phases, metadata, staking registry,
             reward rounds, and emergency actions.
