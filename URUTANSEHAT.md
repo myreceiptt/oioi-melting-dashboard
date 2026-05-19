@@ -1,13 +1,13 @@
 # Urutan Sehat - Abadi Nan Jaya
 
 1. Lock Testnet Contract Deployment — DONE
-   ✅ Testnet deployment completed.
-   ✅ Verification completed.
-   ✅ Read checks completed.
-   ✅ Functional tests completed.
-   ✅ Mint phases restored OFF.
-   ✅ Do not change deploy scripts unless fatal bug.
-   ✅ Indexer block number recorded manually from explorer, not by changing deploy flow.
+   - ✅ Testnet deployment completed.
+   - ✅ Verification completed.
+   - ✅ Read checks completed.
+   - ✅ Functional tests completed.
+   - ✅ Mint phases restored OFF.
+   - ✅ Do not change deploy scripts unless fatal bug.
+   - ✅ Indexer block number recorded manually from explorer, not by changing deploy flow.
 
 2. Complete Testnet Frontend Application — DONE
    ✅ Frontend skeleton done.
