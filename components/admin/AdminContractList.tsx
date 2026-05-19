@@ -23,17 +23,10 @@ function riskBadgeClass(risk: string) {
   return "border-white/10 bg-white/5 text-white/70";
 }
 
-function ActionPill({
-  label,
-  risk,
-}: {
-  label: string;
-  risk: string;
-}) {
+function ActionPill({ label, risk }: { label: string; risk: string }) {
   return (
     <span
-      className={`rounded-full border px-3 py-1 text-xs ${riskBadgeClass(risk)}`}
-    >
+      className={`rounded-full border px-3 py-1 text-xs ${riskBadgeClass(risk)}`}>
       {label}
     </span>
   );
@@ -48,11 +41,22 @@ export function AdminContractList({
 }) {
   return (
     <section className="grid gap-5">
+      <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
+        <p className="text-sm uppercase tracking-[0.25em] text-white/50">
+          Contract List
+        </p>
+        <h2 className="mt-2 text-2xl font-semibold">Admin Contract List</h2>
+        <p className="mt-2 text-sm text-white/60">
+          Owner-only controls for whitelist, public, and gated mint phases.
+          Every action requires confirmation and should be tested before
+          opening.
+        </p>
+      </section>
+
       {contracts.map((contract) => (
         <article
           className="rounded-3xl border border-white/10 bg-white/5 p-6"
-          key={contract.key}
-        >
+          key={contract.key}>
           <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
             <div>
               <p className="text-sm uppercase tracking-[0.25em] text-white/40">
@@ -68,8 +72,7 @@ export function AdminContractList({
               className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5"
               href={getAddressUrl(chainSet, contract.address)}
               rel="noreferrer"
-              target="_blank"
-            >
+              target="_blank">
               View {contract.explorerLabel}
             </a>
           </div>
@@ -104,7 +107,7 @@ export function AdminContractList({
             <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
               <div className="font-medium">Write actions</div>
               <p className="mt-1 text-sm text-white/50">
-                Skeleton only. Transaction forms will be added in later stages.
+                Transaction forms available in the next sections.
               </p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {contract.writeActions.map((action) => (

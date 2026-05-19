@@ -135,9 +135,9 @@ export function GatedMintPanel({ config }: { config: CollectionConfig }) {
   }
 
   return (
-    <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
+    <article className="rounded-3xl border border-white/10 bg-white/5 p-6">
       <div>
-        <p className="text-sm uppercase tracking-[0.25em] text-white/50">
+        <p className="text-sm uppercase tracking-[0.25em] text-white/40">
           Staking-Gated Mint
         </p>
         <h2 className="mt-2 text-2xl font-semibold">{config.name}</h2>
@@ -146,15 +146,15 @@ export function GatedMintPanel({ config }: { config: CollectionConfig }) {
         </p>
       </div>
 
-      <div className="mt-6 grid gap-3 rounded-2xl border border-white/10 bg-black/20 p-4">
-        <div className="flex items-center justify-between gap-4">
+      <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 px-4">
+        <div className="flex items-center justify-between gap-4 border-b border-white/10 py-3 last:border-b-0">
           <span className="text-sm text-white/60">Gated mint enabled</span>
           <span className="font-mono text-sm">
             {mintState.gatedMintEnabled ? "Yes" : "No"}
           </span>
         </div>
 
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center justify-between gap-4 border-b border-white/10 py-3 last:border-b-0">
           <span className="text-sm text-white/60">This wallet eligible</span>
           <span className="font-mono text-sm">
             {eligibility.eligible === undefined
@@ -165,21 +165,21 @@ export function GatedMintPanel({ config }: { config: CollectionConfig }) {
           </span>
         </div>
 
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center justify-between gap-4 border-b border-white/10 py-3 last:border-b-0">
           <span className="text-sm text-white/60">Remaining supply</span>
           <span className="font-mono text-sm">
             {formatNumber(mintState.remainingSupply)}
           </span>
         </div>
 
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center justify-between gap-4 border-b border-white/10 py-3 last:border-b-0">
           <span className="text-sm text-white/60">Max mint per tx</span>
           <span className="font-mono text-sm">
             {formatNumber(mintState.maxMintPerTx)}
           </span>
         </div>
 
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center justify-between gap-4 border-b border-white/10 py-3 last:border-b-0">
           <span className="text-sm text-white/60">Unit price</span>
           <span className="font-mono text-sm">
             {formatEth(mintState.mintPrice)}
@@ -250,6 +250,6 @@ export function GatedMintPanel({ config }: { config: CollectionConfig }) {
           </p>
         </div>
       ) : null}
-    </section>
+    </article>
   );
 }

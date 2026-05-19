@@ -43,7 +43,7 @@ export function getCollectionConfig(
     return {
       ...common,
       mintType: "roty",
-      name: "The ROTY BASE",
+      name: "ROTY BASE",
       symbol: "ROTYBASE",
       contractAddress: addresses.roty,
     };
@@ -53,7 +53,7 @@ export function getCollectionConfig(
     return {
       ...common,
       mintType: "roty",
-      name: "The ROTY dETH",
+      name: "ROTY dETH",
       symbol: "ROTYDETH",
       contractAddress: addresses.roty,
     };
@@ -73,7 +73,7 @@ export function getCollectionConfig(
     return {
       ...common,
       mintType: "gated",
-      name: "MELTING dETH",
+      name: "Melting dETH",
       symbol: "MELTDETH",
       contractAddress: addresses.melting,
     };

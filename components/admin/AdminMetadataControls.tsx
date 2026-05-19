@@ -9,10 +9,7 @@ import {
   useWriteContract,
 } from "wagmi";
 import type { ChainSet } from "@/lib/chains/chainConfig";
-import {
-  gatedMintAdminAbi,
-  rotyAdminAbi,
-} from "@/lib/contracts/abis";
+import { gatedMintAdminAbi, rotyAdminAbi } from "@/lib/contracts/abis";
 import { getContractAddresses } from "@/lib/contracts/addresses";
 import { EXPECTED_ADMIN_OWNER_ADDRESS } from "@/lib/admin/adminContractConfig";
 import { getTxUrl } from "@/lib/services/explorer";
@@ -127,8 +124,7 @@ function TxStatus({
           className="mt-2 block break-all font-mono underline underline-offset-4"
           href={getTxUrl(chainSet, txHash)}
           rel="noreferrer"
-          target="_blank"
-        >
+          target="_blank">
           {txHash}
         </a>
       ) : null}
@@ -447,7 +443,7 @@ function MetadataCollectionControls({
           </p>
           <h3 className="mt-2 text-2xl font-semibold">{config.label}</h3>
           <p className="mt-2 max-w-2xl text-sm text-white/60">
-            Update unrevealed metadata, revealed base URI, tokenURI extension,
+            Update unrevealed URI, revealed base URI, base extension,
             reveal state, and final metadata lock.
           </p>
         </div>
@@ -467,7 +463,8 @@ function MetadataCollectionControls({
           label="Owner"
           value={shortAddress(ownerAddress)}
           warning={
-            ownerAddress && !sameAddress(ownerAddress, EXPECTED_ADMIN_OWNER_ADDRESS)
+            ownerAddress &&
+            !sameAddress(ownerAddress, EXPECTED_ADMIN_OWNER_ADDRESS)
               ? "Owner differs from expected admin."
               : undefined
           }
@@ -513,14 +510,13 @@ function MetadataCollectionControls({
           className="rounded-2xl border border-yellow-500/30 bg-yellow-500/10 px-5 py-3 font-medium text-yellow-100 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={actionDisabledBase || unrevealedInput.trim() === ""}
           onClick={() => void setUnrevealedURI()}
-          type="button"
-        >
+          type="button">
           Set Unrevealed URI
         </button>
 
         <Field
           label="New revealed base URI"
-          description="Used while revealed=true. Confirm trailing slash and tokenURI format."
+          description="Used while revealed=true. Confirm trailing slash and token URI format."
           onChange={setRevealedBaseInput}
           placeholder={revealedBaseURI ?? "ipfs://.../"}
           value={revealedBaseInput}
@@ -530,8 +526,7 @@ function MetadataCollectionControls({
           className="rounded-2xl border border-yellow-500/30 bg-yellow-500/10 px-5 py-3 font-medium text-yellow-100 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={actionDisabledBase || revealedBaseInput.trim() === ""}
           onClick={() => void setRevealedBaseURI()}
-          type="button"
-        >
+          type="button">
           Set Revealed Base URI
         </button>
 
@@ -547,8 +542,7 @@ function MetadataCollectionControls({
           className="rounded-2xl border border-yellow-500/30 bg-yellow-500/10 px-5 py-3 font-medium text-yellow-100 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={actionDisabledBase}
           onClick={() => void setBaseExtension()}
-          type="button"
-        >
+          type="button">
           Set Base Extension
         </button>
       </div>
@@ -556,10 +550,11 @@ function MetadataCollectionControls({
       <div className="mt-5 grid gap-3 md:grid-cols-2">
         <button
           className="rounded-2xl border border-green-500/30 bg-green-500/10 px-5 py-3 font-medium text-green-100 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={actionDisabledBase || revealed === true || revealedBaseUriIsPending}
+          disabled={
+            actionDisabledBase || revealed === true || revealedBaseUriIsPending
+          }
           onClick={() => void setRevealed(true)}
-          type="button"
-        >
+          type="button">
           Reveal Metadata
         </button>
 
@@ -567,8 +562,7 @@ function MetadataCollectionControls({
           className="rounded-2xl border border-orange-500/30 bg-orange-500/10 px-5 py-3 font-medium text-orange-100 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={actionDisabledBase || revealed === false}
           onClick={() => void setRevealed(false)}
-          type="button"
-        >
+          type="button">
           Set Unrevealed
         </button>
       </div>
@@ -584,8 +578,7 @@ function MetadataCollectionControls({
           className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 px-5 py-3 font-medium text-red-100 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={actionDisabledBase}
           onClick={() => void lockMetadata()}
-          type="button"
-        >
+          type="button">
           Lock Metadata
         </button>
       </div>
@@ -621,13 +614,13 @@ export function AdminMetadataControls({ chainSet }: { chainSet: ChainSet }) {
   const collections: MetadataCollectionConfig[] = [
     {
       key: "roty",
-      label: chainSet === "base" ? "The ROTY BASE" : "The ROTY dETH",
+      label: chainSet === "base" ? "ROTY BASE" : "ROTY dETH",
       address: addresses.roty,
       abi: rotyAdminAbi,
     },
     {
       key: "melting",
-      label: chainSet === "base" ? "Melting BASE" : "MELTING dETH",
+      label: chainSet === "base" ? "Melting BASE" : "Melting dETH",
       address: addresses.melting,
       abi: gatedMintAdminAbi,
     },
@@ -647,7 +640,7 @@ export function AdminMetadataControls({ chainSet }: { chainSet: ChainSet }) {
         </p>
         <h2 className="mt-2 text-2xl font-semibold">Metadata Controls</h2>
         <p className="mt-2 text-sm text-white/60">
-          Owner-only controls for unrevealed URI, revealed base URI, tokenURI
+          Owner-only controls for unrevealed URI, revealed base URI, token URI
           extension, reveal state, and irreversible metadata lock.
         </p>
 

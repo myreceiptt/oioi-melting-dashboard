@@ -168,7 +168,7 @@ Chain: Ethereum
 Testnet: Ethereum Sepolia
 Collections:
 - ROTY dETH
-- MELTING dETH
+- Melting dETH
 - Amanda dETH
 
 Contracts:
@@ -200,7 +200,7 @@ Melting
 Amanda
 ```
 
-#### OiOiSoftStaking
+#### OiOi Soft Staking
 
 ```text
 Staked(user, collection, tokenId, timestamp)
@@ -208,7 +208,7 @@ Unstaked(user, collection, tokenId, timestamp)
 CollectionApprovalUpdated(collection, approved)
 ```
 
-#### OiOiRewardDistributor
+#### OiOi Reward Distributor
 
 ```text
 RewardRoundCreated(roundId, periodStart, periodEnd, rewardAmount, merkleRoot)

@@ -114,8 +114,8 @@ The admin overview must show owner state for:
 ROTY
 Melting
 Amanda
-OiOiSoftStaking
-OiOiRewardDistributor
+OiOi Soft Staking
+OiOi Reward Distributor
 ```
 
 If any owner differs from the expected deployer/owner, show a warning.

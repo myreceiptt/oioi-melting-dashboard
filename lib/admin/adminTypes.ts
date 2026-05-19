@@ -17,10 +17,11 @@ export type AdminContractGroup =
   | "oioi";
 
 export type AdminContractKind =
-  | "nft-roty"
-  | "nft-gated"
-  | "staking"
-  | "reward-distributor"
+  | "roty base deth"
+  | "the melting land"
+  | "amanda wives"
+  | "soft staking"
+  | "reward distributor"
   | "erc20";
 
 export type AdminActionMode = "read" | "write";

@@ -210,7 +210,7 @@ function buildBaseConfig(args: {
       roty: {
         key: "roty",
         contractName: "TheRotyMemorial",
-        name: "The ROTY BASE",
+        name: "ROTY BASE",
         symbol: "ROTYBASE",
         maxSupply: 1047,
         mintPriceWei: parseEther("0.001047"),
@@ -261,7 +261,7 @@ function buildEthereumConfig(args: {
       roty: {
         key: "roty",
         contractName: "TheRotyMemorial",
-        name: "The ROTY dETH",
+        name: "ROTY dETH",
         symbol: "ROTYDETH",
         maxSupply: 1047,
         mintPriceWei: parseEther("0.01047"),
@@ -272,7 +272,7 @@ function buildEthereumConfig(args: {
       melting: {
         key: "melting",
         contractName: "MeltingMemorial",
-        name: "MELTING dETH",
+        name: "Melting dETH",
         symbol: "MELTDETH",
         maxSupply: 1747,
         mintPriceWei: parseEther("0.01747"),

@@ -9,10 +9,7 @@ import {
   useWriteContract,
 } from "wagmi";
 import type { ChainSet } from "@/lib/chains/chainConfig";
-import {
-  gatedMintAdminAbi,
-  rotyAdminAbi,
-} from "@/lib/contracts/abis";
+import { gatedMintAdminAbi, rotyAdminAbi } from "@/lib/contracts/abis";
 import { getContractAddresses } from "@/lib/contracts/addresses";
 import { EXPECTED_ADMIN_OWNER_ADDRESS } from "@/lib/admin/adminContractConfig";
 import { getTxUrl } from "@/lib/services/explorer";
@@ -38,9 +35,7 @@ type PhaseControlConfig = {
 };
 
 function isExpectedOwner(address: string | undefined) {
-  return Boolean(
-    address && sameAddress(address, EXPECTED_ADMIN_OWNER_ADDRESS),
-  );
+  return Boolean(address && sameAddress(address, EXPECTED_ADMIN_OWNER_ADDRESS));
 }
 
 function PhaseControlCard({
@@ -197,8 +192,7 @@ function PhaseControlCard({
           className="rounded-2xl border border-green-500/30 bg-green-500/10 px-5 py-3 font-medium text-green-100 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={actionDisabled || currentValue === true}
           onClick={() => void requestPhaseChange(true)}
-          type="button"
-        >
+          type="button">
           Enable
         </button>
 
@@ -206,8 +200,7 @@ function PhaseControlCard({
           className="rounded-2xl border border-red-500/30 bg-red-500/10 px-5 py-3 font-medium text-red-100 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={actionDisabled || currentValue === false}
           onClick={() => void requestPhaseChange(false)}
-          type="button"
-        >
+          type="button">
           Disable
         </button>
       </div>
@@ -235,8 +228,7 @@ function PhaseControlCard({
             className="mt-2 block break-all font-mono underline underline-offset-4"
             href={getTxUrl(chainSet, txHash)}
             rel="noreferrer"
-            target="_blank"
-          >
+            target="_blank">
             {txHash}
           </a>
           <div className="mt-2 text-white/60">
@@ -277,7 +269,7 @@ export function AdminMintPhaseControls({ chainSet }: { chainSet: ChainSet }) {
         "Enable or disable free whitelist mint for whitelisted ROTY wallets.",
       warning:
         "Only enable after whitelist root, public proof file, frontend proof lookup, and final QA are confirmed.",
-      contractLabel: chainSet === "base" ? "The ROTY BASE" : "The ROTY dETH",
+      contractLabel: chainSet === "base" ? "ROTY BASE" : "ROTY dETH",
       address: addresses.roty,
       abi: rotyAdminAbi,
       readFunctionName: "whitelistMintEnabled",
@@ -289,7 +281,7 @@ export function AdminMintPhaseControls({ chainSet }: { chainSet: ChainSet }) {
       description: "Enable or disable paid public ROTY mint.",
       warning:
         "Only enable after pricing, treasury, supply, frontend, and monitoring are ready. Public mint allows paid minting.",
-      contractLabel: chainSet === "base" ? "The ROTY BASE" : "The ROTY dETH",
+      contractLabel: chainSet === "base" ? "ROTY BASE" : "ROTY dETH",
       address: addresses.roty,
       abi: rotyAdminAbi,
       readFunctionName: "publicMintEnabled",
@@ -302,7 +294,7 @@ export function AdminMintPhaseControls({ chainSet }: { chainSet: ChainSet }) {
         "Enable or disable Melting paid gated mint for wallets with valid ROTY soft stake.",
       warning:
         "Only enable after ROTY staking eligibility, mint price, and frontend gated mint QA are confirmed.",
-      contractLabel: chainSet === "base" ? "Melting BASE" : "MELTING dETH",
+      contractLabel: chainSet === "base" ? "Melting BASE" : "Melting dETH",
       address: addresses.melting,
       abi: gatedMintAdminAbi,
       readFunctionName: "gatedMintEnabled",
@@ -314,7 +306,7 @@ export function AdminMintPhaseControls({ chainSet }: { chainSet: ChainSet }) {
       description:
         "Enable or disable Amanda paid gated mint for wallets with valid ROTY or Melting soft stake.",
       warning:
-        "Only enable after ROTY/Melting staking eligibility, mint price, and frontend gated mint QA are confirmed.",
+        "Only enable after ROTY and/or Melting staking eligibility, mint price, and frontend gated mint QA are confirmed.",
       contractLabel: chainSet === "base" ? "Amanda BASE" : "Amanda dETH",
       address: addresses.amanda,
       abi: gatedMintAdminAbi,
@@ -332,8 +324,8 @@ export function AdminMintPhaseControls({ chainSet }: { chainSet: ChainSet }) {
         <h2 className="mt-2 text-2xl font-semibold">Mint Phase Controls</h2>
         <p className="mt-2 text-sm text-white/60">
           Owner-only controls for whitelist, public, and gated mint phases.
-          Every action requires confirmation and should be tested on Sepolia
-          before mainnet opening.
+          Every action requires confirmation and should be tested before
+          opening.
         </p>
       </section>
 

@@ -10,19 +10,12 @@ import {
   useWriteContract,
 } from "wagmi";
 import type { ChainSet } from "@/lib/chains/chainConfig";
-import {
-  gatedMintAdminAbi,
-  rotyAdminAbi,
-} from "@/lib/contracts/abis";
+import { gatedMintAdminAbi, rotyAdminAbi } from "@/lib/contracts/abis";
 import { getContractAddresses } from "@/lib/contracts/addresses";
 import { EXPECTED_ADMIN_OWNER_ADDRESS } from "@/lib/admin/adminContractConfig";
 import { getTxUrl } from "@/lib/services/explorer";
 import { sameAddress } from "@/lib/utils/address";
-import {
-  formatEth,
-  formatNumber,
-  shortAddress,
-} from "@/lib/utils/format";
+import { formatEth, formatNumber, shortAddress } from "@/lib/utils/format";
 
 type FinancialAction = "setMintPrice" | "setTreasury" | "setDefaultRoyalty";
 
@@ -67,7 +60,8 @@ function parseRoyaltyPercentToFeeNumerator(value: string): bigint | null {
   }
 
   const [wholePart, decimalPart = ""] = clean.split(".");
-  const basisPoints = BigInt(wholePart) * 100n + BigInt(decimalPart.padEnd(2, "0"));
+  const basisPoints =
+    BigInt(wholePart) * 100n + BigInt(decimalPart.padEnd(2, "0"));
 
   if (basisPoints > 10_000n) {
     return null;
@@ -169,8 +163,7 @@ function TxStatus({
           className="mt-2 block break-all font-mono underline underline-offset-4"
           href={getTxUrl(chainSet, txHash)}
           rel="noreferrer"
-          target="_blank"
-        >
+          target="_blank">
           {txHash}
         </a>
       ) : null}
@@ -431,14 +424,18 @@ function FinancialCollectionControls({
           label="Owner"
           value={shortAddress(ownerAddress)}
           warning={
-            ownerAddress && !sameAddress(ownerAddress, EXPECTED_ADMIN_OWNER_ADDRESS)
+            ownerAddress &&
+            !sameAddress(ownerAddress, EXPECTED_ADMIN_OWNER_ADDRESS)
               ? "Owner differs from expected admin."
               : undefined
           }
         />
         <ReadRow label="Mint price" value={formatEth(mintPrice)} />
         <ReadRow label="Treasury" value={shortAddress(treasury)} />
-        <ReadRow label="Royalty receiver" value={shortAddress(royaltyReceiver)} />
+        <ReadRow
+          label="Royalty receiver"
+          value={shortAddress(royaltyReceiver)}
+        />
         <ReadRow
           label="Royalty for 1 ETH sale"
           value={`${formatEth(royaltyAmountForOneEth)} (${formatRoyaltyPercentFromAmount(
@@ -467,8 +464,7 @@ function FinancialCollectionControls({
           className="rounded-2xl border border-yellow-500/30 bg-yellow-500/10 px-5 py-3 font-medium text-yellow-100 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={actionDisabledBase || parsedMintPrice === null}
           onClick={() => void setMintPrice()}
-          type="button"
-        >
+          type="button">
           Set Mint Price
         </button>
 
@@ -484,15 +480,14 @@ function FinancialCollectionControls({
           className="rounded-2xl border border-red-500/30 bg-red-500/10 px-5 py-3 font-medium text-red-100 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={actionDisabledBase || !parsedTreasury}
           onClick={() => void setTreasury()}
-          type="button"
-        >
+          type="button">
           Set Treasury
         </button>
 
         <div className="grid gap-4 md:grid-cols-2">
           <Field
             label="New royalty receiver"
-            description="Address returned by royaltyInfo."
+            description="Address that receives future royalty."
             onChange={setRoyaltyReceiverInput}
             placeholder={royaltyReceiver ?? "0x..."}
             value={royaltyReceiverInput}
@@ -515,8 +510,7 @@ function FinancialCollectionControls({
             parsedRoyaltyFeeNumerator === null
           }
           onClick={() => void setDefaultRoyalty()}
-          type="button"
-        >
+          type="button">
           Set Default Royalty
         </button>
       </div>
@@ -525,8 +519,7 @@ function FinancialCollectionControls({
         <div className="font-medium text-yellow-100">Operational warning</div>
         <p className="mt-2 text-sm text-yellow-100/80">
           These values affect future paid mints and marketplace royalty
-          reporting. Test on Sepolia and confirm values before any mainnet
-          opening.
+          reporting. Test and confirm values before opening.
         </p>
       </section>
 
@@ -565,13 +558,13 @@ export function AdminPricingTreasuryRoyaltyControls({
   const collections: FinancialCollectionConfig[] = [
     {
       key: "roty",
-      label: chainSet === "base" ? "The ROTY BASE" : "The ROTY dETH",
+      label: chainSet === "base" ? "ROTY BASE" : "ROTY dETH",
       address: addresses.roty,
       abi: rotyAdminAbi,
     },
     {
       key: "melting",
-      label: chainSet === "base" ? "Melting BASE" : "MELTING dETH",
+      label: chainSet === "base" ? "Melting BASE" : "Melting dETH",
       address: addresses.melting,
       abi: gatedMintAdminAbi,
     },

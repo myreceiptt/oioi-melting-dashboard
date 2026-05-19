@@ -5,7 +5,7 @@ import { getAddress, parseEther, zeroHash, type Address } from "viem";
 
 const TREASURY_ASSERTION_NOTE = "treasury should receive paid mint ETH";
 
-const ROTY_NAME = "The ROTY dETH";
+const ROTY_NAME = "ROTY dETH";
 const ROTY_SYMBOL = "ROTYDETH";
 const ROTY_PRICE = parseEther("0.01047");
 const ROTY_UNREVEALED_URI =
@@ -13,7 +13,7 @@ const ROTY_UNREVEALED_URI =
 const ROTY_REVEALED_BASE_URI =
   "ipfs://bafybeigzgy6jngo4lvdqukwge2e3nwtgmnt7kpkmg7p2mmi2zrr5atmm3a/";
 
-const MELTING_NAME = "MELTING dETH";
+const MELTING_NAME = "Melting dETH";
 const MELTING_SYMBOL = "MELTDETH";
 const MELTING_PRICE = parseEther("0.01747");
 const MELTING_UNREVEALED_URI =
@@ -45,7 +45,7 @@ function sameAddress(a: unknown, b: unknown) {
 }
 
 describe("Ethereum lifecycle integration", function () {
-  it("runs ROTY dETH mint → stake → MELTING dETH mint → stake → Amanda dETH mint → reward claim", async function () {
+  it("runs ROTY dETH mint → stake → Melting dETH mint → stake → Amanda dETH mint → reward claim", async function () {
     const { viem } = await network.connect();
 
     const [owner, treasury, royaltyReceiver, user] =
@@ -102,7 +102,7 @@ describe("Ethereum lifecycle integration", function () {
 
     assert.equal(await staking.read.hasValidStake([user.account.address, roty.address]), true);
 
-    // 5. Deploy MELTING dETH with ROTY dETH stake requirement.
+    // 5. Deploy Melting dETH with ROTY dETH stake requirement.
     const melting = await viem.deployContract("MeltingMemorial", [
       MELTING_NAME,
       MELTING_SYMBOL,
@@ -122,7 +122,7 @@ describe("Ethereum lifecycle integration", function () {
       address: treasury.account.address,
     });
 
-    // 6. User mints MELTING dETH through staking-gated paid mint.
+    // 6. User mints Melting dETH through staking-gated paid mint.
     await melting.write.mint([1n], {
       account: user.account,
       value: MELTING_PRICE,
@@ -143,7 +143,7 @@ describe("Ethereum lifecycle integration", function () {
       TREASURY_ASSERTION_NOTE,
     );
 
-    // 7. Register and stake MELTING dETH.
+    // 7. Register and stake Melting dETH.
     await staking.write.setCollectionApproved([melting.address, true]);
 
     await staking.write.stake([melting.address, 1n], {
@@ -152,7 +152,7 @@ describe("Ethereum lifecycle integration", function () {
 
     assert.equal(await staking.read.hasValidStake([user.account.address, melting.address]), true);
 
-    // 8. Deploy Amanda dETH with ROTY dETH or MELTING dETH stake requirement.
+    // 8. Deploy Amanda dETH with ROTY dETH or Melting dETH stake requirement.
     const amanda = await viem.deployContract("AmandaMemorial", [
       AMANDA_NAME,
       AMANDA_SYMBOL,

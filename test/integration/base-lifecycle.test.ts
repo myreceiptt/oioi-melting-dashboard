@@ -5,7 +5,7 @@ import { getAddress, parseEther, zeroHash, type Address } from "viem";
 
 const TREASURY_ASSERTION_NOTE = "treasury should receive paid mint ETH";
 
-const ROTY_NAME = "The ROTY BASE";
+const ROTY_NAME = "ROTY BASE";
 const ROTY_SYMBOL = "ROTYBASE";
 const ROTY_PRICE = parseEther("0.001047");
 const ROTY_UNREVEALED_URI =

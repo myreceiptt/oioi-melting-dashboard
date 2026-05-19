@@ -21,7 +21,7 @@ export function MintStatusCard({ config }: { config: CollectionConfig }) {
   if (mintState.error) {
     return (
       <div className="rounded-3xl border border-red-500/30 bg-red-500/10 p-6">
-        <h2 className="text-xl font-semibold">Contract read failed</h2>
+        <h2 className="text-xl font-semibold">Contract read failed.</h2>
         <p className="mt-2 wrap-break-word text-sm text-red-100/80">
           {mintState.error.message}
         </p>
@@ -30,66 +30,94 @@ export function MintStatusCard({ config }: { config: CollectionConfig }) {
   }
 
   return (
-    <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
-      <div className="flex flex-col gap-2">
+    <section className="grid gap-5">
+      <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
         <p className="text-sm uppercase tracking-[0.25em] text-white/50">
-          Live Contract State
+          NFT Mint Card
         </p>
-        <h2 className="text-2xl font-semibold">{config.name}</h2>
-        <p className="break-all font-mono text-xs text-white/40">
-          {config.contractAddress}
+        <h2 className="mt-2 text-2xl font-semibold">{config.name} Mint</h2>
+        <p className="mt-2 text-sm text-white/60">
+          This card is for the NFT minting. Transaction forms are available
+          below.
         </p>
-      </div>
+      </section>
 
-      {mintState.isLoading ? (
-        <div className="mt-6 rounded-2xl border border-white/10 bg-black/20 p-4 text-white/60">
-          Loading contract state...
+      <article className="rounded-3xl border border-white/10 bg-white/5 p-6">
+        <div>
+          <p className="text-sm uppercase tracking-[0.25em] text-white/40">
+            Live Contract State
+          </p>
+          <h2 className="mt-2 text-2xl font-semibold">{config.name}</h2>
+          <p className="mt-2 text-sm text-white/60">
+            Contract Address:{" "}
+            <span className="break-all font-mono text-sm text-white/40">
+              {config.contractAddress}
+            </span>
+          </p>
         </div>
-      ) : (
-        <div className="mt-6 rounded-2xl border border-white/10 bg-black/20 px-4">
-          <Row label="Total minted" value={formatNumber(mintState.totalMinted)} />
-          <Row label="Remaining supply" value={formatNumber(mintState.remainingSupply)} />
-          <Row label="Max supply" value={formatNumber(mintState.maxSupply)} />
-          <Row label="Max mint per tx" value={formatNumber(mintState.maxMintPerTx)} />
-          <Row label="Mint price" value={formatEth(mintState.mintPrice)} />
-          <Row label="Revealed" value={formatBool(mintState.revealed)} />
-          <Row label="Metadata locked" value={formatBool(mintState.metadataLocked)} />
 
-          {config.mintType === "roty" ? (
-            <>
-              <Row
-                label="Whitelist mint enabled"
-                value={formatBool(mintState.whitelistMintEnabled)}
-              />
-              <Row
-                label="Public mint enabled"
-                value={formatBool(mintState.publicMintEnabled)}
-              />
-              <Row
-                label="This wallet whitelist claimed"
-                value={formatBool(mintState.whitelistClaimed)}
-              />
-            </>
-          ) : (
-            <>
-              <Row
-                label="Gated mint enabled"
-                value={formatBool(mintState.gatedMintEnabled)}
-              />
-              <Row
-                label="This wallet eligible"
-                value={formatBool(eligibility.eligible)}
-              />
-            </>
-          )}
-        </div>
-      )}
+        {mintState.isLoading ? (
+          <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-white/60">
+            Loading contract state...
+          </div>
+        ) : (
+          <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 px-4">
+            <Row
+              label="Total minted"
+              value={formatNumber(mintState.totalMinted)}
+            />
+            <Row
+              label="Remaining supply"
+              value={formatNumber(mintState.remainingSupply)}
+            />
+            <Row label="Max supply" value={formatNumber(mintState.maxSupply)} />
+            <Row
+              label="Max mint per tx"
+              value={formatNumber(mintState.maxMintPerTx)}
+            />
+            <Row label="Mint price" value={formatEth(mintState.mintPrice)} />
+            <Row label="Revealed" value={formatBool(mintState.revealed)} />
+            <Row
+              label="Metadata locked"
+              value={formatBool(mintState.metadataLocked)}
+            />
 
-      {config.mintType === "gated" ? (
-        <div className="mt-4 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm text-white/60">
-          {eligibility.reason}
-        </div>
-      ) : null}
+            {config.mintType === "roty" ? (
+              <>
+                <Row
+                  label="Whitelist mint enabled"
+                  value={formatBool(mintState.whitelistMintEnabled)}
+                />
+                <Row
+                  label="Public mint enabled"
+                  value={formatBool(mintState.publicMintEnabled)}
+                />
+                <Row
+                  label="This wallet whitelist claimed"
+                  value={formatBool(mintState.whitelistClaimed)}
+                />
+              </>
+            ) : (
+              <>
+                <Row
+                  label="Gated mint enabled"
+                  value={formatBool(mintState.gatedMintEnabled)}
+                />
+                <Row
+                  label="This wallet eligible"
+                  value={formatBool(eligibility.eligible)}
+                />
+              </>
+            )}
+          </div>
+        )}
+
+        {config.mintType === "gated" ? (
+          <div className="mt-4 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm text-white/60">
+            {eligibility.reason}
+          </div>
+        ) : null}
+      </article>
     </section>
   );
 }

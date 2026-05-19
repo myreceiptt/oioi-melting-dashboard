@@ -147,8 +147,7 @@ function TxStatus({
           className="mt-2 block break-all font-mono underline underline-offset-4"
           href={getTxUrl(chainSet, txHash)}
           rel="noreferrer"
-          target="_blank"
-        >
+          target="_blank">
           {txHash}
         </a>
       ) : null}
@@ -197,11 +196,7 @@ function typedConfirm({
   return typed === confirmationText;
 }
 
-function RewardDistributorExcessRescue({
-  chainSet,
-}: {
-  chainSet: ChainSet;
-}) {
+function RewardDistributorExcessRescue({ chainSet }: { chainSet: ChainSet }) {
   const { address: connectedAddress, isConnected } = useAccount();
   const addresses = getContractAddresses(chainSet);
 
@@ -331,7 +326,7 @@ function RewardDistributorExcessRescue({
     }
 
     const confirmed = typedConfirm({
-      title: "Rescue excess $OiOi from RewardDistributor",
+      title: "Rescue excess $OiOi from Reward Distributor",
       confirmationText: "RESCUE EXCESS OIOI",
       body: [
         "This action must only rescue excess reward token balance.",
@@ -364,31 +359,31 @@ function RewardDistributorExcessRescue({
     <article className="rounded-3xl border border-red-500/30 bg-red-500/10 p-6">
       <div>
         <p className="text-sm uppercase tracking-[0.25em] text-red-100/60">
-          RewardDistributor emergency
+          Reward Distributor emergency
         </p>
         <h3 className="mt-2 text-2xl font-semibold text-red-100">
           Rescue Excess $OiOi
         </h3>
         <p className="mt-2 max-w-3xl text-sm text-red-100/80">
           Only rescue excess $OiOi that is not allocated to active/unclaimed
-          rewards. This control intentionally blocks amounts greater than
-          excessRewardTokenBalance.
+          rewards or will be blocked.
         </p>
       </div>
 
       <div className="mt-5 rounded-2xl border border-red-500/30 bg-black/20 px-4">
         <ReadRow
-          label="RewardDistributor owner"
+          label="Reward Distributor owner"
           value={shortAddress(ownerAddress)}
           warning={
-            ownerAddress && !sameAddress(ownerAddress, EXPECTED_ADMIN_OWNER_ADDRESS)
+            ownerAddress &&
+            !sameAddress(ownerAddress, EXPECTED_ADMIN_OWNER_ADDRESS)
               ? "Owner differs from expected admin."
               : undefined
           }
         />
         <ReadRow label="Reward token" value={shortAddress(rewardToken)} />
         <ReadRow
-          label="RewardDistributor $OiOi balance"
+          label="Reward Distributor $OiOi balance"
           value={formatTokenAmount({ value: distributorBalance })}
         />
         <ReadRow
@@ -399,7 +394,7 @@ function RewardDistributorExcessRescue({
         <ReadRow
           label="Excess reward token balance"
           value={formatTokenAmount({ value: excess })}
-          warning="This is the maximum rescue amount allowed by this UI."
+          warning="The maximum rescue amount allowed."
         />
       </div>
 
@@ -446,7 +441,9 @@ function RewardDistributorExcessRescue({
           <ReadRow
             label="Amount within excess"
             value={amountExceedsExcess ? "No" : "Yes"}
-            warning={amountExceedsExcess ? "Amount exceeds excess balance." : undefined}
+            warning={
+              amountExceedsExcess ? "Amount exceeds excess balance." : undefined
+            }
           />
         </div>
       </div>
@@ -455,8 +452,7 @@ function RewardDistributorExcessRescue({
         className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 px-5 py-3 font-medium text-red-100 disabled:cursor-not-allowed disabled:opacity-40"
         disabled={actionDisabled}
         onClick={() => void rescueExcessOioi()}
-        type="button"
-      >
+        type="button">
         Rescue Excess $OiOi
       </button>
 
@@ -658,7 +654,12 @@ function ContractRescueControls({
   }
 
   async function rescueErc20() {
-    if (!tokenAddress || !erc20Recipient || erc20Amount === null || erc20ExceedsBalance) {
+    if (
+      !tokenAddress ||
+      !erc20Recipient ||
+      erc20Amount === null ||
+      erc20ExceedsBalance
+    ) {
       return;
     }
 
@@ -667,7 +668,7 @@ function ContractRescueControls({
       confirmationText: "RESCUE ERC20",
       body: [
         "Use only for accidental ERC20 tokens stuck in this NFT contract.",
-        "Do not use this for RewardDistributor allocated reward balances.",
+        "Do not use this for Reward Distributor allocated reward balances.",
         "",
         `Contract: ${config.address}`,
         `Token: ${tokenAddress}`,
@@ -711,7 +712,8 @@ function ContractRescueControls({
           label="Owner"
           value={shortAddress(ownerAddress)}
           warning={
-            ownerAddress && !sameAddress(ownerAddress, EXPECTED_ADMIN_OWNER_ADDRESS)
+            ownerAddress &&
+            !sameAddress(ownerAddress, EXPECTED_ADMIN_OWNER_ADDRESS)
               ? "Owner differs from expected admin."
               : undefined
           }
@@ -752,7 +754,10 @@ function ContractRescueControls({
         </div>
 
         <div className="mt-4 rounded-xl border border-white/10 px-4">
-          <ReadRow label="Recipient valid" value={ethRecipient ? "Yes" : "No"} />
+          <ReadRow
+            label="Recipient valid"
+            value={ethRecipient ? "Yes" : "No"}
+          />
           <ReadRow
             label="Amount parsed"
             value={ethAmount === null ? "Invalid" : formatEth(ethAmount)}
@@ -760,7 +765,11 @@ function ContractRescueControls({
           <ReadRow
             label="Amount within balance"
             value={ethExceedsBalance ? "No" : "Yes"}
-            warning={ethExceedsBalance ? "Amount exceeds contract ETH balance." : undefined}
+            warning={
+              ethExceedsBalance
+                ? "Amount exceeds contract ETH balance."
+                : undefined
+            }
           />
         </div>
 
@@ -768,8 +777,7 @@ function ContractRescueControls({
           className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 px-5 py-3 font-medium text-red-100 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={rescueEthDisabled}
           onClick={() => void rescueEth()}
-          type="button"
-        >
+          type="button">
           Rescue ETH
         </button>
       </section>
@@ -807,7 +815,10 @@ function ContractRescueControls({
             label="Token balance in contract"
             value={formatTokenAmount({ value: erc20ContractBalance })}
           />
-          <ReadRow label="Recipient valid" value={erc20Recipient ? "Yes" : "No"} />
+          <ReadRow
+            label="Recipient valid"
+            value={erc20Recipient ? "Yes" : "No"}
+          />
           <ReadRow
             label="Amount parsed"
             value={
@@ -831,8 +842,7 @@ function ContractRescueControls({
           className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 px-5 py-3 font-medium text-red-100 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={rescueErc20Disabled}
           onClick={() => void rescueErc20()}
-          type="button"
-        >
+          type="button">
           Rescue ERC20
         </button>
       </section>
@@ -872,13 +882,13 @@ export function AdminEmergencyRescueControls({
   const rescueContracts: RescueContractConfig[] = [
     {
       key: "roty",
-      label: chainSet === "base" ? "The ROTY BASE" : "The ROTY dETH",
+      label: chainSet === "base" ? "ROTY BASE" : "ROTY dETH",
       address: addresses.roty,
       abi: rotyAdminAbi,
     },
     {
       key: "melting",
-      label: chainSet === "base" ? "Melting BASE" : "MELTING dETH",
+      label: chainSet === "base" ? "Melting BASE" : "Melting dETH",
       address: addresses.melting,
       abi: gatedMintAdminAbi,
     },
@@ -900,9 +910,8 @@ export function AdminEmergencyRescueControls({
           Emergency / Rescue Controls
         </h2>
         <p className="mt-2 max-w-3xl text-sm text-red-100/80">
-          Emergency controls for rescuing excess reward token balance and
-          accidental assets. These controls should not be used for normal
-          operations.
+          Controls for rescuing excess reward token balance and accidental
+          assets. Should not be used for normal operations.
         </p>
       </section>
 

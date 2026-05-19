@@ -10,21 +10,21 @@
 
 ## Domain Mapping
 
-| Surface | Domain | Internal Route |
-|---|---|---|
-| Home / dashboard surface | https://softstaking.endhonesa.com/ | `/` |
-| Dashboard | https://softstaking.endhonesa.com/dashboard | `/dashboard` |
-| Base dashboard | https://softstaking.endhonesa.com/dashboard/base | `/dashboard/base` |
-| Ethereum dashboard | https://softstaking.endhonesa.com/dashboard/ethereum | `/dashboard/ethereum` |
-| Admin home | https://softstaking.endhonesa.com/admin | `/admin` |
-| Base admin | https://softstaking.endhonesa.com/admin/base | `/admin/base` |
-| Ethereum admin | https://softstaking.endhonesa.com/admin/ethereum | `/admin/ethereum` |
-| ROTY BASE mint | https://rotybase.endhonesa.com/ | `/mint/roty/base` |
-| ROTY dETH mint | https://rotydeth.endhonesa.com/ | `/mint/roty/ethereum` |
-| Melting BASE mint | https://meltingbase.endhonesa.com/ | `/mint/melting/base` |
-| Melting dETH mint | https://meltingdeth.endhonesa.com/ | `/mint/melting/ethereum` |
-| Amanda BASE mint | https://amandabase.endhonesa.com/ | `/mint/amanda/base` |
-| Amanda dETH mint | https://amandadeth.endhonesa.com/ | `/mint/amanda/ethereum` |
+| Surface                  | Domain                                                                     | Internal Route           |
+| ------------------------ | -------------------------------------------------------------------------- | ------------------------ |
+| Home / dashboard surface | [Home / dashboard surface](https://softstaking.endhonesa.com/)             | `/`                      |
+| Dashboard                | [Dashboard](https://softstaking.endhonesa.com/dashboard)                   | `/dashboard`             |
+| Base dashboard           | [Base dashboard](https://softstaking.endhonesa.com/dashboard/base)         | `/dashboard/base`        |
+| Ethereum dashboard       | [Ethereum dashboard](https://softstaking.endhonesa.com/dashboard/ethereum) | `/dashboard/ethereum`    |
+| Admin home               | [Admin home](https://softstaking.endhonesa.com/admin)                      | `/admin`                 |
+| Base admin               | [Base admin](https://softstaking.endhonesa.com/admin/base)                 | `/admin/base`            |
+| Ethereum admin           | [Ethereum admin](https://softstaking.endhonesa.com/admin/ethereum)         | `/admin/ethereum`        |
+| ROTY BASE mint           | [ROTY BASE mint](https://rotybase.endhonesa.com/)                          | `/mint/roty/base`        |
+| ROTY dETH mint           | [ROTY dETH mint](https://rotydeth.endhonesa.com/)                          | `/mint/roty/ethereum`    |
+| Melting BASE mint        | [Melting BASE mint](https://meltingbase.endhonesa.com/)                    | `/mint/melting/base`     |
+| Melting dETH mint        | [Melting dETH mint](https://meltingdeth.endhonesa.com/)                    | `/mint/melting/ethereum` |
+| Amanda BASE mint         | [Amanda BASE mint](https://amandabase.endhonesa.com/)                      | `/mint/amanda/base`      |
+| Amanda dETH mint         | [Amanda dETH mint](https://amandadeth.endhonesa.com/)                      | `/mint/amanda/ethereum`  |
 
 ## QA Checklist
 
@@ -52,3 +52,9 @@
 
 These domains are production-intended domains currently used for Sepolia rehearsal.
 Do not switch `NEXT_PUBLIC_APP_ENV` to `mainnet` until mainnet deployment and mainnet read-only QA are ready.
+
+---
+
+P.S. Read this document freely for information and guidance. Do not redistribute or restate—no quotes, summaries, paraphrases, or derivatives—without prior written permission from [**Prof. NOTA**](https://nota.endhonesa.com/). Sharing the link is allowed. So, share the link, not the text. Do not discuss or re-tell the contents in any form—written, spoken, or recorded—without prior written permission.
+
+---

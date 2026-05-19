@@ -44,7 +44,7 @@ function createAdminContractConfig({
 
 export function getAdminChainConfig(chainSet: ChainSet): AdminChainConfig {
   const addresses = getContractAddresses(chainSet);
-  const chainLabel = chainSet === "base" ? "Base" : "Ethereum";
+  const chainLabel = chainSet === "base" ? "BASE" : "Ethereum";
 
   return {
     chainSet,
@@ -53,9 +53,9 @@ export function getAdminChainConfig(chainSet: ChainSet): AdminChainConfig {
     contracts: [
       createAdminContractConfig({
         key: "roty",
-        kind: "nft-roty",
+        kind: "roty base deth",
         chainSet,
-        label: chainSet === "base" ? "The ROTY BASE" : "The ROTY dETH",
+        label: chainSet === "base" ? "ROTY BASE" : "ROTY dETH",
         description: "ROTY collection mint phases, whitelist, metadata, and royalties.",
         address: addresses.roty,
         explorerLabel: "ROTY",
@@ -64,9 +64,9 @@ export function getAdminChainConfig(chainSet: ChainSet): AdminChainConfig {
       }),
       createAdminContractConfig({
         key: "melting",
-        kind: "nft-gated",
+        kind: "the melting land",
         chainSet,
-        label: chainSet === "base" ? "Melting BASE" : "MELTING dETH",
+        label: chainSet === "base" ? "Melting BASE" : "Melting dETH",
         description: "Melting gated mint, metadata, pricing, treasury, and royalties.",
         address: addresses.melting,
         explorerLabel: "Melting",
@@ -75,7 +75,7 @@ export function getAdminChainConfig(chainSet: ChainSet): AdminChainConfig {
       }),
       createAdminContractConfig({
         key: "amanda",
-        kind: "nft-gated",
+        kind: "amanda wives",
         chainSet,
         label: chainSet === "base" ? "Amanda BASE" : "Amanda dETH",
         description: "Amanda gated mint, metadata, pricing, treasury, and royalties.",
@@ -86,9 +86,9 @@ export function getAdminChainConfig(chainSet: ChainSet): AdminChainConfig {
       }),
       createAdminContractConfig({
         key: "staking",
-        kind: "staking",
+        kind: "soft staking",
         chainSet,
-        label: "OiOiSoftStaking",
+        label: "OiOi Soft Staking",
         description: "Soft staking registry and collection approval controls.",
         address: addresses.staking,
         explorerLabel: "Staking",
@@ -97,9 +97,9 @@ export function getAdminChainConfig(chainSet: ChainSet): AdminChainConfig {
       }),
       createAdminContractConfig({
         key: "rewardDistributor",
-        kind: "reward-distributor",
+        kind: "reward distributor",
         chainSet,
-        label: "OiOiRewardDistributor",
+        label: "OiOi Reward Distributor",
         description: "Reward round creation, funding, claim pause, and reward accounting.",
         address: addresses.rewardDistributor,
         explorerLabel: "RewardDistributor",

@@ -73,19 +73,23 @@ export function DashboardReadPanel({ chainSet }: { chainSet: ChainSet }) {
 
   return (
     <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
-      <h2 className="text-xl font-semibold">Read-only staking summary</h2>
+      <h2 className="font-semibold">Read-only staking summary.</h2>
       <p className="mt-2 text-sm text-white/60">
-        This panel reads staking approval and current valid stake status. Stake
-        and unstake actions will be added later.
+        This panel reads the staking approval and the current valid stake
+        status. Stake and unstake actions are available below it.
       </p>
 
       {!address ? (
-        <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-white/60">
-          Connect wallet to see wallet-specific stake status.
+        <div className="mt-4 grid gap-3 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm md:grid-cols-2">
+          <div>
+            <div className="text-white/60">
+              Connect wallet to see wallet-specific stake status.
+            </div>
+          </div>
         </div>
       ) : null}
 
-      <div className="mt-5 grid gap-3">
+      <div className="mt-4 grid gap-3">
         {collections.map((collection) => (
           <CollectionStakeSummary
             collectionAddress={collection.contractAddress}

@@ -31,9 +31,12 @@ function ReadCard({
   children: React.ReactNode;
 }) {
   return (
-    <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
+    <article className="rounded-3xl border border-white/10 bg-white/5 p-6">
       <div>
-        <h2 className="text-2xl font-semibold">{title}</h2>
+        <p className="text-sm uppercase tracking-[0.25em] text-white/40">
+          Read-Only Functions
+        </p>
+        <h2 className="mt-2 text-2xl font-semibold">{title}</h2>
         {description ? (
           <p className="mt-2 text-sm text-white/60">{description}</p>
         ) : null}
@@ -42,7 +45,7 @@ function ReadCard({
       <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 px-4">
         {children}
       </div>
-    </section>
+    </article>
   );
 }
 
@@ -189,25 +192,56 @@ function NftAdminReadCard({
   return (
     <ReadCard
       title={label}
-      description="NFT admin state: ownership, supply, pricing, treasury, and metadata."
-    >
+      description="NFT admin state: ownership, supply, pricing, treasury, and metadata.">
       <ReadRow
         label="Owner"
         value={shortAddress(ownerAddress)}
-        warning={!isExpectedOwner ? "Owner differs from expected admin." : undefined}
+        warning={
+          !isExpectedOwner ? "Owner differs from expected admin." : undefined
+        }
       />
-      <ReadRow label="Pending owner" value={shortAddress(asAddress(pendingOwner.data))} />
-      <ReadRow label="Total minted" value={formatNumber(asBigInt(totalMinted.data))} />
-      <ReadRow label="Remaining supply" value={formatNumber(asBigInt(remainingSupply.data))} />
-      <ReadRow label="Max supply" value={formatNumber(asBigInt(maxSupply.data))} />
-      <ReadRow label="Max mint per tx" value={formatNumber(asBigInt(maxMintPerTx.data))} />
+      <ReadRow
+        label="Pending owner"
+        value={shortAddress(asAddress(pendingOwner.data))}
+      />
+      <ReadRow
+        label="Total minted"
+        value={formatNumber(asBigInt(totalMinted.data))}
+      />
+      <ReadRow
+        label="Remaining supply"
+        value={formatNumber(asBigInt(remainingSupply.data))}
+      />
+      <ReadRow
+        label="Max supply"
+        value={formatNumber(asBigInt(maxSupply.data))}
+      />
+      <ReadRow
+        label="Max mint per tx"
+        value={formatNumber(asBigInt(maxMintPerTx.data))}
+      />
       <ReadRow label="Mint price" value={formatEth(asBigInt(mintPrice.data))} />
-      <ReadRow label="Treasury" value={shortAddress(asAddress(treasury.data))} />
+      <ReadRow
+        label="Treasury"
+        value={shortAddress(asAddress(treasury.data))}
+      />
       <ReadRow label="Revealed" value={formatBool(asBool(revealed.data))} />
-      <ReadRow label="Metadata locked" value={formatBool(asBool(metadataLocked.data))} />
-      <ReadRow label="Unrevealed URI" value={asString(unrevealedURI.data) ?? "—"} />
-      <ReadRow label="Revealed base URI" value={asString(revealedBaseURI.data) ?? "—"} />
-      <ReadRow label="Base extension" value={asString(baseExtension.data) ?? "—"} />
+      <ReadRow
+        label="Metadata locked"
+        value={formatBool(asBool(metadataLocked.data))}
+      />
+      <ReadRow
+        label="Unrevealed URI"
+        value={asString(unrevealedURI.data) ?? "—"}
+      />
+      <ReadRow
+        label="Revealed base URI"
+        value={asString(revealedBaseURI.data) ?? "—"}
+      />
+      <ReadRow
+        label="Base extension"
+        value={asString(baseExtension.data) ?? "—"}
+      />
     </ReadCard>
   );
 }
@@ -252,8 +286,7 @@ function RotyPhaseReadCard({ address }: { address: Address }) {
   return (
     <ReadCard
       title="ROTY Mint & Provenance"
-      description="ROTY-specific whitelist, public mint, Merkle root, and origin state."
-    >
+      description="ROTY-specific whitelist, public mint, Merkle root, and origin state.">
       <ReadRow
         label="Whitelist mint enabled"
         value={formatBool(asBool(whitelistMintEnabled.data))}
@@ -263,8 +296,14 @@ function RotyPhaseReadCard({ address }: { address: Address }) {
         value={formatBool(asBool(publicMintEnabled.data))}
       />
       <ReadRow label="Merkle root" value={asString(merkleRoot.data) ?? "—"} />
-      <ReadRow label="Origin chain ID" value={formatNumber(asBigInt(originChainId.data))} />
-      <ReadRow label="Origin contract" value={shortAddress(asAddress(originContract.data))} />
+      <ReadRow
+        label="Origin chain ID"
+        value={formatNumber(asBigInt(originChainId.data))}
+      />
+      <ReadRow
+        label="Origin contract"
+        value={shortAddress(asAddress(originContract.data))}
+      />
       <ReadRow label="Origin name" value={asString(originName.data) ?? "—"} />
     </ReadCard>
   );
@@ -310,14 +349,19 @@ function GatedMintPhaseReadCard({
   return (
     <ReadCard
       title={`${label} Gated Mint`}
-      description="Gated mint phase and eligibility contract references."
-    >
+      description="Gated mint phase and eligibility contract references.">
       <ReadRow
         label="Gated mint enabled"
         value={formatBool(asBool(gatedMintEnabled.data))}
       />
-      <ReadRow label="Staking contract" value={shortAddress(asAddress(stakingContract.data))} />
-      <ReadRow label="ROTY collection" value={shortAddress(asAddress(rotyCollection.data))} />
+      <ReadRow
+        label="Staking contract"
+        value={shortAddress(asAddress(stakingContract.data))}
+      />
+      <ReadRow
+        label="ROTY collection"
+        value={shortAddress(asAddress(rotyCollection.data))}
+      />
       {includeMeltingCollection ? (
         <ReadRow
           label="Melting collection"
@@ -383,19 +427,32 @@ function StakingAdminReadCard({
 
   return (
     <ReadCard
-      title="OiOiSoftStaking"
-      description="Soft staking owner state and approved collection registry."
-    >
+      title="OiOi Soft Staking"
+      description="Soft staking owner state and approved collection registry.">
       <ReadRow
         label="Owner"
         value={shortAddress(ownerAddress)}
-        warning={!isExpectedOwner ? "Owner differs from expected admin." : undefined}
+        warning={
+          !isExpectedOwner ? "Owner differs from expected admin." : undefined
+        }
       />
-      <ReadRow label="Pending owner" value={shortAddress(asAddress(pendingOwner.data))} />
+      <ReadRow
+        label="Pending owner"
+        value={shortAddress(asAddress(pendingOwner.data))}
+      />
       <ReadRow label="Build stage" value={asString(buildStage.data) ?? "—"} />
-      <ReadRow label="ROTY approved" value={formatBool(asBool(rotyApproved.data))} />
-      <ReadRow label="Melting approved" value={formatBool(asBool(meltingApproved.data))} />
-      <ReadRow label="Amanda approved" value={formatBool(asBool(amandaApproved.data))} />
+      <ReadRow
+        label="ROTY approved"
+        value={formatBool(asBool(rotyApproved.data))}
+      />
+      <ReadRow
+        label="Melting approved"
+        value={formatBool(asBool(meltingApproved.data))}
+      />
+      <ReadRow
+        label="Amanda approved"
+        value={formatBool(asBool(amandaApproved.data))}
+      />
     </ReadCard>
   );
 }
@@ -454,17 +511,24 @@ function RewardDistributorAdminReadCard({ address }: { address: Address }) {
 
   return (
     <ReadCard
-      title="OiOiRewardDistributor"
-      description="Reward distributor owner state, accounting counters, and reward token."
-    >
+      title="OiOi Reward Distributor"
+      description="Reward distributor owner state, accounting counters, and reward token.">
       <ReadRow
         label="Owner"
         value={shortAddress(ownerAddress)}
-        warning={!isExpectedOwner ? "Owner differs from expected admin." : undefined}
+        warning={
+          !isExpectedOwner ? "Owner differs from expected admin." : undefined
+        }
       />
-      <ReadRow label="Pending owner" value={shortAddress(asAddress(pendingOwner.data))} />
+      <ReadRow
+        label="Pending owner"
+        value={shortAddress(asAddress(pendingOwner.data))}
+      />
       <ReadRow label="Build stage" value={asString(buildStage.data) ?? "—"} />
-      <ReadRow label="Reward token" value={shortAddress(asAddress(rewardToken.data))} />
+      <ReadRow
+        label="Reward token"
+        value={shortAddress(asAddress(rewardToken.data))}
+      />
       <ReadRow
         label="Total reward funded"
         value={formatTokenAmount({ value: asBigInt(totalRewardFunded.data) })}
@@ -556,8 +620,7 @@ function OioiAdminReadCard({
   return (
     <ReadCard
       title="$OiOi Token"
-      description="Reward token read state for funding reward rounds."
-    >
+      description="Reward token read state for funding reward rounds.">
       <ReadRow label="Name" value={asString(name.data) ?? "—"} />
       <ReadRow label="Symbol" value={asString(symbol.data) ?? "—"} />
       <ReadRow label="Decimals" value={formatNumber(asBigInt(decimals.data))} />
@@ -580,11 +643,11 @@ function OioiAdminReadCard({
         }
       />
       <ReadRow
-        label="RewardDistributor balance"
+        label="Reward Distributor balance"
         value={formatTokenAmount({ value: asBigInt(distributorBalance.data) })}
       />
       <ReadRow
-        label="Admin allowance to RewardDistributor"
+        label="Admin allowance"
         value={formatTokenAmount({ value: asBigInt(allowance.data) })}
       />
     </ReadCard>
@@ -593,7 +656,7 @@ function OioiAdminReadCard({
 
 export function AdminReadCards({ chainSet }: { chainSet: ChainSet }) {
   const addresses = getContractAddresses(chainSet);
-  const chainLabel = chainSet === "base" ? "Base" : "Ethereum";
+  const chainLabel = chainSet === "base" ? "BASE" : "Ethereum";
 
   return (
     <section className="grid gap-5">
@@ -605,19 +668,38 @@ export function AdminReadCards({ chainSet }: { chainSet: ChainSet }) {
           {chainLabel} contract state
         </h2>
         <p className="mt-2 text-sm text-white/60">
-          These cards read current contract state only. Transaction forms will be
-          added in later admin stages.
+          These cards read the current contract state only. Transaction forms
+          are available below it.
         </p>
       </section>
 
-      <NftAdminReadCard label={chainSet === "base" ? "The ROTY BASE" : "The ROTY dETH"} address={addresses.roty} kind="roty" />
+      <NftAdminReadCard
+        label={chainSet === "base" ? "ROTY BASE" : "ROTY dETH"}
+        address={addresses.roty}
+        kind="roty"
+      />
       <RotyPhaseReadCard address={addresses.roty} />
 
-      <NftAdminReadCard label={chainSet === "base" ? "Melting BASE" : "MELTING dETH"} address={addresses.melting} kind="gated" />
-      <GatedMintPhaseReadCard label={chainSet === "base" ? "Melting BASE" : "MELTING dETH"} address={addresses.melting} />
+      <NftAdminReadCard
+        label={chainSet === "base" ? "Melting BASE" : "Melting dETH"}
+        address={addresses.melting}
+        kind="gated"
+      />
+      <GatedMintPhaseReadCard
+        label={chainSet === "base" ? "Melting BASE" : "Melting dETH"}
+        address={addresses.melting}
+      />
 
-      <NftAdminReadCard label={chainSet === "base" ? "Amanda BASE" : "Amanda dETH"} address={addresses.amanda} kind="gated" />
-      <GatedMintPhaseReadCard label={chainSet === "base" ? "Amanda BASE" : "Amanda dETH"} address={addresses.amanda} includeMeltingCollection />
+      <NftAdminReadCard
+        label={chainSet === "base" ? "Amanda BASE" : "Amanda dETH"}
+        address={addresses.amanda}
+        kind="gated"
+      />
+      <GatedMintPhaseReadCard
+        label={chainSet === "base" ? "Amanda BASE" : "Amanda dETH"}
+        address={addresses.amanda}
+        includeMeltingCollection
+      />
 
       <StakingAdminReadCard
         staking={addresses.staking}

@@ -207,13 +207,18 @@ function CollectionStakeCard({ config }: { config: CollectionConfig }) {
   }
 
   return (
-    <div className="rounded-3xl border border-white/10 bg-black/20 p-5">
+    <article className="rounded-3xl border border-white/10 bg-white/5 p-6">
       <div>
-        <div className="text-lg font-semibold">{config.name}</div>
-        <div className="mt-1 text-sm text-white/60">{config.symbol}</div>
-        <div className="mt-2 break-all font-mono text-xs text-white/40">
-          {config.contractAddress}
-        </div>
+        <p className="text-sm uppercase tracking-[0.25em] text-white/40">
+          Symbol: {config.symbol}
+        </p>
+        <h2 className="mt-2 text-2xl font-semibold">{config.name}</h2>
+        <p className="mt-2 text-sm text-white/60">
+          Contract Address:{" "}
+          <span className="mt-2 break-all font-mono text-sm text-white/40">
+            {config.contractAddress}
+          </span>
+        </p>
       </div>
 
       <label className="mt-5 grid gap-2">
@@ -271,7 +276,7 @@ function CollectionStakeCard({ config }: { config: CollectionConfig }) {
       </div>
 
       {stakeDisabledReason ? (
-        <p className="mt-3 text-sm text-white/50">
+        <p className="mt-2 text-sm text-white/50">
           Stake: {stakeDisabledReason}
         </p>
       ) : null}
@@ -309,7 +314,7 @@ function CollectionStakeCard({ config }: { config: CollectionConfig }) {
           </p>
         </div>
       ) : null}
-    </div>
+    </article>
   );
 }
 
@@ -317,27 +322,25 @@ export function StakeActionPanel({ chainSet }: { chainSet: ChainSet }) {
   const collections = getChainCollections(chainSet);
 
   return (
-    <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
-      <div>
+    <section className="grid gap-5">
+      <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
         <p className="text-sm uppercase tracking-[0.25em] text-white/50">
           Soft Staking
         </p>
         <h2 className="mt-2 text-2xl font-semibold">Stake / Unstake NFT</h2>
         <p className="mt-2 text-sm text-white/60">
-          Enter a tokenId manually. Owned NFT discovery will be added later with
-          the indexer. Your NFT stays in your wallet; soft staking records your
-          staking intent.
+          Enter a token ID manually. Owned NFT discovery available with our
+          built-in indexer. Your NFT stays in your wallet; soft staking records
+          your staking intent.
         </p>
-      </div>
+      </section>
 
-      <div className="mt-6 grid gap-4">
-        {collections.map((collection) => (
-          <CollectionStakeCard
-            config={collection}
-            key={collection.contractAddress}
-          />
-        ))}
-      </div>
+      {collections.map((collection) => (
+        <CollectionStakeCard
+          config={collection}
+          key={collection.contractAddress}
+        />
+      ))}
     </section>
   );
 }

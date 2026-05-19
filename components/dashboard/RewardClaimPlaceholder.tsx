@@ -77,116 +77,126 @@ export function RewardClaimPlaceholder({ chainSet }: { chainSet: ChainSet }) {
     distributorOioiBalance.error;
 
   return (
-    <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
-      <div>
+    <section className="grid gap-5">
+      <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
         <p className="text-sm uppercase tracking-[0.25em] text-white/50">
-          $OiOi Rewards
+          Reward Distribution
         </p>
-        <h2 className="mt-2 text-2xl font-semibold">Reward Claim</h2>
+        <h2 className="mt-2 text-2xl font-semibold">Claim $OiOi Rewards</h2>
         <p className="mt-2 text-sm text-white/60">
-          Reward claim requires round data, allocation amount, and Merkle proof
-          from the indexer/reward pipeline. This panel is read-only for now.
+          This is the $OiOi rewards claim card. Transaction forms are available
+          below it.
         </p>
-      </div>
-
-      <div className="mt-6 grid gap-3 rounded-2xl border border-white/10 bg-black/20 p-4">
+      </section>
+      <article className="rounded-3xl border border-white/10 bg-white/5 p-6">
         <div>
-          <div className="text-sm text-white/60">RewardDistributor</div>
-          <a
-            className="mt-1 block break-all font-mono text-sm underline underline-offset-4"
-            href={getAddressUrl(chainSet, addresses.rewardDistributor)}
-            rel="noreferrer"
-            target="_blank"
-          >
-            {addresses.rewardDistributor}
-          </a>
-        </div>
-
-        <div>
-          <div className="text-sm text-white/60">$OiOi Token</div>
-          <a
-            className="mt-1 block break-all font-mono text-sm underline underline-offset-4"
-            href={getAddressUrl(chainSet, addresses.oioi)}
-            rel="noreferrer"
-            target="_blank"
-          >
-            {addresses.oioi}
-          </a>
-        </div>
-      </div>
-
-      {hasReadError ? (
-        <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4">
-          <h3 className="font-medium text-red-100">Reward read warning</h3>
-          <p className="mt-2 text-sm text-red-100/80">
-            Some reward contract reads failed. Check chain, RPC, and contract
-            config.
+          <p className="text-sm uppercase tracking-[0.25em] text-white/40">
+            $OiOi Rewards
+          </p>
+          <h2 className="mt-2 text-2xl font-semibold">Reward Claim</h2>
+          <p className="mt-2 text-sm text-white/60">
+            Reward claim requires round data, allocation amount, and Merkle
+            proof from the indexer/reward pipeline. This panel is read-only for
+            now.
           </p>
         </div>
-      ) : null}
 
-      <div className="mt-6 rounded-2xl border border-white/10 bg-black/20 px-4">
-        <Row
-          label="Reward token from distributor"
-          value={shortAddress(rewardToken.data as string | undefined)}
-        />
-        <Row
-          label="Total reward funded"
-          value={formatTokenAmount({
-            value: totalRewardFunded.data as bigint | undefined,
-          })}
-        />
-        <Row
-          label="Total reward claimed"
-          value={formatTokenAmount({
-            value: totalRewardClaimed.data as bigint | undefined,
-          })}
-        />
-        <Row
-          label="Allocated unclaimed balance"
-          value={formatTokenAmount({
-            value: allocatedUnclaimedRewardBalance.data as bigint | undefined,
-          })}
-        />
-        <Row
-          label="Excess reward token balance"
-          value={formatTokenAmount({
-            value: excessRewardTokenBalance.data as bigint | undefined,
-          })}
-        />
-        <Row
-          label="Distributor $OiOi balance"
-          value={formatTokenAmount({
-            value: distributorOioiBalance.data as bigint | undefined,
-          })}
-        />
-        <Row
-          label="This wallet $OiOi balance"
-          value={
-            address
-              ? formatTokenAmount({
-                  value: walletOioiBalance.data as bigint | undefined,
-                })
-              : "Connect wallet"
-          }
-        />
-      </div>
+        <div className="mt-6 grid gap-3 rounded-2xl border border-white/10 bg-black/20 p-4">
+          <div>
+            <div className="text-sm text-white/60">RewardDistributor</div>
+            <a
+              className="mt-1 block break-all font-mono text-sm underline underline-offset-4"
+              href={getAddressUrl(chainSet, addresses.rewardDistributor)}
+              rel="noreferrer"
+              target="_blank">
+              {addresses.rewardDistributor}
+            </a>
+          </div>
 
-      <div className="mt-6 rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-4">
-        <h3 className="font-medium text-yellow-100">Claim not active yet</h3>
-        <p className="mt-2 text-sm text-yellow-100/80">
-          The claim button will be enabled after the indexer can serve reward
-          round data and Merkle proofs for each wallet.
-        </p>
-      </div>
+          <div>
+            <div className="text-sm text-white/60">$OiOi Token</div>
+            <a
+              className="mt-1 block break-all font-mono text-sm underline underline-offset-4"
+              href={getAddressUrl(chainSet, addresses.oioi)}
+              rel="noreferrer"
+              target="_blank">
+              {addresses.oioi}
+            </a>
+          </div>
+        </div>
 
-      <button
-        className="mt-5 w-full cursor-not-allowed rounded-2xl border border-white/10 px-5 py-3 font-medium opacity-40"
-        disabled
-        type="button"
-      >
-        Claim $OiOi — Coming Soon
-      </button>
+        {hasReadError ? (
+          <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4">
+            <h3 className="font-medium text-red-100">Reward read warning</h3>
+            <p className="mt-2 text-sm text-red-100/80">
+              Some reward contract reads failed. Check chain, RPC, and contract
+              config.
+            </p>
+          </div>
+        ) : null}
+
+        <div className="mt-6 rounded-2xl border border-white/10 bg-black/20 px-4">
+          <Row
+            label="Reward token from distributor"
+            value={shortAddress(rewardToken.data as string | undefined)}
+          />
+          <Row
+            label="Total reward funded"
+            value={formatTokenAmount({
+              value: totalRewardFunded.data as bigint | undefined,
+            })}
+          />
+          <Row
+            label="Total reward claimed"
+            value={formatTokenAmount({
+              value: totalRewardClaimed.data as bigint | undefined,
+            })}
+          />
+          <Row
+            label="Allocated unclaimed balance"
+            value={formatTokenAmount({
+              value: allocatedUnclaimedRewardBalance.data as bigint | undefined,
+            })}
+          />
+          <Row
+            label="Excess reward token balance"
+            value={formatTokenAmount({
+              value: excessRewardTokenBalance.data as bigint | undefined,
+            })}
+          />
+          <Row
+            label="Distributor $OiOi balance"
+            value={formatTokenAmount({
+              value: distributorOioiBalance.data as bigint | undefined,
+            })}
+          />
+          <Row
+            label="This wallet $OiOi balance"
+            value={
+              address
+                ? formatTokenAmount({
+                    value: walletOioiBalance.data as bigint | undefined,
+                  })
+                : "Connect wallet"
+            }
+          />
+        </div>
+
+        <div className="mt-6 rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-4">
+          <h3 className="font-medium text-yellow-100">Claim not active yet</h3>
+          <p className="mt-2 text-sm text-yellow-100/80">
+            The claim button will be enabled after the indexer can serve reward
+            round data and Merkle proofs for each wallet.
+          </p>
+        </div>
+
+        <button
+          className="mt-5 w-full cursor-not-allowed rounded-2xl border border-white/10 px-5 py-3 font-medium opacity-40"
+          disabled
+          type="button">
+          Claim $OiOi — Coming Soon
+        </button>
+      </article>
     </section>
   );
 }

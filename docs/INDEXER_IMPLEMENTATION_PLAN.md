@@ -95,9 +95,9 @@ MVP reads:
 
 ```text
 ERC721 Transfer events
-OiOiSoftStaking Staked events
-OiOiSoftStaking Unstaked events
-OiOiRewardDistributor reward events
+OiOi Soft Staking Staked events
+OiOi Soft Staking Unstaked events
+OiOi Reward Distributor reward events
 ```
 
 MVP produces:

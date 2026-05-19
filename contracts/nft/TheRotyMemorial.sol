@@ -28,10 +28,10 @@ import {MemorialNFTCore} from "./MemorialNFTCore.sol";
 
 /**
  * @title TheRotyMemorial
- * @notice Collection contract for The ROTY BASE and The ROTY dETH.
+ * @notice Collection contract for ROTY BASE and ROTY dETH.
  * @dev One codebase, two deployments:
- * - Base: The ROTY BASE / ROTYBASE
- * - Ethereum: The ROTY dETH / ROTYDETH
+ * - Base: ROTY BASE / ROTYBASE
+ * - Ethereum: ROTY dETH / ROTYDETH
  *
  * Whitelist leaf format follows OpenZeppelin StandardMerkleTree:
  * leaf = keccak256(bytes.concat(keccak256(abi.encode(account))))

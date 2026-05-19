@@ -29,9 +29,9 @@ export default async function AdminChainPage({
   if (!isChainSet(chain)) {
     return (
       <main className="mx-auto min-h-screen max-w-4xl px-6 py-10">
-        <h1 className="text-3xl font-semibold">Invalid admin chain</h1>
+        <h1 className="text-3xl font-semibold">Invalid admin chain.</h1>
         <Link className="mt-4 inline-block underline" href="/admin">
-          Back to admin home
+          Back to Admin Home.
         </Link>
       </main>
     );
@@ -41,11 +41,11 @@ export default async function AdminChainPage({
 
   return (
     <main className="mx-auto flex min-h-screen max-w-6xl flex-col gap-6 px-6 py-10">
-      <header className="rounded-3xl border border-white/10 bg-white/5 p-8">
+      <header className="rounded-3xl border border-white/10 bg-white/5 p-6">
         <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
           <div>
             <Link className="text-sm text-white/50 underline" href="/admin">
-              ← Admin home
+              ← Admin Home
             </Link>
             <p className="mt-5 text-sm uppercase tracking-[0.3em] text-white/50">
               Admin Dashboard
@@ -53,7 +53,8 @@ export default async function AdminChainPage({
             <h1 className="mt-3 text-4xl font-semibold">{adminConfig.label}</h1>
             <p className="mt-4 max-w-3xl text-white/60">
               Review contract state, risk levels, and available admin actions.
-              Write forms are intentionally not active in this skeleton phase.
+              Write forms are intentionally provided only for the expected
+              owner.
             </p>
           </div>
 
@@ -63,6 +64,7 @@ export default async function AdminChainPage({
 
       <ChainGuard chainSet={chain}>
         <AdminOwnerGate />
+        <AdminContractList chainSet={chain} contracts={adminConfig.contracts} />
         <AdminReadCards chainSet={chain} />
         <AdminStakingRegistryControls chainSet={chain} />
         <AdminMintPhaseControls chainSet={chain} />
@@ -70,17 +72,6 @@ export default async function AdminChainPage({
         <AdminMetadataControls chainSet={chain} />
         <AdminRewardRoundControls chainSet={chain} />
         <AdminEmergencyRescueControls chainSet={chain} />
-
-        <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
-          <h2 className="text-2xl font-semibold">Admin action map</h2>
-          <p className="mt-2 text-sm text-white/60">
-            This page maps every planned admin contract surface. Later stages
-            will add read cards, transaction forms, warning tooltips, and
-            confirmation modals.
-          </p>
-        </section>
-
-        <AdminContractList chainSet={chain} contracts={adminConfig.contracts} />
       </ChainGuard>
     </main>
   );

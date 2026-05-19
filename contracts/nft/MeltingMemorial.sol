@@ -25,10 +25,10 @@ import {IOiOiSoftStaking} from "../interfaces/IOiOiSoftStaking.sol";
 
 /**
  * @title MeltingMemorial
- * @notice Collection contract for Melting BASE and MELTING dETH.
+ * @notice Collection contract for Melting BASE and Melting dETH.
  * @dev One codebase, two deployments:
  * - Base: Melting BASE / MELTBASE
- * - Ethereum: MELTING dETH / MELTDETH
+ * - Ethereum: Melting dETH / MELTDETH
  *
  * Mint model:
  * - No free mint

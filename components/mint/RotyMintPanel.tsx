@@ -181,10 +181,10 @@ export function RotyMintPanel({ config }: { config: CollectionConfig }) {
   }
 
   return (
-    <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
+    <article className="rounded-3xl border border-white/10 bg-white/5 p-6">
       <div>
-        <p className="text-sm uppercase tracking-[0.25em] text-white/50">
-          ROTY Mint
+        <p className="text-sm uppercase tracking-[0.25em] text-white/40">
+          NFT Mint Form
         </p>
         <h2 className="mt-2 text-2xl font-semibold">{config.name}</h2>
         <p className="mt-2 text-sm text-white/60">
@@ -193,55 +193,55 @@ export function RotyMintPanel({ config }: { config: CollectionConfig }) {
         </p>
       </div>
 
-      <div className="mt-6 grid gap-3 rounded-2xl border border-white/10 bg-black/20 p-4">
-        <div className="flex items-center justify-between gap-4">
-          <span className="text-sm text-white/60">Whitelist mint enabled</span>
-          <span className="font-mono text-sm">
+      <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 px-4">
+        <div className="flex items-center justify-between gap-4 border-b border-white/10 py-3 last:border-b-0">
+          <div className="text-sm text-white/60">Whitelist mint enabled</div>
+          <div className="text-right font-mono text-sm">
             {mintState.whitelistMintEnabled ? "Yes" : "No"}
-          </span>
+          </div>
         </div>
 
-        <div className="flex items-center justify-between gap-4">
-          <span className="text-sm text-white/60">Public mint enabled</span>
-          <span className="font-mono text-sm">
+        <div className="flex items-center justify-between gap-4 border-b border-white/10 py-3 last:border-b-0">
+          <div className="text-sm text-white/60">Public mint enabled</div>
+          <div className="text-right font-mono text-sm">
             {mintState.publicMintEnabled ? "Yes" : "No"}
-          </span>
+          </div>
         </div>
 
-        <div className="flex items-center justify-between gap-4">
-          <span className="text-sm text-white/60">Whitelist eligible</span>
-          <span className="font-mono text-sm">
+        <div className="flex items-center justify-between gap-4 border-b border-white/10 py-3 last:border-b-0">
+          <div className="text-sm text-white/60">Whitelist eligible</div>
+          <div className="font-mono text-sm">
             {whitelistProof.data?.eligible === undefined
               ? "—"
               : whitelistProof.data.eligible
                 ? "Yes"
                 : "No"}
-          </span>
+          </div>
         </div>
 
-        <div className="flex items-center justify-between gap-4">
-          <span className="text-sm text-white/60">Whitelist claimed</span>
-          <span className="font-mono text-sm">
+        <div className="flex items-center justify-between gap-4 border-b border-white/10 py-3 last:border-b-0">
+          <div className="text-sm text-white/60">Whitelist claimed</div>
+          <div className="font-mono text-sm">
             {mintState.whitelistClaimed === undefined
               ? "—"
               : mintState.whitelistClaimed
                 ? "Yes"
                 : "No"}
-          </span>
+          </div>
         </div>
 
-        <div className="flex items-center justify-between gap-4">
-          <span className="text-sm text-white/60">Remaining supply</span>
-          <span className="font-mono text-sm">
+        <div className="flex items-center justify-between gap-4 border-b border-white/10 py-3 last:border-b-0">
+          <div className="text-sm text-white/60">Remaining supply</div>
+          <div className="font-mono text-sm">
             {formatNumber(mintState.remainingSupply)}
-          </span>
+          </div>
         </div>
 
-        <div className="flex items-center justify-between gap-4">
-          <span className="text-sm text-white/60">Unit price</span>
-          <span className="font-mono text-sm">
+        <div className="flex items-center justify-between gap-4 border-b border-white/10 py-3 last:border-b-0">
+          <div className="text-sm text-white/60">Unit price</div>
+          <div className="font-mono text-sm">
             {formatEth(mintState.mintPrice)}
-          </span>
+          </div>
         </div>
       </div>
 
@@ -336,6 +336,6 @@ export function RotyMintPanel({ config }: { config: CollectionConfig }) {
           </p>
         </div>
       ) : null}
-    </section>
+    </article>
   );
 }

@@ -12,8 +12,8 @@ The ecosystem is split into two chain-specific sets.
 
 ```text
 3 NFT collections on Base
-1 OiOiSoftStaking contract on Base
-1 OiOiRewardDistributor contract on Base
+1 OiOi Soft Staking contract on Base
+1 OiOi Reward Distributor contract on Base
 1 Base $OiOi token
 ```
 
@@ -21,8 +21,8 @@ The ecosystem is split into two chain-specific sets.
 
 ```text
 3 NFT collections on Ethereum
-1 OiOiSoftStaking contract on Ethereum
-1 OiOiRewardDistributor contract on Ethereum
+1 OiOi Soft Staking contract on Ethereum
+1 OiOi Reward Distributor contract on Ethereum
 1 Ethereum $OiOi token
 ```
 
@@ -39,7 +39,7 @@ A user chooses Base or Ethereum based on holdings and preference.
 ### ROTY BASE
 
 ```text
-Name: The ROTY BASE
+Name: ROTY BASE
 Symbol: ROTYBASE
 Chain: Base
 Max supply: 1047
@@ -54,7 +54,7 @@ Max mint per tx: 11
 ### ROTY dETH
 
 ```text
-Name: The ROTY dETH
+Name: ROTY dETH
 Symbol: ROTYDETH
 Chain: Ethereum
 Max supply: 1047
@@ -80,10 +80,10 @@ Eligibility: valid ROTY soft stake
 Max mint per tx: 11
 ```
 
-### MELTING dETH
+### Melting dETH
 
 ```text
-Name: MELTING dETH
+Name: Melting dETH
 Symbol: MELTDETH
 Chain: Ethereum
 Max supply: 1747

@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { network } from "hardhat";
 import { getAddress, parseEther, zeroHash, type Address } from "viem";
 
-const NAME = "The ROTY BASE";
+const NAME = "ROTY BASE";
 const SYMBOL = "ROTYBASE";
 const MINT_PRICE = parseEther("0.001047");
 const UNREVEALED_URI =

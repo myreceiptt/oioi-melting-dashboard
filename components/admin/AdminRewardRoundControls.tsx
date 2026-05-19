@@ -10,10 +10,7 @@ import {
   useWriteContract,
 } from "wagmi";
 import type { ChainSet } from "@/lib/chains/chainConfig";
-import {
-  erc20Abi,
-  rewardDistributorAdminAbi,
-} from "@/lib/contracts/abis";
+import { erc20Abi, rewardDistributorAdminAbi } from "@/lib/contracts/abis";
 import { getContractAddresses } from "@/lib/contracts/addresses";
 import { EXPECTED_ADMIN_OWNER_ADDRESS } from "@/lib/admin/adminContractConfig";
 import { getTxUrl } from "@/lib/services/explorer";
@@ -216,8 +213,7 @@ function TxStatus({
           className="mt-2 block break-all font-mono underline underline-offset-4"
           href={getTxUrl(chainSet, txHash)}
           rel="noreferrer"
-          target="_blank"
-        >
+          target="_blank">
           {txHash}
         </a>
       ) : null}
@@ -243,11 +239,7 @@ function TxStatus({
   );
 }
 
-export function AdminRewardRoundControls({
-  chainSet,
-}: {
-  chainSet: ChainSet;
-}) {
+export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
   const { address: connectedAddress, isConnected } = useAccount();
   const addresses = getContractAddresses(chainSet);
 
@@ -374,10 +366,12 @@ export function AdminRewardRoundControls({
   const allowance = asBigInt(allowanceRead.data) ?? 0n;
   const amountNeededToFund = roundExists
     ? maxBigInt(roundRewardAmount - roundFundedAmount, 0n)
-    : rewardAmount ?? 0n;
+    : (rewardAmount ?? 0n);
   const allowanceSufficient = allowance >= amountNeededToFund;
   const roundFullyClaimed =
-    roundExists && roundRewardAmount > 0n && roundClaimedAmount >= roundRewardAmount;
+    roundExists &&
+    roundRewardAmount > 0n &&
+    roundClaimedAmount >= roundRewardAmount;
 
   const actionDisabledBase =
     !isConnected || !userIsExpectedOwner || isWritePending || receipt.isLoading;
@@ -402,7 +396,10 @@ export function AdminRewardRoundControls({
   function setRewardAmountAndDefaultFunding(nextValue: string) {
     setRewardAmountInput((previousRewardAmount) => {
       setApproveAmountInput((previousApproveAmount) => {
-        if (!previousApproveAmount || previousApproveAmount === previousRewardAmount) {
+        if (
+          !previousApproveAmount ||
+          previousApproveAmount === previousRewardAmount
+        ) {
           return nextValue;
         }
 
@@ -410,7 +407,10 @@ export function AdminRewardRoundControls({
       });
 
       setFundAmountInput((previousFundAmount) => {
-        if (!previousFundAmount || previousFundAmount === previousRewardAmount) {
+        if (
+          !previousFundAmount ||
+          previousFundAmount === previousRewardAmount
+        ) {
           return nextValue;
         }
 
@@ -457,9 +457,7 @@ export function AdminRewardRoundControls({
     risk: "high" | "critical";
   }) {
     const prefix =
-      risk === "critical"
-        ? "CRITICAL ADMIN ACTION"
-        : "HIGH RISK ADMIN ACTION";
+      risk === "critical" ? "CRITICAL ADMIN ACTION" : "HIGH RISK ADMIN ACTION";
 
     return window.confirm(
       [
@@ -663,7 +661,7 @@ export function AdminRewardRoundControls({
         <p className="text-sm uppercase tracking-[0.25em] text-white/50">
           Admin Writes
         </p>
-        <h2 className="mt-2 text-2xl font-semibold">Reward Round Controls v2</h2>
+        <h2 className="mt-2 text-2xl font-semibold">Reward Round Controls</h2>
         <p className="mt-2 text-sm text-white/60">
           Owner-only controls for approving $OiOi, creating reward rounds,
           funding reward rounds, and pausing or unpausing claims.
@@ -686,8 +684,8 @@ export function AdminRewardRoundControls({
         <div className="mt-3 grid gap-2 text-sm text-blue-100/80">
           <p>
             The RewardDistributor contract does not auto-generate sequential
-            round IDs. In the chosen v2 workflow, Admin UI/backend uses periodEnd
-            Unix timestamp as the round ID.
+            round IDs. In the chosen v2 workflow, Admin UI/backend uses
+            periodEnd Unix timestamp as the round ID.
           </p>
           <p>
             Period start and period end should ultimately come from the Supabase
@@ -718,9 +716,10 @@ export function AdminRewardRoundControls({
             </p>
             <select
               className="mt-3 w-full rounded-xl border border-white/10 bg-black/40 px-3 py-2 text-sm outline-none focus:border-white/30"
-              onChange={(event) => changeRoundMode(event.target.value as RoundMode)}
-              value={roundMode}
-            >
+              onChange={(event) =>
+                changeRoundMode(event.target.value as RoundMode)
+              }
+              value={roundMode}>
               <option value="createNew">Create new round</option>
               <option value="existingManual">Existing round / manual ID</option>
             </select>
@@ -805,7 +804,8 @@ export function AdminRewardRoundControls({
       <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
         <h3 className="text-2xl font-semibold">Input validation</h3>
         <p className="mt-2 text-sm text-white/60">
-          This shows how the admin UI parses your reward round inputs and derives action state.
+          This shows how the admin UI parses your reward round inputs and
+          derives action state.
         </p>
 
         <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 px-4">
@@ -820,12 +820,16 @@ export function AdminRewardRoundControls({
           <ReadRow
             label="Period start parsed"
             value={
-              periodStart === null ? "Invalid" : formatUnixTimestamp(periodStart)
+              periodStart === null
+                ? "Invalid"
+                : formatUnixTimestamp(periodStart)
             }
           />
           <ReadRow
             label="Period end parsed"
-            value={periodEnd === null ? "Invalid" : formatUnixTimestamp(periodEnd)}
+            value={
+              periodEnd === null ? "Invalid" : formatUnixTimestamp(periodEnd)
+            }
           />
           <ReadRow
             label="Reward amount parsed"
@@ -863,7 +867,10 @@ export function AdminRewardRoundControls({
             label="Allowance sufficient"
             value={formatBool(allowanceSufficient)}
           />
-          <ReadRow label="Round fully claimed" value={formatBool(roundFullyClaimed)} />
+          <ReadRow
+            label="Round fully claimed"
+            value={formatBool(roundFullyClaimed)}
+          />
         </div>
       </section>
 
@@ -876,8 +883,14 @@ export function AdminRewardRoundControls({
         <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 px-4">
           <ReadRow label="Round exists" value={formatBool(roundExists)} />
           <ReadRow label="Claim paused" value={formatBool(roundData?.[1])} />
-          <ReadRow label="Period start" value={formatUnixTimestamp(roundData?.[2])} />
-          <ReadRow label="Period end" value={formatUnixTimestamp(roundData?.[3])} />
+          <ReadRow
+            label="Period start"
+            value={formatUnixTimestamp(roundData?.[2])}
+          />
+          <ReadRow
+            label="Period end"
+            value={formatUnixTimestamp(roundData?.[3])}
+          />
           <ReadRow
             label="Reward amount"
             value={formatTokenAmount({ value: roundData?.[4] })}
@@ -920,7 +933,9 @@ export function AdminRewardRoundControls({
           />
           <ReadRow
             label="RewardDistributor $OiOi balance"
-            value={formatTokenAmount({ value: rewardDistributorBalanceRead.data })}
+            value={formatTokenAmount({
+              value: rewardDistributorBalanceRead.data,
+            })}
           />
           <ReadRow
             label="Admin allowance"
@@ -949,8 +964,7 @@ export function AdminRewardRoundControls({
           className="rounded-3xl border border-green-500/30 bg-green-500/10 p-5 font-medium text-green-100 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={createRoundDisabled}
           onClick={() => void createRewardRound()}
-          type="button"
-        >
+          type="button">
           Create Reward Round
         </button>
 
@@ -958,8 +972,7 @@ export function AdminRewardRoundControls({
           className="rounded-3xl border border-blue-500/30 bg-blue-500/10 p-5 font-medium text-blue-100 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={approveDisabled}
           onClick={() => void approveRewardFunding()}
-          type="button"
-        >
+          type="button">
           Approve $OiOi Funding
         </button>
 
@@ -967,8 +980,7 @@ export function AdminRewardRoundControls({
           className="rounded-3xl border border-green-500/30 bg-green-500/10 p-5 font-medium text-green-100 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={fundDisabled}
           onClick={() => void fundRewardRound()}
-          type="button"
-        >
+          type="button">
           Fund Reward Round
         </button>
 
@@ -977,8 +989,7 @@ export function AdminRewardRoundControls({
             className="rounded-3xl border border-yellow-500/30 bg-yellow-500/10 p-5 font-medium text-yellow-100 disabled:cursor-not-allowed disabled:opacity-40"
             disabled={pauseDisabled || roundClaimPaused}
             onClick={() => void setClaimPaused(true)}
-            type="button"
-          >
+            type="button">
             Pause Claims
           </button>
 
@@ -986,8 +997,7 @@ export function AdminRewardRoundControls({
             className="rounded-3xl border border-red-500/30 bg-red-500/10 p-5 font-medium text-red-100 disabled:cursor-not-allowed disabled:opacity-40"
             disabled={pauseDisabled || !roundClaimPaused}
             onClick={() => void setClaimPaused(false)}
-            type="button"
-          >
+            type="button">
             Unpause Claims
           </button>
         </div>

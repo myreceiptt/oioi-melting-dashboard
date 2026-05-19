@@ -79,8 +79,7 @@ function TxStatus({
           className="mt-2 block break-all font-mono underline underline-offset-4"
           href={getTxUrl(chainSet, txHash)}
           rel="noreferrer"
-          target="_blank"
-        >
+          target="_blank">
           {txHash}
         </a>
       ) : null}
@@ -219,7 +218,7 @@ function StakingCollectionControl({
       <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
         <div>
           <p className="text-sm uppercase tracking-[0.25em] text-white/40">
-            Staking registry
+            Staking Registry
           </p>
           <h3 className="mt-2 text-2xl font-semibold">{collection.label}</h3>
           <p className="mt-2 max-w-2xl text-sm text-white/60">
@@ -243,22 +242,27 @@ function StakingCollectionControl({
           label="Staking owner"
           value={shortAddress(ownerAddress)}
           warning={
-            ownerAddress && !sameAddress(ownerAddress, EXPECTED_ADMIN_OWNER_ADDRESS)
+            ownerAddress &&
+            !sameAddress(ownerAddress, EXPECTED_ADMIN_OWNER_ADDRESS)
               ? "Owner differs from expected admin."
               : undefined
           }
         />
         <ReadRow label="Build stage" value={buildStage ?? "—"} />
-        <ReadRow label="Staking contract" value={shortAddress(stakingAddress)} />
-        <ReadRow label="Collection address" value={shortAddress(collection.address)} />
+        <ReadRow
+          label="Staking contract"
+          value={shortAddress(stakingAddress)}
+        />
+        <ReadRow
+          label="Collection address"
+          value={shortAddress(collection.address)}
+        />
         <ReadRow label="Approved" value={formatBool(approved)} />
       </div>
 
       <div className="mt-5 rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-4">
         <div className="font-medium text-yellow-100">Warning</div>
-        <p className="mt-2 text-sm text-yellow-100/80">
-          {collection.warning}
-        </p>
+        <p className="mt-2 text-sm text-yellow-100/80">{collection.warning}</p>
       </div>
 
       {!userIsExpectedOwner ? (
@@ -273,8 +277,7 @@ function StakingCollectionControl({
           className="rounded-2xl border border-green-500/30 bg-green-500/10 px-5 py-3 font-medium text-green-100 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={actionDisabledBase || approved === true}
           onClick={() => void setCollectionApproved(true)}
-          type="button"
-        >
+          type="button">
           Approve Collection
         </button>
 
@@ -282,8 +285,7 @@ function StakingCollectionControl({
           className="rounded-2xl border border-red-500/30 bg-red-500/10 px-5 py-3 font-medium text-red-100 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={actionDisabledBase || approved === false}
           onClick={() => void setCollectionApproved(false)}
-          type="button"
-        >
+          type="button">
           Unapprove Collection
         </button>
       </div>
@@ -323,14 +325,14 @@ export function AdminStakingRegistryControls({
   const collections: StakingCollectionConfig[] = [
     {
       key: "roty",
-      label: chainSet === "base" ? "The ROTY BASE" : "The ROTY dETH",
+      label: chainSet === "base" ? "ROTY BASE" : "ROTY dETH",
       address: addresses.roty,
       warning:
-        "ROTY staking is the root eligibility signal for Melting gated mint and downstream reward participation. Unapproving ROTY can disrupt future staking operations.",
+        "ROTY staking is the root eligibility signal for Melting and Amanda gated mint and downstream reward participation. Unapproving ROTY can disrupt future staking operations.",
     },
     {
       key: "melting",
-      label: chainSet === "base" ? "Melting BASE" : "MELTING dETH",
+      label: chainSet === "base" ? "Melting BASE" : "Melting dETH",
       address: addresses.melting,
       warning:
         "Melting staking is part of Amanda gated mint eligibility and reward participation. Unapproving Melting can disrupt later gated mint and reward flows.",
@@ -355,14 +357,15 @@ export function AdminStakingRegistryControls({
         </h2>
         <p className="mt-2 text-sm text-white/60">
           Owner-only controls for approving or unapproving NFT collections in
-          OiOiSoftStaking.
+          OiOi Soft Staking.
         </p>
 
         <div className="mt-5 rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-4">
           <div className="font-medium text-yellow-100">Operational warning</div>
           <p className="mt-2 text-sm text-yellow-100/80">
             Keep ROTY, Melting, and Amanda approved unless there is a clear
-            emergency reason. Always restore approved=true after test toggles.
+            emergency reason. Always restore <code>approved=true</code> before
+            opening.
           </p>
         </div>
       </section>

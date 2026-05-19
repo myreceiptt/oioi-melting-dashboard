@@ -6,20 +6,20 @@ The project supports six NFT collections across two chain-specific ecosystems.
 
 ## Base Set
 
-- The ROTY BASE / ROTYBASE
+- ROTY BASE / ROTYBASE
 - Melting BASE / MELTBASE
 - Amanda BASE / AMANBASE
-- OiOiSoftStaking on Base
-- OiOiRewardDistributor on Base
+- OiOi Soft Staking on Base
+- OiOi Reward Distributor on Base
 - Base $OiOi token
 
 ## Ethereum Set
 
-- The ROTY dETH / ROTYDETH
-- MELTING dETH / MELTDETH
+- ROTY dETH / ROTYDETH
+- Melting dETH / MELTDETH
 - Amanda dETH / AMANDETH
-- OiOiSoftStaking on Ethereum
-- OiOiRewardDistributor on Ethereum
+- OiOi Soft Staking on Ethereum
+- OiOi Reward Distributor on Ethereum
 - Ethereum $OiOi token
 
 ---
