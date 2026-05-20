@@ -96,8 +96,8 @@ export function RewardClaimPlaceholder({ chainSet }: { chainSet: ChainSet }) {
           <h2 className="mt-2 text-2xl font-semibold">Reward Claim</h2>
           <p className="mt-2 text-sm text-white/60">
             Reward claim requires round data, allocation amount, and Merkle
-            proof from the indexer/reward pipeline. This panel is read-only for
-            now.
+            proof from the indexer/reward pipeline. This panel show the rewards
+            value.
           </p>
         </div>
 

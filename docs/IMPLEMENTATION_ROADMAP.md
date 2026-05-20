@@ -242,8 +242,8 @@ Tasks:
 3. Implement checkpoint-based indexer using manual FROM_BLOCK.
 4. Respect optional TO_BLOCK only for bounded backfill/testing.
 5. Sync ERC721 Transfer events.
-6. Sync OiOiSoftStaking Staked/Unstaked events.
-7. Sync OiOiRewardDistributor events.
+6. Sync OiOi Soft Staking Staked/Unstaked events.
+7. Sync OiOi Reward Distributor events.
 8. Build current ownership state.
 9. Build current stake state.
 10. Compute valid staking duration.

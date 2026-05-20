@@ -46,7 +46,7 @@ export default async function ChainDashboardPage({
             </h1>
             <p className="mt-4 max-w-3xl text-white/60">
               Read-only staking summary, and stake or unstake owned NFT, also
-              claim the OiOi rewards, all only for the expected owner.
+              claim the OiOi rewards, all only for the expected holder.
             </p>
           </div>
 

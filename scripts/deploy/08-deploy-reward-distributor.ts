@@ -28,7 +28,7 @@ async function main() {
     deployer.account.address,
   );
 
-  console.log("Deploying OiOiRewardDistributor...");
+  console.log("Deploying OiOi Reward Distributor...");
   console.log({
     network: networkName,
     chainId: config.chainId,
@@ -67,7 +67,7 @@ async function main() {
 
   if (record.contracts.rewardDistributor) {
     throw new Error(
-      `OiOiRewardDistributor already deployed for ${config.key}: ${record.contracts.rewardDistributor}`,
+      `OiOi Reward Distributor already deployed for ${config.key}: ${record.contracts.rewardDistributor}`,
     );
   }
 
