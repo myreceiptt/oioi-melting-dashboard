@@ -45,7 +45,8 @@
     "indexer:db-check": "tsx scripts/indexer/db-foundation-check.ts",
     "indexer:sync-transfers": "tsx scripts/indexer/sync-transfers-db.ts",
     "indexer:rebuild-ownership": "tsx scripts/indexer/rebuild-ownership-db.ts",
-    "indexer:sync-staking": "tsx scripts/indexer/sync-staking-events-db.ts"
+    "indexer:sync-staking": "tsx scripts/indexer/sync-staking-events-db.ts",
+    "indexer:rebuild-stake-positions": "tsx scripts/indexer/rebuild-stake-positions-db.ts"
   },
   "repository": {
     "type": "git",
