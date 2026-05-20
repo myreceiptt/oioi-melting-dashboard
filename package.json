@@ -41,7 +41,8 @@
     "indexer:sync": "tsx scripts/indexer/sync.ts",
     "indexer:status": "tsx scripts/indexer/status.ts",
     "indexer:rebuild": "tsx scripts/indexer/rebuild.ts",
-    "supabase:check": "tsx scripts/supabase/check.ts"
+    "supabase:check": "tsx scripts/supabase/check.ts",
+    "indexer:db-check": "tsx scripts/indexer/db-foundation-check.ts"
   },
   "repository": {
     "type": "git",
