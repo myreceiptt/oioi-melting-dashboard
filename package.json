@@ -48,7 +48,8 @@
     "indexer:sync-staking": "tsx scripts/indexer/sync-staking-events-db.ts",
     "indexer:rebuild-stake-positions": "tsx scripts/indexer/rebuild-stake-positions-db.ts",
     "indexer:sync-rewards": "tsx scripts/indexer/sync-reward-events-db.ts",
-    "indexer:calculate-valid-intervals": "tsx scripts/indexer/calculate-valid-intervals-db.ts"
+    "indexer:calculate-valid-intervals": "tsx scripts/indexer/calculate-valid-intervals-db.ts",
+    "rewards:calculate": "tsx scripts/rewards/calculate-rewards-db.ts"
   },
   "repository": {
     "type": "git",
