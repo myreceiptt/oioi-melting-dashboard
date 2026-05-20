@@ -50,7 +50,7 @@ export default async function MintPage({
           <p className="text-sm uppercase tracking-[0.3em] text-white/50">
             NFT Mint Page
           </p>
-          <h1 className="mt-3 text-4xl font-semibold">{config.name} Mint</h1>
+          <h1 className="mt-3 text-4xl font-semibold">{config.judul}</h1>
           <p className="mt-4 max-w-3xl text-white/60">
             Symbol:{" "}
             <span className="mt-4 font-mono text-sm text-white/40">

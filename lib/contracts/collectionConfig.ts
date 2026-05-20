@@ -10,6 +10,7 @@ export type CollectionConfig = {
   chainSet: ChainSet;
   collectionKey: CollectionKey;
   mintType: MintType;
+  judul: string;
   name: string;
   symbol: string;
   contractAddress: Address;
@@ -43,6 +44,7 @@ export function getCollectionConfig(
     return {
       ...common,
       mintType: "roty",
+      judul: "The ROTY BASE dETH",
       name: "ROTY BASE",
       symbol: "ROTYBASE",
       contractAddress: addresses.roty,
@@ -53,6 +55,7 @@ export function getCollectionConfig(
     return {
       ...common,
       mintType: "roty",
+      judul: "The ROTY BASE dETH",
       name: "ROTY dETH",
       symbol: "ROTYDETH",
       contractAddress: addresses.roty,
@@ -63,6 +66,7 @@ export function getCollectionConfig(
     return {
       ...common,
       mintType: "gated",
+      judul: "The Melting Land",
       name: "Melting BASE",
       symbol: "MELTBASE",
       contractAddress: addresses.melting,
@@ -73,6 +77,7 @@ export function getCollectionConfig(
     return {
       ...common,
       mintType: "gated",
+      judul: "The Melting Land",
       name: "Melting dETH",
       symbol: "MELTDETH",
       contractAddress: addresses.melting,
@@ -83,6 +88,7 @@ export function getCollectionConfig(
     return {
       ...common,
       mintType: "gated",
+      judul: "Amanda Wives",
       name: "Amanda BASE",
       symbol: "AMANBASE",
       contractAddress: addresses.amanda,
@@ -92,6 +98,7 @@ export function getCollectionConfig(
   return {
     ...common,
     mintType: "gated",
+    judul: "Amanda Wives",
     name: "Amanda dETH",
     symbol: "AMANDETH",
     contractAddress: addresses.amanda,
