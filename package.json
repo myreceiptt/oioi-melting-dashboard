@@ -49,7 +49,8 @@
     "indexer:rebuild-stake-positions": "tsx scripts/indexer/rebuild-stake-positions-db.ts",
     "indexer:sync-rewards": "tsx scripts/indexer/sync-reward-events-db.ts",
     "indexer:calculate-valid-intervals": "tsx scripts/indexer/calculate-valid-intervals-db.ts",
-    "rewards:calculate": "tsx scripts/rewards/calculate-rewards-db.ts"
+    "rewards:calculate": "tsx scripts/rewards/calculate-rewards-db.ts",
+    "rewards:merkle-db": "tsx scripts/rewards/generate-merkle-db.ts"
   },
   "repository": {
     "type": "git",
