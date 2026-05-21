@@ -154,19 +154,15 @@ ROTY whitelist mint UI
 Melting gated mint UI
 Amanda gated mint UI
 dashboard stake/unstake UI
-reward claim placeholder
+reward claim UI backed by Supabase proof API
 Sepolia browser QA for read/OFF-phase/stake flows
 ```
 
 Pending:
 
 ```text
-Admin Dashboard
-active reward claim UI
 owned NFT auto-discovery
-reward rounds UI with real indexed data
-Vercel preview/testnet deployment
-production domain routing
+reward claim browser QA with real funded testnet rounds
 final UI/UX polish
 ```
 
@@ -299,11 +295,12 @@ Reward claim UI depends on Supabase-backed reward proof data.
 Current state:
 
 ```text
-Reward claim placeholder exists.
-Claim button remains disabled until proof API exists.
+Reward claim panel exists.
+Proof API exists and reads Supabase reward tables.
+End-to-end browser claim validation still depends on generated proofs and a funded testnet round.
 ```
 
-Future active claim flow:
+Active claim flow:
 
 ```text
 fetch reward rounds

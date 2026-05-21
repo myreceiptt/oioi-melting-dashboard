@@ -443,7 +443,7 @@ non-eligible wallet gets safe empty state
 Tasks:
 
 ```text
-replace reward placeholder with active reward claim UI
+active reward claim UI implemented
 fetch reward rounds
 fetch wallet proof
 submit claim transaction

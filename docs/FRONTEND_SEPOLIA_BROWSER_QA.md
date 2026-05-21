@@ -33,11 +33,11 @@ gated mint disabled states while phases OFF
 whitelist eligibility reads
 staking eligibility reads
 dashboard stake/unstake
-reward placeholder
+reward read surface
 browser console review
 ```
 
-This QA did not validate active reward claim because proof API and reward calculator are not yet complete.
+This historical QA did not validate active reward claim. Reward claim now requires a separate QA pass with generated Supabase proofs and a funded reward round.
 
 This QA did not validate Admin Dashboard because Admin Dashboard is not yet implemented.
 

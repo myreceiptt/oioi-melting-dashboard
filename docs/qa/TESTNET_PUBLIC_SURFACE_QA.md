@@ -40,7 +40,8 @@
 - [ ] ownerOf reads
 - [ ] stake active reads
 - [ ] stake valid reads
-- [ ] Reward placeholder renders
+- [ ] Reward claim panel renders
+- [ ] Reward proof API empty/error states render safely
 
 ## Admin
 

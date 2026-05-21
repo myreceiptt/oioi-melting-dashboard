@@ -110,6 +110,7 @@ Completed:
 - Amanda gated mint UI
 - dashboard stake/unstake UI
 - reward claim placeholder
+- active reward claim UI backed by Supabase proof API
 - Frontend Sepolia Browser QA for read/OFF-phase/stake flows
 
 ---

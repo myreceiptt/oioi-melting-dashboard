@@ -199,6 +199,7 @@
     - ✅ Gated mint UI done.
     - ✅ Dashboard stake/unstake UI done.
     - ✅ Reward claim placeholder done.
+    - ✅ Active reward claim panel wired to Supabase proof API.
     - ✅ Homepage links done.
     - ✅ Build errors fixed.
     - ✅ Sepolia browser local QA done.
@@ -254,22 +255,22 @@
 
 18. Complete Database Indexer + Reward Pipeline on Testnet — NEXT / IN PROGRESS
     - ✅ Storage decision locked: Supabase Postgres.
-    - 🔜 Supabase Project + Schema v1.
-    - 🔜 Supabase env wiring.
-    - 🔜 Database migrations.
-    - 🔜 Indexer with manual FROM_BLOCK + checkpoint.
-    - 🔜 Transfer event sync.
-    - 🔜 Staked / Unstaked event sync.
-    - 🔜 Reward round event sync.
-    - 🔜 Current ownership state.
-    - 🔜 Current staking state.
-    - 🔜 Valid duration calculator.
-    - 🔜 Reward round planning model.
-    - 🔜 Reward calculator.
-    - 🔜 Merkle allocation/proof pipeline.
-    - 🔜 Reward proof API.
-    - 🔜 Admin Reward Round Controls v2 integration with Supabase round list.
-    - 🔜 Reward claim integration.
+    - ✅ Supabase Project + Schema v1 migration files.
+    - ✅ Indexer with manual FROM_BLOCK + checkpoint implemented.
+    - ✅ Transfer event sync implemented.
+    - ✅ Staked / Unstaked event sync implemented.
+    - ✅ Reward round event sync implemented.
+    - ✅ Current ownership state rebuild implemented.
+    - ✅ Current staking state rebuild implemented.
+    - ✅ Valid duration calculator implemented.
+    - ✅ Reward calculator implemented.
+    - ✅ Merkle allocation/proof pipeline implemented.
+    - ✅ Reward proof API implemented.
+    - ✅ Reward claim UI integration implemented.
+    - 🔜 Supabase env wiring verification.
+    - 🔜 Database migrations applied in target Supabase project.
+    - 🔜 Admin Reward Round Controls validation with Supabase round list.
+    - 🔜 End-to-end reward pipeline run on Base Sepolia and Ethereum Sepolia.
     - 🔜 Reward claim browser testing.
 
 19. Full Testnet Browser E2E — NOT STARTED

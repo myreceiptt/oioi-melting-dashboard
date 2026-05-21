@@ -173,18 +173,16 @@ Already done:
 ✅ User dashboard.
 ✅ Stake/unstake.
 ✅ Reward placeholder.
+✅ Active reward claim UI.
+✅ Reward proof API.
 ```
 
 Remaining:
 
 ```text
-🔜 Admin Dashboard Architecture v1.
-🔜 Contract Admin Surface Audit.
-🔜 Admin Dashboard implementation.
-🔜 Active reward claim UI after proof API exists.
-🔜 Vercel preview/testnet deployment.
-🔜 Test/preview domain or route mapping.
-🔜 Sepolia env wiring on Vercel.
+🔜 Reward claim browser QA with generated Supabase proofs.
+🔜 Full testnet browser E2E.
+🔜 Final UI/UX polish.
 ```
 
 Testing for this step:
