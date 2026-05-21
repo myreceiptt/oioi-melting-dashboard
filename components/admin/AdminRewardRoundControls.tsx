@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import type { Address, Hash } from "viem";
+import type { Hash } from "viem";
 import { isHex, parseUnits } from "viem";
 import {
   useAccount,
@@ -17,7 +17,6 @@ import { getTxUrl } from "@/lib/services/explorer";
 import { sameAddress } from "@/lib/utils/address";
 import {
   formatBool,
-  formatNumber,
   formatTokenAmount,
   shortAddress,
 } from "@/lib/utils/format";
@@ -29,7 +28,7 @@ type TxAction =
   | "pauseClaims"
   | "unpauseClaims";
 
-type RoundMode = "createNew" | "existingManual";
+type RoundMode = "createNew" | "existingSupabase";
 
 type RewardRoundData = readonly [
   boolean,
@@ -41,6 +40,51 @@ type RewardRoundData = readonly [
   bigint,
   `0x${string}`,
 ];
+
+type AdminRewardRoundApiResponse =
+  | {
+      ok: true;
+      chain: ChainSet;
+      chainKey: string;
+      roundId: string | null;
+      rounds: AdminRewardRound[];
+    }
+  | {
+      ok: false;
+      error: string;
+    };
+
+type AdminRewardRound = {
+  chain_key: string;
+  round_id: string;
+  status: string;
+  period_start: string;
+  period_end: string;
+  period_start_unix: string;
+  period_end_unix: string;
+  reward_amount_wei: string;
+  reward_amount_oioi: string;
+  funded_amount_wei: string;
+  funded_amount_oioi: string;
+  claimed_amount_wei: string;
+  claimed_amount_oioi: string;
+  merkle_root: `0x${string}` | null;
+  claim_paused: boolean;
+  calculation_id: string | null;
+  created_tx_hash: string | null;
+  funded_tx_hash: string | null;
+  metadata: Record<string, unknown> | null;
+  updated_at: string;
+  allocation_summary: {
+    allocationCount: number;
+    positiveAllocationCount: number;
+    proofReadyCount: number;
+    claimedCount: number;
+    allocatedAmountWei: string;
+  };
+  ready_for_create: boolean;
+  ready_for_funding: boolean;
+};
 
 function isExpectedOwner(address: string | undefined) {
   return Boolean(address && sameAddress(address, EXPECTED_ADMIN_OWNER_ADDRESS));
@@ -126,6 +170,30 @@ function formatUnixTimestamp(value: bigint | undefined) {
 
 function maxBigInt(a: bigint, b: bigint) {
   return a > b ? a : b;
+}
+
+function normalizeRoundId(value: string | number | bigint) {
+  return BigInt(value).toString();
+}
+
+function padDatePart(value: number) {
+  return String(value).padStart(2, "0");
+}
+
+function toDateTimeLocalInput(value: string) {
+  const date = new Date(value);
+
+  if (Number.isNaN(date.getTime())) {
+    return "";
+  }
+
+  const year = date.getFullYear();
+  const month = padDatePart(date.getMonth() + 1);
+  const day = padDatePart(date.getDate());
+  const hour = padDatePart(date.getHours());
+  const minute = padDatePart(date.getMinutes());
+
+  return `${year}-${month}-${day}T${hour}:${minute}`;
 }
 
 function ReadRow({
@@ -222,7 +290,7 @@ function TxStatus({
         {isLoading
           ? "Mining..."
           : isSuccess
-            ? "Mined successfully."
+            ? "Mined successfully. Run reward event sync after create/fund/claim so Supabase reflects the on-chain state."
             : isError
               ? "Transaction failed or receipt error."
               : txHash
@@ -244,6 +312,11 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
   const addresses = getContractAddresses(chainSet);
 
   const [roundMode, setRoundMode] = useState<RoundMode>("createNew");
+  const [rounds, setRounds] = useState<AdminRewardRound[]>([]);
+  const [selectedSupabaseRoundId, setSelectedSupabaseRoundId] = useState("");
+  const [isRoundsLoading, setIsRoundsLoading] = useState(false);
+  const [roundsError, setRoundsError] = useState<string | null>(null);
+  const [copyStatus, setCopyStatus] = useState<string | null>(null);
   const [roundIdInput, setRoundIdInput] = useState("");
   const [periodStartInput, setPeriodStartInput] = useState("");
   const [periodEndInput, setPeriodEndInput] = useState("");
@@ -257,6 +330,15 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
     () => isExpectedOwner(connectedAddress),
     [connectedAddress],
   );
+
+  const selectedSupabaseRound = useMemo(() => {
+    return (
+      rounds.find(
+        (round) =>
+          normalizeRoundId(round.round_id) === selectedSupabaseRoundId,
+      ) ?? null
+    );
+  }, [rounds, selectedSupabaseRoundId]);
 
   const roundId = parseBigIntInput(roundIdInput);
   const periodStart = parseDateTimeToUnix(periodStartInput);
@@ -359,6 +441,7 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
   const roundRewardAmount = roundData?.[4] ?? 0n;
   const roundFundedAmount = roundData?.[5] ?? 0n;
   const roundClaimedAmount = roundData?.[6] ?? 0n;
+  const onChainMerkleRoot = roundData?.[7];
   const roundIsFunded =
     typeof isRoundFundedRead.data === "boolean"
       ? isRoundFundedRead.data
@@ -367,11 +450,25 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
   const amountNeededToFund = roundExists
     ? maxBigInt(roundRewardAmount - roundFundedAmount, 0n)
     : (rewardAmount ?? 0n);
-  const allowanceSufficient = allowance >= amountNeededToFund;
+  const allowanceSufficient = amountNeededToFund > 0n && allowance >= amountNeededToFund;
   const roundFullyClaimed =
     roundExists &&
     roundRewardAmount > 0n &&
     roundClaimedAmount >= roundRewardAmount;
+  const selectedSupabaseRoundClosed = selectedSupabaseRound?.status === "closed";
+  const selectedSupabaseMerkleRoot = selectedSupabaseRound?.merkle_root ?? null;
+  const selectedSupabaseRootMatches =
+    Boolean(selectedSupabaseMerkleRoot && merkleRoot) &&
+    selectedSupabaseMerkleRoot?.toLowerCase() === merkleRoot?.toLowerCase();
+  const onChainRootMatchesSupabase =
+    Boolean(selectedSupabaseMerkleRoot && onChainMerkleRoot) &&
+    selectedSupabaseMerkleRoot?.toLowerCase() ===
+      onChainMerkleRoot?.toLowerCase();
+  const selectedRoundOnChainMismatch =
+    roundMode === "existingSupabase" &&
+    Boolean(selectedSupabaseRound) &&
+    roundExists &&
+    !onChainRootMatchesSupabase;
 
   const actionDisabledBase =
     !isConnected || !userIsExpectedOwner || isWritePending || receipt.isLoading;
@@ -386,12 +483,128 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
     void allowanceRead.refetch();
   }
 
+  async function fetchRounds({ preserveSelection = true } = {}) {
+    setIsRoundsLoading(true);
+    setRoundsError(null);
+
+    try {
+      const response = await fetch(`/api/admin/reward-rounds?chain=${chainSet}`, {
+        cache: "no-store",
+      });
+      const json = (await response.json()) as AdminRewardRoundApiResponse;
+
+      if (!response.ok || json.ok === false) {
+        setRounds([]);
+        setSelectedSupabaseRoundId("");
+        setRoundsError(json.ok === false ? json.error : "Failed to load reward rounds.");
+        return;
+      }
+
+      const normalizedRounds = json.rounds.map((round) => ({
+        ...round,
+        round_id: normalizeRoundId(round.round_id),
+        period_start_unix: normalizeRoundId(round.period_start_unix),
+        period_end_unix: normalizeRoundId(round.period_end_unix),
+        reward_amount_wei: normalizeRoundId(round.reward_amount_wei),
+        funded_amount_wei: normalizeRoundId(round.funded_amount_wei),
+        claimed_amount_wei: normalizeRoundId(round.claimed_amount_wei),
+      }));
+
+      setRounds(normalizedRounds);
+
+      if (normalizedRounds.length === 0) {
+        setSelectedSupabaseRoundId("");
+        return;
+      }
+
+      setSelectedSupabaseRoundId((current) => {
+        if (
+          preserveSelection &&
+          current &&
+          normalizedRounds.some((round) => round.round_id === current)
+        ) {
+          return current;
+        }
+
+        return normalizedRounds[0].round_id;
+      });
+    } catch (error) {
+      setRounds([]);
+      setSelectedSupabaseRoundId("");
+      setRoundsError(
+        error instanceof Error ? error.message : "Failed to load reward rounds.",
+      );
+    } finally {
+      setIsRoundsLoading(false);
+    }
+  }
+
+  function resetRoundInputs() {
+    setRoundIdInput("");
+    setPeriodStartInput("");
+    setPeriodEndInput("");
+    setRewardAmountInput("");
+    setFundAmountInput("");
+    setApproveAmountInput("");
+    setMerkleRootInput("");
+  }
+
+  function applySupabaseRound(round: AdminRewardRound) {
+    setRoundIdInput(normalizeRoundId(round.round_id));
+    setPeriodStartInput(toDateTimeLocalInput(round.period_start));
+    setPeriodEndInput(toDateTimeLocalInput(round.period_end));
+    setRewardAmountAndDefaultFunding(round.reward_amount_oioi);
+    setFundAmountInput(round.reward_amount_oioi);
+    setApproveAmountInput(round.reward_amount_oioi);
+    setMerkleRootInput(round.merkle_root ?? "");
+  }
+
+  function buildCopyText(round: AdminRewardRound) {
+    return [
+      `Round ID: ${round.round_id}`,
+      `Reward amount (${tokenSymbol}): ${round.reward_amount_oioi}`,
+      `Reward amount (wei): ${round.reward_amount_wei}`,
+      `Fund amount (${tokenSymbol}): ${round.reward_amount_oioi}`,
+      `Approve amount (${tokenSymbol}): ${round.reward_amount_oioi}`,
+      `Period start: ${round.period_start}`,
+      `Period end: ${round.period_end}`,
+      `Period start unix: ${round.period_start_unix}`,
+      `Period end unix: ${round.period_end_unix}`,
+      `Merkle root: ${round.merkle_root ?? ""}`,
+      `Allocation count: ${round.allocation_summary.allocationCount}`,
+      `Allocated amount wei: ${round.allocation_summary.allocatedAmountWei}`,
+    ].join("\n");
+  }
+
+  async function copySelectedRoundValues() {
+    if (!selectedSupabaseRound) {
+      return;
+    }
+
+    await navigator.clipboard.writeText(buildCopyText(selectedSupabaseRound));
+    setCopyStatus("Copied selected round values.");
+    window.setTimeout(() => setCopyStatus(null), 2500);
+  }
+
+  useEffect(() => {
+    void fetchRounds({ preserveSelection: true });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [chainSet]);
+
   useEffect(() => {
     if (receipt.isSuccess) {
       refetchRewardReads();
+      void fetchRounds({ preserveSelection: true });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [receipt.isSuccess]);
+
+  useEffect(() => {
+    if (roundMode === "existingSupabase" && selectedSupabaseRound) {
+      applySupabaseRound(selectedSupabaseRound);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [roundMode, selectedSupabaseRoundId, selectedSupabaseRound?.updated_at]);
 
   function setRewardAmountAndDefaultFunding(nextValue: string) {
     setRewardAmountInput((previousRewardAmount) => {
@@ -407,10 +620,7 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
       });
 
       setFundAmountInput((previousFundAmount) => {
-        if (
-          !previousFundAmount ||
-          previousFundAmount === previousRewardAmount
-        ) {
+        if (!previousFundAmount || previousFundAmount === previousRewardAmount) {
           return nextValue;
         }
 
@@ -439,12 +649,18 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
     setRoundMode(nextMode);
 
     if (nextMode === "createNew") {
-      const parsedPeriodEnd = parseDateTimeToUnix(periodEndInput);
-
-      if (parsedPeriodEnd !== null) {
-        setRoundIdInput(parsedPeriodEnd.toString());
-      }
+      resetRoundInputs();
+      return;
     }
+
+    if (rounds.length === 0) {
+      void fetchRounds({ preserveSelection: false });
+      return;
+    }
+
+    const round = selectedSupabaseRound ?? rounds[0];
+    setSelectedSupabaseRoundId(round.round_id);
+    applySupabaseRound(round);
   }
 
   function confirmAction({
@@ -522,6 +738,9 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
         `Period end: ${periodEnd.toString()}`,
         `Reward amount: ${rewardAmountInput} ${tokenSymbol}`,
         `Merkle root: ${merkleRoot}`,
+        selectedSupabaseRound
+          ? `Supabase status: ${selectedSupabaseRound.status}`
+          : "Supabase status: create-new/manual",
       ],
     });
 
@@ -598,9 +817,22 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
     });
   }
 
+  const selectedRoundReadyForCreate =
+    roundMode === "createNew" ||
+    (Boolean(selectedSupabaseRound) &&
+      selectedSupabaseRound?.ready_for_create === true &&
+      !selectedSupabaseRoundClosed);
+  const approveAmountEnough =
+    approveAmount !== null && amountNeededToFund > 0n && approveAmount >= amountNeededToFund;
+  const fundAmountValid =
+    fundAmount !== null &&
+    fundAmount > 0n &&
+    amountNeededToFund > 0n &&
+    fundAmount <= amountNeededToFund;
+
   const createRoundDisabled =
     actionDisabledBase ||
-    roundMode !== "createNew" ||
+    !selectedRoundReadyForCreate ||
     roundId === null ||
     periodStart === null ||
     periodEnd === null ||
@@ -611,29 +843,53 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
   const approveDisabled =
     actionDisabledBase ||
     approveAmount === null ||
+    !approveAmountEnough ||
     !roundExists ||
     roundIsFunded ||
+    allowanceSufficient ||
+    selectedRoundOnChainMismatch ||
     roundFullyClaimed;
 
   const fundDisabled =
     actionDisabledBase ||
     roundId === null ||
-    fundAmount === null ||
+    !fundAmountValid ||
     !roundExists ||
     roundIsFunded ||
     !allowanceSufficient ||
+    selectedRoundOnChainMismatch ||
     roundFullyClaimed;
 
   const pauseDisabled =
-    actionDisabledBase || roundId === null || !roundExists || roundFullyClaimed;
+    actionDisabledBase ||
+    roundId === null ||
+    !roundExists ||
+    selectedRoundOnChainMismatch ||
+    roundFullyClaimed;
 
   const suggestedAction = (() => {
+    if (roundMode === "existingSupabase" && isRoundsLoading) {
+      return "Loading Supabase reward rounds.";
+    }
+
+    if (roundMode === "existingSupabase" && !selectedSupabaseRound) {
+      return "Select an existing Supabase reward round first.";
+    }
+
+    if (roundMode === "existingSupabase" && selectedSupabaseRoundClosed) {
+      return "Selected Supabase round is closed. Treat it as read-only.";
+    }
+
     if (roundId === null) {
       return "Enter or select a valid round ID.";
     }
 
     if (!roundExists) {
-      return "Create the reward round first.";
+      return "Create the reward round on-chain first.";
+    }
+
+    if (roundMode === "existingSupabase" && selectedSupabaseRound && !onChainRootMatchesSupabase) {
+      return "On-chain round exists, but Merkle root does not match the selected Supabase round. Stop and review before funding.";
     }
 
     if (roundFullyClaimed) {
@@ -649,7 +905,7 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
     }
 
     if (roundIsFunded) {
-      return "Round is funded. Use pause/unpause only when operationally needed.";
+      return "Round is funded. Claim should be available to eligible wallets unless paused or already claimed.";
     }
 
     return "Review selected round state.";
@@ -663,16 +919,17 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
         </p>
         <h2 className="mt-2 text-2xl font-semibold">Reward Round Controls</h2>
         <p className="mt-2 text-sm text-white/60">
-          Owner-only controls for approving $OiOi, creating reward rounds,
-          funding reward rounds, and pausing or unpausing claims.
+          Owner-only controls for selecting Supabase-generated reward rounds,
+          creating them on-chain, approving $OiOi, funding reward rounds, and
+          pausing or unpausing claims.
         </p>
 
         <div className="mt-5 rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-4">
           <div className="font-medium text-yellow-100">Important</div>
           <p className="mt-2 text-sm text-yellow-100/80">
-            This UI still uses manual/test inputs until Supabase indexer and
-            reward calculator are implemented. The final workflow should use a
-            database-backed round selector and calculator output.
+            Existing round mode is backed by Supabase reward calculator and
+            Merkle proof data. Create-new mode remains available for controlled
+            manual testing only.
           </p>
         </div>
       </section>
@@ -684,13 +941,12 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
         <div className="mt-3 grid gap-2 text-sm text-blue-100/80">
           <p>
             The RewardDistributor contract does not auto-generate sequential
-            round IDs. In the chosen v2 workflow, Admin UI/backend uses
-            periodEnd Unix timestamp as the round ID.
+            round IDs. In the chosen workflow, the reward pipeline uses periodEnd
+            Unix timestamp as the round ID.
           </p>
           <p>
-            Period start and period end should ultimately come from the Supabase
-            indexer and reward calculator. Manual date inputs here are only for
-            testing contract write flow.
+            Period start, period end, reward amount, and Merkle root should come
+            from Supabase reward calculation output before create/fund actions.
           </p>
           <p>
             Approval is global ERC20 allowance, not per-round status. The UI
@@ -703,16 +959,16 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
       <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
         <h3 className="text-2xl font-semibold">Round selector</h3>
         <p className="mt-2 text-sm text-white/60">
-          Existing round dropdown will be powered by Supabase reward round data.
-          Until that backend exists, use manual existing round ID mode.
+          Choose whether to manually create a new test round or operate on an
+          existing Supabase-generated round.
         </p>
 
         <div className="mt-5 grid gap-4 md:grid-cols-2">
           <label className="block rounded-2xl border border-white/10 bg-black/20 p-4">
             <div className="font-medium">Round mode</div>
             <p className="mt-1 text-xs text-white/50">
-              Create new auto-fills round ID from period end. Existing round
-              allows manual round ID lookup until Supabase dropdown exists.
+              Existing Supabase round auto-fills the reward round form from the
+              reward calculator and Merkle pipeline.
             </p>
             <select
               className="mt-3 w-full rounded-xl border border-white/10 bg-black/40 px-3 py-2 text-sm outline-none focus:border-white/30"
@@ -721,7 +977,7 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
               }
               value={roundMode}>
               <option value="createNew">Create new round</option>
-              <option value="existingManual">Existing round / manual ID</option>
+              <option value="existingSupabase">Existing Supabase round</option>
             </select>
           </label>
 
@@ -733,12 +989,90 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
       </section>
 
       <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
-        <h3 className="text-2xl font-semibold">Reward round input</h3>
-        <p className="mt-2 text-sm text-white/60">
-          For create new mode, round ID is automatically set to periodEnd Unix
-          timestamp. Reward amount auto-fills approve and fund amounts unless
-          they were manually edited.
-        </p>
+        <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+          <div>
+            <h3 className="text-2xl font-semibold">Reward round input</h3>
+            <p className="mt-2 text-sm text-white/60">
+              Existing Supabase rounds auto-fill the form. Create-new mode starts
+              blank and auto-fills round ID from period end.
+            </p>
+          </div>
+
+          <button
+            className="rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-medium hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-40"
+            disabled={roundMode !== "existingSupabase" || isRoundsLoading}
+            onClick={() => void fetchRounds({ preserveSelection: true })}
+            type="button">
+            {isRoundsLoading ? "Refreshing..." : "Refresh rounds"}
+          </button>
+        </div>
+
+        {roundMode === "existingSupabase" ? (
+          <div className="mt-5 grid gap-4 md:grid-cols-[360px_1fr]">
+            <label className="block rounded-2xl border border-white/10 bg-black/20 p-4">
+              <div className="font-medium">Existing reward round</div>
+              <p className="mt-1 text-xs text-white/50">
+                Select a Supabase-generated round. The fields below will be
+                populated from the selected round.
+              </p>
+              <select
+                className="mt-3 w-full rounded-xl border border-white/10 bg-black/40 px-3 py-2 text-sm outline-none focus:border-white/30"
+                disabled={isRoundsLoading || rounds.length === 0}
+                onChange={(event) => setSelectedSupabaseRoundId(event.target.value)}
+                value={selectedSupabaseRoundId}>
+                {rounds.length === 0 ? (
+                  <option value="">No rounds found</option>
+                ) : null}
+                {rounds.map((round) => (
+                  <option key={round.round_id} value={round.round_id}>
+                    {round.round_id} — {round.status}
+                  </option>
+                ))}
+              </select>
+
+              <button
+                className="mt-4 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-medium hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-40"
+                disabled={!selectedSupabaseRound}
+                onClick={() => void copySelectedRoundValues()}
+                type="button">
+                Copy selected round values
+              </button>
+              {copyStatus ? (
+                <div className="mt-2 text-xs text-green-100/80">{copyStatus}</div>
+              ) : null}
+            </label>
+
+            <div className="rounded-2xl border border-white/10 bg-black/20 px-4">
+              {roundsError ? (
+                <div className="py-4 text-sm text-red-100/80">{roundsError}</div>
+              ) : selectedSupabaseRound ? (
+                <>
+                  <ReadRow label="Supabase status" value={selectedSupabaseRound.status} />
+                  <ReadRow
+                    label="Ready for create"
+                    value={formatBool(selectedSupabaseRound.ready_for_create)}
+                    warning={
+                      selectedSupabaseRound.ready_for_create
+                        ? undefined
+                        : "This round is missing Merkle root, reward amount, or allocations."
+                    }
+                  />
+                  <ReadRow label="Reward amount" value={`${selectedSupabaseRound.reward_amount_oioi} ${tokenSymbol}`} />
+                  <ReadRow label="Merkle root" value={selectedSupabaseRound.merkle_root ?? "Not generated"} />
+                  <ReadRow label="Allocation count" value={selectedSupabaseRound.allocation_summary.allocationCount.toString()} />
+                  <ReadRow label="Positive allocations" value={selectedSupabaseRound.allocation_summary.positiveAllocationCount.toString()} />
+                  <ReadRow label="Proof-ready allocations" value={selectedSupabaseRound.allocation_summary.proofReadyCount.toString()} />
+                  <ReadRow label="Claimed allocations" value={selectedSupabaseRound.allocation_summary.claimedCount.toString()} />
+                  <ReadRow label="Allocated amount wei" value={selectedSupabaseRound.allocation_summary.allocatedAmountWei} />
+                </>
+              ) : (
+                <div className="py-4 text-sm text-white/60">
+                  No Supabase reward round selected.
+                </div>
+              )}
+            </div>
+          </div>
+        ) : null}
 
         <div className="mt-5 grid gap-4 md:grid-cols-2">
           <Field
@@ -746,11 +1080,11 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
             description={
               roundMode === "createNew"
                 ? "Auto-generated from period end Unix timestamp."
-                : "Manual lookup for existing round until Supabase dropdown exists."
+                : "Auto-filled from the selected Supabase round."
             }
             onChange={setRoundIdInput}
             placeholder="1778842307"
-            readOnly={roundMode === "createNew"}
+            readOnly={roundMode === "createNew" || Boolean(selectedSupabaseRound)}
             value={roundIdInput}
           />
           <Field
@@ -776,7 +1110,7 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
           />
           <Field
             label="Period start"
-            description="Reward period start. Later, indexer/reward pipeline should suggest this."
+            description="Reward period start from Supabase reward calculation."
             onChange={setPeriodStartInput}
             type="datetime-local"
             value={periodStartInput}
@@ -804,14 +1138,18 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
       <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
         <h3 className="text-2xl font-semibold">Input validation</h3>
         <p className="mt-2 text-sm text-white/60">
-          This shows how the admin UI parses your reward round inputs and
-          derives action state.
+          This shows how the admin UI parses your selected reward round inputs
+          and derives action state.
         </p>
 
         <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 px-4">
           <ReadRow
             label="Round mode"
-            value={roundMode === "createNew" ? "Create new" : "Existing manual"}
+            value={roundMode === "createNew" ? "Create new" : "Existing Supabase"}
+          />
+          <ReadRow
+            label="Selected Supabase round"
+            value={selectedSupabaseRound?.round_id ?? "—"}
           />
           <ReadRow
             label="Round ID parsed"
@@ -827,9 +1165,7 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
           />
           <ReadRow
             label="Period end parsed"
-            value={
-              periodEnd === null ? "Invalid" : formatUnixTimestamp(periodEnd)
-            }
+            value={periodEnd === null ? "Invalid" : formatUnixTimestamp(periodEnd)}
           />
           <ReadRow
             label="Reward amount parsed"
@@ -856,6 +1192,14 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
             }
           />
           <ReadRow label="Merkle root parsed" value={merkleRoot ?? "Invalid"} />
+          <ReadRow
+            label="Supabase root matches input"
+            value={
+              selectedSupabaseRound
+                ? formatBool(selectedSupabaseRootMatches)
+                : "—"
+            }
+          />
           <ReadRow label="Round exists" value={formatBool(roundExists)} />
           <ReadRow label="Round funded" value={formatBool(roundIsFunded)} />
           <ReadRow label="Claim paused" value={formatBool(roundClaimPaused)} />
@@ -864,8 +1208,16 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
             value={formatTokenAmount({ value: amountNeededToFund })}
           />
           <ReadRow
+            label="Approve amount enough"
+            value={formatBool(approveAmountEnough)}
+          />
+          <ReadRow
             label="Allowance sufficient"
             value={formatBool(allowanceSufficient)}
+          />
+          <ReadRow
+            label="Fund amount valid"
+            value={formatBool(fundAmountValid)}
           />
           <ReadRow
             label="Round fully claimed"
@@ -877,7 +1229,8 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
       <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
         <h3 className="text-2xl font-semibold">Reward round read</h3>
         <p className="mt-2 text-sm text-white/60">
-          Enter or auto-generate a round ID to inspect the round before writing.
+          The selected round ID is read directly from the RewardDistributor
+          contract before any write action.
         </p>
 
         <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 px-4">
@@ -905,6 +1258,14 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
           />
           <ReadRow label="Merkle root" value={roundData?.[7] ?? "—"} />
           <ReadRow label="Round funded" value={formatBool(roundIsFunded)} />
+          <ReadRow
+            label="On-chain root matches Supabase"
+            value={
+              selectedSupabaseRound && roundExists
+                ? formatBool(onChainRootMatchesSupabase)
+                : "—"
+            }
+          />
         </div>
 
         {rewardRoundRead.error ? (
