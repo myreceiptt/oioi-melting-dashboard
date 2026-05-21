@@ -39,16 +39,20 @@ The smart contracts do not calculate historical reward allocation.
 Current accepted state:
 
 ```text
-Indexer skeleton: implemented.
-Transfer Sync: paused / experimental draft.
+Supabase Postgres schema: migration files implemented.
+Transfer sync: implemented for Supabase.
+Staking event sync: implemented for Supabase.
+Reward event sync: implemented for Supabase.
+Derived state rebuilds: implemented.
+Valid duration calculator: implemented.
+Reward calculator: implemented.
+Merkle proof generation: implemented.
 Supabase Postgres: locked as primary storage.
-Reward calculator: not production-complete.
-Reward proof API: not implemented.
+Reward proof API: implemented.
+Production readiness: pending full testnet validation.
 ```
 
-Do not treat raw `getLogs` sync as production-ready.
-
-Do not continue staking sync, reward sync, duration calculator, or reward automation until the Supabase-first plan is accepted and implemented.
+Do not treat the pipeline as production-ready until it has completed Base Sepolia and Ethereum Sepolia validation from sync through browser claim.
 
 ---
 
@@ -700,10 +704,10 @@ claimed status is inconsistent with contract state
 
 ```text
 INDEXER ARCHITECTURE: UPDATED FOR SUPABASE POSTGRES-FIRST
-INDEXER IMPLEMENTATION: SKELETON ONLY
-TRANSFER SYNC: PAUSED / EXPERIMENTAL DRAFT
-REWARD AUTOMATION: PENDING
-FRONTEND REWARD CLAIM: DEPENDS ON PROOF API
+INDEXER IMPLEMENTATION: SUPABASE PIPELINE IMPLEMENTED
+TRANSFER / STAKING / REWARD SYNC: IMPLEMENTED, TESTNET VALIDATION PENDING
+REWARD AUTOMATION: MANUAL OPERATOR PIPELINE
+FRONTEND REWARD CLAIM: IMPLEMENTED, BROWSER CLAIM QA PENDING
 PUBLIC REWARD LAUNCH: NOT READY
 ```
 

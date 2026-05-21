@@ -72,9 +72,10 @@ The connected Web3 wallet address is the user identity.
 - ROTY whitelist proof lookup and whitelist mint UI implemented.
 - Melting/Amanda gated mint UI implemented.
 - Dashboard stake/unstake UI implemented.
-- Reward claim placeholder implemented.
+- Reward claim UI implemented against Supabase proof API.
+- Reward proof API implemented against Supabase reward tables.
 - Frontend Sepolia Browser QA completed for read/OFF-phase/stake flows.
-- Indexer skeleton implemented.
+- Supabase indexer/reward pipeline scripts implemented.
 - Mainnet preparation checks passed, but deployment is intentionally deferred.
 
 ### Locked Decisions
@@ -82,7 +83,7 @@ The connected Web3 wallet address is the user identity.
 - Mainnet deployment is deferred until Testnet Release Candidate.
 - Indexer + reward storage is Supabase Postgres-first.
 - Local JSON is not the primary indexer storage.
-- Transfer sync code, if present, is paused / experimental draft.
+- Supabase indexer sync remains testnet-validation gated before release.
 - Deployment scripts should not be rewritten only to capture block numbers.
 - Indexer `FROM_BLOCK` values are manually read from block explorers.
 - `TO_BLOCK` is optional and only for bounded backfill/testing.
@@ -92,13 +93,9 @@ The connected Web3 wallet address is the user identity.
 
 ### Pending / Next
 
-- Admin Dashboard Architecture v1.
-- Admin Dashboard implementation.
-- Supabase Postgres schema and indexer implementation.
-- Reward calculator from real indexed staking/ownership duration.
-- Reward proof API.
-- Active reward claim UI.
-- Testnet Vercel deployment and route/domain mapping.
+- Full Supabase indexer/reward pipeline validation on testnet data.
+- Reward calculator validation from real indexed staking/ownership duration.
+- Reward claim browser QA with a real funded testnet round.
 - Full Testnet Browser E2E.
 - Final UI/UX polish.
 - Testnet Release Candidate.

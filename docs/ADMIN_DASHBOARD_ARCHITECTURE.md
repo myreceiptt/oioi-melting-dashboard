@@ -837,7 +837,7 @@ This is irreversible. After locking, metadata URI settings cannot be changed. On
 
 ## 8. Required ABI Expansion
 
-Current frontend ABIs are enough for user mint/stake/reward placeholder, but not enough for Admin Dashboard.
+Admin-capable frontend ABIs are required for the owner control surface.
 
 Add admin-capable ABIs for:
 

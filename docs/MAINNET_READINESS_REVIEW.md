@@ -38,9 +38,10 @@ Mainnet deployment is ready from contract-preparation perspective, but intention
 - ROTY public + whitelist mint UI implemented.
 - Melting/Amanda gated mint UI implemented.
 - Dashboard stake/unstake UI implemented.
-- Reward claim placeholder implemented.
+- Reward claim UI implemented against Supabase proof API.
+- Reward proof API implemented against Supabase reward tables.
 - Frontend Sepolia browser QA completed for read/OFF-phase/stake flows.
-- Indexer skeleton implemented.
+- Supabase indexer/reward pipeline scripts implemented.
 - Indexer operational model documented.
 - Mainnet preparation checks passed:
   - repo clean
@@ -60,13 +61,11 @@ Mainnet deployment is deferred until Testnet Release Candidate.
 
 ### Pending Before Testnet Release Candidate
 
-- Admin Dashboard Architecture.
-- Admin Dashboard implementation.
-- Supabase Postgres schema/migrations.
-- Database indexer.
-- Reward calculator from real indexed duration.
-- Reward proof API.
-- Active reward claim UI.
+- Supabase Postgres schema applied to the target project.
+- Database indexer validated against real Base Sepolia and Ethereum Sepolia data.
+- Reward calculator validated from real indexed duration.
+- Reward proof API validated with generated proofs.
+- Active reward claim UI validated with a funded testnet reward round.
 - Stage-by-stage browser testing with phases ON.
 - Full Testnet Browser E2E.
 - Final UI/UX polish.
