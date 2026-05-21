@@ -138,23 +138,39 @@ export async function GET(request: NextRequest) {
           roundId: round.round_id,
         });
 
-        return {
+        const normalizedRound = {
           ...round,
-          reward_amount_oioi: formatUnits(BigInt(round.reward_amount_wei), 18),
-          funded_amount_oioi: formatUnits(BigInt(round.funded_amount_wei), 18),
+          round_id: BigInt(round.round_id).toString(),
+          period_start_unix: BigInt(round.period_start_unix).toString(),
+          period_end_unix: BigInt(round.period_end_unix).toString(),
+          reward_amount_wei: BigInt(round.reward_amount_wei).toString(),
+          funded_amount_wei: BigInt(round.funded_amount_wei).toString(),
+          claimed_amount_wei: BigInt(round.claimed_amount_wei).toString(),
+        };
+
+        return {
+          ...normalizedRound,
+          reward_amount_oioi: formatUnits(
+            BigInt(normalizedRound.reward_amount_wei),
+            18,
+          ),
+          funded_amount_oioi: formatUnits(
+            BigInt(normalizedRound.funded_amount_wei),
+            18,
+          ),
           claimed_amount_oioi: formatUnits(
-            BigInt(round.claimed_amount_wei),
+            BigInt(normalizedRound.claimed_amount_wei),
             18,
           ),
           allocation_summary: allocationSummary,
           ready_for_create:
-            Boolean(round.merkle_root) &&
-            BigInt(round.reward_amount_wei) > 0n &&
+            Boolean(normalizedRound.merkle_root) &&
+            BigInt(normalizedRound.reward_amount_wei) > 0n &&
             allocationSummary.allocationCount > 0,
           ready_for_funding:
-            Boolean(round.created_tx_hash) ||
-            round.status === "created" ||
-            round.status === "funded",
+            Boolean(normalizedRound.created_tx_hash) ||
+            normalizedRound.status === "created" ||
+            normalizedRound.status === "funded",
         };
       }),
     );

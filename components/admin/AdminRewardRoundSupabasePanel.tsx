@@ -104,7 +104,9 @@ export function AdminRewardRoundSupabasePanel({
   const [copyStatus, setCopyStatus] = useState<string | null>(null);
 
   const selectedRound = useMemo(() => {
-    return rounds.find((round) => round.round_id === selectedRoundId) ?? null;
+    return (
+      rounds.find((round) => String(round.round_id) === selectedRoundId) ?? null
+    );
   }, [rounds, selectedRoundId]);
 
   async function fetchRounds() {
@@ -112,14 +114,19 @@ export function AdminRewardRoundSupabasePanel({
     setErrorMessage(null);
 
     try {
-      const response = await fetch(`/api/admin/reward-rounds?chain=${chainSet}`, {
-        cache: "no-store",
-      });
+      const response = await fetch(
+        `/api/admin/reward-rounds?chain=${chainSet}`,
+        {
+          cache: "no-store",
+        },
+      );
 
       const json = (await response.json()) as AdminRewardRoundApiResponse;
 
       if (!response.ok || json.ok === false) {
-        setErrorMessage(json.ok === false ? json.error : "Failed to load rounds.");
+        setErrorMessage(
+          json.ok === false ? json.error : "Failed to load rounds.",
+        );
         setRounds([]);
         return;
       }
@@ -128,9 +135,10 @@ export function AdminRewardRoundSupabasePanel({
 
       if (json.rounds.length > 0) {
         setSelectedRoundId((current) =>
-          current && json.rounds.some((round) => round.round_id === current)
+          current &&
+          json.rounds.some((round) => String(round.round_id) === current)
             ? current
-            : json.rounds[0].round_id,
+            : String(json.rounds[0].round_id),
         );
       }
     } catch (error) {
@@ -179,8 +187,7 @@ export function AdminRewardRoundSupabasePanel({
           className="rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-medium hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={isLoading}
           onClick={() => void fetchRounds()}
-          type="button"
-        >
+          type="button">
           {isLoading ? "Refreshing..." : "Refresh rounds"}
         </button>
       </div>
@@ -198,7 +205,9 @@ export function AdminRewardRoundSupabasePanel({
 
       <div className="mt-5 grid gap-4 md:grid-cols-[360px_1fr]">
         <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-          <label className="text-sm text-white/60" htmlFor={`round-${chainSet}`}>
+          <label
+            className="text-sm text-white/60"
+            htmlFor={`round-${chainSet}`}>
             Existing reward rounds
           </label>
 
@@ -206,15 +215,16 @@ export function AdminRewardRoundSupabasePanel({
             className="mt-2 w-full rounded-2xl border border-white/10 bg-black px-4 py-3 text-sm"
             id={`round-${chainSet}`}
             onChange={(event) => setSelectedRoundId(event.target.value)}
-            value={selectedRoundId}
-          >
+            value={selectedRoundId}>
             {rounds.length === 0 ? (
               <option value="">No rounds found</option>
             ) : null}
 
             {rounds.map((round) => (
-              <option key={round.round_id} value={round.round_id}>
-                {round.round_id} — {round.status}
+              <option
+                key={String(round.round_id)}
+                value={String(round.round_id)}>
+                {String(round.round_id)} — {round.status}
               </option>
             ))}
           </select>
@@ -224,8 +234,7 @@ export function AdminRewardRoundSupabasePanel({
               className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-medium hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-40"
               disabled={!selectedRound}
               onClick={() => void copySelectedRound()}
-              type="button"
-            >
+              type="button">
               Copy selected round values
             </button>
 
