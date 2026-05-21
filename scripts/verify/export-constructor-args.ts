@@ -6,9 +6,9 @@ import {
   MINT_TREASURY_ADDRESS,
   ROYALTY_RECEIVER_ADDRESS,
   getDeployConfig,
-} from "../deploy/00-config.js";
-import { readDeploymentRecord } from "../deploy/deployment-state.js";
-import { readRotyMerkleRoot } from "../deploy/whitelist-root.js";
+} from "@/scripts/deploy/00-config.js";
+import { readDeploymentRecord } from "@/scripts/deploy/deployment-state.js";
+import { readRotyMerkleRoot } from "@/scripts/deploy/whitelist-root.js";
 
 type ConstructorArgsMap = {
   TheRotyMemorial: unknown[];
@@ -67,19 +67,27 @@ function main() {
   }
 
   if (!record.contracts.roty) {
-    throw new Error(`Missing ROTY address in deployment record for ${networkName}`);
+    throw new Error(
+      `Missing ROTY address in deployment record for ${networkName}`,
+    );
   }
 
   if (!record.contracts.staking) {
-    throw new Error(`Missing staking address in deployment record for ${networkName}`);
+    throw new Error(
+      `Missing staking address in deployment record for ${networkName}`,
+    );
   }
 
   if (!record.contracts.melting) {
-    throw new Error(`Missing Melting address in deployment record for ${networkName}`);
+    throw new Error(
+      `Missing Melting address in deployment record for ${networkName}`,
+    );
   }
 
   if (!record.contracts.amanda) {
-    throw new Error(`Missing Amanda address in deployment record for ${networkName}`);
+    throw new Error(
+      `Missing Amanda address in deployment record for ${networkName}`,
+    );
   }
 
   if (!record.contracts.rewardDistributor) {

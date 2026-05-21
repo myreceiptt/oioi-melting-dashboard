@@ -1,9 +1,9 @@
 import "dotenv/config";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { parseUnits } from "viem";
-import { createSupabaseServiceClient } from "../../lib/supabase/server.js";
-import { createSupabaseIndexerRepository } from "../../lib/supabase/indexerRepository.js";
-import { getIndexerNetworkConfig } from "../indexer/config.js";
+import { createSupabaseServiceClient } from "@/lib/supabase/server.js";
+import { createSupabaseIndexerRepository } from "@/lib/supabase/indexerRepository.js";
+import { getIndexerNetworkConfig } from "@/scripts/indexer/config.js";
 
 type CollectionKey = "roty" | "melting" | "amanda";
 

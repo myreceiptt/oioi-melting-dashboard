@@ -1,5 +1,5 @@
 import "dotenv/config";
-import { createSupabaseServiceClient } from "../../lib/supabase/server.js";
+import { createSupabaseServiceClient } from "@/lib/supabase/server.js";
 
 type ChainRow = {
   chain_key: string;

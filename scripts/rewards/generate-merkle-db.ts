@@ -1,9 +1,9 @@
 import "dotenv/config";
 import { StandardMerkleTree } from "@openzeppelin/merkle-tree";
 import { getAddress, isAddress } from "viem";
-import { createSupabaseServiceClient } from "../../lib/supabase/server.js";
-import { createSupabaseIndexerRepository } from "../../lib/supabase/indexerRepository.js";
-import { getIndexerNetworkConfig } from "../indexer/config.js";
+import { createSupabaseServiceClient } from "@/lib/supabase/server.js";
+import { createSupabaseIndexerRepository } from "@/lib/supabase/indexerRepository.js";
+import { getIndexerNetworkConfig } from "@/scripts/indexer/config.js";
 
 type RewardRoundRow = {
   chain_key: string;

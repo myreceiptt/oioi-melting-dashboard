@@ -1,5 +1,8 @@
 import { getAddress } from "viem";
-import type { CurrentOwnerRecord, TransferRecord } from "../types.js";
+import type {
+  CurrentOwnerRecord,
+  TransferRecord,
+} from "@/scripts/indexer/types.js";
 
 const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
 

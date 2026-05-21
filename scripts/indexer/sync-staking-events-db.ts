@@ -8,11 +8,11 @@ import {
 } from "viem";
 import { baseSepolia, sepolia } from "viem/chains";
 import type { SupabaseClient } from "@supabase/supabase-js";
-import { createSupabaseServiceClient } from "../../lib/supabase/server.js";
+import { createSupabaseServiceClient } from "@/lib/supabase/server.js";
 import {
   createSupabaseIndexerRepository,
   normalizeAddress,
-} from "../../lib/supabase/indexerRepository.js";
+} from "@/lib/supabase/indexerRepository.js";
 import { getIndexerNetworkConfig } from "./config.js";
 import { readDeploymentRecord } from "./storage.js";
 import type { CollectionKey, IndexerNetworkConfig } from "./types.js";

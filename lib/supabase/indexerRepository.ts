@@ -4,7 +4,7 @@ import type {
   DeploymentRecord,
   IndexerNetworkConfig,
   IndexerSourceKey,
-} from "../../scripts/indexer/types.js";
+} from "@/scripts/indexer/types.js";
 
 type IndexerRunKind =
   | "sync"

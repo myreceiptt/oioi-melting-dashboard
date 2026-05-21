@@ -1,6 +1,6 @@
 import "dotenv/config";
-import { createSupabaseServiceClient } from "../../lib/supabase/server.js";
-import { createSupabaseIndexerRepository } from "../../lib/supabase/indexerRepository.js";
+import { createSupabaseServiceClient } from "@/lib/supabase/server.js";
+import { createSupabaseIndexerRepository } from "@/lib/supabase/indexerRepository.js";
 import { getIndexerNetworkConfig } from "./config.js";
 import { readDeploymentRecord } from "./storage.js";
 
