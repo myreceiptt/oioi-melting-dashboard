@@ -2,7 +2,6 @@ import Link from "next/link";
 import { ConnectWalletButton } from "@/components/wallet/ConnectWalletButton";
 import { ChainGuard } from "@/components/wallet/ChainGuard";
 import { DashboardReadPanel } from "@/components/dashboard/DashboardReadPanel";
-import { RewardClaimPlaceholder } from "@/components/dashboard/RewardClaimPlaceholder";
 import { RewardClaimPanel } from "@/components/dashboard/RewardClaimPanel";
 import { StakeActionPanel } from "@/components/dashboard/StakeActionPanel";
 import type { ChainSet } from "@/lib/chains/chainConfig";
@@ -59,7 +58,6 @@ export default async function ChainDashboardPage({
         <DashboardReadPanel chainSet={chain} />
         <StakeActionPanel chainSet={chain} />
         <RewardClaimPanel chainSet={chain} />
-        <RewardClaimPlaceholder chainSet={chain} />
       </ChainGuard>
     </main>
   );
