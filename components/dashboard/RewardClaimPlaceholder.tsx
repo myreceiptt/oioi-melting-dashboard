@@ -84,8 +84,8 @@ export function RewardClaimPlaceholder({ chainSet }: { chainSet: ChainSet }) {
         </p>
         <h2 className="mt-2 text-2xl font-semibold">Claim $OiOi Rewards</h2>
         <p className="mt-2 text-sm text-white/60">
-          This is the $OiOi rewards claim card. Transaction forms are available
-          below it.
+          This is the $OiOi rewards claim card. Transaction forms available in
+          the write sections.
         </p>
       </section>
       <article className="rounded-3xl border border-white/10 bg-white/5 p-6">

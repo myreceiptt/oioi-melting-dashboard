@@ -1,7 +1,10 @@
 import type { Address } from "viem";
 import type { ChainSet } from "@/lib/chains/chainConfig";
 import { getContractAddresses } from "@/lib/contracts/addresses";
-import type { AdminChainConfig, AdminContractConfig } from "@/lib/admin/adminTypes";
+import type {
+  AdminChainConfig,
+  AdminContractConfig,
+} from "@/lib/admin/adminTypes";
 import {
   erc20ReadActions,
   erc20WriteActions,
@@ -56,7 +59,8 @@ export function getAdminChainConfig(chainSet: ChainSet): AdminChainConfig {
         kind: "roty base deth",
         chainSet,
         label: chainSet === "base" ? "ROTY BASE" : "ROTY dETH",
-        description: "ROTY collection mint phases, whitelist, metadata, and royalties.",
+        description:
+          "ROTY collection mint phases, metadata, pricing, treasury, and royalties.",
         address: addresses.roty,
         explorerLabel: "ROTY",
         readActions: rotyReadActions,
@@ -67,7 +71,8 @@ export function getAdminChainConfig(chainSet: ChainSet): AdminChainConfig {
         kind: "the melting land",
         chainSet,
         label: chainSet === "base" ? "Melting BASE" : "Melting dETH",
-        description: "Melting gated mint, metadata, pricing, treasury, and royalties.",
+        description:
+          "Melting collection gated mint, metadata, pricing, treasury, and royalties.",
         address: addresses.melting,
         explorerLabel: "Melting",
         readActions: gatedMintReadActions,
@@ -78,7 +83,8 @@ export function getAdminChainConfig(chainSet: ChainSet): AdminChainConfig {
         kind: "amanda wives",
         chainSet,
         label: chainSet === "base" ? "Amanda BASE" : "Amanda dETH",
-        description: "Amanda gated mint, metadata, pricing, treasury, and royalties.",
+        description:
+          "Amanda collection gated mint, metadata, pricing, treasury, and royalties.",
         address: addresses.amanda,
         explorerLabel: "Amanda",
         readActions: gatedMintReadActions,
@@ -100,7 +106,8 @@ export function getAdminChainConfig(chainSet: ChainSet): AdminChainConfig {
         kind: "reward distributor",
         chainSet,
         label: "OiOi Reward Distributor",
-        description: "Reward round creation, funding, claim pause, and reward accounting.",
+        description:
+          "Reward round creation, funding, claim pause, and reward accounting.",
         address: addresses.rewardDistributor,
         explorerLabel: "RewardDistributor",
         readActions: rewardDistributorReadActions,
@@ -132,7 +139,9 @@ export function getAdminContractConfig({
   const contract = config.contracts.find((item) => item.key === contractKey);
 
   if (!contract) {
-    throw new Error(`Missing admin contract config for ${chainSet}:${contractKey}`);
+    throw new Error(
+      `Missing admin contract config for ${chainSet}:${contractKey}`,
+    );
   }
 
   return contract;
