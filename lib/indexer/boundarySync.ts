@@ -28,7 +28,9 @@ type BoundaryTaskKey =
   | "rewardDistributor"
   | "rebuildOwnership"
   | "rebuildStakePositions"
-  | "calculateValidIntervals";
+  | "calculateValidIntervals"
+  | "calculateRewards"
+  | "generateMerkle";
 
 type SyncJobRow = {
   id: string;
@@ -91,6 +93,8 @@ const REBUILD_TASKS: BoundaryTaskKey[] = [
   "rebuildOwnership",
   "rebuildStakePositions",
   "calculateValidIntervals",
+  "calculateRewards",
+  "generateMerkle",
 ];
 
 const ALL_TASKS: BoundaryTaskKey[] = [...SYNC_TASKS, ...REBUILD_TASKS];
@@ -104,6 +108,8 @@ const TASK_ORDER: Record<BoundaryTaskKey, number> = {
   rebuildOwnership: 40,
   rebuildStakePositions: 50,
   calculateValidIntervals: 60,
+  calculateRewards: 70,
+  generateMerkle: 80,
 };
 
 const CONTRACT_KEY_BY_TASK: Partial<Record<BoundaryTaskKey, string>> = {

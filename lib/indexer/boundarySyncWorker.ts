@@ -1,6 +1,7 @@
 import { randomUUID } from "node:crypto";
 import type { SupabaseClient } from "@supabase/supabase-js";
-import { parseUnits } from "viem";
+import { createPublicClient, formatUnits, http, parseUnits } from "viem";
+import { baseSepolia, sepolia } from "viem/chains";
 
 export type BoundaryChainKey = "baseSepolia" | "ethereumSepolia";
 
@@ -29,7 +30,9 @@ type BoundaryTaskKey =
   | "rewardDistributor"
   | "rebuildOwnership"
   | "rebuildStakePositions"
-  | "calculateValidIntervals";
+  | "calculateValidIntervals"
+  | "calculateRewards"
+  | "generateMerkle";
 
 type SyncJobRow = {
   id: string;
@@ -78,6 +81,19 @@ type ContractRow = {
   indexer_from_block: number | null;
 };
 
+type BoundarySnapshotRow = {
+  id: string;
+  sync_job_id: string;
+  chain_key: BoundaryChainKey;
+  status: string;
+  from_block: number;
+  to_block: number;
+  from_block_timestamp: string | null;
+  to_block_timestamp: string | null;
+  reward_amount_wei: string | null;
+  metadata: Record<string, unknown>;
+};
+
 type WorkerResult =
   | {
       ok: true;
@@ -108,6 +124,8 @@ const REBUILD_TASKS: BoundaryTaskKey[] = [
   "rebuildOwnership",
   "rebuildStakePositions",
   "calculateValidIntervals",
+  "calculateRewards",
+  "generateMerkle",
 ];
 
 const ALL_TASKS: BoundaryTaskKey[] = [...SYNC_TASKS, ...REBUILD_TASKS];
@@ -121,6 +139,8 @@ const TASK_ORDER: Record<BoundaryTaskKey, number> = {
   rebuildOwnership: 40,
   rebuildStakePositions: 50,
   calculateValidIntervals: 60,
+  calculateRewards: 70,
+  generateMerkle: 80,
 };
 
 const CONTRACT_KEY_BY_TASK: Partial<Record<BoundaryTaskKey, string>> = {
@@ -139,6 +159,11 @@ const FROM_BLOCK_ENV_BY_CHAIN: Record<BoundaryChainKey, string> = {
 const TO_BLOCK_ENV_BY_CHAIN: Record<BoundaryChainKey, string> = {
   baseSepolia: "BASE_SEPOLIA_INDEXER_TO_BLOCK",
   ethereumSepolia: "ETHEREUM_SEPOLIA_INDEXER_TO_BLOCK",
+};
+
+const RPC_ENV_BY_CHAIN: Record<BoundaryChainKey, string> = {
+  baseSepolia: "BASE_SEPOLIA_RPC_URL",
+  ethereumSepolia: "ETHEREUM_SEPOLIA_RPC_URL",
 };
 
 const CHAIN_ALIAS: Record<string, BoundaryChainKey> = {
@@ -256,7 +281,193 @@ function commandForTask(taskKey: BoundaryTaskKey) {
   if (taskKey === "calculateValidIntervals") {
     return "indexer:calculate-valid-intervals";
   }
+  if (taskKey === "calculateRewards") return "rewards:calculate";
+  if (taskKey === "generateMerkle") return "rewards:merkle-db";
   throw new Error(`Unsupported boundary task: ${taskKey}`);
+}
+
+function getRpcUrl(chainKey: BoundaryChainKey) {
+  const envName = RPC_ENV_BY_CHAIN[chainKey];
+  const value = process.env[envName];
+
+  if (!value || value.trim() === "") {
+    throw new Error(`Missing ${envName} for boundary snapshot timestamps.`);
+  }
+
+  return value.trim();
+}
+
+function getViemChain(chainKey: BoundaryChainKey) {
+  return chainKey === "baseSepolia" ? baseSepolia : sepolia;
+}
+
+function unixFromIso(value: string) {
+  const timestampMs = Date.parse(value);
+
+  if (!Number.isFinite(timestampMs)) {
+    throw new Error(`Invalid timestamp: ${value}`);
+  }
+
+  return Math.floor(timestampMs / 1000).toString();
+}
+
+async function fetchBlockTimestamp({
+  chainKey,
+  blockNumber,
+}: {
+  chainKey: BoundaryChainKey;
+  blockNumber: number;
+}) {
+  const client = createPublicClient({
+    chain: getViemChain(chainKey),
+    transport: http(getRpcUrl(chainKey)),
+  });
+
+  const block = await client.getBlock({
+    blockNumber: BigInt(blockNumber),
+  });
+
+  return new Date(Number(block.timestamp) * 1000).toISOString();
+}
+
+async function updateSnapshotTimestamps({
+  supabase,
+  snapshot,
+}: {
+  supabase: SupabaseClient;
+  snapshot: BoundarySnapshotRow;
+}) {
+  if (snapshot.from_block_timestamp && snapshot.to_block_timestamp) {
+    return snapshot;
+  }
+
+  const [fromBlockTimestamp, toBlockTimestamp] = await Promise.all([
+    snapshot.from_block_timestamp
+      ? Promise.resolve(snapshot.from_block_timestamp)
+      : fetchBlockTimestamp({
+          chainKey: snapshot.chain_key,
+          blockNumber: snapshot.from_block,
+        }),
+    snapshot.to_block_timestamp
+      ? Promise.resolve(snapshot.to_block_timestamp)
+      : fetchBlockTimestamp({
+          chainKey: snapshot.chain_key,
+          blockNumber: snapshot.to_block,
+        }),
+  ]);
+
+  const { data, error } = await supabase
+    .from("reward_boundary_snapshots")
+    .update({
+      from_block_timestamp: fromBlockTimestamp,
+      to_block_timestamp: toBlockTimestamp,
+      metadata: {
+        ...snapshot.metadata,
+        timestampSource: "rpc_getBlock",
+        timestampUpdatedAt: new Date().toISOString(),
+      },
+    })
+    .eq("id", snapshot.id)
+    .select("*")
+    .single();
+
+  if (error) {
+    throw new Error(
+      `Failed to update boundary snapshot timestamps: ${error.message}`,
+    );
+  }
+
+  return data as BoundarySnapshotRow;
+}
+
+async function fetchBoundarySnapshotContext({
+  supabase,
+  target,
+}: {
+  supabase: SupabaseClient;
+  target: SyncTargetRow;
+}) {
+  const { data, error } = await supabase
+    .from("reward_boundary_snapshots")
+    .select("*")
+    .eq("sync_job_id", target.job_id)
+    .eq("chain_key", target.chain_key)
+    .single();
+
+  if (error) {
+    throw new Error(`Failed to read boundary snapshot: ${error.message}`);
+  }
+
+  const snapshot = await updateSnapshotTimestamps({
+    supabase,
+    snapshot: data as BoundarySnapshotRow,
+  });
+
+  if (!snapshot.from_block_timestamp || !snapshot.to_block_timestamp) {
+    throw new Error("Boundary snapshot timestamps are incomplete.");
+  }
+
+  if (
+    !snapshot.reward_amount_wei ||
+    !/^\d+$/.test(snapshot.reward_amount_wei)
+  ) {
+    throw new Error("Boundary snapshot reward_amount_wei is missing.");
+  }
+
+  const periodStartUnix = unixFromIso(snapshot.from_block_timestamp);
+  const periodEndUnix = unixFromIso(snapshot.to_block_timestamp);
+
+  if (BigInt(periodEndUnix) <= BigInt(periodStartUnix)) {
+    throw new Error("Boundary snapshot period end must be after period start.");
+  }
+
+  return {
+    snapshot,
+    periodStartUnix,
+    periodEndUnix,
+    rewardAmountOiOi: formatUnits(BigInt(snapshot.reward_amount_wei), 18),
+  };
+}
+
+async function attachBoundarySnapshotToRewardOutputs({
+  supabase,
+  context,
+}: {
+  supabase: SupabaseClient;
+  context: Awaited<ReturnType<typeof fetchBoundarySnapshotContext>>;
+}) {
+  const patch = {
+    boundary_snapshot_id: context.snapshot.id,
+    boundary_from_block: context.snapshot.from_block,
+    boundary_to_block: context.snapshot.to_block,
+    boundary_from_block_timestamp: context.snapshot.from_block_timestamp,
+    boundary_to_block_timestamp: context.snapshot.to_block_timestamp,
+  };
+
+  const calculationUpdate = await supabase
+    .from("reward_calculations")
+    .update(patch)
+    .eq("chain_key", context.snapshot.chain_key)
+    .eq("period_start_unix", context.periodStartUnix)
+    .eq("period_end_unix", context.periodEndUnix);
+
+  if (calculationUpdate.error) {
+    throw new Error(
+      `Failed to attach boundary snapshot to calculations: ${calculationUpdate.error.message}`,
+    );
+  }
+
+  const roundUpdate = await supabase
+    .from("reward_rounds")
+    .update(patch)
+    .eq("chain_key", context.snapshot.chain_key)
+    .eq("round_id", context.periodEndUnix);
+
+  if (roundUpdate.error) {
+    throw new Error(
+      `Failed to attach boundary snapshot to reward round: ${roundUpdate.error.message}`,
+    );
+  }
 }
 
 async function fetchCheckpoints(
@@ -836,6 +1047,30 @@ async function processRebuildTarget({
   supabase: SupabaseClient;
   target: SyncTargetRow;
 }) {
+  const boundaryContext =
+    target.task_key === "calculateValidIntervals" ||
+    target.task_key === "calculateRewards" ||
+    target.task_key === "generateMerkle"
+      ? await fetchBoundarySnapshotContext({ supabase, target })
+      : null;
+
+  const env: Record<string, string> = {};
+
+  if (target.task_key === "calculateValidIntervals" && boundaryContext) {
+    env.VALID_INTERVAL_PERIOD_START_UNIX = boundaryContext.periodStartUnix;
+    env.VALID_INTERVAL_PERIOD_END_UNIX = boundaryContext.periodEndUnix;
+  }
+
+  if (target.task_key === "calculateRewards" && boundaryContext) {
+    env.REWARD_CALCULATION_AMOUNT_OIOI = boundaryContext.rewardAmountOiOi;
+    env.REWARD_PERIOD_START_UNIX = boundaryContext.periodStartUnix;
+    env.REWARD_PERIOD_END_UNIX = boundaryContext.periodEndUnix;
+  }
+
+  if (target.task_key === "generateMerkle" && boundaryContext) {
+    env.REWARD_ROUND_ID = boundaryContext.periodEndUnix;
+  }
+
   await updateTarget(supabase, target.id, {
     status: "running",
     started_at: target.started_at ?? new Date().toISOString(),
@@ -846,8 +1081,19 @@ async function processRebuildTarget({
   await runNpmScript({
     script: commandForTask(target.task_key),
     chainKey: target.chain_key,
-    env: {},
+    env,
   });
+
+  if (
+    boundaryContext &&
+    (target.task_key === "calculateRewards" ||
+      target.task_key === "generateMerkle")
+  ) {
+    await attachBoundarySnapshotToRewardOutputs({
+      supabase,
+      context: boundaryContext,
+    });
+  }
 
   await updateTarget(supabase, target.id, {
     status: "success",
@@ -888,6 +1134,20 @@ function dependenciesSatisfied({
     return (
       sameChain.find((item) => item.task_key === "rebuildStakePositions")
         ?.status === "success"
+    );
+  }
+
+  if (target.task_key === "calculateRewards") {
+    return (
+      sameChain.find((item) => item.task_key === "calculateValidIntervals")
+        ?.status === "success"
+    );
+  }
+
+  if (target.task_key === "generateMerkle") {
+    return (
+      sameChain.find((item) => item.task_key === "calculateRewards")?.status ===
+      "success"
     );
   }
 
