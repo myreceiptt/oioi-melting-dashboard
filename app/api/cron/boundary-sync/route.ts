@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { processBoundarySyncBatch } from "@/lib/indexer/boundarySync";
+import { fetchBoundarySyncJob } from "@/lib/indexer/boundarySync";
 import { createSupabaseServiceClient } from "@/lib/supabase/server";
 
 export const runtime = "nodejs";
@@ -14,21 +14,30 @@ function jsonResponse(body: unknown, status = 200) {
   });
 }
 
+function requireCronSecret(requestSecret: string | null) {
+  const expected = process.env.INDEXER_CRON_SECRET;
+  if (!expected) return;
+  if (requestSecret !== expected) {
+    throw new Error("Invalid INDEXER_CRON_SECRET.");
+  }
+}
+
 export async function GET(request: NextRequest) {
   try {
     const secret =
       request.headers.get("x-indexer-cron-secret") ??
       new URL(request.url).searchParams.get("secret");
+    requireCronSecret(secret);
 
     const supabase = createSupabaseServiceClient();
-    const result = await processBoundarySyncBatch({
-      supabase,
-      requestSecret: secret,
-    });
+    const data = await fetchBoundarySyncJob({ supabase });
 
     return jsonResponse({
-      ok: result.ok,
-      result,
+      ok: true,
+      worker: "cli",
+      message:
+        "Boundary sync jobs are processed by npm run indexer:boundary-worker.",
+      ...data,
     });
   } catch (error) {
     console.error(error);

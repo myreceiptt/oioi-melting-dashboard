@@ -1,5 +1,5 @@
 import "dotenv/config";
-import { processBoundarySyncBatch } from "@/lib/indexer/boundarySync.js";
+import { processBoundarySyncBatch } from "@/lib/indexer/boundarySyncWorker.js";
 import { createSupabaseServiceClient } from "@/lib/supabase/server.js";
 
 async function main() {
