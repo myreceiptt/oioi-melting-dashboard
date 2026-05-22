@@ -37,8 +37,8 @@ export function MintStatusCard({ config }: { config: CollectionConfig }) {
         </p>
         <h2 className="mt-2 text-2xl font-semibold">{config.name} Mint</h2>
         <p className="mt-2 text-sm text-white/60">
-          This card is for the NFT minting. Transaction forms are available
-          below.
+          This card is for the NFT minting. Transaction forms available in the
+          write sections.
         </p>
       </section>
 

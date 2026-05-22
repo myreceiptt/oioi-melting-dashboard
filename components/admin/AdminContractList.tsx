@@ -47,9 +47,8 @@ export function AdminContractList({
         </p>
         <h2 className="mt-2 text-2xl font-semibold">Admin Contract List</h2>
         <p className="mt-2 text-sm text-white/60">
-          Owner-only controls for whitelist, public, and gated mint phases.
-          Every action requires confirmation and should be tested before
-          opening.
+          Owner-only controls all these contracs. Every action requires
+          confirmation and should be tested before implementing.
         </p>
       </section>
 
@@ -107,7 +106,7 @@ export function AdminContractList({
             <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
               <div className="font-medium">Write actions</div>
               <p className="mt-1 text-sm text-white/50">
-                Transaction forms available in the next sections.
+                Transaction forms available in the write sections.
               </p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {contract.writeActions.map((action) => (

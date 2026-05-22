@@ -665,11 +665,11 @@ export function AdminReadCards({ chainSet }: { chainSet: ChainSet }) {
           Live Admin Reads
         </p>
         <h2 className="mt-2 text-2xl font-semibold">
-          {chainLabel} contract state
+          {chainLabel} Contract State
         </h2>
         <p className="mt-2 text-sm text-white/60">
           These cards read the current contract state only. Transaction forms
-          are available below it.
+          available in the write sections.
         </p>
       </section>
 
