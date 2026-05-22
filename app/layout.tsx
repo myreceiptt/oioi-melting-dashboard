@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Web3Providers } from "@/lib/wallet/Web3Providers";
 import { AppEnvironmentBanner } from "@/components/app/AppEnvironmentBanner";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   // 1. Base URL configuration (Required for absolute canonical and OG image paths)
@@ -106,6 +107,7 @@ export default function RootLayout({
           <AppEnvironmentBanner />
           {children}
         </Web3Providers>
+        <Analytics />
       </body>
     </html>
   );
