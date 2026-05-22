@@ -89,6 +89,65 @@ type AdminRewardRound = {
   ready_for_funding: boolean;
 };
 
+type BoundarySyncStatus =
+  | "queued"
+  | "running"
+  | "paused"
+  | "success"
+  | "failed"
+  | "cancelled"
+  | "skipped";
+
+type BoundarySyncTarget = {
+  id: string;
+  chain_key: string;
+  task_key: string;
+  status: BoundarySyncStatus;
+  from_block: number | null;
+  target_block: number | null;
+  last_processed_block: number | null;
+  attempts: number;
+  next_attempt_at: string | null;
+  error_message: string | null;
+  updated_at?: string;
+};
+
+type BoundarySyncSnapshot = {
+  id: string;
+  chain_key: string;
+  status: string;
+  from_block: number;
+  to_block: number;
+  from_block_timestamp: string | null;
+  to_block_timestamp: string | null;
+  reward_amount_wei: string | null;
+};
+
+type BoundarySyncJob = {
+  id: string;
+  status: BoundarySyncStatus;
+  reward_amount_wei: string | null;
+  requested_by: string | null;
+  started_at: string | null;
+  finished_at: string | null;
+  error_message: string | null;
+  created_at: string;
+  updated_at: string;
+  request_payload: Record<string, unknown>;
+  targets: BoundarySyncTarget[];
+  snapshots: BoundarySyncSnapshot[];
+};
+
+type BoundarySyncApiResponse =
+  | {
+      ok: true;
+      jobs: BoundarySyncJob[];
+    }
+  | {
+      ok: false;
+      error: string;
+    };
+
 function isExpectedOwner(address: string | undefined) {
   return Boolean(address && sameAddress(address, EXPECTED_ADMIN_OWNER_ADDRESS));
 }
@@ -209,6 +268,36 @@ function getTargetChainLabel(chainSet: ChainSet) {
   }
 
   return isMainnet ? "Ethereum Mainnet" : "Ethereum Sepolia";
+}
+
+function blockInputValid(value: string) {
+  return /^\d+$/.test(value.trim()) && BigInt(value.trim()) > 0n;
+}
+
+function isActiveBoundaryJob(status: BoundarySyncStatus | undefined) {
+  return status === "queued" || status === "running" || status === "paused";
+}
+
+function summarizeBoundaryTargets(job: BoundarySyncJob | null) {
+  if (!job) {
+    return "No boundary sync job loaded.";
+  }
+
+  const counts = job.targets.reduce(
+    (summary, target) => {
+      summary[target.status] = (summary[target.status] ?? 0) + 1;
+      return summary;
+    },
+    {} as Record<string, number>,
+  );
+
+  return [
+    `success=${counts.success ?? 0}`,
+    `running=${counts.running ?? 0}`,
+    `queued=${counts.queued ?? 0}`,
+    `paused=${counts.paused ?? 0}`,
+    `failed=${counts.failed ?? 0}`,
+  ].join(" · ");
 }
 
 function isSupabaseStatusReadyForCreate(status: string | null) {
@@ -388,11 +477,32 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
   const [approveAmountInput, setApproveAmountInput] = useState("");
   const [merkleRootInput, setMerkleRootInput] = useState("");
   const [lastAction, setLastAction] = useState<TxAction | null>(null);
+  const [baseBoundaryBlockInput, setBaseBoundaryBlockInput] = useState("");
+  const [ethereumBoundaryBlockInput, setEthereumBoundaryBlockInput] =
+    useState("");
+  const [boundaryRewardAmountInput, setBoundaryRewardAmountInput] =
+    useState("");
+  const [boundaryJobs, setBoundaryJobs] = useState<BoundarySyncJob[]>([]);
+  const [isBoundaryLoading, setIsBoundaryLoading] = useState(false);
+  const [isBoundarySubmitting, setIsBoundarySubmitting] = useState(false);
+  const [boundaryError, setBoundaryError] = useState<string | null>(null);
+  const [boundarySubmitStatus, setBoundarySubmitStatus] = useState<
+    string | null
+  >(null);
 
   const userIsExpectedOwner = useMemo(
     () => isExpectedOwner(connectedAddress),
     [connectedAddress],
   );
+
+  const latestBoundaryJob = boundaryJobs[0] ?? null;
+  const activeBoundaryJob = useMemo(
+    () =>
+      boundaryJobs.find((job) => isActiveBoundaryJob(job.status)) ??
+      latestBoundaryJob,
+    [boundaryJobs, latestBoundaryJob],
+  );
+  const boundaryJobActive = isActiveBoundaryJob(activeBoundaryJob?.status);
 
   const selectedSupabaseRound = useMemo(() => {
     return (
@@ -454,6 +564,19 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
     typeof tokenDecimalsRead.data === "number" ? tokenDecimalsRead.data : 18;
   const tokenSymbol =
     typeof tokenSymbolRead.data === "string" ? tokenSymbolRead.data : "OiOi";
+  const boundaryRewardAmount = parseTokenAmount(
+    boundaryRewardAmountInput,
+    tokenDecimals,
+  );
+  const boundarySubmitDisabled =
+    !isConnected ||
+    !userIsExpectedOwner ||
+    isBoundarySubmitting ||
+    boundaryJobActive ||
+    !blockInputValid(baseBoundaryBlockInput) ||
+    !blockInputValid(ethereumBoundaryBlockInput) ||
+    boundaryRewardAmount === null ||
+    boundaryRewardAmount <= 0n;
 
   const rewardAmount = parseTokenAmount(rewardAmountInput, tokenDecimals);
   const fundAmount = parseTokenAmount(fundAmountInput, tokenDecimals);
@@ -740,10 +863,123 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
     window.setTimeout(() => setCopyStatus(null), 2500);
   }
 
+  async function fetchBoundaryJobs() {
+    setIsBoundaryLoading(true);
+    setBoundaryError(null);
+
+    try {
+      const response = await fetch("/api/admin/boundary-sync", {
+        cache: "no-store",
+      });
+      const json = (await response.json()) as BoundarySyncApiResponse;
+
+      if (!response.ok || json.ok === false) {
+        setBoundaryJobs([]);
+        setBoundaryError(
+          json.ok === false ? json.error : "Failed to load boundary sync jobs.",
+        );
+        return;
+      }
+
+      setBoundaryJobs(json.jobs);
+
+      if (json.jobs[0]?.status === "success") {
+        void fetchRounds({ preserveSelection: true });
+      }
+    } catch (error) {
+      setBoundaryJobs([]);
+      setBoundaryError(
+        error instanceof Error
+          ? error.message
+          : "Failed to load boundary sync jobs.",
+      );
+    } finally {
+      setIsBoundaryLoading(false);
+    }
+  }
+
+  async function submitBoundarySyncJob() {
+    if (boundarySubmitDisabled) {
+      return;
+    }
+
+    const confirmed = confirmAction({
+      title: "Submit Block Tapal Batas",
+      risk: "critical",
+      lines: [
+        `Base Sepolia target block: ${baseBoundaryBlockInput.trim()}`,
+        `Ethereum Sepolia target block: ${ethereumBoundaryBlockInput.trim()}`,
+        `Reward amount: ${boundaryRewardAmountInput} ${tokenSymbol}`,
+        "This creates a queued Supabase job. Run the boundary worker until the job reaches success before creating the reward round on-chain.",
+      ],
+    });
+
+    if (!confirmed) {
+      return;
+    }
+
+    setIsBoundarySubmitting(true);
+    setBoundaryError(null);
+    setBoundarySubmitStatus(null);
+
+    try {
+      const response = await fetch("/api/admin/boundary-sync", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-oioi-admin": connectedAddress ?? "",
+        },
+        body: JSON.stringify({
+          chains: {
+            baseSepolia: baseBoundaryBlockInput.trim(),
+            ethereumSepolia: ethereumBoundaryBlockInput.trim(),
+          },
+          rewardAmountOiOi: boundaryRewardAmountInput.trim(),
+        }),
+      });
+      const json = (await response.json()) as BoundarySyncApiResponse;
+
+      if (!response.ok || json.ok === false) {
+        setBoundaryError(
+          json.ok === false
+            ? json.error
+            : "Failed to submit boundary sync job.",
+        );
+        return;
+      }
+
+      setBoundaryJobs(json.jobs);
+      setBoundarySubmitStatus("Boundary sync job submitted.");
+      setRoundMode("existingSupabase");
+    } catch (error) {
+      setBoundaryError(
+        error instanceof Error
+          ? error.message
+          : "Failed to submit boundary sync job.",
+      );
+    } finally {
+      setIsBoundarySubmitting(false);
+    }
+  }
+
   useEffect(() => {
     void fetchRounds({ preserveSelection: true });
+    void fetchBoundaryJobs();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chainSet]);
+
+  useEffect(() => {
+    if (!boundaryJobActive) {
+      return;
+    }
+
+    const timer = window.setInterval(() => {
+      void fetchBoundaryJobs();
+    }, 15_000);
+
+    return () => window.clearInterval(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [boundaryJobActive]);
 
   useEffect(() => {
     if (receipt.isSuccess) {
@@ -1182,6 +1418,192 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
       </section>
 
       <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
+        <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+          <div>
+            <p className="text-sm uppercase tracking-[0.25em] text-white/50">
+              Boundary Sync
+            </p>
+            <h3 className="mt-2 text-2xl font-semibold">Block Tapal Batas</h3>
+            <p className="mt-2 max-w-3xl text-sm text-white/60">
+              Submit the final block numbers and reward amount for the next
+              reward period. The worker syncs both chains, rebuilds derived
+              state, calculates allocations, and generates the Merkle root
+              before the round can be created on-chain.
+            </p>
+          </div>
+
+          <button
+            className="rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-medium hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-40"
+            disabled={isBoundaryLoading}
+            onClick={() => void fetchBoundaryJobs()}
+            type="button"
+          >
+            {isBoundaryLoading ? "Refreshing..." : "Refresh sync status"}
+          </button>
+        </div>
+
+        <div className="mt-5 grid gap-4 md:grid-cols-3">
+          <Field
+            label="Base Sepolia Block Tapal Batas"
+            description="Final Base Sepolia block for this reward period."
+            onChange={setBaseBoundaryBlockInput}
+            placeholder="41832200"
+            value={baseBoundaryBlockInput}
+          />
+          <Field
+            label="Ethereum Sepolia Block Tapal Batas"
+            description="Final Ethereum Sepolia block for this reward period."
+            onChange={setEthereumBoundaryBlockInput}
+            placeholder="10896262"
+            value={ethereumBoundaryBlockInput}
+          />
+          <Field
+            label={`Reward amount (${tokenSymbol})`}
+            description="Total amount to allocate for the generated round."
+            onChange={setBoundaryRewardAmountInput}
+            placeholder="1000"
+            value={boundaryRewardAmountInput}
+          />
+        </div>
+
+        <div className="mt-5 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+          <button
+            className="rounded-2xl border border-white/10 bg-white px-5 py-3 text-sm font-semibold text-black hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-40"
+            disabled={boundarySubmitDisabled}
+            onClick={() => void submitBoundarySyncJob()}
+            type="button"
+          >
+            {isBoundarySubmitting ? "Submitting..." : "Submit Tapal Batas"}
+          </button>
+
+          <div className="text-sm text-white/60">
+            {boundaryJobActive
+              ? "An active boundary sync job exists. Finish or cancel it before submitting another one."
+              : "Submit is available when both blocks and reward amount are valid."}
+          </div>
+        </div>
+
+        {boundarySubmitStatus ? (
+          <div className="mt-4 rounded-2xl border border-green-500/30 bg-green-500/10 p-4 text-sm text-green-100/80">
+            {boundarySubmitStatus}
+          </div>
+        ) : null}
+
+        {boundaryError ? (
+          <div className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+            {boundaryError}
+          </div>
+        ) : null}
+
+        <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 px-4">
+          <ReadRow
+            label="Latest job"
+            value={activeBoundaryJob?.id ?? "No boundary sync job found"}
+          />
+          <ReadRow
+            label="Job status"
+            value={activeBoundaryJob?.status ?? "—"}
+            warning={
+              activeBoundaryJob?.error_message ??
+              (activeBoundaryJob?.status === "paused"
+                ? "Worker paused this job. Check the target error and rerun the worker after the retry delay."
+                : undefined)
+            }
+          />
+          <ReadRow
+            label="Target summary"
+            value={summarizeBoundaryTargets(activeBoundaryJob)}
+          />
+          <ReadRow
+            label="Reward amount"
+            value={
+              activeBoundaryJob?.reward_amount_wei
+                ? `${formatUnits(BigInt(activeBoundaryJob.reward_amount_wei), tokenDecimals)} ${tokenSymbol}`
+                : "—"
+            }
+          />
+          <ReadRow
+            label="Created"
+            value={activeBoundaryJob?.created_at ?? "—"}
+          />
+          <ReadRow
+            label="Finished"
+            value={activeBoundaryJob?.finished_at ?? "—"}
+          />
+        </div>
+
+        {activeBoundaryJob?.snapshots.length ? (
+          <div className="mt-4 grid gap-4 md:grid-cols-2">
+            {activeBoundaryJob.snapshots.map((snapshot) => (
+              <div
+                className="rounded-2xl border border-white/10 bg-black/20 px-4"
+                key={snapshot.id}
+              >
+                <ReadRow label="Chain" value={snapshot.chain_key} />
+                <ReadRow label="Snapshot status" value={snapshot.status} />
+                <ReadRow
+                  label="From block"
+                  value={snapshot.from_block.toString()}
+                />
+                <ReadRow
+                  label="To block"
+                  value={snapshot.to_block.toString()}
+                />
+                <ReadRow
+                  label="From timestamp"
+                  value={snapshot.from_block_timestamp ?? "—"}
+                />
+                <ReadRow
+                  label="To timestamp"
+                  value={snapshot.to_block_timestamp ?? "—"}
+                />
+              </div>
+            ))}
+          </div>
+        ) : null}
+
+        {activeBoundaryJob?.targets.length ? (
+          <div className="mt-4 overflow-x-auto rounded-2xl border border-white/10 bg-black/20">
+            <table className="w-full min-w-[840px] text-left text-sm">
+              <thead className="border-b border-white/10 text-white/50">
+                <tr>
+                  <th className="px-4 py-3 font-medium">Chain</th>
+                  <th className="px-4 py-3 font-medium">Task</th>
+                  <th className="px-4 py-3 font-medium">Status</th>
+                  <th className="px-4 py-3 font-medium">Progress</th>
+                  <th className="px-4 py-3 font-medium">Attempts</th>
+                  <th className="px-4 py-3 font-medium">Next attempt</th>
+                  <th className="px-4 py-3 font-medium">Error</th>
+                </tr>
+              </thead>
+              <tbody>
+                {activeBoundaryJob.targets.map((target) => (
+                  <tr className="border-b border-white/5" key={target.id}>
+                    <td className="px-4 py-3 font-mono">{target.chain_key}</td>
+                    <td className="px-4 py-3 font-mono">{target.task_key}</td>
+                    <td className="px-4 py-3">{target.status}</td>
+                    <td className="px-4 py-3 font-mono">
+                      {target.last_processed_block ?? "—"} /{" "}
+                      {target.target_block ?? "—"}
+                    </td>
+                    <td className="px-4 py-3 font-mono">
+                      {target.attempts.toString()}
+                    </td>
+                    <td className="px-4 py-3 font-mono">
+                      {target.next_attempt_at ?? "—"}
+                    </td>
+                    <td className="max-w-[260px] px-4 py-3 text-red-100/80">
+                      {target.error_message ?? "—"}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : null}
+      </section>
+
+      <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
         <h3 className="text-2xl font-semibold">Round selector</h3>
         <p className="mt-2 text-sm text-white/60">
           Choose whether to manually create a new test round or operate on an
@@ -1458,7 +1880,10 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
         </h3>
 
         <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 px-4">
-          <ReadRow label="Target chain" value={`${targetChainLabel} (${targetChainId})`} />
+          <ReadRow
+            label="Target chain"
+            value={`${targetChainLabel} (${targetChainId})`}
+          />
           <ReadRow
             label="Connected wallet chain"
             value={
@@ -1524,7 +1949,10 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
               roundMode === "createNew" ? "Create new" : "Existing Supabase"
             }
           />
-          <ReadRow label="Target chain" value={`${targetChainLabel} (${targetChainId})`} />
+          <ReadRow
+            label="Target chain"
+            value={`${targetChainLabel} (${targetChainId})`}
+          />
           <ReadRow
             label="Wallet chain matches target"
             value={formatBool(isConnected && connectedToTargetChain)}
