@@ -72,7 +72,7 @@ export const metadata: Metadata = {
   // 5. X / Twitter Cards
   twitter: {
     card: "summary_large_image",
-    title: "OiOi Melting Dashboard",
+    title: "OiOi Melting Dashboard | Prof. NOTA Inc.",
     description:
       "Use only your Web3 wallet (EOA) to mint, stake, unstake, and claim rewards. Your key, your asset, OiOi!",
     site: "@MyReceiptTT",
