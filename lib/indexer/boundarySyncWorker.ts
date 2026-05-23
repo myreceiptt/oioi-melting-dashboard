@@ -94,6 +94,27 @@ type BoundarySnapshotRow = {
   metadata: Record<string, unknown>;
 };
 
+type TargetInsertRow = {
+  job_id?: string;
+  chain_key: BoundaryChainKey;
+  task_key: BoundaryTaskKey;
+  status: "queued" | "success";
+  from_block: number | null;
+  target_block: number | null;
+  last_processed_block: number | null;
+  block_range_size: number;
+  finished_at: string | null;
+  metadata: Record<string, unknown>;
+};
+
+type ChainBoundaryPlan = {
+  chainKey: BoundaryChainKey;
+  targetBlock: number;
+  snapshotFromBlock: number;
+  previousBoundary: number | null;
+  targets: TargetInsertRow[];
+};
+
 type WorkerResult =
   | {
       ok: true;
@@ -577,22 +598,35 @@ async function fetchLatestBoundaryForChain({
     : null;
 }
 
-async function insertTargets({
+async function buildChainBoundaryPlan({
   supabase,
-  jobId,
   chainKey,
   targetBlock,
 }: {
   supabase: SupabaseClient;
-  jobId: string;
   chainKey: BoundaryChainKey;
   targetBlock: number;
 }) {
-  const rows = [];
   const previousBoundary = await fetchLatestBoundaryForChain({
     supabase,
     chainKey,
   });
+  const snapshotFromBlock =
+    previousBoundary !== null
+      ? previousBoundary + 1
+      : await resolveFromBlock({ supabase, chainKey, taskKey: "staking" });
+
+  if (snapshotFromBlock === null) {
+    throw new Error(`Missing boundary from block for ${chainKey}.`);
+  }
+
+  if (targetBlock < snapshotFromBlock) {
+    throw new Error(
+      `${chainKey} target block ${targetBlock} is before next reward period start block ${snapshotFromBlock}. Submit a target block >= ${snapshotFromBlock}.`,
+    );
+  }
+
+  const rows: TargetInsertRow[] = [];
 
   for (const taskKey of ALL_TASKS) {
     const fromBlock =
@@ -603,7 +637,6 @@ async function insertTargets({
       isSyncTask(taskKey) && fromBlock !== null && fromBlock > targetBlock;
 
     rows.push({
-      job_id: jobId,
       chain_key: chainKey,
       task_key: taskKey,
       status: alreadySynced ? "success" : "queued",
@@ -625,6 +658,29 @@ async function insertTargets({
     });
   }
 
+  return {
+    chainKey,
+    targetBlock,
+    snapshotFromBlock,
+    previousBoundary,
+    targets: rows,
+  } satisfies ChainBoundaryPlan;
+}
+
+async function insertTargets({
+  supabase,
+  jobId,
+  plan,
+}: {
+  supabase: SupabaseClient;
+  jobId: string;
+  plan: ChainBoundaryPlan;
+}) {
+  const rows = plan.targets.map((target) => ({
+    ...target,
+    job_id: jobId,
+  }));
+
   const { error } = await supabase
     .from("indexer_sync_job_targets")
     .insert(rows);
@@ -635,35 +691,23 @@ async function insertTargets({
 async function insertBoundarySnapshot({
   supabase,
   jobId,
-  chainKey,
-  targetBlock,
+  plan,
   rewardAmountWei,
 }: {
   supabase: SupabaseClient;
   jobId: string;
-  chainKey: BoundaryChainKey;
-  targetBlock: number;
+  plan: ChainBoundaryPlan;
   rewardAmountWei: string;
 }) {
-  const previousBoundary = await fetchLatestBoundaryForChain({
-    supabase,
-    chainKey,
-  });
-
-  const fromBlock =
-    previousBoundary !== null
-      ? previousBoundary + 1
-      : await resolveFromBlock({ supabase, chainKey, taskKey: "staking" });
-
   const { error } = await supabase.from("reward_boundary_snapshots").insert({
     sync_job_id: jobId,
-    chain_key: chainKey,
+    chain_key: plan.chainKey,
     status: "pending",
-    from_block: fromBlock,
-    to_block: targetBlock,
+    from_block: plan.snapshotFromBlock,
+    to_block: plan.targetBlock,
     reward_amount_wei: rewardAmountWei,
     metadata: {
-      previousBoundaryBlock: previousBoundary,
+      previousBoundaryBlock: plan.previousBoundary,
     },
   });
 
@@ -722,6 +766,19 @@ export async function createBoundarySyncJob({
     );
   }
 
+  const plans = new Map<BoundaryChainKey, ChainBoundaryPlan>();
+
+  for (const chainKey of CHAIN_KEYS) {
+    plans.set(
+      chainKey,
+      await buildChainBoundaryPlan({
+        supabase,
+        chainKey,
+        targetBlock: chainTargets.get(chainKey)!,
+      }),
+    );
+  }
+
   const { data: job, error } = await supabase
     .from("indexer_sync_jobs")
     .insert({
@@ -745,16 +802,31 @@ export async function createBoundarySyncJob({
 
   const syncJob = job as SyncJobRow;
 
-  for (const chainKey of CHAIN_KEYS) {
-    const targetBlock = chainTargets.get(chainKey)!;
-    await insertTargets({ supabase, jobId: syncJob.id, chainKey, targetBlock });
-    await insertBoundarySnapshot({
-      supabase,
-      jobId: syncJob.id,
-      chainKey,
-      targetBlock,
-      rewardAmountWei,
-    });
+  try {
+    for (const chainKey of CHAIN_KEYS) {
+      const plan = plans.get(chainKey)!;
+      await insertTargets({ supabase, jobId: syncJob.id, plan });
+      await insertBoundarySnapshot({
+        supabase,
+        jobId: syncJob.id,
+        plan,
+        rewardAmountWei,
+      });
+    }
+  } catch (insertError) {
+    const message =
+      insertError instanceof Error ? insertError.message : String(insertError);
+
+    await supabase
+      .from("indexer_sync_jobs")
+      .update({
+        status: "failed",
+        finished_at: new Date().toISOString(),
+        error_message: message,
+      })
+      .eq("id", syncJob.id);
+
+    throw insertError;
   }
 
   return fetchBoundarySyncJob({ supabase, jobId: syncJob.id });
