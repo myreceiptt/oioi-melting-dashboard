@@ -38,7 +38,32 @@ export default async function AdminChainPage({
     );
   }
 
-  const adminConfig = getAdminChainConfig(chain);
+  let adminConfig;
+
+  try {
+    adminConfig = getAdminChainConfig(chain);
+  } catch (error) {
+    return (
+      <main className="mx-auto min-h-screen max-w-4xl px-6 py-10">
+        <Link className="text-sm text-white/50 underline" href="/admin">
+          ← Back to Admin Home
+        </Link>
+        <section className="mt-6 rounded-3xl border border-red-500/30 bg-red-500/10 p-6">
+          <p className="text-sm uppercase tracking-[0.25em] text-red-100/60">
+            Admin Configuration
+          </p>
+          <h1 className="mt-3 text-3xl font-semibold text-red-100">
+            Admin page cannot load this chain.
+          </h1>
+          <p className="mt-4 text-sm text-red-100/80">
+            {error instanceof Error
+              ? error.message
+              : "Unexpected admin configuration error."}
+          </p>
+        </section>
+      </main>
+    );
+  }
 
   return (
     <main className="mx-auto flex min-h-screen max-w-6xl flex-col gap-6 px-6 py-10">
