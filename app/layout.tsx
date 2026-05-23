@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     ],
   },
 
-  // 5. X / Twitter Cards
+  // 5. X / Twitter Cards OiOi
   twitter: {
     card: "summary_large_image",
     title: "OiOi Melting Dashboard by Prof. NOTA Inc.",
