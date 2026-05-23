@@ -101,7 +101,6 @@ async function fetchRewardRound({
   } else {
     query = query
       .not("merkle_root", "is", null)
-      .in("status", ["funded", "claim_paused", "closed"])
       .order("updated_at", { ascending: false });
   }
 

@@ -38,14 +38,8 @@ function jsonResponse(body: unknown, status = 200) {
   });
 }
 
-function isPublicClaimRound(round: RewardRoundRow) {
-  return (
-    Boolean(round.merkle_root) &&
-    (round.status === "funded" ||
-      round.status === "claim_paused" ||
-      round.status === "closed" ||
-      BigInt(round.funded_amount_wei) >= BigInt(round.reward_amount_wei))
-  );
+function isProofReadyRound(round: RewardRoundRow) {
+  return Boolean(round.merkle_root) && BigInt(round.reward_amount_wei) > 0n;
 }
 
 export async function GET(request: NextRequest) {
@@ -72,7 +66,7 @@ export async function GET(request: NextRequest) {
       )
       .eq("chain_key", chainKey)
       .not("merkle_root", "is", null)
-      .order("period_end_unix", { ascending: false })
+      .order("period_end", { ascending: false })
       .limit(50);
 
     if (error) {
@@ -80,7 +74,7 @@ export async function GET(request: NextRequest) {
     }
 
     const rounds = ((data ?? []) as RewardRoundRow[])
-      .filter(isPublicClaimRound)
+      .filter(isProofReadyRound)
       .map((round) => ({
         chainKey: round.chain_key,
         roundId: BigInt(round.round_id).toString(),
