@@ -6,6 +6,7 @@ import { parseAbi } from "viem";
 import {
   useAccount,
   useReadContract,
+  useReadContracts,
   useWaitForTransactionReceipt,
   useWriteContract,
 } from "wagmi";
@@ -232,9 +233,41 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
   const [roundsError, setRoundsError] = useState<string | null>(null);
 
   const account = address ? address.toLowerCase() : null;
+  const roundFundingReads = useReadContracts({
+    contracts: rounds.map((round) => ({
+      address: addresses.rewardDistributor,
+      abi: rewardClaimAbi,
+      functionName: "isRoundFunded",
+      args: [BigInt(round.roundId)],
+    })),
+    query: {
+      enabled: rounds.length > 0,
+      retry: false,
+    },
+  });
+  const fundedRoundIds = useMemo(() => {
+    const ids = new Set<string>();
+
+    roundFundingReads.data?.forEach((read, index) => {
+      if (read.status === "success" && read.result === true) {
+        const roundId = rounds[index]?.roundId;
+
+        if (roundId) {
+          ids.add(roundId);
+        }
+      }
+    });
+
+    return ids;
+  }, [roundFundingReads.data, rounds]);
+  const fundedRounds = useMemo(
+    () => rounds.filter((round) => fundedRoundIds.has(round.roundId)),
+    [fundedRoundIds, rounds],
+  );
   const selectedRound = useMemo(
-    () => rounds.find((round) => round.roundId === selectedRoundId) ?? null,
-    [rounds, selectedRoundId],
+    () =>
+      fundedRounds.find((round) => round.roundId === selectedRoundId) ?? null,
+    [fundedRounds, selectedRoundId],
   );
 
   const proofUrl = useMemo(() => {
@@ -272,17 +305,13 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
       }
 
       setRounds(json.rounds);
-      setSelectedRoundId((current) => {
-        if (
-          preserveSelection &&
-          current &&
-          json.rounds.some((round) => round.roundId === current)
-        ) {
-          return current;
-        }
-
-        return json.rounds[0]?.roundId ?? "";
-      });
+      setSelectedRoundId((current) =>
+        preserveSelection &&
+        current &&
+        json.rounds.some((round) => round.roundId === current)
+          ? current
+          : "",
+      );
     } catch (error) {
       setRounds([]);
       setSelectedRoundId("");
@@ -337,6 +366,16 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
     void fetchProof();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [proofUrl]);
+
+  useEffect(() => {
+    setSelectedRoundId((current) => {
+      if (current && fundedRounds.some((round) => round.roundId === current)) {
+        return current;
+      }
+
+      return fundedRounds[0]?.roundId ?? "";
+    });
+  }, [fundedRounds]);
 
   const roundIdString = proofData?.ok ? proofData.round.roundId : null;
   const roundId = parseBigIntString(roundIdString);
@@ -420,7 +459,11 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
   const claimDisabledReason = (() => {
     if (!isConnected) return "Connect wallet first.";
     if (rounds.length === 0)
-      return "No funded reward round is available on this chain yet.";
+      return "No proof-ready reward round is available on this chain yet.";
+    if (fundedRounds.length === 0)
+      return roundFundingReads.isLoading
+        ? "Checking on-chain funding state."
+        : "No funded reward round is available on this chain yet.";
     if (!selectedRoundId) return "Select a reward round first.";
     if (!proofData) return "Reward proof has not loaded yet.";
     if (proofData.ok === false) return proofData.error;
@@ -499,8 +542,8 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
           <div>
             <h3 className="text-2xl font-semibold">Reward round</h3>
             <p className="mt-2 text-sm text-white/60">
-              Select a funded reward round. Paused and already-claimed rounds
-              remain visible so the reward history is still inspectable.
+              Select a funded reward round. Funding, pause, and claimed state
+              are checked directly on-chain before claim is enabled.
             </p>
           </div>
 
@@ -528,14 +571,22 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
             </p>
             <select
               className="mt-3 w-full rounded-xl border border-white/10 bg-black/40 px-3 py-2 text-sm outline-none focus:border-white/30"
-              disabled={isRoundsLoading || rounds.length === 0}
+              disabled={
+                isRoundsLoading ||
+                roundFundingReads.isLoading ||
+                fundedRounds.length === 0
+              }
               onChange={(event) => setSelectedRoundId(event.target.value)}
               value={selectedRoundId}
             >
-              {rounds.length === 0 ? (
-                <option value="">No funded reward rounds</option>
+              {fundedRounds.length === 0 ? (
+                <option value="">
+                  {roundFundingReads.isLoading
+                    ? "Checking on-chain funding"
+                    : "No funded reward rounds"}
+                </option>
               ) : null}
-              {rounds.map((round) => (
+              {fundedRounds.map((round) => (
                 <option key={round.roundId} value={round.roundId}>
                   {round.roundId} — {round.status}
                 </option>

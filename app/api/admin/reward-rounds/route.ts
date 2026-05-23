@@ -117,7 +117,7 @@ export async function GET(request: NextRequest) {
         "chain_key, round_id, status, period_start, period_end, period_start_unix, period_end_unix, reward_amount_wei, funded_amount_wei, claimed_amount_wei, merkle_root, claim_paused, calculation_id, created_tx_hash, funded_tx_hash, metadata, updated_at",
       )
       .eq("chain_key", chainKey)
-      .order("updated_at", { ascending: false });
+      .order("period_end", { ascending: false });
 
     if (requestedRoundId) {
       query = query.eq("round_id", requestedRoundId);

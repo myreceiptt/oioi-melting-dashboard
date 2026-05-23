@@ -313,10 +313,6 @@ function isSupabaseStatusAlreadyCreated(status: string | null) {
   );
 }
 
-function isSupabaseStatusReadOnly(status: string | null) {
-  return status === "closed";
-}
-
 function padDatePart(value: number) {
   return String(value).padStart(2, "0");
 }
@@ -689,9 +685,6 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
     roundExists &&
     roundRewardAmount > 0n &&
     roundClaimedAmount >= roundRewardAmount;
-  const selectedSupabaseRoundClosed = isSupabaseStatusReadOnly(
-    selectedSupabaseStatus,
-  );
   const selectedSupabaseRoundAlreadyCreated = isSupabaseStatusAlreadyCreated(
     selectedSupabaseStatus,
   );
@@ -711,6 +704,20 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
     Boolean(selectedSupabaseRound) &&
     roundExists &&
     !onChainRootMatchesSupabase;
+  const onChainOperationalStatus = !roundExists
+    ? "not_created"
+    : roundFullyClaimed
+      ? "closed"
+      : roundIsFunded
+        ? roundClaimPaused
+          ? "claim_paused"
+          : "funded"
+        : "created";
+  const supabaseStatusMayLag =
+    roundMode === "existingSupabase" &&
+    Boolean(selectedSupabaseRound) &&
+    roundExists &&
+    selectedSupabaseStatus !== onChainOperationalStatus;
   const selectedSupabaseInputLocked =
     roundMode !== "existingSupabase" ||
     (Boolean(selectedSupabaseRound) &&
@@ -985,6 +992,17 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
     if (receipt.isSuccess) {
       refetchRewardReads();
       void fetchRounds({ preserveSelection: true });
+
+      const timers = [1_500, 5_000].map((delay) =>
+        window.setTimeout(() => {
+          refetchRewardReads();
+          void fetchRounds({ preserveSelection: true });
+        }, delay),
+      );
+
+      return () => {
+        timers.forEach((timer) => window.clearTimeout(timer));
+      };
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [receipt.isSuccess]);
@@ -1258,7 +1276,6 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
     (Boolean(selectedSupabaseRound) &&
       selectedSupabaseRound?.ready_for_create === true &&
       selectedSupabaseRoundStatusAllowsCreate &&
-      !selectedSupabaseRoundClosed &&
       !selectedSupabaseRoundAlreadyCreated);
   const approveAmountEnough =
     approveAmount !== null &&
@@ -1282,7 +1299,6 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
     actionDisabledBase ||
     approveAmount === null ||
     !approveAmountEnough ||
-    selectedSupabaseRoundClosed ||
     !roundExists ||
     roundIsFunded ||
     allowanceSufficient ||
@@ -1292,7 +1308,6 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
   const fundDisabled =
     actionDisabledBase ||
     transactionRoundId === null ||
-    selectedSupabaseRoundClosed ||
     !fundAmountValid ||
     !roundExists ||
     roundIsFunded ||
@@ -1303,7 +1318,6 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
   const pauseDisabled =
     actionDisabledBase ||
     transactionRoundId === null ||
-    selectedSupabaseRoundClosed ||
     !roundExists ||
     selectedRoundOnChainMismatch ||
     roundFullyClaimed;
@@ -1319,10 +1333,6 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
 
     if (roundMode === "existingSupabase" && !selectedSupabaseRound) {
       return "Select an existing Supabase reward round first.";
-    }
-
-    if (roundMode === "existingSupabase" && selectedSupabaseRoundClosed) {
-      return "Selected Supabase round is closed. Treat it as read-only.";
     }
 
     if (!createCoreValid && !roundExists) {
@@ -2049,6 +2059,15 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
               selectedSupabaseRound
                 ? formatBool(selectedSupabaseRootMatches)
                 : "—"
+            }
+          />
+          <ReadRow
+            label="Operational status source"
+            value={`On-chain: ${onChainOperationalStatus}`}
+            warning={
+              supabaseStatusMayLag
+                ? `Supabase status is still ${selectedSupabaseStatus}; reward event sync can reconcile it later.`
+                : undefined
             }
           />
           <ReadRow label="Round exists" value={formatBool(roundExists)} />
