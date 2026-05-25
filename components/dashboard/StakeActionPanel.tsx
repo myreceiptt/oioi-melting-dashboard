@@ -249,7 +249,7 @@ function CollectionStakeCard({ config }: { config: CollectionConfig }) {
         </div>
       ) : null}
 
-      <div className="mt-5 grid gap-3 sm:grid-cols-2">
+      <div className="mt-5 grid gap-4 sm:grid-cols-2">
         <button
           className="rounded-2xl bg-white px-5 py-3 font-medium text-black hover:bg-white/80 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={Boolean(stakeDisabledReason)}

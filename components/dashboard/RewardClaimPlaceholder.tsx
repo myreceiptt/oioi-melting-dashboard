@@ -103,7 +103,7 @@ export function RewardClaimPlaceholder({ chainSet }: { chainSet: ChainSet }) {
 
         <div className="mt-6 grid gap-3 rounded-2xl border border-white/10 bg-black/20 p-4">
           <div>
-            <div className="text-sm text-white/60">RewardDistributor</div>
+            <div className="text-sm text-white/60">Reward Distributor</div>
             <a
               className="mt-1 block break-all font-mono text-sm underline underline-offset-4"
               href={getAddressUrl(chainSet, addresses.rewardDistributor)}

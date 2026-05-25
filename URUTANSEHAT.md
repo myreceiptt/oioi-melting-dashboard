@@ -87,7 +87,7 @@
    - ✅ Script register ROTY dibuat.
    - ✅ Script deploy/register Melting dibuat.
    - ✅ Script deploy/register Amanda dibuat.
-   - ✅ Script deploy RewardDistributor dibuat.
+   - ✅ Script deploy Reward Distributor dibuat.
    - ✅ Read-check script dibuat.
    - ✅ Functional test script dibuat.
    - ✅ Restore mint phases script dibuat.

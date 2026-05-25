@@ -26,16 +26,16 @@ const rewardClaimAbi = parseAbi([
   "function claim(uint256 roundId, uint256 amount, bytes32[] calldata proof)",
 ]);
 
-type RewardRoundData = readonly [
-  boolean,
-  boolean,
-  bigint,
-  bigint,
-  bigint,
-  bigint,
-  bigint,
-  `0x${string}`,
-];
+type RewardRoundData = {
+  exists: boolean;
+  claimPaused: boolean;
+  periodStart: bigint;
+  periodEnd: bigint;
+  rewardAmount: bigint;
+  fundedAmount: bigint;
+  claimedAmount: bigint;
+  merkleRoot: `0x${string}`;
+};
 
 type RewardProofSuccess = {
   ok: true;
@@ -117,8 +117,36 @@ type RewardRoundsResponse =
       error: string;
     };
 
-function asRewardRoundData(value: unknown) {
-  return value as RewardRoundData | undefined;
+function asRewardRoundData(value: unknown): RewardRoundData | undefined {
+  if (!value) {
+    return undefined;
+  }
+
+  if (Array.isArray(value)) {
+    const tuple = value as unknown as readonly [
+      boolean,
+      boolean,
+      bigint,
+      bigint,
+      bigint,
+      bigint,
+      bigint,
+      `0x${string}`,
+    ];
+
+    return {
+      exists: tuple[0],
+      claimPaused: tuple[1],
+      periodStart: tuple[2],
+      periodEnd: tuple[3],
+      rewardAmount: tuple[4],
+      fundedAmount: tuple[5],
+      claimedAmount: tuple[6],
+      merkleRoot: tuple[7],
+    };
+  }
+
+  return value as RewardRoundData;
 }
 
 function parseBigIntString(value: string | undefined | null) {
@@ -165,57 +193,96 @@ function ReadRow({
   );
 }
 
+function StatusPill({
+  label,
+  tone = "neutral",
+}: {
+  label: string;
+  tone?: "neutral" | "success" | "warning" | "danger" | "info" | "purple";
+}) {
+  const toneClass =
+    tone === "success"
+      ? "border-green-500/30 bg-green-500/10 text-green-100"
+      : tone === "warning"
+        ? "border-yellow-500/30 bg-yellow-500/10 text-yellow-100"
+        : tone === "danger"
+          ? "border-red-500/30 bg-red-500/10 text-red-100"
+          : tone === "info"
+            ? "border-blue-500/30 bg-blue-500/10 text-blue-100"
+            : tone === "purple"
+              ? "border-fuchsia-500/30 bg-fuchsia-500/10 text-fuchsia-100"
+              : "border-white/10 bg-white/5 text-white/70";
+
+  return (
+    <span
+      className={`mt-2 inline-flex rounded-full border px-3 py-1 text-xs font-medium ${toneClass}`}>
+      {label}
+    </span>
+  );
+}
+
+function SummaryTile({
+  label,
+  value,
+  detail,
+}: {
+  label: string;
+  value: string;
+  detail?: string;
+}) {
+  return (
+    <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+      <div className="text-xs uppercase tracking-[0.18em] text-white/40">
+        {label}
+      </div>
+      <div className="mt-2 break-all font-mono text-sm text-white">{value}</div>
+      {detail ? (
+        <div className="mt-2 text-xs text-white/50">{detail}</div>
+      ) : null}
+    </div>
+  );
+}
+
 function TxStatus({
   chainSet,
   txHash,
   isLoading,
   isSuccess,
   isError,
-  errorMessage,
 }: {
   chainSet: ChainSet;
   txHash: Hash | undefined;
   isLoading: boolean;
   isSuccess: boolean;
   isError: boolean;
-  errorMessage?: string;
 }) {
-  if (!txHash && !errorMessage) {
+  if (!txHash) {
     return null;
   }
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
+    <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
       <div className="font-medium">Transaction status</div>
 
-      {txHash ? (
-        <a
-          className="mt-2 block break-all font-mono underline underline-offset-4"
-          href={getTxUrl(chainSet, txHash)}
-          rel="noreferrer"
-          target="_blank"
-        >
-          {txHash}
-        </a>
-      ) : null}
+      <a
+        className="mt-2 block break-all font-mono underline underline-offset-4"
+        href={getTxUrl(chainSet, txHash)}
+        rel="noreferrer"
+        target="_blank">
+        {txHash}
+      </a>
 
       <div className="mt-2 text-white/60">
         {isLoading
           ? "Mining..."
           : isSuccess
-            ? "Mined successfully. Refresh reward events later to update Supabase claim records."
+            ? "Mined successfully. Claim state will refresh from on-chain and Supabase proof data."
             : isError
               ? "Transaction failed or receipt error."
               : txHash
                 ? "Submitted."
                 : ""}
       </div>
-
-      {errorMessage ? (
-        <div className="mt-3 rounded-xl border border-red-500/30 bg-red-500/10 p-3 text-red-100/80">
-          {errorMessage}
-        </div>
-      ) : null}
     </div>
   );
 }
@@ -231,6 +298,14 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
   const [selectedRoundId, setSelectedRoundId] = useState("");
   const [isRoundsLoading, setIsRoundsLoading] = useState(false);
   const [roundsError, setRoundsError] = useState<string | null>(null);
+  const [lastActionLabel, setLastActionLabel] = useState<string | null>(null);
+  const [lastRequestedValue, setLastRequestedValue] = useState<string | null>(
+    null,
+  );
+  const [lastActionRoundId, setLastActionRoundId] = useState<string | null>(
+    null,
+  );
+  const [lastActionTxHash, setLastActionTxHash] = useState<Hash | undefined>();
 
   const account = address ? address.toLowerCase() : null;
   const roundFundingReads = useReadContracts({
@@ -326,6 +401,7 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
   async function fetchProof() {
     if (!proofUrl) {
       setProofData(null);
+      setProofError(null);
       return;
     }
 
@@ -377,8 +453,7 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
     });
   }, [fundedRounds]);
 
-  const roundIdString = proofData?.ok ? proofData.round.roundId : null;
-  const roundId = parseBigIntString(roundIdString);
+  const roundId = parseBigIntString(selectedRoundId);
   const allocation = proofData?.ok ? proofData.allocation : null;
   const allocationAmount = parseBigIntString(allocation?.amountWei ?? null);
   const proof = allocation?.proof ?? [];
@@ -432,15 +507,34 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
   });
 
   const roundData = asRewardRoundData(rewardRoundRead.data);
-  const onChainRoundExists = roundData?.[0] === true;
-  const onChainClaimPaused = roundData?.[1] === true;
-  const onChainMerkleRoot = roundData?.[7];
+  const onChainRoundExists = roundData?.exists === true;
+  const onChainClaimPaused = roundData?.claimPaused === true;
+  const onChainRewardAmount = roundData?.rewardAmount ?? 0n;
+  const onChainFundedAmount = roundData?.fundedAmount ?? 0n;
+  const onChainClaimedAmount = roundData?.claimedAmount ?? 0n;
+  const onChainMerkleRoot = roundData?.merkleRoot;
   const onChainRoundFunded =
     typeof isRoundFundedRead.data === "boolean"
       ? isRoundFundedRead.data
       : false;
   const onChainClaimed =
     typeof hasClaimedRead.data === "boolean" ? hasClaimedRead.data : false;
+  const onChainRoundClosed =
+    onChainRoundExists &&
+    onChainRewardAmount > 0n &&
+    onChainClaimedAmount >= onChainRewardAmount;
+  const rewardReadError =
+    rewardRoundRead.error ?? isRoundFundedRead.error ?? hasClaimedRead.error;
+  const isRewardReadsRefreshing =
+    roundFundingReads.isFetching ||
+    rewardRoundRead.isFetching ||
+    isRoundFundedRead.isFetching ||
+    hasClaimedRead.isFetching;
+  const showSelectedRoundActionContext =
+    lastActionRoundId !== null && lastActionRoundId === selectedRoundId;
+  const visibleTxHash = showSelectedRoundActionContext
+    ? lastActionTxHash
+    : undefined;
 
   const apiEligible = proofData?.ok ? proofData.eligible : false;
   const dbClaimed =
@@ -486,6 +580,54 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
   })();
 
   const claimDisabled = claimDisabledReason !== null;
+  const selectedRoundStatus = (() => {
+    if (rounds.length === 0) {
+      return { label: "No Round", tone: "neutral" as const };
+    }
+
+    if (fundedRounds.length === 0 || !selectedRoundId || !proofData) {
+      return { label: "Checking", tone: "neutral" as const };
+    }
+
+    if (proofData.ok === false || rewardReadError) {
+      return { label: "Read Error", tone: "danger" as const };
+    }
+
+    if (onChainRoundClosed) {
+      return { label: "Closed", tone: "neutral" as const };
+    }
+
+    if (onChainClaimPaused) {
+      return { label: "Paused", tone: "purple" as const };
+    }
+
+    if (onChainClaimed || dbClaimed) {
+      return { label: "Already Claimed", tone: "neutral" as const };
+    }
+
+    if (!apiEligible || !allocation) {
+      return { label: "Not Eligible", tone: "warning" as const };
+    }
+
+    if (claimDisabled) {
+      return { label: "Funded", tone: "success" as const };
+    }
+
+    return { label: "Ready to Claim", tone: "success" as const };
+  })();
+
+  function refetchClaimReads() {
+    void roundFundingReads.refetch();
+    void rewardRoundRead.refetch();
+    void isRoundFundedRead.refetch();
+    void hasClaimedRead.refetch();
+  }
+
+  function refreshClaimPanel() {
+    void fetchRounds({ preserveSelection: true });
+    void fetchProof();
+    refetchClaimReads();
+  }
 
   async function claimReward() {
     if (
@@ -497,20 +639,40 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
       return;
     }
 
-    await writeContractAsync({
+    setLastActionLabel("Claim $OiOi");
+    setLastRequestedValue(
+      `Round ${roundId.toString()} / ${formatTokenAmount({
+        value: allocationAmount,
+        symbol: "OiOi",
+      })}`,
+    );
+    setLastActionRoundId(roundId.toString());
+    setLastActionTxHash(undefined);
+
+    const hash = await writeContractAsync({
       address: addresses.rewardDistributor,
       abi: rewardClaimAbi,
       functionName: "claim",
       args: [roundId, allocationAmount, proof],
     });
+    setLastActionTxHash(hash);
   }
 
   useEffect(() => {
     if (receipt.isSuccess) {
       void fetchProof();
-      void rewardRoundRead.refetch();
-      void isRoundFundedRead.refetch();
-      void hasClaimedRead.refetch();
+      refetchClaimReads();
+
+      const timers = [1_500, 5_000].map((delay) =>
+        window.setTimeout(() => {
+          void fetchProof();
+          refetchClaimReads();
+        }, delay),
+      );
+
+      return () => {
+        timers.forEach((timer) => window.clearTimeout(timer));
+      };
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [receipt.isSuccess]);
@@ -519,41 +681,39 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
     <section className="grid gap-5">
       <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
         <p className="text-sm uppercase tracking-[0.25em] text-white/50">
-          $OiOi rewards
+          Claim Rewards
         </p>
-        <h2 className="mt-2 text-2xl font-semibold">Reward Claim Panel</h2>
+        <h2 className="mt-2 text-2xl font-semibold">All Available Rewards</h2>
         <p className="mt-2 text-sm text-white/60">
-          This panel reads off-chain reward proof data from Supabase and checks
-          the RewardDistributor state on-chain before enabling claim.
+          Not all rewards are available, and not all available rewards can be
+          given to you. Please check and claim by yourself.
         </p>
-
-        <div className="mt-5 rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-4">
-          <div className="font-medium text-yellow-100">Important</div>
-          <p className="mt-2 text-sm text-yellow-100/80">
-            Claim becomes available only after the admin creates and funds the
-            same reward round on-chain with the Merkle root generated by the
-            reward pipeline.
-          </p>
-        </div>
       </section>
-
-      <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
+      <article className="rounded-3xl border border-white/10 bg-white/5 p-6">
         <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
           <div>
-            <h3 className="text-2xl font-semibold">Reward round</h3>
-            <p className="mt-2 text-sm text-white/60">
-              Select a funded reward round. Funding, pause, and claimed state
-              are checked directly on-chain before claim is enabled.
+            <p className="text-sm uppercase tracking-[0.25em] text-white/50">
+              $OiOi Rewards
+            </p>
+            <h2 className="mt-2 text-2xl font-semibold">
+              Check and Claim $OiOi
+            </h2>
+            <p className="mt-2 max-w-3xl text-sm text-white/60">
+              Select a funded reward round, review your allocation, then claim
+              when the proof and on-chain state agree.
             </p>
           </div>
 
           <button
-            className="rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-medium hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-40"
-            disabled={isRoundsLoading}
-            onClick={() => void fetchRounds({ preserveSelection: true })}
-            type="button"
-          >
-            {isRoundsLoading ? "Refreshing..." : "Refresh rounds"}
+            className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
+            disabled={
+              isRoundsLoading || isProofLoading || isRewardReadsRefreshing
+            }
+            onClick={refreshClaimPanel}
+            type="button">
+            {isRoundsLoading || isProofLoading || isRewardReadsRefreshing
+              ? "Refreshing..."
+              : "Refresh rounds"}
           </button>
         </div>
 
@@ -563,22 +723,18 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
           </div>
         ) : null}
 
-        <div className="mt-5 grid gap-4 md:grid-cols-[360px_1fr]">
-          <label className="block rounded-2xl border border-white/10 bg-black/20 p-4">
-            <div className="font-medium">Available reward rounds</div>
-            <p className="mt-1 text-xs text-white/50">
-              Newest funded rounds are listed first.
-            </p>
+        <div className="mt-5 grid gap-4 md:grid-cols-[420px_1fr]">
+          <label className="block">
+            <div className="font-medium">Available reward round</div>
             <select
-              className="mt-3 w-full rounded-xl border border-white/10 bg-black/40 px-3 py-2 text-sm outline-none focus:border-white/30"
+              className="mt-3 w-full rounded-xl border border-white/10 bg-black/40 px-3 py-3 text-sm outline-none focus:border-white/30"
               disabled={
                 isRoundsLoading ||
                 roundFundingReads.isLoading ||
                 fundedRounds.length === 0
               }
               onChange={(event) => setSelectedRoundId(event.target.value)}
-              value={selectedRoundId}
-            >
+              value={selectedRoundId}>
               {fundedRounds.length === 0 ? (
                 <option value="">
                   {roundFundingReads.isLoading
@@ -588,199 +744,245 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
               ) : null}
               {fundedRounds.map((round) => (
                 <option key={round.roundId} value={round.roundId}>
-                  {round.roundId} — {round.status}
+                  {round.roundId} — {round.rewardAmountOiOi} OiOi
                 </option>
               ))}
             </select>
           </label>
 
-          <div className="rounded-2xl border border-white/10 bg-black/20 px-4">
-            <ReadRow
-              label="Selected round"
-              value={selectedRound?.roundId ?? "—"}
-            />
-            <ReadRow label="Status" value={selectedRound?.status ?? "—"} />
-            <ReadRow
-              label="Reward amount"
-              value={
-                selectedRound ? `${selectedRound.rewardAmountOiOi} OiOi` : "—"
-              }
-            />
-            <ReadRow
-              label="Funded amount"
-              value={
-                selectedRound ? `${selectedRound.fundedAmountOiOi} OiOi` : "—"
-              }
-            />
-            <ReadRow
-              label="Claimed amount"
-              value={
-                selectedRound ? `${selectedRound.claimedAmountOiOi} OiOi` : "—"
-              }
-            />
-            <ReadRow
-              label="Claim paused"
-              value={
-                selectedRound ? formatBool(selectedRound.claimPaused) : "—"
-              }
+          <div className="flex items-end">
+            <StatusPill
+              label={selectedRoundStatus.label}
+              tone={selectedRoundStatus.tone}
             />
           </div>
         </div>
-      </section>
 
-      <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
-        <h3 className="text-2xl font-semibold">Proof API status</h3>
+        {selectedRound ? (
+          <>
+            <div className="mt-5 grid gap-4 md:grid-cols-3">
+              <SummaryTile label="Round ID" value={selectedRound.roundId} />
+              <SummaryTile
+                label="Reward amount"
+                value={`${selectedRound.rewardAmountOiOi} OiOi`}
+                detail={`Period end: ${selectedRound.periodEnd}`}
+              />
+              <SummaryTile
+                label="Period"
+                value={selectedRound.periodEnd}
+                detail={`Start: ${selectedRound.periodStart}`}
+              />
+              <SummaryTile
+                label="Funded"
+                value={formatTokenAmount({
+                  value: onChainFundedAmount,
+                  symbol: "OiOi",
+                })}
+                detail={`Reward amount: ${formatTokenAmount({
+                  value: onChainRewardAmount || undefined,
+                  symbol: "OiOi",
+                })}`}
+              />
+              <SummaryTile
+                label="Claimed"
+                value={formatTokenAmount({
+                  value: onChainClaimedAmount,
+                  symbol: "OiOi",
+                })}
+                detail={onChainRoundClosed ? "Fully claimed" : "Still open"}
+              />
+              <SummaryTile
+                label="Your allocation"
+                value={formatTokenAmount({
+                  value: allocationAmount ?? undefined,
+                  symbol: "OiOi",
+                })}
+                detail={
+                  allocation
+                    ? `${allocation.durationSeconds.toString()} weighted seconds`
+                    : apiEligible
+                      ? "Loading allocation"
+                      : "No allocation for this wallet"
+                }
+              />
+            </div>
 
-        <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 px-4">
-          <ReadRow
-            label="Connected wallet"
-            value={account ? shortAddress(account) : "Connect wallet"}
-          />
-          <ReadRow label="Proof loading" value={formatBool(isProofLoading)} />
-          <ReadRow
-            label="Proof API"
-            value={proofData?.ok ? "OK" : proofError ? "Error" : "—"}
-            warning={proofError ?? undefined}
-          />
-          <ReadRow
-            label="Eligible"
-            value={proofData?.ok ? formatBool(proofData.eligible) : "—"}
-          />
-          <ReadRow
-            label="Round ID"
-            value={proofData?.ok ? proofData.round.roundId : "—"}
-          />
-          <ReadRow
-            label="DB round status"
-            value={proofData?.ok ? proofData.round.status : "—"}
-          />
-          <ReadRow
-            label="DB Merkle root"
-            value={proofData?.ok ? proofData.round.merkleRoot : "—"}
-          />
-          <ReadRow
-            label="Allocation amount"
-            value={formatTokenAmount({ value: allocationAmount ?? undefined })}
-          />
-          <ReadRow
-            label="Proof length"
-            value={allocation ? allocation.proof.length.toString() : "—"}
-            warning={
-              allocation && allocation.proof.length === 0
-                ? "Proof length can be 0 for a single-leaf Merkle tree."
-                : undefined
-            }
-          />
-          <ReadRow
-            label="DB claimed"
-            value={allocation ? formatBool(dbClaimed) : "—"}
-          />
-        </div>
-
-        <button
-          className="mt-5 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-medium hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={!account || isProofLoading}
-          onClick={() => void fetchProof()}
-          type="button"
-        >
-          Refresh Proof
-        </button>
-      </section>
-
-      <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
-        <h3 className="text-2xl font-semibold">On-chain reward round state</h3>
-
-        <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 px-4">
-          <ReadRow
-            label="RewardDistributor"
-            value={shortAddress(addresses.rewardDistributor)}
-          />
-          <ReadRow label="Round exists" value={formatBool(roundData?.[0])} />
-          <ReadRow label="Claim paused" value={formatBool(roundData?.[1])} />
-          <ReadRow
-            label="Period start"
-            value={formatUnixTimestamp(roundData?.[2])}
-          />
-          <ReadRow
-            label="Period end"
-            value={formatUnixTimestamp(roundData?.[3])}
-          />
-          <ReadRow
-            label="Reward amount"
-            value={formatTokenAmount({ value: roundData?.[4] })}
-          />
-          <ReadRow
-            label="Funded amount"
-            value={formatTokenAmount({ value: roundData?.[5] })}
-          />
-          <ReadRow
-            label="Claimed amount"
-            value={formatTokenAmount({ value: roundData?.[6] })}
-          />
-          <ReadRow label="On-chain Merkle root" value={roundData?.[7] ?? "—"} />
-          <ReadRow
-            label="Round funded"
-            value={formatBool(onChainRoundFunded)}
-          />
-          <ReadRow
-            label="On-chain claimed"
-            value={formatBool(onChainClaimed)}
-          />
-          <ReadRow
-            label="Merkle root matches"
-            value={proofData?.ok ? formatBool(merkleRootMatches) : "—"}
-          />
-        </div>
-
-        {rewardRoundRead.error ? (
-          <div className="mt-4 rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-4 text-sm text-yellow-100/80">
-            Reward round read warning: {rewardRoundRead.error.message}
-          </div>
-        ) : null}
-      </section>
-
-      <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
-        <h3 className="text-2xl font-semibold">Claim</h3>
-
-        <p className="mt-2 text-sm text-white/60">
-          The claim button is enabled only when proof API data and on-chain
-          reward round state agree.
-        </p>
-
-        {claimDisabledReason ? (
-          <div className="mt-5 rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-4 text-sm text-yellow-100/80">
-            {claimDisabledReason}
-          </div>
+            <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4">
+              <div className="text-xs uppercase tracking-[0.18em] text-white/40">
+                Merkle root
+              </div>
+              <div className="mt-2 break-all font-mono text-sm">
+                {proofData?.ok
+                  ? proofData.round.merkleRoot
+                  : selectedRound.merkleRoot}
+              </div>
+            </div>
+          </>
         ) : (
-          <div className="mt-5 rounded-2xl border border-green-500/30 bg-green-500/10 p-4 text-sm text-green-100/80">
-            This wallet is ready to claim.
+          <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm text-white/60">
+            No funded reward round selected.
           </div>
         )}
 
+        {proofError ? (
+          <div className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+            Proof error: {proofError}
+          </div>
+        ) : null}
+
+        {rewardReadError ? (
+          <div className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+            Reward read error: {rewardReadError.message}
+          </div>
+        ) : null}
+
+        <div
+          className={`mt-5 rounded-2xl border p-4 ${
+            claimDisabledReason
+              ? "border-yellow-500/30 bg-yellow-500/10"
+              : "border-green-500/30 bg-green-500/10"
+          }`}>
+          <div
+            className={`font-medium ${
+              claimDisabledReason ? "text-yellow-100" : "text-green-100"
+            }`}>
+            Next step
+          </div>
+          <p
+            className={`mt-2 text-sm ${
+              claimDisabledReason ? "text-yellow-100/80" : "text-green-100/80"
+            }`}>
+            {claimDisabledReason ?? "This wallet is ready to claim."}
+          </p>
+        </div>
+
         <button
-          className="mt-5 rounded-2xl border border-green-500/30 bg-green-500/10 px-5 py-3 font-medium text-green-100 disabled:cursor-not-allowed disabled:opacity-40"
+          className="mt-5 w-full rounded-2xl border border-green-500/30 bg-green-500/10 px-5 py-3 text-center font-medium text-green-100 hover:bg-green-500/20 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={claimDisabled}
           onClick={() => void claimReward()}
-          type="button"
-        >
+          type="button">
           Claim $OiOi
         </button>
-      </section>
 
-      {isWritePending ? (
-        <section className="rounded-3xl border border-blue-500/30 bg-blue-500/10 p-6 text-sm text-blue-100/80">
-          Waiting for wallet signature...
-        </section>
-      ) : null}
+        {showSelectedRoundActionContext && lastActionLabel ? (
+          <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
+            <div className="font-medium">Last requested action</div>
+            <div className="mt-2 text-white/60">{lastActionLabel}</div>
+            {lastRequestedValue ? (
+              <div className="mt-1 break-all text-white/60">
+                Requested value: {lastRequestedValue}
+              </div>
+            ) : null}
+          </div>
+        ) : null}
 
-      <TxStatus
-        chainSet={chainSet}
-        errorMessage={writeError?.message}
-        isError={receipt.isError}
-        isLoading={receipt.isLoading}
-        isSuccess={receipt.isSuccess}
-        txHash={txHash}
-      />
+        {showSelectedRoundActionContext && isWritePending ? (
+          <div className="mt-4 rounded-2xl border border-blue-500/30 bg-blue-500/10 p-4 text-sm text-blue-100/80">
+            Waiting for wallet signature...
+          </div>
+        ) : null}
+
+        <TxStatus
+          chainSet={chainSet}
+          isError={receipt.isError}
+          isLoading={receipt.isLoading}
+          isSuccess={receipt.isSuccess}
+          txHash={visibleTxHash}
+        />
+
+        {showSelectedRoundActionContext && writeError ? (
+          <div className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+            {writeError.message}
+          </div>
+        ) : null}
+
+        <details className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4">
+          <summary className="cursor-pointer font-medium">
+            Advanced Diagnostics
+          </summary>
+          <p className="mt-2 text-sm text-white/60">
+            Use this only when the claim button is unexpectedly unavailable or a
+            reward read looks wrong.
+          </p>
+          <div className="mt-4 grid gap-3 md:grid-cols-2">
+            <div className="rounded-2xl border border-white/10 bg-black/20 px-4">
+              <ReadRow
+                label="Connected wallet"
+                value={account ? shortAddress(account) : "Connect wallet"}
+              />
+              <ReadRow
+                label="Reward Distributor"
+                value={shortAddress(addresses.rewardDistributor)}
+              />
+              <ReadRow
+                label="Proof loading"
+                value={formatBool(isProofLoading)}
+              />
+              <ReadRow
+                label="Proof API"
+                value={proofData?.ok ? "OK" : proofError ? "Error" : "—"}
+                warning={proofError ?? undefined}
+              />
+              <ReadRow
+                label="Eligible"
+                value={proofData?.ok ? formatBool(proofData.eligible) : "—"}
+              />
+              <ReadRow
+                label="DB claimed"
+                value={allocation ? formatBool(dbClaimed) : "—"}
+              />
+              <ReadRow
+                label="Proof length"
+                value={allocation ? allocation.proof.length.toString() : "—"}
+                warning={
+                  allocation && allocation.proof.length === 0
+                    ? "Proof length can be 0 for a single-leaf Merkle tree."
+                    : undefined
+                }
+              />
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-black/20 px-4">
+              <ReadRow
+                label="Round exists"
+                value={formatBool(onChainRoundExists)}
+              />
+              <ReadRow
+                label="Round funded"
+                value={formatBool(onChainRoundFunded)}
+              />
+              <ReadRow
+                label="Claim paused"
+                value={formatBool(onChainClaimPaused)}
+              />
+              <ReadRow
+                label="On-chain claimed"
+                value={formatBool(onChainClaimed)}
+              />
+              <ReadRow
+                label="Round closed"
+                value={formatBool(onChainRoundClosed)}
+              />
+              <ReadRow
+                label="Merkle root matches"
+                value={proofData?.ok ? formatBool(merkleRootMatches) : "—"}
+              />
+              <ReadRow
+                label="On-chain Merkle root"
+                value={onChainMerkleRoot ?? "—"}
+              />
+              <ReadRow
+                label="Period start"
+                value={formatUnixTimestamp(roundData?.periodStart)}
+              />
+              <ReadRow
+                label="Period end"
+                value={formatUnixTimestamp(roundData?.periodEnd)}
+              />
+            </div>
+          </div>
+        </details>
+      </article>
     </section>
   );
 }

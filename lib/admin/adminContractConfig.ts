@@ -109,7 +109,7 @@ export function getAdminChainConfig(chainSet: ChainSet): AdminChainConfig {
         description:
           "Reward round creation, funding, claim pause, and reward accounting.",
         address: addresses.rewardDistributor,
-        explorerLabel: "RewardDistributor",
+        explorerLabel: "Reward Distributor",
         readActions: rewardDistributorReadActions,
         writeActions: rewardDistributorWriteActions,
       }),

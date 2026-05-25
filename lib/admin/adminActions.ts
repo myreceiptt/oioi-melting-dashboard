@@ -519,7 +519,7 @@ export const rewardDistributorWriteActions: AdminAction[] = [
     label: "Rescue ETH",
     functionName: "rescueETH",
     risk: "critical",
-    description: "Rescue ETH from RewardDistributor.",
+    description: "Rescue ETH from Reward Distributor.",
     warning:
       "Use only for accidental ETH. Confirm recipient and amount carefully.",
     typedConfirmationText: "RESCUE ETH",
@@ -529,7 +529,7 @@ export const rewardDistributorWriteActions: AdminAction[] = [
     label: "Rescue ERC20",
     functionName: "rescueERC20",
     risk: "critical",
-    description: "Rescue ERC20 from RewardDistributor.",
+    description: "Rescue ERC20 from Reward Distributor.",
     warning:
       "Rescuing reward token may affect claim solvency. Confirm excess balance before signing.",
     typedConfirmationText: "RESCUE ERC20",
@@ -582,7 +582,7 @@ export const erc20WriteActions: AdminAction[] = [
     label: "Approve reward funding",
     functionName: "approve",
     risk: "high",
-    description: "Approve RewardDistributor to spend $OiOi for funding.",
+    description: "Approve Reward Distributor to spend $OiOi for funding.",
     warning:
       "Approve only the amount intended for reward funding. Avoid unlimited approval for admin operations.",
   }),

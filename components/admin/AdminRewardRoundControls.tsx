@@ -21,25 +21,18 @@ import {
   shortAddress,
 } from "@/lib/utils/format";
 
-type TxAction =
-  | "approve"
-  | "createRound"
-  | "fundRound"
-  | "pauseClaims"
-  | "unpauseClaims";
-
 type RoundMode = "createNew" | "existingSupabase";
 
-type RewardRoundData = readonly [
-  boolean,
-  boolean,
-  bigint,
-  bigint,
-  bigint,
-  bigint,
-  bigint,
-  `0x${string}`,
-];
+type RewardRoundData = {
+  exists: boolean;
+  claimPaused: boolean;
+  periodStart: bigint;
+  periodEnd: bigint;
+  rewardAmount: bigint;
+  fundedAmount: bigint;
+  claimedAmount: bigint;
+  merkleRoot: `0x${string}`;
+};
 
 const ZERO_BYTES32 =
   "0x0000000000000000000000000000000000000000000000000000000000000000" as const;
@@ -355,6 +348,56 @@ function ReadRow({
   );
 }
 
+function StatusPill({
+  label,
+  tone = "neutral",
+}: {
+  label: string;
+  tone?: "neutral" | "success" | "warning" | "danger" | "info" | "purple";
+}) {
+  const toneClass =
+    tone === "success"
+      ? "border-green-500/30 bg-green-500/10 text-green-100"
+      : tone === "warning"
+        ? "border-yellow-500/30 bg-yellow-500/10 text-yellow-100"
+        : tone === "danger"
+          ? "border-red-500/30 bg-red-500/10 text-red-100"
+          : tone === "info"
+            ? "border-blue-500/30 bg-blue-500/10 text-blue-100"
+            : tone === "purple"
+              ? "border-fuchsia-500/30 bg-fuchsia-500/10 text-fuchsia-100"
+              : "border-white/10 bg-white/5 text-white/70";
+
+  return (
+    <span
+      className={`mt-2 inline-flex rounded-full border px-3 py-1 text-xs font-medium ${toneClass}`}>
+      {label}
+    </span>
+  );
+}
+
+function SummaryTile({
+  label,
+  value,
+  detail,
+}: {
+  label: string;
+  value: string;
+  detail?: string;
+}) {
+  return (
+    <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+      <div className="text-xs uppercase tracking-[0.18em] text-white/40">
+        {label}
+      </div>
+      <div className="mt-2 break-all font-mono text-sm text-white">{value}</div>
+      {detail ? (
+        <div className="mt-2 text-xs text-white/50">{detail}</div>
+      ) : null}
+    </div>
+  );
+}
+
 function Field({
   label,
   description,
@@ -396,51 +439,40 @@ function TxStatus({
   isLoading,
   isSuccess,
   isError,
-  errorMessage,
 }: {
   chainSet: ChainSet;
   txHash: Hash | undefined;
   isLoading: boolean;
   isSuccess: boolean;
   isError: boolean;
-  errorMessage?: string;
 }) {
-  if (!txHash && !errorMessage) {
+  if (!txHash) {
     return null;
   }
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
+    <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
       <div className="font-medium">Transaction status</div>
 
-      {txHash ? (
-        <a
-          className="mt-2 block break-all font-mono underline underline-offset-4"
-          href={getTxUrl(chainSet, txHash)}
-          rel="noreferrer"
-          target="_blank"
-        >
-          {txHash}
-        </a>
-      ) : null}
+      <a
+        className="mt-2 block break-all font-mono underline underline-offset-4"
+        href={getTxUrl(chainSet, txHash)}
+        rel="noreferrer"
+        target="_blank">
+        {txHash}
+      </a>
 
       <div className="mt-2 text-white/60">
         {isLoading
           ? "Mining..."
           : isSuccess
-            ? "Mined successfully. Run reward event sync after create/fund/claim so Supabase reflects the on-chain state."
+            ? "Mined successfully. On-chain reads will refresh; reward event sync is optional reconciliation."
             : isError
               ? "Transaction failed or receipt error."
               : txHash
                 ? "Submitted."
                 : ""}
       </div>
-
-      {errorMessage ? (
-        <div className="mt-3 rounded-xl border border-red-500/30 bg-red-500/10 p-3 text-red-100/80">
-          {errorMessage}
-        </div>
-      ) : null}
     </div>
   );
 }
@@ -459,12 +491,11 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
   );
   const connectedToTargetChain = connectedChainId === targetChainId;
 
-  const [roundMode, setRoundMode] = useState<RoundMode>("createNew");
+  const [roundMode, setRoundMode] = useState<RoundMode>("existingSupabase");
   const [rounds, setRounds] = useState<AdminRewardRound[]>([]);
   const [selectedSupabaseRoundId, setSelectedSupabaseRoundId] = useState("");
   const [isRoundsLoading, setIsRoundsLoading] = useState(false);
   const [roundsError, setRoundsError] = useState<string | null>(null);
-  const [copyStatus, setCopyStatus] = useState<string | null>(null);
   const [roundIdInput, setRoundIdInput] = useState("");
   const [periodStartInput, setPeriodStartInput] = useState("");
   const [periodEndInput, setPeriodEndInput] = useState("");
@@ -472,7 +503,14 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
   const [fundAmountInput, setFundAmountInput] = useState("");
   const [approveAmountInput, setApproveAmountInput] = useState("");
   const [merkleRootInput, setMerkleRootInput] = useState("");
-  const [lastAction, setLastAction] = useState<TxAction | null>(null);
+  const [lastActionLabel, setLastActionLabel] = useState<string | null>(null);
+  const [lastRequestedValue, setLastRequestedValue] = useState<string | null>(
+    null,
+  );
+  const [lastActionRoundId, setLastActionRoundId] = useState<string | null>(
+    null,
+  );
+  const [lastActionTxHash, setLastActionTxHash] = useState<Hash | undefined>();
   const [baseBoundaryBlockInput, setBaseBoundaryBlockInput] = useState("");
   const [ethereumBoundaryBlockInput, setEthereumBoundaryBlockInput] =
     useState("");
@@ -586,6 +624,7 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
     roundMode === "existingSupabase" && selectedSupabaseRound
       ? selectedSupabaseMerkleRootValue
       : merkleRoot;
+  const selectedRoundContextId = transactionRoundId?.toString() ?? null;
 
   const rewardRoundRead = useReadContract({
     chainId: targetChainId,
@@ -663,18 +702,33 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
       enabled: Boolean(txHash),
     },
   });
+  const showSelectedRoundActionContext =
+    lastActionRoundId !== null && lastActionRoundId === selectedRoundContextId;
+  const visibleTxHash = showSelectedRoundActionContext
+    ? lastActionTxHash
+    : undefined;
 
   const roundData = rewardRoundRead.data as RewardRoundData | undefined;
-  const roundExists = roundData?.[0] === true;
-  const roundClaimPaused = roundData?.[1] === true;
-  const roundRewardAmount = roundData?.[4] ?? 0n;
-  const roundFundedAmount = roundData?.[5] ?? 0n;
-  const roundClaimedAmount = roundData?.[6] ?? 0n;
-  const onChainMerkleRoot = roundData?.[7];
+  const roundReadSuccessful =
+    transactionRoundId !== null &&
+    rewardRoundRead.isSuccess &&
+    Boolean(roundData);
+  const roundReadPending =
+    transactionRoundId !== null &&
+    (rewardRoundRead.isLoading || rewardRoundRead.isFetching);
+  const roundReadFailed =
+    transactionRoundId !== null && rewardRoundRead.isError;
+  const roundExists = roundReadSuccessful && roundData?.exists === true;
+  const roundClaimPaused = roundData?.claimPaused === true;
+  const roundRewardAmount = roundData?.rewardAmount ?? 0n;
+  const roundFundedAmount = roundData?.fundedAmount ?? 0n;
+  const roundClaimedAmount = roundData?.claimedAmount ?? 0n;
+  const onChainMerkleRoot = roundData?.merkleRoot;
   const roundIsFunded =
-    typeof isRoundFundedRead.data === "boolean"
-      ? isRoundFundedRead.data
-      : false;
+    roundReadSuccessful &&
+    roundExists &&
+    roundRewardAmount > 0n &&
+    roundFundedAmount >= roundRewardAmount;
   const allowance = asBigInt(allowanceRead.data) ?? 0n;
   const amountNeededToFund = roundExists
     ? maxBigInt(roundRewardAmount - roundFundedAmount, 0n)
@@ -685,6 +739,26 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
     roundExists &&
     roundRewardAmount > 0n &&
     roundClaimedAmount >= roundRewardAmount;
+  const rewardReadError =
+    rewardRoundRead.error ??
+    isRoundFundedRead.error ??
+    totalRewardFundedRead.error ??
+    totalRewardClaimedRead.error ??
+    adminBalanceRead.error ??
+    rewardDistributorBalanceRead.error ??
+    allowanceRead.error ??
+    tokenDecimalsRead.error ??
+    tokenSymbolRead.error;
+  const isRewardReadsRefreshing =
+    rewardRoundRead.isFetching ||
+    isRoundFundedRead.isFetching ||
+    totalRewardFundedRead.isFetching ||
+    totalRewardClaimedRead.isFetching ||
+    adminBalanceRead.isFetching ||
+    rewardDistributorBalanceRead.isFetching ||
+    allowanceRead.isFetching ||
+    tokenDecimalsRead.isFetching ||
+    tokenSymbolRead.isFetching;
   const selectedSupabaseRoundAlreadyCreated = isSupabaseStatusAlreadyCreated(
     selectedSupabaseStatus,
   );
@@ -704,20 +778,22 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
     Boolean(selectedSupabaseRound) &&
     roundExists &&
     !onChainRootMatchesSupabase;
-  const onChainOperationalStatus = !roundExists
-    ? "not_created"
-    : roundFullyClaimed
-      ? "closed"
-      : roundIsFunded
-        ? roundClaimPaused
-          ? "claim_paused"
-          : "funded"
-        : "created";
-  const supabaseStatusMayLag =
-    roundMode === "existingSupabase" &&
-    Boolean(selectedSupabaseRound) &&
-    roundExists &&
-    selectedSupabaseStatus !== onChainOperationalStatus;
+  const onChainOperationalStatus =
+    transactionRoundId === null
+      ? "no_round"
+      : roundReadFailed
+        ? "read_error"
+        : roundReadPending || !roundReadSuccessful
+          ? "checking"
+          : !roundExists
+            ? "not_created"
+            : roundFullyClaimed
+              ? "closed"
+              : roundIsFunded
+                ? roundClaimPaused
+                  ? "claim_paused"
+                  : "funded"
+                : "created";
   const selectedSupabaseInputLocked =
     roundMode !== "existingSupabase" ||
     (Boolean(selectedSupabaseRound) &&
@@ -758,6 +834,8 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
     void adminBalanceRead.refetch();
     void rewardDistributorBalanceRead.refetch();
     void allowanceRead.refetch();
+    void tokenDecimalsRead.refetch();
+    void tokenSymbolRead.refetch();
   }
 
   async function fetchRounds({ preserveSelection = true } = {}) {
@@ -841,33 +919,6 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
     setFundAmountInput(round.reward_amount_oioi);
     setApproveAmountInput(round.reward_amount_oioi);
     setMerkleRootInput(round.merkle_root ?? "");
-  }
-
-  function buildCopyText(round: AdminRewardRound) {
-    return [
-      `Round ID: ${round.round_id}`,
-      `Reward amount (${tokenSymbol}): ${round.reward_amount_oioi}`,
-      `Reward amount (wei): ${round.reward_amount_wei}`,
-      `Fund amount (${tokenSymbol}): ${round.reward_amount_oioi}`,
-      `Approve amount (${tokenSymbol}): ${round.reward_amount_oioi}`,
-      `Period start: ${round.period_start}`,
-      `Period end: ${round.period_end}`,
-      `Period start unix: ${round.period_start_unix}`,
-      `Period end unix: ${round.period_end_unix}`,
-      `Merkle root: ${round.merkle_root ?? ""}`,
-      `Allocation count: ${round.allocation_summary.allocationCount}`,
-      `Allocated amount wei: ${round.allocation_summary.allocatedAmountWei}`,
-    ].join("\n");
-  }
-
-  async function copySelectedRoundValues() {
-    if (!selectedSupabaseRound) {
-      return;
-    }
-
-    await navigator.clipboard.writeText(buildCopyText(selectedSupabaseRound));
-    setCopyStatus("Copied selected round values.");
-    window.setTimeout(() => setCopyStatus(null), 2500);
   }
 
   async function fetchBoundaryJobs() {
@@ -1129,8 +1180,23 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
     );
   }
 
+  function setLastRequestedAction({
+    label,
+    requestedValue,
+    roundId,
+  }: {
+    label: string;
+    requestedValue: string;
+    roundId: bigint;
+  }) {
+    setLastActionLabel(label);
+    setLastRequestedValue(requestedValue);
+    setLastActionRoundId(roundId.toString());
+    setLastActionTxHash(undefined);
+  }
+
   async function approveRewardFunding() {
-    if (approveAmount === null) {
+    if (approveAmount === null || transactionRoundId === null) {
       return;
     }
 
@@ -1150,15 +1216,20 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
       return;
     }
 
-    setLastAction("approve");
+    setLastRequestedAction({
+      label: "Approve $OiOi Funding",
+      requestedValue: `${approveAmountInput} ${tokenSymbol} for round ${transactionRoundId.toString()}`,
+      roundId: transactionRoundId,
+    });
 
-    await writeContractAsync({
+    const hash = await writeContractAsync({
       chainId: targetChainId,
       address: addresses.oioi,
       abi: erc20Abi,
       functionName: "approve",
       args: [addresses.rewardDistributor, approveAmount],
     });
+    setLastActionTxHash(hash);
   }
 
   async function createRewardRound() {
@@ -1193,9 +1264,19 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
       return;
     }
 
-    setLastAction("createRound");
+    setLastRequestedAction({
+      label: "Create Reward Round",
+      requestedValue: `Round ${transactionRoundId.toString()} / ${formatTokenAmount(
+        {
+          value: transactionRewardAmount,
+          symbol: tokenSymbol,
+          decimals: tokenDecimals,
+        },
+      )}`,
+      roundId: transactionRoundId,
+    });
 
-    await writeContractAsync({
+    const hash = await writeContractAsync({
       chainId: targetChainId,
       address: addresses.rewardDistributor,
       abi: rewardDistributorAdminAbi,
@@ -1208,6 +1289,7 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
         transactionMerkleRoot,
       ],
     });
+    setLastActionTxHash(hash);
   }
 
   async function fundRewardRound() {
@@ -1221,7 +1303,7 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
       lines: [
         `Round ID: ${transactionRoundId.toString()}`,
         `Fund amount: ${fundAmountInput} ${tokenSymbol}`,
-        `RewardDistributor: ${addresses.rewardDistributor}`,
+        `Reward Distributor: ${addresses.rewardDistributor}`,
         `Current allowance: ${formatTokenAmount({ value: allowance })}`,
         `Amount still needed to fund: ${formatTokenAmount({ value: amountNeededToFund })}`,
       ],
@@ -1231,15 +1313,20 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
       return;
     }
 
-    setLastAction("fundRound");
+    setLastRequestedAction({
+      label: "Fund Reward Round",
+      requestedValue: `Round ${transactionRoundId.toString()} / ${fundAmountInput} ${tokenSymbol}`,
+      roundId: transactionRoundId,
+    });
 
-    await writeContractAsync({
+    const hash = await writeContractAsync({
       chainId: targetChainId,
       address: addresses.rewardDistributor,
       abi: rewardDistributorAdminAbi,
       functionName: "fundRewardRound",
       args: [transactionRoundId, fundAmount],
     });
+    setLastActionTxHash(hash);
   }
 
   async function setClaimPaused(paused: boolean) {
@@ -1260,15 +1347,20 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
       return;
     }
 
-    setLastAction(paused ? "pauseClaims" : "unpauseClaims");
+    setLastRequestedAction({
+      label: paused ? "Pause Claims" : "Unpause Claims",
+      requestedValue: `Round ${transactionRoundId.toString()} / claimPaused=${paused ? "true" : "false"}`,
+      roundId: transactionRoundId,
+    });
 
-    await writeContractAsync({
+    const hash = await writeContractAsync({
       chainId: targetChainId,
       address: addresses.rewardDistributor,
       abi: rewardDistributorAdminAbi,
       functionName: "setClaimPaused",
       args: [transactionRoundId, paused],
     });
+    setLastActionTxHash(hash);
   }
 
   const selectedRoundReadyForCreate =
@@ -1289,6 +1381,7 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
 
   const createRoundDisabled =
     actionDisabledBase ||
+    !roundReadSuccessful ||
     !createCoreValid ||
     !selectedRoundReadyForCreate ||
     !selectedSupabaseInputLocked ||
@@ -1297,6 +1390,7 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
 
   const approveDisabled =
     actionDisabledBase ||
+    !roundReadSuccessful ||
     approveAmount === null ||
     !approveAmountEnough ||
     !roundExists ||
@@ -1307,6 +1401,7 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
 
   const fundDisabled =
     actionDisabledBase ||
+    !roundReadSuccessful ||
     transactionRoundId === null ||
     !fundAmountValid ||
     !roundExists ||
@@ -1317,6 +1412,7 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
 
   const pauseDisabled =
     actionDisabledBase ||
+    !roundReadSuccessful ||
     transactionRoundId === null ||
     !roundExists ||
     selectedRoundOnChainMismatch ||
@@ -1333,6 +1429,14 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
 
     if (roundMode === "existingSupabase" && !selectedSupabaseRound) {
       return "Select an existing Supabase reward round first.";
+    }
+
+    if (roundReadFailed) {
+      return "Reward Distributor read failed. Refresh reads and check RPC, chain, and contract address before continuing.";
+    }
+
+    if (roundReadPending || !roundReadSuccessful) {
+      return "Checking selected reward round on-chain state. Write actions stay disabled until the contract read succeeds.";
     }
 
     if (!createCoreValid && !roundExists) {
@@ -1382,94 +1486,193 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
     return "Review selected round state.";
   })();
 
+  const boundaryStatusTone =
+    activeBoundaryJob?.status === "success"
+      ? "success"
+      : activeBoundaryJob?.status === "failed" ||
+          activeBoundaryJob?.status === "cancelled"
+        ? "danger"
+        : boundaryJobActive
+          ? "warning"
+          : "neutral";
+  const selectedRoundActionStatus = (() => {
+    if (!selectedSupabaseRound) {
+      return {
+        label: "No Round",
+        tone: "neutral" as const,
+      };
+    }
+
+    if (onChainOperationalStatus === "checking") {
+      return {
+        label: "Checking",
+        tone: "neutral" as const,
+      };
+    }
+
+    if (onChainOperationalStatus === "read_error") {
+      return {
+        label: "Read Error",
+        tone: "danger" as const,
+      };
+    }
+
+    if (onChainOperationalStatus === "not_created") {
+      return {
+        label: "Not Created",
+        tone: "danger" as const,
+      };
+    }
+
+    if (onChainOperationalStatus === "closed") {
+      return {
+        label: "Closed",
+        tone: "neutral" as const,
+      };
+    }
+
+    if (onChainOperationalStatus === "claim_paused") {
+      return {
+        label: "Paused",
+        tone: "purple" as const,
+      };
+    }
+
+    if (onChainOperationalStatus === "funded") {
+      return {
+        label: "Funded",
+        tone: "success" as const,
+      };
+    }
+
+    if (onChainOperationalStatus === "created" && allowanceSufficient) {
+      return {
+        label: "Not Funded",
+        tone: "warning" as const,
+      };
+    }
+
+    return {
+      label: "Created",
+      tone: "info" as const,
+    };
+  })();
+  const nextAction = (() => {
+    if (createRoundDisabled === false) {
+      return {
+        key: "create",
+        label: "Create Reward Round",
+        tone: "green",
+        handler: () => void createRewardRound(),
+      };
+    }
+
+    if (approveDisabled === false) {
+      return {
+        key: "approve",
+        label: "Approve $OiOi Funding",
+        tone: "blue",
+        handler: () => void approveRewardFunding(),
+      };
+    }
+
+    if (fundDisabled === false) {
+      return {
+        key: "fund",
+        label: "Fund Reward Round",
+        tone: "green",
+        handler: () => void fundRewardRound(),
+      };
+    }
+
+    if (pauseDisabled === false && !roundClaimPaused) {
+      return {
+        key: "pause",
+        label: "Pause Claims",
+        tone: "yellow",
+        handler: () => void setClaimPaused(true),
+      };
+    }
+
+    if (pauseDisabled === false && roundClaimPaused) {
+      return {
+        key: "unpause",
+        label: "Unpause Claims",
+        tone: "red",
+        handler: () => void setClaimPaused(false),
+      };
+    }
+
+    return null;
+  })();
+  const nextActionClass =
+    nextAction?.tone === "blue"
+      ? "border-blue-500/30 bg-blue-500/10 text-blue-100 hover:bg-blue-500/20"
+      : nextAction?.tone === "yellow"
+        ? "border-yellow-500/30 bg-yellow-500/10 text-yellow-100 hover:bg-yellow-500/20"
+        : nextAction?.tone === "red"
+          ? "border-red-500/30 bg-red-500/10 text-red-100 hover:bg-red-500/20"
+          : "border-green-500/30 bg-green-500/10 text-green-100 hover:bg-green-500/20";
+
   return (
     <section className="grid gap-5">
       <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
         <p className="text-sm uppercase tracking-[0.25em] text-white/50">
-          Admin Writes
+          Reward Operations
         </p>
         <h2 className="mt-2 text-2xl font-semibold">Reward Round Controls</h2>
         <p className="mt-2 text-sm text-white/60">
-          Owner-only controls for selecting Supabase-generated reward rounds,
-          creating them on-chain, approving $OiOi, funding reward rounds, and
-          pausing or unpausing claims.
+          Submit a block boundary, wait until the worker generates a calculated
+          round, then operate that round.
         </p>
-
-        <div className="mt-5 rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-4">
-          <div className="font-medium text-yellow-100">Important</div>
-          <p className="mt-2 text-sm text-yellow-100/80">
-            Existing round mode is backed by Supabase reward calculator and
-            Merkle proof data. Create-new mode remains available for controlled
-            manual testing only.
-          </p>
-        </div>
       </section>
 
-      <section className="rounded-3xl border border-blue-500/30 bg-blue-500/10 p-6">
-        <h3 className="text-2xl font-semibold text-blue-100">
-          Current contract model
-        </h3>
-        <div className="mt-3 grid gap-2 text-sm text-blue-100/80">
-          <p>
-            The RewardDistributor contract does not auto-generate sequential
-            round IDs. In the chosen workflow, the reward pipeline uses
-            periodEnd Unix timestamp as the round ID.
-          </p>
-          <p>
-            Period start, period end, reward amount, and Merkle root should come
-            from Supabase reward calculation output before create/fund actions.
-          </p>
-          <p>
-            Approval is global ERC20 allowance, not per-round status. The UI
-            treats approval as ready only when allowance is enough to fund the
-            selected round.
-          </p>
-        </div>
-      </section>
-
-      <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
+      <article className="rounded-3xl border border-white/10 bg-white/5 p-6">
         <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
           <div>
-            <p className="text-sm uppercase tracking-[0.25em] text-white/50">
-              Boundary Sync
+            <p className="text-sm uppercase tracking-[0.25em] text-white/40">
+              Reward Round Preparation
             </p>
-            <h3 className="mt-2 text-2xl font-semibold">Block Tapal Batas</h3>
+            <div className="flex flex-wrap items-center gap-3">
+              <h3 className="mt-2 text-2xl font-semibold">The Worker Jobs</h3>
+              <StatusPill
+                label={activeBoundaryJob?.status ?? "no job"}
+                tone={boundaryStatusTone}
+              />
+            </div>
             <p className="mt-2 max-w-3xl text-sm text-white/60">
-              Submit the final block numbers and reward amount for the next
-              reward period. The worker syncs both chains, rebuilds derived
-              state, calculates allocations, and generates the Merkle root
-              before the round can be created on-chain.
+              This job is the only required sync/rebuild phase for the next
+              reward round. Wait till the job succeeds, OiOi!
             </p>
           </div>
 
           <button
-            className="rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-medium hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-40"
+            className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
             disabled={isBoundaryLoading}
             onClick={() => void fetchBoundaryJobs()}
-            type="button"
-          >
-            {isBoundaryLoading ? "Refreshing..." : "Refresh sync status"}
+            type="button">
+            {isBoundaryLoading ? "Refreshing..." : "Refresh job"}
           </button>
         </div>
 
         <div className="mt-5 grid gap-4 md:grid-cols-3">
           <Field
-            label="Base Sepolia Block Tapal Batas"
-            description="Final Base Sepolia block for this reward period."
+            label="BASE boundary block"
+            description="Final BASE block for the next reward round."
             onChange={setBaseBoundaryBlockInput}
             placeholder="41832200"
             value={baseBoundaryBlockInput}
           />
           <Field
-            label="Ethereum Sepolia Block Tapal Batas"
-            description="Final Ethereum Sepolia block for this reward period."
+            label="Ethereum boundary block"
+            description="Final Ethereum block for the next reward round."
             onChange={setEthereumBoundaryBlockInput}
             placeholder="10896262"
             value={ethereumBoundaryBlockInput}
           />
           <Field
             label={`Reward amount (${tokenSymbol})`}
-            description="Total amount to allocate for the generated round."
+            description="Total amount allocated by the next reward round."
             onChange={setBoundaryRewardAmountInput}
             placeholder="1000"
             value={boundaryRewardAmountInput}
@@ -1481,15 +1684,14 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
             className="rounded-2xl border border-white/10 bg-white px-5 py-3 text-sm font-semibold text-black hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-40"
             disabled={boundarySubmitDisabled}
             onClick={() => void submitBoundarySyncJob()}
-            type="button"
-          >
-            {isBoundarySubmitting ? "Submitting..." : "Submit Tapal Batas"}
+            type="button">
+            {isBoundarySubmitting ? "Submitting..." : "Submit The Jobs"}
           </button>
 
           <div className="text-sm text-white/60">
             {boundaryJobActive
-              ? "An active boundary sync job exists. Finish or cancel it before submitting another one."
-              : "Submit is available when both blocks and reward amount are valid."}
+              ? "An active boundary job exists. Finish or cancel it before submitting another one."
+              : "Submit is available after both blocks and reward amount are valid."}
           </div>
         </div>
 
@@ -1505,26 +1707,13 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
           </div>
         ) : null}
 
-        <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 px-4">
-          <ReadRow
-            label="Latest job"
-            value={activeBoundaryJob?.id ?? "No boundary sync job found"}
+        <div className="mt-5 grid gap-4 md:grid-cols-4">
+          <SummaryTile
+            label="Active job"
+            value={activeBoundaryJob?.id ?? "—"}
+            detail={summarizeBoundaryTargets(activeBoundaryJob)}
           />
-          <ReadRow
-            label="Job status"
-            value={activeBoundaryJob?.status ?? "—"}
-            warning={
-              activeBoundaryJob?.error_message ??
-              (activeBoundaryJob?.status === "paused"
-                ? "Worker paused this job. Check the target error and rerun the worker after the retry delay."
-                : undefined)
-            }
-          />
-          <ReadRow
-            label="Target summary"
-            value={summarizeBoundaryTargets(activeBoundaryJob)}
-          />
-          <ReadRow
+          <SummaryTile
             label="Reward amount"
             value={
               activeBoundaryJob?.reward_amount_wei
@@ -1532,649 +1721,333 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
                 : "—"
             }
           />
-          <ReadRow
+          <SummaryTile
             label="Created"
             value={activeBoundaryJob?.created_at ?? "—"}
           />
-          <ReadRow
+          <SummaryTile
             label="Finished"
             value={activeBoundaryJob?.finished_at ?? "—"}
           />
         </div>
 
-        {activeBoundaryJob?.snapshots.length ? (
-          <div className="mt-4 grid gap-4 md:grid-cols-2">
-            {activeBoundaryJob.snapshots.map((snapshot) => (
-              <div
-                className="rounded-2xl border border-white/10 bg-black/20 px-4"
-                key={snapshot.id}
-              >
-                <ReadRow label="Chain" value={snapshot.chain_key} />
-                <ReadRow label="Snapshot status" value={snapshot.status} />
-                <ReadRow
-                  label="From block"
-                  value={snapshot.from_block.toString()}
-                />
-                <ReadRow
-                  label="To block"
-                  value={snapshot.to_block.toString()}
-                />
-                <ReadRow
-                  label="From timestamp"
-                  value={snapshot.from_block_timestamp ?? "—"}
-                />
-                <ReadRow
-                  label="To timestamp"
-                  value={snapshot.to_block_timestamp ?? "—"}
-                />
-              </div>
-            ))}
+        {activeBoundaryJob?.error_message ? (
+          <div className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+            {activeBoundaryJob.error_message}
           </div>
         ) : null}
 
         {activeBoundaryJob?.targets.length ? (
-          <div className="mt-4 overflow-x-auto rounded-2xl border border-white/10 bg-black/20">
-            <table className="w-full min-w-[840px] text-left text-sm">
-              <thead className="border-b border-white/10 text-white/50">
-                <tr>
-                  <th className="px-4 py-3 font-medium">Chain</th>
-                  <th className="px-4 py-3 font-medium">Task</th>
-                  <th className="px-4 py-3 font-medium">Status</th>
-                  <th className="px-4 py-3 font-medium">Progress</th>
-                  <th className="px-4 py-3 font-medium">Attempts</th>
-                  <th className="px-4 py-3 font-medium">Next attempt</th>
-                  <th className="px-4 py-3 font-medium">Error</th>
-                </tr>
-              </thead>
-              <tbody>
-                {activeBoundaryJob.targets.map((target) => (
-                  <tr className="border-b border-white/5" key={target.id}>
-                    <td className="px-4 py-3 font-mono">{target.chain_key}</td>
-                    <td className="px-4 py-3 font-mono">{target.task_key}</td>
-                    <td className="px-4 py-3">{target.status}</td>
-                    <td className="px-4 py-3 font-mono">
-                      {target.last_processed_block ?? "—"} /{" "}
-                      {target.target_block ?? "—"}
-                    </td>
-                    <td className="px-4 py-3 font-mono">
-                      {target.attempts.toString()}
-                    </td>
-                    <td className="px-4 py-3 font-mono">
-                      {target.next_attempt_at ?? "—"}
-                    </td>
-                    <td className="max-w-[260px] px-4 py-3 text-red-100/80">
-                      {target.error_message ?? "—"}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <details className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4">
+            <summary className="cursor-pointer font-medium">
+              Worker target progress
+            </summary>
+            <div className="mt-4 grid gap-3 md:grid-cols-2">
+              {activeBoundaryJob.targets.map((target) => (
+                <div
+                  className="rounded-xl border border-white/10 bg-black/20 p-3 text-sm"
+                  key={target.id}>
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="font-mono">{target.chain_key}</span>
+                    <StatusPill label={target.status} />
+                  </div>
+                  <div className="mt-2 font-mono text-white/60">
+                    {target.task_key}: {target.last_processed_block ?? "—"} /{" "}
+                    {target.target_block ?? "—"}
+                  </div>
+                  {target.error_message ? (
+                    <div className="mt-2 text-xs text-red-100/80">
+                      {target.error_message}
+                    </div>
+                  ) : null}
+                </div>
+              ))}
+            </div>
+          </details>
         ) : null}
-      </section>
+      </article>
 
-      <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
-        <h3 className="text-2xl font-semibold">Round selector</h3>
-        <p className="mt-2 text-sm text-white/60">
-          Choose whether to manually create a new test round or operate on an
-          existing Supabase-generated round.
-        </p>
-
-        <div className="mt-5 grid gap-4 md:grid-cols-2">
-          <label className="block rounded-2xl border border-white/10 bg-black/20 p-4">
-            <div className="font-medium">Round mode</div>
-            <p className="mt-1 text-xs text-white/50">
-              Existing Supabase round auto-fills the reward round form from the
-              reward calculator and Merkle pipeline.
-            </p>
-            <select
-              className="mt-3 w-full rounded-xl border border-white/10 bg-black/40 px-3 py-2 text-sm outline-none focus:border-white/30"
-              onChange={(event) =>
-                changeRoundMode(event.target.value as RoundMode)
-              }
-              value={roundMode}
-            >
-              <option value="createNew">Create new round</option>
-              <option value="existingSupabase">Existing Supabase round</option>
-            </select>
-          </label>
-
-          <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-            <div className="font-medium">Suggested action</div>
-            <p className="mt-3 text-sm text-white/70">{suggestedAction}</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
+      <article className="rounded-3xl border border-white/10 bg-white/5 p-6">
         <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
           <div>
-            <h3 className="text-2xl font-semibold">Reward round input</h3>
-            <p className="mt-2 text-sm text-white/60">
-              Existing Supabase rounds auto-fill the form. Create-new mode
-              starts blank and auto-fills round ID from period end.
+            <p className="text-sm uppercase tracking-[0.25em] text-white/40">
+              The Reward Rounds
+            </p>
+            <h3 className="mt-2 text-2xl font-semibold">Reward Operations</h3>
+            <p className="mt-2 max-w-3xl text-sm text-white/60">
+              Choose the reward round. The status are decided from on-chain
+              reads after selection.
             </p>
           </div>
 
           <button
-            className="rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-medium hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-40"
-            disabled={roundMode !== "existingSupabase" || isRoundsLoading}
-            onClick={() => void fetchRounds({ preserveSelection: true })}
-            type="button"
-          >
-            {isRoundsLoading ? "Refreshing..." : "Refresh rounds"}
+            className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
+            disabled={isRoundsLoading || isRewardReadsRefreshing}
+            onClick={() => {
+              void fetchRounds({ preserveSelection: true });
+              refetchRewardReads();
+            }}
+            type="button">
+            {isRoundsLoading || isRewardReadsRefreshing
+              ? "Refreshing..."
+              : "Refresh rounds"}
           </button>
         </div>
 
-        {roundMode === "existingSupabase" ? (
-          <div className="mt-5 grid gap-4 md:grid-cols-[360px_1fr]">
-            <label className="block rounded-2xl border border-white/10 bg-black/20 p-4">
-              <div className="font-medium">Existing reward round</div>
-              <p className="mt-1 text-xs text-white/50">
-                Select a Supabase-generated round. The fields below will be
-                populated from the selected round.
-              </p>
-              <select
-                className="mt-3 w-full rounded-xl border border-white/10 bg-black/40 px-3 py-2 text-sm outline-none focus:border-white/30"
-                disabled={isRoundsLoading || rounds.length === 0}
-                onChange={(event) =>
-                  setSelectedSupabaseRoundId(event.target.value)
-                }
-                value={selectedSupabaseRoundId}
-              >
-                {rounds.length === 0 ? (
-                  <option value="">No rounds found</option>
-                ) : null}
-                {rounds.map((round) => (
-                  <option key={round.round_id} value={round.round_id}>
-                    {round.round_id} — {round.status}
-                  </option>
-                ))}
-              </select>
-
-              <button
-                className="mt-4 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-medium hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-40"
-                disabled={!selectedSupabaseRound}
-                onClick={() => void copySelectedRoundValues()}
-                type="button"
-              >
-                Copy selected round values
-              </button>
-              {copyStatus ? (
-                <div className="mt-2 text-xs text-green-100/80">
-                  {copyStatus}
-                </div>
+        <div className="mt-5 grid gap-4 md:grid-cols-[420px_1fr]">
+          <label className="block">
+            <div className="font-medium">Existing reward round</div>
+            <select
+              className="mt-3 w-full rounded-xl border border-white/10 bg-black/40 px-3 py-3 text-sm outline-none focus:border-white/30"
+              disabled={isRoundsLoading || rounds.length === 0}
+              onChange={(event) =>
+                setSelectedSupabaseRoundId(event.target.value)
+              }
+              value={selectedSupabaseRoundId}>
+              {rounds.length === 0 ? (
+                <option value="">No rounds found</option>
               ) : null}
-            </label>
+              {rounds.map((round) => (
+                <option key={round.round_id} value={round.round_id}>
+                  {round.round_id} — {round.reward_amount_oioi} {tokenSymbol}
+                </option>
+              ))}
+            </select>
+            {roundsError ? (
+              <div className="mt-3 rounded-xl border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-100/80">
+                {roundsError}
+              </div>
+            ) : null}
+          </label>
+
+          <div className="flex items-end">
+            <StatusPill
+              label={selectedRoundActionStatus.label}
+              tone={selectedRoundActionStatus.tone}
+            />
+          </div>
+        </div>
+
+        {selectedSupabaseRound ? (
+          <>
+            <div className="mt-5 grid gap-4 md:grid-cols-3">
+              <SummaryTile
+                label="Round ID"
+                value={selectedSupabaseRound.round_id}
+              />
+              <SummaryTile
+                label="Reward amount"
+                value={`${selectedSupabaseRound.reward_amount_oioi} ${tokenSymbol}`}
+                detail={`Need to fund: ${formatTokenAmount({
+                  value: amountNeededToFund,
+                  symbol: tokenSymbol,
+                  decimals: tokenDecimals,
+                })}`}
+              />
+              <SummaryTile
+                label="Period"
+                value={selectedSupabaseRound.period_end}
+                detail={`Start: ${selectedSupabaseRound.period_start}`}
+              />
+              <SummaryTile
+                label="Allocations"
+                value={selectedSupabaseRound.allocation_summary.positiveAllocationCount.toString()}
+                detail={`${selectedSupabaseRound.allocation_summary.proofReadyCount} proof-ready`}
+              />
+              <SummaryTile
+                label="Funded"
+                value={formatTokenAmount({
+                  value: roundFundedAmount,
+                  symbol: tokenSymbol,
+                  decimals: tokenDecimals,
+                })}
+                detail={`Reward amount: ${formatTokenAmount({
+                  value:
+                    roundRewardAmount || transactionRewardAmount || undefined,
+                  symbol: tokenSymbol,
+                  decimals: tokenDecimals,
+                })}`}
+              />
+              <SummaryTile
+                label="Claimed"
+                value={formatTokenAmount({
+                  value: roundClaimedAmount,
+                  symbol: tokenSymbol,
+                  decimals: tokenDecimals,
+                })}
+                detail={roundFullyClaimed ? "Fully claimed" : "Still open"}
+              />
+            </div>
+
+            <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4">
+              <div className="text-xs uppercase tracking-[0.18em] text-white/40">
+                Merkle root
+              </div>
+              <div className="mt-2 break-all font-mono text-sm">
+                {selectedSupabaseRound.merkle_root ?? "Not generated"}
+              </div>
+            </div>
+          </>
+        ) : (
+          <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm text-white/60">
+            No reward round selected.
+          </div>
+        )}
+
+        {rewardReadError ? (
+          <div className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+            Reward read error: {rewardReadError.message}
+          </div>
+        ) : null}
+
+        <div className="mt-5 rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-4">
+          <div className="font-medium text-yellow-100">Next step</div>
+          <p className="mt-2 text-sm text-yellow-100/80">{suggestedAction}</p>
+        </div>
+
+        {nextAction ? (
+          <button
+            className={`mt-5 w-full rounded-2xl border px-5 py-3 text-center font-medium disabled:cursor-not-allowed disabled:opacity-40 ${nextActionClass}`}
+            onClick={nextAction.handler}
+            type="button">
+            {nextAction.label}
+          </button>
+        ) : (
+          <div className="mt-5 w-full rounded-2xl border px-5 py-3 text-center font-medium border-white/10 bg-white/5 text-white/60">
+            No write action is currently available for this selection.
+          </div>
+        )}
+
+        {!userIsExpectedOwner ? (
+          <div className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+            The connected wallet is not the expected owner.
+          </div>
+        ) : null}
+
+        {showSelectedRoundActionContext && lastActionLabel ? (
+          <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
+            <div className="font-medium">Last requested action</div>
+            <div className="mt-2 text-white/60">{lastActionLabel}</div>
+            {lastRequestedValue ? (
+              <div className="mt-1 break-all text-white/60">
+                Requested value: {lastRequestedValue}
+              </div>
+            ) : null}
+          </div>
+        ) : null}
+
+        {showSelectedRoundActionContext && isWritePending ? (
+          <div className="mt-4 rounded-2xl border border-blue-500/30 bg-blue-500/10 p-4 text-sm text-blue-100/80">
+            Waiting for wallet signature...
+          </div>
+        ) : null}
+
+        <TxStatus
+          chainSet={chainSet}
+          isError={receipt.isError}
+          isLoading={receipt.isLoading}
+          isSuccess={receipt.isSuccess}
+          txHash={visibleTxHash}
+        />
+
+        {showSelectedRoundActionContext && writeError ? (
+          <div className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+            {writeError.message}
+          </div>
+        ) : null}
+
+        <details className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4">
+          <summary className="cursor-pointer font-medium">
+            Advanced Diagnostics
+          </summary>
+          <p className="mt-2 text-sm text-white/60">
+            Use this only when a button is unexpectedly unavailable or a chain
+            read looks wrong.
+          </p>
+          <div className="mt-4 grid gap-3 md:grid-cols-2">
+            <div className="rounded-2xl border border-white/10 bg-black/20 px-4">
+              <ReadRow
+                label="Wallet chain"
+                value={
+                  connectedChainId === undefined
+                    ? "Not connected"
+                    : connectedChainId.toString()
+                }
+                warning={
+                  isConnected && !connectedToTargetChain
+                    ? "Switch wallet to the target chain before write actions."
+                    : undefined
+                }
+              />
+              <ReadRow
+                label="Expected owner"
+                value={shortAddress(EXPECTED_ADMIN_OWNER_ADDRESS)}
+              />
+              <ReadRow
+                label="Owner wallet connected"
+                value={formatBool(userIsExpectedOwner)}
+              />
+              <ReadRow
+                label="$OiOi token"
+                value={shortAddress(addresses.oioi)}
+              />
+              <ReadRow
+                label="Reward Distributor"
+                value={shortAddress(addresses.rewardDistributor)}
+              />
+              <ReadRow
+                label="Admin balance"
+                value={formatTokenAmount({
+                  value: adminBalanceRead.data,
+                  symbol: tokenSymbol,
+                  decimals: tokenDecimals,
+                })}
+              />
+              <ReadRow
+                label="Allowance"
+                value={formatTokenAmount({
+                  value: allowanceRead.data,
+                  symbol: tokenSymbol,
+                  decimals: tokenDecimals,
+                })}
+              />
+            </div>
 
             <div className="rounded-2xl border border-white/10 bg-black/20 px-4">
-              {roundsError ? (
-                <div className="py-4 text-sm text-red-100/80">
-                  {roundsError}
-                </div>
-              ) : selectedSupabaseRound ? (
-                <>
-                  <ReadRow
-                    label="Supabase indexed status"
-                    value={selectedSupabaseRound.status}
-                  />
-                  <ReadRow
-                    label="Ready for create"
-                    value={formatBool(selectedSupabaseRound.ready_for_create)}
-                    warning={
-                      selectedSupabaseRound.ready_for_create
-                        ? undefined
-                        : "This round is missing Merkle root, reward amount, or allocations."
-                    }
-                  />
-                  <ReadRow
-                    label="Reward amount"
-                    value={`${selectedSupabaseRound.reward_amount_oioi} ${tokenSymbol}`}
-                  />
-                  <ReadRow
-                    label="Merkle root"
-                    value={selectedSupabaseRound.merkle_root ?? "Not generated"}
-                  />
-                  <ReadRow
-                    label="Allocation count"
-                    value={selectedSupabaseRound.allocation_summary.allocationCount.toString()}
-                  />
-                  <ReadRow
-                    label="Positive allocations"
-                    value={selectedSupabaseRound.allocation_summary.positiveAllocationCount.toString()}
-                  />
-                  <ReadRow
-                    label="Proof-ready allocations"
-                    value={selectedSupabaseRound.allocation_summary.proofReadyCount.toString()}
-                  />
-                  <ReadRow
-                    label="Claimed allocations"
-                    value={selectedSupabaseRound.allocation_summary.claimedCount.toString()}
-                  />
-                  <ReadRow
-                    label="Allocated amount wei"
-                    value={
-                      selectedSupabaseRound.allocation_summary
-                        .allocatedAmountWei
-                    }
-                  />
-                </>
-              ) : (
-                <div className="py-4 text-sm text-white/60">
-                  No Supabase reward round selected.
-                </div>
-              )}
+              <ReadRow label="Round exists" value={formatBool(roundExists)} />
+              <ReadRow label="Round funded" value={formatBool(roundIsFunded)} />
+              <ReadRow
+                label="Claim paused"
+                value={formatBool(roundClaimPaused)}
+              />
+              <ReadRow
+                label="Root matches"
+                value={
+                  selectedSupabaseRound && roundExists
+                    ? formatBool(onChainRootMatchesSupabase)
+                    : "—"
+                }
+              />
+              <ReadRow
+                label="Create core valid"
+                value={formatBool(createCoreValid)}
+              />
+              <ReadRow
+                label="Input locked"
+                value={formatBool(selectedSupabaseInputLocked)}
+              />
+              <ReadRow
+                label="Allowance sufficient"
+                value={formatBool(allowanceSufficient)}
+              />
+              <ReadRow
+                label="Fund amount valid"
+                value={formatBool(fundAmountValid)}
+              />
             </div>
           </div>
-        ) : null}
-
-        <div className="mt-5 grid gap-4 md:grid-cols-2">
-          <Field
-            label="Round ID"
-            description={
-              roundMode === "createNew"
-                ? "Auto-generated from period end Unix timestamp."
-                : "Auto-filled from the selected Supabase round."
-            }
-            onChange={setRoundIdInput}
-            placeholder="1778842307"
-            readOnly={
-              roundMode === "createNew" || Boolean(selectedSupabaseRound)
-            }
-            value={roundIdInput}
-          />
-          <Field
-            label={`Reward amount (${tokenSymbol})`}
-            description="Total reward allocation for this round. Existing Supabase mode locks this value to calculator output."
-            onChange={setRewardAmountAndDefaultFunding}
-            placeholder="1000"
-            readOnly={Boolean(selectedSupabaseRound)}
-            value={rewardAmountInput}
-          />
-          <Field
-            label={`Fund amount (${tokenSymbol})`}
-            description="Amount to fund. If the round is partially funded, this is adjusted to the remaining amount needed."
-            onChange={setFundAmountInput}
-            placeholder="1000"
-            value={fundAmountInput}
-          />
-          <Field
-            label={`Approve amount (${tokenSymbol})`}
-            description="Amount to approve RewardDistributor to spend. Must be at least amount needed to fund."
-            onChange={setApproveAmountInput}
-            placeholder="1000"
-            value={approveAmountInput}
-          />
-          <Field
-            label="Period start"
-            description="Reward period start from Supabase reward calculation."
-            onChange={setPeriodStartInput}
-            readOnly={Boolean(selectedSupabaseRound)}
-            type="datetime-local"
-            value={periodStartInput}
-          />
-          <Field
-            label="Period end"
-            description="Reward period end. In create-new mode this becomes roundId."
-            onChange={setPeriodEndAndRoundId}
-            readOnly={Boolean(selectedSupabaseRound)}
-            type="datetime-local"
-            value={periodEndInput}
-          />
-        </div>
-
-        <div className="mt-4">
-          <Field
-            label="Merkle root"
-            description="bytes32 root from reward calculator output. Must match published reward proofs."
-            onChange={setMerkleRootInput}
-            placeholder="0x..."
-            readOnly={Boolean(selectedSupabaseRound)}
-            value={merkleRootInput}
-          />
-        </div>
-      </section>
-
-      <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
-        <h3 className="text-2xl font-semibold">On-chain reward round state</h3>
-        <p className="mt-2 text-sm text-white/60">
-          The selected round ID is read directly from the RewardDistributor
-          contract on the target chain before any write action.
-        </p>
-
-        <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 px-4">
-          <ReadRow label="Round exists" value={formatBool(roundExists)} />
-          <ReadRow label="Claim paused" value={formatBool(roundData?.[1])} />
-          <ReadRow
-            label="Period start"
-            value={formatUnixTimestamp(roundData?.[2])}
-          />
-          <ReadRow
-            label="Period end"
-            value={formatUnixTimestamp(roundData?.[3])}
-          />
-          <ReadRow
-            label="Reward amount"
-            value={formatTokenAmount({ value: roundData?.[4] })}
-          />
-          <ReadRow
-            label="Funded amount"
-            value={formatTokenAmount({ value: roundData?.[5] })}
-          />
-          <ReadRow
-            label="Claimed amount"
-            value={formatTokenAmount({ value: roundData?.[6] })}
-          />
-          <ReadRow label="Merkle root" value={roundData?.[7] ?? "—"} />
-          <ReadRow label="Round funded" value={formatBool(roundIsFunded)} />
-          <ReadRow
-            label="On-chain root matches Supabase"
-            value={
-              selectedSupabaseRound && roundExists
-                ? formatBool(onChainRootMatchesSupabase)
-                : "—"
-            }
-          />
-        </div>
-
-        {rewardRoundRead.error ? (
-          <div className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
-            Read error: {rewardRoundRead.error.message}
-          </div>
-        ) : null}
-      </section>
-
-      <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
-        <h3 className="text-2xl font-semibold">
-          On-chain funding and token state
-        </h3>
-
-        <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 px-4">
-          <ReadRow
-            label="Target chain"
-            value={`${targetChainLabel} (${targetChainId})`}
-          />
-          <ReadRow
-            label="Connected wallet chain"
-            value={
-              connectedChainId === undefined
-                ? "Not connected"
-                : connectedChainId.toString()
-            }
-            warning={
-              isConnected && !connectedToTargetChain
-                ? "Switch wallet to the target chain before write actions."
-                : undefined
-            }
-          />
-          <ReadRow
-            label="Connected to target chain"
-            value={formatBool(isConnected && connectedToTargetChain)}
-          />
-          <ReadRow
-            label="Admin wallet"
-            value={shortAddress(EXPECTED_ADMIN_OWNER_ADDRESS)}
-          />
-          <ReadRow label="$OiOi token" value={shortAddress(addresses.oioi)} />
-          <ReadRow
-            label="RewardDistributor"
-            value={shortAddress(addresses.rewardDistributor)}
-          />
-          <ReadRow
-            label="Admin $OiOi balance"
-            value={formatTokenAmount({ value: adminBalanceRead.data })}
-          />
-          <ReadRow
-            label="RewardDistributor $OiOi balance"
-            value={formatTokenAmount({
-              value: rewardDistributorBalanceRead.data,
-            })}
-          />
-          <ReadRow
-            label="Admin allowance"
-            value={formatTokenAmount({ value: allowanceRead.data })}
-          />
-          <ReadRow
-            label="Total reward funded"
-            value={formatTokenAmount({ value: totalRewardFundedRead.data })}
-          />
-          <ReadRow
-            label="Total reward claimed"
-            value={formatTokenAmount({ value: totalRewardClaimedRead.data })}
-          />
-        </div>
-      </section>
-
-      <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
-        <h3 className="text-2xl font-semibold">Action readiness checklist</h3>
-        <p className="mt-2 text-sm text-white/60">
-          This combines selected Supabase data, parsed transaction inputs,
-          on-chain round state, and funding readiness before any write action.
-        </p>
-
-        <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 px-4">
-          <ReadRow
-            label="Round mode"
-            value={
-              roundMode === "createNew" ? "Create new" : "Existing Supabase"
-            }
-          />
-          <ReadRow
-            label="Target chain"
-            value={`${targetChainLabel} (${targetChainId})`}
-          />
-          <ReadRow
-            label="Wallet chain matches target"
-            value={formatBool(isConnected && connectedToTargetChain)}
-            warning={
-              isConnected && !connectedToTargetChain
-                ? "Write buttons are disabled until the wallet is on the target chain."
-                : undefined
-            }
-          />
-          <ReadRow
-            label="Selected Supabase round"
-            value={selectedSupabaseRound?.round_id ?? "—"}
-          />
-          <ReadRow
-            label="Transaction round ID"
-            value={
-              transactionRoundId === null
-                ? "Invalid"
-                : transactionRoundId.toString()
-            }
-          />
-          <ReadRow
-            label="Round ID parsed"
-            value={roundId === null ? "Invalid" : roundId.toString()}
-          />
-          <ReadRow
-            label="Period start parsed"
-            value={
-              periodStart === null
-                ? "Invalid"
-                : formatUnixTimestamp(periodStart)
-            }
-          />
-          <ReadRow
-            label="Period end parsed"
-            value={
-              periodEnd === null ? "Invalid" : formatUnixTimestamp(periodEnd)
-            }
-          />
-          <ReadRow
-            label="Reward amount parsed"
-            value={
-              rewardAmount === null
-                ? "Invalid"
-                : formatTokenAmount({ value: rewardAmount })
-            }
-          />
-          <ReadRow
-            label="Fund amount parsed"
-            value={
-              fundAmount === null
-                ? "Invalid"
-                : formatTokenAmount({ value: fundAmount })
-            }
-          />
-          <ReadRow
-            label="Approve amount parsed"
-            value={
-              approveAmount === null
-                ? "Invalid"
-                : formatTokenAmount({ value: approveAmount })
-            }
-          />
-          <ReadRow label="Merkle root parsed" value={merkleRoot ?? "Invalid"} />
-          <ReadRow
-            label="Create core valid"
-            value={formatBool(createCoreValid)}
-            warning={
-              createCoreValid
-                ? undefined
-                : "Requires positive reward amount, period end greater than period start, and non-zero Merkle root."
-            }
-          />
-          <ReadRow
-            label="Supabase status allows create"
-            value={
-              selectedSupabaseRound
-                ? formatBool(selectedSupabaseRoundStatusAllowsCreate)
-                : "—"
-            }
-            warning={
-              selectedSupabaseRoundStatusAllowsCreate
-                ? undefined
-                : "Only calculated/finalized rounds should be created. Created/funded/closed rounds must not be created again."
-            }
-          />
-          <ReadRow
-            label="Supabase input locked"
-            value={formatBool(selectedSupabaseInputLocked)}
-          />
-          <ReadRow
-            label="Supabase root matches input"
-            value={
-              selectedSupabaseRound
-                ? formatBool(selectedSupabaseRootMatches)
-                : "—"
-            }
-          />
-          <ReadRow
-            label="Operational status source"
-            value={`On-chain: ${onChainOperationalStatus}`}
-            warning={
-              supabaseStatusMayLag
-                ? `Supabase status is still ${selectedSupabaseStatus}; reward event sync can reconcile it later.`
-                : undefined
-            }
-          />
-          <ReadRow label="Round exists" value={formatBool(roundExists)} />
-          <ReadRow label="Round funded" value={formatBool(roundIsFunded)} />
-          <ReadRow label="Claim paused" value={formatBool(roundClaimPaused)} />
-          <ReadRow
-            label="Amount needed to fund"
-            value={formatTokenAmount({ value: amountNeededToFund })}
-          />
-          <ReadRow
-            label="Approve amount enough"
-            value={formatBool(approveAmountEnough)}
-          />
-          <ReadRow
-            label="Allowance sufficient"
-            value={formatBool(allowanceSufficient)}
-          />
-          <ReadRow
-            label="Fund amount valid"
-            value={formatBool(fundAmountValid)}
-          />
-          <ReadRow
-            label="Round fully claimed"
-            value={formatBool(roundFullyClaimed)}
-          />
-        </div>
-      </section>
-
-      {!userIsExpectedOwner ? (
-        <section className="rounded-3xl border border-red-500/30 bg-red-500/10 p-6 text-sm text-red-100/80">
-          Reward write actions are disabled because the connected wallet is not
-          the expected owner.
-        </section>
-      ) : null}
-
-      <section className="grid gap-4 md:grid-cols-2">
-        <button
-          className="rounded-3xl border border-green-500/30 bg-green-500/10 p-5 font-medium text-green-100 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={createRoundDisabled}
-          onClick={() => void createRewardRound()}
-          type="button"
-        >
-          Create Reward Round
-        </button>
-
-        <button
-          className="rounded-3xl border border-blue-500/30 bg-blue-500/10 p-5 font-medium text-blue-100 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={approveDisabled}
-          onClick={() => void approveRewardFunding()}
-          type="button"
-        >
-          Approve $OiOi Funding
-        </button>
-
-        <button
-          className="rounded-3xl border border-green-500/30 bg-green-500/10 p-5 font-medium text-green-100 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={fundDisabled}
-          onClick={() => void fundRewardRound()}
-          type="button"
-        >
-          Fund Reward Round
-        </button>
-
-        <div className="grid gap-4 md:grid-cols-2">
-          <button
-            className="rounded-3xl border border-yellow-500/30 bg-yellow-500/10 p-5 font-medium text-yellow-100 disabled:cursor-not-allowed disabled:opacity-40"
-            disabled={pauseDisabled || roundClaimPaused}
-            onClick={() => void setClaimPaused(true)}
-            type="button"
-          >
-            Pause Claims
-          </button>
-
-          <button
-            className="rounded-3xl border border-red-500/30 bg-red-500/10 p-5 font-medium text-red-100 disabled:cursor-not-allowed disabled:opacity-40"
-            disabled={pauseDisabled || !roundClaimPaused}
-            onClick={() => void setClaimPaused(false)}
-            type="button"
-          >
-            Unpause Claims
-          </button>
-        </div>
-      </section>
-
-      {lastAction ? (
-        <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
-          <div className="font-medium">Last requested reward action</div>
-          <div className="mt-2 font-mono text-sm text-white/60">
-            {lastAction}
-          </div>
-        </section>
-      ) : null}
-
-      {isWritePending ? (
-        <section className="rounded-3xl border border-blue-500/30 bg-blue-500/10 p-6 text-sm text-blue-100/80">
-          Waiting for wallet signature...
-        </section>
-      ) : null}
-
-      <TxStatus
-        chainSet={chainSet}
-        errorMessage={writeError?.message}
-        isError={receipt.isError}
-        isLoading={receipt.isLoading}
-        isSuccess={receipt.isSuccess}
-        txHash={txHash}
-      />
+        </details>
+      </article>
     </section>
   );
 }

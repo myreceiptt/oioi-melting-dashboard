@@ -74,12 +74,14 @@ export default async function MintPage({
       </header>
 
       <ChainGuard chainSet={chain}>
-        <MintStatusCard config={config} />
-        {config.collectionKey === "roty" ? (
-          <RotyMintPanel config={config} />
-        ) : (
-          <GatedMintPanel config={config} />
-        )}
+        <section className="grid gap-5">
+          <MintStatusCard config={config} />
+          {config.collectionKey === "roty" ? (
+            <RotyMintPanel config={config} />
+          ) : (
+            <GatedMintPanel config={config} />
+          )}
+        </section>
       </ChainGuard>
     </main>
   );

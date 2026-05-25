@@ -80,7 +80,8 @@ function PhaseControlCard({
     if (receipt.isSuccess) {
       void phaseState.refetch();
     }
-  }, [receipt.isSuccess, phaseState]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [receipt.isSuccess]);
 
   const currentValue =
     typeof phaseState.data === "boolean" ? phaseState.data : undefined;
@@ -144,19 +145,16 @@ function PhaseControlCard({
           </p>
         </div>
 
-        <div className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-right">
-          <div className="text-xs uppercase tracking-[0.2em] text-white/40">
-            Current
-          </div>
-          <div className="mt-1 text-lg font-semibold">
-            {formatBool(currentValue)}
-          </div>
-        </div>
-      </div>
-
-      <div className="mt-5 rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-4">
-        <div className="font-medium text-yellow-100">Warning</div>
-        <p className="mt-2 text-sm text-yellow-100/80">{config.warning}</p>
+        <button
+          className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
+          disabled={phaseState.isFetching}
+          onClick={() => void phaseState.refetch()}
+          type="button"
+        >
+          {phaseState.isFetching
+            ? "Refreshing..."
+            : `Current: ${formatBool(currentValue)}`}
+        </button>
       </div>
 
       <div className="mt-5 grid gap-3 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm md:grid-cols-2">
@@ -180,6 +178,11 @@ function PhaseControlCard({
         </div>
       </div>
 
+      <div className="mt-5 rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-4">
+        <div className="font-medium text-yellow-100">Operational warning</div>
+        <p className="mt-2 text-sm text-yellow-100/80">{config.warning}</p>
+      </div>
+
       {!userIsExpectedOwner ? (
         <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
           Write actions are disabled because the connected wallet is not the
@@ -187,12 +190,13 @@ function PhaseControlCard({
         </div>
       ) : null}
 
-      <div className="mt-5 grid gap-3 md:grid-cols-2">
+      <div className="mt-5 grid gap-4 md:grid-cols-2">
         <button
           className="rounded-2xl border border-green-500/30 bg-green-500/10 px-5 py-3 font-medium text-green-100 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={actionDisabled || currentValue === true}
           onClick={() => void requestPhaseChange(true)}
-          type="button">
+          type="button"
+        >
           Enable
         </button>
 
@@ -200,7 +204,8 @@ function PhaseControlCard({
           className="rounded-2xl border border-red-500/30 bg-red-500/10 px-5 py-3 font-medium text-red-100 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={actionDisabled || currentValue === false}
           onClick={() => void requestPhaseChange(false)}
-          type="button">
+          type="button"
+        >
           Disable
         </button>
       </div>
@@ -223,15 +228,16 @@ function PhaseControlCard({
 
       {txHash ? (
         <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
-          <div className="font-medium">Transaction</div>
+          <div className="font-medium">Transaction status</div>
           <a
             className="mt-2 block break-all font-mono underline underline-offset-4"
             href={getTxUrl(chainSet, txHash)}
             rel="noreferrer"
-            target="_blank">
+            target="_blank"
+          >
             {txHash}
           </a>
-          <div className="mt-2 text-white/60">
+          <div className="mt-1 text-white/60">
             {receipt.isLoading
               ? "Mining..."
               : receipt.isSuccess

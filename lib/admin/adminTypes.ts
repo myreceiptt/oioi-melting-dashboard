@@ -3,10 +3,7 @@ import type { ChainSet } from "@/lib/chains/chainConfig";
 
 export type AdminRiskLevel = "info" | "low" | "medium" | "high" | "critical";
 
-export type AdminConfirmationType =
-  | "none"
-  | "confirm"
-  | "typed-confirmation";
+export type AdminConfirmationType = "none" | "confirm" | "typed-confirmation";
 
 export type AdminContractGroup =
   | "roty"

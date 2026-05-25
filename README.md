@@ -241,7 +241,7 @@ Current clean unique addresses:
 
 Reward allocation is calculated off-chain from indexed staking and ownership history.
 
-RewardDistributor only verifies Merkle proofs and pays claims.
+Reward Distributor only verifies Merkle proofs and pays claims.
 
 The reward pipeline is not complete until:
 
