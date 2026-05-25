@@ -44,7 +44,22 @@ function CollectionStakeSummary({
 
   return (
     <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-      <div className="font-medium">{collectionName}</div>
+      <div className="flex items-center justify-between gap-4">
+        <div className="font-medium">{collectionName}</div>
+        <button
+          className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
+          disabled={approved.isFetching || hasValidStake.isFetching}
+          onClick={() => {
+            void approved.refetch();
+            void hasValidStake.refetch();
+          }}
+          type="button"
+        >
+          {approved.isFetching || hasValidStake.isFetching
+            ? "Refreshing..."
+            : "Refresh"}
+        </button>
+      </div>
       <div className="mt-2 break-all font-mono text-xs text-white/40">
         {collectionAddress}
       </div>
@@ -80,7 +95,7 @@ export function DashboardReadPanel({ chainSet }: { chainSet: ChainSet }) {
       </p>
 
       {!address ? (
-        <div className="mt-4 grid gap-3 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm md:grid-cols-2">
+        <div className="mt-5 grid gap-4 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm md:grid-cols-2">
           <div>
             <div className="text-white/60">
               Connect wallet to see wallet-specific stake status.
@@ -89,7 +104,7 @@ export function DashboardReadPanel({ chainSet }: { chainSet: ChainSet }) {
         </div>
       ) : null}
 
-      <div className="mt-4 grid gap-3">
+      <div className="mt-5 grid gap-5">
         {collections.map((collection) => (
           <CollectionStakeSummary
             collectionAddress={collection.contractAddress}

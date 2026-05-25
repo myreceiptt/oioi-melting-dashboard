@@ -24,21 +24,38 @@ import { sameAddress } from "@/lib/utils/address";
 function ReadCard({
   title,
   description,
+  onRefresh,
+  isRefreshing = false,
   children,
 }: {
   title: string;
   description?: string;
+  onRefresh?: () => void;
+  isRefreshing?: boolean;
   children: React.ReactNode;
 }) {
   return (
     <article className="rounded-3xl border border-white/10 bg-white/5 p-6">
-      <div>
-        <p className="text-sm uppercase tracking-[0.25em] text-white/40">
-          Read-Only Functions
-        </p>
-        <h2 className="mt-2 text-2xl font-semibold">{title}</h2>
-        {description ? (
-          <p className="mt-2 text-sm text-white/60">{description}</p>
+      <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+        <div>
+          <p className="text-sm uppercase tracking-[0.25em] text-white/40">
+            Read-Only Functions
+          </p>
+          <h2 className="mt-2 text-2xl font-semibold">{title}</h2>
+          {description ? (
+            <p className="mt-2 text-sm text-white/60">{description}</p>
+          ) : null}
+        </div>
+
+        {onRefresh ? (
+          <button
+            className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
+            disabled={isRefreshing}
+            onClick={onRefresh}
+            type="button"
+          >
+            {isRefreshing ? "Refreshing..." : "Refresh"}
+          </button>
         ) : null}
       </div>
 
@@ -188,11 +205,34 @@ function NftAdminReadCard({
 
   const ownerAddress = asAddress(owner.data);
   const isExpectedOwner = isExpectedAdminOwner(ownerAddress);
+  const reads = [
+    owner,
+    pendingOwner,
+    totalMinted,
+    remainingSupply,
+    maxSupply,
+    maxMintPerTx,
+    mintPrice,
+    treasury,
+    revealed,
+    metadataLocked,
+    unrevealedURI,
+    revealedBaseURI,
+    baseExtension,
+  ];
+  const isRefreshing = reads.some((read) => read.isFetching);
 
   return (
     <ReadCard
       title={label}
-      description="NFT admin state: ownership, supply, pricing, treasury, and metadata.">
+      description="NFT admin state: ownership, supply, pricing, treasury, and metadata."
+      isRefreshing={isRefreshing}
+      onRefresh={() => {
+        reads.forEach((read) => {
+          void read.refetch();
+        });
+      }}
+    >
       <ReadRow
         label="Owner"
         value={shortAddress(ownerAddress)}
@@ -282,11 +322,27 @@ function RotyPhaseReadCard({ address }: { address: Address }) {
     abi: rotyAdminAbi,
     functionName: "ORIGIN_NAME",
   });
+  const reads = [
+    whitelistMintEnabled,
+    publicMintEnabled,
+    merkleRoot,
+    originChainId,
+    originContract,
+    originName,
+  ];
+  const isRefreshing = reads.some((read) => read.isFetching);
 
   return (
     <ReadCard
       title="ROTY Mint & Provenance"
-      description="ROTY-specific whitelist, public mint, Merkle root, and origin state.">
+      description="ROTY-specific whitelist, public mint, Merkle root, and origin state."
+      isRefreshing={isRefreshing}
+      onRefresh={() => {
+        reads.forEach((read) => {
+          void read.refetch();
+        });
+      }}
+    >
       <ReadRow
         label="Whitelist mint enabled"
         value={formatBool(asBool(whitelistMintEnabled.data))}
@@ -345,11 +401,22 @@ function GatedMintPhaseReadCard({
       retry: false,
     },
   });
+  const reads = includeMeltingCollection
+    ? [gatedMintEnabled, stakingContract, rotyCollection, meltingCollection]
+    : [gatedMintEnabled, stakingContract, rotyCollection];
+  const isRefreshing = reads.some((read) => read.isFetching);
 
   return (
     <ReadCard
       title={`${label} Gated Mint`}
-      description="Gated mint phase and eligibility contract references.">
+      description="Gated mint phase and eligibility contract references."
+      isRefreshing={isRefreshing}
+      onRefresh={() => {
+        reads.forEach((read) => {
+          void read.refetch();
+        });
+      }}
+    >
       <ReadRow
         label="Gated mint enabled"
         value={formatBool(asBool(gatedMintEnabled.data))}
@@ -424,11 +491,27 @@ function StakingAdminReadCard({
 
   const ownerAddress = asAddress(owner.data);
   const isExpectedOwner = isExpectedAdminOwner(ownerAddress);
+  const reads = [
+    owner,
+    pendingOwner,
+    buildStage,
+    rotyApproved,
+    meltingApproved,
+    amandaApproved,
+  ];
+  const isRefreshing = reads.some((read) => read.isFetching);
 
   return (
     <ReadCard
       title="OiOi Soft Staking"
-      description="Soft staking owner state and approved collection registry.">
+      description="Soft staking owner state and approved collection registry."
+      isRefreshing={isRefreshing}
+      onRefresh={() => {
+        reads.forEach((read) => {
+          void read.refetch();
+        });
+      }}
+    >
       <ReadRow
         label="Owner"
         value={shortAddress(ownerAddress)}
@@ -508,11 +591,29 @@ function RewardDistributorAdminReadCard({ address }: { address: Address }) {
 
   const ownerAddress = asAddress(owner.data);
   const isExpectedOwner = isExpectedAdminOwner(ownerAddress);
+  const reads = [
+    owner,
+    pendingOwner,
+    buildStage,
+    rewardToken,
+    totalRewardFunded,
+    totalRewardClaimed,
+    allocatedUnclaimedRewardBalance,
+    excessRewardTokenBalance,
+  ];
+  const isRefreshing = reads.some((read) => read.isFetching);
 
   return (
     <ReadCard
       title="OiOi Reward Distributor"
-      description="Reward distributor owner state, accounting counters, and reward token.">
+      description="Reward distributor owner state, accounting counters, and reward token."
+      isRefreshing={isRefreshing}
+      onRefresh={() => {
+        reads.forEach((read) => {
+          void read.refetch();
+        });
+      }}
+    >
       <ReadRow
         label="Owner"
         value={shortAddress(ownerAddress)}
@@ -616,11 +717,39 @@ function OioiAdminReadCard({
     functionName: "allowance",
     args: [EXPECTED_ADMIN_OWNER_ADDRESS, rewardDistributor],
   });
+  const reads = address
+    ? [
+        name,
+        symbol,
+        decimals,
+        totalSupply,
+        adminBalance,
+        connectedWalletBalance,
+        distributorBalance,
+        allowance,
+      ]
+    : [
+        name,
+        symbol,
+        decimals,
+        totalSupply,
+        adminBalance,
+        distributorBalance,
+        allowance,
+      ];
+  const isRefreshing = reads.some((read) => read.isFetching);
 
   return (
     <ReadCard
       title="$OiOi Token"
-      description="Reward token read state for funding reward rounds.">
+      description="Reward token read state for funding reward rounds."
+      isRefreshing={isRefreshing}
+      onRefresh={() => {
+        reads.forEach((read) => {
+          void read.refetch();
+        });
+      }}
+    >
       <ReadRow label="Name" value={asString(name.data) ?? "—"} />
       <ReadRow label="Symbol" value={asString(symbol.data) ?? "—"} />
       <ReadRow label="Decimals" value={formatNumber(asBigInt(decimals.data))} />

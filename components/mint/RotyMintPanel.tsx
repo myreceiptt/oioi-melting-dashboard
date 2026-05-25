@@ -245,7 +245,7 @@ export function RotyMintPanel({ config }: { config: CollectionConfig }) {
         </div>
       </div>
 
-      <div className="mt-6 grid gap-4 rounded-2xl border border-white/10 bg-black/20 p-4">
+      <div className="mt-5 grid gap-4 rounded-2xl border border-white/10 bg-black/20 p-4">
         <h3 className="font-medium">Whitelist Mint</h3>
         <p className="text-sm text-white/60">
           Whitelist mint is free and can be claimed once per whitelisted wallet
@@ -269,7 +269,7 @@ export function RotyMintPanel({ config }: { config: CollectionConfig }) {
         ) : null}
       </div>
 
-      <div className="mt-6 grid gap-4 rounded-2xl border border-white/10 bg-black/20 p-4">
+      <div className="mt-5 grid gap-4 rounded-2xl border border-white/10 bg-black/20 p-4">
         <h3 className="font-medium">Public Mint</h3>
 
         <label className="grid gap-2">

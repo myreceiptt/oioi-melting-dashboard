@@ -30,7 +30,7 @@ export function MintStatusCard({ config }: { config: CollectionConfig }) {
   }
 
   return (
-    <section className="grid gap-5">
+    <>
       <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
         <p className="text-sm uppercase tracking-[0.25em] text-white/50">
           NFT Mint Card
@@ -118,6 +118,6 @@ export function MintStatusCard({ config }: { config: CollectionConfig }) {
           </div>
         ) : null}
       </article>
-    </section>
+    </>
   );
 }

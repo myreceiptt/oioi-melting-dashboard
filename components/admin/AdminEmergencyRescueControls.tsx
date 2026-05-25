@@ -23,11 +23,6 @@ import { getTxUrl } from "@/lib/services/explorer";
 import { sameAddress } from "@/lib/utils/address";
 import { formatEth, formatTokenAmount, shortAddress } from "@/lib/utils/format";
 
-type RescueAction =
-  | "rescueExcessOioi"
-  | "rescueContractEth"
-  | "rescueContractErc20";
-
 type RescueContractConfig = {
   key: "roty" | "melting" | "amanda";
   label: string;
@@ -125,50 +120,38 @@ function TxStatus({
   isLoading,
   isSuccess,
   isError,
-  errorMessage,
 }: {
   chainSet: ChainSet;
   txHash: Hash | undefined;
   isLoading: boolean;
   isSuccess: boolean;
   isError: boolean;
-  errorMessage?: string;
 }) {
-  if (!txHash && !errorMessage) {
+  if (!txHash) {
     return null;
   }
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
+    <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
       <div className="font-medium">Transaction status</div>
 
-      {txHash ? (
-        <a
-          className="mt-2 block break-all font-mono underline underline-offset-4"
-          href={getTxUrl(chainSet, txHash)}
-          rel="noreferrer"
-          target="_blank">
-          {txHash}
-        </a>
-      ) : null}
+      <a
+        className="mt-2 block break-all font-mono underline underline-offset-4"
+        href={getTxUrl(chainSet, txHash)}
+        rel="noreferrer"
+        target="_blank">
+        {txHash}
+      </a>
 
-      <div className="mt-2 text-white/60">
+      <div className="mt-1 text-white/60">
         {isLoading
           ? "Mining..."
           : isSuccess
             ? "Mined successfully. State refreshed."
             : isError
               ? "Transaction failed or receipt error."
-              : txHash
-                ? "Submitted."
-                : ""}
+              : "Submitted."}
       </div>
-
-      {errorMessage ? (
-        <div className="mt-3 rounded-xl border border-red-500/30 bg-red-500/10 p-3 text-red-100/80">
-          {errorMessage}
-        </div>
-      ) : null}
     </div>
   );
 }
@@ -202,7 +185,10 @@ function RewardDistributorExcessRescue({ chainSet }: { chainSet: ChainSet }) {
 
   const [recipientInput, setRecipientInput] = useState("");
   const [amountInput, setAmountInput] = useState("");
-  const [lastAction, setLastAction] = useState<RescueAction | null>(null);
+  const [lastActionLabel, setLastActionLabel] = useState<string | null>(null);
+  const [lastRequestedValue, setLastRequestedValue] = useState<string | null>(
+    null,
+  );
 
   const userIsExpectedOwner = useMemo(
     () => isExpectedOwner(connectedAddress),
@@ -272,6 +258,8 @@ function RewardDistributorExcessRescue({ chainSet }: { chainSet: ChainSet }) {
     void allocatedUnclaimedRead.refetch();
     void excessRead.refetch();
     void distributorOioiBalanceRead.refetch();
+    void oioiDecimalsRead.refetch();
+    void oioiSymbolRead.refetch();
   }
 
   useEffect(() => {
@@ -299,6 +287,22 @@ function RewardDistributorExcessRescue({ chainSet }: { chainSet: ChainSet }) {
     typeof oioiDecimalsRead.data === "number" ? oioiDecimalsRead.data : 18;
   const symbol =
     typeof oioiSymbolRead.data === "string" ? oioiSymbolRead.data : "OiOi";
+  const readError =
+    rewardOwnerRead.error ??
+    rewardTokenRead.error ??
+    allocatedUnclaimedRead.error ??
+    excessRead.error ??
+    distributorOioiBalanceRead.error ??
+    oioiDecimalsRead.error ??
+    oioiSymbolRead.error;
+  const isRefreshing =
+    rewardOwnerRead.isFetching ||
+    rewardTokenRead.isFetching ||
+    allocatedUnclaimedRead.isFetching ||
+    excessRead.isFetching ||
+    distributorOioiBalanceRead.isFetching ||
+    oioiDecimalsRead.isFetching ||
+    oioiSymbolRead.isFetching;
 
   const parsedRecipient = isAddress(recipientInput.trim())
     ? (recipientInput.trim() as Address)
@@ -345,7 +349,8 @@ function RewardDistributorExcessRescue({ chainSet }: { chainSet: ChainSet }) {
       return;
     }
 
-    setLastAction("rescueExcessOioi");
+    setLastActionLabel("RESCUE EXCESS OIOI");
+    setLastRequestedValue(`${amountInput} ${symbol} to ${parsedRecipient}`);
 
     await writeContractAsync({
       address: addresses.rewardDistributor,
@@ -357,17 +362,27 @@ function RewardDistributorExcessRescue({ chainSet }: { chainSet: ChainSet }) {
 
   return (
     <article className="rounded-3xl border border-red-500/30 bg-red-500/10 p-6">
-      <div>
-        <p className="text-sm uppercase tracking-[0.25em] text-red-100/60">
-          Reward Distributor emergency
-        </p>
-        <h3 className="mt-2 text-2xl font-semibold text-red-100">
-          Rescue Excess $OiOi
-        </h3>
-        <p className="mt-2 max-w-3xl text-sm text-red-100/80">
-          Only rescue excess $OiOi that is not allocated to active/unclaimed
-          rewards or will be blocked.
-        </p>
+      <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+        <div>
+          <p className="text-sm uppercase tracking-[0.25em] text-red-100/60">
+            Reward Distributor emergency
+          </p>
+          <h3 className="mt-2 text-2xl font-semibold text-red-100">
+            Rescue Excess $OiOi
+          </h3>
+          <p className="mt-2 max-w-3xl text-sm text-red-100/80">
+            Only rescue excess $OiOi that is not allocated to active/unclaimed
+            rewards or will be blocked.
+          </p>
+        </div>
+
+        <button
+          className="rounded-2xl border border-white/10 px-4 py-2 text-sm text-red-100 hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
+          disabled={isRefreshing}
+          onClick={refetchReads}
+          type="button">
+          {isRefreshing ? "Refreshing..." : "Refresh"}
+        </button>
       </div>
 
       <div className="mt-5 rounded-2xl border border-red-500/30 bg-black/20 px-4">
@@ -448,18 +463,23 @@ function RewardDistributorExcessRescue({ chainSet }: { chainSet: ChainSet }) {
         </div>
       </div>
 
-      <button
-        className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 px-5 py-3 font-medium text-red-100 disabled:cursor-not-allowed disabled:opacity-40"
-        disabled={actionDisabled}
-        onClick={() => void rescueExcessOioi()}
-        type="button">
-        Rescue Excess $OiOi
-      </button>
+      <div className="mt-5 grid gap-5">
+        <button
+          className="rounded-2xl border border-red-500/30 bg-red-500/10 px-5 py-3 font-medium text-red-100 disabled:cursor-not-allowed disabled:opacity-40"
+          disabled={actionDisabled}
+          onClick={() => void rescueExcessOioi()}
+          type="button">
+          Rescue Excess $OiOi
+        </button>
+      </div>
 
-      {lastAction ? (
+      {lastActionLabel ? (
         <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
-          <div className="font-medium">Last emergency action</div>
-          <div className="mt-2 font-mono text-red-100/80">{lastAction}</div>
+          <div className="font-medium">Last requested action</div>
+          <div className="mt-2 text-red-100/80">{lastActionLabel}</div>
+          <div className="mt-1 break-all text-red-100/80">
+            Requested value: {lastRequestedValue}
+          </div>
         </div>
       ) : null}
 
@@ -471,12 +491,23 @@ function RewardDistributorExcessRescue({ chainSet }: { chainSet: ChainSet }) {
 
       <TxStatus
         chainSet={chainSet}
-        errorMessage={writeError?.message}
         isError={receipt.isError}
         isLoading={receipt.isLoading}
         isSuccess={receipt.isSuccess}
         txHash={txHash}
       />
+
+      {writeError ? (
+        <div className="mt-5 rounded-2xl border border-red-500/30 bg-black/20 p-4 text-sm text-red-100/80">
+          {writeError.message}
+        </div>
+      ) : null}
+
+      {readError ? (
+        <div className="mt-5 rounded-2xl border border-red-500/30 bg-black/20 p-4 text-sm text-red-100/80">
+          Read error: {readError.message}
+        </div>
+      ) : null}
     </article>
   );
 }
@@ -495,7 +526,10 @@ function ContractRescueControls({
   const [erc20TokenInput, setErc20TokenInput] = useState("");
   const [erc20RecipientInput, setErc20RecipientInput] = useState("");
   const [erc20AmountInput, setErc20AmountInput] = useState("");
-  const [lastAction, setLastAction] = useState<RescueAction | null>(null);
+  const [lastActionLabel, setLastActionLabel] = useState<string | null>(null);
+  const [lastRequestedValue, setLastRequestedValue] = useState<string | null>(
+    null,
+  );
 
   const userIsExpectedOwner = useMemo(
     () => isExpectedOwner(connectedAddress),
@@ -561,9 +595,11 @@ function ContractRescueControls({
   function refetchReads() {
     void ownerRead.refetch();
     void nativeBalance.refetch();
-    void erc20DecimalsRead.refetch();
-    void erc20SymbolRead.refetch();
-    void erc20ContractBalanceRead.refetch();
+    if (tokenAddress) {
+      void erc20DecimalsRead.refetch();
+      void erc20SymbolRead.refetch();
+      void erc20ContractBalanceRead.refetch();
+    }
   }
 
   useEffect(() => {
@@ -592,6 +628,18 @@ function ContractRescueControls({
     typeof erc20ContractBalanceRead.data === "bigint"
       ? erc20ContractBalanceRead.data
       : undefined;
+  const readError =
+    ownerRead.error ??
+    nativeBalance.error ??
+    erc20DecimalsRead.error ??
+    erc20SymbolRead.error ??
+    erc20ContractBalanceRead.error;
+  const isRefreshing =
+    ownerRead.isFetching ||
+    nativeBalance.isFetching ||
+    erc20DecimalsRead.isFetching ||
+    erc20SymbolRead.isFetching ||
+    erc20ContractBalanceRead.isFetching;
 
   const ethExceedsBalance =
     ethAmount !== null &&
@@ -643,7 +691,8 @@ function ContractRescueControls({
       return;
     }
 
-    setLastAction("rescueContractEth");
+    setLastActionLabel(`RESCUE ETH ${config.label}`);
+    setLastRequestedValue(`${ethAmountInput} ETH to ${ethRecipient}`);
 
     await writeContractAsync({
       address: config.address,
@@ -684,7 +733,10 @@ function ContractRescueControls({
       return;
     }
 
-    setLastAction("rescueContractErc20");
+    setLastActionLabel(`RESCUE ERC20 ${config.label}`);
+    setLastRequestedValue(
+      `${erc20AmountInput} ${erc20Symbol} to ${erc20Recipient}`,
+    );
 
     await writeContractAsync({
       address: config.address,
@@ -696,15 +748,25 @@ function ContractRescueControls({
 
   return (
     <article className="rounded-3xl border border-white/10 bg-white/5 p-6">
-      <div>
-        <p className="text-sm uppercase tracking-[0.25em] text-white/40">
-          NFT contract rescue
-        </p>
-        <h3 className="mt-2 text-2xl font-semibold">{config.label}</h3>
-        <p className="mt-2 max-w-3xl text-sm text-white/60">
-          Emergency rescue controls for accidental ETH or ERC20 tokens stuck in
-          this NFT contract.
-        </p>
+      <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+        <div>
+          <p className="text-sm uppercase tracking-[0.25em] text-white/40">
+            NFT contract rescue
+          </p>
+          <h3 className="mt-2 text-2xl font-semibold">{config.label}</h3>
+          <p className="mt-2 max-w-3xl text-sm text-white/60">
+            Emergency rescue controls for accidental ETH or ERC20 tokens stuck
+            in this NFT contract.
+          </p>
+        </div>
+
+        <button
+          className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
+          disabled={isRefreshing}
+          onClick={refetchReads}
+          type="button">
+          {isRefreshing ? "Refreshing..." : "Refresh"}
+        </button>
       </div>
 
       <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 px-4">
@@ -732,7 +794,7 @@ function ContractRescueControls({
         </div>
       ) : null}
 
-      <section className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4">
+      <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4">
         <h4 className="font-semibold text-red-100">Rescue ETH</h4>
         <p className="mt-2 text-sm text-red-100/80">
           Use only if native ETH was accidentally sent to this NFT contract.
@@ -773,28 +835,32 @@ function ContractRescueControls({
           />
         </div>
 
-        <button
-          className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 px-5 py-3 font-medium text-red-100 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={rescueEthDisabled}
-          onClick={() => void rescueEth()}
-          type="button">
-          Rescue ETH
-        </button>
-      </section>
+        <div className="mt-5 grid gap-5">
+          <button
+            className="rounded-2xl border border-red-500/30 bg-red-500/10 px-5 py-3 font-medium text-red-100 disabled:cursor-not-allowed disabled:opacity-40"
+            disabled={rescueEthDisabled}
+            onClick={() => void rescueEth()}
+            type="button">
+            Rescue ETH
+          </button>
+        </div>
+      </div>
 
-      <section className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4">
+      <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4">
         <h4 className="font-semibold text-red-100">Rescue ERC20</h4>
         <p className="mt-2 text-sm text-red-100/80">
           Use only for accidental ERC20 tokens stuck in this NFT contract.
         </p>
 
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
+        <div className="mt-4 grid gap-4">
           <Field
             label="ERC20 token"
             onChange={setErc20TokenInput}
             placeholder="0x..."
             value={erc20TokenInput}
           />
+        </div>
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
           <Field
             label="ERC20 recipient"
             onChange={setErc20RecipientInput}
@@ -838,19 +904,24 @@ function ContractRescueControls({
           />
         </div>
 
-        <button
-          className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 px-5 py-3 font-medium text-red-100 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={rescueErc20Disabled}
-          onClick={() => void rescueErc20()}
-          type="button">
-          Rescue ERC20
-        </button>
-      </section>
+        <div className="mt-5 grid gap-5">
+          <button
+            className="rounded-2xl border border-red-500/30 bg-red-500/10 px-5 py-3 font-medium text-red-100 disabled:cursor-not-allowed disabled:opacity-40"
+            disabled={rescueErc20Disabled}
+            onClick={() => void rescueErc20()}
+            type="button">
+            Rescue ERC20
+          </button>
+        </div>
+      </div>
 
-      {lastAction ? (
+      {lastActionLabel ? (
         <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
-          <div className="font-medium">Last emergency action</div>
-          <div className="mt-2 font-mono text-red-100/80">{lastAction}</div>
+          <div className="font-medium">Last requested action</div>
+          <div className="mt-2 text-white/60">{lastActionLabel}</div>
+          <div className="mt-1 break-all text-white/60">
+            Requested value: {lastRequestedValue}
+          </div>
         </div>
       ) : null}
 
@@ -862,12 +933,23 @@ function ContractRescueControls({
 
       <TxStatus
         chainSet={chainSet}
-        errorMessage={writeError?.message}
         isError={receipt.isError}
         isLoading={receipt.isLoading}
         isSuccess={receipt.isSuccess}
         txHash={txHash}
       />
+
+      {writeError ? (
+        <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+          {writeError.message}
+        </div>
+      ) : null}
+
+      {readError ? (
+        <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+          Read error: {readError.message}
+        </div>
+      ) : null}
     </article>
   );
 }

@@ -84,7 +84,7 @@ Stores `CollectionApprovalUpdated` events from `OiOiSoftStaking`.
 
 ### `reward_round_events`
 
-Stores RewardDistributor events:
+Stores Reward Distributor events:
 
 - `RewardRoundCreated`
 - `RewardRoundFunded`

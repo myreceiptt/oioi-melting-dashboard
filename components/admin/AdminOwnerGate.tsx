@@ -31,7 +31,7 @@ export function AdminOwnerGate() {
           Connect the owner/deployer wallet before using admin controls. Admin
           writes actions will stay disabled for this wallet.
         </p>
-        <div className="mt-4 grid gap-3 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm md:grid-cols-2">
+        <div className="mt-5 grid gap-4 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm md:grid-cols-2">
           <div className="text-white/60">Expected Owner</div>
           <div className="mt-1 font-mono">{EXPECTED_ADMIN_OWNER_ADDRESS}</div>
         </div>
@@ -48,7 +48,7 @@ export function AdminOwnerGate() {
           will stay disabled for this wallet.
         </p>
 
-        <div className="mt-4 grid gap-3 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm md:grid-cols-2">
+        <div className="mt-5 grid gap-4 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm md:grid-cols-2">
           <div>
             <div className="text-white/60">Connected Wallet</div>
             <div className="mt-1 font-mono">{shortAddress(address)}</div>
@@ -72,7 +72,7 @@ export function AdminOwnerGate() {
         action carefully before signing.
       </p>
 
-      <div className="mt-4 grid gap-3 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm md:grid-cols-2">
+      <div className="mt-5 grid gap-4 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm md:grid-cols-2">
         <div>
           <div className="text-white/60">Connected Wallet</div>
           <div className="mt-1 font-mono">{shortAddress(address)}</div>

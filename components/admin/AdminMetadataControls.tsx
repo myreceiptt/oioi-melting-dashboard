@@ -16,13 +16,6 @@ import { getTxUrl } from "@/lib/services/explorer";
 import { sameAddress } from "@/lib/utils/address";
 import { formatBool, shortAddress } from "@/lib/utils/format";
 
-type MetadataAction =
-  | "setUnrevealedURI"
-  | "setRevealedBaseURI"
-  | "setBaseExtension"
-  | "setRevealed"
-  | "lockMetadata";
-
 type MetadataAbi = typeof rotyAdminAbi | typeof gatedMintAdminAbi;
 
 type MetadataCollectionConfig = {
@@ -102,50 +95,38 @@ function TxStatus({
   isLoading,
   isSuccess,
   isError,
-  errorMessage,
 }: {
   chainSet: ChainSet;
   txHash: Hash | undefined;
   isLoading: boolean;
   isSuccess: boolean;
   isError: boolean;
-  errorMessage?: string;
 }) {
-  if (!txHash && !errorMessage) {
+  if (!txHash) {
     return null;
   }
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
+    <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
       <div className="font-medium">Transaction status</div>
 
-      {txHash ? (
-        <a
-          className="mt-2 block break-all font-mono underline underline-offset-4"
-          href={getTxUrl(chainSet, txHash)}
-          rel="noreferrer"
-          target="_blank">
-          {txHash}
-        </a>
-      ) : null}
+      <a
+        className="mt-2 block break-all font-mono underline underline-offset-4"
+        href={getTxUrl(chainSet, txHash)}
+        rel="noreferrer"
+        target="_blank">
+        {txHash}
+      </a>
 
-      <div className="mt-2 text-white/60">
+      <div className="mt-1 text-white/60">
         {isLoading
           ? "Mining..."
           : isSuccess
             ? "Mined successfully. State refreshed."
             : isError
               ? "Transaction failed or receipt error."
-              : txHash
-                ? "Submitted."
-                : ""}
+              : "Submitted."}
       </div>
-
-      {errorMessage ? (
-        <div className="mt-3 rounded-xl border border-red-500/30 bg-red-500/10 p-3 text-red-100/80">
-          {errorMessage}
-        </div>
-      ) : null}
     </div>
   );
 }
@@ -162,7 +143,10 @@ function MetadataCollectionControls({
   const [unrevealedInput, setUnrevealedInput] = useState("");
   const [revealedBaseInput, setRevealedBaseInput] = useState("");
   const [baseExtensionInput, setBaseExtensionInput] = useState("");
-  const [lastAction, setLastAction] = useState<MetadataAction | null>(null);
+  const [lastActionLabel, setLastActionLabel] = useState<string | null>(null);
+  const [lastRequestedValue, setLastRequestedValue] = useState<string | null>(
+    null,
+  );
 
   const userIsExpectedOwner = useMemo(
     () => isExpectedOwner(connectedAddress),
@@ -255,6 +239,20 @@ function MetadataCollectionControls({
     typeof baseExtensionRead.data === "string"
       ? baseExtensionRead.data
       : undefined;
+  const readError =
+    ownerRead.error ??
+    revealedRead.error ??
+    metadataLockedRead.error ??
+    unrevealedUriRead.error ??
+    revealedBaseUriRead.error ??
+    baseExtensionRead.error;
+  const isRefreshing =
+    ownerRead.isFetching ||
+    revealedRead.isFetching ||
+    metadataLockedRead.isFetching ||
+    unrevealedUriRead.isFetching ||
+    revealedBaseUriRead.isFetching ||
+    baseExtensionRead.isFetching;
 
   const revealedBaseUriIsPending = isPendingUri(revealedBaseURI);
 
@@ -320,7 +318,8 @@ function MetadataCollectionControls({
       return;
     }
 
-    setLastAction("setUnrevealedURI");
+    setLastActionLabel(`SET UNREVEALED URI ${config.label}`);
+    setLastRequestedValue(value);
 
     await writeContractAsync({
       address: config.address,
@@ -352,7 +351,8 @@ function MetadataCollectionControls({
       return;
     }
 
-    setLastAction("setRevealedBaseURI");
+    setLastActionLabel(`SET REVEALED BASE URI ${config.label}`);
+    setLastRequestedValue(value);
 
     await writeContractAsync({
       address: config.address,
@@ -378,7 +378,8 @@ function MetadataCollectionControls({
       return;
     }
 
-    setLastAction("setBaseExtension");
+    setLastActionLabel(`SET BASE EXTENSION ${config.label}`);
+    setLastRequestedValue(value || "(empty string)");
 
     await writeContractAsync({
       address: config.address,
@@ -410,7 +411,8 @@ function MetadataCollectionControls({
       return;
     }
 
-    setLastAction("setRevealed");
+    setLastActionLabel(`SET REVEALED ${config.label}`);
+    setLastRequestedValue(nextValue ? "Yes" : "No");
 
     await writeContractAsync({
       address: config.address,
@@ -425,7 +427,8 @@ function MetadataCollectionControls({
       return;
     }
 
-    setLastAction("lockMetadata");
+    setLastActionLabel(`LOCK METADATA ${config.label}`);
+    setLastRequestedValue("Permanent lock");
 
     await writeContractAsync({
       address: config.address,
@@ -443,19 +446,20 @@ function MetadataCollectionControls({
           </p>
           <h3 className="mt-2 text-2xl font-semibold">{config.label}</h3>
           <p className="mt-2 max-w-2xl text-sm text-white/60">
-            Update unrevealed URI, revealed base URI, base extension,
-            reveal state, and final metadata lock.
+            Update unrevealed URI, revealed base URI, base extension, reveal
+            state, and final metadata lock.
           </p>
         </div>
 
-        <div className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-right">
-          <div className="text-xs uppercase tracking-[0.2em] text-white/40">
-            Locked
-          </div>
-          <div className="mt-1 text-lg font-semibold">
-            {formatBool(metadataLocked)}
-          </div>
-        </div>
+        <button
+          className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
+          disabled={isRefreshing}
+          onClick={refetchMetadataReads}
+          type="button">
+          {isRefreshing
+            ? "Refreshing..."
+            : `Locked: ${formatBool(metadataLocked)}`}
+        </button>
       </div>
 
       <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 px-4">
@@ -497,7 +501,7 @@ function MetadataCollectionControls({
         </div>
       ) : null}
 
-      <div className="mt-5 grid gap-4">
+      <div className="mt-5 grid gap-5">
         <Field
           label="New unrevealed URI"
           description="Used while revealed=false."
@@ -547,7 +551,7 @@ function MetadataCollectionControls({
         </button>
       </div>
 
-      <div className="mt-5 grid gap-3 md:grid-cols-2">
+      <div className="mt-5 grid gap-4 md:grid-cols-2">
         <button
           className="rounded-2xl border border-green-500/30 bg-green-500/10 px-5 py-3 font-medium text-green-100 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={
@@ -573,9 +577,11 @@ function MetadataCollectionControls({
           Lock metadata is irreversible. Only use after final revealed metadata
           has been checked and approved.
         </p>
+      </div>
 
+      <div className="mt-5 grid gap-5">
         <button
-          className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 px-5 py-3 font-medium text-red-100 disabled:cursor-not-allowed disabled:opacity-40"
+          className="rounded-2xl border border-red-500/30 bg-red-500/10 px-5 py-3 font-medium text-red-100 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={actionDisabledBase}
           onClick={() => void lockMetadata()}
           type="button">
@@ -583,10 +589,13 @@ function MetadataCollectionControls({
         </button>
       </div>
 
-      {lastAction ? (
+      {lastActionLabel ? (
         <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
-          <div className="font-medium">Last metadata action</div>
-          <div className="mt-2 font-mono text-white/60">{lastAction}</div>
+          <div className="font-medium">Last requested action</div>
+          <div className="mt-2 text-white/60">{lastActionLabel}</div>
+          <div className="mt-1 break-all text-white/60">
+            Requested value: {lastRequestedValue}
+          </div>
         </div>
       ) : null}
 
@@ -598,12 +607,23 @@ function MetadataCollectionControls({
 
       <TxStatus
         chainSet={chainSet}
-        errorMessage={writeError?.message}
         isError={receipt.isError}
         isLoading={receipt.isLoading}
         isSuccess={receipt.isSuccess}
         txHash={txHash}
       />
+
+      {writeError ? (
+        <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+          {writeError.message}
+        </div>
+      ) : null}
+
+      {readError ? (
+        <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+          Read error: {readError.message}
+        </div>
+      ) : null}
     </article>
   );
 }
@@ -643,14 +663,6 @@ export function AdminMetadataControls({ chainSet }: { chainSet: ChainSet }) {
           Owner-only controls for unrevealed URI, revealed base URI, token URI
           extension, reveal state, and irreversible metadata lock.
         </p>
-
-        <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4">
-          <div className="font-medium text-red-100">Critical reminder</div>
-          <p className="mt-2 text-sm text-red-100/80">
-            Do not reveal or lock metadata until final metadata has been checked
-            on testnet and marketplace rendering has been reviewed.
-          </p>
-        </div>
       </section>
 
       {collections.map((collection) => (

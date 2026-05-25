@@ -17,8 +17,6 @@ import { getTxUrl } from "@/lib/services/explorer";
 import { sameAddress } from "@/lib/utils/address";
 import { formatEth, formatNumber, shortAddress } from "@/lib/utils/format";
 
-type FinancialAction = "setMintPrice" | "setTreasury" | "setDefaultRoyalty";
-
 type FinancialCollectionConfig = {
   key: "roty" | "melting" | "amanda";
   label: string;
@@ -141,50 +139,38 @@ function TxStatus({
   isLoading,
   isSuccess,
   isError,
-  errorMessage,
 }: {
   chainSet: ChainSet;
   txHash: Hash | undefined;
   isLoading: boolean;
   isSuccess: boolean;
   isError: boolean;
-  errorMessage?: string;
 }) {
-  if (!txHash && !errorMessage) {
+  if (!txHash) {
     return null;
   }
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
+    <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
       <div className="font-medium">Transaction status</div>
 
-      {txHash ? (
-        <a
-          className="mt-2 block break-all font-mono underline underline-offset-4"
-          href={getTxUrl(chainSet, txHash)}
-          rel="noreferrer"
-          target="_blank">
-          {txHash}
-        </a>
-      ) : null}
+      <a
+        className="mt-2 block break-all font-mono underline underline-offset-4"
+        href={getTxUrl(chainSet, txHash)}
+        rel="noreferrer"
+        target="_blank">
+        {txHash}
+      </a>
 
-      <div className="mt-2 text-white/60">
+      <div className="mt-1 text-white/60">
         {isLoading
           ? "Mining..."
           : isSuccess
             ? "Mined successfully. State refreshed."
             : isError
               ? "Transaction failed or receipt error."
-              : txHash
-                ? "Submitted."
-                : ""}
+              : "Submitted."}
       </div>
-
-      {errorMessage ? (
-        <div className="mt-3 rounded-xl border border-red-500/30 bg-red-500/10 p-3 text-red-100/80">
-          {errorMessage}
-        </div>
-      ) : null}
     </div>
   );
 }
@@ -202,7 +188,10 @@ function FinancialCollectionControls({
   const [treasuryInput, setTreasuryInput] = useState("");
   const [royaltyReceiverInput, setRoyaltyReceiverInput] = useState("");
   const [royaltyPercentInput, setRoyaltyPercentInput] = useState("");
-  const [lastAction, setLastAction] = useState<FinancialAction | null>(null);
+  const [lastActionLabel, setLastActionLabel] = useState<string | null>(null);
+  const [lastRequestedValue, setLastRequestedValue] = useState<string | null>(
+    null,
+  );
 
   const userIsExpectedOwner = useMemo(
     () => isExpectedOwner(connectedAddress),
@@ -274,6 +263,16 @@ function FinancialCollectionControls({
     | undefined;
   const royaltyReceiver = royaltyInfo?.[0];
   const royaltyAmountForOneEth = royaltyInfo?.[1];
+  const readError =
+    ownerRead.error ??
+    mintPriceRead.error ??
+    treasuryRead.error ??
+    royaltyInfoRead.error;
+  const isRefreshing =
+    ownerRead.isFetching ||
+    mintPriceRead.isFetching ||
+    treasuryRead.isFetching ||
+    royaltyInfoRead.isFetching;
 
   const parsedMintPrice = parseEthInput(mintPriceInput);
   const parsedTreasury = isAddress(treasuryInput.trim())
@@ -331,7 +330,8 @@ function FinancialCollectionControls({
       return;
     }
 
-    setLastAction("setMintPrice");
+    setLastActionLabel(`SET MINT PRICE ${config.label}`);
+    setLastRequestedValue(`${mintPriceInput} ETH`);
 
     await writeContractAsync({
       address: config.address,
@@ -362,7 +362,8 @@ function FinancialCollectionControls({
       return;
     }
 
-    setLastAction("setTreasury");
+    setLastActionLabel(`SET TREASURY ${config.label}`);
+    setLastRequestedValue(parsedTreasury);
 
     await writeContractAsync({
       address: config.address,
@@ -394,7 +395,8 @@ function FinancialCollectionControls({
       return;
     }
 
-    setLastAction("setDefaultRoyalty");
+    setLastActionLabel(`SET DEFAULT ROYALTY ${config.label}`);
+    setLastRequestedValue(`${parsedRoyaltyReceiver} / ${royaltyPercentInput}%`);
 
     await writeContractAsync({
       address: config.address,
@@ -417,6 +419,14 @@ function FinancialCollectionControls({
             royalty settings.
           </p>
         </div>
+
+        <button
+          className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
+          disabled={isRefreshing}
+          onClick={refetchFinancialReads}
+          type="button">
+          {isRefreshing ? "Refreshing..." : "Refresh"}
+        </button>
       </div>
 
       <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 px-4">
@@ -451,7 +461,7 @@ function FinancialCollectionControls({
         </div>
       ) : null}
 
-      <div className="mt-5 grid gap-4">
+      <div className="mt-5 grid gap-5">
         <Field
           label="New mint price"
           description="Human-readable native token amount. Example: 0.001047"
@@ -515,18 +525,13 @@ function FinancialCollectionControls({
         </button>
       </div>
 
-      <section className="mt-5 rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-4">
-        <div className="font-medium text-yellow-100">Operational warning</div>
-        <p className="mt-2 text-sm text-yellow-100/80">
-          These values affect future paid mints and marketplace royalty
-          reporting. Test and confirm values before opening.
-        </p>
-      </section>
-
-      {lastAction ? (
+      {lastActionLabel ? (
         <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
-          <div className="font-medium">Last financial action</div>
-          <div className="mt-2 font-mono text-white/60">{lastAction}</div>
+          <div className="font-medium">Last requested action</div>
+          <div className="mt-2 text-white/60">{lastActionLabel}</div>
+          <div className="mt-1 break-all text-white/60">
+            Requested value: {lastRequestedValue}
+          </div>
         </div>
       ) : null}
 
@@ -538,12 +543,23 @@ function FinancialCollectionControls({
 
       <TxStatus
         chainSet={chainSet}
-        errorMessage={writeError?.message}
         isError={receipt.isError}
         isLoading={receipt.isLoading}
         isSuccess={receipt.isSuccess}
         txHash={txHash}
       />
+
+      {writeError ? (
+        <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+          {writeError.message}
+        </div>
+      ) : null}
+
+      {readError ? (
+        <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+          Read error: {readError.message}
+        </div>
+      ) : null}
     </article>
   );
 }
@@ -589,14 +605,6 @@ export function AdminPricingTreasuryRoyaltyControls({
           Owner-only controls for mint price, mint proceeds treasury, and
           ERC2981 default royalty.
         </p>
-
-        <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4">
-          <div className="font-medium text-red-100">High-impact controls</div>
-          <p className="mt-2 text-sm text-red-100/80">
-            Do not change treasury or royalty settings unless the new values
-            have been reviewed and documented.
-          </p>
-        </div>
       </section>
 
       {collections.map((collection) => (

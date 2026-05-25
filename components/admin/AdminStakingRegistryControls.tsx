@@ -16,8 +16,6 @@ import { getTxUrl } from "@/lib/services/explorer";
 import { sameAddress } from "@/lib/utils/address";
 import { formatBool, shortAddress } from "@/lib/utils/format";
 
-type StakingRegistryAction = "approveCollection" | "unapproveCollection";
-
 type StakingCollectionConfig = {
   key: "roty" | "melting" | "amanda";
   label: string;
@@ -57,50 +55,37 @@ function TxStatus({
   isLoading,
   isSuccess,
   isError,
-  errorMessage,
 }: {
   chainSet: ChainSet;
   txHash: Hash | undefined;
   isLoading: boolean;
   isSuccess: boolean;
   isError: boolean;
-  errorMessage?: string;
 }) {
-  if (!txHash && !errorMessage) {
+  if (!txHash) {
     return null;
   }
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
+    <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
       <div className="font-medium">Transaction status</div>
-
-      {txHash ? (
-        <a
-          className="mt-2 block break-all font-mono underline underline-offset-4"
-          href={getTxUrl(chainSet, txHash)}
-          rel="noreferrer"
-          target="_blank">
-          {txHash}
-        </a>
-      ) : null}
-
-      <div className="mt-2 text-white/60">
+      <a
+        className="mt-2 block break-all font-mono underline underline-offset-4"
+        href={getTxUrl(chainSet, txHash)}
+        rel="noreferrer"
+        target="_blank"
+      >
+        {txHash}
+      </a>
+      <div className="mt-1 text-white/60">
         {isLoading
           ? "Mining..."
           : isSuccess
             ? "Mined successfully. State refreshed."
             : isError
               ? "Transaction failed or receipt error."
-              : txHash
-                ? "Submitted."
-                : ""}
+              : "Submitted."}
       </div>
-
-      {errorMessage ? (
-        <div className="mt-3 rounded-xl border border-red-500/30 bg-red-500/10 p-3 text-red-100/80">
-          {errorMessage}
-        </div>
-      ) : null}
     </div>
   );
 }
@@ -115,9 +100,10 @@ function StakingCollectionControl({
   collection: StakingCollectionConfig;
 }) {
   const { address: connectedAddress, isConnected } = useAccount();
-  const [lastAction, setLastAction] = useState<StakingRegistryAction | null>(
+  const [lastRequestedValue, setLastRequestedValue] = useState<boolean | null>(
     null,
   );
+  const [lastActionLabel, setLastActionLabel] = useState<string | null>(null);
 
   const userIsExpectedOwner = useMemo(
     () => isExpectedOwner(connectedAddress),
@@ -176,6 +162,12 @@ function StakingCollectionControl({
     typeof approvedRead.data === "boolean" ? approvedRead.data : undefined;
   const buildStage =
     typeof buildStageRead.data === "string" ? buildStageRead.data : undefined;
+  const readError =
+    ownerRead.error ?? approvedRead.error ?? buildStageRead.error;
+  const isRefreshing =
+    ownerRead.isFetching ||
+    approvedRead.isFetching ||
+    buildStageRead.isFetching;
 
   const actionDisabledBase =
     !isConnected || !userIsExpectedOwner || isWritePending || receipt.isLoading;
@@ -203,7 +195,9 @@ function StakingCollectionControl({
       return;
     }
 
-    setLastAction(nextValue ? "approveCollection" : "unapproveCollection");
+    const direction = nextValue ? "APPROVE" : "UNAPPROVE";
+    setLastRequestedValue(nextValue);
+    setLastActionLabel(`${direction} ${collection.label}`);
 
     await writeContractAsync({
       address: stakingAddress,
@@ -227,14 +221,14 @@ function StakingCollectionControl({
           </p>
         </div>
 
-        <div className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-right">
-          <div className="text-xs uppercase tracking-[0.2em] text-white/40">
-            Approved
-          </div>
-          <div className="mt-1 text-lg font-semibold">
-            {formatBool(approved)}
-          </div>
-        </div>
+        <button
+          className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
+          disabled={isRefreshing}
+          onClick={refetchReads}
+          type="button"
+        >
+          {isRefreshing ? "Refreshing..." : `Approved: ${formatBool(approved)}`}
+        </button>
       </div>
 
       <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 px-4">
@@ -261,7 +255,7 @@ function StakingCollectionControl({
       </div>
 
       <div className="mt-5 rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-4">
-        <div className="font-medium text-yellow-100">Warning</div>
+        <div className="font-medium text-yellow-100">Operational warning</div>
         <p className="mt-2 text-sm text-yellow-100/80">{collection.warning}</p>
       </div>
 
@@ -272,12 +266,13 @@ function StakingCollectionControl({
         </div>
       ) : null}
 
-      <div className="mt-5 grid gap-3 md:grid-cols-2">
+      <div className="mt-5 grid gap-4 md:grid-cols-2">
         <button
           className="rounded-2xl border border-green-500/30 bg-green-500/10 px-5 py-3 font-medium text-green-100 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={actionDisabledBase || approved === true}
           onClick={() => void setCollectionApproved(true)}
-          type="button">
+          type="button"
+        >
           Approve Collection
         </button>
 
@@ -285,15 +280,19 @@ function StakingCollectionControl({
           className="rounded-2xl border border-red-500/30 bg-red-500/10 px-5 py-3 font-medium text-red-100 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={actionDisabledBase || approved === false}
           onClick={() => void setCollectionApproved(false)}
-          type="button">
+          type="button"
+        >
           Unapprove Collection
         </button>
       </div>
 
-      {lastAction ? (
+      {lastActionLabel ? (
         <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
-          <div className="font-medium">Last staking registry action</div>
-          <div className="mt-2 font-mono text-white/60">{lastAction}</div>
+          <div className="font-medium">Last requested action</div>
+          <div className="mt-2 text-white/60">{lastActionLabel}</div>
+          <div className="mt-1 text-white/60">
+            Requested value: {lastRequestedValue ? "Yes" : "No"}
+          </div>
         </div>
       ) : null}
 
@@ -305,12 +304,23 @@ function StakingCollectionControl({
 
       <TxStatus
         chainSet={chainSet}
-        errorMessage={writeError?.message}
         isError={receipt.isError}
         isLoading={receipt.isLoading}
         isSuccess={receipt.isSuccess}
         txHash={txHash}
       />
+
+      {writeError ? (
+        <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+          {writeError.message}
+        </div>
+      ) : null}
+
+      {readError ? (
+        <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+          Read error: {readError.message}
+        </div>
+      ) : null}
     </article>
   );
 }
@@ -359,15 +369,6 @@ export function AdminStakingRegistryControls({
           Owner-only controls for approving or unapproving NFT collections in
           OiOi Soft Staking.
         </p>
-
-        <div className="mt-5 rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-4">
-          <div className="font-medium text-yellow-100">Operational warning</div>
-          <p className="mt-2 text-sm text-yellow-100/80">
-            Keep ROTY, Melting, and Amanda approved unless there is a clear
-            emergency reason. Always restore <code>approved=true</code> before
-            opening.
-          </p>
-        </div>
       </section>
 
       {collections.map((collection) => (
