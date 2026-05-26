@@ -6,6 +6,7 @@ import { erc20Abi, rewardDistributorAbi } from "@/lib/contracts/abis";
 import { getContractAddresses } from "@/lib/contracts/addresses";
 import { getAddressUrl } from "@/lib/services/explorer";
 import { formatTokenAmount, shortAddress } from "@/lib/utils/format";
+import { ResponsiveHash } from "@/components/app/ResponsiveHash";
 
 function Row({ label, value }: { label: string; value: string }) {
   return (
@@ -109,7 +110,7 @@ export function RewardClaimPlaceholder({ chainSet }: { chainSet: ChainSet }) {
               href={getAddressUrl(chainSet, addresses.rewardDistributor)}
               rel="noreferrer"
               target="_blank">
-              {addresses.rewardDistributor}
+              <ResponsiveHash value={addresses.rewardDistributor} />
             </a>
           </div>
 
@@ -120,7 +121,7 @@ export function RewardClaimPlaceholder({ chainSet }: { chainSet: ChainSet }) {
               href={getAddressUrl(chainSet, addresses.oioi)}
               rel="noreferrer"
               target="_blank">
-              {addresses.oioi}
+              <ResponsiveHash value={addresses.oioi} />
             </a>
           </div>
         </div>

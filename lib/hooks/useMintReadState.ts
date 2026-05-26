@@ -101,6 +101,19 @@ export function useMintReadState(config: CollectionConfig) {
     whitelistClaimed.isLoading ||
     gatedMintEnabled.isLoading;
 
+  const isFetching =
+    totalMinted.isFetching ||
+    remainingSupply.isFetching ||
+    maxSupply.isFetching ||
+    maxMintPerTx.isFetching ||
+    mintPrice.isFetching ||
+    revealed.isFetching ||
+    metadataLocked.isFetching ||
+    whitelistMintEnabled.isFetching ||
+    publicMintEnabled.isFetching ||
+    whitelistClaimed.isFetching ||
+    gatedMintEnabled.isFetching;
+
   const error =
     totalMinted.error ||
     remainingSupply.error ||
@@ -114,9 +127,34 @@ export function useMintReadState(config: CollectionConfig) {
     whitelistClaimed.error ||
     gatedMintEnabled.error;
 
+  function refetch() {
+    void totalMinted.refetch();
+    void remainingSupply.refetch();
+    void maxSupply.refetch();
+    void maxMintPerTx.refetch();
+    void mintPrice.refetch();
+    void revealed.refetch();
+    void metadataLocked.refetch();
+
+    if (config.mintType === "roty") {
+      void whitelistMintEnabled.refetch();
+      void publicMintEnabled.refetch();
+
+      if (address) {
+        void whitelistClaimed.refetch();
+      }
+    }
+
+    if (config.mintType === "gated") {
+      void gatedMintEnabled.refetch();
+    }
+  }
+
   return {
     isLoading,
+    isFetching,
     error,
+    refetch,
     totalMinted: totalMinted.data as bigint | undefined,
     remainingSupply: remainingSupply.data as bigint | undefined,
     maxSupply: maxSupply.data as bigint | undefined,

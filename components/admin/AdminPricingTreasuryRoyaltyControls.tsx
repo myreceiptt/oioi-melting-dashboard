@@ -14,6 +14,7 @@ import { gatedMintAdminAbi, rotyAdminAbi } from "@/lib/contracts/abis";
 import { getContractAddresses } from "@/lib/contracts/addresses";
 import { EXPECTED_ADMIN_OWNER_ADDRESS } from "@/lib/admin/adminContractConfig";
 import { getTxUrl } from "@/lib/services/explorer";
+import { ResponsiveHash } from "@/components/app/ResponsiveHash";
 import { sameAddress } from "@/lib/utils/address";
 import { formatEth, formatNumber, shortAddress } from "@/lib/utils/format";
 
@@ -159,7 +160,7 @@ function TxStatus({
         href={getTxUrl(chainSet, txHash)}
         rel="noreferrer"
         target="_blank">
-        {txHash}
+        <ResponsiveHash value={txHash} />
       </a>
 
       <div className="mt-1 text-white/60">

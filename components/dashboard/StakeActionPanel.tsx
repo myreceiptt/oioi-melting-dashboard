@@ -3,17 +3,33 @@
 import { useEffect, useMemo, useState } from "react";
 import {
   useAccount,
-  useReadContract,
   useWaitForTransactionReceipt,
   useWriteContract,
 } from "wagmi";
 import type { ChainSet } from "@/lib/chains/chainConfig";
 import { erc721SharedAbi, stakingAbi } from "@/lib/contracts/abis";
 import type { CollectionConfig } from "@/lib/contracts/collectionConfig";
+import type { CollectionKey } from "@/lib/contracts/collectionConfig";
 import { getChainCollections } from "@/lib/contracts/collectionConfig";
 import { getTxUrl } from "@/lib/services/explorer";
-import { sameAddress } from "@/lib/utils/address";
 import { formatBool, shortAddress } from "@/lib/utils/format";
+import type { DashboardWalletNft } from "@/lib/dashboard/walletNfts";
+import { ResponsiveHash } from "@/components/app/ResponsiveHash";
+
+type DashboardNftResponse = {
+  ok: boolean;
+  error?: string;
+  cacheStatus?: "hit" | "refresh";
+  cacheTtlSeconds?: number;
+  fetchedAt?: string;
+  nfts?: DashboardWalletNft[];
+};
+
+type LastAction = {
+  action: "stake" | "unstake";
+  tokenId: string;
+  collectionName: string;
+} | null;
 
 function parseTokenId(value: string) {
   const trimmed = value.trim();
@@ -31,61 +47,317 @@ function parseTokenId(value: string) {
   return parsed;
 }
 
+function StatusPill({
+  label,
+  tone = "neutral",
+}: {
+  label: string;
+  tone?: "neutral" | "green" | "yellow" | "blue" | "red";
+}) {
+  const className = {
+    neutral: "border-white/10 bg-white/10 text-white/70",
+    green: "border-green-500/30 bg-green-500/15 text-green-100",
+    yellow: "border-yellow-500/30 bg-yellow-500/15 text-yellow-100",
+    blue: "border-blue-500/30 bg-blue-500/15 text-blue-100",
+    red: "border-red-500/30 bg-red-500/15 text-red-100",
+  }[tone];
+
+  return (
+    <span
+      className={`rounded-full border px-3 py-1 text-xs font-medium ${className}`}>
+      {label}
+    </span>
+  );
+}
+
 function Row({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex items-center justify-between gap-4 border-b border-white/10 py-3 last:border-b-0">
+    <div className="grid min-w-0 gap-2 border-b border-white/10 py-3 last:border-b-0 sm:grid-cols-[180px_1fr]">
       <div className="text-sm text-white/60">{label}</div>
-      <div className="text-right font-mono text-sm">{value}</div>
+      <div className="min-w-0 break-words text-left font-mono text-sm sm:text-right [overflow-wrap:anywhere]">
+        {value}
+      </div>
     </div>
   );
 }
 
-function CollectionStakeCard({ config }: { config: CollectionConfig }) {
-  const { address, isConnected } = useAccount();
-  const [tokenIdInput, setTokenIdInput] = useState("1");
-  const [lastAction, setLastAction] = useState<"stake" | "unstake" | null>(
-    null,
+function getNftStatus(nft: DashboardWalletNft) {
+  if (nft.stakeActive && nft.stakeValid) {
+    return { label: "Staked", tone: "green" as const };
+  }
+
+  if (nft.stakeActive && !nft.stakeValid) {
+    return { label: "Can Unstake", tone: "yellow" as const };
+  }
+
+  if (nft.walletOwnsToken) {
+    return { label: "Owned", tone: "blue" as const };
+  }
+
+  return { label: "History", tone: "neutral" as const };
+}
+
+function getActionState({
+  selectedNft,
+  isConnected,
+  isWritePending,
+  isConfirming,
+}: {
+  selectedNft: DashboardWalletNft | null;
+  isConnected: boolean;
+  isWritePending: boolean;
+  isConfirming: boolean;
+}) {
+  if (!isConnected) {
+    return {
+      action: null,
+      message: "Connect wallet to stake or unstake NFT.",
+      disabled: true,
+    } as const;
+  }
+
+  if (!selectedNft) {
+    return {
+      action: null,
+      message: "Select an NFT first.",
+      disabled: true,
+    } as const;
+  }
+
+  if (isWritePending || isConfirming) {
+    return {
+      action: null,
+      message: "Transaction in progress.",
+      disabled: true,
+    } as const;
+  }
+
+  if (selectedNft.canUnstake) {
+    return {
+      action: "unstake",
+      message: selectedNft.stakeValid
+        ? "This NFT is actively staked. You can unstake it."
+        : "This wallet has an active stake record but no longer owns the NFT. You can clear it by unstaking.",
+      disabled: false,
+    } as const;
+  }
+
+  if (selectedNft.canStake) {
+    return {
+      action: "stake",
+      message: "This wallet owns the NFT and can stake it.",
+      disabled: false,
+    } as const;
+  }
+
+  if (!selectedNft.collectionApproved) {
+    return {
+      action: null,
+      message: "This collection is not approved in the staking registry.",
+      disabled: true,
+    } as const;
+  }
+
+  if (!selectedNft.walletOwnsToken) {
+    return {
+      action: null,
+      message: "This wallet does not currently own this NFT.",
+      disabled: true,
+    } as const;
+  }
+
+  return {
+    action: null,
+    message: "No write action is currently available for this NFT.",
+    disabled: true,
+  } as const;
+}
+
+function NftThumbnail({
+  nft,
+  className = "",
+}: {
+  nft: DashboardWalletNft;
+  className?: string;
+}) {
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      alt={nft.metadata.name}
+      className={`h-full w-full object-cover ${className}`}
+      src={nft.media.thumbnailUrl || nft.media.imageUrl}
+    />
   );
+}
 
-  const tokenId = useMemo(() => parseTokenId(tokenIdInput), [tokenIdInput]);
-  const hasValidTokenId = tokenId !== undefined;
+function NftAsset({
+  nft,
+  className = "",
+}: {
+  nft: DashboardWalletNft;
+  className?: string;
+}) {
+  if (nft.media.assetType === "html") {
+    return (
+      <iframe
+        className={`h-full w-full border-0 bg-white ${className}`}
+        sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+        src={nft.media.assetUrl}
+        title={nft.metadata.name}
+      />
+    );
+  }
 
-  const ownerOf = useReadContract({
-    address: config.contractAddress,
-    abi: erc721SharedAbi,
-    functionName: "ownerOf",
-    args: tokenId ? [tokenId] : undefined,
-    query: {
-      enabled: hasValidTokenId,
-      retry: false,
-    },
-  });
+  if (nft.media.assetType === "video") {
+    return (
+      <video
+        className={`h-full w-full object-cover ${className}`}
+        controls
+        muted
+        playsInline
+        poster={nft.media.thumbnailUrl}
+        src={nft.media.assetUrl}
+      />
+    );
+  }
 
-  const isStakeActive = useReadContract({
-    address: config.stakingAddress,
-    abi: stakingAbi,
-    functionName: "isStakeActive",
-    args:
-      address && tokenId
-        ? [address, config.contractAddress, tokenId]
-        : undefined,
-    query: {
-      enabled: Boolean(address && tokenId),
-    },
-  });
+  if (nft.media.assetType === "audio") {
+    return (
+      <div
+        className={`flex h-full w-full items-center justify-center bg-black/40 p-4 ${className}`}>
+        <audio className="w-full" controls src={nft.media.assetUrl} />
+      </div>
+    );
+  }
 
-  const isStakeValid = useReadContract({
-    address: config.stakingAddress,
-    abi: stakingAbi,
-    functionName: "isStakeValid",
-    args:
-      address && tokenId
-        ? [address, config.contractAddress, tokenId]
-        : undefined,
-    query: {
-      enabled: Boolean(address && tokenId),
-    },
-  });
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      alt={nft.metadata.name}
+      className={`h-full w-full object-cover ${className}`}
+      src={nft.media.assetUrl}
+    />
+  );
+}
+
+function NftModal({
+  nft,
+  onClose,
+}: {
+  nft: DashboardWalletNft;
+  onClose: () => void;
+}) {
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4">
+      <div className="max-h-[90vh] w-full max-w-3xl overflow-auto rounded-3xl border border-white/10 bg-[#111] p-5 shadow-2xl">
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <p className="text-sm uppercase tracking-[0.25em] text-white/40">
+              {nft.collectionName}
+            </p>
+            <h3 className="mt-2 text-2xl font-semibold">{nft.metadata.name}</h3>
+          </div>
+          <button
+            className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5"
+            type="button"
+            onClick={onClose}>
+            Close
+          </button>
+        </div>
+
+        <div className="mt-5 overflow-hidden rounded-2xl border border-white/10 bg-black/30">
+          <div className="aspect-square">
+            <NftAsset nft={nft} />
+          </div>
+        </div>
+
+        {nft.metadata.description ? (
+          <p className="mt-4 text-sm text-white/60">
+            {nft.metadata.description}
+          </p>
+        ) : null}
+      </div>
+    </div>
+  );
+}
+
+function TxStatus({
+  chainSet,
+  txHash,
+  isConfirming,
+  isSuccess,
+}: {
+  chainSet: ChainSet;
+  txHash: `0x${string}` | undefined;
+  isConfirming: boolean;
+  isSuccess: boolean;
+}) {
+  if (!txHash) {
+    return null;
+  }
+
+  return (
+    <div className="mt-4 rounded-2xl border border-white/10 bg-black/20 p-4">
+      <h3 className="font-medium">Transaction status</h3>
+      <a
+        className="mt-2 block break-all font-mono text-sm underline underline-offset-4"
+        href={getTxUrl(chainSet, txHash)}
+        rel="noreferrer"
+        target="_blank">
+        <ResponsiveHash value={txHash} />
+      </a>
+      <p className="mt-2 text-sm text-white/60">
+        {isConfirming
+          ? "Waiting for confirmation..."
+          : isSuccess
+            ? "Mined successfully. Dashboard NFT data will refresh."
+            : "Submitted to wallet."}
+      </p>
+    </div>
+  );
+}
+
+function CollectionStakeCard({
+  config,
+  nfts,
+  loading,
+  refreshError,
+  onRefresh,
+}: {
+  config: CollectionConfig;
+  nfts: DashboardWalletNft[];
+  loading: boolean;
+  refreshError: string | null;
+  onRefresh: (force?: boolean) => Promise<void>;
+}) {
+  const { isConnected } = useAccount();
+  const [selectedTokenId, setSelectedTokenId] = useState<string | null>(null);
+  const [modalNft, setModalNft] = useState<DashboardWalletNft | null>(null);
+  const [manualTokenIdInput, setManualTokenIdInput] = useState("1");
+  const [lastAction, setLastAction] = useState<LastAction>(null);
+
+  const selectedNft = useMemo(() => {
+    if (nfts.length === 0) {
+      return null;
+    }
+
+    const selected = nfts.find((nft) => nft.tokenId === selectedTokenId);
+    return selected ?? nfts[0] ?? null;
+  }, [nfts, selectedTokenId]);
+
+  useEffect(() => {
+    if (!selectedNft) {
+      setSelectedTokenId(null);
+      return;
+    }
+
+    if (
+      !selectedTokenId ||
+      !nfts.some((nft) => nft.tokenId === selectedTokenId)
+    ) {
+      setSelectedTokenId(selectedNft.tokenId);
+    }
+  }, [nfts, selectedNft, selectedTokenId]);
 
   const {
     data: txHash,
@@ -107,238 +379,456 @@ function CollectionStakeCard({ config }: { config: CollectionConfig }) {
       return;
     }
 
-    void ownerOf.refetch();
-    void isStakeActive.refetch();
-    void isStakeValid.refetch();
-  }, [isSuccess, ownerOf, isStakeActive, isStakeValid]);
+    void onRefresh(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSuccess]);
 
-  const ownerAddress = ownerOf.data as string | undefined;
-  const active = isStakeActive.data as boolean | undefined;
-  const valid = isStakeValid.data as boolean | undefined;
+  const actionState = getActionState({
+    selectedNft,
+    isConnected,
+    isWritePending,
+    isConfirming,
+  });
 
-  const connectedWalletOwnsToken =
-    Boolean(address && ownerAddress) &&
-    sameAddress(address as string, ownerAddress as string);
-
-  const stakeDisabledReason = (() => {
-    if (!isConnected || !address) {
-      return "Connect wallet first.";
-    }
-
-    if (!hasValidTokenId) {
-      return "Enter a valid tokenId.";
-    }
-
-    if (ownerOf.isLoading) {
-      return "Checking token owner.";
-    }
-
-    if (ownerOf.error) {
-      return "Token does not exist or owner read failed.";
-    }
-
-    if (!connectedWalletOwnsToken) {
-      return "This wallet does not own this NFT.";
-    }
-
-    if (active) {
-      return "This NFT is already actively staked by this wallet.";
-    }
-
-    if (isWritePending || isConfirming) {
-      return "Transaction in progress.";
-    }
-
-    return null;
-  })();
-
-  const unstakeDisabledReason = (() => {
-    if (!isConnected || !address) {
-      return "Connect wallet first.";
-    }
-
-    if (!hasValidTokenId) {
-      return "Enter a valid tokenId.";
-    }
-
-    if (isStakeActive.isLoading) {
-      return "Checking stake status.";
-    }
-
-    if (!active) {
-      return "This NFT does not have an active stake from this wallet.";
-    }
-
-    if (isWritePending || isConfirming) {
-      return "Transaction in progress.";
-    }
-
-    return null;
-  })();
-
-  function handleStake() {
-    if (stakeDisabledReason || !tokenId) {
+  function handleAction() {
+    if (!selectedNft || actionState.disabled || !actionState.action) {
       return;
     }
 
-    setLastAction("stake");
+    const tokenId = BigInt(selectedNft.tokenId);
+    setLastAction({
+      action: actionState.action,
+      tokenId: selectedNft.tokenId,
+      collectionName: selectedNft.collectionName,
+    });
+
+    writeContract({
+      address: config.stakingAddress,
+      abi: stakingAbi,
+      functionName: actionState.action,
+      args: [config.contractAddress, tokenId],
+    });
+  }
+
+  const manualTokenId = parseTokenId(manualTokenIdInput);
+
+  function handleManualStake() {
+    if (!manualTokenId) {
+      return;
+    }
+
+    setLastAction({
+      action: "stake",
+      tokenId: manualTokenId.toString(),
+      collectionName: config.name,
+    });
 
     writeContract({
       address: config.stakingAddress,
       abi: stakingAbi,
       functionName: "stake",
-      args: [config.contractAddress, tokenId],
+      args: [config.contractAddress, manualTokenId],
     });
   }
 
-  function handleUnstake() {
-    if (unstakeDisabledReason || !tokenId) {
+  function handleManualUnstake() {
+    if (!manualTokenId) {
       return;
     }
 
-    setLastAction("unstake");
+    setLastAction({
+      action: "unstake",
+      tokenId: manualTokenId.toString(),
+      collectionName: config.name,
+    });
 
     writeContract({
       address: config.stakingAddress,
       abi: stakingAbi,
       functionName: "unstake",
-      args: [config.contractAddress, tokenId],
+      args: [config.contractAddress, manualTokenId],
     });
   }
 
   return (
     <article className="rounded-3xl border border-white/10 bg-white/5 p-6">
-      <div>
-        <p className="text-sm uppercase tracking-[0.25em] text-white/40">
-          Symbol: {config.symbol}
-        </p>
-        <h2 className="mt-2 text-2xl font-semibold">{config.name}</h2>
-        <p className="mt-2 text-sm text-white/60">
-          Contract Address:{" "}
-          <span className="mt-2 break-all font-mono text-sm text-white/40">
-            {config.contractAddress}
-          </span>
-        </p>
-      </div>
-
-      <label className="mt-5 grid gap-2">
-        <span className="text-sm text-white/60">Token ID</span>
-        <input
-          className="rounded-xl border border-white/10 bg-black px-4 py-3 text-white outline-none focus:border-white/40"
-          inputMode="numeric"
-          min={1}
-          type="number"
-          value={tokenIdInput}
-          onChange={(event) => setTokenIdInput(event.target.value)}
-        />
-      </label>
-
-      <div className="mt-5 rounded-2xl border border-white/10 bg-white/5 px-4">
-        <Row label="Owner" value={shortAddress(ownerAddress)} />
-        <Row
-          label="Connected wallet owns token"
-          value={formatBool(connectedWalletOwnsToken)}
-        />
-        <Row label="Stake active" value={formatBool(active)} />
-        <Row label="Stake valid" value={formatBool(valid)} />
-      </div>
-
-      {ownerOf.error ? (
-        <div className="mt-4 rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-4 text-sm text-yellow-100">
-          Could not read ownerOf for this tokenId. The token may not exist yet.
+      <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+        <div>
+          <p className="text-sm uppercase tracking-[0.25em] text-white/40">
+            Symbol: {config.symbol}
+          </p>
+          <h2 className="mt-2 text-2xl font-semibold">{config.name}</h2>
+          <p className="mt-2 text-sm text-white/60">
+            Contract Address:{" "}
+            <span className="break-all font-mono text-sm text-white/40">
+              <ResponsiveHash value={config.contractAddress} />
+            </span>
+          </p>
         </div>
-      ) : null}
-
-      <div className="mt-5 grid gap-4 sm:grid-cols-2">
-        <button
-          className="rounded-2xl bg-white px-5 py-3 font-medium text-black hover:bg-white/80 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={Boolean(stakeDisabledReason)}
-          type="button"
-          onClick={handleStake}>
-          {isWritePending && lastAction === "stake"
-            ? "Confirm stake..."
-            : isConfirming && lastAction === "stake"
-              ? "Staking..."
-              : "Stake"}
-        </button>
 
         <button
-          className="rounded-2xl border border-white/10 px-5 py-3 font-medium hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={Boolean(unstakeDisabledReason)}
+          className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
+          disabled={loading}
           type="button"
-          onClick={handleUnstake}>
-          {isWritePending && lastAction === "unstake"
-            ? "Confirm unstake..."
-            : isConfirming && lastAction === "unstake"
-              ? "Unstaking..."
-              : "Unstake"}
+          onClick={() => void onRefresh(true)}>
+          {loading ? "Refreshing..." : "Refresh NFTs"}
         </button>
       </div>
 
-      {stakeDisabledReason ? (
-        <p className="mt-2 text-sm text-white/50">
-          Stake: {stakeDisabledReason}
-        </p>
-      ) : null}
+      <div className="mt-5">
+        {loading && nfts.length === 0 ? (
+          <div className="rounded-2xl border border-white/10 bg-black/20 px-5 py-4 text-sm text-white/60">
+            Loading wallet NFTs...
+          </div>
+        ) : null}
 
-      {unstakeDisabledReason ? (
-        <p className="mt-2 text-sm text-white/50">
-          Unstake: {unstakeDisabledReason}
-        </p>
-      ) : null}
+        {!loading && nfts.length === 0 ? (
+          <div className="rounded-2xl border border-white/10 bg-black/20 px-5 py-4 text-sm text-white/60">
+            No owned or staked NFT found for this collection.
+          </div>
+        ) : null}
 
-      {txHash ? (
-        <div className="mt-5 rounded-2xl border border-white/10 bg-white/5 p-4">
-          <div className="text-sm text-white/60">Transaction</div>
-          <a
-            className="mt-1 block break-all font-mono text-sm underline underline-offset-4"
-            href={getTxUrl(config.chainSet, txHash)}
-            rel="noreferrer"
-            target="_blank">
-            {txHash}
-          </a>
+        {nfts.length > 0 ? (
+          <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
+            {nfts.map((nft) => {
+              const status = getNftStatus(nft);
+              const selected = selectedNft?.tokenId === nft.tokenId;
+
+              return (
+                <div
+                  className={`overflow-hidden rounded-2xl border bg-black/20 text-left transition hover:bg-white/5 ${
+                    selected ? "border-white/50" : "border-white/10"
+                  }`}
+                  key={`${nft.collectionKey}-${nft.tokenId}`}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(event) => {
+                    if (event.key !== "Enter" && event.key !== " ") {
+                      return;
+                    }
+
+                    event.preventDefault();
+                    setSelectedTokenId(nft.tokenId);
+                  }}
+                  onClick={() => setSelectedTokenId(nft.tokenId)}>
+                  <div
+                    className="aspect-square overflow-hidden bg-black/40"
+                    onDoubleClick={() => setModalNft(nft)}>
+                    <NftThumbnail nft={nft} />
+                  </div>
+                  <div className="p-4">
+                    <div className="flex items-center justify-between gap-3">
+                      <div className="truncate font-medium">
+                        {nft.metadata.name}
+                      </div>
+                      <StatusPill label={status.label} tone={status.tone} />
+                    </div>
+                    <div className="mt-2 font-mono text-sm text-white/50">
+                      Token #{nft.tokenId}
+                    </div>
+                    <button
+                      className="mt-3 rounded-xl border border-white/10 px-3 py-2 text-xs text-white/70 hover:bg-white/5"
+                      type="button"
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        setModalNft(nft);
+                      }}>
+                      View asset
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        ) : null}
+      </div>
+
+      {selectedNft ? (
+        <div className="mt-5 grid gap-4 md:grid-cols-4">
+          <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+            <div className="text-xs uppercase tracking-[0.2em] text-white/40">
+              Token ID
+            </div>
+            <div className="mt-2 font-mono text-lg">{selectedNft.tokenId}</div>
+          </div>
+          <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+            <div className="text-xs uppercase tracking-[0.2em] text-white/40">
+              Owner
+            </div>
+            <div className="mt-2 font-mono text-lg">
+              {shortAddress(selectedNft.ownerAddress ?? undefined)}
+            </div>
+          </div>
+          <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+            <div className="text-xs uppercase tracking-[0.2em] text-white/40">
+              Stake Active
+            </div>
+            <div className="mt-2 font-mono text-lg">
+              {formatBool(selectedNft.stakeActive)}
+            </div>
+          </div>
+          <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+            <div className="text-xs uppercase tracking-[0.2em] text-white/40">
+              Stake Valid
+            </div>
+            <div className="mt-2 font-mono text-lg">
+              {formatBool(selectedNft.stakeValid)}
+            </div>
+          </div>
         </div>
       ) : null}
 
-      {isSuccess ? (
-        <div className="mt-5 rounded-2xl border border-green-500/30 bg-green-500/10 p-4 text-green-100">
-          {lastAction === "unstake" ? "Unstake confirmed." : "Stake confirmed."}
+      <div className="mt-5 rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-4 text-yellow-100">
+        <h3 className="font-medium">Next step</h3>
+        <p className="mt-2 text-sm text-yellow-100/80">{actionState.message}</p>
+      </div>
+
+      <button
+        className="mt-4 w-full rounded-2xl border border-green-500/30 bg-green-500/15 px-5 py-4 font-medium text-green-100 hover:bg-green-500/20 disabled:cursor-not-allowed disabled:border-white/10 disabled:bg-white/10 disabled:text-white/50"
+        disabled={actionState.disabled}
+        type="button"
+        onClick={handleAction}>
+        {isWritePending
+          ? "Confirm in wallet..."
+          : isConfirming
+            ? "Waiting for confirmation..."
+            : actionState.action === "unstake"
+              ? "Unstake Selected NFT"
+              : actionState.action === "stake"
+                ? "Stake Selected NFT"
+                : "No write action is currently available for this selection."}
+      </button>
+
+      {lastAction ? (
+        <div className="mt-4 rounded-2xl border border-white/10 bg-black/20 p-4">
+          <h3 className="font-medium">Last requested action</h3>
+          <p className="mt-2 text-sm text-white/60">
+            {lastAction.action === "stake" ? "Stake NFT" : "Unstake NFT"}
+          </p>
+          <p className="mt-1 text-sm text-white/60">
+            Requested value: {lastAction.collectionName} #{lastAction.tokenId}
+          </p>
         </div>
       ) : null}
+
+      <TxStatus
+        chainSet={config.chainSet}
+        isConfirming={isConfirming}
+        isSuccess={isSuccess}
+        txHash={txHash}
+      />
 
       {writeError || receiptError ? (
-        <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4">
+        <div className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 p-4">
           <h3 className="font-medium text-red-100">Transaction failed</h3>
           <p className="mt-2 wrap-break-word text-sm text-red-100/80">
             {(writeError || receiptError)?.message}
           </p>
         </div>
       ) : null}
+
+      {refreshError ? (
+        <div className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 p-4">
+          <h3 className="font-medium text-red-100">NFT refresh failed</h3>
+          <p className="mt-2 wrap-break-word text-sm text-red-100/80">
+            {refreshError}
+          </p>
+        </div>
+      ) : null}
+
+      <details className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4">
+        <summary className="cursor-pointer font-medium">
+          Advanced Diagnostics
+        </summary>
+        <p className="mt-3 text-sm text-white/60">
+          Use this only when NFT discovery is unavailable or a chain read looks
+          wrong.
+        </p>
+
+        <div className="mt-4 rounded-2xl border border-white/10 bg-black/20 px-4">
+          <Row
+            label="Collection approved"
+            value={formatBool(selectedNft?.collectionApproved ?? undefined)}
+          />
+          <Row
+            label="Wallet owns selected NFT"
+            value={formatBool(selectedNft?.walletOwnsToken)}
+          />
+          <Row
+            label="Stake record exists"
+            value={formatBool(selectedNft?.stakeExists)}
+          />
+          <Row label="Can stake" value={formatBool(selectedNft?.canStake)} />
+          <Row
+            label="Can unstake"
+            value={formatBool(selectedNft?.canUnstake)}
+          />
+          <Row
+            label="Source"
+            value={selectedNft ? JSON.stringify(selectedNft.source) : "None"}
+          />
+        </div>
+
+        <div className="mt-4 grid gap-3 md:grid-cols-[1fr_auto_auto]">
+          <input
+            className="rounded-xl border border-white/10 bg-black px-4 py-3 text-white outline-none focus:border-white/40"
+            inputMode="numeric"
+            min={1}
+            type="number"
+            value={manualTokenIdInput}
+            onChange={(event) => setManualTokenIdInput(event.target.value)}
+          />
+          <button
+            className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
+            disabled={!manualTokenId || isWritePending || isConfirming}
+            type="button"
+            onClick={handleManualStake}>
+            Manual Stake
+          </button>
+          <button
+            className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
+            disabled={!manualTokenId || isWritePending || isConfirming}
+            type="button"
+            onClick={handleManualUnstake}>
+            Manual Unstake
+          </button>
+        </div>
+      </details>
+
+      {modalNft ? (
+        <NftModal nft={modalNft} onClose={() => setModalNft(null)} />
+      ) : null}
     </article>
   );
 }
 
-export function StakeActionPanel({ chainSet }: { chainSet: ChainSet }) {
-  const collections = getChainCollections(chainSet);
+export function StakeActionPanel({
+  chainSet,
+  collectionKey,
+}: {
+  chainSet: ChainSet;
+  collectionKey?: CollectionKey;
+}) {
+  const { address, isConnected } = useAccount();
+  const collections = getChainCollections(chainSet).filter((collection) =>
+    collectionKey ? collection.collectionKey === collectionKey : true,
+  );
+  const [nfts, setNfts] = useState<DashboardWalletNft[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [cacheStatus, setCacheStatus] = useState<string | null>(null);
+  const [fetchedAt, setFetchedAt] = useState<string | null>(null);
+
+  async function refreshNfts(force = false) {
+    if (!address) {
+      setNfts([]);
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      const params = new URLSearchParams({
+        chain: chainSet,
+        account: address,
+      });
+
+      if (force) {
+        params.set("refresh", "1");
+      }
+
+      const response = await fetch(
+        `/api/dashboard/wallet-nfts?${params.toString()}`,
+        {
+          cache: "no-store",
+        },
+      );
+      const data = (await response.json()) as DashboardNftResponse;
+
+      if (!response.ok || !data.ok) {
+        throw new Error(data.error || "Failed to load dashboard NFTs.");
+      }
+
+      setNfts(data.nfts ?? []);
+      setCacheStatus(data.cacheStatus ?? null);
+      setFetchedAt(data.fetchedAt ?? null);
+    } catch (fetchError) {
+      setError(
+        fetchError instanceof Error
+          ? fetchError.message
+          : "Unexpected dashboard NFT refresh error.",
+      );
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    void refreshNfts(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [address, chainSet]);
+
+  const nftsByCollection = useMemo(() => {
+    const grouped = new Map<string, DashboardWalletNft[]>();
+
+    for (const nft of nfts) {
+      const existing = grouped.get(nft.collectionKey) ?? [];
+      existing.push(nft);
+      grouped.set(nft.collectionKey, existing);
+    }
+
+    return grouped;
+  }, [nfts]);
 
   return (
     <section className="grid gap-5">
       <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
-        <p className="text-sm uppercase tracking-[0.25em] text-white/50">
-          Soft Staking
-        </p>
-        <h2 className="mt-2 text-2xl font-semibold">Stake / Unstake NFT</h2>
-        <p className="mt-2 text-sm text-white/60">
-          Enter a token ID manually. Owned NFT discovery available with our
-          built-in indexer. Your NFT stays in your wallet; soft staking records
-          your staking intent.
-        </p>
+        <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+          <div>
+            <p className="text-sm uppercase tracking-[0.25em] text-white/50">
+              Soft Staking
+            </p>
+            <h2 className="mt-2 text-2xl font-semibold">Stake / Unstake NFT</h2>
+            <p className="mt-2 max-w-3xl text-sm text-white/60">
+              Select an owned or previously staked NFT. The list is refreshed
+              from Alchemy, checked against on-chain staking state, and cached
+              for a short period.
+            </p>
+          </div>
+
+          {/* <button
+            className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
+            disabled={!isConnected || loading}
+            type="button"
+            onClick={() => void refreshNfts(true)}>
+            {loading ? "Refreshing..." : "Refresh NFTs"}
+          </button> */}
+        </div>
+
+        {!isConnected ? (
+          <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm text-white/60">
+            Connect wallet to discover owned and staked NFTs.
+          </div>
+        ) : null}
+
+        {isConnected ? (
+          <div className="mt-5 flex flex-wrap gap-2 text-sm text-white/60">
+            <StatusPill label={`Cache: ${cacheStatus ?? "none"}`} />
+            <StatusPill label={`NFTs: ${nfts.length}`} tone="blue" />
+            {fetchedAt ? <StatusPill label={`Fetched: ${fetchedAt}`} /> : null}
+          </div>
+        ) : null}
       </section>
 
       {collections.map((collection) => (
         <CollectionStakeCard
           config={collection}
           key={collection.contractAddress}
+          loading={loading}
+          nfts={nftsByCollection.get(collection.collectionKey) ?? []}
+          refreshError={error}
+          onRefresh={refreshNfts}
         />
       ))}
     </section>

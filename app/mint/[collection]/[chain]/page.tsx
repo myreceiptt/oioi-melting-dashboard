@@ -4,6 +4,8 @@ import { ChainGuard } from "@/components/wallet/ChainGuard";
 import { GatedMintPanel } from "@/components/mint/GatedMintPanel";
 import { MintStatusCard } from "@/components/mint/MintStatusCard";
 import { RotyMintPanel } from "@/components/mint/RotyMintPanel";
+import { ResponsiveHash } from "@/components/app/ResponsiveHash";
+import { StakeActionPanel } from "@/components/dashboard/StakeActionPanel";
 import {
   getCollectionConfig,
   type CollectionKey,
@@ -64,7 +66,7 @@ export default async function MintPage({
           <p className="mt-4 max-w-3xl text-white/60">
             Contract Address:{" "}
             <span className="mt-4 break-all font-mono text-sm text-white/40">
-              {config.contractAddress}
+              <ResponsiveHash value={config.contractAddress} />
             </span>
           </p>
         </div>
@@ -82,6 +84,7 @@ export default async function MintPage({
             <GatedMintPanel config={config} />
           )}
         </section>
+        <StakeActionPanel chainSet={chain} collectionKey={collection} />
       </ChainGuard>
     </main>
   );

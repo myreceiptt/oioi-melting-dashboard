@@ -5,6 +5,7 @@ import type { ChainSet } from "@/lib/chains/chainConfig";
 import { getChainCollections } from "@/lib/contracts/collectionConfig";
 import { stakingAbi } from "@/lib/contracts/abis";
 import { formatBool } from "@/lib/utils/format";
+import { ResponsiveHash } from "@/components/app/ResponsiveHash";
 
 function StatusPill({ value }: { value: boolean | undefined }) {
   return (
@@ -60,7 +61,7 @@ function CollectionStakeSummary({
         </button>
       </div>
       <div className="mt-2 break-all font-mono text-xs text-white/40">
-        {collectionAddress}
+        <ResponsiveHash value={collectionAddress} />
       </div>
       <div className="mt-4 grid gap-2 text-sm">
         <div className="flex items-center justify-between gap-4">

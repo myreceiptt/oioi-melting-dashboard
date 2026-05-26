@@ -1,6 +1,7 @@
 "use client";
 
 import type { CollectionConfig } from "@/lib/contracts/collectionConfig";
+import { ResponsiveHash } from "@/components/app/ResponsiveHash";
 import { useGatedEligibility } from "@/lib/hooks/useGatedEligibility";
 import { useMintReadState } from "@/lib/hooks/useMintReadState";
 import { formatBool, formatEth, formatNumber } from "@/lib/utils/format";
@@ -17,6 +18,17 @@ function Row({ label, value }: { label: string; value: string }) {
 export function MintStatusCard({ config }: { config: CollectionConfig }) {
   const mintState = useMintReadState(config);
   const eligibility = useGatedEligibility(config);
+  const isRefreshing =
+    mintState.isFetching ||
+    (config.mintType === "gated" && eligibility.isFetching);
+
+  function handleRefresh() {
+    mintState.refetch();
+
+    if (config.mintType === "gated") {
+      void eligibility.refetch();
+    }
+  }
 
   if (mintState.error) {
     return (
@@ -43,17 +55,26 @@ export function MintStatusCard({ config }: { config: CollectionConfig }) {
       </section>
 
       <article className="rounded-3xl border border-white/10 bg-white/5 p-6">
-        <div>
-          <p className="text-sm uppercase tracking-[0.25em] text-white/40">
-            Live Contract State
-          </p>
-          <h2 className="mt-2 text-2xl font-semibold">{config.name}</h2>
-          <p className="mt-2 text-sm text-white/60">
-            Contract Address:{" "}
-            <span className="break-all font-mono text-sm text-white/40">
-              {config.contractAddress}
-            </span>
-          </p>
+        <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+          <div>
+            <p className="text-sm uppercase tracking-[0.25em] text-white/40">
+              Live Contract State
+            </p>
+            <h2 className="mt-2 text-2xl font-semibold">{config.name}</h2>
+            <p className="mt-2 text-sm text-white/60">
+              Contract Address:{" "}
+              <span className="break-all font-mono text-sm text-white/40">
+                <ResponsiveHash value={config.contractAddress} />
+              </span>
+            </p>
+          </div>
+          <button
+            className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
+            disabled={isRefreshing}
+            type="button"
+            onClick={handleRefresh}>
+            {isRefreshing ? "Refreshing..." : "Refresh"}
+          </button>
         </div>
 
         {mintState.isLoading ? (

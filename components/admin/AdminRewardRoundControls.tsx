@@ -14,6 +14,7 @@ import { erc20Abi, rewardDistributorAdminAbi } from "@/lib/contracts/abis";
 import { getContractAddresses } from "@/lib/contracts/addresses";
 import { EXPECTED_ADMIN_OWNER_ADDRESS } from "@/lib/admin/adminContractConfig";
 import { getTxUrl } from "@/lib/services/explorer";
+import { ResponsiveHash } from "@/components/app/ResponsiveHash";
 import { sameAddress } from "@/lib/utils/address";
 import {
   formatBool,
@@ -459,7 +460,7 @@ function TxStatus({
         href={getTxUrl(chainSet, txHash)}
         rel="noreferrer"
         target="_blank">
-        {txHash}
+        <ResponsiveHash value={txHash} />
       </a>
 
       <div className="mt-2 text-white/60">
@@ -1884,7 +1885,11 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
                 Merkle root
               </div>
               <div className="mt-2 break-all font-mono text-sm">
-                {selectedSupabaseRound.merkle_root ?? "Not generated"}
+                {selectedSupabaseRound.merkle_root ? (
+                  <ResponsiveHash value={selectedSupabaseRound.merkle_root} />
+                ) : (
+                  "Not generated"
+                )}
               </div>
             </div>
           </>
