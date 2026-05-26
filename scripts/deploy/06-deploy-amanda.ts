@@ -104,7 +104,10 @@ async function main() {
 
   record.contracts.amanda = amanda.address;
 
-  writeDeploymentRecord(config.deploymentOutputDir, touchDeploymentRecord(record));
+  writeDeploymentRecord(
+    config.deploymentOutputDir,
+    touchDeploymentRecord(record),
+  );
 }
 
 main().catch((error) => {

@@ -78,7 +78,10 @@ async function main() {
     amandaApprovedInStaking: true,
   };
 
-  writeDeploymentRecord(config.deploymentOutputDir, touchDeploymentRecord(record));
+  writeDeploymentRecord(
+    config.deploymentOutputDir,
+    touchDeploymentRecord(record),
+  );
 }
 
 main().catch((error) => {

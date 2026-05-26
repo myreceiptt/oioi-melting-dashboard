@@ -73,8 +73,7 @@ function TxStatus({
         className="mt-2 block break-all font-mono underline underline-offset-4"
         href={getTxUrl(chainSet, txHash)}
         rel="noreferrer"
-        target="_blank"
-      >
+        target="_blank">
         {txHash}
       </a>
       <div className="mt-1 text-white/60">
@@ -225,8 +224,7 @@ function StakingCollectionControl({
           className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={isRefreshing}
           onClick={refetchReads}
-          type="button"
-        >
+          type="button">
           {isRefreshing ? "Refreshing..." : `Approved: ${formatBool(approved)}`}
         </button>
       </div>
@@ -271,8 +269,7 @@ function StakingCollectionControl({
           className="rounded-2xl border border-green-500/30 bg-green-500/10 px-5 py-3 font-medium text-green-100 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={actionDisabledBase || approved === true}
           onClick={() => void setCollectionApproved(true)}
-          type="button"
-        >
+          type="button">
           Approve Collection
         </button>
 
@@ -280,8 +277,7 @@ function StakingCollectionControl({
           className="rounded-2xl border border-red-500/30 bg-red-500/10 px-5 py-3 font-medium text-red-100 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={actionDisabledBase || approved === false}
           onClick={() => void setCollectionApproved(false)}
-          type="button"
-        >
+          type="button">
           Unapprove Collection
         </button>
       </div>

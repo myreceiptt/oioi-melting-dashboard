@@ -73,9 +73,7 @@ async function main() {
   });
 
   // 2. Deploy staking.
-  const staking = await viem.deployContract("OiOiSoftStaking", [
-    initialOwner,
-  ]);
+  const staking = await viem.deployContract("OiOiSoftStaking", [initialOwner]);
 
   console.log("OiOiSoftStaking deployed.", {
     address: staking.address,
@@ -232,7 +230,10 @@ async function main() {
   record.registrations.meltingApprovedInStaking = true;
   record.registrations.amandaApprovedInStaking = true;
 
-  writeDeploymentRecord(config.deploymentOutputDir, touchDeploymentRecord(record));
+  writeDeploymentRecord(
+    config.deploymentOutputDir,
+    touchDeploymentRecord(record),
+  );
 
   console.log("Full local smoke deployment complete.");
 }

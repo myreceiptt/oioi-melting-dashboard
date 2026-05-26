@@ -6,33 +6,37 @@ import type {
   IndexerNetworkKey,
 } from "./types.js";
 
-export const INDEXER_NETWORKS: Record<IndexerNetworkKey, IndexerNetworkConfig> = {
-  baseSepolia: {
-    key: "baseSepolia",
-    label: "Base Sepolia",
-    chainId: 84532,
-    deploymentRecordPath: path.join(
-      process.cwd(),
-      "deployments/base-sepolia/deployment.json",
-    ),
-    outputDir: path.join(process.cwd(), "scripts/indexer/output/base-sepolia"),
-    rpcEnv: "BASE_SEPOLIA_RPC_URL",
-  },
-  ethereumSepolia: {
-    key: "ethereumSepolia",
-    label: "Ethereum Sepolia",
-    chainId: 11155111,
-    deploymentRecordPath: path.join(
-      process.cwd(),
-      "deployments/ethereum-sepolia/deployment.json",
-    ),
-    outputDir: path.join(
-      process.cwd(),
-      "scripts/indexer/output/ethereum-sepolia",
-    ),
-    rpcEnv: "ETHEREUM_SEPOLIA_RPC_URL",
-  },
-};
+export const INDEXER_NETWORKS: Record<IndexerNetworkKey, IndexerNetworkConfig> =
+  {
+    baseSepolia: {
+      key: "baseSepolia",
+      label: "Base Sepolia",
+      chainId: 84532,
+      deploymentRecordPath: path.join(
+        process.cwd(),
+        "deployments/base-sepolia/deployment.json",
+      ),
+      outputDir: path.join(
+        process.cwd(),
+        "scripts/indexer/output/base-sepolia",
+      ),
+      rpcEnv: "BASE_SEPOLIA_RPC_URL",
+    },
+    ethereumSepolia: {
+      key: "ethereumSepolia",
+      label: "Ethereum Sepolia",
+      chainId: 11155111,
+      deploymentRecordPath: path.join(
+        process.cwd(),
+        "deployments/ethereum-sepolia/deployment.json",
+      ),
+      outputDir: path.join(
+        process.cwd(),
+        "scripts/indexer/output/ethereum-sepolia",
+      ),
+      rpcEnv: "ETHEREUM_SEPOLIA_RPC_URL",
+    },
+  };
 
 export function getIndexerNetworkConfig(
   networkKey: string | undefined,

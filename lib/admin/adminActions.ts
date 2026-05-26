@@ -454,7 +454,8 @@ export const rewardDistributorReadActions: AdminAction[] = [
     key: "excessRewardTokenBalance",
     label: "Excess reward token balance",
     functionName: "excessRewardTokenBalance",
-    description: "Read reward token balance not allocated to active claim obligations.",
+    description:
+      "Read reward token balance not allocated to active claim obligations.",
   }),
   readAction({
     key: "getRewardRound",
@@ -482,7 +483,8 @@ export const rewardDistributorWriteActions: AdminAction[] = [
     label: "Create reward round",
     functionName: "createRewardRound",
     risk: "high",
-    description: "Create a reward round with period, reward amount, and Merkle root.",
+    description:
+      "Create a reward round with period, reward amount, and Merkle root.",
     warning:
       "Confirm period, total allocation amount, and Merkle root match the reward calculator output.",
   }),

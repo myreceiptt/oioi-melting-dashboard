@@ -51,6 +51,7 @@ export function useGatedEligibility(config: CollectionConfig) {
     isLoading: amandaEligibility.isLoading,
     error: amandaEligibility.error,
     eligible: amandaEligibility.data as boolean | undefined,
-    reason: "Amanda requires a valid ROTY or Melting soft stake on the same chain.",
+    reason:
+      "Amanda requires a valid ROTY or Melting soft stake on the same chain.",
   };
 }

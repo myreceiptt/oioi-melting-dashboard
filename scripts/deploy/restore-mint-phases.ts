@@ -26,12 +26,23 @@ async function main() {
   const expectedDeployer = getAddress(DEPLOYER_ADDRESS);
 
   if (deployerAddress !== expectedDeployer) {
-    throw new Error(`Wrong deployer. Got ${deployerAddress}, expected ${expectedDeployer}`);
+    throw new Error(
+      `Wrong deployer. Got ${deployerAddress}, expected ${expectedDeployer}`,
+    );
   }
 
-  const roty = await viem.getContractAt("TheRotyMemorial", record.contracts.roty);
-  const melting = await viem.getContractAt("MeltingMemorial", record.contracts.melting);
-  const amanda = await viem.getContractAt("AmandaMemorial", record.contracts.amanda);
+  const roty = await viem.getContractAt(
+    "TheRotyMemorial",
+    record.contracts.roty,
+  );
+  const melting = await viem.getContractAt(
+    "MeltingMemorial",
+    record.contracts.melting,
+  );
+  const amanda = await viem.getContractAt(
+    "AmandaMemorial",
+    record.contracts.amanda,
+  );
 
   async function waitForTx(hash: `0x${string}`, label: string) {
     const receipt = await publicClient.waitForTransactionReceipt({ hash });

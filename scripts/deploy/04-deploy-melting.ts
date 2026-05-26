@@ -98,7 +98,10 @@ async function main() {
 
   record.contracts.melting = melting.address;
 
-  writeDeploymentRecord(config.deploymentOutputDir, touchDeploymentRecord(record));
+  writeDeploymentRecord(
+    config.deploymentOutputDir,
+    touchDeploymentRecord(record),
+  );
 }
 
 main().catch((error) => {

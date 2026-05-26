@@ -149,8 +149,7 @@ function PhaseControlCard({
           className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={phaseState.isFetching}
           onClick={() => void phaseState.refetch()}
-          type="button"
-        >
+          type="button">
           {phaseState.isFetching
             ? "Refreshing..."
             : `Current: ${formatBool(currentValue)}`}
@@ -195,8 +194,7 @@ function PhaseControlCard({
           className="rounded-2xl border border-green-500/30 bg-green-500/10 px-5 py-3 font-medium text-green-100 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={actionDisabled || currentValue === true}
           onClick={() => void requestPhaseChange(true)}
-          type="button"
-        >
+          type="button">
           Enable
         </button>
 
@@ -204,8 +202,7 @@ function PhaseControlCard({
           className="rounded-2xl border border-red-500/30 bg-red-500/10 px-5 py-3 font-medium text-red-100 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={actionDisabled || currentValue === false}
           onClick={() => void requestPhaseChange(false)}
-          type="button"
-        >
+          type="button">
           Disable
         </button>
       </div>
@@ -233,8 +230,7 @@ function PhaseControlCard({
             className="mt-2 block break-all font-mono underline underline-offset-4"
             href={getTxUrl(chainSet, txHash)}
             rel="noreferrer"
-            target="_blank"
-          >
+            target="_blank">
             {txHash}
           </a>
           <div className="mt-1 text-white/60">
