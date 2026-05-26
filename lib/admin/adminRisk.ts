@@ -1,4 +1,7 @@
-import type { AdminConfirmationType, AdminRiskLevel } from "@/lib/admin/adminTypes";
+import type {
+  AdminConfirmationType,
+  AdminRiskLevel,
+} from "@/lib/admin/adminTypes";
 
 export const adminRiskLabels: Record<AdminRiskLevel, string> = {
   info: "Info",

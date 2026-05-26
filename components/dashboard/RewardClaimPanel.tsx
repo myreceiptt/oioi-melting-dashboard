@@ -13,6 +13,7 @@ import {
 import type { ChainSet } from "@/lib/chains/chainConfig";
 import { getContractAddresses } from "@/lib/contracts/addresses";
 import { getTxUrl } from "@/lib/services/explorer";
+import { ResponsiveHash } from "@/components/app/ResponsiveHash";
 import {
   formatBool,
   formatTokenAmount,
@@ -269,7 +270,7 @@ function TxStatus({
         href={getTxUrl(chainSet, txHash)}
         rel="noreferrer"
         target="_blank">
-        {txHash}
+        <ResponsiveHash value={txHash} />
       </a>
 
       <div className="mt-2 text-white/60">
@@ -812,9 +813,13 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
                 Merkle root
               </div>
               <div className="mt-2 break-all font-mono text-sm">
-                {proofData?.ok
-                  ? proofData.round.merkleRoot
-                  : selectedRound.merkleRoot}
+                <ResponsiveHash
+                  value={
+                    proofData?.ok
+                      ? proofData.round.merkleRoot
+                      : selectedRound.merkleRoot
+                  }
+                />
               </div>
             </div>
           </>

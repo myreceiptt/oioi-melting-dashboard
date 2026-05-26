@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useAccount, useConnect, useDisconnect } from "wagmi";
+import { ResponsiveHash } from "@/components/app/ResponsiveHash";
 
 export function ConnectWalletButton() {
   const [open, setOpen] = useState(false);
@@ -13,7 +14,9 @@ export function ConnectWalletButton() {
     return (
       <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
         <div className="text-sm text-white/60">Connected wallet</div>
-        <div className="mt-1 font-mono text-sm">{address}</div>
+        <div className="mt-1 font-mono text-sm">
+          <ResponsiveHash value={address} />
+        </div>
         <div className="mt-1 text-sm text-white/60">
           Chain: {chain?.name ?? "Unknown"}
         </div>

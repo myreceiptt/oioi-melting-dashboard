@@ -11,6 +11,7 @@ import { rotyAbi } from "@/lib/contracts/abis";
 import { useMintReadState } from "@/lib/hooks/useMintReadState";
 import { useRotyWhitelistProof } from "@/lib/hooks/useRotyWhitelistProof";
 import { getTxUrl } from "@/lib/services/explorer";
+import { ResponsiveHash } from "@/components/app/ResponsiveHash";
 import { formatEth, formatNumber } from "@/lib/utils/format";
 
 function clampQuantity(value: number, max: number) {
@@ -72,6 +73,7 @@ export function RotyMintPanel({ config }: { config: CollectionConfig }) {
   const whitelistEligible = whitelistProof.data?.eligible === true;
   const whitelistAlreadyClaimed = mintState.whitelistClaimed === true;
   const hasMintPrice = mintState.mintPrice !== undefined;
+  const isRefreshing = mintState.isFetching || whitelistProof.isFetching;
 
   const publicDisabledReason = (() => {
     if (!isConnected || !address) {
@@ -180,17 +182,34 @@ export function RotyMintPanel({ config }: { config: CollectionConfig }) {
     });
   }
 
+  function handleRefresh() {
+    mintState.refetch();
+
+    if (address) {
+      void whitelistProof.refetch();
+    }
+  }
+
   return (
     <article className="rounded-3xl border border-white/10 bg-white/5 p-6">
-      <div>
-        <p className="text-sm uppercase tracking-[0.25em] text-white/40">
-          NFT Mint Form
-        </p>
-        <h2 className="mt-2 text-2xl font-semibold">{config.name}</h2>
-        <p className="mt-2 text-sm text-white/60">
-          The connected wallet is your identity. Use the same wallet to mint,
-          stake, and claim.
-        </p>
+      <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+        <div>
+          <p className="text-sm uppercase tracking-[0.25em] text-white/40">
+            NFT Mint Form
+          </p>
+          <h2 className="mt-2 text-2xl font-semibold">{config.name}</h2>
+          <p className="mt-2 text-sm text-white/60">
+            The connected wallet is your identity. Use the same wallet to mint,
+            stake, and claim.
+          </p>
+        </div>
+        <button
+          className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
+          disabled={isRefreshing}
+          type="button"
+          onClick={handleRefresh}>
+          {isRefreshing ? "Refreshing..." : "Refresh"}
+        </button>
       </div>
 
       <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 px-4">
@@ -315,7 +334,7 @@ export function RotyMintPanel({ config }: { config: CollectionConfig }) {
             href={getTxUrl(config.chainSet, txHash)}
             rel="noreferrer"
             target="_blank">
-            {txHash}
+            <ResponsiveHash value={txHash} />
           </a>
         </div>
       ) : null}

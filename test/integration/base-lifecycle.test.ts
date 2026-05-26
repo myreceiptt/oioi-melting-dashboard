@@ -84,7 +84,10 @@ describe("Base lifecycle integration", function () {
       sameAddress(await roty.read.ownerOf([1n]), user.account.address),
       true,
     );
-    assert.equal(await roty.read.whitelistClaimed([user.account.address]), true);
+    assert.equal(
+      await roty.read.whitelistClaimed([user.account.address]),
+      true,
+    );
 
     // 3. Deploy staking and register ROTY.
     const staking = await viem.deployContract("OiOiSoftStaking", [
@@ -98,7 +101,10 @@ describe("Base lifecycle integration", function () {
       account: user.account,
     });
 
-    assert.equal(await staking.read.hasValidStake([user.account.address, roty.address]), true);
+    assert.equal(
+      await staking.read.hasValidStake([user.account.address, roty.address]),
+      true,
+    );
 
     // 5. Deploy Melting with ROTY stake requirement.
     const melting = await viem.deployContract("MeltingMemorial", [
@@ -148,7 +154,10 @@ describe("Base lifecycle integration", function () {
       account: user.account,
     });
 
-    assert.equal(await staking.read.hasValidStake([user.account.address, melting.address]), true);
+    assert.equal(
+      await staking.read.hasValidStake([user.account.address, melting.address]),
+      true,
+    );
 
     // 8. Deploy Amanda with ROTY or Melting stake requirement.
     const amanda = await viem.deployContract("AmandaMemorial", [
@@ -199,7 +208,10 @@ describe("Base lifecycle integration", function () {
       account: user.account,
     });
 
-    assert.equal(await staking.read.hasValidStake([user.account.address, amanda.address]), true);
+    assert.equal(
+      await staking.read.hasValidStake([user.account.address, amanda.address]),
+      true,
+    );
 
     // 11. Deploy $OiOi mock token and reward distributor.
     const oioi = await viem.deployContract("MockERC20", [
@@ -250,15 +262,27 @@ describe("Base lifecycle integration", function () {
     ])) as bigint;
 
     assert.equal(userRewardAfter - userRewardBefore, USER_REWARD_AMOUNT);
-    assert.equal(await distributor.read.hasClaimed([ROUND_ID, user.account.address]), true);
+    assert.equal(
+      await distributor.read.hasClaimed([ROUND_ID, user.account.address]),
+      true,
+    );
 
     // 13. Final sanity checks.
     assert.equal(await roty.read.totalMinted(), 1n);
     assert.equal(await melting.read.totalMinted(), 1n);
     assert.equal(await amanda.read.totalMinted(), 1n);
 
-    assert.equal(await staking.read.hasValidStake([user.account.address, roty.address]), true);
-    assert.equal(await staking.read.hasValidStake([user.account.address, melting.address]), true);
-    assert.equal(await staking.read.hasValidStake([user.account.address, amanda.address]), true);
+    assert.equal(
+      await staking.read.hasValidStake([user.account.address, roty.address]),
+      true,
+    );
+    assert.equal(
+      await staking.read.hasValidStake([user.account.address, melting.address]),
+      true,
+    );
+    assert.equal(
+      await staking.read.hasValidStake([user.account.address, amanda.address]),
+      true,
+    );
   });
 });

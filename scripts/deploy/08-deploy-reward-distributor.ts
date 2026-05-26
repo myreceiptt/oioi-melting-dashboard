@@ -86,7 +86,10 @@ async function main() {
   record.contracts.rewardDistributor = rewardDistributor.address;
   record.tokens.oioi = config.oioiTokenAddress;
 
-  writeDeploymentRecord(config.deploymentOutputDir, touchDeploymentRecord(record));
+  writeDeploymentRecord(
+    config.deploymentOutputDir,
+    touchDeploymentRecord(record),
+  );
 }
 
 main().catch((error) => {

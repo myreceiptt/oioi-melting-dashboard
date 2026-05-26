@@ -1,5 +1,10 @@
 import { network } from "hardhat";
-import { getAddress, parseEther, type Address, type TransactionReceipt } from "viem";
+import {
+  getAddress,
+  parseEther,
+  type Address,
+  type TransactionReceipt,
+} from "viem";
 
 import { DEPLOYER_ADDRESS, getDeployConfig } from "./00-config.js";
 import { readDeploymentRecord } from "./deployment-state.js";
@@ -25,7 +30,10 @@ async function main() {
   const { viem } = connection;
   const publicClient = await viem.getPublicClient();
 
-  async function waitForTx(hash: `0x${string}`, label: string): Promise<TransactionReceipt> {
+  async function waitForTx(
+    hash: `0x${string}`,
+    label: string,
+  ): Promise<TransactionReceipt> {
     const receipt = await publicClient.waitForTransactionReceipt({
       hash,
       confirmations: 2,
@@ -45,7 +53,10 @@ async function main() {
     return receipt;
   }
 
-  async function waitForCondition(label: string, check: () => Promise<boolean>) {
+  async function waitForCondition(
+    label: string,
+    check: () => Promise<boolean>,
+  ) {
     for (let attempt = 1; attempt <= STATE_RETRY_ATTEMPTS; attempt++) {
       if (await check()) {
         console.log(`${label} confirmed.`, { attempt });
@@ -66,7 +77,9 @@ async function main() {
   const networkName = connection.networkName;
 
   if (networkName !== "ethereumSepolia") {
-    throw new Error(`This script is only for ethereumSepolia. Got: ${networkName}`);
+    throw new Error(
+      `This script is only for ethereumSepolia. Got: ${networkName}`,
+    );
   }
 
   const config = getDeployConfig(networkName);
@@ -87,7 +100,9 @@ async function main() {
   const expectedDeployer = getAddress(DEPLOYER_ADDRESS);
 
   if (deployerAddress !== expectedDeployer) {
-    throw new Error(`Wrong deployer. Got ${deployerAddress}, expected ${expectedDeployer}`);
+    throw new Error(
+      `Wrong deployer. Got ${deployerAddress}, expected ${expectedDeployer}`,
+    );
   }
 
   console.log("Running Ethereum Sepolia functional test...");
@@ -97,10 +112,22 @@ async function main() {
     oioi: record.tokens.oioi,
   });
 
-  const roty = await viem.getContractAt("TheRotyMemorial", record.contracts.roty);
-  const staking = await viem.getContractAt("OiOiSoftStaking", record.contracts.staking);
-  const melting = await viem.getContractAt("MeltingMemorial", record.contracts.melting);
-  const amanda = await viem.getContractAt("AmandaMemorial", record.contracts.amanda);
+  const roty = await viem.getContractAt(
+    "TheRotyMemorial",
+    record.contracts.roty,
+  );
+  const staking = await viem.getContractAt(
+    "OiOiSoftStaking",
+    record.contracts.staking,
+  );
+  const melting = await viem.getContractAt(
+    "MeltingMemorial",
+    record.contracts.melting,
+  );
+  const amanda = await viem.getContractAt(
+    "AmandaMemorial",
+    record.contracts.amanda,
+  );
   const distributor = await viem.getContractAt(
     "OiOiRewardDistributor",
     record.contracts.rewardDistributor,
@@ -123,9 +150,12 @@ async function main() {
     throw new Error("Deployer is not RewardDistributor owner.");
   }
 
-  const initialRotyPublicMintEnabled = (await roty.read.publicMintEnabled()) as boolean;
-  const initialMeltingGatedMintEnabled = (await melting.read.gatedMintEnabled()) as boolean;
-  const initialAmandaGatedMintEnabled = (await amanda.read.gatedMintEnabled()) as boolean;
+  const initialRotyPublicMintEnabled =
+    (await roty.read.publicMintEnabled()) as boolean;
+  const initialMeltingGatedMintEnabled =
+    (await melting.read.gatedMintEnabled()) as boolean;
+  const initialAmandaGatedMintEnabled =
+    (await amanda.read.gatedMintEnabled()) as boolean;
 
   const rotyPrice = (await roty.read.mintPrice()) as bigint;
   const meltingPrice = (await melting.read.mintPrice()) as bigint;
@@ -153,21 +183,26 @@ async function main() {
 
     console.log("ROTY minted.", { rotyTokenId: rotyTokenId.toString() });
 
-    await waitForCondition(
-      "ROTY ownerOf minted token",
-      async () => sameAddress(await roty.read.ownerOf([rotyTokenId]), deployerAddress),
+    await waitForCondition("ROTY ownerOf minted token", async () =>
+      sameAddress(await roty.read.ownerOf([rotyTokenId]), deployerAddress),
     );
 
     console.log("Staking ROTY...");
-    const rotyStakeTx = await staking.write.stake([record.contracts.roty, rotyTokenId], {
-      account: deployer.account,
-    });
+    const rotyStakeTx = await staking.write.stake(
+      [record.contracts.roty, rotyTokenId],
+      {
+        account: deployer.account,
+      },
+    );
     await waitForTx(rotyStakeTx, "ROTY stake");
 
     await waitForCondition(
       "ROTY stake valid",
       async () =>
-        (await staking.read.hasValidStake([deployerAddress, record.contracts.roty])) === true,
+        (await staking.read.hasValidStake([
+          deployerAddress,
+          record.contracts.roty,
+        ])) === true,
     );
 
     console.log("ROTY stake valid.");
@@ -191,23 +226,33 @@ async function main() {
     });
     await waitForTx(meltingMintTx, "Melting mint");
 
-    console.log("Melting minted.", { meltingTokenId: meltingTokenId.toString() });
+    console.log("Melting minted.", {
+      meltingTokenId: meltingTokenId.toString(),
+    });
 
-    await waitForCondition(
-      "Melting ownerOf minted token",
-      async () => sameAddress(await melting.read.ownerOf([meltingTokenId]), deployerAddress),
+    await waitForCondition("Melting ownerOf minted token", async () =>
+      sameAddress(
+        await melting.read.ownerOf([meltingTokenId]),
+        deployerAddress,
+      ),
     );
 
     console.log("Staking Melting...");
-    const meltingStakeTx = await staking.write.stake([record.contracts.melting, meltingTokenId], {
-      account: deployer.account,
-    });
+    const meltingStakeTx = await staking.write.stake(
+      [record.contracts.melting, meltingTokenId],
+      {
+        account: deployer.account,
+      },
+    );
     await waitForTx(meltingStakeTx, "Melting stake");
 
     await waitForCondition(
       "Melting stake valid",
       async () =>
-        (await staking.read.hasValidStake([deployerAddress, record.contracts.melting])) === true,
+        (await staking.read.hasValidStake([
+          deployerAddress,
+          record.contracts.melting,
+        ])) === true,
     );
 
     console.log("Melting stake valid.");
@@ -233,26 +278,33 @@ async function main() {
 
     console.log("Amanda minted.", { amandaTokenId: amandaTokenId.toString() });
 
-    await waitForCondition(
-      "Amanda ownerOf minted token",
-      async () => sameAddress(await amanda.read.ownerOf([amandaTokenId]), deployerAddress),
+    await waitForCondition("Amanda ownerOf minted token", async () =>
+      sameAddress(await amanda.read.ownerOf([amandaTokenId]), deployerAddress),
     );
 
     console.log("Staking Amanda...");
-    const amandaStakeTx = await staking.write.stake([record.contracts.amanda, amandaTokenId], {
-      account: deployer.account,
-    });
+    const amandaStakeTx = await staking.write.stake(
+      [record.contracts.amanda, amandaTokenId],
+      {
+        account: deployer.account,
+      },
+    );
     await waitForTx(amandaStakeTx, "Amanda stake");
 
     await waitForCondition(
       "Amanda stake valid",
       async () =>
-        (await staking.read.hasValidStake([deployerAddress, record.contracts.amanda])) === true,
+        (await staking.read.hasValidStake([
+          deployerAddress,
+          record.contracts.amanda,
+        ])) === true,
     );
 
     console.log("Amanda stake valid.");
 
-    const oioiBalance = (await oioi.read.balanceOf([deployerAddress])) as bigint;
+    const oioiBalance = (await oioi.read.balanceOf([
+      deployerAddress,
+    ])) as bigint;
 
     if (oioiBalance < REWARD_AMOUNT) {
       throw new Error(
@@ -285,13 +337,19 @@ async function main() {
     await waitForTx(createRoundTx, "Reward round creation");
 
     console.log("Approving $OiOi funding...");
-    const approveTx = await oioi.write.approve([record.contracts.rewardDistributor, REWARD_AMOUNT], {
-      account: deployer.account,
-    });
+    const approveTx = await oioi.write.approve(
+      [record.contracts.rewardDistributor, REWARD_AMOUNT],
+      {
+        account: deployer.account,
+      },
+    );
     await waitForTx(approveTx, "$OiOi funding approval");
 
     console.log("Funding reward round...");
-    const fundTx = await distributor.write.fundRewardRound([roundId, REWARD_AMOUNT]);
+    const fundTx = await distributor.write.fundRewardRound([
+      roundId,
+      REWARD_AMOUNT,
+    ]);
     await waitForTx(fundTx, "Reward round funding");
 
     await waitForCondition(
@@ -299,19 +357,26 @@ async function main() {
       async () => (await distributor.read.isRoundFunded([roundId])) === true,
     );
 
-    const beforeClaim = (await oioi.read.balanceOf([deployerAddress])) as bigint;
+    const beforeClaim = (await oioi.read.balanceOf([
+      deployerAddress,
+    ])) as bigint;
 
     console.log("Claiming reward...");
     const emptyProof = [] as `0x${string}`[];
 
-    const claimTx = await distributor.write.claim([roundId, REWARD_AMOUNT, emptyProof], {
-      account: deployer.account,
-    });
+    const claimTx = await distributor.write.claim(
+      [roundId, REWARD_AMOUNT, emptyProof],
+      {
+        account: deployer.account,
+      },
+    );
     await waitForTx(claimTx, "Reward claim");
 
     await waitForCondition(
       "Reward claim status",
-      async () => (await distributor.read.hasClaimed([roundId, deployerAddress])) === true,
+      async () =>
+        (await distributor.read.hasClaimed([roundId, deployerAddress])) ===
+        true,
     );
 
     const afterClaim = (await oioi.read.balanceOf([deployerAddress])) as bigint;
@@ -329,30 +394,48 @@ async function main() {
   } finally {
     console.log("Restoring mint phase states...");
 
-    if ((await roty.read.publicMintEnabled()) !== initialRotyPublicMintEnabled) {
-      const tx = await roty.write.setPublicMintEnabled([initialRotyPublicMintEnabled]);
+    if (
+      (await roty.read.publicMintEnabled()) !== initialRotyPublicMintEnabled
+    ) {
+      const tx = await roty.write.setPublicMintEnabled([
+        initialRotyPublicMintEnabled,
+      ]);
       await waitForTx(tx, "ROTY public mint restored");
       await waitForCondition(
         "ROTY public mint restored state",
-        async () => (await roty.read.publicMintEnabled()) === initialRotyPublicMintEnabled,
+        async () =>
+          (await roty.read.publicMintEnabled()) ===
+          initialRotyPublicMintEnabled,
       );
     }
 
-    if ((await melting.read.gatedMintEnabled()) !== initialMeltingGatedMintEnabled) {
-      const tx = await melting.write.setGatedMintEnabled([initialMeltingGatedMintEnabled]);
+    if (
+      (await melting.read.gatedMintEnabled()) !== initialMeltingGatedMintEnabled
+    ) {
+      const tx = await melting.write.setGatedMintEnabled([
+        initialMeltingGatedMintEnabled,
+      ]);
       await waitForTx(tx, "Melting gated mint restored");
       await waitForCondition(
         "Melting gated mint restored state",
-        async () => (await melting.read.gatedMintEnabled()) === initialMeltingGatedMintEnabled,
+        async () =>
+          (await melting.read.gatedMintEnabled()) ===
+          initialMeltingGatedMintEnabled,
       );
     }
 
-    if ((await amanda.read.gatedMintEnabled()) !== initialAmandaGatedMintEnabled) {
-      const tx = await amanda.write.setGatedMintEnabled([initialAmandaGatedMintEnabled]);
+    if (
+      (await amanda.read.gatedMintEnabled()) !== initialAmandaGatedMintEnabled
+    ) {
+      const tx = await amanda.write.setGatedMintEnabled([
+        initialAmandaGatedMintEnabled,
+      ]);
       await waitForTx(tx, "Amanda gated mint restored");
       await waitForCondition(
         "Amanda gated mint restored state",
-        async () => (await amanda.read.gatedMintEnabled()) === initialAmandaGatedMintEnabled,
+        async () =>
+          (await amanda.read.gatedMintEnabled()) ===
+          initialAmandaGatedMintEnabled,
       );
     }
 

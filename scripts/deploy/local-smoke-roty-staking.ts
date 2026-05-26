@@ -66,9 +66,7 @@ async function main() {
     symbol: rotyConfig.symbol,
   });
 
-  const staking = await viem.deployContract("OiOiSoftStaking", [
-    initialOwner,
-  ]);
+  const staking = await viem.deployContract("OiOiSoftStaking", [initialOwner]);
 
   console.log("OiOiSoftStaking deployed.", {
     address: staking.address,
@@ -99,7 +97,10 @@ async function main() {
   record.contracts.staking = staking.address;
   record.registrations.rotyApprovedInStaking = true;
 
-  writeDeploymentRecord(config.deploymentOutputDir, touchDeploymentRecord(record));
+  writeDeploymentRecord(
+    config.deploymentOutputDir,
+    touchDeploymentRecord(record),
+  );
 
   console.log("Local ROTY + staking smoke deployment complete.");
 }

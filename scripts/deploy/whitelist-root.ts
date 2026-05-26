@@ -3,7 +3,9 @@ import path from "node:path";
 import { zeroHash } from "viem";
 
 export function readRotyMerkleRoot() {
-  const rootFile = path.resolve("scripts/whitelist/output/roty-whitelist.root.txt");
+  const rootFile = path.resolve(
+    "scripts/whitelist/output/roty-whitelist.root.txt",
+  );
 
   if (!fs.existsSync(rootFile)) {
     console.warn(

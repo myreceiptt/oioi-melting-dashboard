@@ -32,7 +32,9 @@ export function useGatedEligibility(config: CollectionConfig) {
   if (config.collectionKey === "roty") {
     return {
       isLoading: false,
+      isFetching: false,
       error: null,
+      refetch: () => Promise.resolve(),
       eligible: undefined,
       reason: "ROTY does not require staking eligibility.",
     };
@@ -41,7 +43,10 @@ export function useGatedEligibility(config: CollectionConfig) {
   if (config.collectionKey === "melting") {
     return {
       isLoading: rotyEligibility.isLoading,
+      isFetching: rotyEligibility.isFetching,
       error: rotyEligibility.error,
+      refetch: () =>
+        address ? rotyEligibility.refetch() : Promise.resolve(),
       eligible: rotyEligibility.data as boolean | undefined,
       reason: "Melting requires a valid ROTY soft stake on the same chain.",
     };
@@ -49,8 +54,12 @@ export function useGatedEligibility(config: CollectionConfig) {
 
   return {
     isLoading: amandaEligibility.isLoading,
+    isFetching: amandaEligibility.isFetching,
     error: amandaEligibility.error,
+    refetch: () =>
+      address ? amandaEligibility.refetch() : Promise.resolve(),
     eligible: amandaEligibility.data as boolean | undefined,
-    reason: "Amanda requires a valid ROTY or Melting soft stake on the same chain.",
+    reason:
+      "Amanda requires a valid ROTY or Melting soft stake on the same chain.",
   };
 }

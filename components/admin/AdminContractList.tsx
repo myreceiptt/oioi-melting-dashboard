@@ -1,5 +1,6 @@
 import type { AdminContractConfig } from "@/lib/admin/adminTypes";
 import type { ChainSet } from "@/lib/chains/chainConfig";
+import { ResponsiveHash } from "@/components/app/ResponsiveHash";
 import { getAddressUrl } from "@/lib/services/explorer";
 import { shortAddress } from "@/lib/utils/format";
 
@@ -79,7 +80,7 @@ export function AdminContractList({
           <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4">
             <div className="text-sm text-white/60">Contract address</div>
             <div className="mt-1 break-all font-mono text-sm">
-              {contract.address}
+              <ResponsiveHash value={contract.address} />
             </div>
             <div className="mt-2 text-xs text-white/40">
               {shortAddress(contract.address)}

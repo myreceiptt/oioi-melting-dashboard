@@ -11,6 +11,7 @@ import { gatedMintAbi } from "@/lib/contracts/abis";
 import { useGatedEligibility } from "@/lib/hooks/useGatedEligibility";
 import { useMintReadState } from "@/lib/hooks/useMintReadState";
 import { getTxUrl } from "@/lib/services/explorer";
+import { ResponsiveHash } from "@/components/app/ResponsiveHash";
 import { formatEth, formatNumber } from "@/lib/utils/format";
 
 function clampQuantity(value: number, max: number) {
@@ -75,6 +76,7 @@ export function GatedMintPanel({ config }: { config: CollectionConfig }) {
   const gatedMintClosed = mintState.gatedMintEnabled !== true;
   const walletEligible = eligibility.eligible === true;
   const hasMintPrice = mintState.mintPrice !== undefined;
+  const isRefreshing = mintState.isFetching || eligibility.isFetching;
 
   const disabledReason = (() => {
     if (!isConnected || !address) {
@@ -134,16 +136,30 @@ export function GatedMintPanel({ config }: { config: CollectionConfig }) {
     });
   }
 
+  function handleRefresh() {
+    mintState.refetch();
+    void eligibility.refetch();
+  }
+
   return (
     <article className="rounded-3xl border border-white/10 bg-white/5 p-6">
-      <div>
-        <p className="text-sm uppercase tracking-[0.25em] text-white/40">
-          Staking-Gated Mint
-        </p>
-        <h2 className="mt-2 text-2xl font-semibold">{config.name}</h2>
-        <p className="mt-2 text-sm text-white/60">
-          {getEligibilityLabel(config)}
-        </p>
+      <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+        <div>
+          <p className="text-sm uppercase tracking-[0.25em] text-white/40">
+            Staking-Gated Mint
+          </p>
+          <h2 className="mt-2 text-2xl font-semibold">{config.name}</h2>
+          <p className="mt-2 text-sm text-white/60">
+            {getEligibilityLabel(config)}
+          </p>
+        </div>
+        <button
+          className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
+          disabled={isRefreshing}
+          type="button"
+          onClick={handleRefresh}>
+          {isRefreshing ? "Refreshing..." : "Refresh"}
+        </button>
       </div>
 
       <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 px-4">
@@ -231,7 +247,7 @@ export function GatedMintPanel({ config }: { config: CollectionConfig }) {
             href={getTxUrl(config.chainSet, txHash)}
             rel="noreferrer"
             target="_blank">
-            {txHash}
+            <ResponsiveHash value={txHash} />
           </a>
         </div>
       ) : null}
