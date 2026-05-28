@@ -18,7 +18,7 @@ jobs:
     env:
       NEXT_PUBLIC_APP_ENV: ${{ vars.NEXT_PUBLIC_APP_ENV || 'sepolia' }}
 
-      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL || vars.SUPABASE_URL || secrets.NEXT_PUBLIC_SUPABASE_URL || vars.NEXT_PUBLIC_SUPABASE_URL }}
       SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
 
       BASE_SEPOLIA_RPC_URL: ${{ secrets.BASE_SEPOLIA_RPC_URL }}
@@ -40,6 +40,30 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Validate worker environment
+        shell: bash
+        run: |
+          missing=0
+          required_env=(
+            SUPABASE_URL
+            SUPABASE_SERVICE_ROLE_KEY
+            BASE_SEPOLIA_RPC_URL
+            ETHEREUM_SEPOLIA_RPC_URL
+            BASE_SEPOLIA_INDEXER_FROM_BLOCK
+            ETHEREUM_SEPOLIA_INDEXER_FROM_BLOCK
+          )
+
+          for name in "${required_env[@]}"; do
+            if [ -z "${!name}" ]; then
+              echo "::error title=Missing worker environment::$name is not available to this GitHub Actions run."
+              missing=1
+            else
+              echo "$name is configured."
+            fi
+          done
+
+          exit "$missing"
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
