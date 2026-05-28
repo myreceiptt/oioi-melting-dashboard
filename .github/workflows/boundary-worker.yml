@@ -1,0 +1,54 @@
+name: Boundary Worker
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: boundary-worker
+  cancel-in-progress: false
+
+jobs:
+  boundary-worker:
+    name: Process one boundary worker batch
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    env:
+      NEXT_PUBLIC_APP_ENV: ${{ vars.NEXT_PUBLIC_APP_ENV || 'sepolia' }}
+
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
+      BASE_SEPOLIA_RPC_URL: ${{ secrets.BASE_SEPOLIA_RPC_URL }}
+      ETHEREUM_SEPOLIA_RPC_URL: ${{ secrets.ETHEREUM_SEPOLIA_RPC_URL }}
+
+      BASE_SEPOLIA_INDEXER_FROM_BLOCK: ${{ vars.BASE_SEPOLIA_INDEXER_FROM_BLOCK }}
+      ETHEREUM_SEPOLIA_INDEXER_FROM_BLOCK: ${{ vars.ETHEREUM_SEPOLIA_INDEXER_FROM_BLOCK }}
+
+      INDEXER_BLOCK_RANGE: ${{ vars.INDEXER_BLOCK_RANGE || '10' }}
+      INDEXER_REQUEST_DELAY_MS: ${{ vars.INDEXER_REQUEST_DELAY_MS || '250' }}
+      INDEXER_WORKER_BLOCK_SPAN: ${{ vars.INDEXER_WORKER_BLOCK_SPAN || '100' }}
+      INDEXER_WORKER_COMMAND_TIMEOUT_MS: ${{ vars.INDEXER_WORKER_COMMAND_TIMEOUT_MS || '55000' }}
+      INDEXER_WORKER_RETRY_DELAY_SECONDS: ${{ vars.INDEXER_WORKER_RETRY_DELAY_SECONDS || '60' }}
+      INDEXER_WORKER_RATE_LIMIT_DELAY_SECONDS: ${{ vars.INDEXER_WORKER_RATE_LIMIT_DELAY_SECONDS || '300' }}
+      INDEXER_WORKER_LOCK_TTL_SECONDS: ${{ vars.INDEXER_WORKER_LOCK_TTL_SECONDS || '120' }}
+
+      INDEXER_CRON_SECRET: ${{ secrets.INDEXER_CRON_SECRET }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run boundary worker batch
+        run: npm run indexer:boundary-worker
