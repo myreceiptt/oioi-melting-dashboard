@@ -44,6 +44,23 @@ BASE_SEPOLIA_RPC_URL
 ETHEREUM_SEPOLIA_RPC_URL
 ```
 
+`SUPABASE_URL` may also be set as a GitHub Variable because it is not a secret.
+The workflow accepts `SUPABASE_URL` or `NEXT_PUBLIC_SUPABASE_URL`, but
+`SUPABASE_SERVICE_ROLE_KEY` must stay in GitHub Secrets.
+
+Dummy examples:
+
+```text
+SUPABASE_URL=https://abcdefghijklmnopqrst.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.dummy-service-role-key
+BASE_SEPOLIA_RPC_URL=https://base-sepolia.g.alchemy.com/v2/dummyAlchemyApiKey
+ETHEREUM_SEPOLIA_RPC_URL=https://eth-sepolia.g.alchemy.com/v2/dummyAlchemyApiKey
+INDEXER_CRON_SECRET=dummy-random-long-secret-please-replace
+```
+
+Do not use the dummy values above. Use the exact names, then paste the real
+values from Supabase and Alchemy.
+
 Optional:
 
 ```text
@@ -70,6 +87,24 @@ INDEXER_WORKER_RETRY_DELAY_SECONDS=60
 INDEXER_WORKER_RATE_LIMIT_DELAY_SECONDS=300
 INDEXER_WORKER_LOCK_TTL_SECONDS=120
 ```
+
+Dummy examples:
+
+```text
+NEXT_PUBLIC_APP_ENV=sepolia
+BASE_SEPOLIA_INDEXER_FROM_BLOCK=41500000
+ETHEREUM_SEPOLIA_INDEXER_FROM_BLOCK=10500000
+INDEXER_BLOCK_RANGE=10
+INDEXER_REQUEST_DELAY_MS=250
+INDEXER_WORKER_BLOCK_SPAN=100
+INDEXER_WORKER_COMMAND_TIMEOUT_MS=55000
+INDEXER_WORKER_RETRY_DELAY_SECONDS=60
+INDEXER_WORKER_RATE_LIMIT_DELAY_SECONDS=300
+INDEXER_WORKER_LOCK_TTL_SECONDS=120
+```
+
+Replace the dummy `*_INDEXER_FROM_BLOCK` values with the earliest project
+deployment block for each chain.
 
 Keep `INDEXER_BLOCK_RANGE=10` for limited RPC providers. Increase
 `INDEXER_WORKER_BLOCK_SPAN` only after RPC usage is stable.
