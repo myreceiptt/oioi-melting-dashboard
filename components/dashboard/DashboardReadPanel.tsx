@@ -9,7 +9,7 @@ import { ResponsiveHash } from "@/components/app/ResponsiveHash";
 
 function StatusPill({ value }: { value: boolean | undefined }) {
   return (
-    <span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs">
+    <span className="text-right font-mono text-sm text-black">
       {formatBool(value)}
     </span>
   );
@@ -44,11 +44,11 @@ function CollectionStakeSummary({
   });
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-      <div className="flex items-center justify-between gap-4">
-        <div className="font-medium">{collectionName}</div>
+    <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 px-4">
+      <div className="flex items-center justify-between gap-4 border-b border-black/40 py-3">
+        <div className="font-medium text-black">{collectionName}</div>
         <button
-          className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
+          className="cursor-pointer rounded-xl px-4 py-2 text-sm bg-white text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:opacity-40 disabled:text-black disabled:hover:bg-white"
           disabled={approved.isFetching || hasValidStake.isFetching}
           onClick={() => {
             void approved.refetch();
@@ -60,18 +60,19 @@ function CollectionStakeSummary({
             : "Refresh"}
         </button>
       </div>
-      <div className="mt-2 break-all font-mono text-xs text-white/40">
-        <ResponsiveHash value={collectionAddress} />
+      <div className="flex items-center justify-between gap-4 border-b border-black/40 py-3">
+        <div className="break-all font-mono text-sm text-black/70">
+          <ResponsiveHash value={collectionAddress} />
+        </div>
+        <div className="text-right font-mono text-sm text-black">Deployed</div>
       </div>
-      <div className="mt-4 grid gap-2 text-sm">
-        <div className="flex items-center justify-between gap-4">
-          <span className="text-white/60">Approved in staking</span>
-          <StatusPill value={approved.data as boolean | undefined} />
-        </div>
-        <div className="flex items-center justify-between gap-4">
-          <span className="text-white/60">This wallet has valid stake</span>
-          <StatusPill value={hasValidStake.data as boolean | undefined} />
-        </div>
+      <div className="flex items-center justify-between gap-4 border-b border-black/40 py-3">
+        <div className="text-sm text-black/70">Approved in staking</div>
+        <StatusPill value={approved.data as boolean | undefined} />
+      </div>
+      <div className="flex items-center justify-between gap-4 py-3">
+        <div className="text-sm text-black/70">This wallet has valid stake</div>
+        <StatusPill value={hasValidStake.data as boolean | undefined} />
       </div>
     </div>
   );
@@ -87,24 +88,34 @@ export function DashboardReadPanel({ chainSet }: { chainSet: ChainSet }) {
   }
 
   return (
-    <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
-      <h2 className="font-semibold">Read-only staking summary.</h2>
-      <p className="mt-2 text-sm text-white/60">
-        This panel reads the staking approval and the current valid stake
-        status. Stake and unstake actions are available below it.
-      </p>
+    <>
+      <section className="rounded-3xl border border-white/10 bg-black p-6">
+        <p className="text-sm uppercase tracking-[0.25em] text-white/70">
+          Staking Summary Card
+        </p>
+        <h2 className="mt-2 text-2xl font-semibold">Staking Summary</h2>
+        <p className="mt-2 text-sm text-white/70">
+          This card is for the staking summary. Stake and unstake actions are
+          available below it.
+        </p>
+      </section>
 
-      {!address ? (
-        <div className="mt-5 grid gap-4 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm md:grid-cols-2">
-          <div>
-            <div className="text-white/60">
-              Connect wallet to see wallet-specific stake status.
-            </div>
+      <article className="min-w-0 rounded-3xl border border-white/10 bg-black p-6">
+        <p className="text-sm uppercase tracking-[0.25em] text-white/70">
+          Live Contract State
+        </p>
+        <h2 className="mt-2 text-2xl font-semibold">Read-Only Panel</h2>
+        <p className="mt-2 text-sm text-white/70">
+          This panel reads the staking approval and the current valid stake
+          status.
+        </p>
+
+        {!address ? (
+          <div className="mt-5 rounded-2xl border border-white/10 bg-yellow-300 p-4 text-black">
+            Connect wallet to see wallet-specific stake status.
           </div>
-        </div>
-      ) : null}
+        ) : null}
 
-      <div className="mt-5 grid gap-5">
         {collections.map((collection) => (
           <CollectionStakeSummary
             collectionAddress={collection.contractAddress}
@@ -114,7 +125,7 @@ export function DashboardReadPanel({ chainSet }: { chainSet: ChainSet }) {
             walletAddress={address}
           />
         ))}
-      </div>
-    </section>
+      </article>
+    </>
   );
 }

@@ -47,17 +47,17 @@ export default async function AdminChainPage({
   } catch (error) {
     return (
       <main className="mx-auto min-h-screen max-w-4xl px-6 py-10">
-        <Link className="text-sm text-white/50 underline" href="/admin">
+        <Link className="text-sm text-white/70 underline" href="/admin">
           ← Back to Admin Home
         </Link>
-        <section className="mt-6 rounded-3xl border border-red-500/30 bg-red-500/10 p-6">
-          <p className="text-sm uppercase tracking-[0.25em] text-red-100/60">
+        <section className="mt-6 rounded-3xl border border-white/10 bg-[#ff9b4a] p-6 text-black">
+          <p className="text-sm uppercase tracking-[0.25em] text-black/70">
             Admin Configuration
           </p>
-          <h1 className="mt-3 text-3xl font-semibold text-red-100">
+          <h1 className="mt-3 text-3xl font-semibold">
             Admin page cannot load this chain.
           </h1>
-          <p className="mt-4 text-sm text-red-100/80">
+          <p className="mt-4 text-sm text-black/70">
             {error instanceof Error
               ? error.message
               : "Unexpected admin configuration error."}
@@ -69,17 +69,17 @@ export default async function AdminChainPage({
 
   return (
     <main className="mx-auto flex min-h-screen max-w-6xl flex-col gap-6 px-6 py-10">
-      <header className="rounded-3xl border border-white/10 bg-white/5 p-6">
+      <header className="rounded-3xl border border-white/10 bg-black p-6">
         <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
           <div>
-            <Link className="text-sm text-white/50 underline" href="/admin">
+            <Link className="text-sm text-white/70 underline" href="/admin">
               ← Admin Home
             </Link>
-            <p className="mt-5 text-sm uppercase tracking-[0.3em] text-white/50">
+            <p className="mt-5 text-sm uppercase tracking-[0.3em] text-white/70">
               Admin Dashboard
             </p>
             <h1 className="mt-3 text-4xl font-semibold">{adminConfig.label}</h1>
-            <p className="mt-4 max-w-3xl text-white/60">
+            <p className="mt-4 max-w-3xl text-white/70">
               Review contract state, risk levels, and available admin actions.
               Write forms are intentionally provided only for the expected
               owner.

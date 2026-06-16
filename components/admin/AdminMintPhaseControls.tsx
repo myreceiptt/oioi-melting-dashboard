@@ -319,7 +319,7 @@ export function AdminMintPhaseControls({ chainSet }: { chainSet: ChainSet }) {
   ];
 
   return (
-    <section className="grid gap-5">
+    <section className="grid gap-5" id="phase-controls">
       <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
         <p className="text-sm uppercase tracking-[0.25em] text-white/50">
           Admin Writes

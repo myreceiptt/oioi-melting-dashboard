@@ -984,7 +984,7 @@ export function AdminEmergencyRescueControls({
   ];
 
   return (
-    <section className="grid gap-5">
+    <section className="grid gap-5" id="rescue-controls">
       <section className="rounded-3xl border border-red-500/30 bg-red-500/10 p-6">
         <p className="text-sm uppercase tracking-[0.25em] text-red-100/60">
           Critical Admin

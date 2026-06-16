@@ -833,7 +833,7 @@ export function StakeActionPanel({
   }, [nfts]);
 
   return (
-    <section className="grid gap-5">
+    <section className="grid gap-5" id="soft-staking">
       <section className="rounded-3xl border border-white/10 bg-black p-6">
         <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
           <div>
