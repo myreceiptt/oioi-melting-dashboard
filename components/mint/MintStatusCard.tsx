@@ -8,9 +8,9 @@ import { formatBool, formatEth, formatNumber } from "@/lib/utils/format";
 
 function Row({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex items-center justify-between gap-4 border-b border-white/10 py-3 last:border-b-0">
-      <div className="text-sm text-white/60">{label}</div>
-      <div className="text-right font-mono text-sm">{value}</div>
+    <div className="flex items-center justify-between gap-4 border-b border-black/40 py-3 last:border-b-0">
+      <div className="text-sm text-black/70">{label}</div>
+      <div className="text-right font-mono text-sm text-black">{value}</div>
     </div>
   );
 }
@@ -32,9 +32,11 @@ export function MintStatusCard({ config }: { config: CollectionConfig }) {
 
   if (mintState.error) {
     return (
-      <div className="rounded-3xl border border-red-500/30 bg-red-500/10 p-6">
-        <h2 className="text-xl font-semibold">Contract read failed.</h2>
-        <p className="mt-2 wrap-break-word text-sm text-red-100/80">
+      <div className="min-w-0 overflow-hidden rounded-3xl border border-white/10 bg-yellow-300 p-6">
+        <h2 className="text-xl font-semibold text-black">
+          Contract read failed.
+        </h2>
+        <p className="mt-2 max-w-full break-all whitespace-pre-wrap text-sm text-black/70">
           {mintState.error.message}
         </p>
       </div>
@@ -43,46 +45,48 @@ export function MintStatusCard({ config }: { config: CollectionConfig }) {
 
   return (
     <>
-      <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
-        <p className="text-sm uppercase tracking-[0.25em] text-white/50">
+      <section className="rounded-3xl border border-white/10 bg-black p-6">
+        <p className="text-sm uppercase tracking-[0.25em] text-white/70">
           NFT Mint Card
         </p>
         <h2 className="mt-2 text-2xl font-semibold">{config.name} Mint</h2>
-        <p className="mt-2 text-sm text-white/60">
+        <p className="mt-2 text-sm text-white/70">
           This card is for the NFT minting. Transaction forms available in the
           write sections.
         </p>
       </section>
 
-      <article className="rounded-3xl border border-white/10 bg-white/5 p-6">
+      <article className="min-w-0 rounded-3xl border border-white/10 bg-black p-6">
         <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
           <div>
-            <p className="text-sm uppercase tracking-[0.25em] text-white/40">
+            <p className="text-sm uppercase tracking-[0.25em] text-white/70">
               Live Contract State
             </p>
             <h2 className="mt-2 text-2xl font-semibold">{config.name}</h2>
-            <p className="mt-2 text-sm text-white/60">
+            <p className="mt-2 text-sm text-white/70">
               Contract Address:{" "}
-              <span className="break-all font-mono text-sm text-white/40">
+              <span className="break-all font-mono text-sm text-white/70">
                 <ResponsiveHash value={config.contractAddress} />
               </span>
             </p>
           </div>
-          <button
-            className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
-            disabled={isRefreshing}
-            type="button"
-            onClick={handleRefresh}>
-            {isRefreshing ? "Refreshing..." : "Refresh"}
-          </button>
+          <div className="rounded-2xl border border-white/10 bg-black p-1">
+            <button
+              className="cursor-pointer rounded-xl px-4 py-2 text-sm hover:bg-(--oioi-accent) disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-black"
+              disabled={isRefreshing}
+              type="button"
+              onClick={handleRefresh}>
+              {isRefreshing ? "Refreshing..." : "Refresh"}
+            </button>
+          </div>
         </div>
 
         {mintState.isLoading ? (
-          <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-white/60">
+          <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 p-4 text-black">
             Loading contract state...
           </div>
         ) : (
-          <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 px-4">
+          <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 px-4">
             <Row
               label="Total minted"
               value={formatNumber(mintState.totalMinted)}
@@ -134,7 +138,7 @@ export function MintStatusCard({ config }: { config: CollectionConfig }) {
         )}
 
         {config.mintType === "gated" ? (
-          <div className="mt-4 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm text-white/60">
+          <div className="mt-4 rounded-2xl border border-white/10 bg-yellow-300 p-4 text-sm text-black">
             {eligibility.reason}
           </div>
         ) : null}

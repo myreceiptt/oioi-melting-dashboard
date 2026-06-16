@@ -46,8 +46,8 @@ export default function AdminHomePage() {
       <section className="rounded-3xl border border-yellow-500/30 bg-yellow-500/10 p-6">
         <h2 className="font-semibold text-yellow-100">Safety Note:</h2>
         <p className="mt-2 text-sm text-yellow-100/80">
-          This skeleton does for execute admin writes. Always pay close
-          attention to each write forms, warnings, and confirmation modals
+          This skeleton is used for executing admin writes. Always pay close
+          attention to each write form, warnings, and confirmation modals
           displayed.
         </p>
       </section>

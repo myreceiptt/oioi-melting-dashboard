@@ -3,6 +3,27 @@ import "./globals.css";
 import { Web3Providers } from "@/lib/wallet/Web3Providers";
 import { AppEnvironmentBanner } from "@/components/app/AppEnvironmentBanner";
 import { Analytics } from "@vercel/analytics/next";
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import { AppNavbar } from "@/components/app/AppNavbar";
+import { AppFooter } from "@/components/app/AppFooter";
+
+const themeBootstrapScript = `
+(() => {
+  const path = window.location.pathname;
+  const forcedTheme = path.startsWith("/dashboard/base") ||
+    path.startsWith("/admin/base") ||
+    /^\\/mint\\/[^/]+\\/base(?:\\/|$)/.test(path)
+      ? "base"
+      : path.startsWith("/dashboard/ethereum") ||
+          path.startsWith("/admin/ethereum") ||
+          /^\\/mint\\/[^/]+\\/ethereum(?:\\/|$)/.test(path)
+        ? "deth"
+        : null;
+  const storedTheme = window.localStorage.getItem("oioi-estetika-theme");
+  document.documentElement.dataset.oioiTheme =
+    forcedTheme || (storedTheme === "deth" ? "deth" : "base");
+})();
+`;
 
 export const metadata: Metadata = {
   // 1. Base URL configuration (Required for absolute canonical and OG image paths)
@@ -101,11 +122,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html data-oioi-theme="base" lang="en" suppressHydrationWarning>
       <body>
+        <script
+          dangerouslySetInnerHTML={{ __html: themeBootstrapScript }}
+          id="oioi-theme-bootstrap"
+          suppressHydrationWarning
+        />
         <Web3Providers>
-          <AppEnvironmentBanner />
-          {children}
+          <ThemeProvider>
+            <AppEnvironmentBanner />
+            <AppNavbar />
+            {children}
+            <AppFooter />
+          </ThemeProvider>
         </Web3Providers>
         <Analytics />
       </body>

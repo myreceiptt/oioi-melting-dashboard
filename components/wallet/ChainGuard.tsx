@@ -17,7 +17,7 @@ export function ChainGuard({
 
   if (!isConnected) {
     return (
-      <div className="rounded-2xl border border-white/10 bg-white/5 p-5 text-white/70">
+      <div className="rounded-2xl border border-white/10 bg-yellow-300 p-5 text-black">
         Connect your wallet to continue.
       </div>
     );
@@ -25,13 +25,13 @@ export function ChainGuard({
 
   if (chain?.id !== requiredChain.id) {
     return (
-      <div className="rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-5">
-        <div className="font-medium">Wrong chain</div>
-        <p className="mt-1 text-sm text-white/70">
+      <div className="rounded-2xl border border-white/10 bg-yellow-300 p-5">
+        <div className="font-medium text-black">Wrong chain</div>
+        <p className="mt-1 text-sm text-black/70">
           This page requires {requiredChain.name}.
         </p>
         <button
-          className="mt-4 rounded-xl bg-white px-4 py-2 text-sm font-medium text-black disabled:opacity-50"
+          className="mt-4 rounded-xl bg-white px-4 py-2 text-sm font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:opacity-50 cursor-pointer"
           disabled={isPending}
           type="button"
           onClick={() => switchChain({ chainId: requiredChain.id })}>

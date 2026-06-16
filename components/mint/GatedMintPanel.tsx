@@ -142,37 +142,39 @@ export function GatedMintPanel({ config }: { config: CollectionConfig }) {
   }
 
   return (
-    <article className="rounded-3xl border border-white/10 bg-white/5 p-6">
+    <article className="min-w-0 rounded-3xl border border-white/10 bg-black p-6">
       <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
         <div>
-          <p className="text-sm uppercase tracking-[0.25em] text-white/40">
+          <p className="text-sm uppercase tracking-[0.25em] text-white/70">
             Staking-Gated Mint
           </p>
           <h2 className="mt-2 text-2xl font-semibold">{config.name}</h2>
-          <p className="mt-2 text-sm text-white/60">
+          <p className="mt-2 text-sm text-white/70">
             {getEligibilityLabel(config)}
           </p>
         </div>
-        <button
-          className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={isRefreshing}
-          type="button"
-          onClick={handleRefresh}>
-          {isRefreshing ? "Refreshing..." : "Refresh"}
-        </button>
+        <div className="rounded-2xl border border-white/10 bg-black p-1">
+          <button
+            className="cursor-pointer rounded-xl px-4 py-2 text-sm hover:bg-(--oioi-accent) disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-black"
+            disabled={isRefreshing}
+            type="button"
+            onClick={handleRefresh}>
+            {isRefreshing ? "Refreshing..." : "Refresh"}
+          </button>
+        </div>
       </div>
 
-      <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 px-4">
-        <div className="flex items-center justify-between gap-4 border-b border-white/10 py-3 last:border-b-0">
-          <span className="text-sm text-white/60">Gated mint enabled</span>
-          <span className="font-mono text-sm">
+      <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 px-4">
+        <div className="flex items-center justify-between gap-4 border-b border-black/40 py-3 last:border-b-0">
+          <span className="text-sm text-black/70">Gated mint enabled</span>
+          <span className="font-mono text-sm text-black">
             {mintState.gatedMintEnabled ? "Yes" : "No"}
           </span>
         </div>
 
-        <div className="flex items-center justify-between gap-4 border-b border-white/10 py-3 last:border-b-0">
-          <span className="text-sm text-white/60">This wallet eligible</span>
-          <span className="font-mono text-sm">
+        <div className="flex items-center justify-between gap-4 border-b border-black/40 py-3 last:border-b-0">
+          <span className="text-sm text-black/70">This wallet eligible</span>
+          <span className="font-mono text-sm text-black">
             {eligibility.eligible === undefined
               ? "—"
               : eligibility.eligible
@@ -181,31 +183,31 @@ export function GatedMintPanel({ config }: { config: CollectionConfig }) {
           </span>
         </div>
 
-        <div className="flex items-center justify-between gap-4 border-b border-white/10 py-3 last:border-b-0">
-          <span className="text-sm text-white/60">Remaining supply</span>
-          <span className="font-mono text-sm">
+        <div className="flex items-center justify-between gap-4 border-b border-black/40 py-3 last:border-b-0">
+          <span className="text-sm text-black/70">Remaining supply</span>
+          <span className="font-mono text-sm text-black">
             {formatNumber(mintState.remainingSupply)}
           </span>
         </div>
 
-        <div className="flex items-center justify-between gap-4 border-b border-white/10 py-3 last:border-b-0">
-          <span className="text-sm text-white/60">Max mint per tx</span>
-          <span className="font-mono text-sm">
+        <div className="flex items-center justify-between gap-4 border-b border-black/40 py-3 last:border-b-0">
+          <span className="text-sm text-black/70">Max mint per tx</span>
+          <span className="font-mono text-sm text-black">
             {formatNumber(mintState.maxMintPerTx)}
           </span>
         </div>
 
-        <div className="flex items-center justify-between gap-4 border-b border-white/10 py-3 last:border-b-0">
-          <span className="text-sm text-white/60">Unit price</span>
-          <span className="font-mono text-sm">
+        <div className="flex items-center justify-between gap-4 border-b border-black/40 py-3 last:border-b-0">
+          <span className="text-sm text-black/70">Unit price</span>
+          <span className="font-mono text-sm text-black">
             {formatEth(mintState.mintPrice)}
           </span>
         </div>
       </div>
 
-      <div className="mt-6 grid gap-4 rounded-2xl border border-white/10 bg-black/20 p-4">
+      <div className="mt-6 grid gap-4 rounded-2xl border border-white/10 bg-white/70 p-4 text-black">
         <label className="grid gap-2">
-          <span className="text-sm text-white/60">Quantity</span>
+          <span className="text-sm text-black/70">Quantity</span>
           <input
             className="rounded-xl border border-white/10 bg-black px-4 py-3 text-white outline-none focus:border-white/40"
             disabled={soldOut || isWritePending || isConfirming}
@@ -218,12 +220,12 @@ export function GatedMintPanel({ config }: { config: CollectionConfig }) {
         </label>
 
         <div className="flex items-center justify-between gap-4">
-          <span className="text-sm text-white/60">Total price</span>
+          <span className="text-sm text-black/70">Total price</span>
           <span className="font-mono text-sm">{formatEth(totalPrice)}</span>
         </div>
 
         <button
-          className="rounded-2xl bg-white px-5 py-3 font-medium text-black hover:bg-white/80 disabled:cursor-not-allowed disabled:opacity-40"
+          className="cursor-pointer rounded-2xl bg-white px-5 py-3 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
           disabled={Boolean(disabledReason)}
           type="button"
           onClick={handleMint}>
@@ -235,15 +237,15 @@ export function GatedMintPanel({ config }: { config: CollectionConfig }) {
         </button>
 
         {disabledReason ? (
-          <p className="text-sm text-white/50">{disabledReason}</p>
+          <p className="text-sm text-black/70">{disabledReason}</p>
         ) : null}
       </div>
 
       {txHash ? (
-        <div className="mt-6 rounded-2xl border border-white/10 bg-black/20 p-4">
-          <div className="text-sm text-white/60">Transaction</div>
+        <div className="mt-6 rounded-2xl border border-white/10 bg-yellow-300 p-4">
+          <div className="text-sm text-black">Transaction</div>
           <a
-            className="mt-1 block break-all font-mono text-sm text-white underline underline-offset-4"
+            className="mt-1 block break-all font-mono text-sm text-black/70 underline underline-offset-4"
             href={getTxUrl(config.chainSet, txHash)}
             rel="noreferrer"
             target="_blank">
@@ -253,15 +255,15 @@ export function GatedMintPanel({ config }: { config: CollectionConfig }) {
       ) : null}
 
       {isSuccess ? (
-        <div className="mt-6 rounded-2xl border border-green-500/30 bg-green-500/10 p-4 text-green-100">
+        <div className="mt-6 rounded-2xl border border-white/10 bg-[#b7f56d] p-4 text-black">
           Gated mint transaction confirmed.
         </div>
       ) : null}
 
       {writeError || receiptError ? (
-        <div className="mt-6 rounded-2xl border border-red-500/30 bg-red-500/10 p-4">
-          <h3 className="font-medium text-red-100">Transaction failed</h3>
-          <p className="mt-2 wrap-break-word text-sm text-red-100/80">
+        <div className="mt-6 min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-[#ff9b4a] p-4">
+          <h3 className="font-medium text-black">Transaction failed</h3>
+          <p className="mt-2 max-w-full break-all whitespace-pre-wrap text-sm text-black/70">
             {(writeError || receiptError)?.message}
           </p>
         </div>

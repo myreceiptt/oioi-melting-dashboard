@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { ConnectWalletButton } from "@/components/wallet/ConnectWalletButton";
 import { ChainGuard } from "@/components/wallet/ChainGuard";
 import { GatedMintPanel } from "@/components/mint/GatedMintPanel";
@@ -11,6 +10,7 @@ import {
   type CollectionKey,
 } from "@/lib/contracts/collectionConfig";
 import type { ChainSet } from "@/lib/chains/chainConfig";
+import { InvalidMintPage } from "../../InvalidMintPage";
 
 const allowedCollections = ["roty", "melting", "amanda"] as const;
 const allowedChains = ["base", "ethereum"] as const;
@@ -31,41 +31,32 @@ export default async function MintPage({
   const { collection, chain } = await params;
 
   if (!isCollection(collection) || !isChainSet(chain)) {
-    return (
-      <main className="mx-auto min-h-screen max-w-4xl px-6 py-10">
-        <h1 className="text-3xl font-semibold">Invalid mint page.</h1>
-        <Link
-          className="mt-4 inline-block underline"
-          href="https://softstaking.endhonesa.com/">
-          Go to Dashboard
-        </Link>
-      </main>
-    );
+    return <InvalidMintPage />;
   }
 
   const config = getCollectionConfig(chain, collection);
 
   return (
     <main className="mx-auto flex min-h-screen max-w-6xl flex-col gap-6 px-6 py-10">
-      <header className="rounded-3xl border border-white/10 bg-white/5 p-6">
+      <header className="rounded-3xl border border-white/10 bg-black p-6">
         <div>
-          <p className="text-sm uppercase tracking-[0.3em] text-white/50">
+          <p className="text-sm uppercase tracking-[0.3em] text-white/70">
             NFT Mint Page
           </p>
           <h1 className="mt-3 text-4xl font-semibold">{config.judul}</h1>
-          <p className="mt-4 max-w-3xl text-white/60">
+          <p className="mt-4 max-w-3xl text-white/70">
             Symbol:{" "}
-            <span className="mt-4 font-mono text-sm text-white/40">
+            <span className="font-mono text-sm text-white/70">
               {config.symbol}
             </span>
             · Chain:{" "}
-            <span className="mt-4 font-mono text-sm text-white/40">
+            <span className="font-mono text-sm text-white/70">
               {config.requiredChainName}
             </span>
           </p>
-          <p className="mt-4 max-w-3xl text-white/60">
+          <p className="mt-4 max-w-3xl text-white/70">
             Contract Address:{" "}
-            <span className="mt-4 break-all font-mono text-sm text-white/40">
+            <span className="break-all font-mono text-sm text-white/70">
               <ResponsiveHash value={config.contractAddress} />
             </span>
           </p>
