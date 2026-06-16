@@ -5,6 +5,7 @@ import { DashboardReadPanel } from "@/components/dashboard/DashboardReadPanel";
 import { RewardClaimPanel } from "@/components/dashboard/RewardClaimPanel";
 import { StakeActionPanel } from "@/components/dashboard/StakeActionPanel";
 import type { ChainSet } from "@/lib/chains/chainConfig";
+import { InvalidPage } from "@/components/app/InvalidPage";
 
 const allowedChains = ["base", "ethereum"] as const;
 
@@ -21,12 +22,13 @@ export default async function ChainDashboardPage({
 
   if (!isChainSet(chain)) {
     return (
-      <main className="mx-auto min-h-screen max-w-4xl px-6 py-10">
-        <h1 className="text-3xl font-semibold">Invalid dashboard chain.</h1>
-        <Link className="mt-4 inline-block underline" href="/dashboard">
-          Back to Dashboard Home.
-        </Link>
-      </main>
+      <InvalidPage
+        actionLabel="Back to Dashboard Home"
+        eyebrow="User Dashboard"
+        href="/dashboard"
+        message="This dashboard chain does not exist. Please choose BASE or Ethereum from the dashboard home."
+        title="Invalid dashboard page"
+      />
     );
   }
 

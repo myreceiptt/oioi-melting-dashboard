@@ -10,6 +10,7 @@ import {
   type CollectionKey,
 } from "@/lib/contracts/collectionConfig";
 import type { ChainSet } from "@/lib/chains/chainConfig";
+import { InvalidPage } from "@/components/app/InvalidPage";
 import { InvalidMintPage } from "../../InvalidMintPage";
 
 const allowedCollections = ["roty", "melting", "amanda"] as const;
@@ -31,7 +32,15 @@ export default async function MintPage({
   const { collection, chain } = await params;
 
   if (!isCollection(collection) || !isChainSet(chain)) {
-    return <InvalidMintPage />;
+    return (
+      <InvalidPage
+        actionLabel="Go to OiOi Melting Dashboard"
+        eyebrow="NFT Mint Page"
+        href="https://softstaking.endhonesa.com/"
+        message="You typed something wrong! Please double-check the URL you try to visit!"
+        title="Invalid mint page"
+      />
+    );
   }
 
   const config = getCollectionConfig(chain, collection);

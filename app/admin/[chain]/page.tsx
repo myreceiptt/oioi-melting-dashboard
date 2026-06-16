@@ -13,6 +13,7 @@ import { AdminMetadataControls } from "@/components/admin/AdminMetadataControls"
 // import { AdminRewardRoundSupabasePanel } from "@/components/admin/AdminRewardRoundSupabasePanel";
 import { AdminRewardRoundControls } from "@/components/admin/AdminRewardRoundControls";
 import { AdminEmergencyRescueControls } from "@/components/admin/AdminEmergencyRescueControls";
+import { InvalidPage } from "@/components/app/InvalidPage";
 
 const allowedChains = ["base", "ethereum"] as const;
 
@@ -29,12 +30,13 @@ export default async function AdminChainPage({
 
   if (!isChainSet(chain)) {
     return (
-      <main className="mx-auto min-h-screen max-w-4xl px-6 py-10">
-        <h1 className="text-3xl font-semibold">Invalid admin chain.</h1>
-        <Link className="mt-4 inline-block underline" href="/admin">
-          Back to Admin Home.
-        </Link>
-      </main>
+      <InvalidPage
+        actionLabel="Back to Admin Home"
+        eyebrow="Admin Dashboard"
+        href="/admin"
+        message="This admin chain does not exist. Please choose BASE or Ethereum from the admin home."
+        title="Invalid admin page"
+      />
     );
   }
 
