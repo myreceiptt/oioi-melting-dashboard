@@ -29,6 +29,12 @@ export function getThemeMode(pathname: string): ThemeMode {
   return {
     forcedTheme: null,
     switcherEnabled:
-      pathname === "/" || pathname === "/dashboard" || pathname === "/admin",
+      pathname === "/" ||
+      pathname === "/mint" ||
+      pathname.startsWith("/mint/") ||
+      pathname === "/dashboard" ||
+      pathname.startsWith("/dashboard/") ||
+      pathname === "/admin" ||
+      pathname.startsWith("/admin/"),
   };
 }
