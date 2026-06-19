@@ -1,15 +1,6 @@
-# OiOi Melting Dashboard — Frontend Architecture v2
+# OiOi Melting Dashboard — Frontend Architecture v3
 
-This document defines the frontend architecture for the OiOi Melting Dashboard ecosystem.
-
-The frontend must support:
-
-1. Six NFT mint pages.
-2. One user soft staking dashboard.
-3. One admin dashboard.
-4. $OiOi reward claim UI.
-5. Base and Ethereum chain sets.
-6. Testnet-first development, then mainnet switch-over.
+This document defines the current frontend architecture for the OiOi Melting Dashboard ecosystem.
 
 ---
 
@@ -37,22 +28,7 @@ No social login
 No identity linking
 ```
 
-Meaning:
-
-- User must connect an existing Web3 wallet.
-- The connected wallet address is the user identity.
-- The same wallet address mints, stakes, unstakes, and claims.
-- Admin identity is also wallet-based.
-- Owner/admin write access is controlled by the connected owner wallet and on-chain contract permissions.
-
-Wallet compatibility v1:
-
-1. Injected wallets
-2. MetaMask
-3. WalletConnect
-4. Coinbase Wallet in EOA-only mode
-5. EIP-1193 provider support
-6. EIP-6963 multi-wallet discovery
+The connected Web3 wallet address is the user identity.
 
 ---
 
@@ -66,43 +42,17 @@ wagmi
 viem
 TanStack Query
 custom wallet modal
+Supabase-backed API routes
+Alchemy NFT API through backend route
 ```
 
-Do not use embedded wallet SDKs in v1.
-
-Do not use social login SDKs in v1.
-
-Do not use account abstraction SDKs in v1.
+Do not use embedded wallet, social login, or account abstraction SDKs in v1.
 
 ---
 
 ## 3. Product Surfaces
 
-### Mint Pages
-
-Domains:
-
-```text
-rotybase.endhonesa.com
-rotydeth.endhonesa.com
-meltingbase.endhonesa.com
-meltingdeth.endhonesa.com
-amandabase.endhonesa.com
-amandadeth.endhonesa.com
-```
-
-Routes:
-
-```text
-/mint/roty/base
-/mint/roty/ethereum
-/mint/melting/base
-/mint/melting/ethereum
-/mint/amanda/base
-/mint/amanda/ethereum
-```
-
-### User Dashboard
+### Main app
 
 Domain:
 
@@ -113,22 +63,32 @@ softstaking.endhonesa.com
 Routes:
 
 ```text
+/
+/mint
+/mint/[collection]
+/mint/[collection]/[chain]
 /dashboard
 /dashboard/base
 /dashboard/ethereum
-```
-
-### Admin Dashboard
-
-Suggested routes:
-
-```text
 /admin
 /admin/base
 /admin/ethereum
 ```
 
-Admin Dashboard is required before Testnet Release Candidate.
+### Dedicated mint subdomains
+
+Current Sepolia rehearsal uses production-intended domains while `NEXT_PUBLIC_APP_ENV=sepolia`.
+
+```text
+rotybase.endhonesa.com      -> /mint/roty/base
+rotydeth.endhonesa.com      -> /mint/roty/ethereum
+meltingbase.endhonesa.com   -> /mint/melting/base
+meltingdeth.endhonesa.com   -> /mint/melting/ethereum
+amandabase.endhonesa.com    -> /mint/amanda/base
+amandadeth.endhonesa.com    -> /mint/amanda/ethereum
+```
+
+The proxy currently rewrites `/` for those hosts to the mapped mint route.
 
 ---
 
@@ -147,6 +107,8 @@ env validation
 contract address config
 explorer helpers
 homepage links
+invalid page handling
+invalid API route handling
 six mint pages
 ROTY public mint UI
 ROTY whitelist proof lookup
@@ -154,195 +116,198 @@ ROTY whitelist mint UI
 Melting gated mint UI
 Amanda gated mint UI
 dashboard stake/unstake UI
-reward claim UI backed by Supabase proof API
-Sepolia browser QA for read/OFF-phase/stake flows
+owned NFT discovery with thumbnails/media modal
+reward claim UI backed by Supabase proof API and on-chain reads
+admin dashboard
+admin reward operations
+BASE / dETH theme foundation
+App Navbar
+App Footer
+App Menu
+Theme Switcher
+copyright footer modal
 ```
 
-Pending:
+Current polish state:
 
 ```text
-owned NFT auto-discovery
-reward claim browser QA with real funded testnet rounds
-final UI/UX polish
+UI/layout/footer/navbar almost done.
+Subdomain Surface Behavior v1 remains the next major task.
 ```
 
 ---
 
-## 5. Admin Dashboard Architecture Requirement
+## 5. App Shell
 
-Admin Dashboard must be designed after a Contract Admin Surface Audit.
-
-Audit actual functions from:
+The app shell includes:
 
 ```text
-TheRotyMemorial
-MeltingMemorial
-AmandaMemorial
-MemorialNFTCore
-OiOiSoftStaking
-OiOiRewardDistributor
-ERC20 $OiOi reads
+AppEnvironmentBanner
+Web3Providers
+ThemeProvider
+AppNavbar
+AppFooter
+ThemeSwitcher
+AppMenu
 ```
 
-Admin Dashboard must support read and write surfaces necessary for future operation.
+App Navbar and App Footer are intended to render broadly across the app.
 
-### Read Surfaces
+Theme Switcher is route-aware and may be hidden/disabled for forced-theme pages.
 
-```text
-owner
-pendingOwner
-mint phase states
-mint prices
-treasury
-royalty receiver/fee
-metadata state
-revealed state
-revealedBaseURI
-unrevealedURI
-baseExtension
-metadataLocked
-staking approved collections
-reward token
-reward round details
-reward funded/claimed counters
-claim pause status
-ERC20 balances
-ERC20 allowance where useful
-```
-
-### Write Surfaces
-
-```text
-setWhitelistMintEnabled
-setPublicMintEnabled
-setGatedMintEnabled
-setMerkleRoot
-setMintPrice
-setTreasury
-setDefaultRoyalty
-setRevealed
-setRevealedBaseURI
-setUnrevealedURI
-setBaseExtension
-lockMetadata
-setCollectionApproved
-createRewardRound
-fundRewardRound
-setClaimPaused
-transferOwnership
-acceptOwnership
-rescueETH
-rescueERC20
-```
-
-### Risk Controls
-
-Admin write actions must include:
-
-```text
-owner guard
-non-owner blocked state
-info/warning icon
-tooltip/explanation
-confirmation modal
-current value display
-new value display
-post-transaction state refresh
-```
-
-High-risk actions must include stronger confirmation:
-
-```text
-lockMetadata
-setTreasury
-setDefaultRoyalty
-setMerkleRoot
-setRevealed
-setRevealedBaseURI
-rescueETH
-rescueERC20
-transferOwnership
-```
-
-Irreversible actions such as `lockMetadata()` must require typed confirmation.
+BASE and dETH themes are aesthetic themes only. They do not change contract addresses by themselves.
 
 ---
 
-## 6. Environment Strategy
+## 6. Theme and Subdomain Behavior
 
-Frontend supports:
+Current implemented behavior:
 
-```env
-NEXT_PUBLIC_APP_ENV=sepolia
+```text
+theme can be forced by route
+theme can be switched on eligible app surfaces
+dedicated mint subdomains rewrite / to the matching mint route
 ```
 
-or:
+Known next task:
 
-```env
-NEXT_PUBLIC_APP_ENV=mainnet
+```text
+Subdomain Surface Behavior v1
 ```
 
-Sepolia envs are used for testnet product completion.
+That task must resolve:
 
-Mainnet envs are filled only after mainnet deployment records exist.
+```text
+Theme Switcher behavior per effective route/subdomain
+App Menu active state per effective route/subdomain
+host-aware menu links
+dedicated mint subdomain navigation behavior
+```
+
+Do not treat this as completed until that task is implemented and QA checked.
 
 ---
 
-## 7. Reward Claim Architecture
+## 7. Dashboard Architecture
 
-Reward claim UI depends on Supabase-backed reward proof data.
+Dashboard uses live contract reads for wallet-specific transaction readiness and safe API routes for indexed/cached data.
 
-Current state:
+Stake/unstake NFT selector uses:
 
 ```text
-Reward claim panel exists.
-Proof API exists and reads Supabase reward tables.
-End-to-end browser claim validation still depends on generated proofs and a funded testnet round.
+Alchemy NFT API through backend route
+metadata/media normalization
+Supabase dashboard wallet NFT cache
+on-chain staking reads
+selected NFT state
+asset modal for image/animation/html media
 ```
 
-Active claim flow:
+Reward claim uses:
 
 ```text
-fetch reward rounds
-fetch wallet allocation/proof
-read hasClaimed from contract
-display claimable amount
-submit claim transaction
-wait for receipt
-refresh claimed state
+reward rounds API
+proof API
+on-chain round reads
+hasClaimed read
+claim transaction
+post-transaction refresh
 ```
 
 ---
 
-## 8. Testing Strategy
+## 8. Admin Dashboard Architecture
 
-Every frontend stage has its own browser testing.
+Admin dashboard is implemented for owner-controlled operations.
 
-Required stage tests:
+Admin surfaces include:
+
+```text
+contract read cards
+mint phase controls
+metadata controls
+pricing / treasury / royalty controls
+staking registry controls
+reward operations
+emergency / rescue controls
+```
+
+Admin reward operations use:
+
+```text
+Supabase-generated reward rounds
+live on-chain state
+single next-action button model
+tapal batas submission
+worker job status
+advanced diagnostics
+```
+
+Reward event sync after admin transactions is optional reconciliation; UI action readiness follows live on-chain reads.
+
+---
+
+## 9. API Routes
+
+Current important API routes:
+
+```text
+app/api/admin/boundary-sync/route.ts
+app/api/admin/reward-rounds/route.ts
+app/api/cron/boundary-sync/route.ts
+app/api/dashboard/wallet-nfts/route.ts
+app/api/rewards/proof/route.ts
+app/api/rewards/rounds/route.ts
+app/api/whitelist/roty/[chain]/[address]/route.ts
+app/api/[...missing]/route.ts
+app/api/route.ts
+```
+
+Browser code must not directly use unsafe Supabase service-role operations.
+
+---
+
+## 10. Testing Strategy
+
+Canonical checks:
+
+```bash
+npm run lint:frontend
+npm run build
+npm run compile
+npm run test
+```
+
+Browser QA should cover:
 
 ```text
 wallet connect
 chain switch
 mint pages
-gated mint
-user dashboard stake/unstake
-admin dashboard reads/writes
+stake / unstake NFT selector
+asset modal
+admin reads/writes
+boundary worker status
+reward create / approve / fund / pause / unpause
 reward claim
+invalid pages
+theme switcher
+app menu
+subdomain surface behavior
 ```
-
-Full Browser E2E happens after all stages are complete.
 
 ---
 
-## 9. Mainnet Switch
+## 11. Mainnet Switch
 
 Mainnet switch happens only after Testnet Release Candidate.
 
 Mainnet switch steps:
 
 ```text
-fill NEXT_PUBLIC_BASE_*
-fill NEXT_PUBLIC_ETH_*
+deploy mainnet contracts
+record mainnet deployment blocks
+fill mainnet env values
 set NEXT_PUBLIC_APP_ENV=mainnet
 deploy Vercel production
 run mainnet read-only QA

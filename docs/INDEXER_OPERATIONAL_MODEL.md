@@ -1,8 +1,6 @@
-# OiOi Melting Dashboard — Indexer Operational Model v2
+# OiOi Melting Dashboard — Indexer Operational Model v3
 
-This document locks the operational model for the OiOi Melting Dashboard indexer.
-
-It supersedes the earlier Local JSON-first assumption.
+This document locks the operational model for the implemented OiOi Melting Dashboard indexer and reward worker.
 
 ---
 
@@ -13,42 +11,45 @@ Accepted decisions:
 ```text
 Indexer does not run in browser.
 Frontend never scans blockchain history.
-Indexer runs as backend/admin worker or CLI.
+Indexer runs as backend/admin worker, GitHub Actions job, or controlled CLI.
 Do not rewrite deployment scripts only to capture block numbers.
-FROM_BLOCK is manually read from block explorer and stored in .env.
+FROM_BLOCK is manually read from block explorer and stored in env.
 TO_BLOCK is optional and only for bounded backfill/testing.
 Checkpoint is written after successful sync and controls resume.
-Transfer Sync is paused/experimental until Supabase-first implementation is accepted.
 Supabase Postgres is the primary indexer/reward storage.
-Local JSON is not the primary storage.
+Local JSON is not the primary indexer storage.
 ```
 
 ---
 
-## 2. Current Accepted Indexer State
+## 2. Current Accepted State
 
 Accepted:
 
 ```text
-Indexer skeleton is implemented.
-Indexer status command exists.
-Generated output is ignored.
+Supabase schema exists.
+DB-backed event sync exists.
+DB-backed rebuild scripts exist.
+Reward calculation exists.
+Merkle proof storage exists.
+Proof API exists.
+Admin boundary sync API exists.
+Boundary worker exists.
+GitHub Actions scheduled worker exists.
+Dashboard wallet NFT cache exists.
 ```
 
-Paused / Experimental:
+Legacy diagnostic tool retained:
 
 ```text
-Transfer sync draft may exist in scripts/indexer/sync.ts.
-ownership calculator draft may exist in scripts/indexer/calculators/ownership.ts.
+scripts/indexer/sync.ts
 ```
-
-Do not continue production indexer logic until Supabase Postgres-first architecture is implemented.
 
 ---
 
 ## 3. Why the Indexer Exists
 
-Smart contracts can answer current state:
+Smart contracts answer current state:
 
 ```text
 Does this wallet currently own the NFT?
@@ -62,16 +63,7 @@ Rewards need historical state:
 During a reward period, how long was this NFT actively staked and still owned by the staker?
 ```
 
-Therefore, reward calculation needs event history:
-
-```text
-ERC721 Transfer events
-OiOiSoftStaking Staked events
-OiOiSoftStaking Unstaked events
-RewardDistributor events
-```
-
-The reward rule is:
+Reward rule:
 
 ```text
 valid staking duration = active soft-stake intent ∩ actual NFT ownership duration
@@ -89,6 +81,7 @@ read current contract state
 submit mint/stake/unstake/claim transactions
 call API routes
 show indexed data
+show cached wallet NFT discovery data
 ```
 
 The browser/frontend must not:
@@ -97,19 +90,20 @@ The browser/frontend must not:
 scan historical blockchain events
 run getLogs loops
 calculate production reward allocations from raw chain history
-act as the indexer
 expose Supabase service role key
+act as the reward indexer
 ```
 
 ---
 
-## 5. Indexer Responsibility
+## 5. Worker Responsibility
 
-The indexer may:
+The worker may:
 
 ```text
 read deployment records
-read .env start block values
+read env start block values
+read queued Supabase sync jobs
 read logs from RPC
 decode events
 write Supabase records
@@ -119,23 +113,21 @@ build stake state
 calculate reward durations
 generate reward allocation records
 prepare proof data for frontend
+update job/target status
+pause/retry on rate limits
 ```
 
-The indexer is an admin/backend process, not a user-facing browser workflow.
+The worker is an admin/backend process, not a user-facing browser workflow.
 
 ---
 
 ## 6. Storage Policy
 
-Accepted storage:
-
-```text
-Supabase Postgres
-```
-
 Supabase stores:
 
 ```text
+chains
+contracts
 checkpoints
 indexed events
 transfers
@@ -143,10 +135,15 @@ staking events
 reward events
 current owners
 current stake positions
+valid stake intervals
+reward calculations
 reward rounds
 reward allocations
-proofs
-claim status
+reward claims
+boundary sync jobs
+boundary snapshots
+dashboard wallet NFT cache
+indexer locks
 ```
 
 Local JSON may be used only for:
@@ -156,15 +153,12 @@ Merkle export
 audit export
 public static proof snapshot
 debug backup
+whitelist generated data
 ```
 
 ---
 
 ## 7. Deployment Block Policy
-
-The project will not go backward to rewrite deployment scripts just to store block numbers.
-
-For v1, indexer start blocks are filled manually after deployment.
 
 Procedure:
 
@@ -172,11 +166,11 @@ Procedure:
 1. Deploy contracts.
 2. Open block explorer.
 3. Find earliest contract creation transaction block for that chain.
-4. Store that block in .env as chain-level INDEXER_FROM_BLOCK.
-5. Run indexer from that block.
+4. Store that block in env as chain-level INDEXER_FROM_BLOCK.
+5. Run indexer/worker from that block.
 ```
 
-Use one chain-level start block per chain for MVP.
+Use one chain-level start block per chain.
 
 Example:
 
@@ -189,153 +183,94 @@ ETHEREUM_MAINNET_INDEXER_FROM_BLOCK=
 
 ---
 
-## 8. FROM_BLOCK, TO_BLOCK, and Checkpoint Rules
+## 8. FROM_BLOCK, TO_BLOCK, and Checkpoints
 
-### FROM_BLOCK
-
-```text
-FROM_BLOCK = block awal sync.
-```
-
-Used only when no checkpoint exists.
+`FROM_BLOCK` is used only when no checkpoint exists.
 
 If checkpoint exists, checkpoint wins.
 
-### TO_BLOCK
+`TO_BLOCK` is an optional bounded sync/testing stop. It is not a reward tapal batas.
+
+After successful sync:
 
 ```text
-TO_BLOCK = optional batas akhir sync untuk bounded backfill/testing.
+next start block = checkpoint + 1
 ```
 
-TO_BLOCK is not checkpoint.
-
-But if sync succeeds until TO_BLOCK, checkpoint becomes TO_BLOCK.
-
-### Checkpoint
-
-```text
-checkpoint = last block successfully synced.
-```
-
-After successful sync, next run starts from:
-
-```text
-checkpoint + 1
-```
-
-Example:
-
-```env
-BASE_SEPOLIA_INDEXER_FROM_BLOCK=41536800
-BASE_SEPOLIA_INDEXER_TO_BLOCK=41537200
-```
-
-If sync succeeds:
-
-```json
-{
-  "lastSyncedBlock": 41537200
-}
-```
-
-Next run starts from:
-
-```text
-41537201
-```
-
-If TO_BLOCK remains set at `41537200`, next run is no-op.
-
-To continue normal sync, clear TO_BLOCK.
+Reward tapal batas is submitted through Admin Reward Operations and stored in Supabase boundary job/snapshot records.
 
 ---
 
-## 9. RPC Range and Rate Limit Policy
+## 9. RPC Range and Rate Limits
 
 Default safe values:
 
 ```env
 INDEXER_BLOCK_RANGE=10
 INDEXER_REQUEST_DELAY_MS=250
+INDEXER_WORKER_BLOCK_SPAN=200
 ```
 
-Reason:
+`INDEXER_BLOCK_RANGE` keeps individual `getLogs` requests small.
 
-```text
-some free RPC tiers restrict eth_getLogs to small block ranges
-too many fast requests can trigger HTTP 429
-bounded backfill is safer during development
-```
+`INDEXER_WORKER_BLOCK_SPAN` limits work per worker invocation.
 
-For production, use:
-
-```text
-checkpoint-based sync
-retry/backoff
-delay
-confirmation delay
-durable Supabase storage
-```
+On RPC rate limits, the worker pauses/retries and preserves completed progress.
 
 ---
 
-## 10. Supabase Responsibility
+## 10. GitHub Actions Operational Model
 
-Supabase should be treated as backend storage.
-
-Do not expose:
+Workflow:
 
 ```text
-SUPABASE_SERVICE_ROLE_KEY
+.github/workflows/boundary-worker.yml
 ```
 
-to the browser.
-
-Frontend should only read indexed/reward data through safe API routes or safe RLS policies.
-
-Recommended first implementation:
+Expected behavior:
 
 ```text
-server-side API routes use service role key
-browser never talks directly to unsafe admin tables
+scheduled worker runs automatically
+manual dispatch can run the same worker
+concurrency prevents overlapping worker executions
+one run processes one bounded worker batch
+repeated runs eventually complete large jobs
 ```
+
+This is intentionally conservative and suitable for slow reward-boundary syncs.
 
 ---
 
-## 11. Mainnet Policy
+## 11. Dashboard Wallet NFT Discovery
 
-Mainnet deployment is deferred until Testnet Release Candidate.
+Routine dashboard NFT display is separate from reward-boundary worker jobs.
+
+Dashboard discovery uses:
+
+```text
+Alchemy NFT API
+on-chain staking reads
+Supabase dashboard wallet NFT cache
+safe API route
+short cache TTL
+```
+
+This keeps user-facing NFT display responsive without mutating reward calculation history.
+
+---
+
+## 12. Mainnet Policy
+
+Mainnet deployment has not started.
 
 After mainnet deployment:
 
 ```text
 manually record Base MAINNET FROM_BLOCK
 manually record Ethereum MAINNET FROM_BLOCK
-seed Supabase contracts table
+seed/verify Supabase contracts
 run mainnet read-only sync only after read-check passes
 do not open reward claim until production reward flow is tested
-```
-
----
-
-## 12. Stop Conditions
-
-Stop indexer/reward implementation if:
-
-```text
-Supabase env is missing
-service role key is exposed to frontend
-deployment record is missing
-chain ID mismatch occurs
-FROM_BLOCK is missing and no checkpoint exists
-RPC repeatedly rate limits
-event decoding fails
-duplicate event insert happens
-ownership state mismatches contract read
-stake state mismatches contract read
-allocation total mismatch occurs
-proof verification fails
-claim test fails
 ```
 
 ---
@@ -343,13 +278,13 @@ claim test fails
 ## 13. Current Status
 
 ```text
-INDEXER OPERATIONAL MODEL: UPDATED FOR SUPABASE POSTGRES-FIRST
-INDEXER SKELETON: IMPLEMENTED
-TRANSFER SYNC: PAUSED / EXPERIMENTAL
-SUPABASE SCHEMA: NOT STARTED
-REWARD CALCULATOR: NOT PRODUCTION-COMPLETE
-PROOF API: NOT STARTED
-BROWSER CLAIM: NOT ACTIVE
+INDEXER OPERATIONAL MODEL: IMPLEMENTED FOR TESTNET
+BOUNDARY WORKER: IMPLEMENTED
+GITHUB ACTIONS WORKER: IMPLEMENTED
+REWARD CLAIM: IMPLEMENTED
+DASHBOARD NFT DISCOVERY: IMPLEMENTED
+MAINNET INDEXER: NOT STARTED
+NEXT MAJOR TASK: SUBDOMAIN SURFACE BEHAVIOR V1
 ```
 
 ---

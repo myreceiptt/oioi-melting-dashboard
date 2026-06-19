@@ -72,10 +72,19 @@ The connected Web3 wallet address is the user identity.
 - ROTY whitelist proof lookup and whitelist mint UI implemented.
 - Melting/Amanda gated mint UI implemented.
 - Dashboard stake/unstake UI implemented.
-- Reward claim UI implemented against Supabase proof API.
+- Reward claim UI implemented against Supabase proof API and on-chain reads.
 - Reward proof API implemented against Supabase reward tables.
+- Admin dashboard implemented for mint phases, metadata, pricing/treasury/royalty, staking registry, reward rounds, and rescue controls.
+- Admin reward create / approve / fund / pause / unpause flow completed on testnet.
+- Owned NFT discovery implemented through backend API, Alchemy NFT data, on-chain staking checks, and Supabase cache.
 - Frontend Sepolia Browser QA completed for read/OFF-phase/stake flows.
 - Supabase indexer/reward pipeline scripts implemented.
+- Boundary-sync worker orchestration implemented for reward tapal batas jobs.
+- GitHub Actions scheduled worker implemented for slow, resumable boundary sync jobs.
+- Reward calculation and Merkle proof storage implemented from indexed Supabase data.
+- Testnet reward round flow completed through create, fund, claim, and closed states.
+- BASE / dETH theme shell, App Navbar, App Footer, App Menu, and Theme Switcher implemented.
+- Production-intended Sepolia rehearsal deployment completed.
 - Mainnet preparation checks passed, but deployment is intentionally deferred.
 
 ### Locked Decisions
@@ -83,21 +92,22 @@ The connected Web3 wallet address is the user identity.
 - Mainnet deployment is deferred until Testnet Release Candidate.
 - Indexer + reward storage is Supabase Postgres-first.
 - Local JSON is not the primary indexer storage.
-- Supabase indexer sync remains testnet-validation gated before release.
+- Supabase indexer sync is checkpointed, resumable, and worker-driven.
 - Deployment scripts should not be rewritten only to capture block numbers.
 - Indexer `FROM_BLOCK` values are manually read from block explorers.
 - `TO_BLOCK` is optional and only for bounded backfill/testing.
-- Admin Dashboard is required before full testnet rehearsal.
+- Admin Dashboard is implemented and remains the operational owner surface.
 - Every stage has its own testing checkpoint.
-- Full Browser E2E happens after frontend, admin dashboard, database indexer, reward calculator, proof API, and reward claim flow are ready.
+- Full Browser E2E is used as final release-candidate validation after the implemented testnet flows are exercised.
 
 ### Pending / Next
 
-- Full Supabase indexer/reward pipeline validation on testnet data.
-- Reward calculator validation from real indexed staking/ownership duration.
-- Reward claim browser QA with a real funded testnet round.
-- Full Testnet Browser E2E.
-- Final UI/UX polish.
+- Subdomain Surface Behavior v1:
+  - host-aware theme/switcher behavior
+  - host-aware App Menu active state
+  - dedicated mint subdomain links
+- Final UI/UX polish is almost complete but still under active review.
+- Full release-candidate browser QA report from current deployed surface.
 - Testnet Release Candidate.
 - Mainnet deployment after Testnet RC.
 
@@ -243,16 +253,39 @@ Reward allocation is calculated off-chain from indexed staking and ownership his
 
 Reward Distributor only verifies Merkle proofs and pays claims.
 
-The reward pipeline is not complete until:
+Canonical reward pipeline:
 
 ```text
-Supabase Postgres indexer is implemented
-Transfer/Staked/Unstaked/Reward events are synced
-valid staking duration is calculated
-weighted reward allocation is generated
-Merkle root/proofs are generated
-reward proof API is live
-browser claim succeeds
+submit tapal batas + reward amount in Admin Reward Operations
+run boundary worker through GitHub Actions or local CLI
+sync Transfer / Staked / Unstaked / Reward events to Supabase
+rebuild derived ownership and stake state
+calculate valid staking intervals
+calculate weighted reward allocations
+generate Merkle root/proofs
+create reward round on-chain from Admin UI
+approve and fund $OiOi
+claim from Reward Claim Panel
+```
+
+Canonical worker command:
+
+```bash
+npm run indexer:boundary-worker
+```
+
+Canonical manual DB commands remain available for diagnostics and controlled recovery:
+
+```bash
+npm run indexer:db-check -- <chain>
+npm run indexer:sync-transfers -- <chain>
+npm run indexer:rebuild-ownership -- <chain>
+npm run indexer:sync-staking -- <chain>
+npm run indexer:rebuild-stake-positions -- <chain>
+npm run indexer:sync-rewards -- <chain>
+npm run indexer:calculate-valid-intervals -- <chain>
+npm run rewards:calculate -- <chain>
+npm run rewards:merkle-db -- <chain>
 ```
 
 ---

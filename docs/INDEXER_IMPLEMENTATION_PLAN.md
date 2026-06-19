@@ -1,8 +1,8 @@
-# OiOi Melting Dashboard — Indexer Implementation Plan v2
+# OiOi Melting Dashboard — Indexer Implementation Plan v3
 
-This document defines the practical implementation plan for the Supabase Postgres-first indexer and reward pipeline.
+This document describes the implemented Supabase Postgres-first indexer and reward pipeline.
 
-The previous Local JSON-first plan is superseded.
+The earlier Local JSON-first plan is superseded.
 
 ---
 
@@ -19,567 +19,253 @@ Local JSON is not the primary storage for the indexer.
 Allowed JSON/static output:
 
 ```text
-Merkle proof exports
-public proof snapshots
+Merkle exports
 audit exports
-backup snapshots
+debug backups
+whitelist/generated frontend proof data
 ```
 
-Reason:
-
-```text
-The project should avoid rebuilding indexer storage later.
-Reward allocation needs durable queryable history.
-Frontend/API will need stable indexed data.
-Supabase Postgres is fast to set up and still production-realistic.
-```
+The browser never scans historical blockchain logs.
 
 ---
 
-## 2. Operational Lock
+## 2. Current Implementation Status
 
-Accepted decisions:
+Completed on testnet:
 
 ```text
-Indexer does not run in browser.
-Frontend never scans blockchain history.
-Indexer runs as backend/admin worker or CLI.
-Do not rewrite deployment scripts only to capture block numbers.
-FROM_BLOCK is manually read from block explorer and stored in .env.
-TO_BLOCK is optional and only for bounded backfill/testing.
-Checkpoint is written after successful sync and controls resume.
-Transfer sync draft is paused/experimental until Supabase-first plan is implemented.
+✅ Supabase schema migrations.
+✅ Contract registry and chain metadata.
+✅ Checkpoint-backed event sync.
+✅ ERC721 Transfer event sync.
+✅ Soft staking Staked/Unstaked event sync.
+✅ Reward Distributor event sync.
+✅ Current ownership rebuild.
+✅ Current stake-position rebuild.
+✅ Valid staking interval calculation.
+✅ Reward allocation calculation.
+✅ Merkle root/proof generation.
+✅ Reward proof API.
+✅ Reward rounds API.
+✅ Admin boundary sync job API.
+✅ Boundary worker orchestration.
+✅ GitHub Actions scheduled worker.
+✅ Browser reward claim flow.
 ```
+
+Retained legacy/manual tool:
+
+```text
+scripts/indexer/sync.ts
+```
+
+This file is not the canonical reward pipeline. Keep it for legacy diagnostics only.
 
 ---
 
-## 3. Current Status
+## 3. Canonical Commands
 
-Completed:
+### Boundary worker
 
-```text
-indexer:status command exists.
-Legacy indexer:rebuild skeleton removed; DB-backed rebuild scripts are canonical.
-Generated output is ignored except .gitkeep.
+```bash
+npm run indexer:boundary-worker
 ```
 
-Paused / Experimental:
+This command processes one resumable worker batch. GitHub Actions runs the same command on schedule and by manual dispatch.
 
-```text
-Transfer sync draft may exist in scripts/indexer/sync.ts.
-ownership calculator draft may exist in scripts/indexer/calculators/ownership.ts.
-Do not treat this as accepted production sync.
+### Manual DB commands
+
+```bash
+npm run indexer:db-check -- <chain>
+npm run indexer:sync-transfers -- <chain>
+npm run indexer:rebuild-ownership -- <chain>
+npm run indexer:sync-staking -- <chain>
+npm run indexer:rebuild-stake-positions -- <chain>
+npm run indexer:sync-rewards -- <chain>
+npm run indexer:calculate-valid-intervals -- <chain>
+npm run rewards:calculate -- <chain>
+npm run rewards:merkle-db -- <chain>
 ```
 
-Next accepted step:
-
-```text
-Supabase Postgres schema and indexer architecture implementation.
-```
+Use manual commands for diagnostics, recovery, and controlled local runs.
 
 ---
 
-## 4. Scope
-
-Indexer MVP supports:
-
-```text
-Base Sepolia
-Ethereum Sepolia
-```
-
-Mainnet support is added after Testnet Release Candidate and mainnet deployment.
-
-MVP reads:
-
-```text
-ERC721 Transfer events
-OiOi Soft Staking Staked events
-OiOi Soft Staking Unstaked events
-OiOi Reward Distributor reward events
-```
-
-MVP produces:
-
-```text
-current NFT ownership state
-current stake position state
-staking timeline
-transfer timeline
-valid staking duration report
-reward allocation records
-Merkle proof records
-reward proof API
-```
-
----
-
-## 5. Non-Goals for This Stage
-
-Do not build yet:
-
-```text
-mainnet reward distribution
-fully automated public reward distribution
-smart account support
-email/social identity
-cross-chain merged rewards
-browser-side getLogs sync
-```
-
-Do not rely on indexer as the only source of truth for write permissions.
-
-Contract reads remain authoritative for live transactions.
-
----
-
-## 6. Environment Variables
+## 4. Environment Variables
 
 Required server-side env:
 
 ```env
 SUPABASE_URL=
 SUPABASE_SERVICE_ROLE_KEY=
-SUPABASE_ANON_KEY=
 
 BASE_SEPOLIA_RPC_URL=
 ETHEREUM_SEPOLIA_RPC_URL=
 
 BASE_SEPOLIA_INDEXER_FROM_BLOCK=
-BASE_SEPOLIA_INDEXER_TO_BLOCK=
-
 ETHEREUM_SEPOLIA_INDEXER_FROM_BLOCK=
-ETHEREUM_SEPOLIA_INDEXER_TO_BLOCK=
 
 INDEXER_BLOCK_RANGE=10
 INDEXER_REQUEST_DELAY_MS=250
+INDEXER_WORKER_BLOCK_SPAN=200
+INDEXER_WORKER_COMMAND_TIMEOUT_MS=55000
+INDEXER_WORKER_RETRY_DELAY_SECONDS=60
+INDEXER_WORKER_RATE_LIMIT_DELAY_SECONDS=300
+INDEXER_WORKER_LOCK_TTL_SECONDS=120
 ```
 
-Mainnet values later:
+Optional bounded run values:
+
+```env
+BASE_SEPOLIA_INDEXER_TO_BLOCK=
+ETHEREUM_SEPOLIA_INDEXER_TO_BLOCK=
+```
+
+Mainnet values are filled only after mainnet contracts are deployed:
 
 ```env
 BASE_MAINNET_INDEXER_FROM_BLOCK=
-BASE_MAINNET_INDEXER_TO_BLOCK=
 ETHEREUM_MAINNET_INDEXER_FROM_BLOCK=
+BASE_MAINNET_INDEXER_TO_BLOCK=
 ETHEREUM_MAINNET_INDEXER_TO_BLOCK=
 ```
 
-Do not expose `SUPABASE_SERVICE_ROLE_KEY` to the browser.
+Never expose `SUPABASE_SERVICE_ROLE_KEY` to browser code.
 
 ---
 
-## 7. Folder Structure
+## 5. Implemented Data Flow
 
-Proposed:
+### Reward boundary job
+
+1. Admin submits block tapal batas and reward amount.
+2. API creates one `indexer_sync_jobs` row.
+3. API creates per-chain/per-task `indexer_sync_job_targets`.
+4. API creates per-chain `reward_boundary_snapshots`.
+5. Worker processes queued/running targets.
+6. Each successful task updates target status and metadata.
+7. Final calculation generates reward round rows and Merkle proof rows.
+
+### Event sync
+
+The indexer syncs:
 
 ```text
-scripts/indexer/
-  config.ts
-  types.ts
-  db.ts
-  schema/
-    001_init.sql
-  seed-contracts.ts
-  sync.ts
-  status.ts
-  rebuild.ts
-  calculators/
-    ownership.ts
-    staking.ts
-    duration.ts
-    rewards.ts
-
-lib/server/
-  supabaseAdmin.ts
-
-app/api/
-  base/
-    wallet/[address]/nfts/route.ts
-    wallet/[address]/stakes/route.ts
-    rewards/rounds/route.ts
-    rewards/[roundId]/[address]/route.ts
-  ethereum/
-    wallet/[address]/nfts/route.ts
-    wallet/[address]/stakes/route.ts
-    rewards/rounds/route.ts
-    rewards/[roundId]/[address]/route.ts
+ERC721 Transfer events
+OiOiSoftStaking Staked events
+OiOiSoftStaking Unstaked events
+OiOiRewardDistributor events
 ```
 
----
+Event sync is idempotent and checkpointed.
 
-## 8. Database Schema
+### Derived state
 
-Use the schema defined in:
-
-```text
-docs/INDEXER_ARCHITECTURE.md
-```
-
-Required tables:
+Derived tables are rebuilt from indexed event tables:
 
 ```text
-chains
-contracts
-sync_checkpoints
-indexed_events
-nft_transfers
-staking_events
-reward_events
 current_nft_owners
 current_stake_positions
+valid_stake_intervals
+reward_calculations
 reward_rounds
 reward_allocations
+reward_claims
 ```
+
+### Dashboard NFT state
+
+Dashboard wallet NFT discovery is separate from reward calculation history.
+
+It uses:
+
+```text
+Alchemy NFT data
+on-chain staking checks
+Supabase dashboard wallet NFT cache
+safe API route
+```
+
+This avoids coupling routine dashboard display to reward-boundary calculation jobs.
 
 ---
 
-## 9. Implementation Order
+## 6. RPC Strategy
 
-### Step 1 — Supabase Setup
-
-Tasks:
-
-```text
-create Supabase project
-add env variables
-create SQL migration
-run migration
-verify tables
-```
-
-Testing:
-
-```text
-migration runs
-tables exist
-service role can write
-anon role cannot write unsafe tables unless explicitly allowed
-```
-
-### Step 2 — Contract Registry Seed
-
-Tasks:
-
-```text
-read deployment records
-seed chains
-seed contracts
-seed $OiOi addresses
-```
-
-Testing:
-
-```text
-baseSepolia contracts seeded
-ethereumSepolia contracts seeded
-addresses match deployment.json
-```
-
-### Step 3 — Checkpoint Layer
-
-Tasks:
-
-```text
-read checkpoint
-write checkpoint
-resume from checkpoint + 1
-fallback to FROM_BLOCK when no checkpoint exists
-respect optional TO_BLOCK
-```
-
-Testing:
-
-```text
-no checkpoint uses FROM_BLOCK
-after sync checkpoint exists
-next run starts from checkpoint + 1
-TO_BLOCK creates bounded run
-```
-
-### Step 4 — Transfer Sync
-
-Tasks:
-
-```text
-sync ERC721 Transfer events
-upsert indexed_events
-upsert nft_transfers
-build current_nft_owners
-```
-
-Testing:
-
-```text
-bounded Base Sepolia sync works
-bounded Ethereum Sepolia sync works
-no duplicate events
-current owner matches ownerOf
-```
-
-### Step 5 — Staking Sync
-
-Tasks:
-
-```text
-sync Staked events
-sync Unstaked events
-upsert staking_events
-build current_stake_positions
-```
-
-Testing:
-
-```text
-stake active matches contract
-stake valid matches contract
-unstake updates state
-```
-
-### Step 6 — Reward Event Sync
-
-Tasks:
-
-```text
-sync RewardRoundCreated
-sync RewardRoundFunded
-sync Claimed
-sync ClaimPausedUpdated
-sync MerkleRootUpdated
-update reward_rounds
-```
-
-Testing:
-
-```text
-round appears in DB
-funded amount appears
-claimed state appears
-claim paused state appears
-```
-
-### Step 7 — Duration Calculator
-
-Tasks:
-
-```text
-build ownership windows
-build stake windows
-intersect with reward period
-compute valid duration seconds
-```
-
-Testing:
-
-```text
-transfer-out period excluded
-transfer-back period included
-unstaked period excluded
-period boundaries handled correctly
-```
-
-### Step 8 — Reward Calculator
-
-Tasks:
-
-```text
-apply collection weights
-sum wallet weighted duration
-calculate amountWei
-handle dust
-write reward_allocations
-generate Merkle input
-```
-
-Testing:
-
-```text
-allocation sum equals reward amount
-wallets with no valid duration receive zero/no allocation
-dust assigned explicitly
-```
-
-### Step 9 — Merkle Integration
-
-Tasks:
-
-```text
-generate root
-generate proofs
-store proofs in reward_allocations
-support proof lookup API
-```
-
-Testing:
-
-```text
-proof verifies locally
-on-chain claim succeeds on testnet
-double claim prevented
-```
-
-### Step 10 — API Routes
-
-Tasks:
-
-```text
-owned NFTs API
-stake status API
-reward rounds API
-reward proof API
-```
-
-Testing:
-
-```text
-wallet NFT list returns correct tokens
-stake list returns active/valid state
-reward proof returns correct amount/proof
-non-eligible wallet gets safe empty state
-```
-
-### Step 11 — Frontend Claim Integration
-
-Tasks:
-
-```text
-active reward claim UI implemented
-fetch reward rounds
-fetch wallet proof
-submit claim transaction
-refresh claimed state
-```
-
-Testing:
-
-```text
-claim via browser succeeds
-claimed status updates
-already claimed state is blocked
-```
-
----
-
-## 10. Start Block Strategy
-
-The indexer should not guess block numbers.
-
-For v1:
-
-```text
-FROM_BLOCK is manually read from block explorer.
-```
-
-Use earliest contract creation block for the chain.
-
-Rules:
-
-```text
-FROM_BLOCK is used only when no checkpoint exists.
-TO_BLOCK limits one sync/backfill run.
-After successful sync, checkpoint stores last synced block.
-Later runs resume from checkpoint + 1.
-If TO_BLOCK remains set and checkpoint already passed it, sync becomes no-op.
-```
-
----
-
-## 11. RPC Range / Rate Limit Strategy
-
-Default safe values:
+Default safe sync range:
 
 ```env
 INDEXER_BLOCK_RANGE=10
-INDEXER_REQUEST_DELAY_MS=250
 ```
 
-Do not run unbounded sync on a free RPC without understanding request volume.
+Worker batch size:
 
-Bounded sync is preferred during development.
+```env
+INDEXER_WORKER_BLOCK_SPAN=200
+```
+
+`INDEXER_BLOCK_RANGE` controls individual log query range. `INDEXER_WORKER_BLOCK_SPAN` controls how much work one worker invocation attempts.
+
+If RPC rate limits occur, the worker pauses/retries rather than discarding progress.
 
 ---
 
-## 12. Testing Strategy
+## 7. GitHub Actions Worker
 
-### Unit Tests
-
-```text
-interval intersection
-ownership window builder
-stake window builder
-valid duration
-weight calculation
-reward allocation
-dust handling
-Merkle proof generation
-```
-
-### Integration Tests
+Workflow:
 
 ```text
-sync bounded event window
-resume from checkpoint
-prevent duplicate inserts
-compare DB state to contract reads
+.github/workflows/boundary-worker.yml
 ```
 
-### Browser Tests
+Behavior:
 
 ```text
-reward round appears
-claimable amount appears
-claim succeeds
-claimed status updates
+runs on schedule
+can be manually dispatched
+uses npm ci
+runs npm run indexer:boundary-worker
+uses concurrency group boundary-worker
+does not cancel an already running worker
 ```
+
+GitHub Secrets and Variables must be set one-by-one in repository settings.
 
 ---
 
-## 13. Stop Conditions
+## 8. Stop Conditions
 
-Stop if:
+Stop or pause if:
 
 ```text
 Supabase env missing
-service key exposed to browser
+service key exposed to frontend
 chain ID mismatch
 deployment record missing
 FROM_BLOCK missing when no checkpoint exists
+RPC rate limit persists
 event decoding fails
-duplicate events appear
-owner reconstruction mismatches contract
-stake state mismatches contract
+duplicate event insert appears
+owner reconstruction mismatches contract reads
+stake state mismatches contract reads
 reward allocation sum mismatch
-proof verification fails
+Merkle proof verification fails
 browser claim fails for known eligible wallet
 ```
 
 ---
 
-## 14. Done Criteria
+## 9. Current Next Step
 
-Indexer + Reward MVP is done when:
+The indexer/reward worker is implemented for testnet.
 
-```text
-Supabase schema exists
-Base Sepolia events sync
-Ethereum Sepolia events sync
-current owners/stakes match contract reads
-reward duration calculator passes
-reward allocation generated
-Merkle proof generated
-proof API works
-browser claim works
-claimed status updates
-```
-
----
-
-## 15. Current Next Step
+Current project next task:
 
 ```text
-Admin Dashboard Architecture v1
+Subdomain Surface Behavior v1
 ```
 
-Indexer implementation begins after Admin Dashboard Architecture is planned, unless the execution plan is explicitly adjusted.
+Mainnet indexer operation starts only after mainnet deployment and mainnet env wiring.
 
 ---
 

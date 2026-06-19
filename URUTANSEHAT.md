@@ -198,7 +198,7 @@
     - ✅ Whitelist proof strategy done.
     - ✅ Gated mint UI done.
     - ✅ Dashboard stake/unstake UI done.
-    - ✅ Reward claim placeholder done.
+    - ✅ Reward claim panel done.
     - ✅ Active reward claim panel wired to Supabase proof API.
     - ✅ Homepage links done.
     - ✅ Build errors fixed.
@@ -213,8 +213,10 @@
     - ✅ Admin Mint Phase Controls v1 done.
     - ✅ Admin Reward Round Controls v1 created.
     - ✅ Admin Reward Round Controls v2 improved.
+    - ✅ Admin Reward Operations connected to Supabase reward rounds and live on-chain reads.
+    - ✅ Admin reward create / approve / fund / pause / unpause flow completed on testnet.
     - ✅ roundId = timestamp periodEnd decision locked.
-    - ✅ Existing reward rounds dropdown planned for Supabase-backed v2 integration.
+    - ✅ Existing reward rounds dropdown implemented with Supabase-backed round list.
     - ✅ Approval understood as global ERC20 allowance, not per-round approval.
     - ✅ Admin Metadata Controls v1 done.
     - ✅ Admin Pricing Treasury Royalty Controls v1 done.
@@ -241,7 +243,7 @@
     - ✅ amandadeth.endhonesa.com routes to Amanda dETH mint.
     - ✅ Sepolia rehearsal banner added.
 
-17. Stage-by-Stage Browser QA — DONE EXCEPT REWARD CLAIM
+17. Stage-by-Stage Browser QA — DONE
     - ✅ Current Sepolia Browser QA for read/OFF-phase/stake flows done.
     - ✅ Vercel Preview/Testnet QA done.
     - ✅ Sepolia Env Wiring Verification on Vercel done.
@@ -251,9 +253,9 @@
     - ✅ Dashboard Stake/Unstake Browser QA done.
     - ✅ Admin Browser QA v1 done.
     - ✅ Admin Controlled Operations QA v1 done.
-    - 🔜 Reward claim browser testing depends on Supabase indexer + reward pipeline.
+    - ✅ Reward claim browser testing with Supabase proof data and funded rounds done.
 
-18. Complete Database Indexer + Reward Pipeline on Testnet — NEXT / IN PROGRESS
+18. Complete Database Indexer + Reward Pipeline on Testnet — DONE
     - ✅ Storage decision locked: Supabase Postgres.
     - ✅ Supabase Project + Schema v1 migration files.
     - ✅ Indexer with manual FROM_BLOCK + checkpoint implemented.
@@ -267,45 +269,61 @@
     - ✅ Merkle allocation/proof pipeline implemented.
     - ✅ Reward proof API implemented.
     - ✅ Reward claim UI integration implemented.
-    - 🔜 Supabase env wiring verification.
-    - 🔜 Database migrations applied in target Supabase project.
-    - 🔜 Admin Reward Round Controls validation with Supabase round list.
-    - 🔜 End-to-end reward pipeline run on Base Sepolia and Ethereum Sepolia.
-    - 🔜 Reward claim browser testing.
+    - ✅ Supabase env wiring verification.
+    - ✅ Database migrations applied in target Supabase project.
+    - ✅ Boundary sync orchestration schema implemented.
+    - ✅ Dashboard wallet NFT cache schema implemented.
+    - ✅ Admin Reward Round Controls validation with Supabase round list.
+    - ✅ Boundary worker implemented as resumable local/GitHub Actions job.
+    - ✅ End-to-end reward pipeline run on Base Sepolia and Ethereum Sepolia.
+    - ✅ Reward claim browser testing.
 
-19. Full Testnet Browser E2E — NOT STARTED
-    - 🔜 User mint ROTY.
-    - 🔜 User stake ROTY.
-    - 🔜 User mint/stake Melting.
-    - 🔜 User mint/stake Amanda.
-    - 🔜 Admin create/fund reward round from Supabase-generated data.
-    - 🔜 Indexer sync + reward calculation.
-    - 🔜 User claim $OiOi.
-    - 🔜 Repeat on Base Sepolia and Ethereum Sepolia.
+19. Full Testnet Browser E2E — DONE / NEEDS FINAL QA REPORT
+    - ✅ User mint ROTY.
+    - ✅ User stake ROTY.
+    - ✅ User mint/stake Melting.
+    - ✅ User mint/stake Amanda.
+    - ✅ Admin create/fund reward round from Supabase-generated data.
+    - ✅ Indexer sync + reward calculation.
+    - ✅ User claim $OiOi.
+    - ✅ Repeat on Base Sepolia and Ethereum Sepolia.
+    - 🔜 Write final release-candidate QA report from the latest deployed surface.
 
-20. Final UI/UX Polish — NOT STARTED
-    - 🔜 Homepage.
-    - 🔜 Mint pages.
-    - 🔜 User dashboard.
-    - 🔜 Admin dashboard.
-    - 🔜 Reward claim panel.
-    - 🔜 Mobile responsiveness.
-    - 🔜 Error/loading/empty states.
-    - 🔜 Copywriting.
-    - 🔜 Admin warnings/tooltips.
-    - 🔜 Post-indexer/reward UX polish.
+20. Final UI/UX Polish — ALMOST DONE
+    - ✅ Homepage.
+    - ✅ Mint pages.
+    - ✅ User dashboard.
+    - ✅ Admin dashboard.
+    - ✅ Reward claim panel.
+    - ✅ Mobile responsiveness baseline.
+    - ✅ Error/loading/empty states baseline.
+    - ✅ Copywriting baseline.
+    - ✅ Admin warnings/tooltips baseline.
+    - ✅ Post-indexer/reward UX polish baseline.
+    - 🔜 Subdomain Surface Behavior v1.
+    - 🔜 Final visual QA pass.
 
-21. Testnet Release Candidate — NOT STARTED
-    - 🔜 All testnet flows pass.
+21. Subdomain Surface Behavior v1 — NEXT
+    - 🔜 Theme Switcher behavior per effective route/subdomain.
+    - 🔜 App Menu active state per effective route/subdomain.
+    - 🔜 Host-aware menu links.
+    - 🔜 Dedicated mint subdomains must feel like their mapped mint pages.
+    - 🔜 Do not change smart contracts, reward logic, worker logic, or Supabase schema for this task.
+
+22. Testnet Release Candidate — NEAR
+    - ✅ Core testnet flows pass.
+    - ✅ Reward round flow pass.
+    - ✅ Worker/indexer flow pass.
+    - 🔜 Subdomain Surface Behavior v1 pass.
     - 🔜 No blockers.
     - 🔜 Docs updated.
     - 🔜 Runbook final.
     - 🔜 Admin procedures documented.
     - 🔜 Indexer/reward procedures documented.
     - 🔜 Supabase/reward operation documented.
-    - 🔜 Full Testnet Browser E2E passed.
+    - 🔜 Full Testnet Browser E2E final report.
 
-22. Mainnet Deployment — READY BUT DEFERRED
+23. Mainnet Deployment — READY BUT DEFERRED
     - ✅ Mainnet preparation mostly passed.
     - ✅ RPC verified.
     - ✅ Preflight passed.
@@ -313,14 +331,14 @@
     - ✅ Deployer funded.
     - ⏸ Deferred until Testnet Release Candidate.
 
-23. Mainnet Env Wiring — NOT STARTED
+24. Mainnet Env Wiring — NOT STARTED
     - 🔜 Fill mainnet contract env.
     - 🔜 Set NEXT_PUBLIC_APP_ENV=mainnet.
     - 🔜 Deploy Vercel production with mainnet env.
     - 🔜 Keep production-intended domains, but switch app env only when ready.
     - 🔜 Confirm no Sepolia address remains in mainnet build.
 
-24. Mainnet Read-Only QA — NOT STARTED
+25. Mainnet Read-Only QA — NOT STARTED
     - 🔜 Verify frontend reads mainnet contracts.
     - 🔜 Mint phases still OFF.
     - 🔜 Admin dashboard reads owner/admin state.
@@ -328,7 +346,7 @@
     - 🔜 Reward/indexer production config verified.
     - 🔜 Production domains verified under mainnet env.
 
-25. Controlled Mainnet Opening — NOT STARTED
+26. Controlled Mainnet Opening — NOT STARTED
     - 🔜 Enable ROTY whitelist.
     - 🔜 Controlled mint.
     - 🔜 Enable public mint.

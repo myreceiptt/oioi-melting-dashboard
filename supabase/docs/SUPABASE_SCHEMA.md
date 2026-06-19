@@ -1,38 +1,86 @@
-# Supabase Schema v1
+# Supabase Schema
 
-This document describes the database foundation for the OiOi Melting Dashboard indexer and reward pipeline.
+This document describes the database foundation for the OiOi Melting Dashboard indexer, reward pipeline, boundary worker, and dashboard wallet NFT cache.
+
+---
 
 ## Scope
 
-This schema supports testnet Stage 18:
+The current schema supports:
 
-- DB-backed indexer checkpoints
-- ERC721 Transfer event storage
-- Soft staking event storage
-- Reward distributor event storage
-- Current ownership rebuild
-- Current staking state rebuild
-- Valid staking duration calculation
-- Reward calculation
-- Merkle allocation/proof storage
-- Reward claim tracking
+```text
+DB-backed indexer checkpoints
+ERC721 Transfer event storage
+Soft staking event storage
+Reward distributor event storage
+Current ownership rebuild
+Current staking state rebuild
+Valid staking duration calculation
+Reward calculation
+Merkle allocation/proof storage
+Reward claim tracking
+Boundary sync job orchestration
+Boundary snapshot tracking
+Indexer locks
+Dashboard wallet NFT cache
+NFT media HTML support
+```
 
-The schema does not change any deployed smart contract.
+The schema does not change deployed smart contracts.
 
-## Security model
+---
 
-For v1, write access should be server-side only.
+## Migrations
 
-Use:
+Apply migrations in order:
 
-- `SUPABASE_URL`
-- `SUPABASE_SERVICE_ROLE_KEY`
+```text
+001_initial_schema.sql
+002_reward_amount_columns_as_text.sql
+003_boundary_sync_orchestration.sql
+004_dashboard_wallet_nft_cache.sql
+005_dashboard_wallet_nft_media_html.sql
+```
+
+Migration purpose:
+
+```text
+001 initial indexer/reward tables
+002 reward amount text precision compatibility
+003 boundary sync jobs, targets, snapshots, locks, boundary metadata columns
+004 dashboard wallet NFT cache
+005 dashboard NFT media HTML support
+```
+
+---
+
+## Security Model
+
+Server-side writes use:
+
+```env
+SUPABASE_URL=
+SUPABASE_SERVICE_ROLE_KEY=
+```
 
 Do not expose `SUPABASE_SERVICE_ROLE_KEY` in browser code.
 
-The frontend reward claim flow should later read proof data through a Next.js API route, not direct unrestricted table access.
+Browser-facing reads should go through safe Next.js API routes or explicitly safe RLS policies.
 
-## Important tables
+Current important API routes:
+
+```text
+app/api/admin/boundary-sync/route.ts
+app/api/admin/reward-rounds/route.ts
+app/api/cron/boundary-sync/route.ts
+app/api/dashboard/wallet-nfts/route.ts
+app/api/rewards/proof/route.ts
+app/api/rewards/rounds/route.ts
+```
+
+---
+
+## Core Tables
 
 ### `chains`
 
@@ -40,8 +88,10 @@ Stores chain metadata.
 
 Current seeded chains:
 
-- `baseSepolia`
-- `ethereumSepolia`
+```text
+baseSepolia
+ethereumSepolia
+```
 
 ### `contracts`
 
@@ -49,26 +99,28 @@ Stores deployed contract addresses per chain.
 
 Seeded contract keys:
 
-- `roty`
-- `melting`
-- `amanda`
-- `staking`
-- `rewardDistributor`
-- `oioi`
-
-`deployment_block` and `indexer_from_block` are nullable in v1 because deployment block numbers are recorded manually from explorers.
+```text
+roty
+melting
+amanda
+staking
+rewardDistributor
+oioi
+```
 
 ### `indexer_checkpoints`
 
 Stores source-specific sync progress.
 
-Recommended `source_key` values:
+Common source keys:
 
-- `nft_transfers:roty`
-- `nft_transfers:melting`
-- `nft_transfers:amanda`
-- `staking_events`
-- `reward_events`
+```text
+nft_transfers:roty
+nft_transfers:melting
+nft_transfers:amanda
+staking_events
+reward_events
+```
 
 ### `nft_transfer_events`
 
@@ -86,12 +138,14 @@ Stores `CollectionApprovalUpdated` events from `OiOiSoftStaking`.
 
 Stores Reward Distributor events:
 
-- `RewardRoundCreated`
-- `RewardRoundFunded`
-- `MerkleRootUpdated`
-- `ClaimPausedUpdated`
-- `Claimed`
-- rescue events if needed
+```text
+RewardRoundCreated
+RewardRoundFunded
+MerkleRootUpdated
+ClaimPausedUpdated
+Claimed
+rescue events if needed
+```
 
 ### `current_nft_owners`
 
@@ -101,19 +155,25 @@ Derived table rebuilt from `nft_transfer_events`.
 
 Derived table rebuilt from `staking_events` and current NFT ownership.
 
-`valid = active && currently_owned`.
+```text
+valid = active && currently_owned
+```
 
 ### `valid_stake_intervals`
 
-Derived table for reward calculation. It stores valid holding/staking intervals for each staker, collection, and token.
+Derived table for reward calculation.
+
+Stores valid holding/staking intervals per staker, collection, and token.
 
 ### `reward_calculations`
 
 Stores calculation runs before a reward round is created/funded on-chain.
 
+Boundary metadata links the calculation to its submitted tapal batas.
+
 ### `reward_rounds`
 
-Stores planned and synced reward round metadata.
+Stores planned/generated reward round metadata and synced on-chain state.
 
 Important convention:
 
@@ -127,27 +187,118 @@ The smart contract does not auto-generate round IDs. The backend/Admin UI genera
 
 Stores Merkle allocation rows and proofs.
 
-This table powers the later reward proof API and user claim UI.
+This table powers the reward proof API and user claim UI.
 
 ### `reward_claims`
 
 Stores synced `Claimed` events.
 
-## Stage 18 sequence
+---
 
-1. Apply `supabase/migrations/001_initial_schema.sql`.
-2. Add Supabase env variables.
-3. Add Supabase server utility.
-4. Move checkpoints from JSON to Supabase.
-5. Sync Transfer events into `nft_transfer_events`.
-6. Sync staking events into `staking_events`.
-7. Sync reward events into `reward_round_events`.
-8. Rebuild `current_nft_owners`.
-9. Rebuild `current_stake_positions`.
-10. Calculate valid staking intervals.
-11. Calculate reward allocations.
-12. Generate Merkle root/proofs.
-13. Store allocation/proof rows in `reward_allocations`.
-14. Serve proof through a Next.js API route.
-15. Replace `RewardClaimPlaceholder` with live claim flow.
-16. Connect `AdminRewardRoundControls` to Supabase round list.
+## Boundary Sync Orchestration Tables
+
+### `indexer_sync_jobs`
+
+Stores top-level worker jobs.
+
+Current job kind:
+
+```text
+reward_boundary_sync
+```
+
+Statuses:
+
+```text
+queued
+running
+paused
+success
+failed
+cancelled
+```
+
+### `indexer_sync_job_targets`
+
+Stores per-chain/per-task worker targets.
+
+Task keys:
+
+```text
+roty
+melting
+amanda
+staking
+rewardDistributor
+rebuildOwnership
+rebuildStakePositions
+calculateValidIntervals
+calculateRewards
+generateMerkle
+```
+
+### `reward_boundary_snapshots`
+
+Stores the submitted reward period boundaries per chain.
+
+Each snapshot records:
+
+```text
+from_block
+to_block
+from/to timestamps
+reward amount
+sync job id
+status
+```
+
+### `indexer_locks`
+
+Prevents overlapping worker execution for the same lock scope.
+
+---
+
+## Dashboard Wallet NFT Cache
+
+Dashboard NFT display is intentionally separate from reward-boundary calculation state.
+
+The dashboard wallet NFT cache stores fetched/enriched NFT data for:
+
+```text
+wallet
+chain
+collection
+token id
+metadata
+image media
+animation media
+staking state
+source diagnostics
+```
+
+The dashboard cache is refreshed by `app/api/dashboard/wallet-nfts/route.ts`.
+
+It uses Alchemy NFT data plus on-chain staking reads.
+
+---
+
+## Canonical Stage Sequence
+
+Reward-boundary flow:
+
+1. Apply migrations.
+2. Set Supabase and RPC env.
+3. Submit tapal batas + reward amount from Admin Reward Operations.
+4. Run `npm run indexer:boundary-worker` locally or through GitHub Actions.
+5. Worker syncs events.
+6. Worker rebuilds ownership/stake state.
+7. Worker calculates valid stake intervals.
+8. Worker calculates reward allocations.
+9. Worker generates Merkle proof rows.
+10. Admin creates reward round on-chain.
+11. Admin approves and funds $OiOi.
+12. Users claim from Reward Claim Panel.
+
+---
+
+P.S. Read this document freely for information and guidance. Do not redistribute or restate—no quotes, summaries, paraphrases, or derivatives—without prior written permission from [**Prof. NOTA**](https://nota.endhonesa.com/). Sharing the link is allowed. So, share the link, not the text. Do not discuss or re-tell the contents in any form—written, spoken, or recorded—without prior written permission.
