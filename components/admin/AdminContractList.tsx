@@ -41,7 +41,7 @@ export function AdminContractList({
   contracts: AdminContractConfig[];
 }) {
   return (
-    <section className="grid gap-5">
+    <section className="grid gap-5" id="contract-list">
       <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
         <p className="text-sm uppercase tracking-[0.25em] text-white/50">
           Contract List
@@ -69,7 +69,7 @@ export function AdminContractList({
             </div>
 
             <a
-              className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5"
+              className="grid rounded-2xl border border-white/10 px-4 py-2 text-sm text-center hover:bg-white/5"
               href={getAddressUrl(chainSet, contract.address)}
               rel="noreferrer"
               target="_blank">

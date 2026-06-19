@@ -781,7 +781,7 @@ export function AdminReadCards({ chainSet }: { chainSet: ChainSet }) {
   const chainLabel = chainSet === "base" ? "BASE" : "Ethereum";
 
   return (
-    <section className="grid gap-5">
+    <section className="grid gap-5" id="read-contract">
       <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
         <p className="text-sm uppercase tracking-[0.25em] text-white/50">
           Live Admin Reads

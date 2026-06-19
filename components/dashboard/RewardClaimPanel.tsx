@@ -182,14 +182,16 @@ function ReadRow({
   warning?: string;
 }) {
   return (
-    <div className="grid gap-2 border-b border-white/10 py-3 last:border-b-0 md:grid-cols-[220px_1fr]">
+    <div className="grid min-w-0 gap-2 border-b border-black/40 py-3 last:border-b-0 md:grid-cols-[220px_1fr]">
       <div>
-        <div className="text-sm text-white/60">{label}</div>
+        <div className="text-sm text-black/70">{label}</div>
         {warning ? (
-          <div className="mt-1 text-xs text-yellow-100/70">{warning}</div>
+          <div className="mt-1 text-xs text-black/60">{warning}</div>
         ) : null}
       </div>
-      <div className="break-all font-mono text-sm md:text-right">{value}</div>
+      <div className="min-w-0 break-all font-mono text-sm text-black md:text-right wrap-anywhere">
+        {value}
+      </div>
     </div>
   );
 }
@@ -203,16 +205,16 @@ function StatusPill({
 }) {
   const toneClass =
     tone === "success"
-      ? "border-green-500/30 bg-green-500/10 text-green-100"
+      ? "border-white/10 bg-[#b7f56d] text-black"
       : tone === "warning"
-        ? "border-yellow-500/30 bg-yellow-500/10 text-yellow-100"
+        ? "border-white/10 bg-yellow-300 text-black"
         : tone === "danger"
-          ? "border-red-500/30 bg-red-500/10 text-red-100"
+          ? "border-white/10 bg-[#ff9b4a] text-black"
           : tone === "info"
-            ? "border-blue-500/30 bg-blue-500/10 text-blue-100"
+            ? "border-white/10 bg-white text-black"
             : tone === "purple"
-              ? "border-fuchsia-500/30 bg-fuchsia-500/10 text-fuchsia-100"
-              : "border-white/10 bg-white/5 text-white/70";
+              ? "border-white/10 bg-yellow-300 text-black"
+              : "border-white/10 bg-white text-black";
 
   return (
     <span
@@ -232,13 +234,13 @@ function SummaryTile({
   detail?: string;
 }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-      <div className="text-xs uppercase tracking-[0.18em] text-white/40">
+    <div className="rounded-2xl border border-white/10 bg-white/70 p-4 text-black">
+      <div className="text-xs uppercase tracking-[0.18em] text-black/70">
         {label}
       </div>
-      <div className="mt-2 break-all font-mono text-sm text-white">{value}</div>
+      <div className="mt-2 break-all font-mono text-sm text-black">{value}</div>
       {detail ? (
-        <div className="mt-2 text-xs text-white/50">{detail}</div>
+        <div className="mt-2 text-xs text-black/70">{detail}</div>
       ) : null}
     </div>
   );
@@ -262,18 +264,18 @@ function TxStatus({
   }
 
   return (
-    <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
+    <div className="mt-5 min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-yellow-300 p-4 text-sm text-black">
       <div className="font-medium">Transaction status</div>
 
       <a
-        className="mt-2 block break-all font-mono underline underline-offset-4"
+        className="mt-2 block break-all font-mono text-black/70 underline underline-offset-4"
         href={getTxUrl(chainSet, txHash)}
         rel="noreferrer"
         target="_blank">
         <ResponsiveHash value={txHash} />
       </a>
 
-      <div className="mt-2 text-white/60">
+      <div className="mt-2 text-black/70">
         {isLoading
           ? "Mining..."
           : isSuccess
@@ -607,15 +609,51 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
     }
 
     if (!apiEligible || !allocation) {
-      return { label: "Not Eligible", tone: "warning" as const };
+      return { label: "Not Eligible", tone: "danger" as const };
     }
 
     if (claimDisabled) {
-      return { label: "Funded", tone: "success" as const };
+      return { label: "Funded", tone: "warning" as const };
     }
 
     return { label: "Ready to Claim", tone: "success" as const };
   })();
+  const nextStepTone = (() => {
+    if (!claimDisabledReason) {
+      return "success" as const;
+    }
+
+    if (proofData?.ok === false && claimDisabledReason === proofData.error) {
+      return "danger" as const;
+    }
+
+    if (
+      claimDisabledReason === "Checking on-chain funding state." ||
+      claimDisabledReason === "Allocation amount is zero." ||
+      claimDisabledReason === "This wallet has already claimed this round."
+    ) {
+      return "neutral" as const;
+    }
+
+    if (
+      claimDisabledReason ===
+        "This wallet has no allocation for the selected reward round. Keep staking for future rounds." ||
+      claimDisabledReason === "Invalid reward round ID." ||
+      claimDisabledReason === "On-chain Merkle root does not match proof API."
+    ) {
+      return "danger" as const;
+    }
+
+    return "warning" as const;
+  })();
+  const nextStepClass =
+    nextStepTone === "success"
+      ? "bg-[#b7f56d]"
+      : nextStepTone === "danger"
+        ? "bg-[#ff9b4a]"
+        : nextStepTone === "neutral"
+          ? "bg-white/70"
+          : "bg-yellow-300";
 
   function refetchClaimReads() {
     void roundFundingReads.refetch();
@@ -679,47 +717,49 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
   }, [receipt.isSuccess]);
 
   return (
-    <section className="grid gap-5">
-      <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
-        <p className="text-sm uppercase tracking-[0.25em] text-white/50">
+    <section className="grid gap-5" id="reward-claim">
+      <section className="rounded-3xl border border-white/10 bg-black p-6">
+        <p className="text-sm uppercase tracking-[0.25em] text-white/70">
           Claim Rewards
         </p>
         <h2 className="mt-2 text-2xl font-semibold">All Available Rewards</h2>
-        <p className="mt-2 text-sm text-white/60">
+        <p className="mt-2 text-sm text-white/70">
           Not all rewards are available, and not all available rewards can be
           given to you. Please check and claim by yourself.
         </p>
       </section>
-      <article className="rounded-3xl border border-white/10 bg-white/5 p-6">
+      <article className="rounded-3xl border border-white/10 bg-black p-6">
         <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
           <div>
-            <p className="text-sm uppercase tracking-[0.25em] text-white/50">
+            <p className="text-sm uppercase tracking-[0.25em] text-white/70">
               $OiOi Rewards
             </p>
             <h2 className="mt-2 text-2xl font-semibold">
               Check and Claim $OiOi
             </h2>
-            <p className="mt-2 max-w-3xl text-sm text-white/60">
+            <p className="mt-2 max-w-3xl text-sm text-white/70">
               Select a funded reward round, review your allocation, then claim
               when the proof and on-chain state agree.
             </p>
           </div>
 
-          <button
-            className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
-            disabled={
-              isRoundsLoading || isProofLoading || isRewardReadsRefreshing
-            }
-            onClick={refreshClaimPanel}
-            type="button">
-            {isRoundsLoading || isProofLoading || isRewardReadsRefreshing
-              ? "Refreshing..."
-              : "Refresh rounds"}
-          </button>
+          <div className="grid rounded-2xl border border-white/10 bg-black p-1">
+            <button
+              className="cursor-pointer rounded-xl px-4 py-2 text-sm hover:bg-(--oioi-accent) disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-black"
+              disabled={
+                isRoundsLoading || isProofLoading || isRewardReadsRefreshing
+              }
+              onClick={refreshClaimPanel}
+              type="button">
+              {isRoundsLoading || isProofLoading || isRewardReadsRefreshing
+                ? "Refreshing..."
+                : "Refresh"}
+            </button>
+          </div>
         </div>
 
         {roundsError ? (
-          <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+          <div className="mt-5 min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black whitespace-pre-wrap break-all">
             {roundsError}
           </div>
         ) : null}
@@ -728,7 +768,7 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
           <label className="block">
             <div className="font-medium">Available reward round</div>
             <select
-              className="mt-3 w-full rounded-xl border border-white/10 bg-black/40 px-3 py-3 text-sm outline-none focus:border-white/30"
+              className="mt-3 w-full rounded-xl border border-white/10 bg-black px-3 py-3 text-sm outline-none focus:border-white/40"
               disabled={
                 isRoundsLoading ||
                 roundFundingReads.isLoading ||
@@ -808,11 +848,11 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
               />
             </div>
 
-            <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4">
-              <div className="text-xs uppercase tracking-[0.18em] text-white/40">
+            <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 p-4 text-black">
+              <div className="text-xs uppercase tracking-[0.18em] text-black/70">
                 Merkle root
               </div>
-              <div className="mt-2 break-all font-mono text-sm">
+              <div className="mt-2 break-all font-mono text-sm text-black">
                 <ResponsiveHash
                   value={
                     proofData?.ok
@@ -824,45 +864,33 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
             </div>
           </>
         ) : (
-          <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm text-white/60">
+          <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 p-4 text-sm text-black/70">
             No funded reward round selected.
           </div>
         )}
 
         {proofError ? (
-          <div className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+          <div className="mt-4 min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black whitespace-pre-wrap break-all">
             Proof error: {proofError}
           </div>
         ) : null}
 
         {rewardReadError ? (
-          <div className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+          <div className="mt-4 min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black whitespace-pre-wrap break-all">
             Reward read error: {rewardReadError.message}
           </div>
         ) : null}
 
         <div
-          className={`mt-5 rounded-2xl border p-4 ${
-            claimDisabledReason
-              ? "border-yellow-500/30 bg-yellow-500/10"
-              : "border-green-500/30 bg-green-500/10"
-          }`}>
-          <div
-            className={`font-medium ${
-              claimDisabledReason ? "text-yellow-100" : "text-green-100"
-            }`}>
-            Next step
-          </div>
-          <p
-            className={`mt-2 text-sm ${
-              claimDisabledReason ? "text-yellow-100/80" : "text-green-100/80"
-            }`}>
+          className={`mt-5 rounded-2xl border border-white/10 p-4 text-black ${nextStepClass}`}>
+          <div className="font-medium">Next step</div>
+          <p className="mt-2 text-sm text-black/70">
             {claimDisabledReason ?? "This wallet is ready to claim."}
           </p>
         </div>
 
         <button
-          className="mt-5 w-full rounded-2xl border border-green-500/30 bg-green-500/10 px-5 py-3 text-center font-medium text-green-100 hover:bg-green-500/20 disabled:cursor-not-allowed disabled:opacity-40"
+          className="mt-5 w-full cursor-pointer rounded-2xl bg-white px-5 py-3 text-center font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40 disabled:hover:bg-white disabled:hover:text-black"
           disabled={claimDisabled}
           onClick={() => void claimReward()}
           type="button">
@@ -870,11 +898,11 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
         </button>
 
         {showSelectedRoundActionContext && lastActionLabel ? (
-          <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
+          <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 p-4 text-sm text-black">
             <div className="font-medium">Last requested action</div>
-            <div className="mt-2 text-white/60">{lastActionLabel}</div>
+            <div className="mt-2 text-black/70">{lastActionLabel}</div>
             {lastRequestedValue ? (
-              <div className="mt-1 break-all text-white/60">
+              <div className="mt-1 break-all text-black/70">
                 Requested value: {lastRequestedValue}
               </div>
             ) : null}
@@ -882,7 +910,7 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
         ) : null}
 
         {showSelectedRoundActionContext && isWritePending ? (
-          <div className="mt-4 rounded-2xl border border-blue-500/30 bg-blue-500/10 p-4 text-sm text-blue-100/80">
+          <div className="mt-4 rounded-2xl border border-white/10 bg-yellow-300 p-4 text-sm text-black">
             Waiting for wallet signature...
           </div>
         ) : null}
@@ -896,21 +924,21 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
         />
 
         {showSelectedRoundActionContext && writeError ? (
-          <div className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+          <div className="mt-4 min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black whitespace-pre-wrap break-all">
             {writeError.message}
           </div>
         ) : null}
 
-        <details className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4">
+        <details className="mt-5 rounded-2xl border border-white/10 bg-white/70 p-4 text-black">
           <summary className="cursor-pointer font-medium">
             Advanced Diagnostics
           </summary>
-          <p className="mt-2 text-sm text-white/60">
+          <p className="mt-2 text-sm text-black/70">
             Use this only when the claim button is unexpectedly unavailable or a
             reward read looks wrong.
           </p>
           <div className="mt-4 grid gap-3 md:grid-cols-2">
-            <div className="rounded-2xl border border-white/10 bg-black/20 px-4">
+            <div className="rounded-2xl border border-black/20 bg-white px-4">
               <ReadRow
                 label="Connected wallet"
                 value={account ? shortAddress(account) : "Connect wallet"}
@@ -947,7 +975,7 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
               />
             </div>
 
-            <div className="rounded-2xl border border-white/10 bg-black/20 px-4">
+            <div className="rounded-2xl border border-black/20 bg-white px-4">
               <ReadRow
                 label="Round exists"
                 value={formatBool(onChainRoundExists)}

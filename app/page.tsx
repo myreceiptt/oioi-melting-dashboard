@@ -85,16 +85,16 @@ const adminLinks = [
 
 export default function HomePage() {
   return (
-    <main className="mx-auto flex min-h-screen max-w-6xl flex-col gap-6 px-6 py-10">
-      <header className="rounded-3xl border border-white/10 bg-white/5 p-6">
+    <main className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10">
+      <header className="rounded-3xl border border-white/10 bg-black p-6">
         <div>
-          <p className="text-sm uppercase tracking-[0.3em] text-white/50">
+          <p className="text-sm uppercase tracking-[0.3em] text-white/70">
             NFT Minting, Soft Staking, and Claim Rewards.
           </p>
           <h1 className="mt-3 text-4xl font-semibold">
             OiOi Melting Dashboard
           </h1>
-          <p className="mt-4 max-w-3xl text-white/60">
+          <p className="mt-4 max-w-3xl text-white/70">
             Use only your Web3 wallet (EOA) to mint, stake, unstake, and claim
             rewards. Your key, your asset, OiOi!
           </p>
@@ -107,21 +107,25 @@ export default function HomePage() {
       <section>
         <div className="mb-4">
           <h2 className="text-2xl font-semibold">NFT Mint Pages</h2>
-          <p className="mt-2 text-sm text-white/60">
+          <p className="mt-2 text-sm text-white">
             Choose an NFT collection and its chain.
           </p>
         </div>
 
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {mintLinks.map((link) => (
-            <Link
-              className="rounded-3xl border border-white/10 p-6 hover:bg-white/5"
-              href={link.href}
-              target={link.target}
-              key={link.href}>
-              <div className="text-lg font-semibold">{link.title}</div>
-              <p className="mt-2 text-sm text-white/60">{link.description}</p>
-            </Link>
+            <div
+              key={link.href}
+              className="rounded-3xl border border-white/10 bg-black p-2">
+              <Link
+                href={link.href}
+                target={link.target}
+                rel={link.target === "_blank" ? "noreferrer" : undefined}
+                className="block w-full rounded-2xl p-4 hover:bg-(--oioi-accent)">
+                <h3 className="text-lg font-semibold">{link.title}</h3>
+                <p className="mt-2 text-sm text-white/70">{link.description}</p>
+              </Link>
+            </div>
           ))}
         </div>
       </section>
@@ -129,7 +133,7 @@ export default function HomePage() {
       <section>
         <div className="mb-4">
           <h2 className="text-2xl font-semibold">User Dashboard</h2>
-          <p className="mt-2 text-sm text-white/60">
+          <p className="mt-2 text-sm text-white">
             Stake, unstake, check valid stake status, review reward readiness,
             and claim it.
           </p>
@@ -137,13 +141,16 @@ export default function HomePage() {
 
         <div className="grid gap-4 md:grid-cols-3">
           {dashboardLinks.map((link) => (
-            <Link
-              className="rounded-3xl border border-white/10 p-6 hover:bg-white/5"
-              href={link.href}
-              key={link.href}>
-              <div className="text-lg font-semibold">{link.title}</div>
-              <p className="mt-2 text-sm text-white/60">{link.description}</p>
-            </Link>
+            <div
+              key={link.href}
+              className="rounded-3xl border border-white/10 bg-black p-2">
+              <Link
+                href={link.href}
+                className="block w-full rounded-2xl p-4 hover:bg-(--oioi-accent)">
+                <h3 className="text-lg font-semibold">{link.title}</h3>
+                <p className="mt-2 text-sm text-white/70">{link.description}</p>
+              </Link>
+            </div>
           ))}
         </div>
       </section>
@@ -151,7 +158,7 @@ export default function HomePage() {
       <section>
         <div className="mb-4">
           <h2 className="text-2xl font-semibold">Admin Dashboard</h2>
-          <p className="mt-2 text-sm text-white/60">
+          <p className="mt-2 text-sm text-white">
             Owner-only controls for mint phases, metadata, staking registry,
             reward rounds, and emergency actions.
           </p>
@@ -159,17 +166,16 @@ export default function HomePage() {
 
         <div className="grid gap-4 md:grid-cols-3">
           {adminLinks.map((link) => (
-            <Link
-              className="rounded-3xl border border-yellow-500/30 bg-yellow-500/10 p-6 hover:bg-yellow-500/15"
-              href={link.href}
-              key={link.href}>
-              <div className="text-lg font-semibold text-yellow-100">
-                {link.title}
-              </div>
-              <p className="mt-2 text-sm text-yellow-100/70">
-                {link.description}
-              </p>
-            </Link>
+            <div
+              key={link.href}
+              className="rounded-3xl border border-white/10 bg-black p-2">
+              <Link
+                href={link.href}
+                className="block w-full rounded-2xl p-4 hover:bg-(--oioi-accent)">
+                <h3 className="text-lg font-semibold">{link.title}</h3>
+                <p className="mt-2 text-sm text-white/70">{link.description}</p>
+              </Link>
+            </div>
           ))}
         </div>
       </section>

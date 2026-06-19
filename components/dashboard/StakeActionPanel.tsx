@@ -31,6 +31,16 @@ type LastAction = {
   collectionName: string;
 } | null;
 
+type StatusTone = "neutral" | "green" | "yellow" | "blue" | "red";
+
+const STATUS_TONE_CLASSES: Record<StatusTone, string> = {
+  neutral: "border-white/10 bg-white text-black",
+  green: "border-white/10 bg-[#b7f56d] text-black",
+  yellow: "border-white/10 bg-yellow-300 text-black",
+  blue: "border-white/10 bg-white text-black",
+  red: "border-white/10 bg-[#ff9b4a] text-black",
+};
+
 function parseTokenId(value: string) {
   const trimmed = value.trim();
 
@@ -52,15 +62,9 @@ function StatusPill({
   tone = "neutral",
 }: {
   label: string;
-  tone?: "neutral" | "green" | "yellow" | "blue" | "red";
+  tone?: StatusTone;
 }) {
-  const className = {
-    neutral: "border-white/10 bg-white/10 text-white/70",
-    green: "border-green-500/30 bg-green-500/15 text-green-100",
-    yellow: "border-yellow-500/30 bg-yellow-500/15 text-yellow-100",
-    blue: "border-blue-500/30 bg-blue-500/15 text-blue-100",
-    red: "border-red-500/30 bg-red-500/15 text-red-100",
-  }[tone];
+  const className = STATUS_TONE_CLASSES[tone];
 
   return (
     <span
@@ -72,9 +76,9 @@ function StatusPill({
 
 function Row({ label, value }: { label: string; value: string }) {
   return (
-    <div className="grid min-w-0 gap-2 border-b border-white/10 py-3 last:border-b-0 sm:grid-cols-[180px_1fr]">
-      <div className="text-sm text-white/60">{label}</div>
-      <div className="min-w-0 break-words text-left font-mono text-sm sm:text-right [overflow-wrap:anywhere]">
+    <div className="grid min-w-0 gap-2 border-b border-black/40 py-3 last:border-b-0 sm:grid-cols-[180px_1fr]">
+      <div className="text-sm text-black/70">{label}</div>
+      <div className="min-w-0 break-all text-left font-mono text-sm text-black sm:text-right wrap-anywhere">
         {value}
       </div>
     </div>
@@ -83,18 +87,52 @@ function Row({ label, value }: { label: string; value: string }) {
 
 function getNftStatus(nft: DashboardWalletNft) {
   if (nft.stakeActive && nft.stakeValid) {
-    return { label: "Staked", tone: "green" as const };
+    return { label: "Staked", tone: "yellow" as const };
   }
 
   if (nft.stakeActive && !nft.stakeValid) {
-    return { label: "Can Unstake", tone: "yellow" as const };
+    return { label: "Can Unstake", tone: "green" as const };
   }
 
   if (nft.walletOwnsToken) {
-    return { label: "Owned", tone: "blue" as const };
+    return { label: "Owned", tone: "neutral" as const };
   }
 
-  return { label: "History", tone: "neutral" as const };
+  return { label: "History", tone: "red" as const };
+}
+
+function getNextStepTone({
+  selectedNft,
+  isConnected,
+  isWritePending,
+  isConfirming,
+}: {
+  selectedNft: DashboardWalletNft | null;
+  isConnected: boolean;
+  isWritePending: boolean;
+  isConfirming: boolean;
+}): StatusTone {
+  if (isWritePending || isConfirming) {
+    return "yellow";
+  }
+
+  if (!isConnected || !selectedNft) {
+    return "neutral";
+  }
+
+  if (selectedNft.stakeActive && selectedNft.stakeValid) {
+    return "neutral";
+  }
+
+  if (selectedNft.stakeActive && !selectedNft.stakeValid) {
+    return "red";
+  }
+
+  if (selectedNft.walletOwnsToken) {
+    return "yellow";
+  }
+
+  return "neutral";
 }
 
 function getActionState({
@@ -249,7 +287,7 @@ function NftModal({
 }) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4">
-      <div className="max-h-[90vh] w-full max-w-3xl overflow-auto rounded-3xl border border-white/10 bg-[#111] p-5 shadow-2xl">
+      <div className="max-h-[90vh] w-full max-w-3xl overflow-auto rounded-3xl border border-white/10 bg-black p-5 shadow-2xl">
         <div className="flex items-start justify-between gap-4">
           <div>
             <p className="text-sm uppercase tracking-[0.25em] text-white/40">
@@ -257,12 +295,14 @@ function NftModal({
             </p>
             <h3 className="mt-2 text-2xl font-semibold">{nft.metadata.name}</h3>
           </div>
-          <button
-            className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5"
-            type="button"
-            onClick={onClose}>
-            Close
-          </button>
+          <div className="rounded-2xl border border-white/10 bg-black p-1">
+            <button
+              className="cursor-pointer rounded-xl px-4 py-2 text-sm hover:bg-(--oioi-accent)"
+              type="button"
+              onClick={onClose}>
+              Close
+            </button>
+          </div>
         </div>
 
         <div className="mt-5 overflow-hidden rounded-2xl border border-white/10 bg-black/30">
@@ -297,16 +337,16 @@ function TxStatus({
   }
 
   return (
-    <div className="mt-4 rounded-2xl border border-white/10 bg-black/20 p-4">
+    <div className="mt-4 min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-yellow-300 p-4 text-black">
       <h3 className="font-medium">Transaction status</h3>
       <a
-        className="mt-2 block break-all font-mono text-sm underline underline-offset-4"
+        className="mt-2 block break-all font-mono text-sm text-black/70 underline underline-offset-4"
         href={getTxUrl(chainSet, txHash)}
         rel="noreferrer"
         target="_blank">
         <ResponsiveHash value={txHash} />
       </a>
-      <p className="mt-2 text-sm text-white/60">
+      <p className="mt-2 text-sm text-black/70">
         {isConfirming
           ? "Waiting for confirmation..."
           : isSuccess
@@ -389,6 +429,12 @@ function CollectionStakeCard({
     isWritePending,
     isConfirming,
   });
+  const nextStepTone = getNextStepTone({
+    selectedNft,
+    isConnected,
+    isWritePending,
+    isConfirming,
+  });
 
   function handleAction() {
     if (!selectedNft || actionState.disabled || !actionState.action) {
@@ -451,39 +497,41 @@ function CollectionStakeCard({
   }
 
   return (
-    <article className="rounded-3xl border border-white/10 bg-white/5 p-6">
+    <article className="min-w-0 rounded-3xl border border-white/10 bg-black p-6">
       <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
         <div>
-          <p className="text-sm uppercase tracking-[0.25em] text-white/40">
+          <p className="text-sm uppercase tracking-[0.25em] text-white/70">
             Symbol: {config.symbol}
           </p>
           <h2 className="mt-2 text-2xl font-semibold">{config.name}</h2>
-          <p className="mt-2 text-sm text-white/60">
+          <p className="mt-2 text-sm text-white/70">
             Contract Address:{" "}
-            <span className="break-all font-mono text-sm text-white/40">
+            <span className="break-all font-mono text-sm text-white/70">
               <ResponsiveHash value={config.contractAddress} />
             </span>
           </p>
         </div>
 
-        <button
-          className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={loading}
-          type="button"
-          onClick={() => void onRefresh(true)}>
-          {loading ? "Refreshing..." : "Refresh NFTs"}
-        </button>
+        <div className="grid rounded-2xl border border-white/10 bg-black p-1">
+          <button
+            className="cursor-pointer rounded-xl px-4 py-2 text-sm hover:bg-(--oioi-accent) disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-black"
+            disabled={loading}
+            type="button"
+            onClick={() => void onRefresh(true)}>
+            {loading ? "Refreshing..." : "Refresh"}
+          </button>
+        </div>
       </div>
 
       <div className="mt-5">
         {loading && nfts.length === 0 ? (
-          <div className="rounded-2xl border border-white/10 bg-black/20 px-5 py-4 text-sm text-white/60">
+          <div className="rounded-2xl border border-white/10 bg-white/70 px-5 py-4 text-sm text-black/70">
             Loading wallet NFTs...
           </div>
         ) : null}
 
         {!loading && nfts.length === 0 ? (
-          <div className="rounded-2xl border border-white/10 bg-black/20 px-5 py-4 text-sm text-white/60">
+          <div className="rounded-2xl border border-white/10 bg-white/70 px-5 py-4 text-sm text-black/70">
             No owned or staked NFT found for this collection.
           </div>
         ) : null}
@@ -496,8 +544,10 @@ function CollectionStakeCard({
 
               return (
                 <div
-                  className={`overflow-hidden rounded-2xl border bg-black/20 text-left transition hover:bg-white/5 ${
-                    selected ? "border-white/50" : "border-white/10"
+                  className={`overflow-hidden rounded-2xl border text-left transition hover:bg-(--oioi-accent) hover:border-(--oioi-accent) hover:text-white ${
+                    selected
+                      ? "border-(--oioi-accent) bg-(--oioi-accent) text-white"
+                      : "border-white/10 bg-white/70 text-black"
                   }`}
                   key={`${nft.collectionKey}-${nft.tokenId}`}
                   role="button"
@@ -523,11 +573,11 @@ function CollectionStakeCard({
                       </div>
                       <StatusPill label={status.label} tone={status.tone} />
                     </div>
-                    <div className="mt-2 font-mono text-sm text-white/50">
+                    <div className="mt-2 font-mono text-sm">
                       Token #{nft.tokenId}
                     </div>
                     <button
-                      className="mt-3 rounded-xl border border-white/10 px-3 py-2 text-xs text-white/70 hover:bg-white/5"
+                      className="mt-3 cursor-pointer rounded-xl bg-white px-3 py-2 text-xs text-black hover:bg-black hover:text-white"
                       type="button"
                       onClick={(event) => {
                         event.stopPropagation();
@@ -545,30 +595,30 @@ function CollectionStakeCard({
 
       {selectedNft ? (
         <div className="mt-5 grid gap-4 md:grid-cols-4">
-          <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-            <div className="text-xs uppercase tracking-[0.2em] text-white/40">
+          <div className="rounded-2xl border border-white/10 bg-white/70 p-4 text-black">
+            <div className="text-xs uppercase tracking-[0.2em] text-black/70">
               Token ID
             </div>
             <div className="mt-2 font-mono text-lg">{selectedNft.tokenId}</div>
           </div>
-          <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-            <div className="text-xs uppercase tracking-[0.2em] text-white/40">
+          <div className="rounded-2xl border border-white/10 bg-white/70 p-4 text-black">
+            <div className="text-xs uppercase tracking-[0.2em] text-black/70">
               Owner
             </div>
             <div className="mt-2 font-mono text-lg">
               {shortAddress(selectedNft.ownerAddress ?? undefined)}
             </div>
           </div>
-          <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-            <div className="text-xs uppercase tracking-[0.2em] text-white/40">
+          <div className="rounded-2xl border border-white/10 bg-white/70 p-4 text-black">
+            <div className="text-xs uppercase tracking-[0.2em] text-black/70">
               Stake Active
             </div>
             <div className="mt-2 font-mono text-lg">
               {formatBool(selectedNft.stakeActive)}
             </div>
           </div>
-          <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-            <div className="text-xs uppercase tracking-[0.2em] text-white/40">
+          <div className="rounded-2xl border border-white/10 bg-white/70 p-4 text-black">
+            <div className="text-xs uppercase tracking-[0.2em] text-black/70">
               Stake Valid
             </div>
             <div className="mt-2 font-mono text-lg">
@@ -578,13 +628,14 @@ function CollectionStakeCard({
         </div>
       ) : null}
 
-      <div className="mt-5 rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-4 text-yellow-100">
+      <div
+        className={`mt-5 rounded-2xl p-4 ${STATUS_TONE_CLASSES[nextStepTone]}`}>
         <h3 className="font-medium">Next step</h3>
-        <p className="mt-2 text-sm text-yellow-100/80">{actionState.message}</p>
+        <p className="mt-2 text-sm text-black/70">{actionState.message}</p>
       </div>
 
       <button
-        className="mt-4 w-full rounded-2xl border border-green-500/30 bg-green-500/15 px-5 py-4 font-medium text-green-100 hover:bg-green-500/20 disabled:cursor-not-allowed disabled:border-white/10 disabled:bg-white/10 disabled:text-white/50"
+        className="mt-4 w-full cursor-pointer rounded-2xl bg-white px-5 py-4 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40 disabled:hover:bg-white disabled:hover:text-black"
         disabled={actionState.disabled}
         type="button"
         onClick={handleAction}>
@@ -600,12 +651,12 @@ function CollectionStakeCard({
       </button>
 
       {lastAction ? (
-        <div className="mt-4 rounded-2xl border border-white/10 bg-black/20 p-4">
+        <div className="mt-4 rounded-2xl border border-white/10 bg-white/70 p-4 text-black">
           <h3 className="font-medium">Last requested action</h3>
-          <p className="mt-2 text-sm text-white/60">
+          <p className="mt-2 text-sm text-black/70">
             {lastAction.action === "stake" ? "Stake NFT" : "Unstake NFT"}
           </p>
-          <p className="mt-1 text-sm text-white/60">
+          <p className="mt-1 text-sm text-black/70">
             Requested value: {lastAction.collectionName} #{lastAction.tokenId}
           </p>
         </div>
@@ -619,33 +670,33 @@ function CollectionStakeCard({
       />
 
       {writeError || receiptError ? (
-        <div className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 p-4">
-          <h3 className="font-medium text-red-100">Transaction failed</h3>
-          <p className="mt-2 wrap-break-word text-sm text-red-100/80">
+        <div className="mt-4 min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-black">
+          <h3 className="font-medium">Transaction failed</h3>
+          <p className="mt-2 max-w-full break-all whitespace-pre-wrap text-sm text-black/70">
             {(writeError || receiptError)?.message}
           </p>
         </div>
       ) : null}
 
       {refreshError ? (
-        <div className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 p-4">
-          <h3 className="font-medium text-red-100">NFT refresh failed</h3>
-          <p className="mt-2 wrap-break-word text-sm text-red-100/80">
+        <div className="mt-4 min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-black">
+          <h3 className="font-medium">NFT refresh failed</h3>
+          <p className="mt-2 max-w-full break-all whitespace-pre-wrap text-sm text-black/70">
             {refreshError}
           </p>
         </div>
       ) : null}
 
-      <details className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4">
+      <details className="mt-5 rounded-2xl border border-white/10 bg-white/70 p-4 text-black">
         <summary className="cursor-pointer font-medium">
           Advanced Diagnostics
         </summary>
-        <p className="mt-3 text-sm text-white/60">
+        <p className="mt-3 text-sm text-black/70">
           Use this only when NFT discovery is unavailable or a chain read looks
           wrong.
         </p>
 
-        <div className="mt-4 rounded-2xl border border-white/10 bg-black/20 px-4">
+        <div className="mt-4 rounded-2xl border border-black/40 bg-white px-4">
           <Row
             label="Collection approved"
             value={formatBool(selectedNft?.collectionApproved ?? undefined)}
@@ -679,14 +730,14 @@ function CollectionStakeCard({
             onChange={(event) => setManualTokenIdInput(event.target.value)}
           />
           <button
-            className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
+            className="cursor-pointer rounded-2xl bg-white px-4 py-2 text-sm text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-white disabled:hover:text-black"
             disabled={!manualTokenId || isWritePending || isConfirming}
             type="button"
             onClick={handleManualStake}>
             Manual Stake
           </button>
           <button
-            className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
+            className="cursor-pointer rounded-2xl bg-white px-4 py-2 text-sm text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-white disabled:hover:text-black"
             disabled={!manualTokenId || isWritePending || isConfirming}
             type="button"
             onClick={handleManualUnstake}>
@@ -782,38 +833,30 @@ export function StakeActionPanel({
   }, [nfts]);
 
   return (
-    <section className="grid gap-5">
-      <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
+    <section className="grid gap-5" id="soft-staking">
+      <section className="rounded-3xl border border-white/10 bg-black p-6">
         <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
           <div>
-            <p className="text-sm uppercase tracking-[0.25em] text-white/50">
+            <p className="text-sm uppercase tracking-[0.25em] text-white/70">
               Soft Staking
             </p>
             <h2 className="mt-2 text-2xl font-semibold">Stake / Unstake NFT</h2>
-            <p className="mt-2 max-w-3xl text-sm text-white/60">
+            <p className="mt-2 max-w-3xl text-sm text-white/70">
               Select an owned or previously staked NFT. The list is refreshed
               from Alchemy, checked against on-chain staking state, and cached
               for a short period.
             </p>
           </div>
-
-          {/* <button
-            className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
-            disabled={!isConnected || loading}
-            type="button"
-            onClick={() => void refreshNfts(true)}>
-            {loading ? "Refreshing..." : "Refresh NFTs"}
-          </button> */}
         </div>
 
         {!isConnected ? (
-          <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm text-white/60">
+          <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 p-4 text-sm text-black/70">
             Connect wallet to discover owned and staked NFTs.
           </div>
         ) : null}
 
         {isConnected ? (
-          <div className="mt-5 flex flex-wrap gap-2 text-sm text-white/60">
+          <div className="mt-5 flex flex-wrap gap-2 text-sm">
             <StatusPill label={`Cache: ${cacheStatus ?? "none"}`} />
             <StatusPill label={`NFTs: ${nfts.length}`} tone="blue" />
             {fetchedAt ? <StatusPill label={`Fetched: ${fetchedAt}`} /> : null}

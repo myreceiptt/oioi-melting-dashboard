@@ -5,6 +5,7 @@ import { DashboardReadPanel } from "@/components/dashboard/DashboardReadPanel";
 import { RewardClaimPanel } from "@/components/dashboard/RewardClaimPanel";
 import { StakeActionPanel } from "@/components/dashboard/StakeActionPanel";
 import type { ChainSet } from "@/lib/chains/chainConfig";
+import { InvalidPage } from "@/components/app/InvalidPage";
 
 const allowedChains = ["base", "ethereum"] as const;
 
@@ -21,41 +22,43 @@ export default async function ChainDashboardPage({
 
   if (!isChainSet(chain)) {
     return (
-      <main className="mx-auto min-h-screen max-w-4xl px-6 py-10">
-        <h1 className="text-3xl font-semibold">Invalid dashboard chain.</h1>
-        <Link className="mt-4 inline-block underline" href="/dashboard">
-          Back to Dashboard Home.
-        </Link>
-      </main>
+      <InvalidPage
+        actionLabel="Back to Dashboard Home"
+        eyebrow="User Dashboard"
+        href="/dashboard"
+        message="This dashboard chain does not exist. Please choose BASE or Ethereum from the dashboard home."
+        title="Invalid dashboard page"
+      />
     );
   }
 
   return (
-    <main className="mx-auto flex min-h-screen max-w-6xl flex-col gap-6 px-6 py-10">
-      <header className="rounded-3xl border border-white/10 bg-white/5 p-6">
-        <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
-          <div>
-            <Link className="text-sm text-white/50 underline" href="/dashboard">
-              ← Dashboard Home
-            </Link>
-            <p className="mt-5 text-sm uppercase tracking-[0.3em] text-white/50">
-              User Dashboard
-            </p>
-            <h1 className="mt-3 text-4xl font-semibold">
-              {chain.toUpperCase()} Dashboard
-            </h1>
-            <p className="mt-4 max-w-3xl text-white/60">
-              Read-only staking summary, and stake or unstake owned NFT, also
-              claim the OiOi rewards, all only for the expected holder.
-            </p>
-          </div>
+    <main className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10">
+      <header className="rounded-3xl border border-white/10 bg-black p-6">
+        <div>
+          <Link className="text-sm text-white/70 underline" href="/dashboard">
+            ← Dashboard Home
+          </Link>
+          <p className="mt-5 text-sm uppercase tracking-[0.3em] text-white/70">
+            User Dashboard
+          </p>
+          <h1 className="mt-3 text-4xl font-semibold">
+            {chain.toUpperCase()} Dashboard
+          </h1>
+          <p className="mt-4 max-w-3xl text-white/70">
+            All only for the expected holder.
+          </p>
+        </div>
 
+        <div className="mt-6">
           <ConnectWalletButton />
         </div>
       </header>
 
       <ChainGuard chainSet={chain}>
-        <DashboardReadPanel chainSet={chain} />
+        <section className="grid gap-5" id="read-panel">
+          <DashboardReadPanel chainSet={chain} />
+        </section>
         <StakeActionPanel chainSet={chain} />
         <RewardClaimPanel chainSet={chain} />
       </ChainGuard>
