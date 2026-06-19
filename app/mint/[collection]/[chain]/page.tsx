@@ -11,7 +11,6 @@ import {
 } from "@/lib/contracts/collectionConfig";
 import type { ChainSet } from "@/lib/chains/chainConfig";
 import { InvalidPage } from "@/components/app/InvalidPage";
-import { InvalidMintPage } from "../../InvalidMintPage";
 
 const allowedCollections = ["roty", "melting", "amanda"] as const;
 const allowedChains = ["base", "ethereum"] as const;

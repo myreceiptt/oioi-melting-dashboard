@@ -16,7 +16,7 @@ import { EXPECTED_ADMIN_OWNER_ADDRESS } from "@/lib/admin/adminContractConfig";
 import { getTxUrl } from "@/lib/services/explorer";
 import { ResponsiveHash } from "@/components/app/ResponsiveHash";
 import { sameAddress } from "@/lib/utils/address";
-import { formatEth, formatNumber, shortAddress } from "@/lib/utils/format";
+import { formatEth, shortAddress } from "@/lib/utils/format";
 
 type FinancialCollectionConfig = {
   key: "roty" | "melting" | "amanda";

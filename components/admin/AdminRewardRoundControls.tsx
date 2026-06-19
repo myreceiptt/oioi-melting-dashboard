@@ -210,20 +210,6 @@ function asBigInt(value: unknown): bigint | undefined {
   return typeof value === "bigint" ? value : undefined;
 }
 
-function formatUnixTimestamp(value: bigint | undefined) {
-  if (value === undefined) {
-    return "—";
-  }
-
-  const date = new Date(Number(value) * 1000);
-
-  if (Number.isNaN(date.getTime())) {
-    return value.toString();
-  }
-
-  return `${value.toString()} (${date.toISOString()})`;
-}
-
 function maxBigInt(a: bigint, b: bigint) {
   return a > b ? a : b;
 }
@@ -767,9 +753,6 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
     roundMode !== "existingSupabase" ||
     isSupabaseStatusReadyForCreate(selectedSupabaseStatus);
   const selectedSupabaseMerkleRoot = selectedSupabaseRound?.merkle_root ?? null;
-  const selectedSupabaseRootMatches =
-    Boolean(selectedSupabaseMerkleRoot && merkleRoot) &&
-    selectedSupabaseMerkleRoot?.toLowerCase() === merkleRoot?.toLowerCase();
   const onChainRootMatchesSupabase =
     Boolean(selectedSupabaseMerkleRoot && onChainMerkleRoot) &&
     selectedSupabaseMerkleRoot?.toLowerCase() ===
@@ -900,16 +883,6 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
     } finally {
       setIsRoundsLoading(false);
     }
-  }
-
-  function resetRoundInputs() {
-    setRoundIdInput("");
-    setPeriodStartInput("");
-    setPeriodEndInput("");
-    setRewardAmountInput("");
-    setFundAmountInput("");
-    setApproveAmountInput("");
-    setMerkleRootInput("");
   }
 
   function applySupabaseRound(round: AdminRewardRound) {
@@ -1123,38 +1096,6 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
 
       return nextValue;
     });
-  }
-
-  function setPeriodEndAndRoundId(nextValue: string) {
-    setPeriodEndInput(nextValue);
-
-    if (roundMode !== "createNew") {
-      return;
-    }
-
-    const parsedPeriodEnd = parseDateTimeToUnix(nextValue);
-
-    if (parsedPeriodEnd !== null) {
-      setRoundIdInput(parsedPeriodEnd.toString());
-    }
-  }
-
-  function changeRoundMode(nextMode: RoundMode) {
-    setRoundMode(nextMode);
-
-    if (nextMode === "createNew") {
-      resetRoundInputs();
-      return;
-    }
-
-    if (rounds.length === 0) {
-      void fetchRounds({ preserveSelection: false });
-      return;
-    }
-
-    const round = selectedSupabaseRound ?? rounds[0];
-    setSelectedSupabaseRoundId(round.round_id);
-    applySupabaseRound(round);
   }
 
   function confirmAction({

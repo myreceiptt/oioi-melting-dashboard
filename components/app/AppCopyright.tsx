@@ -37,7 +37,7 @@ export function AppCopyright() {
     <>
       <div className="flex min-w-0 flex-wrap items-center gap-2 rounded-2xl border border-white/10 bg-black p-1 text-sm font-semibold text-white">
         <button
-          className="hidden cursor-pointer rounded-xl bg-black py-2 pl-3 text-white hover:bg-(--oioi-accent) sm:block"
+          className="hidden cursor-pointer rounded-xl bg-black py-2 px-3 text-white hover:bg-(--oioi-accent) sm:block"
           onClick={() =>
             setLabel((current) =>
               current === "Copyright" ? "Copyleft" : "Copyright",
@@ -49,19 +49,19 @@ export function AppCopyright() {
         <span className="hidden py-2 text-white/70 sm:block">{timestamp}</span>
         <button
           aria-label="Open Prof. NOTA Inc. icon"
-          className="cursor-pointer rounded-full bg-black p-0.5 hover:bg-(--oioi-accent)"
+          className="cursor-pointer rounded-xl bg-black py-1 px-3 hover:bg-(--oioi-accent)"
           onClick={() => setModalOpen(true)}
           type="button">
           <Image
             alt="Prof. NOTA Inc."
-            className="h-6 w-6 rounded-full"
+            className="h-5 w-5 rounded-full"
             height={24}
             src="/shortcut-icon.png"
             width={24}
           />
         </button>
         <button
-          className="hidden cursor-pointer rounded-xl bg-black py-2 pr-3 text-white hover:bg-(--oioi-accent) sm:block"
+          className="hidden cursor-pointer rounded-xl bg-black py-2 px-3 text-white hover:bg-(--oioi-accent) sm:block"
           onClick={() =>
             setCompany((current) =>
               current === "Prof. NOTA Inc."

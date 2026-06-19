@@ -58,9 +58,8 @@ Transfer sync draft is paused/experimental until Supabase-first plan is implemen
 Completed:
 
 ```text
-Indexer skeleton implemented.
 indexer:status command exists.
-indexer:rebuild skeleton exists.
+Legacy indexer:rebuild skeleton removed; DB-backed rebuild scripts are canonical.
 Generated output is ignored except .gitkeep.
 ```
 

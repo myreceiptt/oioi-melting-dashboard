@@ -22,7 +22,6 @@ import type {
   IndexerCheckpoints,
   IndexerEventRecord,
   IndexerNetworkConfig,
-  IndexerSourceKey,
   TransferRecord,
 } from "./types.js";
 import { buildCurrentOwners } from "./calculators/ownership.js";

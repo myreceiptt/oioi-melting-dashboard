@@ -10,7 +10,6 @@ import { AdminStakingRegistryControls } from "@/components/admin/AdminStakingReg
 import { AdminMintPhaseControls } from "@/components/admin/AdminMintPhaseControls";
 import { AdminPricingTreasuryRoyaltyControls } from "@/components/admin/AdminPricingTreasuryRoyaltyControls";
 import { AdminMetadataControls } from "@/components/admin/AdminMetadataControls";
-// import { AdminRewardRoundSupabasePanel } from "@/components/admin/AdminRewardRoundSupabasePanel";
 import { AdminRewardRoundControls } from "@/components/admin/AdminRewardRoundControls";
 import { AdminEmergencyRescueControls } from "@/components/admin/AdminEmergencyRescueControls";
 import { InvalidPage } from "@/components/app/InvalidPage";
@@ -98,7 +97,6 @@ export default async function AdminChainPage({
         <AdminMintPhaseControls chainSet={chain} />
         <AdminPricingTreasuryRoyaltyControls chainSet={chain} />
         <AdminMetadataControls chainSet={chain} />
-        {/* <AdminRewardRoundSupabasePanel chainSet={chain} /> */}
         <AdminRewardRoundControls chainSet={chain} />
         <AdminEmergencyRescueControls chainSet={chain} />
       </ChainGuard>

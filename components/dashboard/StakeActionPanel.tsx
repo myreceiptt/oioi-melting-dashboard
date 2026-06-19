@@ -7,7 +7,7 @@ import {
   useWriteContract,
 } from "wagmi";
 import type { ChainSet } from "@/lib/chains/chainConfig";
-import { erc721SharedAbi, stakingAbi } from "@/lib/contracts/abis";
+import { stakingAbi } from "@/lib/contracts/abis";
 import type { CollectionConfig } from "@/lib/contracts/collectionConfig";
 import type { CollectionKey } from "@/lib/contracts/collectionConfig";
 import { getChainCollections } from "@/lib/contracts/collectionConfig";
