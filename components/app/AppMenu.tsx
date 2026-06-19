@@ -219,7 +219,7 @@ export function AppMenu() {
 
   return (
     <nav aria-label="Main menu" className="relative" ref={navRef}>
-      <div className="rounded-2xl border border-white/10 bg-black p-1 md:gap-1 md:hidden">
+      <div className="rounded-2xl border border-white/10 bg-black p-1 md:hidden">
         <button
           aria-expanded={mobileOpen}
           aria-label="Open main menu"

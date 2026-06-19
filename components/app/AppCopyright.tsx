@@ -35,7 +35,7 @@ export function AppCopyright() {
 
   return (
     <>
-      <div className="flex min-w-0 flex-wrap items-center gap-2 rounded-2xl border border-white/10 bg-black p-1 text-sm font-semibold text-white">
+      <div className="flex min-w-0 flex-wrap items-center rounded-2xl border border-white/10 bg-black p-1 text-sm font-semibold text-white">
         <button
           className="hidden cursor-pointer rounded-xl bg-black py-2 px-3 text-white hover:bg-(--oioi-accent) sm:block"
           onClick={() =>
@@ -46,10 +46,10 @@ export function AppCopyright() {
           type="button">
           {label}
         </button>
-        <span className="hidden py-2 text-white/70 sm:block">{timestamp}</span>
+        <span className="hidden py-2 px-3 text-white/70 sm:block">{timestamp}</span>
         <button
           aria-label="Open Prof. NOTA Inc. icon"
-          className="cursor-pointer rounded-xl bg-black py-1 px-3 hover:bg-(--oioi-accent)"
+          className="cursor-pointer rounded-xl bg-black py-2 px-3 hover:bg-(--oioi-accent)"
           onClick={() => setModalOpen(true)}
           type="button">
           <Image
