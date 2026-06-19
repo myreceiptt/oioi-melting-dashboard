@@ -69,7 +69,7 @@ export function AdminContractList({
             </div>
 
             <a
-              className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5"
+              className="grid rounded-2xl border border-white/10 px-4 py-2 text-sm text-center hover:bg-white/5"
               href={getAddressUrl(chainSet, contract.address)}
               rel="noreferrer"
               target="_blank">

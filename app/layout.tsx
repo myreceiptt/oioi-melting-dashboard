@@ -131,10 +131,12 @@ export default function RootLayout({
         />
         <Web3Providers>
           <ThemeProvider>
-            <AppEnvironmentBanner />
-            <AppNavbar />
-            {children}
-            <AppFooter />
+            <div className="flex min-h-screen flex-col">
+              <AppEnvironmentBanner />
+              <AppNavbar />
+              <div className="flex-1">{children}</div>
+              <AppFooter />
+            </div>
           </ThemeProvider>
         </Web3Providers>
         <Analytics />

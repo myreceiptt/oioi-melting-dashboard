@@ -153,7 +153,7 @@ export function GatedMintPanel({ config }: { config: CollectionConfig }) {
             {getEligibilityLabel(config)}
           </p>
         </div>
-        <div className="rounded-2xl border border-white/10 bg-black p-1">
+        <div className="grid rounded-2xl border border-white/10 bg-black p-1">
           <button
             className="cursor-pointer rounded-xl px-4 py-2 text-sm hover:bg-(--oioi-accent) disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-black"
             disabled={isRefreshing}

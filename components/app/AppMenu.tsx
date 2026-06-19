@@ -231,7 +231,7 @@ export function AppMenu() {
       </div>
 
       {mobileOpen ? (
-        <div className="absolute left-0 top-full z-50 mt-2 w-[min(82vw,360px)] rounded-2xl border border-white/10 bg-black p-2 shadow-2xl md:hidden">
+        <div className="absolute left-0 top-full z-50 mt-2 w-[min(82vw,360px)] rounded-2xl border border-white/10 bg-black p-1 shadow-2xl md:hidden">
           <div className="grid gap-1">
             {menuItems.map((item) => {
               const isActive = groupIsActive(pathname, item);
@@ -370,60 +370,57 @@ export function AppMenu() {
                 {item.label}
               </button>
 
-              <div
-                className={`absolute left-0 top-full z-50 min-w-64 pt-2 transition ${
-                  openDesktopGroup === item.label
-                    ? "visible opacity-100"
-                    : "invisible opacity-0"
-                }`}>
-                <div className="grid gap-1 rounded-2xl border border-white/10 bg-black p-2 shadow-2xl">
-                  {item.href ? (
-                    <MenuLinkItem
-                      item={{ href: item.href, label: `${item.label} Home` }}
-                      onNavigate={closeDesktopMenu}
-                      size="small"
-                    />
-                  ) : null}
-
-                  {item.children.map((child) =>
-                    hasChildren(child) ? (
-                      <div key={child.label}>
-                        {child.href ? (
-                          <MenuLinkItem
-                            item={{ href: child.href, label: child.label }}
-                            onNavigate={closeDesktopMenu}
-                            size="small"
-                          />
-                        ) : (
-                          <div className="px-3 py-2 text-xs font-semibold text-white">
-                            {child.label}
-                          </div>
-                        )}
-
-                        <div className="mt-1 grid gap-1 pl-3">
-                          {child.children.map((nested) =>
-                            hasChildren(nested) ? null : (
-                              <MenuLinkItem
-                                item={nested}
-                                key={nested.href}
-                                onNavigate={closeDesktopMenu}
-                                size="small"
-                              />
-                            ),
-                          )}
-                        </div>
-                      </div>
-                    ) : (
+              {openDesktopGroup === item.label ? (
+                <div className="absolute left-0 top-full z-50 min-w-64 pt-2">
+                  <div className="grid gap-1 rounded-2xl border border-white/10 bg-black p-1 shadow-2xl">
+                    {item.href ? (
                       <MenuLinkItem
-                        item={child}
-                        key={child.href}
+                        item={{ href: item.href, label: `${item.label} Home` }}
                         onNavigate={closeDesktopMenu}
                         size="small"
                       />
-                    ),
-                  )}
+                    ) : null}
+
+                    {item.children.map((child) =>
+                      hasChildren(child) ? (
+                        <div key={child.label}>
+                          {child.href ? (
+                            <MenuLinkItem
+                              item={{ href: child.href, label: child.label }}
+                              onNavigate={closeDesktopMenu}
+                              size="small"
+                            />
+                          ) : (
+                            <div className="px-3 py-2 text-xs font-semibold text-white">
+                              {child.label}
+                            </div>
+                          )}
+
+                          <div className="mt-1 grid gap-1 pl-3">
+                            {child.children.map((nested) =>
+                              hasChildren(nested) ? null : (
+                                <MenuLinkItem
+                                  item={nested}
+                                  key={nested.href}
+                                  onNavigate={closeDesktopMenu}
+                                  size="small"
+                                />
+                              ),
+                            )}
+                          </div>
+                        </div>
+                      ) : (
+                        <MenuLinkItem
+                          item={child}
+                          key={child.href}
+                          onNavigate={closeDesktopMenu}
+                          size="small"
+                        />
+                      ),
+                    )}
+                  </div>
                 </div>
-              </div>
+              ) : null}
             </div>
           );
         })}

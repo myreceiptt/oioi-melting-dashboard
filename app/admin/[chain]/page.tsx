@@ -46,7 +46,7 @@ export default async function AdminChainPage({
     adminConfig = getAdminChainConfig(chain);
   } catch (error) {
     return (
-      <main className="mx-auto min-h-screen max-w-4xl px-6 py-10">
+      <main className="mx-auto max-w-4xl px-6 py-10">
         <Link className="text-sm text-white/70 underline" href="/admin">
           ← Back to Admin Home
         </Link>
@@ -68,7 +68,7 @@ export default async function AdminChainPage({
   }
 
   return (
-    <main className="mx-auto flex min-h-screen max-w-6xl flex-col gap-6 px-6 py-10">
+    <main className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10">
       <header className="rounded-3xl border border-white/10 bg-black p-6">
         <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
           <div>

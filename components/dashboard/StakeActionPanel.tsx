@@ -512,13 +512,13 @@ function CollectionStakeCard({
           </p>
         </div>
 
-        <div className="rounded-2xl border border-white/10 bg-black p-1">
+        <div className="grid rounded-2xl border border-white/10 bg-black p-1">
           <button
             className="cursor-pointer rounded-xl px-4 py-2 text-sm hover:bg-(--oioi-accent) disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-black"
             disabled={loading}
             type="button"
             onClick={() => void onRefresh(true)}>
-            {loading ? "Refreshing..." : "Refresh NFTs"}
+            {loading ? "Refreshing..." : "Refresh"}
           </button>
         </div>
       </div>
