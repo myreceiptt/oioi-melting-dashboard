@@ -47,7 +47,7 @@ function createAdminContractConfig({
 
 export function getAdminChainConfig(chainSet: ChainSet): AdminChainConfig {
   const addresses = getContractAddresses(chainSet);
-  const chainLabel = chainSet === "base" ? "BASE" : "Ethereum";
+  const chainLabel = chainSet === "base" ? "BASE" : "dETH";
 
   return {
     chainSet,

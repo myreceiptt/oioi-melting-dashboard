@@ -4,37 +4,171 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
+type LinkTarget = "_blank" | "_self";
+
 type MenuLink = {
   href: string;
   label: string;
-  target?: "_blank";
+  target?: LinkTarget;
 };
 
 type MenuGroup = {
   label: string;
   href?: string;
+  target?: LinkTarget;
   children: Array<MenuLink | MenuGroup>;
 };
 
 type MenuItem = MenuLink | MenuGroup;
 
+const mintChildren: MenuGroup[] = [
+  {
+    href: "https://rotybase.endhonesa.com/",
+    label: "ROTY BASE Mint",
+    target: "_blank",
+    children: [
+      {
+        href: "https://rotybase.endhonesa.com/#mint-card",
+        label: "Mint NFT",
+        target: "_blank",
+      },
+      {
+        href: "https://rotybase.endhonesa.com/#soft-staking",
+        label: "Soft Staking",
+        target: "_blank",
+      },
+    ],
+  },
+  {
+    href: "https://rotydeth.endhonesa.com/",
+    label: "ROTY dETH Mint",
+    target: "_blank",
+    children: [
+      {
+        href: "https://rotydeth.endhonesa.com/#mint-card",
+        label: "Mint NFT",
+        target: "_blank",
+      },
+      {
+        href: "https://rotydeth.endhonesa.com/#soft-staking",
+        label: "Soft Staking",
+        target: "_blank",
+      },
+    ],
+  },
+  {
+    href: "https://meltingbase.endhonesa.com/",
+    label: "Melting BASE Mint",
+    target: "_blank",
+    children: [
+      {
+        href: "https://meltingbase.endhonesa.com/#mint-card",
+        label: "Mint NFT",
+        target: "_blank",
+      },
+      {
+        href: "https://meltingbase.endhonesa.com/#soft-staking",
+        label: "Soft Staking",
+        target: "_blank",
+      },
+    ],
+  },
+  {
+    href: "https://meltingdeth.endhonesa.com/",
+    label: "Melting dETH Mint",
+    target: "_blank",
+    children: [
+      {
+        href: "https://meltingdeth.endhonesa.com/#mint-card",
+        label: "Mint NFT",
+        target: "_blank",
+      },
+      {
+        href: "https://meltingdeth.endhonesa.com/#soft-staking",
+        label: "Soft Staking",
+        target: "_blank",
+      },
+    ],
+  },
+  {
+    href: "https://amandabase.endhonesa.com/",
+    label: "Amanda BASE Mint",
+    target: "_blank",
+    children: [
+      {
+        href: "https://amandabase.endhonesa.com/#mint-card",
+        label: "Mint NFT",
+        target: "_blank",
+      },
+      {
+        href: "https://amandabase.endhonesa.com/#soft-staking",
+        label: "Soft Staking",
+        target: "_blank",
+      },
+    ],
+  },
+  {
+    href: "https://amandadeth.endhonesa.com/",
+    label: "Amanda dETH Mint",
+    target: "_blank",
+    children: [
+      {
+        href: "https://amandadeth.endhonesa.com/#mint-card",
+        label: "Mint NFT",
+        target: "_blank",
+      },
+      {
+        href: "https://amandadeth.endhonesa.com/#soft-staking",
+        label: "Soft Staking",
+        target: "_blank",
+      },
+    ],
+  },
+];
+
 const dashboardChildren: MenuGroup[] = [
   {
     href: "/dashboard/base",
     label: "BASE Dashboard",
+    target: "_self",
     children: [
-      { href: "/dashboard/base#read-panel", label: "Staking Summary" },
-      { href: "/dashboard/base#soft-staking", label: "Soft Staking" },
-      { href: "/dashboard/base#reward-claim", label: "Reward Claim" },
+      {
+        href: "/dashboard/base#read-panel",
+        label: "Staking Summary",
+        target: "_self",
+      },
+      {
+        href: "/dashboard/base#soft-staking",
+        label: "Soft Staking",
+        target: "_self",
+      },
+      {
+        href: "/dashboard/base#reward-claim",
+        label: "Staking Reward",
+        target: "_self",
+      },
     ],
   },
   {
     href: "/dashboard/ethereum",
-    label: "Ethereum Dashboard",
+    label: "dETH Dashboard",
+    target: "_self",
     children: [
-      { href: "/dashboard/ethereum#read-panel", label: "Staking Summary" },
-      { href: "/dashboard/ethereum#soft-staking", label: "Soft Staking" },
-      { href: "/dashboard/ethereum#reward-claim", label: "Reward Claim" },
+      {
+        href: "/dashboard/ethereum#read-panel",
+        label: "Staking Summary",
+        target: "_self",
+      },
+      {
+        href: "/dashboard/ethereum#soft-staking",
+        label: "Soft Staking",
+        target: "_self",
+      },
+      {
+        href: "/dashboard/ethereum#reward-claim",
+        label: "Staking Reward",
+        target: "_self",
+      },
     ],
   },
 ];
@@ -43,78 +177,115 @@ const adminChildren: MenuGroup[] = [
   {
     href: "/admin/base",
     label: "BASE Admin",
+    target: "_self",
     children: [
-      { href: "/admin/base#contract-list", label: "Contract List" },
-      { href: "/admin/base#read-contract", label: "Contract Read" },
-      { href: "/admin/base#registry-controls", label: "Registry Controls" },
-      { href: "/admin/base#phase-controls", label: "Mint Phase" },
-      { href: "/admin/base#money-controls", label: "Price & Royalty" },
-      { href: "/admin/base#metadata-controls", label: "Metadata Controls" },
-      { href: "/admin/base#round-controls", label: "Reward Round" },
-      { href: "/admin/base#rescue-controls", label: "Emergency Rescue" },
+      {
+        href: "/admin/base#contract-list",
+        label: "Contract List",
+        target: "_self",
+      },
+      {
+        href: "/admin/base#read-contract",
+        label: "Read Contract",
+        target: "_self",
+      },
+      {
+        href: "/admin/base#registry-controls",
+        label: "Staking Registry",
+        target: "_self",
+      },
+      {
+        href: "/admin/base#phase-controls",
+        label: "Mint Phase",
+        target: "_self",
+      },
+      {
+        href: "/admin/base#money-controls",
+        label: "Price & Royalty",
+        target: "_self",
+      },
+      {
+        href: "/admin/base#metadata-controls",
+        label: "Metadata Controls",
+        target: "_self",
+      },
+      {
+        href: "/admin/base#round-controls",
+        label: "Reward Round",
+        target: "_self",
+      },
+      {
+        href: "/admin/base#rescue-controls",
+        label: "Emergency Rescue",
+        target: "_self",
+      },
     ],
   },
   {
     href: "/admin/ethereum",
-    label: "Ethereum Admin",
+    label: "dETH Admin",
+    target: "_self",
     children: [
-      { href: "/admin/ethereum#contract-list", label: "Contract List" },
-      { href: "/admin/ethereum#read-contract", label: "Contract Read" },
-      { href: "/admin/ethereum#registry-controls", label: "Registry Controls" },
-      { href: "/admin/ethereum#phase-controls", label: "Mint Phase" },
-      { href: "/admin/ethereum#money-controls", label: "Price & Royalty" },
-      { href: "/admin/ethereum#metadata-controls", label: "Metadata Controls" },
-      { href: "/admin/ethereum#round-controls", label: "Reward Round" },
-      { href: "/admin/ethereum#rescue-controls", label: "Emergency Rescue" },
+      {
+        href: "/admin/ethereum#contract-list",
+        label: "Contract List",
+        target: "_self",
+      },
+      {
+        href: "/admin/ethereum#read-contract",
+        label: "Read Contract",
+        target: "_self",
+      },
+      {
+        href: "/admin/ethereum#registry-controls",
+        label: "Staking Registry",
+        target: "_self",
+      },
+      {
+        href: "/admin/ethereum#phase-controls",
+        label: "Mint Phase",
+        target: "_self",
+      },
+      {
+        href: "/admin/ethereum#money-controls",
+        label: "Price & Royalty",
+        target: "_self",
+      },
+      {
+        href: "/admin/ethereum#metadata-controls",
+        label: "Metadata Controls",
+        target: "_self",
+      },
+      {
+        href: "/admin/ethereum#round-controls",
+        label: "Reward Round",
+        target: "_self",
+      },
+      {
+        href: "/admin/ethereum#rescue-controls",
+        label: "Emergency Rescue",
+        target: "_self",
+      },
     ],
   },
 ];
 
 const menuItems: MenuItem[] = [
-  { href: "/", label: "Home" },
+  { href: "/", label: "Home", target: "_self" },
   {
     label: "Mint",
-    children: [
-      {
-        href: "https://rotybase.endhonesa.com/",
-        label: "ROTY BASE Mint",
-        target: "_blank",
-      },
-      {
-        href: "https://rotydeth.endhonesa.com/",
-        label: "ROTY dETH Mint",
-        target: "_blank",
-      },
-      {
-        href: "https://meltingbase.endhonesa.com/",
-        label: "Melting BASE Mint",
-        target: "_blank",
-      },
-      {
-        href: "https://meltingdeth.endhonesa.com/",
-        label: "Melting dETH Mint",
-        target: "_blank",
-      },
-      {
-        href: "https://amandabase.endhonesa.com/",
-        label: "Amanda BASE Mint",
-        target: "_blank",
-      },
-      {
-        href: "https://amandadeth.endhonesa.com/",
-        label: "Amanda dETH Mint",
-        target: "_blank",
-      },
-    ],
+    children: mintChildren,
   },
   {
     href: "/dashboard",
     label: "Dashboard",
+    target: "_self",
     children: dashboardChildren,
   },
   {
     href: "/admin",
     label: "Admin",
+    target: "_self",
     children: adminChildren,
   },
 ];
@@ -232,7 +403,7 @@ export function AppMenu() {
 
       {mobileOpen ? (
         <div className="absolute left-0 top-full z-50 mt-2 w-[min(82vw,360px)] rounded-2xl border border-white/10 bg-black p-1 shadow-2xl md:hidden">
-          <div className="grid gap-1">
+          <div className="grid">
             {menuItems.map((item) => {
               const isActive = groupIsActive(pathname, item);
 
@@ -246,6 +417,8 @@ export function AppMenu() {
                         : "bg-black text-white hover:bg-(--oioi-accent)"
                     }`}
                     href={item.href}
+                    rel={item.target === "_blank" ? "noreferrer" : undefined}
+                    target={item.target}
                     key={item.label}
                     onClick={closeMobileMenu}>
                     {item.label}
@@ -274,12 +447,13 @@ export function AppMenu() {
                   </button>
 
                   {groupOpen ? (
-                    <div className="grid gap-1 rounded-xl p-2">
+                    <div className="grid rounded-xl p-2">
                       {item.href ? (
                         <MenuLinkItem
                           item={{
                             href: item.href,
                             label: `${item.label} Home`,
+                            target: item.target,
                           }}
                           onNavigate={closeMobileMenu}
                           size="small"
@@ -291,7 +465,11 @@ export function AppMenu() {
                           <div key={child.label}>
                             {child.href ? (
                               <MenuLinkItem
-                                item={{ href: child.href, label: child.label }}
+                                item={{
+                                  href: child.href,
+                                  label: child.label,
+                                  target: child.target,
+                                }}
                                 onNavigate={closeMobileMenu}
                                 size="small"
                               />
@@ -301,7 +479,7 @@ export function AppMenu() {
                               </div>
                             )}
 
-                            <div className="mt-1 grid gap-1 pl-3">
+                            <div className="mt-1 grid pl-3">
                               {child.children.map((nested) =>
                                 hasChildren(nested) ? null : (
                                   <MenuLinkItem
@@ -332,7 +510,7 @@ export function AppMenu() {
         </div>
       ) : null}
 
-      <div className="hidden rounded-2xl border border-white/10 bg-black p-1 md:inline-flex md:gap-1">
+      <div className="hidden rounded-2xl border border-white/10 bg-black p-1 md:inline-flex">
         {menuItems.map((item) => {
           const isActive = groupIsActive(pathname, item);
 
@@ -346,6 +524,8 @@ export function AppMenu() {
                     : "bg-black text-white hover:bg-(--oioi-accent)"
                 }`}
                 href={item.href}
+                rel={item.target === "_blank" ? "noreferrer" : undefined}
+                target={item.target}
                 key={item.label}>
                 {item.label}
               </Link>
@@ -372,10 +552,14 @@ export function AppMenu() {
 
               {openDesktopGroup === item.label ? (
                 <div className="absolute left-0 top-full z-50 min-w-64 pt-2">
-                  <div className="grid gap-1 rounded-2xl border border-white/10 bg-black p-1 shadow-2xl">
+                  <div className="grid rounded-2xl border border-white/10 bg-black p-1 shadow-2xl">
                     {item.href ? (
                       <MenuLinkItem
-                        item={{ href: item.href, label: `${item.label} Home` }}
+                        item={{
+                          href: item.href,
+                          label: `${item.label} Home`,
+                          target: item.target,
+                        }}
                         onNavigate={closeDesktopMenu}
                         size="small"
                       />
@@ -386,7 +570,11 @@ export function AppMenu() {
                         <div key={child.label}>
                           {child.href ? (
                             <MenuLinkItem
-                              item={{ href: child.href, label: child.label }}
+                              item={{
+                                href: child.href,
+                                label: child.label,
+                                target: child.target,
+                              }}
                               onNavigate={closeDesktopMenu}
                               size="small"
                             />
@@ -396,7 +584,7 @@ export function AppMenu() {
                             </div>
                           )}
 
-                          <div className="mt-1 grid gap-1 pl-3">
+                          <div className="mt-1 grid pl-3">
                             {child.children.map((nested) =>
                               hasChildren(nested) ? null : (
                                 <MenuLinkItem
