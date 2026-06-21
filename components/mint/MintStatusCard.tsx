@@ -86,7 +86,7 @@ export function MintStatusCard({ config }: { config: CollectionConfig }) {
             Loading contract state...
           </div>
         ) : (
-          <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 px-4">
+          <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 px-4 text-black">
             <Row
               label="Total minted"
               value={formatNumber(mintState.totalMinted)}

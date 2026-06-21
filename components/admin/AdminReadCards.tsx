@@ -35,30 +35,32 @@ function ReadCard({
   children: React.ReactNode;
 }) {
   return (
-    <article className="rounded-3xl border border-white/10 bg-white/5 p-6">
+    <article className="rounded-3xl border border-white/10 bg-black p-6">
       <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
         <div>
-          <p className="text-sm uppercase tracking-[0.25em] text-white/40">
+          <p className="text-sm uppercase tracking-[0.25em] text-white/70">
             Read-Only Functions
           </p>
           <h2 className="mt-2 text-2xl font-semibold">{title}</h2>
           {description ? (
-            <p className="mt-2 text-sm text-white/60">{description}</p>
+            <p className="mt-2 text-sm text-white/70">{description}</p>
           ) : null}
         </div>
 
         {onRefresh ? (
-          <button
-            className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
-            disabled={isRefreshing}
-            onClick={onRefresh}
-            type="button">
-            {isRefreshing ? "Refreshing..." : "Refresh"}
-          </button>
+          <div className="grid rounded-2xl border border-white/10 bg-black p-1">
+            <button
+              className="grid rounded-xl px-4 py-2 text-center text-sm hover:bg-(--oioi-accent) disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-black"
+              disabled={isRefreshing}
+              onClick={onRefresh}
+              type="button">
+              {isRefreshing ? "Refreshing..." : "Refresh"}
+            </button>
+          </div>
         ) : null}
       </div>
 
-      <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 px-4">
+      <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 px-4 text-black">
         {children}
       </div>
     </article>
@@ -75,11 +77,11 @@ function ReadRow({
   warning?: string;
 }) {
   return (
-    <div className="grid gap-2 border-b border-white/10 py-3 last:border-b-0 md:grid-cols-[220px_1fr]">
+    <div className="grid gap-2 border-b border-black/40 py-3 last:border-b-0 md:grid-cols-[220px_1fr]">
       <div>
-        <div className="text-sm text-white/60">{label}</div>
+        <div className="text-sm text-black/70">{label}</div>
         {warning ? (
-          <div className="mt-1 text-xs text-yellow-100/70">{warning}</div>
+          <div className="mt-1 text-xs text-[#7a3a00]">{warning}</div>
         ) : null}
       </div>
       <div className="break-all font-mono text-sm md:text-right">{value}</div>
@@ -782,14 +784,14 @@ export function AdminReadCards({ chainSet }: { chainSet: ChainSet }) {
 
   return (
     <section className="grid gap-5" id="read-contract">
-      <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
-        <p className="text-sm uppercase tracking-[0.25em] text-white/50">
+      <section className="rounded-3xl border border-white/10 bg-black p-6">
+        <p className="text-sm uppercase tracking-[0.25em] text-white/70">
           Live Admin Reads
         </p>
         <h2 className="mt-2 text-2xl font-semibold">
           {chainLabel} Contract State
         </h2>
-        <p className="mt-2 text-sm text-white/60">
+        <p className="mt-2 text-sm text-white/70">
           These cards read the current contract state only. Transaction forms
           available in the write sections.
         </p>

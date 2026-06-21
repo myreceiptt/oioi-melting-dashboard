@@ -6,22 +6,22 @@ import { shortAddress } from "@/lib/utils/format";
 
 function riskBadgeClass(risk: string) {
   if (risk === "critical") {
-    return "border-red-500/30 bg-red-500/10 text-red-100";
+    return "border-white/10 bg-[#ff9b4a] text-black";
   }
 
   if (risk === "high") {
-    return "border-orange-500/30 bg-orange-500/10 text-orange-100";
+    return "border-white/10 bg-yellow-300 text-black";
   }
 
   if (risk === "medium") {
-    return "border-yellow-500/30 bg-yellow-500/10 text-yellow-100";
+    return "border-white/10 bg-white text-black";
   }
 
   if (risk === "low") {
-    return "border-blue-500/30 bg-blue-500/10 text-blue-100";
+    return "border-white/10 bg-[#b7f56d] text-black";
   }
 
-  return "border-white/10 bg-white/5 text-white/70";
+  return "border-white/10 bg-white/70 text-black";
 }
 
 function ActionPill({ label, risk }: { label: string; risk: string }) {
@@ -42,12 +42,12 @@ export function AdminContractList({
 }) {
   return (
     <section className="grid gap-5" id="contract-list">
-      <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
-        <p className="text-sm uppercase tracking-[0.25em] text-white/50">
+      <section className="rounded-3xl border border-white/10 bg-black p-6">
+        <p className="text-sm uppercase tracking-[0.25em] text-white/70">
           Contract List
         </p>
         <h2 className="mt-2 text-2xl font-semibold">Admin Contract List</h2>
-        <p className="mt-2 text-sm text-white/60">
+        <p className="mt-2 text-sm text-white/70">
           Owner-only controls all these contracs. Every action requires
           confirmation and should be tested before implementing.
         </p>
@@ -55,42 +55,44 @@ export function AdminContractList({
 
       {contracts.map((contract) => (
         <article
-          className="rounded-3xl border border-white/10 bg-white/5 p-6"
+          className="rounded-3xl border border-white/10 bg-black p-6"
           key={contract.key}>
           <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
             <div>
-              <p className="text-sm uppercase tracking-[0.25em] text-white/40">
+              <p className="text-sm uppercase tracking-[0.25em] text-white/70">
                 {contract.kind}
               </p>
               <h2 className="mt-2 text-2xl font-semibold">{contract.label}</h2>
-              <p className="mt-2 max-w-2xl text-sm text-white/60">
+              <p className="mt-2 max-w-2xl text-sm text-white/70">
                 {contract.description}
               </p>
             </div>
 
-            <a
-              className="grid rounded-2xl border border-white/10 px-4 py-2 text-sm text-center hover:bg-white/5"
-              href={getAddressUrl(chainSet, contract.address)}
-              rel="noreferrer"
-              target="_blank">
-              View {contract.explorerLabel}
-            </a>
+            <div className="grid rounded-2xl border border-white/10 bg-black p-1">
+              <a
+                className="grid rounded-xl px-4 py-2 text-center text-sm hover:bg-(--oioi-accent)"
+                href={getAddressUrl(chainSet, contract.address)}
+                rel="noreferrer"
+                target="_blank">
+                View {contract.explorerLabel}
+              </a>
+            </div>
           </div>
 
-          <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4">
-            <div className="text-sm text-white/60">Contract address</div>
-            <div className="mt-1 break-all font-mono text-sm">
+          <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 p-4 text-black">
+            <div className="text-sm text-black/70">Contract address</div>
+            <div className="mt-1 break-all font-mono text-sm text-black">
               <ResponsiveHash value={contract.address} />
             </div>
-            <div className="mt-2 text-xs text-white/40">
+            <div className="mt-2 text-xs text-black/60">
               {shortAddress(contract.address)}
             </div>
           </div>
 
           <div className="mt-5 grid gap-4 md:grid-cols-2">
-            <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+            <div className="rounded-2xl border border-white/10 bg-white/70 p-4 text-black">
               <div className="font-medium">Read actions</div>
-              <p className="mt-1 text-sm text-white/50">
+              <p className="mt-1 text-sm text-black/70">
                 Diagnostic state available to admin UI.
               </p>
               <div className="mt-4 flex flex-wrap gap-2">
@@ -104,9 +106,9 @@ export function AdminContractList({
               </div>
             </div>
 
-            <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+            <div className="rounded-2xl border border-white/10 bg-white/70 p-4 text-black">
               <div className="font-medium">Write actions</div>
-              <p className="mt-1 text-sm text-white/50">
+              <p className="mt-1 text-sm text-black/70">
                 Transaction forms available in the write sections.
               </p>
               <div className="mt-4 flex flex-wrap gap-2">
