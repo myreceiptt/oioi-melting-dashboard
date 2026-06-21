@@ -39,7 +39,7 @@ export default function DashboardPage() {
           <Link
             className="block w-full rounded-2xl p-4 hover:bg-(--oioi-accent)"
             href="/dashboard/ethereum">
-            <div className="text-xl font-semibold">Ethereum Dashboard</div>
+            <div className="text-xl font-semibold">dETH Dashboard</div>
             <p className="mt-2 text-sm text-white/70">
               Manage Ethereum assets based on the current reward round.
             </p>

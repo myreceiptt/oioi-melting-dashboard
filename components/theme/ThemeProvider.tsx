@@ -9,6 +9,7 @@ import {
   useState,
 } from "react";
 import { usePathname } from "next/navigation";
+import { getEffectivePathname } from "@/lib/app/surfaceRoutes";
 import { getThemeMode, type OioiTheme } from "./themeRules";
 
 const THEME_STORAGE_KEY = "oioi-estetika-theme";
@@ -31,16 +32,33 @@ function readStoredTheme(): OioiTheme {
   return storedTheme === "deth" ? "deth" : "base";
 }
 
+function readClientHost() {
+  if (typeof window === "undefined") {
+    return "";
+  }
+
+  return window.location.hostname;
+}
+
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const [selectedTheme, setSelectedTheme] =
     useState<OioiTheme>(readStoredTheme);
+  const [currentHost, setCurrentHost] = useState(readClientHost);
   const [hasMounted, setHasMounted] = useState(false);
 
-  const themeMode = useMemo(() => getThemeMode(pathname), [pathname]);
+  const effectivePathname = useMemo(
+    () => getEffectivePathname(currentHost, pathname),
+    [currentHost, pathname],
+  );
+  const themeMode = useMemo(
+    () => getThemeMode(effectivePathname),
+    [effectivePathname],
+  );
   const activeTheme = themeMode.forcedTheme ?? selectedTheme;
 
   useEffect(() => {
+    setCurrentHost(window.location.hostname);
     setHasMounted(true);
   }, []);
 

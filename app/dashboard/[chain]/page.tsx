@@ -32,6 +32,8 @@ export default async function ChainDashboardPage({
     );
   }
 
+  const chainLabel = chain === "base" ? "BASE" : "dETH";
+
   return (
     <main className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10">
       <header className="rounded-3xl border border-white/10 bg-black p-6">
@@ -43,7 +45,7 @@ export default async function ChainDashboardPage({
             User Dashboard
           </p>
           <h1 className="mt-3 text-4xl font-semibold">
-            {chain.toUpperCase()} Dashboard
+            {chainLabel} Dashboard
           </h1>
           <p className="mt-4 max-w-3xl text-white/70">
             All only for the expected holder.

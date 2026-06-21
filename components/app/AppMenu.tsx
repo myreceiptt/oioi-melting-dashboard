@@ -2,141 +2,322 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import {
+  getEffectivePathname,
+  getMainAppHref,
+  getMintSurfaceByHost,
+  getMintSurfaceHref,
+  MINT_SURFACES,
+  type MintSurface,
+} from "@/lib/app/surfaceRoutes";
+
+type LinkTarget = "_blank" | "_self";
 
 type MenuLink = {
+  activePath?: string;
   href: string;
   label: string;
-  target?: "_blank";
+  target?: LinkTarget;
 };
 
 type MenuGroup = {
+  activePath?: string;
   label: string;
   href?: string;
+  target?: LinkTarget;
   children: Array<MenuLink | MenuGroup>;
 };
 
 type MenuItem = MenuLink | MenuGroup;
 
-const dashboardChildren: MenuGroup[] = [
-  {
-    href: "/dashboard/base",
-    label: "BASE Dashboard",
-    children: [
-      { href: "/dashboard/base#read-panel", label: "Staking Summary" },
-      { href: "/dashboard/base#soft-staking", label: "Soft Staking" },
-      { href: "/dashboard/base#reward-claim", label: "Reward Claim" },
-    ],
-  },
-  {
-    href: "/dashboard/ethereum",
-    label: "Ethereum Dashboard",
-    children: [
-      { href: "/dashboard/ethereum#read-panel", label: "Staking Summary" },
-      { href: "/dashboard/ethereum#soft-staking", label: "Soft Staking" },
-      { href: "/dashboard/ethereum#reward-claim", label: "Reward Claim" },
-    ],
-  },
-];
+function readClientHost() {
+  if (typeof window === "undefined") {
+    return "";
+  }
 
-const adminChildren: MenuGroup[] = [
-  {
-    href: "/admin/base",
-    label: "BASE Admin",
-    children: [
-      { href: "/admin/base#contract-list", label: "Contract List" },
-      { href: "/admin/base#read-contract", label: "Contract Read" },
-      { href: "/admin/base#registry-controls", label: "Registry Controls" },
-      { href: "/admin/base#phase-controls", label: "Mint Phase" },
-      { href: "/admin/base#money-controls", label: "Price & Royalty" },
-      { href: "/admin/base#metadata-controls", label: "Metadata Controls" },
-      { href: "/admin/base#round-controls", label: "Reward Round" },
-      { href: "/admin/base#rescue-controls", label: "Emergency Rescue" },
-    ],
-  },
-  {
-    href: "/admin/ethereum",
-    label: "Ethereum Admin",
-    children: [
-      { href: "/admin/ethereum#contract-list", label: "Contract List" },
-      { href: "/admin/ethereum#read-contract", label: "Contract Read" },
-      { href: "/admin/ethereum#registry-controls", label: "Registry Controls" },
-      { href: "/admin/ethereum#phase-controls", label: "Mint Phase" },
-      { href: "/admin/ethereum#money-controls", label: "Price & Royalty" },
-      { href: "/admin/ethereum#metadata-controls", label: "Metadata Controls" },
-      { href: "/admin/ethereum#round-controls", label: "Reward Round" },
-      { href: "/admin/ethereum#rescue-controls", label: "Emergency Rescue" },
-    ],
-  },
-];
+  return window.location.hostname;
+}
 
-const menuItems: MenuItem[] = [
-  { href: "/", label: "Home" },
-  {
-    label: "Mint",
-    children: [
-      {
-        href: "https://rotybase.endhonesa.com/",
-        label: "ROTY BASE Mint",
-        target: "_blank",
-      },
-      {
-        href: "https://rotydeth.endhonesa.com/",
-        label: "ROTY dETH Mint",
-        target: "_blank",
-      },
-      {
-        href: "https://meltingbase.endhonesa.com/",
-        label: "Melting BASE Mint",
-        target: "_blank",
-      },
-      {
-        href: "https://meltingdeth.endhonesa.com/",
-        label: "Melting dETH Mint",
-        target: "_blank",
-      },
-      {
-        href: "https://amandabase.endhonesa.com/",
-        label: "Amanda BASE Mint",
-        target: "_blank",
-      },
-      {
-        href: "https://amandadeth.endhonesa.com/",
-        label: "Amanda dETH Mint",
-        target: "_blank",
-      },
-    ],
-  },
-  {
-    href: "/dashboard",
-    label: "Dashboard",
-    children: dashboardChildren,
-  },
-  {
-    href: "/admin",
-    label: "Admin",
-    children: adminChildren,
-  },
-];
+function getAppHref(pathname: string, useMainAppOrigin: boolean) {
+  return useMainAppOrigin ? getMainAppHref(pathname) : pathname;
+}
+
+function getAppTarget(useMainAppOrigin: boolean): LinkTarget {
+  return useMainAppOrigin ? "_blank" : "_self";
+}
+
+function getMintHref(surface: MintSurface, currentSurface: MintSurface | null) {
+  return currentSurface?.host === surface.host
+    ? "/"
+    : getMintSurfaceHref(surface);
+}
+
+function getMintAnchorHref(
+  surface: MintSurface,
+  currentSurface: MintSurface | null,
+  hash: "#mint-card" | "#soft-staking",
+) {
+  return currentSurface?.host === surface.host
+    ? `/${hash}`
+    : getMintSurfaceHref(surface, `/${hash}`);
+}
+
+function getMintTarget(
+  surface: MintSurface,
+  currentSurface: MintSurface | null,
+): LinkTarget {
+  return currentSurface?.host === surface.host ? "_self" : "_blank";
+}
+
+function buildMintChildren(currentSurface: MintSurface | null): MenuGroup[] {
+  return MINT_SURFACES.map((surface) => {
+    const target = getMintTarget(surface, currentSurface);
+
+    return {
+      activePath: surface.pathname,
+      href: getMintHref(surface, currentSurface),
+      label: surface.label,
+      target,
+      children: [
+        {
+          href: getMintAnchorHref(surface, currentSurface, "#mint-card"),
+          label: "Mint NFT",
+          target,
+        },
+        {
+          href: getMintAnchorHref(surface, currentSurface, "#soft-staking"),
+          label: "Soft Staking",
+          target,
+        },
+      ],
+    };
+  });
+}
+
+function buildDashboardChildren(useMainAppOrigin: boolean): MenuGroup[] {
+  const target = getAppTarget(useMainAppOrigin);
+
+  return [
+    {
+      activePath: "/dashboard/base",
+      href: getAppHref("/dashboard/base", useMainAppOrigin),
+      label: "BASE Dashboard",
+      target,
+      children: [
+        {
+          href: getAppHref("/dashboard/base#read-panel", useMainAppOrigin),
+          label: "Staking Summary",
+          target,
+        },
+        {
+          href: getAppHref("/dashboard/base#soft-staking", useMainAppOrigin),
+          label: "Soft Staking",
+          target,
+        },
+        {
+          href: getAppHref("/dashboard/base#reward-claim", useMainAppOrigin),
+          label: "Staking Reward",
+          target,
+        },
+      ],
+    },
+    {
+      activePath: "/dashboard/ethereum",
+      href: getAppHref("/dashboard/ethereum", useMainAppOrigin),
+      label: "dETH Dashboard",
+      target,
+      children: [
+        {
+          href: getAppHref("/dashboard/ethereum#read-panel", useMainAppOrigin),
+          label: "Staking Summary",
+          target,
+        },
+        {
+          href: getAppHref(
+            "/dashboard/ethereum#soft-staking",
+            useMainAppOrigin,
+          ),
+          label: "Soft Staking",
+          target,
+        },
+        {
+          href: getAppHref(
+            "/dashboard/ethereum#reward-claim",
+            useMainAppOrigin,
+          ),
+          label: "Staking Reward",
+          target,
+        },
+      ],
+    },
+  ];
+}
+
+function buildAdminChildren(useMainAppOrigin: boolean): MenuGroup[] {
+  const target = getAppTarget(useMainAppOrigin);
+
+  return [
+    {
+      activePath: "/admin/base",
+      href: getAppHref("/admin/base", useMainAppOrigin),
+      label: "BASE Admin",
+      target,
+      children: [
+        {
+          href: getAppHref("/admin/base#contract-list", useMainAppOrigin),
+          label: "Contract List",
+          target,
+        },
+        {
+          href: getAppHref("/admin/base#read-contract", useMainAppOrigin),
+          label: "Read Contract",
+          target,
+        },
+        {
+          href: getAppHref("/admin/base#registry-controls", useMainAppOrigin),
+          label: "Staking Registry",
+          target,
+        },
+        {
+          href: getAppHref("/admin/base#phase-controls", useMainAppOrigin),
+          label: "Mint Phase",
+          target,
+        },
+        {
+          href: getAppHref("/admin/base#money-controls", useMainAppOrigin),
+          label: "Price & Royalty",
+          target,
+        },
+        {
+          href: getAppHref("/admin/base#metadata-controls", useMainAppOrigin),
+          label: "Metadata Controls",
+          target,
+        },
+        {
+          href: getAppHref("/admin/base#round-controls", useMainAppOrigin),
+          label: "Reward Round",
+          target,
+        },
+        {
+          href: getAppHref("/admin/base#rescue-controls", useMainAppOrigin),
+          label: "Emergency Rescue",
+          target,
+        },
+      ],
+    },
+    {
+      activePath: "/admin/ethereum",
+      href: getAppHref("/admin/ethereum", useMainAppOrigin),
+      label: "dETH Admin",
+      target,
+      children: [
+        {
+          href: getAppHref("/admin/ethereum#contract-list", useMainAppOrigin),
+          label: "Contract List",
+          target,
+        },
+        {
+          href: getAppHref("/admin/ethereum#read-contract", useMainAppOrigin),
+          label: "Read Contract",
+          target,
+        },
+        {
+          href: getAppHref(
+            "/admin/ethereum#registry-controls",
+            useMainAppOrigin,
+          ),
+          label: "Staking Registry",
+          target,
+        },
+        {
+          href: getAppHref("/admin/ethereum#phase-controls", useMainAppOrigin),
+          label: "Mint Phase",
+          target,
+        },
+        {
+          href: getAppHref("/admin/ethereum#money-controls", useMainAppOrigin),
+          label: "Price & Royalty",
+          target,
+        },
+        {
+          href: getAppHref(
+            "/admin/ethereum#metadata-controls",
+            useMainAppOrigin,
+          ),
+          label: "Metadata Controls",
+          target,
+        },
+        {
+          href: getAppHref("/admin/ethereum#round-controls", useMainAppOrigin),
+          label: "Reward Round",
+          target,
+        },
+        {
+          href: getAppHref("/admin/ethereum#rescue-controls", useMainAppOrigin),
+          label: "Emergency Rescue",
+          target,
+        },
+      ],
+    },
+  ];
+}
+
+function buildMenuItems(currentSurface: MintSurface | null): MenuItem[] {
+  const useMainAppOrigin = currentSurface !== null;
+  const appTarget = getAppTarget(useMainAppOrigin);
+
+  return [
+    {
+      activePath: useMainAppOrigin ? undefined : "/",
+      href: getAppHref("/", useMainAppOrigin),
+      label: "Home",
+      target: appTarget,
+    },
+    {
+      activePath: "/mint",
+      label: "Mint",
+      children: buildMintChildren(currentSurface),
+    },
+    {
+      activePath: "/dashboard",
+      href: getAppHref("/dashboard", useMainAppOrigin),
+      label: "Dashboard",
+      target: appTarget,
+      children: buildDashboardChildren(useMainAppOrigin),
+    },
+    {
+      activePath: "/admin",
+      href: getAppHref("/admin", useMainAppOrigin),
+      label: "Admin",
+      target: appTarget,
+      children: buildAdminChildren(useMainAppOrigin),
+    },
+  ];
+}
 
 function hasChildren(item: MenuItem): item is MenuGroup {
   return "children" in item;
 }
 
-function isActivePath(pathname: string, href: string | undefined) {
-  if (!href) {
+function getItemActivePath(item: MenuItem) {
+  return item.activePath ?? item.href;
+}
+
+function isActivePath(pathname: string, activePath: string | undefined) {
+  if (!activePath) {
     return false;
   }
 
-  if (href === "/") {
+  if (activePath === "/") {
     return pathname === "/";
   }
 
-  return pathname === href || pathname.startsWith(`${href}/`);
+  return pathname === activePath || pathname.startsWith(`${activePath}/`);
 }
 
 function groupIsActive(pathname: string, item: MenuItem): boolean {
-  if (isActivePath(pathname, item.href)) {
+  if (isActivePath(pathname, getItemActivePath(item))) {
     return true;
   }
 
@@ -148,17 +329,24 @@ function groupIsActive(pathname: string, item: MenuItem): boolean {
 }
 
 function MenuLinkItem({
+  isActive = false,
   item,
   onNavigate,
   size = "regular",
 }: {
+  isActive?: boolean;
   item: MenuLink;
   onNavigate?: () => void;
   size?: "regular" | "small";
 }) {
   return (
     <Link
-      className={`block rounded-xl bg-black text-white transition hover:bg-(--oioi-accent) ${
+      aria-current={isActive ? "page" : undefined}
+      className={`block rounded-xl transition ${
+        isActive
+          ? "bg-white text-black"
+          : "bg-black text-white hover:bg-(--oioi-accent)"
+      } ${
         size === "small"
           ? "px-3 py-2 text-xs"
           : "px-4 py-2 text-sm font-semibold"
@@ -175,9 +363,23 @@ function MenuLinkItem({
 export function AppMenu() {
   const pathname = usePathname();
   const navRef = useRef<HTMLElement | null>(null);
+  const [currentHost, setCurrentHost] = useState("");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMobileGroup, setOpenMobileGroup] = useState<string | null>(null);
   const [openDesktopGroup, setOpenDesktopGroup] = useState<string | null>(null);
+
+  const currentSurface = useMemo(
+    () => getMintSurfaceByHost(currentHost),
+    [currentHost],
+  );
+  const effectivePathname = useMemo(
+    () => getEffectivePathname(currentHost, pathname),
+    [currentHost, pathname],
+  );
+  const menuItems = useMemo(
+    () => buildMenuItems(currentSurface),
+    [currentSurface],
+  );
 
   function closeMobileMenu() {
     setMobileOpen(false);
@@ -189,9 +391,13 @@ export function AppMenu() {
   }
 
   useEffect(() => {
+    setCurrentHost(readClientHost());
+  }, []);
+
+  useEffect(() => {
     closeMobileMenu();
     closeDesktopMenu();
-  }, [pathname]);
+  }, [effectivePathname]);
 
   useEffect(() => {
     function handlePointerDown(event: PointerEvent) {
@@ -232,9 +438,9 @@ export function AppMenu() {
 
       {mobileOpen ? (
         <div className="absolute left-0 top-full z-50 mt-2 w-[min(82vw,360px)] rounded-2xl border border-white/10 bg-black p-1 shadow-2xl md:hidden">
-          <div className="grid gap-1">
+          <div className="grid gap-2">
             {menuItems.map((item) => {
-              const isActive = groupIsActive(pathname, item);
+              const isActive = groupIsActive(effectivePathname, item);
 
               if (!hasChildren(item)) {
                 return (
@@ -246,6 +452,8 @@ export function AppMenu() {
                         : "bg-black text-white hover:bg-(--oioi-accent)"
                     }`}
                     href={item.href}
+                    rel={item.target === "_blank" ? "noreferrer" : undefined}
+                    target={item.target}
                     key={item.label}
                     onClick={closeMobileMenu}>
                     {item.label}
@@ -274,12 +482,18 @@ export function AppMenu() {
                   </button>
 
                   {groupOpen ? (
-                    <div className="grid gap-1 rounded-xl p-2">
+                    <div className="grid gap-2 rounded-xl p-2">
                       {item.href ? (
                         <MenuLinkItem
+                          isActive={isActivePath(
+                            effectivePathname,
+                            getItemActivePath(item),
+                          )}
                           item={{
+                            activePath: item.activePath,
                             href: item.href,
                             label: `${item.label} Home`,
+                            target: item.target,
                           }}
                           onNavigate={closeMobileMenu}
                           size="small"
@@ -291,7 +505,16 @@ export function AppMenu() {
                           <div key={child.label}>
                             {child.href ? (
                               <MenuLinkItem
-                                item={{ href: child.href, label: child.label }}
+                                isActive={isActivePath(
+                                  effectivePathname,
+                                  getItemActivePath(child),
+                                )}
+                                item={{
+                                  activePath: child.activePath,
+                                  href: child.href,
+                                  label: child.label,
+                                  target: child.target,
+                                }}
                                 onNavigate={closeMobileMenu}
                                 size="small"
                               />
@@ -301,10 +524,14 @@ export function AppMenu() {
                               </div>
                             )}
 
-                            <div className="mt-1 grid gap-1 pl-3">
+                            <div className="mt-2 grid gap-1 pl-3">
                               {child.children.map((nested) =>
                                 hasChildren(nested) ? null : (
                                   <MenuLinkItem
+                                    isActive={isActivePath(
+                                      effectivePathname,
+                                      getItemActivePath(nested),
+                                    )}
                                     item={nested}
                                     key={nested.href}
                                     onNavigate={closeMobileMenu}
@@ -316,6 +543,10 @@ export function AppMenu() {
                           </div>
                         ) : (
                           <MenuLinkItem
+                            isActive={isActivePath(
+                              effectivePathname,
+                              getItemActivePath(child),
+                            )}
                             item={child}
                             key={child.href}
                             onNavigate={closeMobileMenu}
@@ -334,7 +565,7 @@ export function AppMenu() {
 
       <div className="hidden rounded-2xl border border-white/10 bg-black p-1 md:inline-flex md:gap-1">
         {menuItems.map((item) => {
-          const isActive = groupIsActive(pathname, item);
+          const isActive = groupIsActive(effectivePathname, item);
 
           if (!hasChildren(item)) {
             return (
@@ -346,6 +577,8 @@ export function AppMenu() {
                     : "bg-black text-white hover:bg-(--oioi-accent)"
                 }`}
                 href={item.href}
+                rel={item.target === "_blank" ? "noreferrer" : undefined}
+                target={item.target}
                 key={item.label}>
                 {item.label}
               </Link>
@@ -375,7 +608,16 @@ export function AppMenu() {
                   <div className="grid gap-1 rounded-2xl border border-white/10 bg-black p-1 shadow-2xl">
                     {item.href ? (
                       <MenuLinkItem
-                        item={{ href: item.href, label: `${item.label} Home` }}
+                        isActive={isActivePath(
+                          effectivePathname,
+                          getItemActivePath(item),
+                        )}
+                        item={{
+                          activePath: item.activePath,
+                          href: item.href,
+                          label: `${item.label} Home`,
+                          target: item.target,
+                        }}
                         onNavigate={closeDesktopMenu}
                         size="small"
                       />
@@ -386,7 +628,16 @@ export function AppMenu() {
                         <div key={child.label}>
                           {child.href ? (
                             <MenuLinkItem
-                              item={{ href: child.href, label: child.label }}
+                              isActive={isActivePath(
+                                effectivePathname,
+                                getItemActivePath(child),
+                              )}
+                              item={{
+                                activePath: child.activePath,
+                                href: child.href,
+                                label: child.label,
+                                target: child.target,
+                              }}
                               onNavigate={closeDesktopMenu}
                               size="small"
                             />
@@ -396,10 +647,14 @@ export function AppMenu() {
                             </div>
                           )}
 
-                          <div className="mt-1 grid gap-1 pl-3">
+                          <div className="mt-1 grid pl-3">
                             {child.children.map((nested) =>
                               hasChildren(nested) ? null : (
                                 <MenuLinkItem
+                                  isActive={isActivePath(
+                                    effectivePathname,
+                                    getItemActivePath(nested),
+                                  )}
                                   item={nested}
                                   key={nested.href}
                                   onNavigate={closeDesktopMenu}
@@ -411,6 +666,10 @@ export function AppMenu() {
                         </div>
                       ) : (
                         <MenuLinkItem
+                          isActive={isActivePath(
+                            effectivePathname,
+                            getItemActivePath(child),
+                          )}
                           item={child}
                           key={child.href}
                           onNavigate={closeDesktopMenu}

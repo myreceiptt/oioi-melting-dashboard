@@ -39,7 +39,7 @@ export default function AdminHomePage() {
           <Link
             className="block w-full rounded-2xl p-4 hover:bg-(--oioi-accent)"
             href="/admin/ethereum">
-            <div className="text-xl font-semibold">Ethereum Admin</div>
+            <div className="text-xl font-semibold">dETH Admin</div>
             <p className="mt-2 text-sm text-white/70">
               Manage Ethereum contracts based on the current environment.
             </p>

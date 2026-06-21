@@ -10,13 +10,28 @@ import { AppFooter } from "@/components/app/AppFooter";
 const themeBootstrapScript = `
 (() => {
   const path = window.location.pathname;
-  const forcedTheme = path.startsWith("/dashboard/base") ||
-    path.startsWith("/admin/base") ||
-    /^\\/mint\\/[^/]+\\/base(?:\\/|$)/.test(path)
+  const host = window.location.hostname
+    .toLowerCase()
+    .replace(/^www\\./, "")
+    .replace(/:\\d+$/, "");
+  const hostRouteMap = {
+    "rotybase.endhonesa.com": "/mint/roty/base",
+    "rotydeth.endhonesa.com": "/mint/roty/ethereum",
+    "meltingbase.endhonesa.com": "/mint/melting/base",
+    "meltingdeth.endhonesa.com": "/mint/melting/ethereum",
+    "amandabase.endhonesa.com": "/mint/amanda/base",
+    "amandadeth.endhonesa.com": "/mint/amanda/ethereum"
+  };
+  const effectivePath = hostRouteMap[host] && path === "/"
+    ? hostRouteMap[host]
+    : path;
+  const forcedTheme = effectivePath.startsWith("/dashboard/base") ||
+    effectivePath.startsWith("/admin/base") ||
+    /^\\/mint\\/[^/]+\\/base(?:\\/|$)/.test(effectivePath)
       ? "base"
-      : path.startsWith("/dashboard/ethereum") ||
-          path.startsWith("/admin/ethereum") ||
-          /^\\/mint\\/[^/]+\\/ethereum(?:\\/|$)/.test(path)
+      : effectivePath.startsWith("/dashboard/ethereum") ||
+          effectivePath.startsWith("/admin/ethereum") ||
+          /^\\/mint\\/[^/]+\\/ethereum(?:\\/|$)/.test(effectivePath)
         ? "deth"
         : null;
   const storedTheme = window.localStorage.getItem("oioi-estetika-theme");
