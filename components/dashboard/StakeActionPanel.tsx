@@ -730,14 +730,14 @@ function CollectionStakeCard({
             onChange={(event) => setManualTokenIdInput(event.target.value)}
           />
           <button
-            className="cursor-pointer rounded-2xl bg-white px-4 py-2 text-sm text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-white disabled:hover:text-black"
+            className="cursor-pointer rounded-2xl bg-white px-5 py-3 text-sm text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-white disabled:hover:text-black"
             disabled={!manualTokenId || isWritePending || isConfirming}
             type="button"
             onClick={handleManualStake}>
             Manual Stake
           </button>
           <button
-            className="cursor-pointer rounded-2xl bg-white px-4 py-2 text-sm text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-white disabled:hover:text-black"
+            className="cursor-pointer rounded-2xl bg-white px-5 py-3 text-sm text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-white disabled:hover:text-black"
             disabled={!manualTokenId || isWritePending || isConfirming}
             type="button"
             onClick={handleManualUnstake}>

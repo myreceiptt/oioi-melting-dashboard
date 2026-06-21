@@ -134,57 +134,59 @@ function PhaseControlCard({
   }
 
   return (
-    <article className="rounded-3xl border border-white/10 bg-white/5 p-6">
+    <article className="rounded-3xl border border-white/10 bg-black p-6">
       <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
         <div>
-          <p className="text-sm uppercase tracking-[0.25em] text-white/40">
+          <p className="text-sm uppercase tracking-[0.25em] text-white/70">
             Mint phase control
           </p>
           <h3 className="mt-2 text-2xl font-semibold">{config.label}</h3>
-          <p className="mt-2 max-w-2xl text-sm text-white/60">
+          <p className="mt-2 max-w-2xl text-sm text-white/70">
             {config.description}
           </p>
         </div>
 
-        <button
-          className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={phaseState.isFetching}
-          onClick={() => void phaseState.refetch()}
-          type="button">
-          {phaseState.isFetching
-            ? "Refreshing..."
-            : `Current: ${formatBool(currentValue)}`}
-        </button>
+        <div className="grid rounded-2xl border border-white/10 bg-black p-1">
+          <button
+            className="grid rounded-xl px-4 py-2 text-center text-sm hover:bg-(--oioi-accent) disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-black"
+            disabled={phaseState.isFetching}
+            onClick={() => void phaseState.refetch()}
+            type="button">
+            {phaseState.isFetching
+              ? "Refreshing..."
+              : `Current: ${formatBool(currentValue)}`}
+          </button>
+        </div>
       </div>
 
-      <div className="mt-5 grid gap-3 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm md:grid-cols-2">
+      <div className="mt-5 grid gap-3 rounded-2xl border border-white/10 bg-white/70 p-4 text-sm text-black md:grid-cols-2">
         <div>
-          <div className="text-white/60">Contract</div>
+          <div className="text-black/70">Contract</div>
           <div className="mt-1 font-mono">{config.contractLabel}</div>
         </div>
         <div>
-          <div className="text-white/60">Address</div>
+          <div className="text-black/70">Address</div>
           <div className="mt-1 font-mono">{shortAddress(config.address)}</div>
         </div>
         <div>
-          <div className="text-white/60">Connected wallet</div>
+          <div className="text-black/70">Connected wallet</div>
           <div className="mt-1 font-mono">{shortAddress(connectedAddress)}</div>
         </div>
         <div>
-          <div className="text-white/60">Expected owner</div>
+          <div className="text-black/70">Expected owner</div>
           <div className="mt-1 font-mono">
             {shortAddress(EXPECTED_ADMIN_OWNER_ADDRESS)}
           </div>
         </div>
       </div>
 
-      <div className="mt-5 rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-4">
-        <div className="font-medium text-yellow-100">Operational warning</div>
-        <p className="mt-2 text-sm text-yellow-100/80">{config.warning}</p>
+      <div className="mt-5 rounded-2xl border border-white/10 bg-yellow-300 p-4 text-black">
+        <div className="font-medium">Operational warning</div>
+        <p className="mt-2 text-sm text-black/70">{config.warning}</p>
       </div>
 
       {!userIsExpectedOwner ? (
-        <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+        <div className="mt-5 rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
           Write actions are disabled because the connected wallet is not the
           expected owner.
         </div>
@@ -192,7 +194,7 @@ function PhaseControlCard({
 
       <div className="mt-5 grid gap-4 md:grid-cols-2">
         <button
-          className="rounded-2xl border border-green-500/30 bg-green-500/10 px-5 py-3 font-medium text-green-100 disabled:cursor-not-allowed disabled:opacity-40"
+          className="cursor-pointer rounded-2xl bg-white px-5 py-4 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
           disabled={actionDisabled || currentValue === true}
           onClick={() => void requestPhaseChange(true)}
           type="button">
@@ -200,7 +202,7 @@ function PhaseControlCard({
         </button>
 
         <button
-          className="rounded-2xl border border-red-500/30 bg-red-500/10 px-5 py-3 font-medium text-red-100 disabled:cursor-not-allowed disabled:opacity-40"
+          className="cursor-pointer rounded-2xl bg-white px-5 py-4 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
           disabled={actionDisabled || currentValue === false}
           onClick={() => void requestPhaseChange(false)}
           type="button">
@@ -209,23 +211,23 @@ function PhaseControlCard({
       </div>
 
       {lastActionLabel ? (
-        <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
+        <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 p-4 text-sm text-black">
           <div className="font-medium">Last requested action</div>
-          <div className="mt-2 text-white/60">{lastActionLabel}</div>
-          <div className="mt-1 text-white/60">
+          <div className="mt-2 text-black/70">{lastActionLabel}</div>
+          <div className="mt-1 text-black/70">
             Requested value: {lastRequestedValue ? "Yes" : "No"}
           </div>
         </div>
       ) : null}
 
       {isWritePending ? (
-        <div className="mt-5 rounded-2xl border border-blue-500/30 bg-blue-500/10 p-4 text-sm text-blue-100/80">
+        <div className="mt-5 rounded-2xl border border-white/10 bg-yellow-300 p-4 text-sm text-black">
           Waiting for wallet signature...
         </div>
       ) : null}
 
       {txHash ? (
-        <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
+        <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 p-4 text-sm text-black">
           <div className="font-medium">Transaction status</div>
           <a
             className="mt-2 block break-all font-mono underline underline-offset-4"
@@ -234,7 +236,7 @@ function PhaseControlCard({
             target="_blank">
             <ResponsiveHash value={txHash} />
           </a>
-          <div className="mt-1 text-white/60">
+          <div className="mt-1 text-black/70">
             {receipt.isLoading
               ? "Mining..."
               : receipt.isSuccess
@@ -247,13 +249,13 @@ function PhaseControlCard({
       ) : null}
 
       {writeError ? (
-        <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+        <div className="mt-5 rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
           {writeError.message}
         </div>
       ) : null}
 
       {phaseState.error ? (
-        <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+        <div className="mt-5 rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
           Read error: {phaseState.error.message}
         </div>
       ) : null}
@@ -320,12 +322,12 @@ export function AdminMintPhaseControls({ chainSet }: { chainSet: ChainSet }) {
 
   return (
     <section className="grid gap-5" id="phase-controls">
-      <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
-        <p className="text-sm uppercase tracking-[0.25em] text-white/50">
+      <section className="rounded-3xl border border-white/10 bg-black p-6">
+        <p className="text-sm uppercase tracking-[0.25em] text-white/70">
           Admin Writes
         </p>
         <h2 className="mt-2 text-2xl font-semibold">Mint Phase Controls</h2>
-        <p className="mt-2 text-sm text-white/60">
+        <p className="mt-2 text-sm text-white/70">
           Owner-only controls for whitelist, public, and gated mint phases.
           Every action requires confirmation and should be tested before
           opening.

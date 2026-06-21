@@ -890,7 +890,7 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
         </div>
 
         <button
-          className="mt-5 w-full cursor-pointer rounded-2xl bg-white px-5 py-3 text-center font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40 disabled:hover:bg-white disabled:hover:text-black"
+          className="mt-5 w-full cursor-pointer rounded-2xl bg-white px-5 py-4 text-center font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40 disabled:hover:bg-white disabled:hover:text-black"
           disabled={claimDisabled}
           onClick={() => void claimReward()}
           type="button">

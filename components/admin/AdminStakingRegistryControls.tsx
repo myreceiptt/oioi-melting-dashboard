@@ -38,11 +38,11 @@ function ReadRow({
   warning?: string;
 }) {
   return (
-    <div className="grid gap-2 border-b border-white/10 py-3 last:border-b-0 md:grid-cols-[240px_1fr]">
+    <div className="grid gap-2 border-b border-black/40 py-3 last:border-b-0 md:grid-cols-[240px_1fr]">
       <div>
-        <div className="text-sm text-white/60">{label}</div>
+        <div className="text-sm text-black/70">{label}</div>
         {warning ? (
-          <div className="mt-1 text-xs text-yellow-100/70">{warning}</div>
+          <div className="mt-1 text-xs text-[#7a3a00]">{warning}</div>
         ) : null}
       </div>
       <div className="break-all font-mono text-sm md:text-right">{value}</div>
@@ -68,7 +68,7 @@ function TxStatus({
   }
 
   return (
-    <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
+    <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 p-4 text-sm text-black">
       <div className="font-medium">Transaction status</div>
       <a
         className="mt-2 block break-all font-mono underline underline-offset-4"
@@ -77,7 +77,7 @@ function TxStatus({
         target="_blank">
         <ResponsiveHash value={txHash} />
       </a>
-      <div className="mt-1 text-white/60">
+      <div className="mt-1 text-black/70">
         {isLoading
           ? "Mining..."
           : isSuccess
@@ -208,29 +208,33 @@ function StakingCollectionControl({
   }
 
   return (
-    <article className="rounded-3xl border border-white/10 bg-white/5 p-6">
+    <article className="rounded-3xl border border-white/10 bg-black p-6">
       <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
         <div>
-          <p className="text-sm uppercase tracking-[0.25em] text-white/40">
+          <p className="text-sm uppercase tracking-[0.25em] text-white/70">
             Staking Registry
           </p>
           <h3 className="mt-2 text-2xl font-semibold">{collection.label}</h3>
-          <p className="mt-2 max-w-2xl text-sm text-white/60">
+          <p className="mt-2 max-w-2xl text-sm text-white/70">
             Approve or unapprove this NFT collection for non-custodial soft
             staking.
           </p>
         </div>
 
-        <button
-          className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={isRefreshing}
-          onClick={refetchReads}
-          type="button">
-          {isRefreshing ? "Refreshing..." : `Approved: ${formatBool(approved)}`}
-        </button>
+        <div className="grid rounded-2xl border border-white/10 bg-black p-1">
+          <button
+            className="grid rounded-xl px-4 py-2 text-center text-sm hover:bg-(--oioi-accent) disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-black"
+            disabled={isRefreshing}
+            onClick={refetchReads}
+            type="button">
+            {isRefreshing
+              ? "Refreshing..."
+              : `Approved: ${formatBool(approved)}`}
+          </button>
+        </div>
       </div>
 
-      <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 px-4">
+      <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 px-4 text-black">
         <ReadRow
           label="Staking owner"
           value={shortAddress(ownerAddress)}
@@ -253,13 +257,13 @@ function StakingCollectionControl({
         <ReadRow label="Approved" value={formatBool(approved)} />
       </div>
 
-      <div className="mt-5 rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-4">
-        <div className="font-medium text-yellow-100">Operational warning</div>
-        <p className="mt-2 text-sm text-yellow-100/80">{collection.warning}</p>
+      <div className="mt-5 rounded-2xl border border-white/10 bg-yellow-300 p-4 text-black">
+        <div className="font-medium">Operational warning</div>
+        <p className="mt-2 text-sm text-black/70">{collection.warning}</p>
       </div>
 
       {!userIsExpectedOwner ? (
-        <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+        <div className="mt-5 rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
           Write actions are disabled because the connected wallet is not the
           expected owner.
         </div>
@@ -267,7 +271,7 @@ function StakingCollectionControl({
 
       <div className="mt-5 grid gap-4 md:grid-cols-2">
         <button
-          className="rounded-2xl border border-green-500/30 bg-green-500/10 px-5 py-3 font-medium text-green-100 disabled:cursor-not-allowed disabled:opacity-40"
+          className="cursor-pointer rounded-2xl bg-white px-5 py-4 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
           disabled={actionDisabledBase || approved === true}
           onClick={() => void setCollectionApproved(true)}
           type="button">
@@ -275,7 +279,7 @@ function StakingCollectionControl({
         </button>
 
         <button
-          className="rounded-2xl border border-red-500/30 bg-red-500/10 px-5 py-3 font-medium text-red-100 disabled:cursor-not-allowed disabled:opacity-40"
+          className="cursor-pointer rounded-2xl bg-white px-5 py-4 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
           disabled={actionDisabledBase || approved === false}
           onClick={() => void setCollectionApproved(false)}
           type="button">
@@ -284,17 +288,17 @@ function StakingCollectionControl({
       </div>
 
       {lastActionLabel ? (
-        <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
+        <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 p-4 text-sm text-black">
           <div className="font-medium">Last requested action</div>
-          <div className="mt-2 text-white/60">{lastActionLabel}</div>
-          <div className="mt-1 text-white/60">
+          <div className="mt-2 text-black/70">{lastActionLabel}</div>
+          <div className="mt-1 text-black/70">
             Requested value: {lastRequestedValue ? "Yes" : "No"}
           </div>
         </div>
       ) : null}
 
       {isWritePending ? (
-        <div className="mt-5 rounded-2xl border border-blue-500/30 bg-blue-500/10 p-4 text-sm text-blue-100/80">
+        <div className="mt-5 rounded-2xl border border-white/10 bg-yellow-300 p-4 text-sm text-black">
           Waiting for wallet signature...
         </div>
       ) : null}
@@ -308,13 +312,13 @@ function StakingCollectionControl({
       />
 
       {writeError ? (
-        <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+        <div className="mt-5 rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
           {writeError.message}
         </div>
       ) : null}
 
       {readError ? (
-        <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+        <div className="mt-5 rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
           Read error: {readError.message}
         </div>
       ) : null}
@@ -355,14 +359,14 @@ export function AdminStakingRegistryControls({
 
   return (
     <section className="grid gap-5" id="registry-controls">
-      <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
-        <p className="text-sm uppercase tracking-[0.25em] text-white/50">
+      <section className="rounded-3xl border border-white/10 bg-black p-6">
+        <p className="text-sm uppercase tracking-[0.25em] text-white/70">
           Admin Writes
         </p>
         <h2 className="mt-2 text-2xl font-semibold">
           Staking Registry Controls
         </h2>
-        <p className="mt-2 text-sm text-white/60">
+        <p className="mt-2 text-sm text-white/70">
           Owner-only controls for approving or unapproving NFT collections in
           OiOi Soft Staking.
         </p>

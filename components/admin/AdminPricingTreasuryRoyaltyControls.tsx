@@ -92,11 +92,11 @@ function ReadRow({
   warning?: string;
 }) {
   return (
-    <div className="grid gap-2 border-b border-white/10 py-3 last:border-b-0 md:grid-cols-[240px_1fr]">
+    <div className="grid gap-2 border-b border-black/40 py-3 last:border-b-0 md:grid-cols-[240px_1fr]">
       <div>
-        <div className="text-sm text-white/60">{label}</div>
+        <div className="text-sm text-black/70">{label}</div>
         {warning ? (
-          <div className="mt-1 text-xs text-yellow-100/70">{warning}</div>
+          <div className="mt-1 text-xs text-[#7a3a00]">{warning}</div>
         ) : null}
       </div>
       <div className="break-all font-mono text-sm md:text-right">{value}</div>
@@ -118,13 +118,13 @@ function Field({
   placeholder?: string;
 }) {
   return (
-    <label className="block rounded-2xl border border-white/10 bg-black/20 p-4">
-      <div className="font-medium">{label}</div>
+    <label className="grid gap-2">
+      <span className="text-sm text-black/70">{label}</span>
       {description ? (
-        <p className="mt-1 text-xs text-white/50">{description}</p>
+        <span className="text-xs text-black/70">{description}</span>
       ) : null}
       <input
-        className="mt-3 w-full rounded-xl border border-white/10 bg-black/40 px-3 py-2 font-mono text-sm outline-none focus:border-white/30"
+        className="w-full rounded-xl border border-white/10 bg-black px-4 py-3 font-mono text-sm text-white outline-none placeholder:text-white/50 focus:border-(--oioi-accent)"
         onChange={(event) => onChange(event.target.value)}
         placeholder={placeholder}
         type="text"
@@ -152,7 +152,7 @@ function TxStatus({
   }
 
   return (
-    <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
+    <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 p-4 text-sm text-black">
       <div className="font-medium">Transaction status</div>
 
       <a
@@ -163,7 +163,7 @@ function TxStatus({
         <ResponsiveHash value={txHash} />
       </a>
 
-      <div className="mt-1 text-white/60">
+      <div className="mt-1 text-black/70">
         {isLoading
           ? "Mining..."
           : isSuccess
@@ -408,29 +408,31 @@ function FinancialCollectionControls({
   }
 
   return (
-    <article className="rounded-3xl border border-white/10 bg-white/5 p-6">
+    <article className="rounded-3xl border border-white/10 bg-black p-6">
       <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
         <div>
-          <p className="text-sm uppercase tracking-[0.25em] text-white/40">
+          <p className="text-sm uppercase tracking-[0.25em] text-white/70">
             Pricing / treasury / royalty
           </p>
           <h3 className="mt-2 text-2xl font-semibold">{config.label}</h3>
-          <p className="mt-2 max-w-2xl text-sm text-white/60">
+          <p className="mt-2 max-w-2xl text-sm text-white/70">
             Update paid mint price, mint proceeds treasury, and ERC2981 default
             royalty settings.
           </p>
         </div>
 
-        <button
-          className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={isRefreshing}
-          onClick={refetchFinancialReads}
-          type="button">
-          {isRefreshing ? "Refreshing..." : "Refresh"}
-        </button>
+        <div className="grid rounded-2xl border border-white/10 bg-black p-1">
+          <button
+            className="grid rounded-xl px-4 py-2 text-center text-sm hover:bg-(--oioi-accent) disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-black"
+            disabled={isRefreshing}
+            onClick={refetchFinancialReads}
+            type="button">
+            {isRefreshing ? "Refreshing..." : "Refresh"}
+          </button>
+        </div>
       </div>
 
-      <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 px-4">
+      <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 px-4 text-black">
         <ReadRow
           label="Owner"
           value={shortAddress(ownerAddress)}
@@ -456,46 +458,65 @@ function FinancialCollectionControls({
       </div>
 
       {!userIsExpectedOwner ? (
-        <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+        <div className="mt-5 rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
           Write actions are disabled because the connected wallet is not the
           expected owner.
         </div>
       ) : null}
 
       <div className="mt-5 grid gap-5">
-        <Field
-          label="New mint price"
-          description="Human-readable native token amount. Example: 0.001047"
-          onChange={setMintPriceInput}
-          placeholder="0.001047"
-          value={mintPriceInput}
-        />
+        <div className="grid gap-4 rounded-2xl border border-white/10 bg-white/70 p-4 text-black">
+          <h4 className="font-medium">Mint Price</h4>
+          <p className="text-sm text-black/70">
+            Update the paid mint price for future public or gated mint
+            transactions.
+          </p>
+          <Field
+            label="New mint price"
+            description="Human-readable native token amount. Example: 0.001047"
+            onChange={setMintPriceInput}
+            placeholder="0.001047"
+            value={mintPriceInput}
+          />
 
-        <button
-          className="rounded-2xl border border-yellow-500/30 bg-yellow-500/10 px-5 py-3 font-medium text-yellow-100 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={actionDisabledBase || parsedMintPrice === null}
-          onClick={() => void setMintPrice()}
-          type="button">
-          Set Mint Price
-        </button>
+          <button
+            className="cursor-pointer rounded-2xl bg-white px-5 py-3 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
+            disabled={actionDisabledBase || parsedMintPrice === null}
+            onClick={() => void setMintPrice()}
+            type="button">
+            Set Mint Price
+          </button>
+        </div>
 
-        <Field
-          label="New treasury"
-          description="Address that receives future mint proceeds."
-          onChange={setTreasuryInput}
-          placeholder={treasury ?? "0x..."}
-          value={treasuryInput}
-        />
+        <div className="grid gap-4 rounded-2xl border border-white/10 bg-white/70 p-4 text-black">
+          <h4 className="font-medium">Treasury</h4>
+          <p className="text-sm text-black/70">
+            Update the wallet that receives future mint proceeds.
+          </p>
+          <Field
+            label="New treasury"
+            description="Address that receives future mint proceeds."
+            onChange={setTreasuryInput}
+            placeholder={treasury ?? "0x..."}
+            value={treasuryInput}
+          />
 
-        <button
-          className="rounded-2xl border border-red-500/30 bg-red-500/10 px-5 py-3 font-medium text-red-100 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={actionDisabledBase || !parsedTreasury}
-          onClick={() => void setTreasury()}
-          type="button">
-          Set Treasury
-        </button>
+          <button
+            className="cursor-pointer rounded-2xl bg-white px-5 py-3 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
+            disabled={actionDisabledBase || !parsedTreasury}
+            onClick={() => void setTreasury()}
+            type="button">
+            Set Treasury
+          </button>
+        </div>
 
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-4 rounded-2xl border border-white/10 bg-white/70 p-4 text-black">
+          <h4 className="font-medium">Default Royalty</h4>
+          <p className="text-sm text-black/70">
+            Update ERC2981 default royalty receiver and percentage for future
+            marketplace royalty reads.
+          </p>
+          <div className="grid gap-4 md:grid-cols-2">
           <Field
             label="New royalty receiver"
             description="Address that receives future royalty."
@@ -511,33 +532,34 @@ function FinancialCollectionControls({
             placeholder="11"
             value={royaltyPercentInput}
           />
-        </div>
+          </div>
 
-        <button
-          className="rounded-2xl border border-red-500/30 bg-red-500/10 px-5 py-3 font-medium text-red-100 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={
-            actionDisabledBase ||
-            !parsedRoyaltyReceiver ||
-            parsedRoyaltyFeeNumerator === null
-          }
-          onClick={() => void setDefaultRoyalty()}
-          type="button">
-          Set Default Royalty
-        </button>
+          <button
+            className="cursor-pointer rounded-2xl bg-white px-5 py-3 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
+            disabled={
+              actionDisabledBase ||
+              !parsedRoyaltyReceiver ||
+              parsedRoyaltyFeeNumerator === null
+            }
+            onClick={() => void setDefaultRoyalty()}
+            type="button">
+            Set Default Royalty
+          </button>
+        </div>
       </div>
 
       {lastActionLabel ? (
-        <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
+        <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 p-4 text-sm text-black">
           <div className="font-medium">Last requested action</div>
-          <div className="mt-2 text-white/60">{lastActionLabel}</div>
-          <div className="mt-1 break-all text-white/60">
+          <div className="mt-2 text-black/70">{lastActionLabel}</div>
+          <div className="mt-1 break-all text-black/70">
             Requested value: {lastRequestedValue}
           </div>
         </div>
       ) : null}
 
       {isWritePending ? (
-        <div className="mt-5 rounded-2xl border border-blue-500/30 bg-blue-500/10 p-4 text-sm text-blue-100/80">
+        <div className="mt-5 rounded-2xl border border-white/10 bg-yellow-300 p-4 text-sm text-black">
           Waiting for wallet signature...
         </div>
       ) : null}
@@ -551,13 +573,13 @@ function FinancialCollectionControls({
       />
 
       {writeError ? (
-        <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+        <div className="mt-5 rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
           {writeError.message}
         </div>
       ) : null}
 
       {readError ? (
-        <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+        <div className="mt-5 rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
           Read error: {readError.message}
         </div>
       ) : null}
@@ -595,14 +617,14 @@ export function AdminPricingTreasuryRoyaltyControls({
 
   return (
     <section className="grid gap-5" id="money-controls">
-      <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
-        <p className="text-sm uppercase tracking-[0.25em] text-white/50">
+      <section className="rounded-3xl border border-white/10 bg-black p-6">
+        <p className="text-sm uppercase tracking-[0.25em] text-white/70">
           Admin Writes
         </p>
         <h2 className="mt-2 text-2xl font-semibold">
           Pricing, Treasury, and Royalty Controls
         </h2>
-        <p className="mt-2 text-sm text-white/60">
+        <p className="mt-2 text-sm text-white/70">
           Owner-only controls for mint price, mint proceeds treasury, and
           ERC2981 default royalty.
         </p>
