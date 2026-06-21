@@ -35,7 +35,7 @@ export function AppCopyright() {
 
   return (
     <>
-      <div className="flex min-w-0 flex-wrap items-center rounded-2xl border border-white/10 bg-black p-1 text-sm font-semibold text-white">
+      <div className="flex min-w-0 flex-wrap gap-1 items-center rounded-2xl border border-white/10 bg-black p-1 text-sm font-semibold text-white">
         <button
           className="hidden cursor-pointer rounded-xl bg-black py-2 px-3 text-white hover:bg-(--oioi-accent) sm:block"
           onClick={() =>

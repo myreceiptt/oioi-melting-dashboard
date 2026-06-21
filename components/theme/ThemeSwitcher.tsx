@@ -24,7 +24,7 @@ export function ThemeSwitcher() {
   return (
     <div
       aria-label="ESTETIKA theme switcher"
-      className="inline-flex rounded-2xl border border-white/10 bg-black p-1"
+      className="inline-flex gap-1 rounded-2xl border border-white/10 bg-black p-1"
       role="group">
       {themeOptions.map((option) => {
         const isActive = activeTheme === option.value;
