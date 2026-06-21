@@ -58,7 +58,7 @@ export default async function ChainDashboardPage({
       </header>
 
       <ChainGuard chainSet={chain}>
-        <section className="grid gap-5" id="read-panel">
+        <section className="grid gap-5 scroll-mt-30" id="read-panel">
           <DashboardReadPanel chainSet={chain} />
         </section>
         <StakeActionPanel chainSet={chain} />

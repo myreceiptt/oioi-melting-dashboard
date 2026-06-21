@@ -41,7 +41,7 @@ export function AdminContractList({
   contracts: AdminContractConfig[];
 }) {
   return (
-    <section className="grid gap-5" id="contract-list">
+    <section className="grid gap-5 scroll-mt-30" id="contract-list">
       <section className="rounded-3xl border border-white/10 bg-black p-6">
         <p className="text-sm uppercase tracking-[0.25em] text-white/70">
           Contract List

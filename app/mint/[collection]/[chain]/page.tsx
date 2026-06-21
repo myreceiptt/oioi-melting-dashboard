@@ -75,7 +75,7 @@ export default async function MintPage({
       </header>
 
       <ChainGuard chainSet={chain}>
-        <section className="grid gap-5" id="mint-card">
+        <section className="grid gap-5 scroll-mt-30" id="mint-card">
           <MintStatusCard config={config} />
           {config.collectionKey === "roty" ? (
             <RotyMintPanel config={config} />

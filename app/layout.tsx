@@ -147,8 +147,10 @@ export default function RootLayout({
         <Web3Providers>
           <ThemeProvider>
             <div className="flex min-h-screen flex-col">
-              <AppEnvironmentBanner />
-              <AppNavbar />
+              <div className="sticky top-0 z-40 bg-black">
+                <AppEnvironmentBanner />
+                <AppNavbar />
+              </div>
               <div className="flex-1">{children}</div>
               <AppFooter />
             </div>

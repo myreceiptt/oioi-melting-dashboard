@@ -1565,7 +1565,7 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
           : "border-black/20 bg-[#b7f56d] text-black hover:bg-(--oioi-accent) hover:text-white";
 
   return (
-    <section className="grid gap-5" id="round-controls">
+    <section className="grid gap-5 scroll-mt-30" id="round-controls">
       <section className="rounded-3xl border border-white/10 bg-black p-6">
         <p className="text-sm uppercase tracking-[0.25em] text-white/50">
           Reward Operations

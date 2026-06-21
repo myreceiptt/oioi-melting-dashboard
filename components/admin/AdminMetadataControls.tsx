@@ -679,7 +679,7 @@ export function AdminMetadataControls({ chainSet }: { chainSet: ChainSet }) {
   ];
 
   return (
-    <section className="grid gap-5" id="metadata-controls">
+    <section className="grid gap-5 scroll-mt-30" id="metadata-controls">
       <section className="rounded-3xl border border-white/10 bg-black p-6">
         <p className="text-sm uppercase tracking-[0.25em] text-white/70">
           Admin Writes

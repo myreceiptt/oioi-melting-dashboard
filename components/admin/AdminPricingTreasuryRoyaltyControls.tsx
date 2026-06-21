@@ -616,7 +616,7 @@ export function AdminPricingTreasuryRoyaltyControls({
   ];
 
   return (
-    <section className="grid gap-5" id="money-controls">
+    <section className="grid gap-5 scroll-mt-30" id="money-controls">
       <section className="rounded-3xl border border-white/10 bg-black p-6">
         <p className="text-sm uppercase tracking-[0.25em] text-white/70">
           Admin Writes
