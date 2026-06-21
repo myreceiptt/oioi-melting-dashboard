@@ -45,23 +45,28 @@ export default async function AdminChainPage({
     adminConfig = getAdminChainConfig(chain);
   } catch (error) {
     return (
-      <main className="mx-auto max-w-4xl px-6 py-10">
-        <Link className="text-sm text-white/70 underline" href="/admin">
-          ← Back to Admin Home
-        </Link>
-        <section className="mt-6 rounded-3xl border border-white/10 bg-[#ff9b4a] p-6 text-black">
-          <p className="text-sm uppercase tracking-[0.25em] text-black/70">
-            Admin Configuration
-          </p>
-          <h1 className="mt-3 text-3xl font-semibold">
-            Admin page cannot load this chain.
-          </h1>
-          <p className="mt-4 text-sm text-black/70">
-            {error instanceof Error
-              ? error.message
-              : "Unexpected admin configuration error."}
-          </p>
-        </section>
+      <main className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10">
+        <header className="rounded-3xl border border-white/10 bg-black p-6">
+          <div>
+            <p className="text-sm uppercase tracking-[0.3em] text-white/70">
+              Admin Configuration
+            </p>
+            <h1 className="mt-3 text-4xl font-semibold">Page cannot load</h1>
+            <p className="mt-4 max-w-3xl text-white/70">
+              Admin page cannot load because{" "}
+              {error instanceof Error
+                ? error.message
+                : "Unexpected admin configuration error."}
+            </p>
+            <div className="mt-6">
+              <Link
+                className="inline-block cursor-pointer rounded-2xl bg-white px-5 py-3 font-medium text-black hover:bg-(--oioi-accent) hover:text-white"
+                href="/admin">
+                Back to Admin Home
+              </Link>
+            </div>
+          </div>
+        </header>
       </main>
     );
   }
@@ -69,22 +74,20 @@ export default async function AdminChainPage({
   return (
     <main className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10">
       <header className="rounded-3xl border border-white/10 bg-black p-6">
-        <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
-          <div>
-            <Link className="text-sm text-white/70 underline" href="/admin">
-              ← Admin Home
-            </Link>
-            <p className="mt-5 text-sm uppercase tracking-[0.3em] text-white/70">
-              Admin Dashboard
-            </p>
-            <h1 className="mt-3 text-4xl font-semibold">{adminConfig.label}</h1>
-            <p className="mt-4 max-w-3xl text-white/70">
-              Review contract state, risk levels, and available admin actions.
-              Write forms are intentionally provided only for the expected
-              owner.
-            </p>
-          </div>
+        <div>
+          <Link className="text-sm text-white/70 underline" href="/admin">
+            ← Admin Home
+          </Link>
+          <p className="mt-5 text-sm uppercase tracking-[0.3em] text-white/70">
+            Admin Dashboard
+          </p>
+          <h1 className="mt-3 text-4xl font-semibold">{adminConfig.label}</h1>
+          <p className="mt-4 max-w-3xl text-white/70">
+            Write forms are intentionally provided only for the expected owner.
+          </p>
+        </div>
 
+        <div className="mt-6">
           <ConnectWalletButton />
         </div>
       </header>
