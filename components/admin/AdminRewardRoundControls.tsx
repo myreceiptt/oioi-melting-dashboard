@@ -230,6 +230,14 @@ function normalizeRoundStatus(value: string | undefined | null) {
   return (value ?? "").toLowerCase();
 }
 
+function shortTaskKey(value: string) {
+  if (value.length <= 16) {
+    return value;
+  }
+
+  return `${value.slice(0, 7)}...${value.slice(-6)}`;
+}
+
 function getTargetChainId(chainSet: ChainSet) {
   const isMainnet = process.env.NEXT_PUBLIC_APP_ENV === "mainnet";
 
@@ -323,11 +331,11 @@ function ReadRow({
   warning?: string;
 }) {
   return (
-    <div className="grid gap-2 border-b border-white/10 py-3 last:border-b-0 md:grid-cols-[260px_1fr]">
+    <div className="grid gap-2 border-b border-black/40 py-3 last:border-b-0 md:grid-cols-[260px_1fr]">
       <div>
-        <div className="text-sm text-white/60">{label}</div>
+        <div className="text-sm text-black/70">{label}</div>
         {warning ? (
-          <div className="mt-1 text-xs text-yellow-100/70">{warning}</div>
+          <div className="mt-1 text-xs text-[#7a3a00]">{warning}</div>
         ) : null}
       </div>
       <div className="break-all font-mono text-sm md:text-right">{value}</div>
@@ -344,16 +352,16 @@ function StatusPill({
 }) {
   const toneClass =
     tone === "success"
-      ? "border-green-500/30 bg-green-500/10 text-green-100"
+      ? "border-black/20 bg-[#b7f56d] text-black"
       : tone === "warning"
-        ? "border-yellow-500/30 bg-yellow-500/10 text-yellow-100"
+        ? "border-black/20 bg-yellow-300 text-black"
         : tone === "danger"
-          ? "border-red-500/30 bg-red-500/10 text-red-100"
+          ? "border-black/20 bg-[#ff9b4a] text-black"
           : tone === "info"
-            ? "border-blue-500/30 bg-blue-500/10 text-blue-100"
+            ? "border-black/20 bg-white/70 text-black"
             : tone === "purple"
-              ? "border-fuchsia-500/30 bg-fuchsia-500/10 text-fuchsia-100"
-              : "border-white/10 bg-white/5 text-white/70";
+              ? "border-black/20 bg-[#f5b7ff] text-black"
+              : "border-white/10 bg-black text-white/70";
 
   return (
     <span
@@ -373,13 +381,13 @@ function SummaryTile({
   detail?: string;
 }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-      <div className="text-xs uppercase tracking-[0.18em] text-white/40">
+    <div className="rounded-2xl border border-white/10 bg-white/70 p-4 text-black">
+      <div className="text-xs uppercase tracking-[0.18em] text-black/60">
         {label}
       </div>
-      <div className="mt-2 break-all font-mono text-sm text-white">{value}</div>
+      <div className="mt-2 break-all font-mono text-sm text-black">{value}</div>
       {detail ? (
-        <div className="mt-2 text-xs text-white/50">{detail}</div>
+        <div className="mt-2 text-xs text-black/70">{detail}</div>
       ) : null}
     </div>
   );
@@ -403,13 +411,13 @@ function Field({
   readOnly?: boolean;
 }) {
   return (
-    <label className="block rounded-2xl border border-white/10 bg-black/20 p-4">
-      <div className="font-medium">{label}</div>
+    <label className="grid gap-2">
+      <div className="font-medium text-black">{label}</div>
       {description ? (
-        <p className="mt-1 text-xs text-white/50">{description}</p>
+        <p className="text-xs text-black/70">{description}</p>
       ) : null}
       <input
-        className="mt-3 w-full rounded-xl border border-white/10 bg-black/40 px-3 py-2 font-mono text-sm outline-none focus:border-white/30 disabled:cursor-not-allowed disabled:opacity-60"
+        className="w-full rounded-2xl border border-white/10 bg-black px-4 py-3 font-mono text-sm text-white outline-none focus:border-white/30 disabled:cursor-not-allowed disabled:opacity-60"
         onChange={(event) => onChange(event.target.value)}
         placeholder={placeholder}
         readOnly={readOnly}
@@ -438,8 +446,8 @@ function TxStatus({
   }
 
   return (
-    <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
-      <div className="font-medium">Transaction status</div>
+    <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 p-4 text-sm text-black">
+      <div className="font-medium text-black">Transaction status</div>
 
       <a
         className="mt-2 block break-all font-mono underline underline-offset-4"
@@ -449,7 +457,7 @@ function TxStatus({
         <ResponsiveHash value={txHash} />
       </a>
 
-      <div className="mt-2 text-white/60">
+      <div className="mt-2 text-black/70">
         {isLoading
           ? "Mining..."
           : isSuccess
@@ -1549,27 +1557,27 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
   })();
   const nextActionClass =
     nextAction?.tone === "blue"
-      ? "border-blue-500/30 bg-blue-500/10 text-blue-100 hover:bg-blue-500/20"
+      ? "border-white/10 bg-white text-black hover:bg-(--oioi-accent) hover:text-white"
       : nextAction?.tone === "yellow"
-        ? "border-yellow-500/30 bg-yellow-500/10 text-yellow-100 hover:bg-yellow-500/20"
+        ? "border-black/20 bg-yellow-300 text-black hover:bg-(--oioi-accent) hover:text-white"
         : nextAction?.tone === "red"
-          ? "border-red-500/30 bg-red-500/10 text-red-100 hover:bg-red-500/20"
-          : "border-green-500/30 bg-green-500/10 text-green-100 hover:bg-green-500/20";
+          ? "border-black/20 bg-[#ff9b4a] text-black hover:bg-(--oioi-accent) hover:text-white"
+          : "border-black/20 bg-[#b7f56d] text-black hover:bg-(--oioi-accent) hover:text-white";
 
   return (
     <section className="grid gap-5" id="round-controls">
-      <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
+      <section className="rounded-3xl border border-white/10 bg-black p-6">
         <p className="text-sm uppercase tracking-[0.25em] text-white/50">
           Reward Operations
         </p>
         <h2 className="mt-2 text-2xl font-semibold">Reward Round Controls</h2>
-        <p className="mt-2 text-sm text-white/60">
+        <p className="mt-2 text-sm text-white/70">
           Submit a block boundary, wait until the worker generates a calculated
           round, then operate that round.
         </p>
       </section>
 
-      <article className="rounded-3xl border border-white/10 bg-white/5 p-6">
+      <article className="rounded-3xl border border-white/10 bg-black p-6">
         <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
           <div>
             <p className="text-sm uppercase tracking-[0.25em] text-white/40">
@@ -1582,22 +1590,24 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
                 tone={boundaryStatusTone}
               />
             </div>
-            <p className="mt-2 max-w-3xl text-sm text-white/60">
+            <p className="mt-2 max-w-3xl text-sm text-white/70">
               This job is the only required sync/rebuild phase for the next
               reward round. Wait till the job succeeds, OiOi!
             </p>
           </div>
 
-          <button
-            className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
-            disabled={isBoundaryLoading}
-            onClick={() => void fetchBoundaryJobs()}
-            type="button">
-            {isBoundaryLoading ? "Refreshing..." : "Refresh job"}
-          </button>
+          <div className="grid rounded-2xl border border-white/10 bg-black p-1">
+            <button
+              className="rounded-xl px-4 py-2 text-sm hover:bg-(--oioi-accent) disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-black"
+              disabled={isBoundaryLoading}
+              onClick={() => void fetchBoundaryJobs()}
+              type="button">
+              {isBoundaryLoading ? "Refreshing..." : "Refresh"}
+            </button>
+          </div>
         </div>
 
-        <div className="mt-5 grid gap-4 md:grid-cols-3">
+        <div className="mt-5 grid gap-4 rounded-2xl border border-white/10 bg-white/70 p-4 text-black md:grid-cols-3">
           <Field
             label="BASE boundary block"
             description="Final BASE block for the next reward round."
@@ -1623,14 +1633,14 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
 
         <div className="mt-5 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <button
-            className="rounded-2xl border border-white/10 bg-white px-5 py-3 text-sm font-semibold text-black hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-40"
+            className="rounded-2xl bg-white px-5 py-4 text-sm font-semibold text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
             disabled={boundarySubmitDisabled}
             onClick={() => void submitBoundarySyncJob()}
             type="button">
             {isBoundarySubmitting ? "Submitting..." : "Submit The Jobs"}
           </button>
 
-          <div className="text-sm text-white/60">
+          <div className="text-sm text-white/70">
             {boundaryJobActive
               ? "An active boundary job exists. Finish or cancel it before submitting another one."
               : "Submit is available after both blocks and reward amount are valid."}
@@ -1638,13 +1648,13 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
         </div>
 
         {boundarySubmitStatus ? (
-          <div className="mt-4 rounded-2xl border border-green-500/30 bg-green-500/10 p-4 text-sm text-green-100/80">
+          <div className="mt-4 rounded-2xl border border-white/10 bg-[#b7f56d] p-4 text-sm text-black">
             {boundarySubmitStatus}
           </div>
         ) : null}
 
         {boundaryError ? (
-          <div className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+          <div className="mt-4 rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
             {boundaryError}
           </div>
         ) : null}
@@ -1674,31 +1684,34 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
         </div>
 
         {activeBoundaryJob?.error_message ? (
-          <div className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+          <div className="mt-4 rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
             {activeBoundaryJob.error_message}
           </div>
         ) : null}
 
         {activeBoundaryJob?.targets.length ? (
-          <details className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4">
+          <details className="mt-5 rounded-2xl border border-white/10 bg-white/70 p-4 text-black">
             <summary className="cursor-pointer font-medium">
               Worker target progress
             </summary>
             <div className="mt-4 grid gap-3 md:grid-cols-2">
               {activeBoundaryJob.targets.map((target) => (
                 <div
-                  className="rounded-xl border border-white/10 bg-black/20 p-3 text-sm"
+                  className="rounded-xl border border-white/10 bg-black p-3 text-sm text-white"
                   key={target.id}>
                   <div className="flex items-center justify-between gap-3">
                     <span className="font-mono">{target.chain_key}</span>
                     <StatusPill label={target.status} />
                   </div>
-                  <div className="mt-2 font-mono text-white/60">
-                    {target.task_key}: {target.last_processed_block ?? "—"} /{" "}
+                  <div className="mt-2 font-mono text-white/70">
+                    <span title={target.task_key}>
+                      {shortTaskKey(target.task_key)}
+                    </span>
+                    : {target.last_processed_block ?? "—"} /{" "}
                     {target.target_block ?? "—"}
                   </div>
                   {target.error_message ? (
-                    <div className="mt-2 text-xs text-red-100/80">
+                    <div className="mt-2 rounded-xl bg-[#ff9b4a] p-2 text-xs text-black">
                       {target.error_message}
                     </div>
                   ) : null}
@@ -1709,38 +1722,40 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
         ) : null}
       </article>
 
-      <article className="rounded-3xl border border-white/10 bg-white/5 p-6">
+      <article className="rounded-3xl border border-white/10 bg-black p-6">
         <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
           <div>
             <p className="text-sm uppercase tracking-[0.25em] text-white/40">
               The Reward Rounds
             </p>
             <h3 className="mt-2 text-2xl font-semibold">Reward Operations</h3>
-            <p className="mt-2 max-w-3xl text-sm text-white/60">
+            <p className="mt-2 max-w-3xl text-sm text-white/70">
               Choose the reward round. The status are decided from on-chain
               reads after selection.
             </p>
           </div>
 
-          <button
-            className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
-            disabled={isRoundsLoading || isRewardReadsRefreshing}
-            onClick={() => {
-              void fetchRounds({ preserveSelection: true });
-              refetchRewardReads();
-            }}
-            type="button">
-            {isRoundsLoading || isRewardReadsRefreshing
-              ? "Refreshing..."
-              : "Refresh rounds"}
-          </button>
+          <div className="grid rounded-2xl border border-white/10 bg-black p-1">
+            <button
+              className="rounded-xl px-4 py-2 text-sm hover:bg-(--oioi-accent) disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-black"
+              disabled={isRoundsLoading || isRewardReadsRefreshing}
+              onClick={() => {
+                void fetchRounds({ preserveSelection: true });
+                refetchRewardReads();
+              }}
+              type="button">
+              {isRoundsLoading || isRewardReadsRefreshing
+                ? "Refreshing..."
+                : "Refresh"}
+            </button>
+          </div>
         </div>
 
-        <div className="mt-5 grid gap-4 md:grid-cols-[420px_1fr]">
+        <div className="mt-5 grid gap-4 rounded-2xl border border-white/10 bg-white/70 p-4 text-black md:grid-cols-[420px_1fr]">
           <label className="block">
             <div className="font-medium">Existing reward round</div>
             <select
-              className="mt-3 w-full rounded-xl border border-white/10 bg-black/40 px-3 py-3 text-sm outline-none focus:border-white/30"
+              className="mt-3 w-full rounded-2xl border border-white/10 bg-black px-4 py-3 text-sm text-white outline-none focus:border-white/30"
               disabled={isRoundsLoading || rounds.length === 0}
               onChange={(event) =>
                 setSelectedSupabaseRoundId(event.target.value)
@@ -1756,7 +1771,7 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
               ))}
             </select>
             {roundsError ? (
-              <div className="mt-3 rounded-xl border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-100/80">
+              <div className="mt-3 rounded-xl border border-white/10 bg-[#ff9b4a] p-3 text-sm text-black">
                 {roundsError}
               </div>
             ) : null}
@@ -1821,8 +1836,8 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
               />
             </div>
 
-            <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4">
-              <div className="text-xs uppercase tracking-[0.18em] text-white/40">
+            <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 p-4 text-black">
+              <div className="text-xs uppercase tracking-[0.18em] text-black/60">
                 Merkle root
               </div>
               <div className="mt-2 break-all font-mono text-sm">
@@ -1835,47 +1850,47 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
             </div>
           </>
         ) : (
-          <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm text-white/60">
+          <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 p-4 text-sm text-black/70">
             No reward round selected.
           </div>
         )}
 
         {rewardReadError ? (
-          <div className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+          <div className="mt-4 rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
             Reward read error: {rewardReadError.message}
           </div>
         ) : null}
 
-        <div className="mt-5 rounded-2xl border border-yellow-500/30 bg-yellow-500/10 p-4">
-          <div className="font-medium text-yellow-100">Next step</div>
-          <p className="mt-2 text-sm text-yellow-100/80">{suggestedAction}</p>
+        <div className="mt-5 rounded-2xl border border-white/10 bg-yellow-300 p-4 text-black">
+          <div className="font-medium text-black">Next step</div>
+          <p className="mt-2 text-sm text-black/70">{suggestedAction}</p>
         </div>
 
         {nextAction ? (
           <button
-            className={`mt-5 w-full rounded-2xl border px-5 py-3 text-center font-medium disabled:cursor-not-allowed disabled:opacity-40 ${nextActionClass}`}
+            className={`mt-5 w-full rounded-2xl border px-5 py-4 text-center font-medium disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40 ${nextActionClass}`}
             onClick={nextAction.handler}
             type="button">
             {nextAction.label}
           </button>
         ) : (
-          <div className="mt-5 w-full rounded-2xl border px-5 py-3 text-center font-medium border-white/10 bg-white/5 text-white/60">
+          <div className="mt-5 w-full rounded-2xl border border-white/10 bg-white/70 px-5 py-4 text-center font-medium text-black/70">
             No write action is currently available for this selection.
           </div>
         )}
 
         {!userIsExpectedOwner ? (
-          <div className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+          <div className="mt-4 rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
             The connected wallet is not the expected owner.
           </div>
         ) : null}
 
         {showSelectedRoundActionContext && lastActionLabel ? (
-          <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
-            <div className="font-medium">Last requested action</div>
-            <div className="mt-2 text-white/60">{lastActionLabel}</div>
+          <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 p-4 text-sm text-black">
+            <div className="font-medium text-black">Last requested action</div>
+            <div className="mt-2 text-black/70">{lastActionLabel}</div>
             {lastRequestedValue ? (
-              <div className="mt-1 break-all text-white/60">
+              <div className="mt-1 break-all text-black/70">
                 Requested value: {lastRequestedValue}
               </div>
             ) : null}
@@ -1883,7 +1898,7 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
         ) : null}
 
         {showSelectedRoundActionContext && isWritePending ? (
-          <div className="mt-4 rounded-2xl border border-blue-500/30 bg-blue-500/10 p-4 text-sm text-blue-100/80">
+          <div className="mt-4 rounded-2xl border border-white/10 bg-yellow-300 p-4 text-sm text-black">
             Waiting for wallet signature...
           </div>
         ) : null}
@@ -1897,21 +1912,21 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
         />
 
         {showSelectedRoundActionContext && writeError ? (
-          <div className="mt-4 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+          <div className="mt-4 wrap-break-word rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
             {writeError.message}
           </div>
         ) : null}
 
-        <details className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4">
+        <details className="mt-5 rounded-2xl border border-white/10 bg-white/70 p-4 text-black">
           <summary className="cursor-pointer font-medium">
             Advanced Diagnostics
           </summary>
-          <p className="mt-2 text-sm text-white/60">
+          <p className="mt-2 text-sm text-black/70">
             Use this only when a button is unexpectedly unavailable or a chain
             read looks wrong.
           </p>
           <div className="mt-4 grid gap-3 md:grid-cols-2">
-            <div className="rounded-2xl border border-white/10 bg-black/20 px-4">
+            <div className="rounded-2xl border border-white/10 bg-white/70 px-4 text-black">
               <ReadRow
                 label="Wallet chain"
                 value={
@@ -1959,7 +1974,7 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
               />
             </div>
 
-            <div className="rounded-2xl border border-white/10 bg-black/20 px-4">
+            <div className="rounded-2xl border border-white/10 bg-white/70 px-4 text-black">
               <ReadRow label="Round exists" value={formatBool(roundExists)} />
               <ReadRow label="Round funded" value={formatBool(roundIsFunded)} />
               <ReadRow

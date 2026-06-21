@@ -13,22 +13,22 @@ This document is a current mapping reference, not a completed subdomain QA repor
 
 ## Main App Routes
 
-| Surface            | URL                                                                    |
-| ------------------ | ---------------------------------------------------------------------- |
-| Home               | [Home](https://softstaking.endhonesa.com/)                             |
-| Mint index         | [Mint](https://softstaking.endhonesa.com/mint)                         |
-| ROTY BASE mint     | [ROTY BASE mint](https://softstaking.endhonesa.com/mint/roty/base)     |
-| ROTY dETH mint     | [ROTY dETH mint](https://softstaking.endhonesa.com/mint/roty/ethereum) |
-| Melting BASE mint  | [Melting BASE mint](https://softstaking.endhonesa.com/mint/melting/base) |
+| Surface            | URL                                                                          |
+| ------------------ | ---------------------------------------------------------------------------- |
+| Home               | [Home](https://softstaking.endhonesa.com/)                                   |
+| Mint index         | [Mint](https://softstaking.endhonesa.com/mint)                               |
+| ROTY BASE mint     | [ROTY BASE mint](https://softstaking.endhonesa.com/mint/roty/base)           |
+| ROTY dETH mint     | [ROTY dETH mint](https://softstaking.endhonesa.com/mint/roty/ethereum)       |
+| Melting BASE mint  | [Melting BASE mint](https://softstaking.endhonesa.com/mint/melting/base)     |
 | Melting dETH mint  | [Melting dETH mint](https://softstaking.endhonesa.com/mint/melting/ethereum) |
-| Amanda BASE mint   | [Amanda BASE mint](https://softstaking.endhonesa.com/mint/amanda/base) |
-| Amanda dETH mint   | [Amanda dETH mint](https://softstaking.endhonesa.com/mint/amanda/ethereum) |
-| Dashboard          | [Dashboard](https://softstaking.endhonesa.com/dashboard)               |
-| Base dashboard     | [Base dashboard](https://softstaking.endhonesa.com/dashboard/base)     |
-| Ethereum dashboard | [Ethereum dashboard](https://softstaking.endhonesa.com/dashboard/ethereum) |
-| Admin home         | [Admin home](https://softstaking.endhonesa.com/admin)                  |
-| Base admin         | [Base admin](https://softstaking.endhonesa.com/admin/base)             |
-| Ethereum admin     | [Ethereum admin](https://softstaking.endhonesa.com/admin/ethereum)     |
+| Amanda BASE mint   | [Amanda BASE mint](https://softstaking.endhonesa.com/mint/amanda/base)       |
+| Amanda dETH mint   | [Amanda dETH mint](https://softstaking.endhonesa.com/mint/amanda/ethereum)   |
+| Dashboard          | [Dashboard](https://softstaking.endhonesa.com/dashboard)                     |
+| Base dashboard     | [Base dashboard](https://softstaking.endhonesa.com/dashboard/base)           |
+| Ethereum dashboard | [Ethereum dashboard](https://softstaking.endhonesa.com/dashboard/ethereum)   |
+| Admin home         | [Admin home](https://softstaking.endhonesa.com/admin)                        |
+| Base admin         | [Base admin](https://softstaking.endhonesa.com/admin/base)                   |
+| Ethereum admin     | [Ethereum admin](https://softstaking.endhonesa.com/admin/ethereum)           |
 
 ---
 
@@ -36,14 +36,14 @@ This document is a current mapping reference, not a completed subdomain QA repor
 
 The current proxy rewrites `/` for these hosts to the mapped internal mint route.
 
-| Domain | Internal route |
-| ------ | -------------- |
-| [rotybase.endhonesa.com](https://rotybase.endhonesa.com/) | `/mint/roty/base` |
-| [rotydeth.endhonesa.com](https://rotydeth.endhonesa.com/) | `/mint/roty/ethereum` |
-| [meltingbase.endhonesa.com](https://meltingbase.endhonesa.com/) | `/mint/melting/base` |
+| Domain                                                          | Internal route           |
+| --------------------------------------------------------------- | ------------------------ |
+| [rotybase.endhonesa.com](https://rotybase.endhonesa.com/)       | `/mint/roty/base`        |
+| [rotydeth.endhonesa.com](https://rotydeth.endhonesa.com/)       | `/mint/roty/ethereum`    |
+| [meltingbase.endhonesa.com](https://meltingbase.endhonesa.com/) | `/mint/melting/base`     |
 | [meltingdeth.endhonesa.com](https://meltingdeth.endhonesa.com/) | `/mint/melting/ethereum` |
-| [amandabase.endhonesa.com](https://amandabase.endhonesa.com/) | `/mint/amanda/base` |
-| [amandadeth.endhonesa.com](https://amandadeth.endhonesa.com/) | `/mint/amanda/ethereum` |
+| [amandabase.endhonesa.com](https://amandabase.endhonesa.com/)   | `/mint/amanda/base`      |
+| [amandadeth.endhonesa.com](https://amandadeth.endhonesa.com/)   | `/mint/amanda/ethereum`  |
 
 ---
 

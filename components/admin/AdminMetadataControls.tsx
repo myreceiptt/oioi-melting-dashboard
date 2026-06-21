@@ -48,11 +48,11 @@ function ReadRow({
   warning?: string;
 }) {
   return (
-    <div className="grid gap-2 border-b border-white/10 py-3 last:border-b-0 md:grid-cols-[240px_1fr]">
+    <div className="grid gap-2 border-b border-black/40 py-3 last:border-b-0 md:grid-cols-[240px_1fr]">
       <div>
-        <div className="text-sm text-white/60">{label}</div>
+        <div className="text-sm text-black/70">{label}</div>
         {warning ? (
-          <div className="mt-1 text-xs text-yellow-100/70">{warning}</div>
+          <div className="mt-1 text-xs text-[#7a3a00]">{warning}</div>
         ) : null}
       </div>
       <div className="break-all font-mono text-sm md:text-right">{value}</div>
@@ -74,13 +74,13 @@ function Field({
   placeholder?: string;
 }) {
   return (
-    <label className="block rounded-2xl border border-white/10 bg-black/20 p-4">
-      <div className="font-medium">{label}</div>
+    <label className="grid gap-2">
+      <span className="text-sm text-black/70">{label}</span>
       {description ? (
-        <p className="mt-1 text-xs text-white/50">{description}</p>
+        <span className="text-xs text-black/70">{description}</span>
       ) : null}
       <input
-        className="mt-3 w-full rounded-xl border border-white/10 bg-black/40 px-3 py-2 font-mono text-sm outline-none focus:border-white/30"
+        className="w-full rounded-xl border border-white/10 bg-black px-4 py-3 font-mono text-sm text-white outline-none placeholder:text-white/50 focus:border-(--oioi-accent)"
         onChange={(event) => onChange(event.target.value)}
         placeholder={placeholder}
         type="text"
@@ -108,7 +108,7 @@ function TxStatus({
   }
 
   return (
-    <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
+    <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 p-4 text-sm text-black">
       <div className="font-medium">Transaction status</div>
 
       <a
@@ -119,7 +119,7 @@ function TxStatus({
         <ResponsiveHash value={txHash} />
       </a>
 
-      <div className="mt-1 text-white/60">
+      <div className="mt-1 text-black/70">
         {isLoading
           ? "Mining..."
           : isSuccess
@@ -439,31 +439,33 @@ function MetadataCollectionControls({
   }
 
   return (
-    <article className="rounded-3xl border border-white/10 bg-white/5 p-6">
+    <article className="rounded-3xl border border-white/10 bg-black p-6">
       <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
         <div>
-          <p className="text-sm uppercase tracking-[0.25em] text-white/40">
+          <p className="text-sm uppercase tracking-[0.25em] text-white/70">
             Metadata controls
           </p>
           <h3 className="mt-2 text-2xl font-semibold">{config.label}</h3>
-          <p className="mt-2 max-w-2xl text-sm text-white/60">
+          <p className="mt-2 max-w-2xl text-sm text-white/70">
             Update unrevealed URI, revealed base URI, base extension, reveal
             state, and final metadata lock.
           </p>
         </div>
 
-        <button
-          className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={isRefreshing}
-          onClick={refetchMetadataReads}
-          type="button">
-          {isRefreshing
-            ? "Refreshing..."
-            : `Locked: ${formatBool(metadataLocked)}`}
-        </button>
+        <div className="grid rounded-2xl border border-white/10 bg-black p-1">
+          <button
+            className="grid rounded-xl px-4 py-2 text-center text-sm hover:bg-(--oioi-accent) disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-black"
+            disabled={isRefreshing}
+            onClick={refetchMetadataReads}
+            type="button">
+            {isRefreshing
+              ? "Refreshing..."
+              : `Locked: ${formatBool(metadataLocked)}`}
+          </button>
+        </div>
       </div>
 
-      <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 px-4">
+      <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 px-4 text-black">
         <ReadRow
           label="Owner"
           value={shortAddress(ownerAddress)}
@@ -490,118 +492,141 @@ function MetadataCollectionControls({
       </div>
 
       {metadataLocked ? (
-        <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+        <div className="mt-5 rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
           Metadata is locked. Write controls are disabled.
         </div>
       ) : null}
 
       {!userIsExpectedOwner ? (
-        <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+        <div className="mt-5 rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
           Write actions are disabled because the connected wallet is not the
           expected owner.
         </div>
       ) : null}
 
       <div className="mt-5 grid gap-5">
-        <Field
-          label="New unrevealed URI"
-          description="Used while revealed=false."
-          onChange={setUnrevealedInput}
-          placeholder={unrevealedURI ?? "ipfs://..."}
-          value={unrevealedInput}
-        />
+        <div className="grid gap-4 rounded-2xl border border-white/10 bg-white/70 p-4 text-black">
+          <h4 className="font-medium">Unrevealed URI</h4>
+          <p className="text-sm text-black/70">
+            Update the metadata URI used while the collection is unrevealed.
+          </p>
+          <Field
+            label="New unrevealed URI"
+            description="Used while revealed=false."
+            onChange={setUnrevealedInput}
+            placeholder={unrevealedURI ?? "ipfs://..."}
+            value={unrevealedInput}
+          />
 
-        <button
-          className="rounded-2xl border border-yellow-500/30 bg-yellow-500/10 px-5 py-3 font-medium text-yellow-100 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={actionDisabledBase || unrevealedInput.trim() === ""}
-          onClick={() => void setUnrevealedURI()}
-          type="button">
-          Set Unrevealed URI
-        </button>
+          <button
+            className="cursor-pointer rounded-2xl bg-white px-5 py-3 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
+            disabled={actionDisabledBase || unrevealedInput.trim() === ""}
+            onClick={() => void setUnrevealedURI()}
+            type="button">
+            Set Unrevealed URI
+          </button>
+        </div>
 
-        <Field
-          label="New revealed base URI"
-          description="Used while revealed=true. Confirm trailing slash and token URI format."
-          onChange={setRevealedBaseInput}
-          placeholder={revealedBaseURI ?? "ipfs://.../"}
-          value={revealedBaseInput}
-        />
+        <div className="grid gap-4 rounded-2xl border border-white/10 bg-white/70 p-4 text-black">
+          <h4 className="font-medium">Revealed Base URI</h4>
+          <p className="text-sm text-black/70">
+            Update the metadata base URI used when reveal is enabled.
+          </p>
+          <Field
+            label="New revealed base URI"
+            description="Used while revealed=true. Confirm trailing slash and token URI format."
+            onChange={setRevealedBaseInput}
+            placeholder={revealedBaseURI ?? "ipfs://.../"}
+            value={revealedBaseInput}
+          />
 
-        <button
-          className="rounded-2xl border border-yellow-500/30 bg-yellow-500/10 px-5 py-3 font-medium text-yellow-100 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={actionDisabledBase || revealedBaseInput.trim() === ""}
-          onClick={() => void setRevealedBaseURI()}
-          type="button">
-          Set Revealed Base URI
-        </button>
+          <button
+            className="cursor-pointer rounded-2xl bg-white px-5 py-3 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
+            disabled={actionDisabledBase || revealedBaseInput.trim() === ""}
+            onClick={() => void setRevealedBaseURI()}
+            type="button">
+            Set Revealed Base URI
+          </button>
+        </div>
 
-        <Field
-          label="New base extension"
-          description="Usually .json or empty string, depending on metadata path format."
-          onChange={setBaseExtensionInput}
-          placeholder={baseExtension ?? ".json"}
-          value={baseExtensionInput}
-        />
+        <div className="grid gap-4 rounded-2xl border border-white/10 bg-white/70 p-4 text-black">
+          <h4 className="font-medium">Base Extension</h4>
+          <p className="text-sm text-black/70">
+            Update the token URI extension appended after token IDs.
+          </p>
+          <Field
+            label="New base extension"
+            description="Usually .json or empty string, depending on metadata path format."
+            onChange={setBaseExtensionInput}
+            placeholder={baseExtension ?? ".json"}
+            value={baseExtensionInput}
+          />
 
-        <button
-          className="rounded-2xl border border-yellow-500/30 bg-yellow-500/10 px-5 py-3 font-medium text-yellow-100 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={actionDisabledBase}
-          onClick={() => void setBaseExtension()}
-          type="button">
-          Set Base Extension
-        </button>
-      </div>
+          <button
+            className="cursor-pointer rounded-2xl bg-white px-5 py-3 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
+            disabled={actionDisabledBase}
+            onClick={() => void setBaseExtension()}
+            type="button">
+            Set Base Extension
+          </button>
+        </div>
 
-      <div className="mt-5 grid gap-4 md:grid-cols-2">
-        <button
-          className="rounded-2xl border border-green-500/30 bg-green-500/10 px-5 py-3 font-medium text-green-100 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={
-            actionDisabledBase || revealed === true || revealedBaseUriIsPending
-          }
-          onClick={() => void setRevealed(true)}
-          type="button">
-          Reveal Metadata
-        </button>
+        <div className="grid gap-4 rounded-2xl border border-white/10 bg-white/70 p-4 text-black">
+          <h4 className="font-medium">Reveal State</h4>
+          <p className="text-sm text-black/70">
+            Switch the collection between unrevealed and revealed metadata.
+          </p>
+          <div className="grid gap-4 md:grid-cols-2">
+            <button
+              className="cursor-pointer rounded-2xl bg-white px-5 py-3 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
+              disabled={
+                actionDisabledBase ||
+                revealed === true ||
+                revealedBaseUriIsPending
+              }
+              onClick={() => void setRevealed(true)}
+              type="button">
+              Reveal Metadata
+            </button>
 
-        <button
-          className="rounded-2xl border border-orange-500/30 bg-orange-500/10 px-5 py-3 font-medium text-orange-100 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={actionDisabledBase || revealed === false}
-          onClick={() => void setRevealed(false)}
-          type="button">
-          Set Unrevealed
-        </button>
-      </div>
+            <button
+              className="cursor-pointer rounded-2xl bg-white px-5 py-3 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
+              disabled={actionDisabledBase || revealed === false}
+              onClick={() => void setRevealed(false)}
+              type="button">
+              Set Unrevealed
+            </button>
+          </div>
+        </div>
 
-      <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4">
-        <div className="font-medium text-red-100">Critical action</div>
-        <p className="mt-2 text-sm text-red-100/80">
-          Lock metadata is irreversible. Only use after final revealed metadata
-          has been checked and approved.
-        </p>
-      </div>
-
-      <div className="mt-5 grid gap-5">
-        <button
-          className="rounded-2xl border border-red-500/30 bg-red-500/10 px-5 py-3 font-medium text-red-100 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={actionDisabledBase}
-          onClick={() => void lockMetadata()}
-          type="button">
-          Lock Metadata
-        </button>
+        <div className="grid gap-4 rounded-2xl border border-white/10 bg-yellow-300 p-4 text-black">
+          <h4 className="font-medium">Critical Action</h4>
+          <p className="text-sm text-black/70">
+            Lock metadata is irreversible. Only use after final revealed
+            metadata has been checked and approved.
+          </p>
+          <button
+            className="cursor-pointer rounded-2xl bg-white px-5 py-3 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
+            disabled={actionDisabledBase}
+            onClick={() => void lockMetadata()}
+            type="button">
+            Lock Metadata
+          </button>
+        </div>
       </div>
 
       {lastActionLabel ? (
-        <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
+        <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 p-4 text-sm text-black">
           <div className="font-medium">Last requested action</div>
-          <div className="mt-2 text-white/60">{lastActionLabel}</div>
-          <div className="mt-1 break-all text-white/60">
+          <div className="mt-2 text-black/70">{lastActionLabel}</div>
+          <div className="mt-1 break-all text-black/70">
             Requested value: {lastRequestedValue}
           </div>
         </div>
       ) : null}
 
       {isWritePending ? (
-        <div className="mt-5 rounded-2xl border border-blue-500/30 bg-blue-500/10 p-4 text-sm text-blue-100/80">
+        <div className="mt-5 rounded-2xl border border-white/10 bg-yellow-300 p-4 text-sm text-black">
           Waiting for wallet signature...
         </div>
       ) : null}
@@ -615,13 +640,13 @@ function MetadataCollectionControls({
       />
 
       {writeError ? (
-        <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+        <div className="mt-5 rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
           {writeError.message}
         </div>
       ) : null}
 
       {readError ? (
-        <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+        <div className="mt-5 rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
           Read error: {readError.message}
         </div>
       ) : null}
@@ -655,12 +680,12 @@ export function AdminMetadataControls({ chainSet }: { chainSet: ChainSet }) {
 
   return (
     <section className="grid gap-5" id="metadata-controls">
-      <section className="rounded-3xl border border-white/10 bg-white/5 p-6">
-        <p className="text-sm uppercase tracking-[0.25em] text-white/50">
+      <section className="rounded-3xl border border-white/10 bg-black p-6">
+        <p className="text-sm uppercase tracking-[0.25em] text-white/70">
           Admin Writes
         </p>
         <h2 className="mt-2 text-2xl font-semibold">Metadata Controls</h2>
-        <p className="mt-2 text-sm text-white/60">
+        <p className="mt-2 text-sm text-white/70">
           Owner-only controls for unrevealed URI, revealed base URI, token URI
           extension, reveal state, and irreversible metadata lock.
         </p>

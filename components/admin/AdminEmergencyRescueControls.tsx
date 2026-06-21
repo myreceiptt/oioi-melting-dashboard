@@ -73,11 +73,11 @@ function ReadRow({
   warning?: string;
 }) {
   return (
-    <div className="grid gap-2 border-b border-white/10 py-3 last:border-b-0 md:grid-cols-[260px_1fr]">
+    <div className="grid gap-2 border-b border-black/40 py-3 last:border-b-0 md:grid-cols-[260px_1fr]">
       <div>
-        <div className="text-sm text-white/60">{label}</div>
+        <div className="text-sm text-black/70">{label}</div>
         {warning ? (
-          <div className="mt-1 text-xs text-yellow-100/70">{warning}</div>
+          <div className="mt-1 text-xs text-[#7a3a00]">{warning}</div>
         ) : null}
       </div>
       <div className="break-all font-mono text-sm md:text-right">{value}</div>
@@ -99,13 +99,13 @@ function Field({
   placeholder?: string;
 }) {
   return (
-    <label className="block rounded-2xl border border-white/10 bg-black/20 p-4">
-      <div className="font-medium">{label}</div>
+    <label className="grid gap-2">
+      <div className="font-medium text-black">{label}</div>
       {description ? (
-        <p className="mt-1 text-xs text-white/50">{description}</p>
+        <p className="text-xs text-black/70">{description}</p>
       ) : null}
       <input
-        className="mt-3 w-full rounded-xl border border-white/10 bg-black/40 px-3 py-2 font-mono text-sm outline-none focus:border-white/30"
+        className="w-full rounded-2xl border border-white/10 bg-black px-4 py-3 font-mono text-sm text-white outline-none focus:border-white/30"
         onChange={(event) => onChange(event.target.value)}
         placeholder={placeholder}
         type="text"
@@ -133,8 +133,8 @@ function TxStatus({
   }
 
   return (
-    <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
-      <div className="font-medium">Transaction status</div>
+    <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 p-4 text-sm text-black">
+      <div className="font-medium text-black">Transaction status</div>
 
       <a
         className="mt-2 block break-all font-mono underline underline-offset-4"
@@ -144,7 +144,7 @@ function TxStatus({
         <ResponsiveHash value={txHash} />
       </a>
 
-      <div className="mt-1 text-white/60">
+      <div className="mt-1 text-black/70">
         {isLoading
           ? "Mining..."
           : isSuccess
@@ -362,31 +362,31 @@ function RewardDistributorExcessRescue({ chainSet }: { chainSet: ChainSet }) {
   }
 
   return (
-    <article className="rounded-3xl border border-red-500/30 bg-red-500/10 p-6">
+    <article className="rounded-3xl border border-white/10 bg-black p-6">
       <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
         <div>
-          <p className="text-sm uppercase tracking-[0.25em] text-red-100/60">
+          <p className="text-sm uppercase tracking-[0.25em] text-white/40">
             Reward Distributor emergency
           </p>
-          <h3 className="mt-2 text-2xl font-semibold text-red-100">
-            Rescue Excess $OiOi
-          </h3>
-          <p className="mt-2 max-w-3xl text-sm text-red-100/80">
+          <h3 className="mt-2 text-2xl font-semibold">Rescue Excess $OiOi</h3>
+          <p className="mt-2 max-w-3xl text-sm text-white/70">
             Only rescue excess $OiOi that is not allocated to active/unclaimed
             rewards or will be blocked.
           </p>
         </div>
 
-        <button
-          className="rounded-2xl border border-white/10 px-4 py-2 text-sm text-red-100 hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={isRefreshing}
-          onClick={refetchReads}
-          type="button">
-          {isRefreshing ? "Refreshing..." : "Refresh"}
-        </button>
+        <div className="grid rounded-2xl border border-white/10 bg-black p-1">
+          <button
+            className="rounded-xl px-4 py-2 text-sm hover:bg-(--oioi-accent) disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-black"
+            disabled={isRefreshing}
+            onClick={refetchReads}
+            type="button">
+            {isRefreshing ? "Refreshing..." : "Refresh"}
+          </button>
+        </div>
       </div>
 
-      <div className="mt-5 rounded-2xl border border-red-500/30 bg-black/20 px-4">
+      <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 px-4 text-black">
         <ReadRow
           label="Reward Distributor owner"
           value={shortAddress(ownerAddress)}
@@ -415,13 +415,13 @@ function RewardDistributorExcessRescue({ chainSet }: { chainSet: ChainSet }) {
       </div>
 
       {!userIsExpectedOwner ? (
-        <div className="mt-5 rounded-2xl border border-red-500/30 bg-black/20 p-4 text-sm text-red-100/80">
+        <div className="mt-5 rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
           Rescue actions are disabled because the connected wallet is not the
           expected owner.
         </div>
       ) : null}
 
-      <div className="mt-5 grid gap-4 md:grid-cols-2">
+      <div className="mt-5 grid gap-4 rounded-2xl border border-white/10 bg-white/70 p-4 text-black md:grid-cols-2">
         <Field
           label="Recipient"
           description="Wallet that receives rescued excess $OiOi."
@@ -439,9 +439,9 @@ function RewardDistributorExcessRescue({ chainSet }: { chainSet: ChainSet }) {
         />
       </div>
 
-      <div className="mt-5 rounded-2xl border border-red-500/30 bg-black/20 p-4">
-        <div className="font-medium text-red-100">Validation</div>
-        <div className="mt-3 rounded-xl border border-white/10 px-4">
+      <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 p-4 text-black">
+        <div className="font-medium text-black">Validation</div>
+        <div className="mt-3 rounded-xl border border-black/10 bg-white/70 px-4">
           <ReadRow
             label="Recipient valid"
             value={parsedRecipient ? "Yes" : "No"}
@@ -466,7 +466,7 @@ function RewardDistributorExcessRescue({ chainSet }: { chainSet: ChainSet }) {
 
       <div className="mt-5 grid gap-5">
         <button
-          className="rounded-2xl border border-red-500/30 bg-red-500/10 px-5 py-3 font-medium text-red-100 disabled:cursor-not-allowed disabled:opacity-40"
+          className="rounded-2xl bg-[#ff9b4a] px-5 py-4 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
           disabled={actionDisabled}
           onClick={() => void rescueExcessOioi()}
           type="button">
@@ -475,17 +475,17 @@ function RewardDistributorExcessRescue({ chainSet }: { chainSet: ChainSet }) {
       </div>
 
       {lastActionLabel ? (
-        <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
-          <div className="font-medium">Last requested action</div>
-          <div className="mt-2 text-red-100/80">{lastActionLabel}</div>
-          <div className="mt-1 break-all text-red-100/80">
+        <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 p-4 text-sm text-black">
+          <div className="font-medium text-black">Last requested action</div>
+          <div className="mt-2 text-black/70">{lastActionLabel}</div>
+          <div className="mt-1 break-all text-black/70">
             Requested value: {lastRequestedValue}
           </div>
         </div>
       ) : null}
 
       {isWritePending ? (
-        <div className="mt-5 rounded-2xl border border-blue-500/30 bg-blue-500/10 p-4 text-sm text-blue-100/80">
+        <div className="mt-5 rounded-2xl border border-white/10 bg-yellow-300 p-4 text-sm text-black">
           Waiting for wallet signature...
         </div>
       ) : null}
@@ -499,13 +499,13 @@ function RewardDistributorExcessRescue({ chainSet }: { chainSet: ChainSet }) {
       />
 
       {writeError ? (
-        <div className="mt-5 rounded-2xl border border-red-500/30 bg-black/20 p-4 text-sm text-red-100/80">
+        <div className="mt-5 wrap-break-word rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
           {writeError.message}
         </div>
       ) : null}
 
       {readError ? (
-        <div className="mt-5 rounded-2xl border border-red-500/30 bg-black/20 p-4 text-sm text-red-100/80">
+        <div className="mt-5 wrap-break-word rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
           Read error: {readError.message}
         </div>
       ) : null}
@@ -748,29 +748,31 @@ function ContractRescueControls({
   }
 
   return (
-    <article className="rounded-3xl border border-white/10 bg-white/5 p-6">
+    <article className="rounded-3xl border border-white/10 bg-black p-6">
       <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
         <div>
           <p className="text-sm uppercase tracking-[0.25em] text-white/40">
             NFT contract rescue
           </p>
           <h3 className="mt-2 text-2xl font-semibold">{config.label}</h3>
-          <p className="mt-2 max-w-3xl text-sm text-white/60">
+          <p className="mt-2 max-w-3xl text-sm text-white/70">
             Emergency rescue controls for accidental ETH or ERC20 tokens stuck
             in this NFT contract.
           </p>
         </div>
 
-        <button
-          className="rounded-2xl border border-white/10 px-4 py-2 text-sm hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
-          disabled={isRefreshing}
-          onClick={refetchReads}
-          type="button">
-          {isRefreshing ? "Refreshing..." : "Refresh"}
-        </button>
+        <div className="grid rounded-2xl border border-white/10 bg-black p-1">
+          <button
+            className="rounded-xl px-4 py-2 text-sm hover:bg-(--oioi-accent) disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-black"
+            disabled={isRefreshing}
+            onClick={refetchReads}
+            type="button">
+            {isRefreshing ? "Refreshing..." : "Refresh"}
+          </button>
+        </div>
       </div>
 
-      <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 px-4">
+      <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 px-4 text-black">
         <ReadRow
           label="Owner"
           value={shortAddress(ownerAddress)}
@@ -789,15 +791,15 @@ function ContractRescueControls({
       </div>
 
       {!userIsExpectedOwner ? (
-        <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+        <div className="mt-5 rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
           Rescue actions are disabled because the connected wallet is not the
           expected owner.
         </div>
       ) : null}
 
-      <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4">
-        <h4 className="font-semibold text-red-100">Rescue ETH</h4>
-        <p className="mt-2 text-sm text-red-100/80">
+      <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 p-4 text-black">
+        <h4 className="font-semibold text-black">Rescue ETH</h4>
+        <p className="mt-2 text-sm text-black/70">
           Use only if native ETH was accidentally sent to this NFT contract.
         </p>
 
@@ -816,7 +818,7 @@ function ContractRescueControls({
           />
         </div>
 
-        <div className="mt-4 rounded-xl border border-white/10 px-4">
+        <div className="mt-4 rounded-xl border border-black/10 bg-white/70 px-4">
           <ReadRow
             label="Recipient valid"
             value={ethRecipient ? "Yes" : "No"}
@@ -838,7 +840,7 @@ function ContractRescueControls({
 
         <div className="mt-5 grid gap-5">
           <button
-            className="rounded-2xl border border-red-500/30 bg-red-500/10 px-5 py-3 font-medium text-red-100 disabled:cursor-not-allowed disabled:opacity-40"
+            className="rounded-2xl bg-[#ff9b4a] px-5 py-4 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
             disabled={rescueEthDisabled}
             onClick={() => void rescueEth()}
             type="button">
@@ -847,9 +849,9 @@ function ContractRescueControls({
         </div>
       </div>
 
-      <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4">
-        <h4 className="font-semibold text-red-100">Rescue ERC20</h4>
-        <p className="mt-2 text-sm text-red-100/80">
+      <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 p-4 text-black">
+        <h4 className="font-semibold text-black">Rescue ERC20</h4>
+        <p className="mt-2 text-sm text-black/70">
           Use only for accidental ERC20 tokens stuck in this NFT contract.
         </p>
 
@@ -876,7 +878,7 @@ function ContractRescueControls({
           />
         </div>
 
-        <div className="mt-4 rounded-xl border border-white/10 px-4">
+        <div className="mt-4 rounded-xl border border-black/10 bg-white/70 px-4">
           <ReadRow label="Token valid" value={tokenAddress ? "Yes" : "No"} />
           <ReadRow
             label="Token balance in contract"
@@ -907,7 +909,7 @@ function ContractRescueControls({
 
         <div className="mt-5 grid gap-5">
           <button
-            className="rounded-2xl border border-red-500/30 bg-red-500/10 px-5 py-3 font-medium text-red-100 disabled:cursor-not-allowed disabled:opacity-40"
+            className="rounded-2xl bg-[#ff9b4a] px-5 py-4 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
             disabled={rescueErc20Disabled}
             onClick={() => void rescueErc20()}
             type="button">
@@ -917,17 +919,17 @@ function ContractRescueControls({
       </div>
 
       {lastActionLabel ? (
-        <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4 text-sm">
-          <div className="font-medium">Last requested action</div>
-          <div className="mt-2 text-white/60">{lastActionLabel}</div>
-          <div className="mt-1 break-all text-white/60">
+        <div className="mt-5 rounded-2xl border border-white/10 bg-white/70 p-4 text-sm text-black">
+          <div className="font-medium text-black">Last requested action</div>
+          <div className="mt-2 text-black/70">{lastActionLabel}</div>
+          <div className="mt-1 break-all text-black/70">
             Requested value: {lastRequestedValue}
           </div>
         </div>
       ) : null}
 
       {isWritePending ? (
-        <div className="mt-5 rounded-2xl border border-blue-500/30 bg-blue-500/10 p-4 text-sm text-blue-100/80">
+        <div className="mt-5 rounded-2xl border border-white/10 bg-yellow-300 p-4 text-sm text-black">
           Waiting for wallet signature...
         </div>
       ) : null}
@@ -941,13 +943,13 @@ function ContractRescueControls({
       />
 
       {writeError ? (
-        <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+        <div className="mt-5 wrap-break-word rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
           {writeError.message}
         </div>
       ) : null}
 
       {readError ? (
-        <div className="mt-5 rounded-2xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-100/80">
+        <div className="mt-5 wrap-break-word rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
           Read error: {readError.message}
         </div>
       ) : null}
@@ -985,14 +987,14 @@ export function AdminEmergencyRescueControls({
 
   return (
     <section className="grid gap-5" id="rescue-controls">
-      <section className="rounded-3xl border border-red-500/30 bg-red-500/10 p-6">
-        <p className="text-sm uppercase tracking-[0.25em] text-red-100/60">
+      <section className="rounded-3xl border border-white/10 bg-black p-6">
+        <p className="text-sm uppercase tracking-[0.25em] text-white/50">
           Critical Admin
         </p>
-        <h2 className="mt-2 text-2xl font-semibold text-red-100">
+        <h2 className="mt-2 text-2xl font-semibold">
           Emergency / Rescue Controls
         </h2>
-        <p className="mt-2 max-w-3xl text-sm text-red-100/80">
+        <p className="mt-2 max-w-3xl text-sm text-white/70">
           Controls for rescuing excess reward token balance and accidental
           assets. Should not be used for normal operations.
         </p>
