@@ -30,9 +30,8 @@ export function getThemeMode(pathname: string): ThemeMode {
     forcedTheme: null,
     switcherEnabled:
       pathname === "/" ||
-      pathname.startsWith("/") ||
       pathname === "/mint" ||
-      pathname.startsWith("/mint/") ||
+      /^\/mint\/[^/]+(?:\/[^/]+)?$/.test(pathname) ||
       pathname === "/dashboard" ||
       pathname.startsWith("/dashboard/") ||
       pathname === "/admin" ||
