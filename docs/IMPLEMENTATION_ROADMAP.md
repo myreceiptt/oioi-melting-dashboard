@@ -244,42 +244,36 @@ admin color pass
 Remaining:
 
 ```text
-Subdomain Surface Behavior v1
 final visual QA pass
+Full Testnet Browser QA / Testnet Release Candidate preparation
 ```
 
 ---
 
 ## Phase 10 — Subdomain Surface Behavior v1
 
-Status: Next.
+Status: Done.
 
-Scope:
-
-```text
-Theme Switcher behavior per effective route/subdomain
-App Menu active state per effective route/subdomain
-host-aware menu links
-dedicated mint subdomains should behave like their mapped mint pages
-```
-
-Known current issue:
+Completed behavior:
 
 ```text
-Dedicated mint subdomain routing exists, but full surface behavior is not yet finalized.
+softstaking.endhonesa.com / remains the real home surface
+dedicated mint subdomain roots rewrite to mapped internal mint routes
+browser URL remains / on dedicated mint subdomains
+app shell resolves effective route from host + pathname
+Theme Switcher hidden on dedicated mint subdomain roots
+BASE/dETH theme forced correctly by effective route
+App Menu marks Mint active and Home inactive on dedicated mint subdomain roots
+current mint child uses / target _self
+current mint anchors use /#mint-card and /#soft-staking
+Home/Dashboard/Admin links point to https://softstaking.endhonesa.com/...
 ```
 
-Do not change:
+QA:
 
 ```text
-smart contracts
-reward logic
-worker logic
-Supabase migrations
-core route contracts
+Production-intended Sepolia rehearsal domain QA passed for softstaking.endhonesa.com and the six dedicated mint subdomains.
 ```
-
-unless a specific subdomain behavior bug requires a minimal routing/shell fix.
 
 ---
 
@@ -290,7 +284,7 @@ Status: Near.
 Done criteria:
 
 ```text
-Subdomain Surface Behavior v1 passes
+Subdomain Surface Behavior v1 passed
 final deployed browser QA passes
 Worker Jobs reward round QA documented
 docs updated

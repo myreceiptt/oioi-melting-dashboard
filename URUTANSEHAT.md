@@ -300,21 +300,25 @@
     - ✅ Copywriting baseline.
     - ✅ Admin warnings/tooltips baseline.
     - ✅ Post-indexer/reward UX polish baseline.
-    - 🔜 Subdomain Surface Behavior v1.
+    - ✅ Subdomain Surface Behavior v1.
     - 🔜 Final visual QA pass.
 
-21. Subdomain Surface Behavior v1 — NEXT
-    - 🔜 Theme Switcher behavior per effective route/subdomain.
-    - 🔜 App Menu active state per effective route/subdomain.
-    - 🔜 Host-aware menu links.
-    - 🔜 Dedicated mint subdomains must feel like their mapped mint pages.
-    - 🔜 Do not change smart contracts, reward logic, worker logic, or Supabase schema for this task.
+21. Subdomain Surface Behavior v1 — DONE
+    - ✅ `softstaking.endhonesa.com` keeps `/` as the real home surface.
+    - ✅ Dedicated mint subdomain roots rewrite internally to their mapped mint routes while the browser URL stays `/`.
+    - ✅ App shell resolves effective route from host + pathname.
+    - ✅ Theme Switcher is hidden on dedicated mint subdomain roots.
+    - ✅ BASE/dETH theme is forced correctly from effective route.
+    - ✅ App Menu active state follows effective route: Mint active, Home not active, current mint child active.
+    - ✅ Current mint child uses `/` with `_self`; current anchors use `/#mint-card` and `/#soft-staking`.
+    - ✅ Home/Dashboard/Admin links from dedicated mint subdomains point to `https://softstaking.endhonesa.com/...`.
+    - ✅ Production-intended Sepolia rehearsal domain QA passed for all 7 domains.
 
 22. Testnet Release Candidate — NEAR
     - ✅ Core testnet flows pass.
     - ✅ Reward round flow pass.
     - ✅ Worker/indexer flow pass.
-    - 🔜 Subdomain Surface Behavior v1 pass.
+    - ✅ Subdomain Surface Behavior v1 pass.
     - 🔜 No blockers.
     - 🔜 Docs updated.
     - 🔜 Runbook final.
@@ -322,6 +326,7 @@
     - 🔜 Indexer/reward procedures documented.
     - 🔜 Supabase/reward operation documented.
     - 🔜 Full Testnet Browser E2E final report.
+    - 🔜 Full Testnet Browser QA / Testnet Release Candidate preparation.
 
 23. Mainnet Deployment — READY BUT DEFERRED
     - ✅ Mainnet preparation mostly passed.

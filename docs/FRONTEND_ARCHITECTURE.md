@@ -132,7 +132,8 @@ Current polish state:
 
 ```text
 UI/layout/footer/navbar almost done.
-Subdomain Surface Behavior v1 remains the next major task.
+Subdomain Surface Behavior v1 done.
+Next major task is Full Testnet Browser QA / Testnet Release Candidate preparation.
 ```
 
 ---
@@ -167,24 +168,37 @@ Current implemented behavior:
 theme can be forced by route
 theme can be switched on eligible app surfaces
 dedicated mint subdomains rewrite / to the matching mint route
+app shell resolves effective route from host + pathname
+dedicated mint subdomain roots hide Theme Switcher
+dedicated mint subdomain menu state follows the mapped mint surface
 ```
 
-Known next task:
+Final Subdomain Surface Behavior v1 behavior:
 
 ```text
-Subdomain Surface Behavior v1
+softstaking.endhonesa.com / is the real home surface
+Theme Switcher is visible on softstaking home
+Home menu is active on softstaking home
+softstaking mint links point to the six dedicated mint subdomains
 ```
 
-That task must resolve:
+For dedicated mint subdomain roots:
 
 ```text
-Theme Switcher behavior per effective route/subdomain
-App Menu active state per effective route/subdomain
-host-aware menu links
-dedicated mint subdomain navigation behavior
+proxy.ts rewrites / to the correct internal mint route
+browser URL remains /
+Theme Switcher is hidden
+BASE/dETH theme is forced from the effective route
+top-level Mint is active
+top-level Home is not active
+current mint child is active
+current mint child href is / with target _self
+current anchors use /#mint-card and /#soft-staking
+other mint surfaces use absolute dedicated-domain links with target _blank
+Home/Dashboard/Admin menu links point to https://softstaking.endhonesa.com/...
 ```
 
-Do not treat this as completed until that task is implemented and QA checked.
+Production-intended Sepolia rehearsal domain QA passed for the main app domain and six dedicated mint domains.
 
 ---
 

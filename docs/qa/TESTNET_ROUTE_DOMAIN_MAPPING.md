@@ -7,7 +7,7 @@
 - Main app domain: `https://softstaking.endhonesa.com`
 - Dedicated mint domains are production-intended domains currently connected to Sepolia contracts for rehearsal.
 
-This document is a current mapping reference, not a completed subdomain QA report.
+This document is the current mapping reference after Subdomain Surface Behavior v1 passed production-intended Sepolia rehearsal domain QA.
 
 ---
 
@@ -34,7 +34,7 @@ This document is a current mapping reference, not a completed subdomain QA repor
 
 ## Dedicated Mint Subdomains
 
-The current proxy rewrites `/` for these hosts to the mapped internal mint route.
+`proxy.ts` rewrites only root `/` for these hosts to the mapped internal mint route. The browser URL remains `/`.
 
 | Domain                                                          | Internal route           |
 | --------------------------------------------------------------- | ------------------------ |
@@ -45,48 +45,68 @@ The current proxy rewrites `/` for these hosts to the mapped internal mint route
 | [amandabase.endhonesa.com](https://amandabase.endhonesa.com/)   | `/mint/amanda/base`      |
 | [amandadeth.endhonesa.com](https://amandadeth.endhonesa.com/)   | `/mint/amanda/ethereum`  |
 
----
-
-## Known Issue / Next Task
-
-Subdomain routing exists, but full surface behavior is not yet declared complete.
-
-Next task:
+## Final Effective Route Behavior
 
 ```text
-Subdomain Surface Behavior v1
+softstaking.endhonesa.com / -> /
+rotybase.endhonesa.com / -> /mint/roty/base
+rotydeth.endhonesa.com / -> /mint/roty/ethereum
+meltingbase.endhonesa.com / -> /mint/melting/base
+meltingdeth.endhonesa.com / -> /mint/melting/ethereum
+amandabase.endhonesa.com / -> /mint/amanda/base
+amandadeth.endhonesa.com / -> /mint/amanda/ethereum
 ```
 
-That task must verify and/or fix:
+On `softstaking.endhonesa.com`:
 
 ```text
-Theme Switcher behavior per effective route/subdomain
-App Menu active state per effective route/subdomain
-host-aware menu links
-dedicated mint subdomains behaving like their mapped mint pages
+Home is real /
+Theme Switcher is visible on Home
+Home menu is active
+Mint links point to the six dedicated mint subdomains
 ```
 
-Do not mark this issue resolved until the dedicated subdomain behavior is implemented and browser-checked.
+On dedicated mint subdomain roots:
+
+```text
+app shell resolves effective route from host + pathname
+Theme Switcher is hidden
+BASE/dETH theme is forced correctly
+top-level Mint is active
+top-level Home is not active
+current mint child is active
+current mint child uses / with target _self
+current anchors use /#mint-card and /#soft-staking
+other mint items use absolute dedicated-domain links with target _blank
+Home/Dashboard/Admin menu links point to https://softstaking.endhonesa.com/...
+```
+
+Subdomain Surface Behavior v1 is complete and browser-checked for the production-intended Sepolia rehearsal domains.
 
 ---
 
 ## QA Checklist
 
-- [ ] Main app domain resolves
-- [ ] Dedicated mint domains resolve
-- [ ] SSL active on all domains
-- [ ] `NEXT_PUBLIC_APP_ENV=sepolia`
-- [ ] Main app routes open
-- [ ] Dedicated mint domains rewrite to correct mint surfaces
-- [ ] Wallet connect works
-- [ ] Base Sepolia reads work
-- [ ] Ethereum Sepolia reads work
-- [ ] Admin reads work
-- [ ] Mint phases expected state is visible
-- [ ] Theme behavior matches route/subdomain rules
-- [ ] App Menu active state matches effective surface
-- [ ] No missing env error
-- [ ] No major console error
+- [x] Main app domain resolves
+- [x] Dedicated mint domains resolve
+- [x] SSL active on all domains
+- [x] `NEXT_PUBLIC_APP_ENV=sepolia`
+- [x] Main app routes open
+- [x] Dedicated mint domains rewrite to correct mint surfaces
+- [x] Browser URL remains `/` on dedicated mint subdomain roots
+- [x] Theme Switcher visible on softstaking home
+- [x] Theme Switcher hidden on dedicated mint subdomain roots
+- [x] BASE/dETH theme forced correctly by effective route
+- [x] App Menu active state matches effective surface
+- [x] Dedicated subdomain Home/Dashboard/Admin links point to softstaking main app surface
+- [x] Current mint child and anchors use same-host `/` targets
+- [x] Wallet connect works
+- [x] Base Sepolia reads work
+- [x] Ethereum Sepolia reads work
+- [x] Admin reads work
+- [x] Mint phases expected state is visible
+- [x] No missing env error
+- [x] No major console error
 
 ---
 

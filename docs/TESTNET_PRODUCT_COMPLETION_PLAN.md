@@ -109,19 +109,24 @@ Reward event sync after create/fund/claim is optional reconciliation; admin/user
 ## 4. Current Next Major Task
 
 ```text
-Subdomain Surface Behavior v1
+Full Testnet Browser QA / Testnet Release Candidate preparation
+```
+
+Recently completed:
+
+```text
+Subdomain Surface Behavior v1 passed.
+Production-intended Sepolia rehearsal domain QA passed for softstaking.endhonesa.com and six dedicated mint subdomains.
 ```
 
 Required work:
 
 ```text
-Theme Switcher behavior per effective route/subdomain.
-App Menu active state per effective route/subdomain.
-Host-aware menu links.
-Dedicated mint subdomains should behave like their mapped mint pages.
+Final deployed browser QA pass.
+Worker Jobs reward round QA report.
+Current docs and runbooks aligned with deployed behavior.
+No critical blockers.
 ```
-
-Do not change smart contracts, reward logic, worker logic, Supabase migrations, or core route behavior unless the task explicitly requires it.
 
 ---
 
@@ -130,7 +135,7 @@ Do not change smart contracts, reward logic, worker logic, Supabase migrations, 
 Testnet Release Candidate can be considered after:
 
 ```text
-Subdomain Surface Behavior v1 passes.
+Subdomain Surface Behavior v1 passes. ✅
 Final deployed browser QA passes.
 Worker Jobs reward round QA is documented.
 Current docs and runbooks match deployed behavior.
