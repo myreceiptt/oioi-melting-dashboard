@@ -7,6 +7,8 @@
 - App env: `NEXT_PUBLIC_APP_ENV=sepolia`
 - Mainnet deployment: deferred
 - Public launch: not started
+- Subdomain Surface Behavior v1: passed
+- Browser QA: passed for the main app domain and six dedicated mint subdomains
 
 ## Domain Mapping
 
@@ -28,25 +30,38 @@
 
 ## QA Checklist
 
-- [ ] `softstaking.endhonesa.com` resolves
-- [ ] `rotybase.endhonesa.com` resolves
-- [ ] `rotydeth.endhonesa.com` resolves
-- [ ] `meltingbase.endhonesa.com` resolves
-- [ ] `meltingdeth.endhonesa.com` resolves
-- [ ] `amandabase.endhonesa.com` resolves
-- [ ] `amandadeth.endhonesa.com` resolves
-- [ ] SSL active for all domains
-- [ ] `NEXT_PUBLIC_APP_ENV=sepolia`
-- [ ] Sepolia rehearsal banner visible
-- [ ] Mint domains rewrite to correct internal routes
-- [ ] softstaking dashboard routes work
-- [ ] softstaking admin routes work
-- [ ] Wallet connect works
-- [ ] Base Sepolia reads work
-- [ ] Ethereum Sepolia reads work
-- [ ] Mint phases OFF
-- [ ] No missing env error
-- [ ] No major console error
+- [x] `softstaking.endhonesa.com` resolves
+- [x] `rotybase.endhonesa.com` resolves
+- [x] `rotydeth.endhonesa.com` resolves
+- [x] `meltingbase.endhonesa.com` resolves
+- [x] `meltingdeth.endhonesa.com` resolves
+- [x] `amandabase.endhonesa.com` resolves
+- [x] `amandadeth.endhonesa.com` resolves
+- [x] SSL active for all domains
+- [x] `NEXT_PUBLIC_APP_ENV=sepolia`
+- [x] Sepolia rehearsal banner visible
+- [x] Mint domains rewrite to correct internal routes
+- [x] Browser URL remains `/` on dedicated mint domain roots
+- [x] softstaking home/dashboard/admin routes work
+- [x] Theme Switcher visible on softstaking home
+- [x] Theme Switcher hidden on dedicated mint domain roots
+- [x] BASE/dETH theme forced correctly by effective route
+- [x] App Menu active state follows effective route
+- [x] Dedicated mint current child uses `/` target `_self`
+- [x] Dedicated mint current anchors use `/#mint-card` and `/#soft-staking`
+- [x] Dedicated mint Home/Dashboard/Admin links point to `https://softstaking.endhonesa.com/...`
+- [x] Wallet connect works
+- [x] Base Sepolia reads work
+- [x] Ethereum Sepolia reads work
+- [x] Mint phases OFF
+- [x] No missing env error
+- [x] No major console error
+
+## Final Subdomain Behavior
+
+`softstaking.endhonesa.com` serves the real main app home at `/`. Theme Switcher remains visible on Home, Home menu is active, and mint links go to the six dedicated mint subdomains.
+
+For dedicated mint subdomains, `proxy.ts` rewrites root `/` to the mapped internal mint route without redirecting the browser URL. The app shell resolves the effective route from host + pathname, hides Theme Switcher, forces the correct BASE/dETH theme, marks Mint active instead of Home, marks the current mint child active, keeps the current mint child on `/` with `_self`, keeps current anchors on `/#mint-card` and `/#soft-staking`, and sends Home/Dashboard/Admin links back to `https://softstaking.endhonesa.com/...`.
 
 ## Notes
 
