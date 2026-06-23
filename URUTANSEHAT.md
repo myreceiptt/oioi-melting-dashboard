@@ -278,7 +278,7 @@
     - ✅ End-to-end reward pipeline run on Base Sepolia and Ethereum Sepolia.
     - ✅ Reward claim browser testing.
 
-19. Full Testnet Browser E2E — DONE / NEEDS FINAL QA REPORT
+19. Full Testnet Browser E2E — DONE / PASS
     - ✅ User mint ROTY.
     - ✅ User stake ROTY.
     - ✅ User mint/stake Melting.
@@ -287,7 +287,10 @@
     - ✅ Indexer sync + reward calculation.
     - ✅ User claim $OiOi.
     - ✅ Repeat on Base Sepolia and Ethereum Sepolia.
-    - 🔜 Write final release-candidate QA report from the latest deployed surface.
+    - ✅ Full Testnet Browser QA v1 read-only pass on live Sepolia rehearsal subdomains.
+    - ✅ Full Testnet Mutation QA v1 pass on live Sepolia rehearsal subdomains.
+    - ✅ Full Testnet E2E QA v1 report written.
+    - ✅ Worker jobs / boundary reward flow pass through GitHub Actions.
 
 20. Final UI/UX Polish — ALMOST DONE
     - ✅ Homepage.
@@ -314,19 +317,21 @@
     - ✅ Home/Dashboard/Admin links from dedicated mint subdomains point to `https://softstaking.endhonesa.com/...`.
     - ✅ Production-intended Sepolia rehearsal domain QA passed for all 7 domains.
 
-22. Testnet Release Candidate — NEAR
+22. Testnet Release Candidate — READY FOR PREPARATION / RC LOCK
     - ✅ Core testnet flows pass.
     - ✅ Reward round flow pass.
     - ✅ Worker/indexer flow pass.
     - ✅ Subdomain Surface Behavior v1 pass.
-    - 🔜 No blockers.
-    - 🔜 Docs updated.
+    - ✅ Full Testnet Browser QA v1 pass.
+    - ✅ Full Testnet Mutation QA v1 pass.
+    - ✅ Full Testnet E2E QA v1 pass.
+    - ✅ No blockers observed.
+    - ✅ QA report documented in `docs/qa/FULL_TESTNET_E2E_QA_V1.md`.
+    - 🔜 RC lock review.
     - 🔜 Runbook final.
     - 🔜 Admin procedures documented.
     - 🔜 Indexer/reward procedures documented.
     - 🔜 Supabase/reward operation documented.
-    - 🔜 Full Testnet Browser E2E final report.
-    - 🔜 Full Testnet Browser QA / Testnet Release Candidate preparation.
 
 23. Mainnet Deployment — READY BUT DEFERRED
     - ✅ Mainnet preparation mostly passed.

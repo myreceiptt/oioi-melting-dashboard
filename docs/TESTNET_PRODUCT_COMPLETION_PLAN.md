@@ -41,6 +41,10 @@ Mainnet deployment remains deferred until Testnet Release Candidate.
 ✅ BASE / dETH aesthetic theme shell implemented.
 ✅ App Navbar, App Footer, App Menu, Theme Switcher, and copyright footer implemented.
 ✅ Production-intended Sepolia rehearsal deployment completed.
+✅ Full Testnet Browser QA v1 passed.
+✅ Full Testnet Mutation QA v1 passed.
+✅ Full Testnet E2E QA v1 passed.
+✅ Worker jobs / boundary reward flow passed through GitHub Actions.
 ```
 
 ### Not Started
@@ -109,7 +113,7 @@ Reward event sync after create/fund/claim is optional reconciliation; admin/user
 ## 4. Current Next Major Task
 
 ```text
-Full Testnet Browser QA / Testnet Release Candidate preparation
+Testnet Release Candidate preparation / RC lock
 ```
 
 Recently completed:
@@ -117,15 +121,18 @@ Recently completed:
 ```text
 Subdomain Surface Behavior v1 passed.
 Production-intended Sepolia rehearsal domain QA passed for softstaking.endhonesa.com and six dedicated mint subdomains.
+Full Testnet Browser QA v1 passed on live Sepolia rehearsal subdomains.
+Full Testnet Mutation QA v1 passed on live Sepolia rehearsal subdomains.
+Full Testnet E2E QA v1 documented in docs/qa/FULL_TESTNET_E2E_QA_V1.md.
+Worker jobs / boundary reward flow passed through GitHub Actions.
 ```
 
 Required work:
 
 ```text
-Final deployed browser QA pass.
-Worker Jobs reward round QA report.
-Current docs and runbooks aligned with deployed behavior.
-No critical blockers.
+RC lock review.
+Runbooks aligned with final release-candidate operations.
+Admin, indexer/reward, and Supabase/reward operating procedures finalized.
 ```
 
 ---
@@ -136,10 +143,12 @@ Testnet Release Candidate can be considered after:
 
 ```text
 Subdomain Surface Behavior v1 passes. ✅
-Final deployed browser QA passes.
-Worker Jobs reward round QA is documented.
-Current docs and runbooks match deployed behavior.
-No critical blockers remain.
+Final deployed browser QA passes. ✅
+Full Testnet Mutation QA passes. ✅
+Worker Jobs reward round QA is documented. ✅
+Full Testnet E2E QA is documented. ✅
+No critical blockers remain. ✅
+Current docs and runbooks match release-candidate behavior.
 ```
 
 ---

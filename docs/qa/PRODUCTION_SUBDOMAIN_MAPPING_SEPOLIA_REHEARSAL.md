@@ -9,6 +9,7 @@
 - Public launch: not started
 - Subdomain Surface Behavior v1: passed
 - Browser QA: passed for the main app domain and six dedicated mint subdomains
+- Full Testnet E2E QA v1: passed
 
 ## Domain Mapping
 
@@ -67,6 +68,8 @@ For dedicated mint subdomains, `proxy.ts` rewrites root `/` to the mapped intern
 
 These domains are production-intended domains currently used for Sepolia rehearsal.
 Do not switch `NEXT_PUBLIC_APP_ENV` to `mainnet` until mainnet deployment and mainnet read-only QA are ready.
+
+Full Testnet Browser QA v1 and Full Testnet Mutation QA v1 passed on these live Sepolia rehearsal surfaces. See `docs/qa/FULL_TESTNET_E2E_QA_V1.md`.
 
 ---
 
