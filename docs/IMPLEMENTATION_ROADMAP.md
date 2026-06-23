@@ -245,7 +245,7 @@ Remaining:
 
 ```text
 final visual QA pass
-Full Testnet Browser QA / Testnet Release Candidate preparation
+Testnet Release Candidate preparation / RC lock
 ```
 
 ---
@@ -279,17 +279,19 @@ Production-intended Sepolia rehearsal domain QA passed for softstaking.endhonesa
 
 ## Phase 11 — Testnet Release Candidate
 
-Status: Near.
+Status: Ready for preparation / RC lock.
 
 Done criteria:
 
 ```text
-Subdomain Surface Behavior v1 passed
-final deployed browser QA passes
-Worker Jobs reward round QA documented
-docs updated
-runbook aligned
-no critical blockers
+Subdomain Surface Behavior v1 passed ✅
+final deployed browser QA passes ✅
+Full Testnet Mutation QA passes ✅
+Worker Jobs reward round QA documented ✅
+Full Testnet E2E QA documented ✅
+no critical blockers ✅
+RC lock review pending
+runbook alignment pending
 ```
 
 ---
@@ -323,7 +325,7 @@ controlled opening
 ## Current Next Step
 
 ```text
-Subdomain Surface Behavior v1
+Testnet Release Candidate preparation / RC lock
 ```
 
 Do not proceed to mainnet deployment until Testnet Release Candidate is complete unless a separate explicit strategic override is made.

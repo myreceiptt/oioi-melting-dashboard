@@ -43,6 +43,11 @@ Mainnet deployment is ready from contract-preparation perspective, but intention
 - Frontend Sepolia browser QA completed for read/OFF-phase/stake flows.
 - Supabase indexer/reward pipeline scripts implemented.
 - Indexer operational model documented.
+- Production-intended Sepolia rehearsal domains passed Subdomain Surface Behavior v1 QA.
+- Full Testnet Browser QA v1 passed.
+- Full Testnet Mutation QA v1 passed.
+- Full Testnet E2E QA v1 passed.
+- Worker jobs / boundary reward flow passed through GitHub Actions.
 - Mainnet preparation checks passed:
   - repo clean
   - build/compile/test pass
@@ -61,14 +66,9 @@ Mainnet deployment is deferred until Testnet Release Candidate.
 
 ### Pending Before Testnet Release Candidate
 
-- Supabase Postgres schema applied to the target project.
-- Database indexer validated against real Base Sepolia and Ethereum Sepolia data.
-- Reward calculator validated from real indexed duration.
-- Reward proof API validated with generated proofs.
-- Active reward claim UI validated with a funded testnet reward round.
-- Stage-by-stage browser testing with phases ON.
-- Full Testnet Browser E2E.
-- Final UI/UX polish.
+- Testnet Release Candidate preparation / RC lock.
+- Final runbook alignment.
+- Admin, indexer/reward, and Supabase/reward operating procedures finalized.
 
 ---
 
