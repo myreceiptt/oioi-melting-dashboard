@@ -241,6 +241,8 @@ repeated runs eventually complete large jobs
 
 This is intentionally conservative and suitable for slow reward-boundary syncs.
 
+Current GitHub Actions worker configuration is Sepolia-oriented. Mainnet worker operation must not be assumed ready until mainnet deployment records, mainnet contract addresses, and mainnet `FROM_BLOCK` values are configured and verified.
+
 ---
 
 ## 11. Dashboard Wallet NFT Discovery
@@ -275,6 +277,8 @@ run mainnet read-only sync only after read-check passes
 do not open reward claim until production reward flow is tested
 ```
 
+Production mainnet reward claim remains unavailable until the mainnet indexer/reward/proof flow is implemented/configured, run, verified, and explicitly approved.
+
 ---
 
 ## 13. Current Status
@@ -286,7 +290,8 @@ GITHUB ACTIONS WORKER: IMPLEMENTED AND QA-PASSED
 REWARD CLAIM: IMPLEMENTED AND QA-PASSED ON TESTNET
 DASHBOARD NFT DISCOVERY: IMPLEMENTED
 MAINNET INDEXER: NOT STARTED
-NEXT MAJOR TASK: TESTNET RELEASE CANDIDATE PREPARATION / RC LOCK
+MAINNET REWARD CLAIM: NOT PRODUCTION-READY
+NEXT MAJOR TASK: EXPLICIT MAINNET DEPLOYMENT APPROVAL DECISION
 ```
 
 ---

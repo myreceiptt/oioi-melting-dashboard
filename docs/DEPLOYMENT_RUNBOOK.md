@@ -10,7 +10,7 @@ Ethereum Sepolia completed.
 Frontend Sepolia MVP completed.
 Mainnet deployment preparation passed.
 Testnet Release Candidate Lock v1 passed.
-Mainnet deployment is intentionally deferred until explicit approval.
+Mainnet deployment is intentionally deferred until explicit approval after Mainnet Deployment Approval Gate v1.
 verify:args is post-deployment because it requires deployment records.
 ```
 
@@ -39,7 +39,7 @@ verify:args is post-deployment because it requires deployment records.
 
 ## 0. Golden Rules
 
-Do not deploy mainnet before explicit approval after Testnet Release Candidate Lock v1.
+Do not deploy mainnet before explicit approval after Mainnet Deployment Approval Gate v1.
 
 Do not enable mint immediately after deployment.
 
@@ -52,6 +52,10 @@ Do not use local simulated deployment records as real deployment records.
 Do not commit `.env`, private keys, generated constructor args, generated local deployment folders, Hardhat artifacts, cache, generated indexer output, generated reward output, or generated whitelist output.
 
 Do not “fix forward” on mainnet. Stop, inspect, and diagnose.
+
+Do not treat the approval gate document as approval by itself.
+
+Do not launch mainnet reward claim until the mainnet indexer/reward/proof flow is implemented/configured, run, verified, and approved.
 
 ---
 
@@ -236,6 +240,7 @@ deployer funded: PASS
 whitelist root finalized
 deploy config reviewed
 Testnet Release Candidate Lock v1: PASS
+Mainnet Deployment Approval Gate v1: READY WITH NOTES / NOT APPROVED
 ```
 
 Locked whitelist root:
@@ -254,13 +259,30 @@ Clean whitelist count:
 
 ## 9. Mainnet Deployment Policy
 
-Mainnet deployment is ready from a contract-preparation perspective but deferred until explicit approval after Testnet Release Candidate Lock v1.
+Mainnet deployment is ready from a contract-preparation perspective but deferred until explicit approval after Mainnet Deployment Approval Gate v1.
 
 If explicit approval is given, mainnet deployment may proceed with all mint phases OFF and no public launch.
+
+Approval-sensitive caveats:
+
+```text
+metadata strategy must be explicitly approved before deployment
+pending revealed URI placeholders must remain unlocked until final metadata is approved
+mainnet reward claim is not production-ready at deployment time
+mainnet indexer/reward/proof flow must be implemented/configured and validated after deployment
+```
+
+Canonical approval gate:
+
+```text
+docs/mainnet/MAINNET_DEPLOYMENT_APPROVAL_GATE_V1.md
+```
 
 ---
 
 ## 10. Base Mainnet Deployment Order
+
+Do not run until explicit approval is given.
 
 ```bash
 npm run deploy:preflight -- baseMainnet
@@ -295,6 +317,8 @@ Record Base mainnet indexer FROM_BLOCK manually from explorer.
 ---
 
 ## 11. Ethereum Mainnet Deployment Order
+
+Do not run until explicit approval is given.
 
 ```bash
 npm run deploy:preflight -- ethereumMainnet

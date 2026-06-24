@@ -1,6 +1,6 @@
 # OiOi Melting Dashboard — Testnet Product Completion Plan v3
 
-This document is the operational checklist for the locked Testnet Release Candidate baseline and the next mainnet approval gate.
+This document is the operational checklist for the locked Testnet Release Candidate baseline and the documented mainnet approval gate.
 
 The product rehearsal now covers:
 
@@ -15,7 +15,7 @@ reward claim
 full browser E2E
 ```
 
-Mainnet deployment remains deferred after Testnet Release Candidate Lock v1 until explicit approval.
+Mainnet deployment remains deferred after Mainnet Deployment Approval Gate v1 until explicit approval.
 
 ---
 
@@ -46,6 +46,7 @@ Mainnet deployment remains deferred after Testnet Release Candidate Lock v1 unti
 ✅ Full Testnet E2E QA v1 passed.
 ✅ Worker jobs / boundary reward flow passed through GitHub Actions.
 ✅ Testnet Release Candidate Lock v1 passed.
+✅ Mainnet Deployment Approval Gate v1 documented as ready with notes.
 ```
 
 ### Not Started
@@ -114,7 +115,7 @@ Reward event sync after create/fund/claim is optional reconciliation; admin/user
 ## 4. Current Next Major Task
 
 ```text
-Mainnet deployment planning / approval gate
+Explicit mainnet deployment approval decision
 ```
 
 Recently completed:
@@ -127,16 +128,19 @@ Full Testnet Mutation QA v1 passed on live Sepolia rehearsal subdomains.
 Full Testnet E2E QA v1 documented in docs/qa/FULL_TESTNET_E2E_QA_V1.md.
 Worker jobs / boundary reward flow passed through GitHub Actions.
 Testnet Release Candidate Lock v1 documented in docs/qa/TESTNET_RELEASE_CANDIDATE_LOCK_V1.md.
+Mainnet Deployment Approval Gate v1 documented in docs/mainnet/MAINNET_DEPLOYMENT_APPROVAL_GATE_V1.md.
 ```
 
-Required work before mainnet deployment:
+Required approval-sensitive work before mainnet deployment:
 
 ```text
 Explicit mainnet approval.
-Mainnet deployment planning.
+Metadata strategy approval.
+Deployer / treasury / royalty / token address confirmation.
 Mainnet env wiring plan.
 Mainnet read-only QA plan.
 Controlled mainnet opening plan.
+Mainnet reward/indexer/proof pipeline remains not production-ready until implemented/configured, run, verified, and approved after deployment.
 ```
 
 ---
@@ -163,7 +167,7 @@ Testnet Release Candidate Lock v1 passes. ✅
 
 ## 6. Mainnet Gate
 
-Mainnet deployment must wait until explicit approval after Testnet Release Candidate Lock v1.
+Mainnet deployment must wait until explicit approval after Mainnet Deployment Approval Gate v1.
 
 Mainnet remains:
 
@@ -185,10 +189,12 @@ whitelist root
 Mainnet still needs:
 
 ```text
+explicit deployment authorization
 actual mainnet deployment
 mainnet env wiring
 mainnet read-only QA
 controlled opening plan execution
+mainnet reward/indexer/proof validation before any production reward claim launch
 ```
 
 ---

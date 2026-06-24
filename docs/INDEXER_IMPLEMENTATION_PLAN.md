@@ -233,6 +233,8 @@ does not cancel an already running worker
 
 GitHub Secrets and Variables must be set one-by-one in repository settings.
 
+Current workflow/configuration is Sepolia-oriented. Mainnet worker operation must be configured after mainnet deployment records, mainnet contract addresses, and mainnet `FROM_BLOCK` values exist.
+
 ---
 
 ## 8. Stop Conditions
@@ -264,10 +266,21 @@ The indexer/reward worker is implemented and QA-passed for testnet.
 Current project next task:
 
 ```text
-Testnet Release Candidate preparation / RC lock
+Explicit mainnet deployment approval decision
 ```
 
 Mainnet indexer operation starts only after mainnet deployment and mainnet env wiring.
+
+Production mainnet reward claim must remain unavailable until:
+
+```text
+mainnet indexer support is implemented/configured
+mainnet FROM_BLOCK values are recorded
+mainnet Supabase contract records are seeded/verified
+mainnet reward boundary flow is run
+mainnet proof API and browser claim are verified
+explicit reward-claim approval is given
+```
 
 ---
 

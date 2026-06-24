@@ -1,11 +1,11 @@
 # OiOi Melting Dashboard — Implementation Roadmap v3
 
-This roadmap reflects the current state after Sepolia contract validation, frontend implementation, Supabase reward pipeline implementation, GitHub Actions worker setup, BASE/dETH app shell work, Subdomain Surface Behavior v1, Full Testnet E2E QA v1, and Testnet Release Candidate Lock v1.
+This roadmap reflects the current state after Sepolia contract validation, frontend implementation, Supabase reward pipeline implementation, GitHub Actions worker setup, BASE/dETH app shell work, Subdomain Surface Behavior v1, Full Testnet E2E QA v1, Testnet Release Candidate Lock v1, and Mainnet Deployment Approval Gate v1.
 
 Current execution path:
 
 ```text
-Mainnet deployment planning / approval gate
+Explicit mainnet deployment approval decision
 → Mainnet deployment
 → Mainnet env wiring
 → Mainnet read-only QA
@@ -242,7 +242,7 @@ admin color pass
 Current next stage:
 
 ```text
-Mainnet deployment planning / approval gate
+Explicit mainnet deployment approval decision
 ```
 
 ---
@@ -298,7 +298,7 @@ Testnet Release Candidate Lock v1 documented ✅
 
 ## Phase 12 — Mainnet Deployment
 
-Status: Ready but deferred.
+Status: Ready but deferred; not yet approved.
 
 Preparation already passed:
 
@@ -314,10 +314,42 @@ whitelist finalized
 Still not started:
 
 ```text
+mainnet deployment authorization
 actual mainnet deployment
 mainnet env wiring
 mainnet read-only QA
 controlled opening
+```
+
+Approval-sensitive items:
+
+```text
+metadata strategy for pending revealed URI placeholders
+mainnet reward/indexer/proof pipeline implementation and validation
+public launch remains not ready
+mainnet reward claim remains not production-ready
+```
+
+---
+
+## Phase 13 — Mainnet Deployment Approval Gate v1
+
+Status: Ready with notes / not approved.
+
+Documented in:
+
+```text
+docs/mainnet/MAINNET_DEPLOYMENT_APPROVAL_GATE_V1.md
+```
+
+Gate status:
+
+```text
+MAINNET DEPLOYMENT APPROVAL GATE V1: READY WITH NOTES
+DEPLOYMENT AUTHORIZATION: NOT YET APPROVED
+MAINNET DEPLOYMENT: NOT STARTED
+PUBLIC LAUNCH: NOT READY
+MAINNET REWARD CLAIM LAUNCH: NOT READY
 ```
 
 ---
@@ -325,10 +357,10 @@ controlled opening
 ## Current Next Step
 
 ```text
-Mainnet deployment planning / approval gate
+Explicit mainnet deployment approval decision
 ```
 
-Do not proceed to mainnet deployment until explicit approval is given after Testnet Release Candidate Lock v1.
+Do not proceed to mainnet deployment until explicit approval is given after Mainnet Deployment Approval Gate v1.
 
 ---
 

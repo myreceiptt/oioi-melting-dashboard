@@ -91,11 +91,13 @@ The connected Web3 wallet address is the user identity.
 - Full Testnet Mutation QA v1 passed.
 - Full Testnet E2E QA v1 passed.
 - Worker jobs / boundary reward flow passed through GitHub Actions.
-- Mainnet preparation checks passed, but deployment is intentionally deferred.
+- Testnet Release Candidate Lock v1 passed.
+- Mainnet Deployment Approval Gate v1 documented as ready with notes.
+- Mainnet preparation checks passed, but deployment is not yet approved and remains intentionally deferred.
 
 ### Locked Decisions
 
-- Mainnet deployment is deferred until Testnet Release Candidate.
+- Mainnet deployment is deferred until explicit approval after Mainnet Deployment Approval Gate v1.
 - Indexer + reward storage is Supabase Postgres-first.
 - Local JSON is not the primary indexer storage.
 - Supabase indexer sync is checkpointed, resumable, and worker-driven.
@@ -109,6 +111,8 @@ The connected Web3 wallet address is the user identity.
 ### Current Canonical Docs
 
 - `docs/qa/FULL_TESTNET_E2E_QA_V1.md` — canonical QA pass report.
+- `docs/qa/TESTNET_RELEASE_CANDIDATE_LOCK_V1.md` — Testnet Release Candidate lock report.
+- `docs/mainnet/MAINNET_DEPLOYMENT_APPROVAL_GATE_V1.md` — mainnet approval gate; deployment is not yet approved.
 - `docs/TESTNET_PRODUCT_COMPLETION_PLAN.md` — current operational next-step checklist.
 - `URUTANSEHAT.md` — high-level sequence/status.
 - `docs/qa/TESTNET_ROUTE_DOMAIN_MAPPING.md` — canonical route/domain mapping reference.
@@ -116,10 +120,12 @@ The connected Web3 wallet address is the user identity.
 
 ### Pending / Next
 
-- Testnet Release Candidate preparation / RC lock.
-- Final runbook alignment.
-- Admin, indexer/reward, and Supabase/reward operating procedures finalized for RC.
-- Mainnet deployment only after Testnet RC lock and explicit approval.
+- Explicit mainnet deployment approval decision.
+- Mainnet deployment planning remains gated by approval.
+- Mainnet env wiring remains not started.
+- Mainnet read-only QA remains not started.
+- Controlled mainnet opening remains not started.
+- Mainnet reward claim remains not production-ready until mainnet indexer/reward/proof flow is implemented, run, verified, and approved.
 
 ---
 

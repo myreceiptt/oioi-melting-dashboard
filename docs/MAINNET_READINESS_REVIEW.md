@@ -1,13 +1,13 @@
 # OiOi Melting Dashboard — Mainnet Readiness Review v2
 
-This document is the review gate before any Base Mainnet or Ethereum Mainnet deployment.
+This document is the readiness review before any Base Mainnet or Ethereum Mainnet deployment.
 
 Mainnet deployment must not be treated as launch readiness.
 
 Current project decision:
 
 ```text
-Mainnet deployment is ready from contract-preparation perspective, but intentionally deferred until explicit approval after Testnet Release Candidate Lock v1.
+Mainnet deployment is ready from contract-preparation perspective, but intentionally deferred until explicit approval after Mainnet Deployment Approval Gate v1.
 ```
 
 ---
@@ -49,6 +49,7 @@ Mainnet deployment is ready from contract-preparation perspective, but intention
 - Full Testnet E2E QA v1 passed.
 - Worker jobs / boundary reward flow passed through GitHub Actions.
 - Testnet Release Candidate Lock v1 passed.
+- Mainnet Deployment Approval Gate v1 documented as ready with notes.
 - Mainnet preparation checks passed:
   - repo clean
   - build/compile/test pass
@@ -62,16 +63,18 @@ Mainnet deployment is ready from contract-preparation perspective, but intention
 ### Locked / Deferred
 
 ```text
-Mainnet deployment is deferred until explicit approval after Testnet Release Candidate Lock v1.
+Mainnet deployment is deferred until explicit approval after Mainnet Deployment Approval Gate v1.
 ```
 
 ### Pending Before Mainnet Deployment
 
 - Explicit mainnet approval.
-- Mainnet deployment planning.
+- Metadata strategy approval.
+- Mainnet deployment authorization.
 - Mainnet env wiring.
 - Mainnet read-only QA.
 - Controlled mainnet opening plan execution.
+- Mainnet reward/indexer/proof validation before production reward claim launch.
 
 ---
 
@@ -95,7 +98,7 @@ Public launch requires:
 
 ## 3. Golden Rules
 
-Do not deploy mainnet before explicit approval after Testnet Release Candidate Lock v1.
+Do not deploy mainnet before explicit approval after Mainnet Deployment Approval Gate v1.
 
 Do not deploy mainnet from the wrong wallet.
 
@@ -114,6 +117,10 @@ Do not delete or overwrite mainnet deployment records casually.
 Do not treat `verify:args` as pre-deployment for a network that has no deployment record yet.
 
 Do not treat mainnet deployment as pressure to open mint.
+
+Do not treat Mainnet Deployment Approval Gate v1 as deployment authorization by itself.
+
+Do not launch mainnet reward claim until the mainnet indexer/reward/proof flow is implemented/configured, run, verified, and approved.
 
 ---
 
@@ -292,9 +299,17 @@ Review:
 
 ## 10. Mainnet Deployment Gate
 
-Mainnet deployment may proceed only after explicit approval following Testnet Release Candidate Lock v1.
+Mainnet deployment may proceed only after explicit approval following Mainnet Deployment Approval Gate v1.
 
 If approval is given, mint phases must remain OFF and public frontend must not open.
+
+Mainnet reward claim must remain unavailable until the mainnet reward/indexer/proof flow is implemented/configured, run, verified, and explicitly approved.
+
+Canonical gate document:
+
+```text
+docs/mainnet/MAINNET_DEPLOYMENT_APPROVAL_GATE_V1.md
+```
 
 ---
 
@@ -417,6 +432,8 @@ CONTRACT DEPLOYMENT PREPARATION: PASSED
 TESTNET PRODUCT VALIDATION: FULL E2E QA PASSED
 TESTNET RELEASE CANDIDATE LOCK V1: PASSED
 MAINNET DEPLOYMENT: READY BUT DEFERRED
+MAINNET DEPLOYMENT AUTHORIZATION: NOT YET APPROVED
+MAINNET DEPLOYMENT STARTED: NO
 PUBLIC LAUNCH: NOT READY
 MAINNET REWARD CLAIM LAUNCH: NOT READY
 ```

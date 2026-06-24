@@ -334,24 +334,40 @@
     - ✅ GitHub Actions boundary worker status pass.
     - ✅ RC lock documented in `docs/qa/TESTNET_RELEASE_CANDIDATE_LOCK_V1.md`.
     - ✅ Testnet release candidate baseline locked.
-    - 🔜 Mainnet deployment planning / approval gate.
+    - ✅ Mainnet Deployment Approval Gate v1 documented in `docs/mainnet/MAINNET_DEPLOYMENT_APPROVAL_GATE_V1.md`.
+    - 🔜 Explicit mainnet deployment approval decision.
 
-23. Mainnet Deployment — READY BUT DEFERRED
+23. Mainnet Deployment Approval Gate v1 — READY WITH NOTES / NOT APPROVED
+    - ✅ Mainnet approval gate review documented.
+    - ✅ Pre-mainnet safe commands listed.
+    - ✅ Deployment command sequence documented but marked do-not-run until approval.
+    - ✅ Post-deployment verification sequence documented.
+    - ✅ Mainnet env wiring sequence documented.
+    - ✅ Controlled opening sequence documented.
+    - ✅ Stop conditions documented.
+    - ⏸ Deployment authorization not yet approved.
+    - ⏸ Public launch not ready.
+    - ⏸ Mainnet reward claim not production-ready.
+    - ⏸ Metadata strategy requires explicit approval before deployment.
+    - ⏸ Mainnet reward/indexer/proof flow requires post-deployment implementation/configuration and validation.
+
+24. Mainnet Deployment — READY BUT DEFERRED
     - ✅ Mainnet preparation mostly passed.
     - ✅ RPC verified.
     - ✅ Preflight passed.
     - ✅ Whitelist root final.
     - ✅ Deployer funded.
-    - ⏸ Deferred until explicit approval after Testnet Release Candidate Lock v1.
+    - ⏸ Deferred until explicit approval after Mainnet Deployment Approval Gate v1.
+    - ⏸ Not started.
 
-24. Mainnet Env Wiring — NOT STARTED
+25. Mainnet Env Wiring — NOT STARTED
     - 🔜 Fill mainnet contract env.
     - 🔜 Set NEXT_PUBLIC_APP_ENV=mainnet.
     - 🔜 Deploy Vercel production with mainnet env.
     - 🔜 Keep production-intended domains, but switch app env only when ready.
     - 🔜 Confirm no Sepolia address remains in mainnet build.
 
-25. Mainnet Read-Only QA — NOT STARTED
+26. Mainnet Read-Only QA — NOT STARTED
     - 🔜 Verify frontend reads mainnet contracts.
     - 🔜 Mint phases still OFF.
     - 🔜 Admin dashboard reads owner/admin state.
@@ -359,7 +375,7 @@
     - 🔜 Reward/indexer production config verified.
     - 🔜 Production domains verified under mainnet env.
 
-26. Controlled Mainnet Opening — NOT STARTED
+27. Controlled Mainnet Opening — NOT STARTED
     - 🔜 Enable ROTY whitelist.
     - 🔜 Controlled mint.
     - 🔜 Enable public mint.
