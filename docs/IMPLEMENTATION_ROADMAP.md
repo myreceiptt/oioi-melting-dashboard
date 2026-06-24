@@ -1,13 +1,11 @@
 # OiOi Melting Dashboard — Implementation Roadmap v3
 
-This roadmap reflects the current state after Sepolia contract validation, frontend implementation, Supabase reward pipeline implementation, GitHub Actions worker setup, and BASE/dETH app shell work.
+This roadmap reflects the current state after Sepolia contract validation, frontend implementation, Supabase reward pipeline implementation, GitHub Actions worker setup, BASE/dETH app shell work, Subdomain Surface Behavior v1, and Full Testnet E2E QA v1.
 
 Current execution path:
 
 ```text
-Subdomain Surface Behavior v1
-→ final deployed browser QA
-→ Testnet Release Candidate
+Testnet Release Candidate preparation / RC lock
 → Mainnet deployment
 → Mainnet env wiring
 → Mainnet read-only QA
@@ -205,7 +203,7 @@ stake / unstake selected NFT flow
 
 ## Phase 8 — Reward Claim Browser Flow
 
-Status: Completed for testnet.
+Status: Completed and QA-passed for testnet.
 
 Completed:
 
@@ -224,7 +222,7 @@ paused/funded/not-funded states
 
 ## Phase 9 — UI / Layout / App Shell
 
-Status: Almost done.
+Status: Completed for current testnet rehearsal; final visual review may continue during RC lock.
 
 Completed:
 
@@ -244,7 +242,6 @@ admin color pass
 Remaining:
 
 ```text
-final visual QA pass
 Testnet Release Candidate preparation / RC lock
 ```
 

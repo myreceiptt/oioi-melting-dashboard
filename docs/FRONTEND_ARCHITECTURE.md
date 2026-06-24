@@ -131,9 +131,12 @@ copyright footer modal
 Current polish state:
 
 ```text
-UI/layout/footer/navbar almost done.
+UI/layout/footer/navbar implemented for current Sepolia rehearsal.
 Subdomain Surface Behavior v1 done.
-Next major task is Full Testnet Browser QA / Testnet Release Candidate preparation.
+Full Testnet Browser QA v1 done/pass.
+Full Testnet Mutation QA v1 done/pass.
+Full Testnet E2E QA v1 done/pass.
+Next major task is Testnet Release Candidate preparation / RC lock.
 ```
 
 ---
@@ -310,11 +313,21 @@ app menu
 subdomain surface behavior
 ```
 
+Current canonical QA result:
+
+```text
+docs/qa/FULL_TESTNET_E2E_QA_V1.md
+Full Testnet Browser QA v1: PASS
+Full Testnet Mutation QA v1: PASS
+Full Testnet E2E QA v1: PASS
+Blockers observed: none
+```
+
 ---
 
 ## 11. Mainnet Switch
 
-Mainnet switch happens only after Testnet Release Candidate.
+Mainnet switch happens only after Testnet Release Candidate preparation / RC lock is complete and explicitly approved.
 
 Mainnet switch steps:
 

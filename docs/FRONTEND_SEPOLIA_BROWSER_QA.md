@@ -37,9 +37,22 @@ reward read surface
 browser console review
 ```
 
-This historical QA did not validate active reward claim. Reward claim now requires a separate QA pass with generated Supabase proofs and a funded reward round.
+This is a historical QA record for the earlier Sepolia MVP surface.
 
-This QA did not validate Admin Dashboard because Admin Dashboard is not yet implemented.
+Later canonical QA supersedes the pending items below:
+
+```text
+docs/qa/FULL_TESTNET_E2E_QA_V1.md
+```
+
+Current canonical status:
+
+```text
+Admin Dashboard QA: PASS
+Active Mint QA with phases ON: PASS
+Reward Claim QA: PASS
+Full Testnet Browser E2E: PASS
+```
 
 ---
 
@@ -288,9 +301,9 @@ Claim not active yet message appears
 
 ### Admin Dashboard QA
 
-Pending.
+Completed in later QA.
 
-Must validate:
+Later canonical QA validated:
 
 ```text
 owner access
@@ -308,7 +321,7 @@ post-write refresh
 
 ### Mint With Phases ON QA
 
-Pending.
+Completed in later QA.
 
 Must validate:
 
@@ -325,7 +338,7 @@ phase restore OFF
 
 ### Reward Claim QA
 
-Pending.
+Completed in later QA.
 
 Must validate:
 
@@ -338,14 +351,14 @@ already-claimed state
 non-eligible wallet state
 ```
 
-### Full Browser E2E
+### Full Testnet Browser E2E
 
-Pending.
+Completed in later QA.
 
-Defined in:
+Canonical report:
 
 ```text
-docs/TESTNET_PRODUCT_COMPLETION_PLAN.md
+docs/qa/FULL_TESTNET_E2E_QA_V1.md
 ```
 
 ---
@@ -354,10 +367,10 @@ docs/TESTNET_PRODUCT_COMPLETION_PLAN.md
 
 ```text
 FRONTEND SEPOLIA BROWSER QA FOR CURRENT MVP: PASS
-ADMIN DASHBOARD QA: PENDING
-ACTIVE MINT QA WITH PHASES ON: PENDING
-REWARD CLAIM QA: PENDING
-FULL TESTNET BROWSER E2E: PENDING
+ADMIN DASHBOARD QA: PASS IN LATER FULL TESTNET E2E QA V1
+ACTIVE MINT QA WITH PHASES ON: PASS IN LATER FULL TESTNET E2E QA V1
+REWARD CLAIM QA: PASS IN LATER FULL TESTNET E2E QA V1
+FULL TESTNET BROWSER E2E: PASS IN LATER FULL TESTNET E2E QA V1
 ```
 
 ---

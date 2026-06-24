@@ -119,9 +119,15 @@ PASS for read/OFF-phase/stake flows.
 
 ## 5. Admin Dashboard Testing
 
-Status: Pending.
+Status: PASS for testnet.
 
-Required after implementation:
+Latest canonical QA:
+
+```text
+docs/qa/FULL_TESTNET_E2E_QA_V1.md
+```
+
+Validated:
 
 ```text
 owner wallet can access admin controls
@@ -144,9 +150,9 @@ explorer links work
 
 ## 6. Supabase Indexer Testing
 
-Status: Pending.
+Status: PASS for testnet worker/boundary flow.
 
-Required:
+Validated / required coverage:
 
 ```text
 Supabase migration runs
@@ -169,9 +175,9 @@ reward events match RewardDistributor reads
 
 ## 7. Reward Calculator Testing
 
-Status: Pending.
+Status: PASS for testnet worker/boundary flow.
 
-Required:
+Validated / required coverage:
 
 ```text
 ownership windows built correctly
@@ -191,9 +197,9 @@ Merkle proof verifies
 
 ## 8. Reward Claim Browser Testing
 
-Status: Pending.
+Status: PASS for testnet.
 
-Required:
+Validated:
 
 ```text
 reward rounds displayed
@@ -211,7 +217,7 @@ claim pause state respected
 
 ## 9. Stage-by-Stage Browser Testing
 
-Each stage must pass before Full Browser E2E:
+Each stage passed before Full Testnet E2E QA v1:
 
 ```text
 Mint page testing
@@ -225,9 +231,15 @@ Reward claim browser testing
 
 ## 10. Full Testnet Browser E2E
 
-Status: Pending.
+Status: PASS.
 
-Required Base Sepolia flow:
+Canonical report:
+
+```text
+docs/qa/FULL_TESTNET_E2E_QA_V1.md
+```
+
+Validated Base Sepolia and Ethereum Sepolia flow:
 
 ```text
 connect wallet
@@ -264,6 +276,13 @@ admin procedures documented
 indexer/reward procedures documented
 docs updated
 no critical blocker
+```
+
+Current status:
+
+```text
+Testnet Release Candidate is not complete yet.
+Current next stage is Testnet Release Candidate preparation / RC lock.
 ```
 
 ---

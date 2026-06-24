@@ -37,6 +37,8 @@ Admin boundary sync API exists.
 Boundary worker exists.
 GitHub Actions scheduled worker exists.
 Dashboard wallet NFT cache exists.
+Boundary worker flow passed through GitHub Actions on testnet.
+On-chain reward round creation and user reward claim validated on testnet.
 ```
 
 Legacy diagnostic tool retained:
@@ -280,11 +282,11 @@ do not open reward claim until production reward flow is tested
 ```text
 INDEXER OPERATIONAL MODEL: IMPLEMENTED FOR TESTNET
 BOUNDARY WORKER: IMPLEMENTED
-GITHUB ACTIONS WORKER: IMPLEMENTED
-REWARD CLAIM: IMPLEMENTED
+GITHUB ACTIONS WORKER: IMPLEMENTED AND QA-PASSED
+REWARD CLAIM: IMPLEMENTED AND QA-PASSED ON TESTNET
 DASHBOARD NFT DISCOVERY: IMPLEMENTED
 MAINNET INDEXER: NOT STARTED
-NEXT MAJOR TASK: SUBDOMAIN SURFACE BEHAVIOR V1
+NEXT MAJOR TASK: TESTNET RELEASE CANDIDATE PREPARATION / RC LOCK
 ```
 
 ---

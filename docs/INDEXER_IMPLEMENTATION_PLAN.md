@@ -51,6 +51,8 @@ Completed on testnet:
 ✅ Boundary worker orchestration.
 ✅ GitHub Actions scheduled worker.
 ✅ Browser reward claim flow.
+✅ Worker jobs / boundary reward flow passed through GitHub Actions.
+✅ On-chain reward round creation and user reward claim validated on testnet.
 ```
 
 Retained legacy/manual tool:
@@ -257,12 +259,12 @@ browser claim fails for known eligible wallet
 
 ## 9. Current Next Step
 
-The indexer/reward worker is implemented for testnet.
+The indexer/reward worker is implemented and QA-passed for testnet.
 
 Current project next task:
 
 ```text
-Subdomain Surface Behavior v1
+Testnet Release Candidate preparation / RC lock
 ```
 
 Mainnet indexer operation starts only after mainnet deployment and mainnet env wiring.

@@ -85,6 +85,12 @@ The connected Web3 wallet address is the user identity.
 - Testnet reward round flow completed through create, fund, claim, and closed states.
 - BASE / dETH theme shell, App Navbar, App Footer, App Menu, and Theme Switcher implemented.
 - Production-intended Sepolia rehearsal deployment completed.
+- Subdomain Surface Behavior v1 passed.
+- Production-intended Sepolia rehearsal domain QA passed.
+- Full Testnet Browser QA v1 passed.
+- Full Testnet Mutation QA v1 passed.
+- Full Testnet E2E QA v1 passed.
+- Worker jobs / boundary reward flow passed through GitHub Actions.
 - Mainnet preparation checks passed, but deployment is intentionally deferred.
 
 ### Locked Decisions
@@ -98,18 +104,22 @@ The connected Web3 wallet address is the user identity.
 - `TO_BLOCK` is optional and only for bounded backfill/testing.
 - Admin Dashboard is implemented and remains the operational owner surface.
 - Every stage has its own testing checkpoint.
-- Full Browser E2E is used as final release-candidate validation after the implemented testnet flows are exercised.
+- Full Testnet E2E QA v1 is the canonical QA pass report for the current Sepolia rehearsal surface.
+
+### Current Canonical Docs
+
+- `docs/qa/FULL_TESTNET_E2E_QA_V1.md` — canonical QA pass report.
+- `docs/TESTNET_PRODUCT_COMPLETION_PLAN.md` — current operational next-step checklist.
+- `URUTANSEHAT.md` — high-level sequence/status.
+- `docs/qa/TESTNET_ROUTE_DOMAIN_MAPPING.md` — canonical route/domain mapping reference.
+- `docs/qa/PRODUCTION_SUBDOMAIN_MAPPING_SEPOLIA_REHEARSAL.md` — domain QA pass record.
 
 ### Pending / Next
 
-- Subdomain Surface Behavior v1:
-  - host-aware theme/switcher behavior
-  - host-aware App Menu active state
-  - dedicated mint subdomain links
-- Final UI/UX polish is almost complete but still under active review.
-- Full release-candidate browser QA report from current deployed surface.
-- Testnet Release Candidate.
-- Mainnet deployment after Testnet RC.
+- Testnet Release Candidate preparation / RC lock.
+- Final runbook alignment.
+- Admin, indexer/reward, and Supabase/reward operating procedures finalized for RC.
+- Mainnet deployment only after Testnet RC lock and explicit approval.
 
 ---
 

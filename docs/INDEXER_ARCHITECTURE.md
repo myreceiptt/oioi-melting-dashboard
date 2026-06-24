@@ -49,10 +49,12 @@ Reward calculator: implemented.
 Merkle proof generation: implemented.
 Supabase Postgres: locked as primary storage.
 Reward proof API: implemented.
-Production readiness: pending full testnet validation.
+Worker jobs / boundary reward flow: passed through GitHub Actions on testnet.
+Browser reward claim: validated on testnet.
+Production readiness: ready for Testnet Release Candidate preparation / RC lock.
 ```
 
-Do not treat the pipeline as production-ready until it has completed Base Sepolia and Ethereum Sepolia validation from sync through browser claim.
+Do not switch the pipeline to mainnet operation until Testnet Release Candidate preparation / RC lock is complete and mainnet deployment/env wiring have been explicitly approved.
 
 ---
 
@@ -705,9 +707,10 @@ claimed status is inconsistent with contract state
 ```text
 INDEXER ARCHITECTURE: UPDATED FOR SUPABASE POSTGRES-FIRST
 INDEXER IMPLEMENTATION: SUPABASE PIPELINE IMPLEMENTED
-TRANSFER / STAKING / REWARD SYNC: IMPLEMENTED, TESTNET VALIDATION PENDING
-REWARD AUTOMATION: MANUAL OPERATOR PIPELINE
-FRONTEND REWARD CLAIM: IMPLEMENTED, BROWSER CLAIM QA PENDING
+TRANSFER / STAKING / REWARD SYNC: IMPLEMENTED AND QA-PASSED ON TESTNET
+REWARD AUTOMATION: BOUNDARY WORKER THROUGH GITHUB ACTIONS OR CONTROLLED CLI
+FRONTEND REWARD CLAIM: IMPLEMENTED AND QA-PASSED ON TESTNET
+FULL TESTNET E2E QA V1: PASS
 PUBLIC REWARD LAUNCH: NOT READY
 ```
 

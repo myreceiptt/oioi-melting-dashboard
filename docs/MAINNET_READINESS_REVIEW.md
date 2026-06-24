@@ -92,7 +92,7 @@ Public launch requires:
 
 ## 3. Golden Rules
 
-Do not deploy mainnet if Sepolia/Testnet Product Completion status is uncertain.
+Do not deploy mainnet before Testnet Release Candidate preparation / RC lock is complete and explicitly approved.
 
 Do not deploy mainnet from the wrong wallet.
 
@@ -102,7 +102,7 @@ Do not enable mint immediately after deployment.
 
 Do not launch public frontend before read checks and browser QA pass.
 
-Do not treat reward claim as ready until Supabase indexer/reward calculation/proof flow is ready.
+Do not treat reward claim as ready for mainnet until production mainnet indexer/reward calculation/proof flow is tested.
 
 Do not lock metadata while revealed metadata is pending.
 
@@ -411,11 +411,11 @@ Recommended order:
 
 ```text
 CONTRACT DEPLOYMENT PREPARATION: PASSED
-TESTNET PRODUCT COMPLETION: IN PROGRESS
-TESTNET RELEASE CANDIDATE: NOT READY
+TESTNET PRODUCT VALIDATION: FULL E2E QA PASSED
+TESTNET RELEASE CANDIDATE PREPARATION / RC LOCK: READY TO START
 MAINNET DEPLOYMENT: READY BUT DEFERRED
 PUBLIC LAUNCH: NOT READY
-REWARD CLAIM LAUNCH: NOT READY
+MAINNET REWARD CLAIM LAUNCH: NOT READY
 ```
 
 ---
