@@ -77,7 +77,7 @@ export const SHARED_URIS = {
   rotyUnrevealed:
     "ipfs://bafkreiefsmbkjgw3fs47v52xu6zqzbgw4z2fhdsgvaczh7gstn4txurv2m",
   rotyRevealedBase:
-    "ipfs://bafybeigzgy6jngo4lvdqukwge2e3nwtgmnt7kpkmg7p2mmi2zrr5atmm3a/",
+    "ipfs://bafybeianxpgfjiggplxqsfafku3mrmvozbsanmwml4mhohgqwusqvqvc4m/",
   meltingUnrevealed:
     "ipfs://bafkreiccvibarcxlaq3q2vm23p4jsbtxizkjneivjokh4srdpsi36zzzdi",
   // Pending final artwork. This can be updated on-chain before lockMetadata().
@@ -210,7 +210,7 @@ function buildBaseConfig(args: {
       roty: {
         key: "roty",
         contractName: "TheRotyMemorial",
-        name: "ROTY BASE",
+        name: "The ROTY BASE",
         symbol: "ROTYBASE",
         maxSupply: 1047,
         mintPriceWei: parseEther("0.001047"),
@@ -261,7 +261,7 @@ function buildEthereumConfig(args: {
       roty: {
         key: "roty",
         contractName: "TheRotyMemorial",
-        name: "ROTY dETH",
+        name: "The ROTY dETH",
         symbol: "ROTYDETH",
         maxSupply: 1047,
         mintPriceWei: parseEther("0.01047"),
@@ -272,7 +272,7 @@ function buildEthereumConfig(args: {
       melting: {
         key: "melting",
         contractName: "MeltingMemorial",
-        name: "Melting dETH",
+        name: "MELTING dETH",
         symbol: "MELTDETH",
         maxSupply: 1747,
         mintPriceWei: parseEther("0.01747"),
