@@ -1,6 +1,6 @@
 # OiOi Melting Dashboard — Testnet Product Completion Plan v3
 
-This document is the operational checklist for moving the current Sepolia rehearsal surface toward Testnet Release Candidate.
+This document is the operational checklist for the locked Testnet Release Candidate baseline and the next mainnet approval gate.
 
 The product rehearsal now covers:
 
@@ -15,7 +15,7 @@ reward claim
 full browser E2E
 ```
 
-Mainnet deployment remains deferred until Testnet Release Candidate.
+Mainnet deployment remains deferred after Testnet Release Candidate Lock v1 until explicit approval.
 
 ---
 
@@ -45,6 +45,7 @@ Mainnet deployment remains deferred until Testnet Release Candidate.
 ✅ Full Testnet Mutation QA v1 passed.
 ✅ Full Testnet E2E QA v1 passed.
 ✅ Worker jobs / boundary reward flow passed through GitHub Actions.
+✅ Testnet Release Candidate Lock v1 passed.
 ```
 
 ### Not Started
@@ -113,7 +114,7 @@ Reward event sync after create/fund/claim is optional reconciliation; admin/user
 ## 4. Current Next Major Task
 
 ```text
-Testnet Release Candidate preparation / RC lock
+Mainnet deployment planning / approval gate
 ```
 
 Recently completed:
@@ -125,21 +126,24 @@ Full Testnet Browser QA v1 passed on live Sepolia rehearsal subdomains.
 Full Testnet Mutation QA v1 passed on live Sepolia rehearsal subdomains.
 Full Testnet E2E QA v1 documented in docs/qa/FULL_TESTNET_E2E_QA_V1.md.
 Worker jobs / boundary reward flow passed through GitHub Actions.
+Testnet Release Candidate Lock v1 documented in docs/qa/TESTNET_RELEASE_CANDIDATE_LOCK_V1.md.
 ```
 
-Required work:
+Required work before mainnet deployment:
 
 ```text
-RC lock review.
-Runbooks aligned with final release-candidate operations.
-Admin, indexer/reward, and Supabase/reward operating procedures finalized.
+Explicit mainnet approval.
+Mainnet deployment planning.
+Mainnet env wiring plan.
+Mainnet read-only QA plan.
+Controlled mainnet opening plan.
 ```
 
 ---
 
 ## 5. Testnet Release Candidate Gate
 
-Testnet Release Candidate can be considered after:
+Testnet Release Candidate Lock v1 result:
 
 ```text
 Subdomain Surface Behavior v1 passes. ✅
@@ -148,14 +152,18 @@ Full Testnet Mutation QA passes. ✅
 Worker Jobs reward round QA is documented. ✅
 Full Testnet E2E QA is documented. ✅
 No critical blockers remain. ✅
-Current docs and runbooks match release-candidate behavior.
+Pre-RC health checks pass. ✅
+Base Sepolia read-check passes. ✅
+Ethereum Sepolia read-check passes. ✅
+Browser sanity checks pass. ✅
+Testnet Release Candidate Lock v1 passes. ✅
 ```
 
 ---
 
 ## 6. Mainnet Gate
 
-Mainnet deployment must wait until Testnet Release Candidate.
+Mainnet deployment must wait until explicit approval after Testnet Release Candidate Lock v1.
 
 Mainnet remains:
 

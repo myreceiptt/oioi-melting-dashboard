@@ -265,31 +265,36 @@ Repeat on Ethereum Sepolia.
 
 ## 11. Testnet Release Candidate Gate
 
-Required:
+Required and completed for Testnet Release Candidate Lock v1:
 
 ```text
-all contract tests pass
-all read-checks pass
-all stage browser tests pass
-full browser E2E pass on both testnets
-admin procedures documented
-indexer/reward procedures documented
-docs updated
-no critical blocker
+all contract tests pass ✅
+frontend lint passes ✅
+build passes ✅
+compile passes ✅
+tests pass ✅
+Base Sepolia read-check passes ✅
+Ethereum Sepolia read-check passes ✅
+all stage browser tests pass ✅
+full browser E2E pass on both testnets ✅
+worker/boundary reward flow passes ✅
+docs updated ✅
+no critical blocker ✅
 ```
 
 Current status:
 
 ```text
-Testnet Release Candidate is not complete yet.
-Current next stage is Testnet Release Candidate preparation / RC lock.
+Testnet Release Candidate Lock v1 is complete and passed.
+Canonical RC lock report: docs/qa/TESTNET_RELEASE_CANDIDATE_LOCK_V1.md
+Current next stage is Mainnet deployment planning / approval gate.
 ```
 
 ---
 
 ## 12. Mainnet Testing
 
-Mainnet deployment is deferred until Testnet Release Candidate.
+Mainnet deployment is deferred until explicit approval after Testnet Release Candidate Lock v1.
 
 After mainnet deployment:
 

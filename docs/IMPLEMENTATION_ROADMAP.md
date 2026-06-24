@@ -1,11 +1,11 @@
 # OiOi Melting Dashboard — Implementation Roadmap v3
 
-This roadmap reflects the current state after Sepolia contract validation, frontend implementation, Supabase reward pipeline implementation, GitHub Actions worker setup, BASE/dETH app shell work, Subdomain Surface Behavior v1, and Full Testnet E2E QA v1.
+This roadmap reflects the current state after Sepolia contract validation, frontend implementation, Supabase reward pipeline implementation, GitHub Actions worker setup, BASE/dETH app shell work, Subdomain Surface Behavior v1, Full Testnet E2E QA v1, and Testnet Release Candidate Lock v1.
 
 Current execution path:
 
 ```text
-Testnet Release Candidate preparation / RC lock
+Mainnet deployment planning / approval gate
 → Mainnet deployment
 → Mainnet env wiring
 → Mainnet read-only QA
@@ -239,10 +239,10 @@ dashboard color pass
 admin color pass
 ```
 
-Remaining:
+Current next stage:
 
 ```text
-Testnet Release Candidate preparation / RC lock
+Mainnet deployment planning / approval gate
 ```
 
 ---
@@ -276,7 +276,7 @@ Production-intended Sepolia rehearsal domain QA passed for softstaking.endhonesa
 
 ## Phase 11 — Testnet Release Candidate
 
-Status: Ready for preparation / RC lock.
+Status: Done / PASS.
 
 Done criteria:
 
@@ -287,8 +287,11 @@ Full Testnet Mutation QA passes ✅
 Worker Jobs reward round QA documented ✅
 Full Testnet E2E QA documented ✅
 no critical blockers ✅
-RC lock review pending
-runbook alignment pending
+pre-RC health checks passed ✅
+Base Sepolia read-check passed ✅
+Ethereum Sepolia read-check passed ✅
+browser sanity checks passed ✅
+Testnet Release Candidate Lock v1 documented ✅
 ```
 
 ---
@@ -322,10 +325,10 @@ controlled opening
 ## Current Next Step
 
 ```text
-Testnet Release Candidate preparation / RC lock
+Mainnet deployment planning / approval gate
 ```
 
-Do not proceed to mainnet deployment until Testnet Release Candidate is complete unless a separate explicit strategic override is made.
+Do not proceed to mainnet deployment until explicit approval is given after Testnet Release Candidate Lock v1.
 
 ---
 

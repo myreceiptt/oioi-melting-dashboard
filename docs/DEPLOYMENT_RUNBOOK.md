@@ -9,7 +9,8 @@ Base Sepolia completed.
 Ethereum Sepolia completed.
 Frontend Sepolia MVP completed.
 Mainnet deployment preparation passed.
-Mainnet deployment is intentionally deferred until Testnet Release Candidate.
+Testnet Release Candidate Lock v1 passed.
+Mainnet deployment is intentionally deferred until explicit approval.
 verify:args is post-deployment because it requires deployment records.
 ```
 
@@ -38,7 +39,7 @@ verify:args is post-deployment because it requires deployment records.
 
 ## 0. Golden Rules
 
-Do not deploy mainnet before Testnet Release Candidate unless there is an explicit strategic override.
+Do not deploy mainnet before explicit approval after Testnet Release Candidate Lock v1.
 
 Do not enable mint immediately after deployment.
 
@@ -234,6 +235,7 @@ ethereumMainnet preflight: PASS
 deployer funded: PASS
 whitelist root finalized
 deploy config reviewed
+Testnet Release Candidate Lock v1: PASS
 ```
 
 Locked whitelist root:
@@ -252,9 +254,9 @@ Clean whitelist count:
 
 ## 9. Mainnet Deployment Policy
 
-Mainnet deployment is ready from a contract-preparation perspective but deferred until Testnet Release Candidate.
+Mainnet deployment is ready from a contract-preparation perspective but deferred until explicit approval after Testnet Release Candidate Lock v1.
 
-If an explicit strategic override is made, mainnet deployment may proceed with all mint phases OFF and no public launch.
+If explicit approval is given, mainnet deployment may proceed with all mint phases OFF and no public launch.
 
 ---
 

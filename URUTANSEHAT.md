@@ -317,7 +317,7 @@
     - ✅ Home/Dashboard/Admin links from dedicated mint subdomains point to `https://softstaking.endhonesa.com/...`.
     - ✅ Production-intended Sepolia rehearsal domain QA passed for all 7 domains.
 
-22. Testnet Release Candidate — READY FOR PREPARATION / RC LOCK
+22. Testnet Release Candidate Lock v1 — DONE / PASS
     - ✅ Core testnet flows pass.
     - ✅ Reward round flow pass.
     - ✅ Worker/indexer flow pass.
@@ -327,11 +327,14 @@
     - ✅ Full Testnet E2E QA v1 pass.
     - ✅ No blockers observed.
     - ✅ QA report documented in `docs/qa/FULL_TESTNET_E2E_QA_V1.md`.
-    - 🔜 RC lock review.
-    - 🔜 Runbook final.
-    - 🔜 Admin procedures documented.
-    - 🔜 Indexer/reward procedures documented.
-    - 🔜 Supabase/reward operation documented.
+    - ✅ Pre-RC health checks pass.
+    - ✅ Base Sepolia read-check pass.
+    - ✅ Ethereum Sepolia read-check pass.
+    - ✅ Browser sanity checks pass.
+    - ✅ GitHub Actions boundary worker status pass.
+    - ✅ RC lock documented in `docs/qa/TESTNET_RELEASE_CANDIDATE_LOCK_V1.md`.
+    - ✅ Testnet release candidate baseline locked.
+    - 🔜 Mainnet deployment planning / approval gate.
 
 23. Mainnet Deployment — READY BUT DEFERRED
     - ✅ Mainnet preparation mostly passed.
@@ -339,7 +342,7 @@
     - ✅ Preflight passed.
     - ✅ Whitelist root final.
     - ✅ Deployer funded.
-    - ⏸ Deferred until Testnet Release Candidate.
+    - ⏸ Deferred until explicit approval after Testnet Release Candidate Lock v1.
 
 24. Mainnet Env Wiring — NOT STARTED
     - 🔜 Fill mainnet contract env.

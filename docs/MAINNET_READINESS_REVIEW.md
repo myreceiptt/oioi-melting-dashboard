@@ -7,7 +7,7 @@ Mainnet deployment must not be treated as launch readiness.
 Current project decision:
 
 ```text
-Mainnet deployment is ready from contract-preparation perspective, but intentionally deferred until Testnet Release Candidate.
+Mainnet deployment is ready from contract-preparation perspective, but intentionally deferred until explicit approval after Testnet Release Candidate Lock v1.
 ```
 
 ---
@@ -48,6 +48,7 @@ Mainnet deployment is ready from contract-preparation perspective, but intention
 - Full Testnet Mutation QA v1 passed.
 - Full Testnet E2E QA v1 passed.
 - Worker jobs / boundary reward flow passed through GitHub Actions.
+- Testnet Release Candidate Lock v1 passed.
 - Mainnet preparation checks passed:
   - repo clean
   - build/compile/test pass
@@ -61,14 +62,16 @@ Mainnet deployment is ready from contract-preparation perspective, but intention
 ### Locked / Deferred
 
 ```text
-Mainnet deployment is deferred until Testnet Release Candidate.
+Mainnet deployment is deferred until explicit approval after Testnet Release Candidate Lock v1.
 ```
 
-### Pending Before Testnet Release Candidate
+### Pending Before Mainnet Deployment
 
-- Testnet Release Candidate preparation / RC lock.
-- Final runbook alignment.
-- Admin, indexer/reward, and Supabase/reward operating procedures finalized.
+- Explicit mainnet approval.
+- Mainnet deployment planning.
+- Mainnet env wiring.
+- Mainnet read-only QA.
+- Controlled mainnet opening plan execution.
 
 ---
 
@@ -92,7 +95,7 @@ Public launch requires:
 
 ## 3. Golden Rules
 
-Do not deploy mainnet before Testnet Release Candidate preparation / RC lock is complete and explicitly approved.
+Do not deploy mainnet before explicit approval after Testnet Release Candidate Lock v1.
 
 Do not deploy mainnet from the wrong wallet.
 
@@ -289,9 +292,9 @@ Review:
 
 ## 10. Mainnet Deployment Gate
 
-Mainnet deployment may proceed only after Testnet Release Candidate unless an explicit strategic override is made.
+Mainnet deployment may proceed only after explicit approval following Testnet Release Candidate Lock v1.
 
-If override is made, mint phases must remain OFF and public frontend must not open.
+If approval is given, mint phases must remain OFF and public frontend must not open.
 
 ---
 
@@ -412,7 +415,7 @@ Recommended order:
 ```text
 CONTRACT DEPLOYMENT PREPARATION: PASSED
 TESTNET PRODUCT VALIDATION: FULL E2E QA PASSED
-TESTNET RELEASE CANDIDATE PREPARATION / RC LOCK: READY TO START
+TESTNET RELEASE CANDIDATE LOCK V1: PASSED
 MAINNET DEPLOYMENT: READY BUT DEFERRED
 PUBLIC LAUNCH: NOT READY
 MAINNET REWARD CLAIM LAUNCH: NOT READY
