@@ -57,6 +57,12 @@ Do not treat the approval gate document as approval by itself.
 
 Do not launch mainnet reward claim until the mainnet indexer/reward/proof flow is implemented/configured, run, verified, and approved.
 
+Metadata strategy approval is tracked in:
+
+```text
+docs/mainnet/METADATA_STRATEGY_APPROVAL_DECISION_V1.md
+```
+
 ---
 
 ## 1. Required `.env` Values

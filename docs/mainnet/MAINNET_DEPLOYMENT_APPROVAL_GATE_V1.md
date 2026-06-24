@@ -91,6 +91,12 @@ wait for final revealed metadata before deployment
 
 Stop if the metadata strategy is not explicitly approved.
 
+Canonical metadata decision-prep document:
+
+```text
+docs/mainnet/METADATA_STRATEGY_APPROVAL_DECISION_V1.md
+```
+
 ### Mainnet Reward / Indexer / Proof Pipeline
 
 Mainnet reward claim is not production-ready at this gate.

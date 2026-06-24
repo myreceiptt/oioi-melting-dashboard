@@ -112,6 +112,8 @@ Do not treat reward claim as ready for mainnet until production mainnet indexer/
 
 Do not lock metadata while revealed metadata is pending.
 
+Metadata strategy must be explicitly approved through `docs/mainnet/METADATA_STRATEGY_APPROVAL_DECISION_V1.md` before deployment.
+
 Do not delete or overwrite mainnet deployment records casually.
 
 Do not treat `verify:args` as pre-deployment for a network that has no deployment record yet.
