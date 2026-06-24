@@ -298,7 +298,7 @@ Testnet Release Candidate Lock v1 documented ✅
 
 ## Phase 12 — Mainnet Deployment
 
-Status: Ready but deferred; not yet approved.
+Status: Approved for contract deployment only; not started.
 
 Preparation already passed:
 
@@ -314,7 +314,6 @@ whitelist finalized
 Still not started:
 
 ```text
-mainnet deployment authorization
 actual mainnet deployment
 mainnet env wiring
 mainnet read-only QA
@@ -334,7 +333,7 @@ mainnet reward claim remains not production-ready
 
 ## Phase 13 — Mainnet Deployment Approval Gate v1
 
-Status: Ready with notes / not approved.
+Status: Approved for Base Mainnet + Ethereum Mainnet contract deployment only.
 
 Documented in:
 
@@ -346,10 +345,11 @@ Gate status:
 
 ```text
 MAINNET DEPLOYMENT APPROVAL GATE V1: READY WITH NOTES
-DEPLOYMENT AUTHORIZATION: NOT YET APPROVED
-MAINNET DEPLOYMENT: NOT STARTED
-PUBLIC LAUNCH: NOT READY
-MAINNET REWARD CLAIM LAUNCH: NOT READY
+DEPLOYMENT AUTHORIZATION: APPROVED FOR CONTRACT DEPLOYMENT ONLY
+APPROVED DEPLOYMENT SCOPE: BASE MAINNET + ETHEREUM MAINNET
+MAINNET DEPLOYMENT: APPROVED / NOT STARTED
+PUBLIC LAUNCH: NOT READY / NOT APPROVED
+MAINNET REWARD CLAIM LAUNCH: NOT READY / NOT APPROVED
 ```
 
 Final deployment approval form:

@@ -335,33 +335,36 @@
     - ✅ RC lock documented in `docs/qa/TESTNET_RELEASE_CANDIDATE_LOCK_V1.md`.
     - ✅ Testnet release candidate baseline locked.
     - ✅ Mainnet Deployment Approval Gate v1 documented in `docs/mainnet/MAINNET_DEPLOYMENT_APPROVAL_GATE_V1.md`.
-    - 🔜 Explicit mainnet deployment approval decision.
+    - ✅ Explicit mainnet deployment approval decision recorded for Base Mainnet + Ethereum Mainnet.
 
-23. Mainnet Deployment Approval Gate v1 — READY WITH NOTES / NOT APPROVED
+23. Mainnet Deployment Approval Gate v1 — READY WITH NOTES / DEPLOYMENT APPROVED FOR CONTRACTS ONLY
     - ✅ Mainnet approval gate review documented.
     - ✅ Mainnet Deployment Approval Decision v1 document prepared.
+    - ✅ Mainnet Deployment Approval Decision v1 approved for Base Mainnet + Ethereum Mainnet contract deployment only.
     - ✅ Pre-mainnet safe commands listed.
     - ✅ Deployment command sequence documented but marked do-not-run until approval.
     - ✅ Post-deployment verification sequence documented.
     - ✅ Mainnet env wiring sequence documented.
     - ✅ Controlled opening sequence documented.
     - ✅ Stop conditions documented.
-    - ⏸ Deployment authorization not yet approved.
-    - ⏸ Mainnet Deployment Approval Decision v1 not yet approved.
+    - ✅ Deployment authorization approved for contract deployment only.
+    - ⏸ Mainnet deployment commands not yet run.
     - ⏸ Public launch not ready.
     - ⏸ Mainnet reward claim not production-ready.
     - ✅ Metadata strategy approved as Option A for contract deployment planning only.
     - ⏸ Mainnet deployment still requires separate explicit approval.
     - ⏸ Mainnet reward/indexer/proof flow requires post-deployment implementation/configuration and validation.
 
-24. Mainnet Deployment — READY BUT DEFERRED
+24. Mainnet Deployment — APPROVED FOR CONTRACT DEPLOYMENT ONLY / NOT STARTED
     - ✅ Mainnet preparation mostly passed.
     - ✅ RPC verified.
     - ✅ Preflight passed.
     - ✅ Whitelist root final.
     - ✅ Deployer funded.
-    - ⏸ Deferred until explicit approval after Mainnet Deployment Approval Gate v1.
+    - ✅ Explicit approval recorded for Base Mainnet + Ethereum Mainnet contract deployment only.
     - ⏸ Not started.
+    - ⏸ Public launch not approved.
+    - ⏸ Mainnet reward claim launch not approved.
 
 25. Mainnet Env Wiring — NOT STARTED
     - 🔜 Fill mainnet contract env.

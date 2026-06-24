@@ -7,7 +7,7 @@ Mainnet deployment must not be treated as launch readiness.
 Current project decision:
 
 ```text
-Mainnet deployment is ready from contract-preparation perspective, but intentionally deferred until explicit approval after Mainnet Deployment Approval Gate v1.
+Mainnet deployment is approved for Base Mainnet + Ethereum Mainnet contract deployment only after Mainnet Deployment Approval Decision v1.
 ```
 
 ---
@@ -63,13 +63,13 @@ Mainnet deployment is ready from contract-preparation perspective, but intention
 ### Locked / Deferred
 
 ```text
-Mainnet deployment is deferred until explicit approval after Mainnet Deployment Approval Gate v1.
+Mainnet deployment is approved for contract deployment only, but deployment commands have not been run yet.
 ```
 
 ### Pending Before Mainnet Deployment
 
-- Explicit mainnet approval.
-- Mainnet Deployment Approval Decision v1.
+- Explicit mainnet approval recorded for Base Mainnet + Ethereum Mainnet contract deployment only.
+- Mainnet Deployment Approval Decision v1 approved.
 - Metadata strategy approved as Option A for contract deployment planning only.
 - Mainnet deployment authorization.
 - Mainnet env wiring.
@@ -304,9 +304,9 @@ Review:
 
 ## 10. Mainnet Deployment Gate
 
-Mainnet deployment may proceed only after explicit approval following Mainnet Deployment Approval Gate v1.
+Mainnet deployment is approved for Base Mainnet + Ethereum Mainnet contract deployment only.
 
-If approval is given, mint phases must remain OFF and public frontend must not open.
+Mint phases must remain OFF and public frontend must not open.
 
 Mainnet reward claim must remain unavailable until the mainnet reward/indexer/proof flow is implemented/configured, run, verified, and explicitly approved.
 
@@ -442,11 +442,13 @@ Recommended order:
 CONTRACT DEPLOYMENT PREPARATION: PASSED
 TESTNET PRODUCT VALIDATION: FULL E2E QA PASSED
 TESTNET RELEASE CANDIDATE LOCK V1: PASSED
-MAINNET DEPLOYMENT: READY BUT DEFERRED
-MAINNET DEPLOYMENT AUTHORIZATION: NOT YET APPROVED
+MAINNET DEPLOYMENT APPROVAL DECISION V1: APPROVED
+APPROVED DEPLOYMENT SCOPE: BASE MAINNET + ETHEREUM MAINNET
+MAINNET DEPLOYMENT: APPROVED / NOT STARTED
+MAINNET DEPLOYMENT AUTHORIZATION: APPROVED FOR CONTRACT DEPLOYMENT ONLY
 MAINNET DEPLOYMENT STARTED: NO
-PUBLIC LAUNCH: NOT READY
-MAINNET REWARD CLAIM LAUNCH: NOT READY
+PUBLIC LAUNCH: NOT READY / NOT APPROVED
+MAINNET REWARD CLAIM LAUNCH: NOT READY / NOT APPROVED
 ```
 
 ---

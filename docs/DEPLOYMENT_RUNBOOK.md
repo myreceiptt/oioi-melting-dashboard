@@ -10,7 +10,7 @@ Ethereum Sepolia completed.
 Frontend Sepolia MVP completed.
 Mainnet deployment preparation passed.
 Testnet Release Candidate Lock v1 passed.
-Mainnet deployment is intentionally deferred until explicit approval after Mainnet Deployment Approval Gate v1.
+Mainnet deployment is approved for Base Mainnet + Ethereum Mainnet contract deployment only after Mainnet Deployment Approval Decision v1.
 verify:args is post-deployment because it requires deployment records.
 ```
 
@@ -39,7 +39,7 @@ verify:args is post-deployment because it requires deployment records.
 
 ## 0. Golden Rules
 
-Do not deploy mainnet before explicit approval after Mainnet Deployment Approval Gate v1.
+Do not deploy mainnet before explicit approval after Mainnet Deployment Approval Gate v1 and Mainnet Deployment Approval Decision v1.
 
 Do not enable mint immediately after deployment.
 
@@ -55,7 +55,7 @@ Do not “fix forward” on mainnet. Stop, inspect, and diagnose.
 
 Do not treat the approval gate document as approval by itself.
 
-Do not run mainnet deployment commands until `docs/mainnet/MAINNET_DEPLOYMENT_APPROVAL_DECISION_V1.md` is updated to approved.
+Mainnet deployment commands are approved only for Base Mainnet + Ethereum Mainnet contract deployment. Public launch, mainnet env wiring, reward claim launch, and metadata lock are not approved.
 
 Do not launch mainnet reward claim until the mainnet indexer/reward/proof flow is implemented/configured, run, verified, and approved.
 
@@ -65,7 +65,7 @@ Metadata strategy is approved as Option A for contract deployment planning only 
 docs/mainnet/METADATA_STRATEGY_APPROVAL_DECISION_V1.md
 ```
 
-This metadata approval does not authorize mainnet deployment. Mint phases must remain OFF, metadata must remain unlocked, and `lockMetadata()` must not be called until final Melting/Amanda revealed metadata is approved.
+Mint phases must remain OFF, metadata must remain unlocked, and `lockMetadata()` must not be called until final Melting/Amanda revealed metadata is approved.
 
 ---
 
@@ -250,7 +250,8 @@ deployer funded: PASS
 whitelist root finalized
 deploy config reviewed
 Testnet Release Candidate Lock v1: PASS
-Mainnet Deployment Approval Gate v1: READY WITH NOTES / NOT APPROVED
+Mainnet Deployment Approval Gate v1: READY WITH NOTES
+Mainnet Deployment Approval Decision v1: APPROVED FOR BASE MAINNET + ETHEREUM MAINNET CONTRACT DEPLOYMENT ONLY
 ```
 
 Locked whitelist root:
@@ -269,15 +270,15 @@ Clean whitelist count:
 
 ## 9. Mainnet Deployment Policy
 
-Mainnet deployment is ready from a contract-preparation perspective but deferred until explicit approval after Mainnet Deployment Approval Gate v1.
+Mainnet deployment is approved for Base Mainnet + Ethereum Mainnet contract deployment only.
 
-If explicit approval is given, mainnet deployment may proceed with all mint phases OFF and no public launch.
+Deployment may proceed with all mint phases OFF and no public launch.
 
 Approval-sensitive caveats:
 
 ```text
-metadata strategy is approved as Option A for contract deployment planning only
-pending revealed URI placeholders may be deployed only after separate explicit mainnet deployment approval
+metadata strategy is approved as Option A
+pending revealed URI placeholders may be deployed for the approved contract deployment scope
 mint phases must remain OFF
 metadata must remain unlocked until final metadata is approved
 final metadata update/reveal/lock remains a later approval
@@ -301,7 +302,7 @@ docs/mainnet/MAINNET_DEPLOYMENT_APPROVAL_DECISION_V1.md
 
 ## 10. Base Mainnet Deployment Order
 
-Do not run until explicit approval is given.
+Approved for contract deployment only. Stop if any stop condition occurs.
 
 ```bash
 npm run deploy:preflight -- baseMainnet
@@ -337,7 +338,7 @@ Record Base mainnet indexer FROM_BLOCK manually from explorer.
 
 ## 11. Ethereum Mainnet Deployment Order
 
-Do not run until explicit approval is given.
+Approved for contract deployment only. Stop if any stop condition occurs.
 
 ```bash
 npm run deploy:preflight -- ethereumMainnet

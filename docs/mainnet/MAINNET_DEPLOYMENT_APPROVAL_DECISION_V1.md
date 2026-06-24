@@ -5,16 +5,17 @@ Date: 2026-06-25
 Status:
 
 ```text
-MAINNET DEPLOYMENT APPROVAL DECISION V1: NOT YET APPROVED
-MAINNET DEPLOYMENT: NOT STARTED
-DEPLOYMENT AUTHORIZATION: NOT YET APPROVED
-PUBLIC LAUNCH: NOT READY
-MAINNET REWARD CLAIM LAUNCH: NOT READY
+MAINNET DEPLOYMENT APPROVAL DECISION V1: APPROVED
+APPROVED DEPLOYMENT SCOPE: BASE MAINNET + ETHEREUM MAINNET
+MAINNET DEPLOYMENT: APPROVED / NOT STARTED
+DEPLOYMENT AUTHORIZATION: APPROVED FOR CONTRACT DEPLOYMENT ONLY
+PUBLIC LAUNCH: NOT READY / NOT APPROVED
+MAINNET REWARD CLAIM LAUNCH: NOT READY / NOT APPROVED
 ```
 
 This document is the final approval form before any mainnet deployment command may be run.
 
-It does not approve deployment in its current state.
+It approves contract deployment only for the selected scope. It does not approve public launch, mainnet reward claim launch, metadata lock, or mainnet env wiring.
 
 ---
 
@@ -52,7 +53,6 @@ no lockMetadata() before final Melting/Amanda metadata approval
 ## 3. Still Not Approved
 
 ```text
-Mainnet deployment transaction: NOT YET APPROVED
 Mainnet env wiring: NOT YET APPROVED
 Public launch: NOT APPROVED
 Mainnet reward claim launch: NOT APPROVED
@@ -67,7 +67,7 @@ Metadata lock: NOT APPROVED
 Deployment scope:
 [ ] Base Mainnet only
 [ ] Ethereum Mainnet only
-[ ] Base Mainnet + Ethereum Mainnet
+[x] Base Mainnet + Ethereum Mainnet
 [ ] Defer deployment
 ```
 
@@ -76,15 +76,15 @@ Deployment scope:
 ## 5. Required Owner Confirmations
 
 ```text
-[ ] I approve running mainnet deployment commands.
-[ ] I confirm this is contract deployment only, not public launch.
-[ ] I confirm mint phases must remain OFF after deployment.
-[ ] I confirm metadata must remain unlocked.
-[ ] I confirm `lockMetadata()` must not be called.
-[ ] I confirm final Melting/Amanda revealed metadata remains a later gate.
-[ ] I confirm mainnet reward claim remains unavailable.
-[ ] I confirm mainnet indexer/reward/proof pipeline is not production-ready yet.
-[ ] I confirm deployment must stop if any stop condition occurs.
+[x] I approve running mainnet deployment commands.
+[x] I confirm this is contract deployment only, not public launch.
+[x] I confirm mint phases must remain OFF after deployment.
+[x] I confirm metadata must remain unlocked.
+[x] I confirm `lockMetadata()` must not be called.
+[x] I confirm final Melting/Amanda revealed metadata remains a later gate.
+[x] I confirm mainnet reward claim remains unavailable.
+[x] I confirm mainnet indexer/reward/proof pipeline is not production-ready yet.
+[x] I confirm deployment must stop if any stop condition occurs.
 ```
 
 ---
@@ -94,23 +94,44 @@ Deployment scope:
 No secrets should be written in this document.
 
 ```text
-[ ] Deployer wallet confirmed.
-[ ] Treasury wallet confirmed.
-[ ] Royalty receiver confirmed.
-[ ] Base Mainnet $OiOi token confirmed.
-[ ] Ethereum Mainnet $OiOi token confirmed.
-[ ] Collection names/symbols confirmed.
-[ ] Max supplies confirmed.
-[ ] Mint prices confirmed.
-[ ] Whitelist root confirmed.
-[ ] Metadata placeholder strategy confirmed.
-[ ] RPC chain IDs confirmed.
-[ ] Deployer balances confirmed.
+[x] Deployer wallet confirmed: 0x29bF68E3969E0b6686ea55B7C48241ba3f6B9bA0
+[x] Treasury wallet confirmed.
+[x] Royalty receiver confirmed.
+[x] Base Mainnet $OiOi token confirmed: 0xba0032620d88D9b16752CbDE75593c080C3d38de
+[x] Ethereum Mainnet $OiOi token confirmed: 0x1C696882b93d7241d09D55f52693cAD367A5bEaf
+[x] Collection names/symbols confirmed.
+[x] Max supplies confirmed.
+[x] Mint prices confirmed.
+[x] Whitelist root confirmed: 0x0b2504d3e2d95c57e039aea1c027015bc0ecf39c3ad14424764faa696c3fcce9
+[x] Metadata placeholder strategy confirmed.
+[x] RPC chain IDs confirmed: Base 8453, Ethereum 1.
+[x] Deployer balances confirmed by preflight.
 ```
 
 ---
 
-## 7. Safe Pre-Deployment Commands
+## 7. Pre-Approval Verification Result
+
+```text
+SAFE PRE-DEPLOYMENT VERIFICATION: PASS
+
+git status / pull: PASS
+lint: PASS
+build: PASS
+compile: PASS
+test: PASS — 62 passing
+baseMainnet config: PASS
+ethereumMainnet config: PASS
+baseMainnet preflight: PASS
+ethereumMainnet preflight: PASS
+deployer match: PASS
+RPC chain ID: PASS
+existing deployment records: none / fresh deployment path
+```
+
+---
+
+## 8. Safe Pre-Deployment Commands
 
 These commands are safe / no deploy:
 
@@ -130,12 +151,15 @@ Stop if any safe command fails unexpectedly.
 
 ---
 
-## 8. Deployment Commands
+## 9. Deployment Commands
 
-Do not run these commands now.
+Approved for contract deployment only within the selected scope.
 
 ```text
-DO NOT RUN UNTIL THIS DOCUMENT IS UPDATED TO APPROVED
+APPROVED FOR CONTRACT DEPLOYMENT ONLY
+PUBLIC LAUNCH IS NOT APPROVED
+MAINNET REWARD CLAIM LAUNCH IS NOT APPROVED
+STOP IF ANY STOP CONDITION OCCURS
 ```
 
 ### Base Mainnet
@@ -168,7 +192,7 @@ npm run deploy:reward-distributor -- --network ethereumMainnet
 
 ---
 
-## 9. Stop Conditions
+## 10. Stop Conditions
 
 Stop immediately if any of these occur:
 
@@ -193,32 +217,33 @@ Do not fix forward on mainnet. Stop, inspect, and decide.
 
 ---
 
-## 10. Approval Block
+## 11. Approval Block
 
 ```text
-MAINNET DEPLOYMENT APPROVAL: NOT YET APPROVED
+MAINNET DEPLOYMENT APPROVAL: APPROVED
 
 Approved deployment scope:
 [ ] Base Mainnet only
 [ ] Ethereum Mainnet only
-[ ] Base Mainnet + Ethereum Mainnet
+[x] Base Mainnet + Ethereum Mainnet
 [ ] Defer deployment
 
-Approved by:
-Date:
-Notes:
+Approved by: Prof. NOTA
+Date: 2026-06-25
+Notes: Approved for contract deployment only, not public launch. Mint phases must remain OFF after deployment. Metadata must remain unlocked. lockMetadata() must not be called. Public launch is not approved. Mainnet reward claim launch is not approved. Stop immediately if any stop condition occurs.
 ```
 
 ---
 
-## 11. Final Status
+## 12. Final Status
 
 ```text
-MAINNET DEPLOYMENT APPROVAL DECISION V1: NOT YET APPROVED
-MAINNET DEPLOYMENT: NOT STARTED
-DEPLOYMENT AUTHORIZATION: NOT YET APPROVED
-PUBLIC LAUNCH: NOT READY
-MAINNET REWARD CLAIM LAUNCH: NOT READY
+MAINNET DEPLOYMENT APPROVAL DECISION V1: APPROVED
+APPROVED DEPLOYMENT SCOPE: BASE MAINNET + ETHEREUM MAINNET
+MAINNET DEPLOYMENT: APPROVED / NOT STARTED
+DEPLOYMENT AUTHORIZATION: APPROVED FOR CONTRACT DEPLOYMENT ONLY
+PUBLIC LAUNCH: NOT READY / NOT APPROVED
+MAINNET REWARD CLAIM LAUNCH: NOT READY / NOT APPROVED
 ```
 
 P.S. Read this document freely for information and guidance. Do not redistribute or restate—no quotes, summaries, paraphrases, or derivatives—without prior written permission from [**Prof. NOTA**](https://nota.endhonesa.com/). Sharing the link is allowed. So, share the link, not the text. Do not discuss or re-tell the contents in any form—written, spoken, or recorded—without prior written permission.

@@ -6,10 +6,11 @@ Status:
 
 ```text
 MAINNET DEPLOYMENT APPROVAL GATE V1: READY WITH NOTES
-DEPLOYMENT AUTHORIZATION: NOT YET APPROVED
-MAINNET DEPLOYMENT: NOT STARTED
-PUBLIC LAUNCH: NOT READY
-MAINNET REWARD CLAIM LAUNCH: NOT READY
+DEPLOYMENT AUTHORIZATION: APPROVED FOR CONTRACT DEPLOYMENT ONLY
+APPROVED DEPLOYMENT SCOPE: BASE MAINNET + ETHEREUM MAINNET
+MAINNET DEPLOYMENT: APPROVED / NOT STARTED
+PUBLIC LAUNCH: NOT READY / NOT APPROVED
+MAINNET REWARD CLAIM LAUNCH: NOT READY / NOT APPROVED
 ```
 
 This document records the approval gate before any Base Mainnet or Ethereum Mainnet deployment transaction.
@@ -61,11 +62,11 @@ none observed
 Required before first mainnet transaction:
 
 ```text
-explicit mainnet deployment approval
+explicit mainnet deployment approval: APPROVED
 metadata strategy approved as Option A
 deployer / treasury / royalty confirmation
 mainnet $OiOi token confirmation
-final no-go / go decision
+final no-go / go decision: APPROVED FOR CONTRACT DEPLOYMENT ONLY
 ```
 
 Final deployment approval form:
@@ -179,12 +180,11 @@ Stop if any command fails unexpectedly.
 
 ## 6. Mainnet Deployment Commands
 
-Do not run these commands until explicit approval is given.
+These commands are approved for Base Mainnet + Ethereum Mainnet contract deployment only. Stop if any stop condition occurs.
 
 ### Base Mainnet
 
 ```bash
-# DO NOT RUN UNTIL EXPLICIT APPROVAL
 npm run deploy:preflight -- baseMainnet
 npm run deploy:roty -- --network baseMainnet
 npm run deploy:staking -- --network baseMainnet
@@ -199,7 +199,6 @@ npm run deploy:reward-distributor -- --network baseMainnet
 ### Ethereum Mainnet
 
 ```bash
-# DO NOT RUN UNTIL EXPLICIT APPROVAL
 npm run deploy:preflight -- ethereumMainnet
 npm run deploy:roty -- --network ethereumMainnet
 npm run deploy:staking -- --network ethereumMainnet
@@ -326,7 +325,7 @@ deployer mismatch
 RPC chain ID mismatch
 insufficient ETH / Base ETH
 preflight failure
-metadata strategy not approved
+metadata strategy mismatch
 deployment transaction failure
 inconsistent deployment record
 unexpected verification failure
@@ -345,10 +344,11 @@ Do not fix forward on mainnet. Stop, inspect, and decide.
 
 ```text
 MAINNET DEPLOYMENT APPROVAL GATE V1: READY WITH NOTES
-DEPLOYMENT AUTHORIZATION: NOT YET APPROVED
-MAINNET DEPLOYMENT: NOT STARTED
-PUBLIC LAUNCH: NOT READY
-MAINNET REWARD CLAIM LAUNCH: NOT READY
+DEPLOYMENT AUTHORIZATION: APPROVED FOR CONTRACT DEPLOYMENT ONLY
+APPROVED DEPLOYMENT SCOPE: BASE MAINNET + ETHEREUM MAINNET
+MAINNET DEPLOYMENT: APPROVED / NOT STARTED
+PUBLIC LAUNCH: NOT READY / NOT APPROVED
+MAINNET REWARD CLAIM LAUNCH: NOT READY / NOT APPROVED
 ```
 
 Mainnet still requires explicit approval before any deployment transaction.
