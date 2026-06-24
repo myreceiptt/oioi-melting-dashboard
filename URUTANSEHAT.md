@@ -348,7 +348,8 @@
     - ⏸ Deployment authorization not yet approved.
     - ⏸ Public launch not ready.
     - ⏸ Mainnet reward claim not production-ready.
-    - ⏸ Metadata strategy requires explicit approval before deployment.
+    - ✅ Metadata strategy approved as Option A for contract deployment planning only.
+    - ⏸ Mainnet deployment still requires separate explicit approval.
     - ⏸ Mainnet reward/indexer/proof flow requires post-deployment implementation/configuration and validation.
 
 24. Mainnet Deployment — READY BUT DEFERRED

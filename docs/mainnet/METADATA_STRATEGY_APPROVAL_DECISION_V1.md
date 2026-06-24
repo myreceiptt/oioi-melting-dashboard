@@ -5,15 +5,19 @@ Date: 2026-06-24
 Status:
 
 ```text
-METADATA STRATEGY APPROVAL: NOT YET APPROVED
+METADATA STRATEGY APPROVAL: APPROVED
+SELECTED OPTION: OPTION A — DEPLOY WITH PENDING REVEALED URI PLACEHOLDERS
 MAINNET DEPLOYMENT: NOT STARTED
 DEPLOYMENT AUTHORIZATION: NOT YET APPROVED
 PUBLIC LAUNCH: NOT READY
+MAINNET REWARD CLAIM LAUNCH: NOT READY
 ```
 
-This document prepares the metadata decision that must be made before any mainnet deployment transaction.
+This document records the metadata strategy decision before any mainnet deployment transaction.
 
-It does not approve deployment by itself.
+This approval does not authorize mainnet deployment by itself.
+
+Mainnet deployment still requires separate explicit deployment approval.
 
 ---
 
@@ -26,11 +30,12 @@ Testnet Release Candidate Lock v1: PASS
 Mainnet Deployment Approval Gate v1: READY WITH NOTES
 Mainnet deployment: not started
 Deployment authorization: not yet approved
-Metadata strategy: not yet explicitly approved
+Metadata strategy: approved as Option A
 Public launch: not ready
+Mainnet reward claim launch: not ready
 ```
 
-Stop if deployment is proposed before this metadata strategy is explicitly approved.
+Stop if deployment is proposed without separate explicit mainnet deployment approval.
 
 ---
 
@@ -94,18 +99,24 @@ Metadata can still be updated until `lockMetadata()` is called.
 
 ---
 
-## 3. Decision Required
+## 3. Approved Decision
 
-Before mainnet deployment, choose one option.
+Approved option:
+
+```text
+Option A — Deploy with pending revealed URI placeholders
+```
+
+This approval is limited to contract deployment planning. It does not approve mainnet deployment, public launch, metadata lock, reveal, or reward claim launch.
 
 ### Option A — Deploy With Pending Revealed URI Placeholders
 
-This option allows contract deployment while Melting and Amanda final revealed metadata is still pending.
+This option allows a later explicitly approved contract deployment while Melting and Amanda final revealed metadata is still pending.
 
 Rules:
 
 ```text
-allowed only if explicitly approved
+approved for contract deployment planning only
 mint phases must remain OFF
 metadata must remain unlocked
 no public launch
@@ -117,7 +128,7 @@ This option is for contract deployment only.
 
 ### Option B — Wait for Final Melting/Amanda Revealed Metadata Before Deployment
 
-This option delays deployment until final revealed metadata is available.
+This option was not selected for the current approval decision.
 
 Benefits:
 
@@ -140,7 +151,7 @@ slower deployment
 Practical recommendation:
 
 ```text
-Option A is acceptable for contract deployment only if explicitly approved and mint phases remain OFF.
+Option A is acceptable for contract deployment planning only because it has been explicitly approved and mint phases must remain OFF.
 Option B is safer if final Melting/Amanda revealed metadata can be completed soon.
 ```
 
@@ -152,6 +163,8 @@ metadata lock remains a separate later approval
 reward claim remains a separate later approval
 ```
 
+Mainnet deployment remains a separate later approval.
+
 ---
 
 ## 5. Stop Conditions
@@ -159,7 +172,7 @@ reward claim remains a separate later approval
 Stop if:
 
 ```text
-metadata strategy is not explicitly approved
+mainnet deployment is proposed without separate explicit deployment approval
 anyone proposes lockMetadata() before final metadata approval
 public mint/opening is attempted before final metadata strategy is complete
 deployment config differs from the approved metadata decision
@@ -172,15 +185,15 @@ IPFS metadata cannot be accessed reliably
 ## 6. Approval Checkbox
 
 ```text
-METADATA STRATEGY APPROVAL: NOT YET APPROVED
+METADATA STRATEGY APPROVAL: APPROVED
 
 Selected option:
-[ ] Option A — Deploy with pending revealed URI placeholders
+[x] Option A — Deploy with pending revealed URI placeholders
 [ ] Option B — Wait for final revealed metadata before deployment
 
-Approved by:
-Date:
-Notes:
+Approved by: Prof. NOTA
+Date: 2026-06-24
+Notes: Approved for contract deployment planning only. Mint phases must remain OFF, metadata must remain unlocked, public launch remains not ready, and lockMetadata() must not be called until final Melting/Amanda revealed metadata is approved.
 ```
 
 ---
@@ -191,7 +204,7 @@ If Option A is approved:
 
 ```text
 proceed to explicit mainnet deployment approval decision
-deploy with mint phases OFF
+deploy with mint phases OFF only after separate explicit mainnet deployment approval
 keep metadata unlocked
 do not call lockMetadata()
 do not open public mint
@@ -213,10 +226,12 @@ review deployment config again
 ## 8. Final Status
 
 ```text
-METADATA STRATEGY APPROVAL: NOT YET APPROVED
+METADATA STRATEGY APPROVAL: APPROVED
+SELECTED OPTION: OPTION A — DEPLOY WITH PENDING REVEALED URI PLACEHOLDERS
 MAINNET DEPLOYMENT: NOT STARTED
 DEPLOYMENT AUTHORIZATION: NOT YET APPROVED
 PUBLIC LAUNCH: NOT READY
+MAINNET REWARD CLAIM LAUNCH: NOT READY
 ```
 
 P.S. Read this document freely for information and guidance. Do not redistribute or restate—no quotes, summaries, paraphrases, or derivatives—without prior written permission from [**Prof. NOTA**](https://nota.endhonesa.com/). Sharing the link is allowed. So, share the link, not the text. Do not discuss or re-tell the contents in any form—written, spoken, or recorded—without prior written permission.

@@ -69,7 +69,7 @@ Mainnet deployment is deferred until explicit approval after Mainnet Deployment 
 ### Pending Before Mainnet Deployment
 
 - Explicit mainnet approval.
-- Metadata strategy approval.
+- Metadata strategy approved as Option A for contract deployment planning only.
 - Mainnet deployment authorization.
 - Mainnet env wiring.
 - Mainnet read-only QA.
@@ -112,7 +112,9 @@ Do not treat reward claim as ready for mainnet until production mainnet indexer/
 
 Do not lock metadata while revealed metadata is pending.
 
-Metadata strategy must be explicitly approved through `docs/mainnet/METADATA_STRATEGY_APPROVAL_DECISION_V1.md` before deployment.
+Metadata strategy is approved as Option A in `docs/mainnet/METADATA_STRATEGY_APPROVAL_DECISION_V1.md`.
+
+This metadata approval does not authorize mainnet deployment by itself. Mint phases must remain OFF, metadata must remain unlocked, and `lockMetadata()` must not be called until final Melting/Amanda revealed metadata is approved.
 
 Do not delete or overwrite mainnet deployment records casually.
 

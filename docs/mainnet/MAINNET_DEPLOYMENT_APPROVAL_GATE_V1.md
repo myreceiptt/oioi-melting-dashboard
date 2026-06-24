@@ -62,7 +62,7 @@ Required before first mainnet transaction:
 
 ```text
 explicit mainnet deployment approval
-metadata strategy approval
+metadata strategy approved as Option A
 deployer / treasury / royalty confirmation
 mainnet $OiOi token confirmation
 final no-go / go decision
@@ -81,17 +81,29 @@ scripts/deploy/00-config.ts uses ipfs://pending-melting-revealed/
 scripts/deploy/00-config.ts uses ipfs://pending-amanda-revealed/
 ```
 
-Deployment with pending revealed URI values is acceptable only if explicitly approved and metadata remains unlocked until final metadata is ready, checked, revealed, indexed, and approved.
+Deployment with pending revealed URI values is acceptable for contract deployment planning because it has been explicitly approved, and metadata must remain unlocked until final metadata is ready, checked, revealed, indexed, and approved.
 
-Alternative:
+Metadata strategy is now approved as:
 
 ```text
-wait for final revealed metadata before deployment
+Option A — Deploy with pending revealed URI placeholders
 ```
 
-Stop if the metadata strategy is not explicitly approved.
+This approval is for contract deployment planning only. It does not authorize mainnet deployment by itself.
 
-Canonical metadata decision-prep document:
+Rules remain:
+
+```text
+mint phases must remain OFF
+metadata must remain unlocked
+public launch remains not ready
+final metadata update/reveal/lock remains a later approval
+lockMetadata() must not be called until final Melting/Amanda revealed metadata is approved
+```
+
+Stop if mainnet deployment is proposed without separate explicit deployment approval.
+
+Canonical metadata decision document:
 
 ```text
 docs/mainnet/METADATA_STRATEGY_APPROVAL_DECISION_V1.md

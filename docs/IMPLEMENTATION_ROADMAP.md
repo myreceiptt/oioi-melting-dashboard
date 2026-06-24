@@ -324,7 +324,7 @@ controlled opening
 Approval-sensitive items:
 
 ```text
-metadata strategy for pending revealed URI placeholders
+metadata strategy approved as Option A for contract deployment planning only
 mainnet reward/indexer/proof pipeline implementation and validation
 public launch remains not ready
 mainnet reward claim remains not production-ready

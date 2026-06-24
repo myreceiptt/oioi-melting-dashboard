@@ -57,11 +57,13 @@ Do not treat the approval gate document as approval by itself.
 
 Do not launch mainnet reward claim until the mainnet indexer/reward/proof flow is implemented/configured, run, verified, and approved.
 
-Metadata strategy approval is tracked in:
+Metadata strategy is approved as Option A for contract deployment planning only and tracked in:
 
 ```text
 docs/mainnet/METADATA_STRATEGY_APPROVAL_DECISION_V1.md
 ```
+
+This metadata approval does not authorize mainnet deployment. Mint phases must remain OFF, metadata must remain unlocked, and `lockMetadata()` must not be called until final Melting/Amanda revealed metadata is approved.
 
 ---
 
@@ -272,8 +274,11 @@ If explicit approval is given, mainnet deployment may proceed with all mint phas
 Approval-sensitive caveats:
 
 ```text
-metadata strategy must be explicitly approved before deployment
-pending revealed URI placeholders must remain unlocked until final metadata is approved
+metadata strategy is approved as Option A for contract deployment planning only
+pending revealed URI placeholders may be deployed only after separate explicit mainnet deployment approval
+mint phases must remain OFF
+metadata must remain unlocked until final metadata is approved
+final metadata update/reveal/lock remains a later approval
 mainnet reward claim is not production-ready at deployment time
 mainnet indexer/reward/proof flow must be implemented/configured and validated after deployment
 ```
