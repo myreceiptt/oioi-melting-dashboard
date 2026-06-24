@@ -352,6 +352,12 @@ PUBLIC LAUNCH: NOT READY
 MAINNET REWARD CLAIM LAUNCH: NOT READY
 ```
 
+Final deployment approval form:
+
+```text
+docs/mainnet/MAINNET_DEPLOYMENT_APPROVAL_DECISION_V1.md
+```
+
 ---
 
 ## Current Next Step

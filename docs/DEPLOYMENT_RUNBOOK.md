@@ -55,6 +55,8 @@ Do not “fix forward” on mainnet. Stop, inspect, and diagnose.
 
 Do not treat the approval gate document as approval by itself.
 
+Do not run mainnet deployment commands until `docs/mainnet/MAINNET_DEPLOYMENT_APPROVAL_DECISION_V1.md` is updated to approved.
+
 Do not launch mainnet reward claim until the mainnet indexer/reward/proof flow is implemented/configured, run, verified, and approved.
 
 Metadata strategy is approved as Option A for contract deployment planning only and tracked in:
@@ -287,6 +289,12 @@ Canonical approval gate:
 
 ```text
 docs/mainnet/MAINNET_DEPLOYMENT_APPROVAL_GATE_V1.md
+```
+
+Final deployment approval decision:
+
+```text
+docs/mainnet/MAINNET_DEPLOYMENT_APPROVAL_DECISION_V1.md
 ```
 
 ---

@@ -339,6 +339,7 @@
 
 23. Mainnet Deployment Approval Gate v1 — READY WITH NOTES / NOT APPROVED
     - ✅ Mainnet approval gate review documented.
+    - ✅ Mainnet Deployment Approval Decision v1 document prepared.
     - ✅ Pre-mainnet safe commands listed.
     - ✅ Deployment command sequence documented but marked do-not-run until approval.
     - ✅ Post-deployment verification sequence documented.
@@ -346,6 +347,7 @@
     - ✅ Controlled opening sequence documented.
     - ✅ Stop conditions documented.
     - ⏸ Deployment authorization not yet approved.
+    - ⏸ Mainnet Deployment Approval Decision v1 not yet approved.
     - ⏸ Public launch not ready.
     - ⏸ Mainnet reward claim not production-ready.
     - ✅ Metadata strategy approved as Option A for contract deployment planning only.

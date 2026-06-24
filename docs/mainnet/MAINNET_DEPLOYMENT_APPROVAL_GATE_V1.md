@@ -68,6 +68,12 @@ mainnet $OiOi token confirmation
 final no-go / go decision
 ```
 
+Final deployment approval form:
+
+```text
+docs/mainnet/MAINNET_DEPLOYMENT_APPROVAL_DECISION_V1.md
+```
+
 ---
 
 ## 3. Approval-Sensitive Items

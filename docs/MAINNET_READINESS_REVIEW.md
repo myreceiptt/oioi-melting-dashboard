@@ -69,6 +69,7 @@ Mainnet deployment is deferred until explicit approval after Mainnet Deployment 
 ### Pending Before Mainnet Deployment
 
 - Explicit mainnet approval.
+- Mainnet Deployment Approval Decision v1.
 - Metadata strategy approved as Option A for contract deployment planning only.
 - Mainnet deployment authorization.
 - Mainnet env wiring.
@@ -313,6 +314,12 @@ Canonical gate document:
 
 ```text
 docs/mainnet/MAINNET_DEPLOYMENT_APPROVAL_GATE_V1.md
+```
+
+Final deployment approval decision document:
+
+```text
+docs/mainnet/MAINNET_DEPLOYMENT_APPROVAL_DECISION_V1.md
 ```
 
 ---
