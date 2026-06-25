@@ -1,0 +1,26 @@
+{
+  "network": {
+    "key": "ethereumMainnet",
+    "chainId": 1,
+    "label": "Ethereum Mainnet"
+  },
+  "contracts": {
+    "roty": "0xcb89275572ad3fb388d4c8ad78d7b94e05e5f218",
+    "staking": "0xa0dc510eecabb579ab3744224132ee46c6a2ef6a",
+    "melting": "0xb2dcc1d826f88a287924480b0f7b73e50ecb0192",
+    "amanda": "0xbfcef50a61847b321c54722a870ec43f49791263",
+    "rewardDistributor": "0x18d5e33c34d5da020c23ad3849ae28765da84fae"
+  },
+  "tokens": {
+    "oioi": "0x1C696882b93d7241d09D55f52693cAD367A5bEaf"
+  },
+  "registrations": {
+    "rotyApprovedInStaking": true,
+    "meltingApprovedInStaking": true,
+    "amandaApprovedInStaking": true
+  },
+  "metadata": {
+    "createdAt": "2026-06-25T08:48:29.828Z",
+    "updatedAt": "2026-06-25T09:03:52.349Z"
+  }
+}
