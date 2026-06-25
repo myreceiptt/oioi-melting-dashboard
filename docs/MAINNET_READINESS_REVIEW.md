@@ -417,7 +417,7 @@ After each mainnet deployment:
 
 ## 13. Mainnet Env Wiring
 
-Mainnet env wiring is not approved yet.
+Read-only mainnet env wiring is approved for frontend QA only.
 
 Canonical env wiring plan:
 
@@ -425,9 +425,15 @@ Canonical env wiring plan:
 docs/mainnet/MAINNET_ENV_WIRING_PLAN_V1.md
 ```
 
-The plan is ready for review, but wiring is still not approved. Public launch, mint opening, reward claim launch, and metadata lock remain not approved.
+Canonical read-only env wiring approval decision:
 
-After a separate env wiring approval is granted:
+```text
+docs/mainnet/MAINNET_ENV_WIRING_APPROVAL_DECISION_V1.md
+```
+
+The approval covers read-only frontend QA only. Public launch, mint opening, reward claim launch, metadata lock, and contract state changes remain not approved.
+
+For the approved read-only QA scope:
 
 ```env
 NEXT_PUBLIC_APP_ENV=mainnet
@@ -440,7 +446,7 @@ NEXT_PUBLIC_BASE_*
 NEXT_PUBLIC_ETH_*
 ```
 
-Then deploy Vercel production and run Mainnet Read-Only QA.
+Then deploy or preview with mainnet env for Mainnet Read-Only QA only.
 
 ---
 

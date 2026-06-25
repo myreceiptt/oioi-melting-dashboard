@@ -391,17 +391,18 @@
     - ⏸ Metadata lock not approved.
     - ⏸ Mint opening not approved.
 
-25. Mainnet Env Wiring Plan v1 — READY FOR REVIEW / WIRING NOT APPROVED
+25. Mainnet Env Wiring Approval Decision v1 — APPROVED FOR READ-ONLY QA ONLY
     - ✅ Mainnet env inventory prepared in `docs/mainnet/MAINNET_ENV_WIRING_PLAN_V1.md`.
-    - ⏸ Mainnet env wiring not approved.
+    - ✅ Read-only mainnet env wiring approved in `docs/mainnet/MAINNET_ENV_WIRING_APPROVAL_DECISION_V1.md`.
+    - ⏸ Mainnet env wiring beyond read-only QA not approved.
     - ⏸ Public launch not approved.
     - ⏸ Mint opening not approved.
     - ⏸ Mainnet reward claim launch not approved.
     - ⏸ Metadata lock not approved.
-    - 🔜 Review and explicitly approve or reject env wiring before applying any Vercel production mainnet env.
-    - 🔜 If approved later, fill mainnet contract env.
-    - 🔜 If approved later, set `NEXT_PUBLIC_APP_ENV=mainnet`.
-    - 🔜 Keep production-intended domains, but switch app env only after approval.
+    - ⏸ Contract state changes not approved.
+    - 🔜 Apply read-only mainnet env wiring locally and/or in Vercel environment.
+    - 🔜 Set `NEXT_PUBLIC_APP_ENV=mainnet` for the approved read-only QA scope.
+    - 🔜 Keep production-intended domains, but use the mainnet env only for read-only QA.
     - 🔜 Confirm no Sepolia address remains in mainnet build.
 
 26. Mainnet Read-Only QA — NOT STARTED

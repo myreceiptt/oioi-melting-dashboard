@@ -6,7 +6,8 @@ Status:
 
 ```text
 MAINNET ENV WIRING PLAN V1: READY FOR REVIEW
-MAINNET ENV WIRING: NOT APPROVED
+READ-ONLY MAINNET ENV WIRING: APPROVED
+MAINNET ENV WIRING BEYOND READ-ONLY QA: NOT APPROVED
 PUBLIC LAUNCH: NOT APPROVED
 MINT OPENING: NOT APPROVED
 MAINNET REWARD CLAIM LAUNCH: NOT APPROVED
@@ -16,7 +17,9 @@ CONTRACT DEPLOYMENT: COMPLETE
 
 This document prepares the mainnet frontend/server environment wiring inventory after Base Mainnet and Ethereum Mainnet contract deployment completion.
 
-It does not approve applying the env values to Vercel production. It does not approve public launch, mint opening, reward claim launch, metadata reveal, metadata lock, or `lockMetadata()`.
+Read-only mainnet env wiring is approved only by `docs/mainnet/MAINNET_ENV_WIRING_APPROVAL_DECISION_V1.md`.
+
+It does not approve public launch, mint opening, reward claim launch, metadata reveal, metadata lock, `lockMetadata()`, or any contract state change.
 
 ---
 
@@ -221,12 +224,21 @@ Additional stop conditions:
 
 ## 6. Approval Boundary
 
-This plan can be reviewed before wiring, but it does not approve the wiring itself.
-
-Before any env value is applied to Vercel production for mainnet, the owner must explicitly approve the env wiring step.
+Read-only env wiring is approved only for QA by:
 
 ```text
-MAINNET ENV WIRING APPROVAL: NOT APPROVED
+docs/mainnet/MAINNET_ENV_WIRING_APPROVAL_DECISION_V1.md
+```
+
+That approval does not include public launch, mint opening, reward claim launch, metadata lock, or any on-chain transaction.
+
+```text
+READ-ONLY MAINNET ENV WIRING: APPROVED
+PUBLIC LAUNCH: NOT APPROVED
+MINT OPENING: NOT APPROVED
+MAINNET REWARD CLAIM LAUNCH: NOT APPROVED
+METADATA LOCK: NOT APPROVED
+CONTRACT STATE CHANGES: NOT APPROVED
 ```
 
 ---
@@ -235,11 +247,13 @@ MAINNET ENV WIRING APPROVAL: NOT APPROVED
 
 ```text
 MAINNET ENV WIRING PLAN V1: READY FOR REVIEW
-MAINNET ENV WIRING: NOT APPROVED
+READ-ONLY MAINNET ENV WIRING: APPROVED
+MAINNET ENV WIRING BEYOND READ-ONLY QA: NOT APPROVED
 PUBLIC LAUNCH: NOT APPROVED
 MINT OPENING: NOT APPROVED
 MAINNET REWARD CLAIM LAUNCH: NOT APPROVED
 METADATA LOCK: NOT APPROVED
+CONTRACT STATE CHANGES: NOT APPROVED
 ```
 
 P.S. Read this document freely for information and guidance. Do not redistribute or restate—no quotes, summaries, paraphrases, or derivatives—without prior written permission from [**Prof. NOTA**](https://nota.endhonesa.com/). Sharing the link is allowed. So, share the link, not the text. Do not discuss or re-tell the contents in any form—written, spoken, or recorded—without prior written permission.

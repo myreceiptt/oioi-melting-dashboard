@@ -241,7 +241,7 @@ admin color pass
 Current next stage:
 
 ```text
-Mainnet env wiring plan review
+Mainnet read-only env wiring and read-only QA
 ```
 
 Canonical planning document:
@@ -250,14 +250,22 @@ Canonical planning document:
 docs/mainnet/MAINNET_ENV_WIRING_PLAN_V1.md
 ```
 
+Canonical read-only approval decision:
+
+```text
+docs/mainnet/MAINNET_ENV_WIRING_APPROVAL_DECISION_V1.md
+```
+
 Status remains:
 
 ```text
-MAINNET ENV WIRING: NOT APPROVED
+READ-ONLY MAINNET ENV WIRING: APPROVED
+MAINNET ENV WIRING BEYOND READ-ONLY QA: NOT APPROVED
 PUBLIC LAUNCH: NOT APPROVED
 MINT OPENING: NOT APPROVED
 MAINNET REWARD CLAIM LAUNCH: NOT APPROVED
 METADATA LOCK: NOT APPROVED
+CONTRACT STATE CHANGES: NOT APPROVED
 ```
 
 ---
@@ -379,10 +387,12 @@ DEPLOYMENT AUTHORIZATION: APPROVED FOR CONTRACT DEPLOYMENT ONLY
 APPROVED DEPLOYMENT SCOPE: BASE MAINNET + ETHEREUM MAINNET
 MAINNET CONTRACT DEPLOYMENT: DONE / VERIFIED / SAFE OFF
 PUBLIC LAUNCH: NOT READY / NOT APPROVED
-MAINNET ENV WIRING: NOT APPROVED
+READ-ONLY MAINNET ENV WIRING: APPROVED
+MAINNET ENV WIRING BEYOND READ-ONLY QA: NOT APPROVED
 MAINNET REWARD CLAIM LAUNCH: NOT READY / NOT APPROVED
 METADATA LOCK: NOT APPROVED
 MINT OPENING: NOT APPROVED
+CONTRACT STATE CHANGES: NOT APPROVED
 ```
 
 Final deployment approval form:
@@ -402,7 +412,7 @@ docs/mainnet/MAINNET_CONTRACT_DEPLOYMENT_COMPLETION_V1.md
 ## Current Next Step
 
 ```text
-Mainnet env wiring plan
+Mainnet read-only env wiring and read-only QA
 ```
 
 Do not wire mainnet frontend env, open mint, launch reward claim, reveal metadata, lock metadata, or launch publicly until each later gate is explicitly approved.

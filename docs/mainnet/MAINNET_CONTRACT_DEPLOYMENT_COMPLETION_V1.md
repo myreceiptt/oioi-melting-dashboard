@@ -120,7 +120,7 @@ Mainnet indexer/reward/proof flow still requires separate implementation/configu
 ## 7. Next Gates
 
 ```text
-Gate 1: Mainnet env wiring plan (ready for review; wiring not approved)
+Gate 1: Read-only mainnet env wiring (approved for QA only; public/write actions not approved)
 Gate 2: Mainnet read-only frontend QA
 Gate 3: Controlled mint opening approval
 Gate 4: Mainnet indexer/reward/proof production validation
@@ -133,6 +133,14 @@ Canonical Gate 1 planning document:
 ```text
 docs/mainnet/MAINNET_ENV_WIRING_PLAN_V1.md
 ```
+
+Canonical Gate 1 approval decision:
+
+```text
+docs/mainnet/MAINNET_ENV_WIRING_APPROVAL_DECISION_V1.md
+```
+
+The approval decision covers read-only env wiring only. Public launch, mint opening, reward claim launch, metadata lock, and contract state changes remain not approved.
 
 ---
 
