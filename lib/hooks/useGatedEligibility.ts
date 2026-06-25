@@ -14,6 +14,7 @@ export function useGatedEligibility(config: CollectionConfig) {
     abi: stakingAbi,
     functionName: "hasValidStake",
     args: address ? [address, addresses.roty] : undefined,
+    chainId: config.requiredChainId,
     query: {
       enabled: Boolean(address) && config.collectionKey === "melting",
     },
@@ -24,6 +25,7 @@ export function useGatedEligibility(config: CollectionConfig) {
     abi: stakingAbi,
     functionName: "hasValidStakeInCollections",
     args: address ? [address, [addresses.roty, addresses.melting]] : undefined,
+    chainId: config.requiredChainId,
     query: {
       enabled: Boolean(address) && config.collectionKey === "amanda",
     },

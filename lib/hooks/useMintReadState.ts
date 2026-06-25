@@ -13,48 +13,56 @@ export function useMintReadState(config: CollectionConfig) {
     address: config.contractAddress,
     abi: nftAbi,
     functionName: "totalMinted",
+    chainId: config.requiredChainId,
   });
 
   const remainingSupply = useReadContract({
     address: config.contractAddress,
     abi: nftAbi,
     functionName: "remainingSupply",
+    chainId: config.requiredChainId,
   });
 
   const maxSupply = useReadContract({
     address: config.contractAddress,
     abi: nftAbi,
     functionName: "maxSupply",
+    chainId: config.requiredChainId,
   });
 
   const maxMintPerTx = useReadContract({
     address: config.contractAddress,
     abi: nftAbi,
     functionName: "maxMintPerTx",
+    chainId: config.requiredChainId,
   });
 
   const mintPrice = useReadContract({
     address: config.contractAddress,
     abi: nftAbi,
     functionName: "mintPrice",
+    chainId: config.requiredChainId,
   });
 
   const revealed = useReadContract({
     address: config.contractAddress,
     abi: nftAbi,
     functionName: "revealed",
+    chainId: config.requiredChainId,
   });
 
   const metadataLocked = useReadContract({
     address: config.contractAddress,
     abi: nftAbi,
     functionName: "metadataLocked",
+    chainId: config.requiredChainId,
   });
 
   const whitelistMintEnabled = useReadContract({
     address: config.contractAddress,
     abi: rotyAbi,
     functionName: "whitelistMintEnabled",
+    chainId: config.requiredChainId,
     query: {
       enabled: config.mintType === "roty",
     },
@@ -64,6 +72,7 @@ export function useMintReadState(config: CollectionConfig) {
     address: config.contractAddress,
     abi: rotyAbi,
     functionName: "publicMintEnabled",
+    chainId: config.requiredChainId,
     query: {
       enabled: config.mintType === "roty",
     },
@@ -74,6 +83,7 @@ export function useMintReadState(config: CollectionConfig) {
     abi: rotyAbi,
     functionName: "whitelistClaimed",
     args: address ? [address] : undefined,
+    chainId: config.requiredChainId,
     query: {
       enabled: config.mintType === "roty" && Boolean(address),
     },
@@ -83,6 +93,7 @@ export function useMintReadState(config: CollectionConfig) {
     address: config.contractAddress,
     abi: gatedMintAbi,
     functionName: "gatedMintEnabled",
+    chainId: config.requiredChainId,
     query: {
       enabled: config.mintType === "gated",
     },

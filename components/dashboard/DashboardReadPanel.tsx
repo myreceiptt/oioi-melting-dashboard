@@ -19,11 +19,13 @@ function CollectionStakeSummary({
   collectionName,
   collectionAddress,
   stakingAddress,
+  chainId,
   walletAddress,
 }: {
   collectionName: string;
   collectionAddress: `0x${string}`;
   stakingAddress: `0x${string}`;
+  chainId: number;
   walletAddress: `0x${string}` | undefined;
 }) {
   const approved = useReadContract({
@@ -31,6 +33,7 @@ function CollectionStakeSummary({
     abi: stakingAbi,
     functionName: "approvedCollection",
     args: [collectionAddress],
+    chainId,
   });
 
   const hasValidStake = useReadContract({
@@ -38,6 +41,7 @@ function CollectionStakeSummary({
     abi: stakingAbi,
     functionName: "hasValidStake",
     args: walletAddress ? [walletAddress, collectionAddress] : undefined,
+    chainId,
     query: {
       enabled: Boolean(walletAddress),
     },
@@ -118,6 +122,7 @@ export function DashboardReadPanel({ chainSet }: { chainSet: ChainSet }) {
 
         {collections.map((collection) => (
           <CollectionStakeSummary
+            chainId={collection.requiredChainId}
             collectionAddress={collection.contractAddress}
             collectionName={collection.name}
             key={collection.contractAddress}

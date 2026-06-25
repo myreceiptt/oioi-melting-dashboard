@@ -15,6 +15,21 @@ if (!projectId) {
   console.warn("Missing NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID");
 }
 
+const rpcUrls = {
+  [base.id]:
+    process.env.NEXT_PUBLIC_ALCHEMY_BASE_MAINNET_RPC_URL ||
+    "https://base-rpc.publicnode.com",
+  [mainnet.id]:
+    process.env.NEXT_PUBLIC_ALCHEMY_ETHEREUM_MAINNET_RPC_URL ||
+    "https://ethereum-rpc.publicnode.com",
+  [baseSepolia.id]:
+    process.env.NEXT_PUBLIC_ALCHEMY_BASE_SEPOLIA_RPC_URL ||
+    "https://base-sepolia-rpc.publicnode.com",
+  [sepolia.id]:
+    process.env.NEXT_PUBLIC_ALCHEMY_ETHEREUM_SEPOLIA_RPC_URL ||
+    "https://ethereum-sepolia-rpc.publicnode.com",
+} as const;
+
 export const wagmiConfig = createConfig({
   chains: [base, mainnet, baseSepolia, sepolia],
   connectors: [
@@ -29,10 +44,10 @@ export const wagmiConfig = createConfig({
     }),
   ],
   transports: {
-    [base.id]: http(),
-    [mainnet.id]: http(),
-    [baseSepolia.id]: http(),
-    [sepolia.id]: http(),
+    [base.id]: http(rpcUrls[base.id]),
+    [mainnet.id]: http(rpcUrls[mainnet.id]),
+    [baseSepolia.id]: http(rpcUrls[baseSepolia.id]),
+    [sepolia.id]: http(rpcUrls[sepolia.id]),
   },
   ssr: true,
 });
