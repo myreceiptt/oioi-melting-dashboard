@@ -9,7 +9,9 @@ MAINNET CONTRACT DEPLOYMENT COMPLETION V1: COMPLETE
 BASE MAINNET CONTRACT DEPLOYMENT: DONE / VERIFIED / SAFE OFF
 ETHEREUM MAINNET CONTRACT DEPLOYMENT: DONE / VERIFIED / SAFE OFF
 PUBLIC LAUNCH: NOT APPROVED
-MAINNET ENV WIRING: NOT APPROVED
+READ-ONLY MAINNET ENV WIRING: APPROVED
+MAINNET READ-ONLY FRONTEND QA V1: PASSED FOR LOCALHOST READ-ONLY QA
+MAINNET ENV WIRING BEYOND READ-ONLY QA: NOT APPROVED
 MAINNET REWARD CLAIM LAUNCH: NOT APPROVED
 METADATA LOCK: NOT APPROVED
 MINT OPENING: NOT APPROVED
@@ -17,7 +19,7 @@ MINT OPENING: NOT APPROVED
 
 This document records completion of the Base Mainnet and Ethereum Mainnet contract deployment stage only.
 
-It does not approve public launch, mainnet frontend env wiring, opening mint phases, reward claim launch, metadata reveal, metadata lock, or `lockMetadata()`.
+It does not approve public launch, mainnet env wiring beyond read-only QA, opening mint phases, reward claim launch, metadata reveal, metadata lock, or `lockMetadata()`.
 
 ---
 
@@ -121,8 +123,8 @@ Mainnet indexer/reward/proof flow still requires separate implementation/configu
 
 ```text
 Gate 1: Read-only mainnet env wiring (approved for QA only; public/write actions not approved)
-Gate 2: Mainnet read-only frontend QA
-Gate 3: Controlled mint opening approval
+Gate 2: Mainnet read-only frontend QA (localhost read-only pass)
+Gate 3: Controlled mint opening plan / approval
 Gate 4: Mainnet indexer/reward/proof production validation
 Gate 5: Reward claim launch approval
 Gate 6: Final metadata update/reveal/lock approval
@@ -142,6 +144,22 @@ docs/mainnet/MAINNET_ENV_WIRING_APPROVAL_DECISION_V1.md
 
 The approval decision covers read-only env wiring only. Public launch, mint opening, reward claim launch, metadata lock, and contract state changes remain not approved.
 
+Canonical Gate 2 read-only frontend QA report:
+
+```text
+docs/qa/MAINNET_READ_ONLY_FRONTEND_QA_V1.md
+```
+
+Gate 2 localhost read-only QA result:
+
+```text
+MAINNET READ-ONLY FRONTEND QA V1: PASSED FOR LOCALHOST READ-ONLY QA
+BASE MAINNET FRONTEND READS: PASS
+ETHEREUM MAINNET FRONTEND READS: PASS
+```
+
+The next operational gate is controlled mint opening planning/approval. The controlled opening itself is not approved.
+
 ---
 
 ## 8. Final Status
@@ -151,7 +169,9 @@ MAINNET CONTRACT DEPLOYMENT COMPLETION V1: COMPLETE
 BASE MAINNET CONTRACT DEPLOYMENT: DONE / VERIFIED / SAFE OFF
 ETHEREUM MAINNET CONTRACT DEPLOYMENT: DONE / VERIFIED / SAFE OFF
 PUBLIC LAUNCH: NOT APPROVED
-MAINNET ENV WIRING: NOT APPROVED
+READ-ONLY MAINNET ENV WIRING: APPROVED
+MAINNET READ-ONLY FRONTEND QA V1: PASSED FOR LOCALHOST READ-ONLY QA
+MAINNET ENV WIRING BEYOND READ-ONLY QA: NOT APPROVED
 MAINNET REWARD CLAIM LAUNCH: NOT APPROVED
 METADATA LOCK: NOT APPROVED
 MINT OPENING: NOT APPROVED

@@ -394,26 +394,27 @@
 25. Mainnet Env Wiring Approval Decision v1 — APPROVED FOR READ-ONLY QA ONLY
     - ✅ Mainnet env inventory prepared in `docs/mainnet/MAINNET_ENV_WIRING_PLAN_V1.md`.
     - ✅ Read-only mainnet env wiring approved in `docs/mainnet/MAINNET_ENV_WIRING_APPROVAL_DECISION_V1.md`.
+    - ✅ Read-only frontend QA completed in `docs/qa/MAINNET_READ_ONLY_FRONTEND_QA_V1.md`.
     - ⏸ Mainnet env wiring beyond read-only QA not approved.
     - ⏸ Public launch not approved.
     - ⏸ Mint opening not approved.
     - ⏸ Mainnet reward claim launch not approved.
     - ⏸ Metadata lock not approved.
     - ⏸ Contract state changes not approved.
-    - 🔜 Apply read-only mainnet env wiring locally and/or in Vercel environment.
-    - 🔜 Set `NEXT_PUBLIC_APP_ENV=mainnet` for the approved read-only QA scope.
-    - 🔜 Keep production-intended domains, but use the mainnet env only for read-only QA.
-    - 🔜 Confirm no Sepolia address remains in mainnet build.
+    - ✅ Localhost read-only QA confirmed Base Mainnet and Ethereum Mainnet frontend reads.
+    - ⏸ Broader production-domain mainnet browser QA remains a later step before public launch.
 
-26. Mainnet Read-Only QA — NOT STARTED
-    - 🔜 Verify frontend reads mainnet contracts.
-    - 🔜 Mint phases still OFF.
-    - 🔜 Admin dashboard reads owner/admin state.
-    - 🔜 Dashboard reads staking contracts.
+26. Mainnet Read-Only QA — LOCALHOST READ-ONLY PASS
+    - ✅ Base Mainnet frontend reads pass.
+    - ✅ Ethereum Mainnet frontend reads pass.
+    - ✅ Dashboard Base read-only panel pass.
+    - ✅ Dashboard Ethereum read-only panel pass.
+    - ⏸ Full production-domain mainnet browser QA is not a public launch approval.
+    - ⏸ Admin mainnet read-only panel and all dedicated mint surfaces can be included in later broader QA.
     - 🔜 Reward/indexer production config verified.
-    - 🔜 Production domains verified under mainnet env.
+    - 🔜 Production domains verified under mainnet env before public launch.
 
-27. Controlled Mainnet Opening — NOT STARTED
+27. Controlled Mainnet Opening Plan / Approval — NOT STARTED
     - 🔜 Enable ROTY whitelist.
     - 🔜 Controlled mint.
     - 🔜 Enable public mint.

@@ -241,7 +241,7 @@ admin color pass
 Current next stage:
 
 ```text
-Mainnet read-only env wiring and read-only QA
+Controlled mint opening plan / approval
 ```
 
 Canonical planning document:
@@ -260,6 +260,7 @@ Status remains:
 
 ```text
 READ-ONLY MAINNET ENV WIRING: APPROVED
+MAINNET READ-ONLY FRONTEND QA V1: PASSED FOR LOCALHOST READ-ONLY QA
 MAINNET ENV WIRING BEYOND READ-ONLY QA: NOT APPROVED
 PUBLIC LAUNCH: NOT APPROVED
 MINT OPENING: NOT APPROVED
@@ -351,9 +352,11 @@ metadata UNLOCKED
 Still not approved / not started:
 
 ```text
-mainnet env wiring
-mainnet read-only QA
 controlled opening
+mainnet env wiring beyond read-only QA
+mainnet reward claim launch
+metadata lock
+public launch
 ```
 
 Approval-sensitive items:
@@ -407,15 +410,21 @@ Contract deployment completion:
 docs/mainnet/MAINNET_CONTRACT_DEPLOYMENT_COMPLETION_V1.md
 ```
 
+Mainnet read-only frontend QA:
+
+```text
+docs/qa/MAINNET_READ_ONLY_FRONTEND_QA_V1.md
+```
+
 ---
 
 ## Current Next Step
 
 ```text
-Mainnet read-only env wiring and read-only QA
+Controlled mint opening plan / approval
 ```
 
-Do not wire mainnet frontend env, open mint, launch reward claim, reveal metadata, lock metadata, or launch publicly until each later gate is explicitly approved.
+Do not open mint, launch reward claim, reveal metadata, lock metadata, or launch publicly until each later gate is explicitly approved.
 
 ---
 

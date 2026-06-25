@@ -5,8 +5,9 @@ Date: 2026-06-25
 Status:
 
 ```text
-MAINNET ENV WIRING PLAN V1: READY FOR REVIEW
+MAINNET ENV WIRING PLAN V1: APPLIED FOR READ-ONLY QA
 READ-ONLY MAINNET ENV WIRING: APPROVED
+MAINNET READ-ONLY FRONTEND QA V1: PASSED FOR LOCALHOST READ-ONLY QA
 MAINNET ENV WIRING BEYOND READ-ONLY QA: NOT APPROVED
 PUBLIC LAUNCH: NOT APPROVED
 MINT OPENING: NOT APPROVED
@@ -136,11 +137,19 @@ No metadata lock.
 
 Phase A may wire mainnet public contract addresses, mainnet app env, WalletConnect project ID, and server-only read dependencies needed for dashboard/API read surfaces. Phase A must not enable mint phases or claim readiness by wording, UI announcement, or operational action.
 
+Phase A localhost read-only frontend QA result:
+
+```text
+docs/qa/MAINNET_READ_ONLY_FRONTEND_QA_V1.md
+BASE MAINNET FRONTEND READS: PASS
+ETHEREUM MAINNET FRONTEND READS: PASS
+```
+
 ### Phase B — Controlled Mint Wiring
 
 ```text
 Requires separate approval.
-Only after read-only QA passes.
+Only after read-only QA passes and a separate controlled opening approval is recorded.
 ```
 
 Phase B is a later approval gate for enabling controlled mint phases. It is not included in this plan approval.
@@ -246,8 +255,9 @@ CONTRACT STATE CHANGES: NOT APPROVED
 ## 7. Final Status
 
 ```text
-MAINNET ENV WIRING PLAN V1: READY FOR REVIEW
+MAINNET ENV WIRING PLAN V1: APPLIED FOR READ-ONLY QA
 READ-ONLY MAINNET ENV WIRING: APPROVED
+MAINNET READ-ONLY FRONTEND QA V1: PASSED FOR LOCALHOST READ-ONLY QA
 MAINNET ENV WIRING BEYOND READ-ONLY QA: NOT APPROVED
 PUBLIC LAUNCH: NOT APPROVED
 MINT OPENING: NOT APPROVED

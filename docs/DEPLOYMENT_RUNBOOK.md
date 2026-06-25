@@ -408,8 +408,6 @@ commit deployment record
 Still pending separate approval:
 
 ```text
-mainnet env wiring
-mainnet read-only frontend QA
 controlled mint opening
 mainnet indexer/reward/proof production validation
 reward claim launch
@@ -420,7 +418,7 @@ final metadata update/reveal/lock
 
 ## 13. Mainnet Env Wiring
 
-Read-only mainnet env wiring is approved for frontend QA only.
+Read-only mainnet env wiring is approved for frontend QA only and has a localhost read-only QA pass.
 
 Canonical env wiring plan:
 
@@ -436,6 +434,20 @@ docs/mainnet/MAINNET_ENV_WIRING_APPROVAL_DECISION_V1.md
 
 The approval covers read-only frontend QA only. Public launch, mint opening, reward claim launch, metadata lock, and contract state changes remain not approved.
 
+Canonical mainnet read-only frontend QA report:
+
+```text
+docs/qa/MAINNET_READ_ONLY_FRONTEND_QA_V1.md
+```
+
+Result:
+
+```text
+MAINNET READ-ONLY FRONTEND QA V1: PASSED FOR LOCALHOST READ-ONLY QA
+BASE MAINNET FRONTEND READS: PASS
+ETHEREUM MAINNET FRONTEND READS: PASS
+```
+
 For the approved read-only QA scope:
 
 ```env
@@ -444,15 +456,13 @@ NEXT_PUBLIC_BASE_*
 NEXT_PUBLIC_ETH_*
 ```
 
-Deploy or preview with mainnet env only for read-only QA.
-
-Run Mainnet Read-Only QA before any later controlled opening approval.
+Any broader production-domain mainnet browser QA remains read-only until a later explicit controlled opening approval.
 
 ---
 
 ## 14. Controlled Mainnet Opening
 
-Opening is separate from deployment.
+Opening is separate from deployment and from read-only frontend QA.
 
 Order:
 

@@ -99,11 +99,20 @@ npm run deploy:read-check -- --network ethereumMainnet
 
 ## 4. Approved Next Step
 
-Next approved operational step after this document is committed:
+Approved operational step after this document was committed:
 
 - Apply read-only mainnet env wiring locally and/or in Vercel environment.
 - Run frontend build.
 - Run mainnet read-only frontend QA.
+
+Mainnet read-only frontend QA result:
+
+```text
+docs/qa/MAINNET_READ_ONLY_FRONTEND_QA_V1.md
+MAINNET READ-ONLY FRONTEND QA V1: PASSED FOR LOCALHOST READ-ONLY QA
+BASE MAINNET FRONTEND READS: PASS
+ETHEREUM MAINNET FRONTEND READS: PASS
+```
 
 Still not approved:
 
@@ -124,6 +133,8 @@ Read-only env wiring is approved only for QA against deployed Base Mainnet and E
 No production opening or write action is authorized by this document.
 
 Any later transition from read-only QA to controlled mint opening, reward claim launch, metadata update/reveal/lock, or public launch requires a separate explicit approval document.
+
+The next operational gate after localhost read-only frontend QA is controlled mint opening planning/approval. The controlled opening itself is not approved by this document or by the QA pass report.
 
 ---
 
