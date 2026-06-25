@@ -1,0 +1,26 @@
+{
+  "network": {
+    "key": "baseMainnet",
+    "chainId": 8453,
+    "label": "Base Mainnet"
+  },
+  "contracts": {
+    "roty": "0x55b74ec648ab9ec3e9557627b3b22cce27e2606c",
+    "staking": "0xd2211e042af0d618ec33622417064c761d5f71ea",
+    "melting": "0xed1f55128e43699f7ee50ad7ae61bca7d559d991",
+    "amanda": "0x486a060e304d02aa241a6904fa7cb95777f88b77",
+    "rewardDistributor": "0xfa9fe257e99b50547981273d249c04ab7e06d380"
+  },
+  "tokens": {
+    "oioi": "0xba0032620d88D9b16752CbDE75593c080C3d38de"
+  },
+  "registrations": {
+    "rotyApprovedInStaking": true,
+    "meltingApprovedInStaking": true,
+    "amandaApprovedInStaking": true
+  },
+  "metadata": {
+    "createdAt": "2026-06-24T20:39:37.960Z",
+    "updatedAt": "2026-06-24T20:48:52.183Z"
+  }
+}
