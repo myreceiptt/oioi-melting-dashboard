@@ -241,7 +241,23 @@ admin color pass
 Current next stage:
 
 ```text
-Mainnet env wiring plan
+Mainnet env wiring plan review
+```
+
+Canonical planning document:
+
+```text
+docs/mainnet/MAINNET_ENV_WIRING_PLAN_V1.md
+```
+
+Status remains:
+
+```text
+MAINNET ENV WIRING: NOT APPROVED
+PUBLIC LAUNCH: NOT APPROVED
+MINT OPENING: NOT APPROVED
+MAINNET REWARD CLAIM LAUNCH: NOT APPROVED
+METADATA LOCK: NOT APPROVED
 ```
 
 ---

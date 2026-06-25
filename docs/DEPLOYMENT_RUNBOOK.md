@@ -422,7 +422,15 @@ final metadata update/reveal/lock
 
 Mainnet env wiring is not approved yet.
 
-Only after a separate env wiring plan/gate is approved:
+Canonical env wiring plan:
+
+```text
+docs/mainnet/MAINNET_ENV_WIRING_PLAN_V1.md
+```
+
+The plan is ready for review, but wiring is still not approved. Public launch, mint opening, reward claim launch, and metadata lock remain not approved.
+
+Only after a separate env wiring approval is granted:
 
 ```env
 NEXT_PUBLIC_APP_ENV=mainnet

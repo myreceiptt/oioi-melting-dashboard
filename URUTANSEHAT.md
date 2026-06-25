@@ -391,11 +391,17 @@
     - ⏸ Metadata lock not approved.
     - ⏸ Mint opening not approved.
 
-25. Mainnet Env Wiring — NOT STARTED
-    - 🔜 Fill mainnet contract env.
-    - 🔜 Set NEXT_PUBLIC_APP_ENV=mainnet.
-    - 🔜 Deploy Vercel production with mainnet env.
-    - 🔜 Keep production-intended domains, but switch app env only when ready.
+25. Mainnet Env Wiring Plan v1 — READY FOR REVIEW / WIRING NOT APPROVED
+    - ✅ Mainnet env inventory prepared in `docs/mainnet/MAINNET_ENV_WIRING_PLAN_V1.md`.
+    - ⏸ Mainnet env wiring not approved.
+    - ⏸ Public launch not approved.
+    - ⏸ Mint opening not approved.
+    - ⏸ Mainnet reward claim launch not approved.
+    - ⏸ Metadata lock not approved.
+    - 🔜 Review and explicitly approve or reject env wiring before applying any Vercel production mainnet env.
+    - 🔜 If approved later, fill mainnet contract env.
+    - 🔜 If approved later, set `NEXT_PUBLIC_APP_ENV=mainnet`.
+    - 🔜 Keep production-intended domains, but switch app env only after approval.
     - 🔜 Confirm no Sepolia address remains in mainnet build.
 
 26. Mainnet Read-Only QA — NOT STARTED

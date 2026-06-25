@@ -120,12 +120,18 @@ Mainnet indexer/reward/proof flow still requires separate implementation/configu
 ## 7. Next Gates
 
 ```text
-Gate 1: Mainnet env wiring plan
+Gate 1: Mainnet env wiring plan (ready for review; wiring not approved)
 Gate 2: Mainnet read-only frontend QA
 Gate 3: Controlled mint opening approval
 Gate 4: Mainnet indexer/reward/proof production validation
 Gate 5: Reward claim launch approval
 Gate 6: Final metadata update/reveal/lock approval
+```
+
+Canonical Gate 1 planning document:
+
+```text
+docs/mainnet/MAINNET_ENV_WIRING_PLAN_V1.md
 ```
 
 ---
