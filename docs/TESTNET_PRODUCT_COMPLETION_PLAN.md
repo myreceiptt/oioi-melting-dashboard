@@ -186,15 +186,16 @@ deployer funding
 whitelist root
 ```
 
+Mainnet contract deployment is now complete, verified, read-checked, and safe-off.
+
 Mainnet still needs:
 
 ```text
-explicit deployment authorization
-actual mainnet deployment
 mainnet env wiring
 mainnet read-only QA
 controlled opening plan execution
 mainnet reward/indexer/proof validation before any production reward claim launch
+final metadata update/reveal/lock approval
 ```
 
 ---

@@ -10,7 +10,8 @@ Ethereum Sepolia completed.
 Frontend Sepolia MVP completed.
 Mainnet deployment preparation passed.
 Testnet Release Candidate Lock v1 passed.
-Mainnet deployment is approved for Base Mainnet + Ethereum Mainnet contract deployment only after Mainnet Deployment Approval Decision v1.
+Mainnet contract deployment is complete for Base Mainnet + Ethereum Mainnet.
+Mainnet contracts are verified, read-checked, and safe-off.
 verify:args is post-deployment because it requires deployment records.
 ```
 
@@ -39,7 +40,7 @@ verify:args is post-deployment because it requires deployment records.
 
 ## 0. Golden Rules
 
-Do not deploy mainnet before explicit approval after Mainnet Deployment Approval Gate v1 and Mainnet Deployment Approval Decision v1.
+Do not re-run mainnet deployment commands unless a separate recovery plan explicitly approves that action.
 
 Do not enable mint immediately after deployment.
 
@@ -55,7 +56,7 @@ Do not “fix forward” on mainnet. Stop, inspect, and diagnose.
 
 Do not treat the approval gate document as approval by itself.
 
-Mainnet deployment commands are approved only for Base Mainnet + Ethereum Mainnet contract deployment. Public launch, mainnet env wiring, reward claim launch, and metadata lock are not approved.
+Mainnet deployment commands were approved only for Base Mainnet + Ethereum Mainnet contract deployment and have been completed. Public launch, mainnet env wiring, reward claim launch, mint opening, and metadata lock are not approved.
 
 Do not launch mainnet reward claim until the mainnet indexer/reward/proof flow is implemented/configured, run, verified, and approved.
 
@@ -176,14 +177,14 @@ npm run verify:args -- baseMainnet
 npm run verify:args -- ethereumMainnet
 ```
 
-Expected failure before mainnet deployment:
+Historical note before mainnet deployment was completed:
 
 ```text
 Missing deployment record: deployments/base-mainnet
 Missing deployment record: deployments/ethereum-mainnet
 ```
 
-This is not a readiness failure before deployment.
+That pre-deployment failure mode is no longer expected now that Base Mainnet and Ethereum Mainnet deployment records exist.
 
 ---
 
@@ -252,6 +253,7 @@ deploy config reviewed
 Testnet Release Candidate Lock v1: PASS
 Mainnet Deployment Approval Gate v1: READY WITH NOTES
 Mainnet Deployment Approval Decision v1: APPROVED FOR BASE MAINNET + ETHEREUM MAINNET CONTRACT DEPLOYMENT ONLY
+Mainnet Contract Deployment Completion v1: COMPLETE
 ```
 
 Locked whitelist root:
@@ -270,9 +272,20 @@ Clean whitelist count:
 
 ## 9. Mainnet Deployment Policy
 
-Mainnet deployment is approved for Base Mainnet + Ethereum Mainnet contract deployment only.
+Mainnet contract deployment is complete for Base Mainnet + Ethereum Mainnet.
 
-Deployment may proceed with all mint phases OFF and no public launch.
+Completed deployment status:
+
+```text
+Base Mainnet contract deployment: DONE / VERIFIED / SAFE OFF
+Ethereum Mainnet contract deployment: DONE / VERIFIED / SAFE OFF
+Base read-check: PASS
+Ethereum read-check: PASS
+mint phases: OFF
+metadata: UNLOCKED
+```
+
+Public launch remains not approved.
 
 Approval-sensitive caveats:
 
@@ -298,11 +311,17 @@ Final deployment approval decision:
 docs/mainnet/MAINNET_DEPLOYMENT_APPROVAL_DECISION_V1.md
 ```
 
+Canonical deployment completion:
+
+```text
+docs/mainnet/MAINNET_CONTRACT_DEPLOYMENT_COMPLETION_V1.md
+```
+
 ---
 
 ## 10. Base Mainnet Deployment Order
 
-Approved for contract deployment only. Stop if any stop condition occurs.
+Historical completed contract deployment order. Do not re-run deployment commands unless a separate recovery plan explicitly approves that action.
 
 ```bash
 npm run deploy:preflight -- baseMainnet
@@ -338,7 +357,7 @@ Record Base mainnet indexer FROM_BLOCK manually from explorer.
 
 ## 11. Ethereum Mainnet Deployment Order
 
-Approved for contract deployment only. Stop if any stop condition occurs.
+Historical completed contract deployment order. Do not re-run deployment commands unless a separate recovery plan explicitly approves that action.
 
 ```bash
 npm run deploy:preflight -- ethereumMainnet
@@ -374,7 +393,7 @@ Record Ethereum mainnet indexer FROM_BLOCK manually from explorer.
 
 ## 12. Post-Deployment Mainnet Steps
 
-After each chain deployment:
+Completed for Base Mainnet and Ethereum Mainnet:
 
 ```text
 verify contracts
@@ -386,11 +405,24 @@ record FROM_BLOCK
 commit deployment record
 ```
 
+Still pending separate approval:
+
+```text
+mainnet env wiring
+mainnet read-only frontend QA
+controlled mint opening
+mainnet indexer/reward/proof production validation
+reward claim launch
+final metadata update/reveal/lock
+```
+
 ---
 
 ## 13. Mainnet Env Wiring
 
-Only after mainnet contracts are deployed:
+Mainnet env wiring is not approved yet.
+
+Only after a separate env wiring plan/gate is approved:
 
 ```env
 NEXT_PUBLIC_APP_ENV=mainnet

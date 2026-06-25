@@ -8,14 +8,19 @@ Status:
 MAINNET DEPLOYMENT APPROVAL GATE V1: READY WITH NOTES
 DEPLOYMENT AUTHORIZATION: APPROVED FOR CONTRACT DEPLOYMENT ONLY
 APPROVED DEPLOYMENT SCOPE: BASE MAINNET + ETHEREUM MAINNET
-MAINNET DEPLOYMENT: APPROVED / NOT STARTED
+MAINNET CONTRACT DEPLOYMENT: DONE / VERIFIED / SAFE OFF
 PUBLIC LAUNCH: NOT READY / NOT APPROVED
+MAINNET ENV WIRING: NOT APPROVED
 MAINNET REWARD CLAIM LAUNCH: NOT READY / NOT APPROVED
+METADATA LOCK: NOT APPROVED
+MINT OPENING: NOT APPROVED
 ```
 
-This document records the approval gate before any Base Mainnet or Ethereum Mainnet deployment transaction.
+This document records the approval gate that preceded the Base Mainnet and Ethereum Mainnet contract deployment transactions.
 
-It does not authorize deployment by itself.
+The approved contract deployment scope has now been completed and is recorded in `docs/mainnet/MAINNET_CONTRACT_DEPLOYMENT_COMPLETION_V1.md`.
+
+It did not authorize public launch, mainnet env wiring, mint opening, reward claim launch, metadata reveal, metadata lock, or `lockMetadata()`.
 
 ---
 
@@ -26,6 +31,7 @@ Canonical testnet and readiness references:
 ```text
 docs/qa/TESTNET_RELEASE_CANDIDATE_LOCK_V1.md
 docs/qa/FULL_TESTNET_E2E_QA_V1.md
+docs/mainnet/MAINNET_CONTRACT_DEPLOYMENT_COMPLETION_V1.md
 docs/MAINNET_READINESS_REVIEW.md
 docs/DEPLOYMENT_RUNBOOK.md
 ```
@@ -37,8 +43,9 @@ Testnet Release Candidate Lock v1: DONE / PASS
 Full Testnet E2E QA v1: DONE / PASS
 Worker jobs / boundary reward flow: DONE / PASS through GitHub Actions
 On-chain reward round creation and user reward claim: validated on testnet
-Mainnet deployment: not started
-Mainnet env wiring: not started
+Base Mainnet contract deployment: DONE / VERIFIED / SAFE OFF
+Ethereum Mainnet contract deployment: DONE / VERIFIED / SAFE OFF
+Mainnet env wiring: not approved / not started
 Mainnet read-only QA: not started
 Controlled mainnet opening: not started
 ```
@@ -59,20 +66,21 @@ Blockers:
 none observed
 ```
 
-Required before first mainnet transaction:
+Satisfied before the first mainnet deployment transaction:
 
 ```text
-explicit mainnet deployment approval: APPROVED
+explicit mainnet deployment approval: APPROVED / COMPLETED
 metadata strategy approved as Option A
 deployer / treasury / royalty confirmation
 mainnet $OiOi token confirmation
 final no-go / go decision: APPROVED FOR CONTRACT DEPLOYMENT ONLY
 ```
 
-Final deployment approval form:
+Final deployment approval form and completion record:
 
 ```text
 docs/mainnet/MAINNET_DEPLOYMENT_APPROVAL_DECISION_V1.md
+docs/mainnet/MAINNET_CONTRACT_DEPLOYMENT_COMPLETION_V1.md
 ```
 
 ---
@@ -135,7 +143,7 @@ Production reward claim remains unavailable until the mainnet reward/indexer/pro
 
 ## 4. Required Approvals Before Deployment
 
-Approve each item before any mainnet transaction:
+These items were required before any mainnet deployment transaction and were confirmed for the completed contract deployment scope:
 
 ```text
 deployer wallet
@@ -180,7 +188,7 @@ Stop if any command fails unexpectedly.
 
 ## 6. Mainnet Deployment Commands
 
-These commands are approved for Base Mainnet + Ethereum Mainnet contract deployment only. Stop if any stop condition occurs.
+These commands were approved for Base Mainnet + Ethereum Mainnet contract deployment only and have already been executed for the completed deployment. Do not re-run them unless a separate recovery plan explicitly approves that action.
 
 ### Base Mainnet
 
@@ -214,7 +222,7 @@ npm run deploy:reward-distributor -- --network ethereumMainnet
 
 ## 7. Post-Deployment Verification
 
-Run only after each deployment record exists.
+Post-deployment verification has passed for both deployment records.
 
 ### Base Mainnet
 
@@ -241,11 +249,26 @@ mint phases are OFF
 deployment records are consistent
 ```
 
+Current result:
+
+```text
+BaseScan verification: DONE / already verified
+Etherscan verification: DONE / already verified or successfully verified
+Base read-check: PASS
+Ethereum read-check: PASS
+Base mint phases: OFF
+Ethereum mint phases: OFF
+Base metadata: UNLOCKED
+Ethereum metadata: UNLOCKED
+```
+
 ---
 
 ## 8. Mainnet Env Wiring
 
-Do not wire mainnet frontend env before deployments and read-checks pass.
+Mainnet env wiring is not approved yet.
+
+Do not wire mainnet frontend env until the separate mainnet env wiring plan/gate is approved, even though deployments and read-checks have passed.
 
 Required public frontend env after deployment:
 
@@ -346,12 +369,15 @@ Do not fix forward on mainnet. Stop, inspect, and decide.
 MAINNET DEPLOYMENT APPROVAL GATE V1: READY WITH NOTES
 DEPLOYMENT AUTHORIZATION: APPROVED FOR CONTRACT DEPLOYMENT ONLY
 APPROVED DEPLOYMENT SCOPE: BASE MAINNET + ETHEREUM MAINNET
-MAINNET DEPLOYMENT: APPROVED / NOT STARTED
+MAINNET CONTRACT DEPLOYMENT: DONE / VERIFIED / SAFE OFF
 PUBLIC LAUNCH: NOT READY / NOT APPROVED
+MAINNET ENV WIRING: NOT APPROVED
 MAINNET REWARD CLAIM LAUNCH: NOT READY / NOT APPROVED
+METADATA LOCK: NOT APPROVED
+MINT OPENING: NOT APPROVED
 ```
 
-Mainnet still requires explicit approval before any deployment transaction.
+Public launch, mainnet env wiring, mint opening, reward claim launch, metadata reveal, metadata lock, and `lockMetadata()` still require separate explicit approvals.
 
 P.S. Read this document freely for information and guidance. Do not redistribute or restate—no quotes, summaries, paraphrases, or derivatives—without prior written permission from [**Prof. NOTA**](https://nota.endhonesa.com/). Sharing the link is allowed. So, share the link, not the text. Do not discuss or re-tell the contents in any form—written, spoken, or recorded—without prior written permission.
 

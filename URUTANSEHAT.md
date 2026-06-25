@@ -348,23 +348,48 @@
     - ✅ Controlled opening sequence documented.
     - ✅ Stop conditions documented.
     - ✅ Deployment authorization approved for contract deployment only.
-    - ⏸ Mainnet deployment commands not yet run.
+    - ✅ Mainnet deployment commands completed for Base Mainnet and Ethereum Mainnet.
+    - ✅ Base Mainnet deployment record committed.
+    - ✅ Ethereum Mainnet deployment record committed.
+    - ✅ BaseScan verification done / already verified.
+    - ✅ Etherscan verification done / already verified or successfully verified.
+    - ✅ Base Mainnet read-check pass.
+    - ✅ Ethereum Mainnet read-check pass.
+    - ✅ Mint phases remain OFF.
+    - ✅ Metadata remains unlocked.
     - ⏸ Public launch not ready.
+    - ⏸ Mainnet env wiring not approved.
     - ⏸ Mainnet reward claim not production-ready.
     - ✅ Metadata strategy approved as Option A for contract deployment planning only.
-    - ⏸ Mainnet deployment still requires separate explicit approval.
     - ⏸ Mainnet reward/indexer/proof flow requires post-deployment implementation/configuration and validation.
 
-24. Mainnet Deployment — APPROVED FOR CONTRACT DEPLOYMENT ONLY / NOT STARTED
+24. Mainnet Contract Deployment — DONE / VERIFIED / SAFE OFF
     - ✅ Mainnet preparation mostly passed.
     - ✅ RPC verified.
     - ✅ Preflight passed.
     - ✅ Whitelist root final.
     - ✅ Deployer funded.
     - ✅ Explicit approval recorded for Base Mainnet + Ethereum Mainnet contract deployment only.
-    - ⏸ Not started.
+    - ✅ Base Mainnet contract deployment done.
+    - ✅ Ethereum Mainnet contract deployment done.
+    - ✅ Base Mainnet contracts verified / already verified.
+    - ✅ Ethereum Mainnet contracts verified / already verified or successfully verified.
+    - ✅ Base Mainnet read-check pass.
+    - ✅ Ethereum Mainnet read-check pass.
+    - ✅ Base Mainnet deployment record committed:
+      - `deployments/base-mainnet/deployment.json`
+      - `c116f0fb3912ee6c1c00308008f5b3a6ba1cdc19`
+    - ✅ Ethereum Mainnet deployment record committed:
+      - `deployments/ethereum-mainnet/deployment.json`
+      - `592a8945cc78696b9a26a56281c0e91796d503ab`
+    - ✅ Mint phases remain OFF.
+    - ✅ Metadata remains unlocked.
+    - ✅ Mainnet Contract Deployment Completion v1 documented.
     - ⏸ Public launch not approved.
+    - ⏸ Mainnet env wiring not approved.
     - ⏸ Mainnet reward claim launch not approved.
+    - ⏸ Metadata lock not approved.
+    - ⏸ Mint opening not approved.
 
 25. Mainnet Env Wiring — NOT STARTED
     - 🔜 Fill mainnet contract env.

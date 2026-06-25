@@ -7,15 +7,20 @@ Status:
 ```text
 MAINNET DEPLOYMENT APPROVAL DECISION V1: APPROVED
 APPROVED DEPLOYMENT SCOPE: BASE MAINNET + ETHEREUM MAINNET
-MAINNET DEPLOYMENT: APPROVED / NOT STARTED
+MAINNET CONTRACT DEPLOYMENT: DONE / VERIFIED / SAFE OFF
 DEPLOYMENT AUTHORIZATION: APPROVED FOR CONTRACT DEPLOYMENT ONLY
 PUBLIC LAUNCH: NOT READY / NOT APPROVED
+MAINNET ENV WIRING: NOT APPROVED
 MAINNET REWARD CLAIM LAUNCH: NOT READY / NOT APPROVED
+METADATA LOCK: NOT APPROVED
+MINT OPENING: NOT APPROVED
 ```
 
-This document is the final approval form before any mainnet deployment command may be run.
+This document records the final approval that allowed the mainnet contract deployment commands to be run.
 
-It approves contract deployment only for the selected scope. It does not approve public launch, mainnet reward claim launch, metadata lock, or mainnet env wiring.
+The approved contract deployment scope has now been completed and recorded in `docs/mainnet/MAINNET_CONTRACT_DEPLOYMENT_COMPLETION_V1.md`.
+
+It approved contract deployment only for the selected scope. It did not approve public launch, mainnet reward claim launch, metadata lock, mint opening, or mainnet env wiring.
 
 ---
 
@@ -25,6 +30,7 @@ It approves contract deployment only for the selected scope. It does not approve
 docs/qa/TESTNET_RELEASE_CANDIDATE_LOCK_V1.md
 docs/mainnet/MAINNET_DEPLOYMENT_APPROVAL_GATE_V1.md
 docs/mainnet/METADATA_STRATEGY_APPROVAL_DECISION_V1.md
+docs/mainnet/MAINNET_CONTRACT_DEPLOYMENT_COMPLETION_V1.md
 docs/MAINNET_READINESS_REVIEW.md
 docs/DEPLOYMENT_RUNBOOK.md
 ```
@@ -37,6 +43,7 @@ docs/DEPLOYMENT_RUNBOOK.md
 Testnet RC Lock v1: PASS
 Mainnet Approval Gate v1: READY WITH NOTES
 Metadata Strategy Option A: APPROVED
+Mainnet Contract Deployment Completion v1: COMPLETE
 ```
 
 Metadata Strategy Option A means deployment planning may proceed with pending Melting/Amanda revealed URI placeholders only under these constraints:
@@ -57,6 +64,7 @@ Mainnet env wiring: NOT YET APPROVED
 Public launch: NOT APPROVED
 Mainnet reward claim launch: NOT APPROVED
 Metadata lock: NOT APPROVED
+Mint opening: NOT APPROVED
 ```
 
 ---
@@ -131,6 +139,33 @@ existing deployment records: none / fresh deployment path
 
 ---
 
+## 7a. Deployment Completion Result
+
+The approved Base Mainnet + Ethereum Mainnet contract deployment scope has been completed.
+
+Canonical completion record:
+
+```text
+docs/mainnet/MAINNET_CONTRACT_DEPLOYMENT_COMPLETION_V1.md
+```
+
+Completion status:
+
+```text
+Base Mainnet contract deployment: DONE / VERIFIED / SAFE OFF
+Ethereum Mainnet contract deployment: DONE / VERIFIED / SAFE OFF
+BaseScan verification: DONE / already verified
+Etherscan verification: DONE / already verified or successfully verified
+Base read-check: PASS
+Ethereum read-check: PASS
+mint phases: OFF
+metadata: UNLOCKED
+```
+
+This completion does not approve public launch, env wiring, reward claim launch, metadata reveal, metadata lock, mint opening, or `lockMetadata()`.
+
+---
+
 ## 8. Safe Pre-Deployment Commands
 
 These commands are safe / no deploy:
@@ -153,7 +188,9 @@ Stop if any safe command fails unexpectedly.
 
 ## 9. Deployment Commands
 
-Approved for contract deployment only within the selected scope.
+Historical approved contract deployment commands for the selected scope.
+
+These commands have already been executed for the completion recorded in `docs/mainnet/MAINNET_CONTRACT_DEPLOYMENT_COMPLETION_V1.md`. Do not re-run them unless a separate recovery plan explicitly approves that action.
 
 ```text
 APPROVED FOR CONTRACT DEPLOYMENT ONLY
@@ -240,10 +277,13 @@ Notes: Approved for contract deployment only, not public launch. Mint phases mus
 ```text
 MAINNET DEPLOYMENT APPROVAL DECISION V1: APPROVED
 APPROVED DEPLOYMENT SCOPE: BASE MAINNET + ETHEREUM MAINNET
-MAINNET DEPLOYMENT: APPROVED / NOT STARTED
+MAINNET CONTRACT DEPLOYMENT: DONE / VERIFIED / SAFE OFF
 DEPLOYMENT AUTHORIZATION: APPROVED FOR CONTRACT DEPLOYMENT ONLY
 PUBLIC LAUNCH: NOT READY / NOT APPROVED
+MAINNET ENV WIRING: NOT APPROVED
 MAINNET REWARD CLAIM LAUNCH: NOT READY / NOT APPROVED
+METADATA LOCK: NOT APPROVED
+MINT OPENING: NOT APPROVED
 ```
 
 P.S. Read this document freely for information and guidance. Do not redistribute or restate—no quotes, summaries, paraphrases, or derivatives—without prior written permission from [**Prof. NOTA**](https://nota.endhonesa.com/). Sharing the link is allowed. So, share the link, not the text. Do not discuss or re-tell the contents in any form—written, spoken, or recorded—without prior written permission.

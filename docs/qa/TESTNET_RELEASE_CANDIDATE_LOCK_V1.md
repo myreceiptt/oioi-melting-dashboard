@@ -172,14 +172,14 @@ The current testnet release surface is locked as the Testnet Release Candidate v
 ## 9. Mainnet Status
 
 ```text
-mainnet deployment: not started / deferred
-mainnet env wiring: not started
+mainnet contract deployment: done / verified / safe off
+mainnet env wiring: not approved / not started
 mainnet read-only QA: not started
 controlled mainnet opening: not started
 public launch: not started
 ```
 
-This RC lock does not authorize mainnet deployment by itself.
+This RC lock did not authorize mainnet deployment by itself. The later approved contract deployment scope has been completed, but public launch, mainnet env wiring, controlled opening, reward claim launch, metadata reveal, and metadata lock remain separate gates.
 
 Mainnet deployment remains deferred until explicit approval.
 

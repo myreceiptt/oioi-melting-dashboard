@@ -1,13 +1,12 @@
 # OiOi Melting Dashboard — Implementation Roadmap v3
 
-This roadmap reflects the current state after Sepolia contract validation, frontend implementation, Supabase reward pipeline implementation, GitHub Actions worker setup, BASE/dETH app shell work, Subdomain Surface Behavior v1, Full Testnet E2E QA v1, Testnet Release Candidate Lock v1, and Mainnet Deployment Approval Gate v1.
+This roadmap reflects the current state after Sepolia contract validation, frontend implementation, Supabase reward pipeline implementation, GitHub Actions worker setup, BASE/dETH app shell work, Subdomain Surface Behavior v1, Full Testnet E2E QA v1, Testnet Release Candidate Lock v1, Mainnet Deployment Approval Gate v1, and Mainnet Contract Deployment Completion v1.
 
 Current execution path:
 
 ```text
-Explicit mainnet deployment approval decision
-→ Mainnet deployment
-→ Mainnet env wiring
+Mainnet contract deployment complete / safe-off
+→ Mainnet env wiring plan
 → Mainnet read-only QA
 → controlled mainnet opening
 ```
@@ -242,7 +241,7 @@ admin color pass
 Current next stage:
 
 ```text
-Explicit mainnet deployment approval decision
+Mainnet env wiring plan
 ```
 
 ---
@@ -298,7 +297,7 @@ Testnet Release Candidate Lock v1 documented ✅
 
 ## Phase 12 — Mainnet Deployment
 
-Status: Approved for contract deployment only; not started.
+Status: Completed for contract deployment only; verified and safe-off.
 
 Preparation already passed:
 
@@ -311,10 +310,23 @@ deployer wallet funded
 whitelist finalized
 ```
 
-Still not started:
+Completed:
 
 ```text
-actual mainnet deployment
+Base Mainnet contract deployment
+Ethereum Mainnet contract deployment
+BaseScan verification / already verified
+Etherscan verification / already verified or successfully verified
+Base read-check
+Ethereum read-check
+deployment records committed
+mint phases OFF
+metadata UNLOCKED
+```
+
+Still not approved / not started:
+
+```text
 mainnet env wiring
 mainnet read-only QA
 controlled opening
@@ -327,6 +339,8 @@ metadata strategy approved as Option A for contract deployment planning only
 mainnet reward/indexer/proof pipeline implementation and validation
 public launch remains not ready
 mainnet reward claim remains not production-ready
+metadata lock remains not approved
+mint opening remains not approved
 ```
 
 ---
@@ -347,9 +361,12 @@ Gate status:
 MAINNET DEPLOYMENT APPROVAL GATE V1: READY WITH NOTES
 DEPLOYMENT AUTHORIZATION: APPROVED FOR CONTRACT DEPLOYMENT ONLY
 APPROVED DEPLOYMENT SCOPE: BASE MAINNET + ETHEREUM MAINNET
-MAINNET DEPLOYMENT: APPROVED / NOT STARTED
+MAINNET CONTRACT DEPLOYMENT: DONE / VERIFIED / SAFE OFF
 PUBLIC LAUNCH: NOT READY / NOT APPROVED
+MAINNET ENV WIRING: NOT APPROVED
 MAINNET REWARD CLAIM LAUNCH: NOT READY / NOT APPROVED
+METADATA LOCK: NOT APPROVED
+MINT OPENING: NOT APPROVED
 ```
 
 Final deployment approval form:
@@ -358,15 +375,21 @@ Final deployment approval form:
 docs/mainnet/MAINNET_DEPLOYMENT_APPROVAL_DECISION_V1.md
 ```
 
+Contract deployment completion:
+
+```text
+docs/mainnet/MAINNET_CONTRACT_DEPLOYMENT_COMPLETION_V1.md
+```
+
 ---
 
 ## Current Next Step
 
 ```text
-Explicit mainnet deployment approval decision
+Mainnet env wiring plan
 ```
 
-Do not proceed to mainnet deployment until explicit approval is given after Mainnet Deployment Approval Gate v1.
+Do not wire mainnet frontend env, open mint, launch reward claim, reveal metadata, lock metadata, or launch publicly until each later gate is explicitly approved.
 
 ---
 

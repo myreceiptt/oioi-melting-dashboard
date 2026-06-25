@@ -265,9 +265,9 @@ This keeps user-facing NFT display responsive without mutating reward calculatio
 
 ## 12. Mainnet Policy
 
-Mainnet deployment has not started.
+Mainnet contract deployment is complete, verified, read-checked, and safe-off.
 
-After mainnet deployment:
+Before any mainnet reward/indexer/proof production use:
 
 ```text
 manually record Base MAINNET FROM_BLOCK
@@ -291,7 +291,7 @@ REWARD CLAIM: IMPLEMENTED AND QA-PASSED ON TESTNET
 DASHBOARD NFT DISCOVERY: IMPLEMENTED
 MAINNET INDEXER: NOT STARTED
 MAINNET REWARD CLAIM: NOT PRODUCTION-READY
-NEXT MAJOR TASK: EXPLICIT MAINNET DEPLOYMENT APPROVAL DECISION
+NEXT MAJOR TASK: MAINNET ENV WIRING PLAN / MAINNET READ-ONLY QA
 ```
 
 ---

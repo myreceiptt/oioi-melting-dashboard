@@ -7,17 +7,17 @@ Status:
 ```text
 METADATA STRATEGY APPROVAL: APPROVED
 SELECTED OPTION: OPTION A — DEPLOY WITH PENDING REVEALED URI PLACEHOLDERS
-MAINNET DEPLOYMENT: NOT STARTED
-DEPLOYMENT AUTHORIZATION: NOT YET APPROVED
+MAINNET CONTRACT DEPLOYMENT: DONE / VERIFIED / SAFE OFF
+DEPLOYMENT AUTHORIZATION: COMPLETED FOR CONTRACT DEPLOYMENT ONLY
 PUBLIC LAUNCH: NOT READY
 MAINNET REWARD CLAIM LAUNCH: NOT READY
 ```
 
-This document records the metadata strategy decision before any mainnet deployment transaction.
+This document records the metadata strategy decision that allowed mainnet contract deployment planning to proceed with pending Melting/Amanda revealed URI placeholders.
 
-This approval does not authorize mainnet deployment by itself.
+The separate mainnet contract deployment approval was later granted and the contract deployment scope is now complete.
 
-Mainnet deployment still requires separate explicit deployment approval.
+This approval still does not authorize public launch, mint opening, metadata reveal, metadata lock, reward claim launch, or `lockMetadata()`.
 
 ---
 
@@ -28,14 +28,14 @@ Current gate state:
 ```text
 Testnet Release Candidate Lock v1: PASS
 Mainnet Deployment Approval Gate v1: READY WITH NOTES
-Mainnet deployment: not started
-Deployment authorization: not yet approved
+Mainnet contract deployment: done / verified / safe off
+Deployment authorization: completed for contract deployment only
 Metadata strategy: approved as Option A
 Public launch: not ready
 Mainnet reward claim launch: not ready
 ```
 
-Stop if deployment is proposed without separate explicit mainnet deployment approval.
+Stop if public launch, mint opening, metadata reveal, metadata lock, reward claim launch, or `lockMetadata()` is proposed without a separate explicit approval.
 
 ---
 
@@ -228,8 +228,8 @@ review deployment config again
 ```text
 METADATA STRATEGY APPROVAL: APPROVED
 SELECTED OPTION: OPTION A — DEPLOY WITH PENDING REVEALED URI PLACEHOLDERS
-MAINNET DEPLOYMENT: NOT STARTED
-DEPLOYMENT AUTHORIZATION: NOT YET APPROVED
+MAINNET CONTRACT DEPLOYMENT: DONE / VERIFIED / SAFE OFF
+DEPLOYMENT AUTHORIZATION: COMPLETED FOR CONTRACT DEPLOYMENT ONLY
 PUBLIC LAUNCH: NOT READY
 MAINNET REWARD CLAIM LAUNCH: NOT READY
 ```
