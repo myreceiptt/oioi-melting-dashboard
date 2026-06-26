@@ -31,6 +31,7 @@
     "deploy:read-check": "hardhat run scripts/deploy/read-check.ts",
     "test:base-sepolia-functional": "hardhat run scripts/deploy/base-sepolia-functional-test.ts",
     "deploy:restore-mint-phases": "hardhat run scripts/deploy/restore-mint-phases.ts",
+    "deploy:set-mint-phases": "hardhat run scripts/deploy/set-mint-phases.ts",
     "test:ethereum-sepolia-functional": "hardhat run scripts/deploy/ethereum-sepolia-functional-test.ts",
     "dev": "next dev",
     "build": "next build",
