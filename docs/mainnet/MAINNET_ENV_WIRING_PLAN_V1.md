@@ -8,9 +8,9 @@ Status:
 MAINNET ENV WIRING PLAN V1: APPLIED FOR READ-ONLY QA
 READ-ONLY MAINNET ENV WIRING: APPROVED
 MAINNET READ-ONLY FRONTEND QA V1: PASSED FOR LOCALHOST READ-ONLY QA
-MAINNET ENV WIRING BEYOND READ-ONLY QA: NOT APPROVED
-PUBLIC LAUNCH: NOT APPROVED
-MINT OPENING: NOT APPROVED
+PRODUCTION MAINNET ENV: LIVE
+MAINNET PUBLIC SURFACE: LIVE
+MINT OPENING: DONE / LIVE
 MAINNET REWARD CLAIM LAUNCH: NOT APPROVED
 METADATA LOCK: NOT APPROVED
 CONTRACT DEPLOYMENT: COMPLETE
@@ -18,9 +18,11 @@ CONTRACT DEPLOYMENT: COMPLETE
 
 This document prepares the mainnet frontend/server environment wiring inventory after Base Mainnet and Ethereum Mainnet contract deployment completion.
 
-Read-only mainnet env wiring is approved only by `docs/mainnet/MAINNET_ENV_WIRING_APPROVAL_DECISION_V1.md`.
+Read-only mainnet env wiring was initially approved by `docs/mainnet/MAINNET_ENV_WIRING_APPROVAL_DECISION_V1.md`.
 
-It does not approve public launch, mint opening, reward claim launch, metadata reveal, metadata lock, `lockMetadata()`, or any contract state change.
+Later production mainnet env wiring and mint opening were completed and are recorded in `docs/qa/MAINNET_PUBLIC_SURFACE_AND_MINT_OPENING_QA_V1.md`.
+
+This plan does not approve reward claim launch, metadata reveal, metadata lock, or `lockMetadata()`.
 
 ---
 
@@ -239,15 +241,15 @@ Read-only env wiring is approved only for QA by:
 docs/mainnet/MAINNET_ENV_WIRING_APPROVAL_DECISION_V1.md
 ```
 
-That approval does not include public launch, mint opening, reward claim launch, metadata lock, or any on-chain transaction.
+That original approval did not include public launch, mint opening, reward claim launch, metadata lock, or any on-chain transaction. Later production mainnet env wiring and mint opening were completed and are recorded in `docs/qa/MAINNET_PUBLIC_SURFACE_AND_MINT_OPENING_QA_V1.md`.
 
 ```text
 READ-ONLY MAINNET ENV WIRING: APPROVED
-PUBLIC LAUNCH: NOT APPROVED
-MINT OPENING: NOT APPROVED
+PRODUCTION MAINNET ENV: LIVE
+MAINNET PUBLIC SURFACE: LIVE
+MINT OPENING: DONE / LIVE
 MAINNET REWARD CLAIM LAUNCH: NOT APPROVED
 METADATA LOCK: NOT APPROVED
-CONTRACT STATE CHANGES: NOT APPROVED
 ```
 
 ---
@@ -258,12 +260,11 @@ CONTRACT STATE CHANGES: NOT APPROVED
 MAINNET ENV WIRING PLAN V1: APPLIED FOR READ-ONLY QA
 READ-ONLY MAINNET ENV WIRING: APPROVED
 MAINNET READ-ONLY FRONTEND QA V1: PASSED FOR LOCALHOST READ-ONLY QA
-MAINNET ENV WIRING BEYOND READ-ONLY QA: NOT APPROVED
-PUBLIC LAUNCH: NOT APPROVED
-MINT OPENING: NOT APPROVED
+PRODUCTION MAINNET ENV: LIVE
+MAINNET PUBLIC SURFACE: LIVE
+MINT OPENING: DONE / LIVE
 MAINNET REWARD CLAIM LAUNCH: NOT APPROVED
 METADATA LOCK: NOT APPROVED
-CONTRACT STATE CHANGES: NOT APPROVED
 ```
 
 P.S. Read this document freely for information and guidance. Do not redistribute or restate—no quotes, summaries, paraphrases, or derivatives—without prior written permission from [**Prof. NOTA**](https://nota.endhonesa.com/). Sharing the link is allowed. So, share the link, not the text. Do not discuss or re-tell the contents in any form—written, spoken, or recorded—without prior written permission.

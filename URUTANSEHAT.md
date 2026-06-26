@@ -232,7 +232,8 @@
     - ✅ Later decision changed: use production-intended subdomains immediately for Sepolia rehearsal.
     - ✅ Production Subdomain Mapping for Sepolia Rehearsal v1 done.
     - ✅ One Vercel project serves all final subdomains.
-    - ✅ Vercel Production env remains NEXT_PUBLIC_APP_ENV=sepolia.
+    - ✅ Vercel Production env used `NEXT_PUBLIC_APP_ENV=sepolia` during Sepolia rehearsal.
+    - ✅ Vercel Production env later switched to `NEXT_PUBLIC_APP_ENV=mainnet` for production mainnet surface.
     - ✅ testnet.softstaking.endhonesa.com no longer main rehearsal URL.
     - ✅ softstaking.endhonesa.com serves home/dashboard/admin.
     - ✅ rotybase.endhonesa.com routes to ROTY BASE mint.
@@ -382,45 +383,72 @@
     - ✅ Ethereum Mainnet deployment record committed:
       - `deployments/ethereum-mainnet/deployment.json`
       - `592a8945cc78696b9a26a56281c0e91796d503ab`
-    - ✅ Mint phases remain OFF.
+    - ✅ Mint phases remained OFF at deployment completion / safe-off baseline.
+    - ✅ Later mainnet production mint phases were opened after the separate opening step.
     - ✅ Metadata remains unlocked.
     - ✅ Mainnet Contract Deployment Completion v1 documented.
-    - ⏸ Public launch not approved.
-    - ⏸ Mainnet env wiring not approved.
+    - ✅ Mainnet public surface later went live.
+    - ✅ Mainnet env wiring later applied for production surface.
     - ⏸ Mainnet reward claim launch not approved.
     - ⏸ Metadata lock not approved.
-    - ⏸ Mint opening not approved.
+    - ✅ Mint opening later completed for Base Mainnet and Ethereum Mainnet.
 
-25. Mainnet Env Wiring Approval Decision v1 — APPROVED FOR READ-ONLY QA ONLY
+25. Mainnet Env Wiring / Production Surface — LIVE
     - ✅ Mainnet env inventory prepared in `docs/mainnet/MAINNET_ENV_WIRING_PLAN_V1.md`.
     - ✅ Read-only mainnet env wiring approved in `docs/mainnet/MAINNET_ENV_WIRING_APPROVAL_DECISION_V1.md`.
     - ✅ Read-only frontend QA completed in `docs/qa/MAINNET_READ_ONLY_FRONTEND_QA_V1.md`.
-    - ⏸ Mainnet env wiring beyond read-only QA not approved.
-    - ⏸ Public launch not approved.
-    - ⏸ Mint opening not approved.
+    - ✅ Vercel Production `NEXT_PUBLIC_APP_ENV` switched to `mainnet`.
+    - ✅ Production domains serve mainnet.
+    - ✅ Public mainnet mint/staking surface is live.
+    - ✅ Mint opening completed for Base Mainnet and Ethereum Mainnet.
     - ⏸ Mainnet reward claim launch not approved.
     - ⏸ Metadata lock not approved.
-    - ⏸ Contract state changes not approved.
+    - ✅ Admin mainnet operations tested and restored where applicable.
     - ✅ Localhost read-only QA confirmed Base Mainnet and Ethereum Mainnet frontend reads.
-    - ⏸ Broader production-domain mainnet browser QA remains a later step before public launch.
+    - ✅ Production-domain mainnet browser QA passed.
 
-26. Mainnet Read-Only QA — LOCALHOST READ-ONLY PASS
+26. Mainnet Production-Domain Browser QA — PASS
     - ✅ Base Mainnet frontend reads pass.
     - ✅ Ethereum Mainnet frontend reads pass.
     - ✅ Dashboard Base read-only panel pass.
     - ✅ Dashboard Ethereum read-only panel pass.
-    - ⏸ Full production-domain mainnet browser QA is not a public launch approval.
-    - ⏸ Admin mainnet read-only panel and all dedicated mint surfaces can be included in later broader QA.
-    - 🔜 Reward/indexer production config verified.
-    - 🔜 Production domains verified under mainnet env before public launch.
+    - ✅ All six dedicated mint surfaces work on mainnet.
+    - ✅ `softstaking.endhonesa.com` works on mainnet.
+    - ✅ Mint status reflects enabled mainnet phases.
+    - ✅ Staking dashboard/admin surface works on mainnet.
+    - ✅ Admin mainnet operations QA passed for staking registry, mint phases, pricing, treasury, royalty, and metadata update/restore flows.
+    - ⏸ Reward Round Operations remain pending mainnet database/indexer/proof production support.
 
-27. Controlled Mainnet Opening Plan / Approval — NOT STARTED
-    - 🔜 Enable ROTY whitelist.
-    - 🔜 Controlled mint.
-    - 🔜 Enable public mint.
-    - 🔜 Enable staking dashboard.
-    - 🔜 Enable Melting/Amanda gated mint.
-    - 🔜 Enable reward claim only after production reward flow is ready.
+27. Controlled Mainnet Opening / Mint + Staking Surface — DONE / LIVE
+    - ✅ Enable ROTY whitelist.
+    - ✅ Controlled mint.
+    - ✅ Enable ROTY public mint.
+    - ✅ Enable staking dashboard.
+    - ✅ Enable Melting/Amanda gated mint.
+    - ⏸ Enable reward claim only after production reward flow is ready.
+    - ✅ Base Mainnet mint phases open:
+      - ROTY whitelist mint ON.
+      - ROTY public mint ON.
+      - Melting gated mint ON.
+      - Amanda gated mint ON.
+    - ✅ Ethereum Mainnet mint phases open:
+      - ROTY whitelist mint ON.
+      - ROTY public mint ON.
+      - Melting gated mint ON.
+      - Amanda gated mint ON.
+    - ✅ Mainnet public surface and mint opening QA documented in `docs/qa/MAINNET_PUBLIC_SURFACE_AND_MINT_OPENING_QA_V1.md`.
+
+28. Mainnet Reward Round Operations / Production Reward Data Plane — PENDING
+    - ⏸ Supabase mainnet database/data-plane separation or configuration pending.
+    - ⏸ GitHub Actions mainnet worker/indexer env pending.
+    - ⏸ Mainnet worker jobs pending.
+    - ⏸ Mainnet indexer sync pending.
+    - ⏸ Mainnet reward calculation pending.
+    - ⏸ Mainnet proof generation pending.
+    - ⏸ Mainnet reward claim launch pending.
+    - ✅ Reward process is validated on testnet and remains the intended production design.
+    - ⏸ Existing Reward Round Operations/admin data is still testnet-oriented until mainnet support is implemented/configured/validated.
+    - ⏸ This does not block the already-live mainnet mint/public surface.
 
 ---
 

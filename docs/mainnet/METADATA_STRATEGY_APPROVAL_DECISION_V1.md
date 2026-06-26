@@ -9,7 +9,8 @@ METADATA STRATEGY APPROVAL: APPROVED
 SELECTED OPTION: OPTION A — DEPLOY WITH PENDING REVEALED URI PLACEHOLDERS
 MAINNET CONTRACT DEPLOYMENT: DONE / VERIFIED / SAFE OFF
 DEPLOYMENT AUTHORIZATION: COMPLETED FOR CONTRACT DEPLOYMENT ONLY
-PUBLIC LAUNCH: NOT READY
+MAINNET PUBLIC SURFACE: LIVE
+MINT OPENING: DONE / LIVE
 MAINNET REWARD CLAIM LAUNCH: NOT READY
 ```
 
@@ -17,7 +18,9 @@ This document records the metadata strategy decision that allowed mainnet contra
 
 The separate mainnet contract deployment approval was later granted and the contract deployment scope is now complete.
 
-This approval still does not authorize public launch, mint opening, metadata reveal, metadata lock, reward claim launch, or `lockMetadata()`.
+This approval still does not authorize metadata reveal, metadata lock, reward claim launch, or `lockMetadata()`.
+
+Later production mainnet env wiring and mint opening were completed and are recorded in `docs/qa/MAINNET_PUBLIC_SURFACE_AND_MINT_OPENING_QA_V1.md`.
 
 ---
 
@@ -28,14 +31,15 @@ Current gate state:
 ```text
 Testnet Release Candidate Lock v1: PASS
 Mainnet Deployment Approval Gate v1: READY WITH NOTES
-Mainnet contract deployment: done / verified / safe off
+Mainnet contract deployment: done / verified / safe-off baseline
 Deployment authorization: completed for contract deployment only
 Metadata strategy: approved as Option A
-Public launch: not ready
+Mainnet public surface: live
+Mint opening: done / live
 Mainnet reward claim launch: not ready
 ```
 
-Stop if public launch, mint opening, metadata reveal, metadata lock, reward claim launch, or `lockMetadata()` is proposed without a separate explicit approval.
+Stop if metadata reveal, metadata lock, reward claim launch, or `lockMetadata()` is proposed without a separate explicit approval.
 
 ---
 
@@ -117,9 +121,9 @@ Rules:
 
 ```text
 approved for contract deployment planning only
-mint phases must remain OFF
+mint phases had to remain OFF at deployment completion
 metadata must remain unlocked
-no public launch
+production mint opening completed later as a separate step
 final Melting/Amanda revealed metadata must be uploaded, checked, updated, indexed, and approved before reveal/lock/public opening
 lockMetadata() must not be called until final metadata is approved
 ```
@@ -151,7 +155,7 @@ slower deployment
 Practical recommendation:
 
 ```text
-Option A is acceptable for contract deployment planning only because it has been explicitly approved and mint phases must remain OFF.
+Option A was acceptable for contract deployment planning only because it was explicitly approved and mint phases had to remain OFF at deployment completion.
 Option B is safer if final Melting/Amanda revealed metadata can be completed soon.
 ```
 
@@ -193,7 +197,7 @@ Selected option:
 
 Approved by: Prof. NOTA
 Date: 2026-06-24
-Notes: Approved for contract deployment planning only. Mint phases must remain OFF, metadata must remain unlocked, public launch remains not ready, and lockMetadata() must not be called until final Melting/Amanda revealed metadata is approved.
+Notes: Approved for contract deployment planning only. Mint phases had to remain OFF at deployment completion. Later production mint opening was completed separately. Metadata must remain unlocked, and lockMetadata() must not be called until final Melting/Amanda revealed metadata is approved.
 ```
 
 ---

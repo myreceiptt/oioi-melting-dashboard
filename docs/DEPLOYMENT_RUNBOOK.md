@@ -58,6 +58,8 @@ Do not treat the approval gate document as approval by itself.
 
 Mainnet deployment commands were approved only for Base Mainnet + Ethereum Mainnet contract deployment and have been completed. Public launch, mainnet env wiring, reward claim launch, mint opening, and metadata lock are not approved.
 
+Later production steps switched Vercel Production to mainnet and opened the public mint/staking surface. The current production status is recorded in `docs/qa/MAINNET_PUBLIC_SURFACE_AND_MINT_OPENING_QA_V1.md`.
+
 Do not launch mainnet reward claim until the mainnet indexer/reward/proof flow is implemented/configured, run, verified, and approved.
 
 Metadata strategy is approved as Option A for contract deployment planning only and tracked in:
@@ -66,7 +68,7 @@ Metadata strategy is approved as Option A for contract deployment planning only 
 docs/mainnet/METADATA_STRATEGY_APPROVAL_DECISION_V1.md
 ```
 
-Mint phases must remain OFF, metadata must remain unlocked, and `lockMetadata()` must not be called until final Melting/Amanda revealed metadata is approved.
+Metadata must remain unlocked, and `lockMetadata()` must not be called until final Melting/Amanda revealed metadata is approved.
 
 ---
 
@@ -281,18 +283,18 @@ Base Mainnet contract deployment: DONE / VERIFIED / SAFE OFF
 Ethereum Mainnet contract deployment: DONE / VERIFIED / SAFE OFF
 Base read-check: PASS
 Ethereum read-check: PASS
-mint phases: OFF
+mint phases at deployment completion: OFF
+mint phases after production opening: ON
 metadata: UNLOCKED
 ```
 
-Public launch remains not approved.
+The mainnet public mint/staking surface is now live.
 
 Approval-sensitive caveats:
 
 ```text
 metadata strategy is approved as Option A
 pending revealed URI placeholders may be deployed for the approved contract deployment scope
-mint phases must remain OFF
 metadata must remain unlocked until final metadata is approved
 final metadata update/reveal/lock remains a later approval
 mainnet reward claim is not production-ready at deployment time
@@ -403,12 +405,16 @@ confirm owner, treasury, royalty, prices, URIs, Merkle root
 inspect explorer
 record FROM_BLOCK
 commit deployment record
+switch Vercel Production env to mainnet
+open ROTY whitelist/public mint phases
+open Melting/Amanda gated mint phases
+run production-domain browser QA
+run admin mainnet operations QA
 ```
 
 Still pending separate approval:
 
 ```text
-controlled mint opening
 mainnet indexer/reward/proof production validation
 reward claim launch
 final metadata update/reveal/lock
@@ -418,7 +424,7 @@ final metadata update/reveal/lock
 
 ## 13. Mainnet Env Wiring
 
-Read-only mainnet env wiring is approved for frontend QA only and has a localhost read-only QA pass.
+Read-only mainnet env wiring was approved for frontend QA and had a localhost read-only QA pass. Vercel Production was later switched to mainnet for the live production public surface.
 
 Canonical env wiring plan:
 
@@ -432,7 +438,11 @@ Canonical read-only env wiring approval decision:
 docs/mainnet/MAINNET_ENV_WIRING_APPROVAL_DECISION_V1.md
 ```
 
-The approval covers read-only frontend QA only. Public launch, mint opening, reward claim launch, metadata lock, and contract state changes remain not approved.
+The original approval covered read-only frontend QA only. The later production mainnet public surface and mint opening are documented in:
+
+```text
+docs/qa/MAINNET_PUBLIC_SURFACE_AND_MINT_OPENING_QA_V1.md
+```
 
 Canonical mainnet read-only frontend QA report:
 
@@ -456,24 +466,23 @@ NEXT_PUBLIC_BASE_*
 NEXT_PUBLIC_ETH_*
 ```
 
-Any broader production-domain mainnet browser QA remains read-only until a later explicit controlled opening approval.
+Production-domain mainnet browser QA passed for the live public mint/staking/admin baseline.
 
 ---
 
 ## 14. Controlled Mainnet Opening
 
-Opening is separate from deployment and from read-only frontend QA.
+Opening was separate from deployment and from read-only frontend QA. It is now completed for the mint/staking public surface.
 
-Order:
+Completed:
 
 ```text
-enable ROTY whitelist mint
-controlled mint
-enable ROTY public mint if ready
-enable staking dashboard
-enable Melting gated mint
-enable Amanda gated mint
-enable reward claim only after production reward flow is ready
+ROTY whitelist mint: ON
+ROTY public mint: ON
+staking dashboard: live
+Melting gated mint: ON
+Amanda gated mint: ON
+reward claim: deferred until production reward flow is ready
 ```
 
 ---

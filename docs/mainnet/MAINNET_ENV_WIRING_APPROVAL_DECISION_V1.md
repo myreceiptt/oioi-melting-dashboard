@@ -5,18 +5,20 @@ Date: 2026-06-25
 Status:
 
 ```text
-MAINNET ENV WIRING APPROVAL DECISION V1: APPROVED FOR READ-ONLY WIRING ONLY
+MAINNET ENV WIRING APPROVAL DECISION V1: HISTORICAL READ-ONLY APPROVAL
 READ-ONLY MAINNET ENV WIRING: APPROVED
-PUBLIC LAUNCH: NOT APPROVED
-MINT OPENING: NOT APPROVED
+PRODUCTION MAINNET ENV: LIVE
+MAINNET PUBLIC SURFACE: LIVE
+MINT OPENING: DONE / LIVE
 MAINNET REWARD CLAIM LAUNCH: NOT APPROVED
 METADATA LOCK: NOT APPROVED
-CONTRACT STATE CHANGES: NOT APPROVED
 ```
 
-This decision approves read-only mainnet env wiring for frontend QA only.
+This decision originally approved read-only mainnet env wiring for frontend QA only.
 
-It does not approve public launch, mint opening, reward claim launch, metadata reveal, metadata lock, `lockMetadata()`, or any on-chain transaction.
+Later production mainnet env wiring and mint opening were completed and are recorded in `docs/qa/MAINNET_PUBLIC_SURFACE_AND_MINT_OPENING_QA_V1.md`.
+
+This document does not approve reward claim launch, metadata reveal, metadata lock, or `lockMetadata()`.
 
 ---
 
@@ -116,11 +118,8 @@ ETHEREUM MAINNET FRONTEND READS: PASS
 
 Still not approved:
 
-- Public launch.
-- Opening mint.
 - Reward claim launch.
 - Metadata lock.
-- Contract state changes.
 
 ---
 
@@ -134,20 +133,20 @@ No production opening or write action is authorized by this document.
 
 Any later transition from read-only QA to controlled mint opening, reward claim launch, metadata update/reveal/lock, or public launch requires a separate explicit approval document.
 
-The next operational gate after localhost read-only frontend QA is controlled mint opening planning/approval. The controlled opening itself is not approved by this document or by the QA pass report.
+The next major technical task after production mint opening is Mainnet Reward Round Operations / Production Reward Data Plane.
 
 ---
 
 ## 6. Final Status
 
 ```text
-MAINNET ENV WIRING APPROVAL DECISION V1: APPROVED FOR READ-ONLY WIRING ONLY
+MAINNET ENV WIRING APPROVAL DECISION V1: HISTORICAL READ-ONLY APPROVAL
 READ-ONLY MAINNET ENV WIRING: APPROVED
-PUBLIC LAUNCH: NOT APPROVED
-MINT OPENING: NOT APPROVED
+PRODUCTION MAINNET ENV: LIVE
+MAINNET PUBLIC SURFACE: LIVE
+MINT OPENING: DONE / LIVE
 MAINNET REWARD CLAIM LAUNCH: NOT APPROVED
 METADATA LOCK: NOT APPROVED
-CONTRACT STATE CHANGES: NOT APPROVED
 ```
 
 P.S. Read this document freely for information and guidance. Do not redistribute or restate—no quotes, summaries, paraphrases, or derivatives—without prior written permission from [**Prof. NOTA**](https://nota.endhonesa.com/). Sharing the link is allowed. So, share the link, not the text. Do not discuss or re-tell the contents in any form—written, spoken, or recorded—without prior written permission.

@@ -8,18 +8,20 @@ Status:
 MAINNET CONTRACT DEPLOYMENT COMPLETION V1: COMPLETE
 BASE MAINNET CONTRACT DEPLOYMENT: DONE / VERIFIED / SAFE OFF
 ETHEREUM MAINNET CONTRACT DEPLOYMENT: DONE / VERIFIED / SAFE OFF
-PUBLIC LAUNCH: NOT APPROVED
+MAINNET PUBLIC SURFACE: LIVE
 READ-ONLY MAINNET ENV WIRING: APPROVED
 MAINNET READ-ONLY FRONTEND QA V1: PASSED FOR LOCALHOST READ-ONLY QA
-MAINNET ENV WIRING BEYOND READ-ONLY QA: NOT APPROVED
+PRODUCTION MAINNET ENV: LIVE
 MAINNET REWARD CLAIM LAUNCH: NOT APPROVED
 METADATA LOCK: NOT APPROVED
-MINT OPENING: NOT APPROVED
+MINT OPENING: DONE / LIVE
 ```
 
-This document records completion of the Base Mainnet and Ethereum Mainnet contract deployment stage only.
+This document records completion of the Base Mainnet and Ethereum Mainnet contract deployment stage.
 
-It does not approve public launch, mainnet env wiring beyond read-only QA, opening mint phases, reward claim launch, metadata reveal, metadata lock, or `lockMetadata()`.
+Later production steps opened the mainnet public mint/staking surface. The current production surface status is documented in `docs/qa/MAINNET_PUBLIC_SURFACE_AND_MINT_OPENING_QA_V1.md`.
+
+This document still does not approve reward claim launch, metadata reveal, metadata lock, or `lockMetadata()`.
 
 ---
 
@@ -84,6 +86,8 @@ Ethereum read-check: PASS
 
 ## 5. Safe-Off Result
 
+Historical deployment-completion baseline:
+
 ```text
 ROTY whitelist mint: OFF
 ROTY public mint: OFF
@@ -98,7 +102,18 @@ Amanda revealed: false
 Reward funded/claimed/unclaimed/excess: 0
 ```
 
-Mint phases must remain OFF until a later explicit controlled opening approval.
+Later production status:
+
+```text
+Base Mainnet ROTY whitelist mint: ON
+Base Mainnet ROTY public mint: ON
+Base Mainnet Melting gated mint: ON
+Base Mainnet Amanda gated mint: ON
+Ethereum Mainnet ROTY whitelist mint: ON
+Ethereum Mainnet ROTY public mint: ON
+Ethereum Mainnet Melting gated mint: ON
+Ethereum Mainnet Amanda gated mint: ON
+```
 
 Metadata must remain unlocked. `lockMetadata()` must not be called until final Melting/Amanda revealed metadata is uploaded, checked, updated, indexed, and explicitly approved.
 
@@ -107,9 +122,6 @@ Metadata must remain unlocked. `lockMetadata()` must not be called until final M
 ## 6. Not Included In This Completion
 
 ```text
-This completion does not approve public launch.
-This completion does not approve mainnet env wiring.
-This completion does not approve opening mint.
 This completion does not approve reward claim launch.
 This completion does not approve metadata reveal or lock.
 This completion does not approve `lockMetadata()`.
@@ -122,12 +134,12 @@ Mainnet indexer/reward/proof flow still requires separate implementation/configu
 ## 7. Next Gates
 
 ```text
-Gate 1: Read-only mainnet env wiring (approved for QA only; public/write actions not approved)
-Gate 2: Mainnet read-only frontend QA (localhost read-only pass)
-Gate 3: Controlled mint opening plan / approval
-Gate 4: Mainnet indexer/reward/proof production validation
-Gate 5: Reward claim launch approval
-Gate 6: Final metadata update/reveal/lock approval
+Gate 1: Read-only mainnet env wiring (completed)
+Gate 2: Mainnet read-only frontend QA (completed)
+Gate 3: Controlled mint opening / production public surface (completed)
+Gate 4: Mainnet indexer/reward/proof production validation (pending)
+Gate 5: Reward claim launch approval (pending)
+Gate 6: Final metadata update/reveal/lock approval (pending)
 ```
 
 Canonical Gate 1 planning document:
@@ -142,7 +154,7 @@ Canonical Gate 1 approval decision:
 docs/mainnet/MAINNET_ENV_WIRING_APPROVAL_DECISION_V1.md
 ```
 
-The approval decision covers read-only env wiring only. Public launch, mint opening, reward claim launch, metadata lock, and contract state changes remain not approved.
+The original approval decision covered read-only env wiring only. Later production env wiring and mint opening were completed and are recorded in `docs/qa/MAINNET_PUBLIC_SURFACE_AND_MINT_OPENING_QA_V1.md`.
 
 Canonical Gate 2 read-only frontend QA report:
 
@@ -158,7 +170,7 @@ BASE MAINNET FRONTEND READS: PASS
 ETHEREUM MAINNET FRONTEND READS: PASS
 ```
 
-The next operational gate is controlled mint opening planning/approval. The controlled opening itself is not approved.
+The next major technical task is Mainnet Reward Round Operations / Production Reward Data Plane.
 
 ---
 
@@ -168,13 +180,13 @@ The next operational gate is controlled mint opening planning/approval. The cont
 MAINNET CONTRACT DEPLOYMENT COMPLETION V1: COMPLETE
 BASE MAINNET CONTRACT DEPLOYMENT: DONE / VERIFIED / SAFE OFF
 ETHEREUM MAINNET CONTRACT DEPLOYMENT: DONE / VERIFIED / SAFE OFF
-PUBLIC LAUNCH: NOT APPROVED
+MAINNET PUBLIC SURFACE: LIVE
 READ-ONLY MAINNET ENV WIRING: APPROVED
 MAINNET READ-ONLY FRONTEND QA V1: PASSED FOR LOCALHOST READ-ONLY QA
-MAINNET ENV WIRING BEYOND READ-ONLY QA: NOT APPROVED
+PRODUCTION MAINNET ENV: LIVE
 MAINNET REWARD CLAIM LAUNCH: NOT APPROVED
 METADATA LOCK: NOT APPROVED
-MINT OPENING: NOT APPROVED
+MINT OPENING: DONE / LIVE
 ```
 
 P.S. Read this document freely for information and guidance. Do not redistribute or restate—no quotes, summaries, paraphrases, or derivatives—without prior written permission from [**Prof. NOTA**](https://nota.endhonesa.com/). Sharing the link is allowed. So, share the link, not the text. Do not discuss or re-tell the contents in any form—written, spoken, or recorded—without prior written permission.

@@ -1,14 +1,14 @@
 # OiOi Melting Dashboard — Implementation Roadmap v3
 
-This roadmap reflects the current state after Sepolia contract validation, frontend implementation, Supabase reward pipeline implementation, GitHub Actions worker setup, BASE/dETH app shell work, Subdomain Surface Behavior v1, Full Testnet E2E QA v1, Testnet Release Candidate Lock v1, Mainnet Deployment Approval Gate v1, and Mainnet Contract Deployment Completion v1.
+This roadmap reflects the current state after Sepolia contract validation, frontend implementation, Supabase reward pipeline implementation, GitHub Actions worker setup, BASE/dETH app shell work, Subdomain Surface Behavior v1, Full Testnet E2E QA v1, Testnet Release Candidate Lock v1, Mainnet Deployment Approval Gate v1, Mainnet Contract Deployment Completion v1, and Mainnet Public Surface / Mint Opening QA v1.
 
 Current execution path:
 
 ```text
-Mainnet contract deployment complete / safe-off
-→ Mainnet env wiring plan
-→ Mainnet read-only QA
-→ controlled mainnet opening
+Mainnet public mint/staking surface live
+→ Mainnet Reward Round Operations / Production Reward Data Plane
+→ mainnet reward claim launch only after production reward support is implemented/configured/validated/approved
+→ final metadata update/reveal/lock decision later
 ```
 
 ---
@@ -261,12 +261,12 @@ Status remains:
 ```text
 READ-ONLY MAINNET ENV WIRING: APPROVED
 MAINNET READ-ONLY FRONTEND QA V1: PASSED FOR LOCALHOST READ-ONLY QA
-MAINNET ENV WIRING BEYOND READ-ONLY QA: NOT APPROVED
-PUBLIC LAUNCH: NOT APPROVED
-MINT OPENING: NOT APPROVED
+PRODUCTION MAINNET ENV: LIVE
+MAINNET PUBLIC SURFACE: LIVE
+MINT OPENING: DONE / LIVE
 MAINNET REWARD CLAIM LAUNCH: NOT APPROVED
 METADATA LOCK: NOT APPROVED
-CONTRACT STATE CHANGES: NOT APPROVED
+MAINNET REWARD ROUND OPERATIONS: PENDING MAINNET DATABASE / INDEXER / PROOF SUPPORT
 ```
 
 ---
@@ -364,10 +364,10 @@ Approval-sensitive items:
 ```text
 metadata strategy approved as Option A for contract deployment planning only
 mainnet reward/indexer/proof pipeline implementation and validation
-public launch remains not ready
+mainnet public mint/staking surface live
 mainnet reward claim remains not production-ready
 metadata lock remains not approved
-mint opening remains not approved
+mint opening done / live
 ```
 
 ---
@@ -389,13 +389,13 @@ MAINNET DEPLOYMENT APPROVAL GATE V1: READY WITH NOTES
 DEPLOYMENT AUTHORIZATION: APPROVED FOR CONTRACT DEPLOYMENT ONLY
 APPROVED DEPLOYMENT SCOPE: BASE MAINNET + ETHEREUM MAINNET
 MAINNET CONTRACT DEPLOYMENT: DONE / VERIFIED / SAFE OFF
-PUBLIC LAUNCH: NOT READY / NOT APPROVED
+MAINNET PUBLIC SURFACE: LIVE
 READ-ONLY MAINNET ENV WIRING: APPROVED
-MAINNET ENV WIRING BEYOND READ-ONLY QA: NOT APPROVED
+PRODUCTION MAINNET ENV: LIVE
 MAINNET REWARD CLAIM LAUNCH: NOT READY / NOT APPROVED
 METADATA LOCK: NOT APPROVED
-MINT OPENING: NOT APPROVED
-CONTRACT STATE CHANGES: NOT APPROVED
+MINT OPENING: DONE / LIVE
+MAINNET REWARD ROUND OPERATIONS: PENDING MAINNET DATABASE / INDEXER / PROOF SUPPORT
 ```
 
 Final deployment approval form:

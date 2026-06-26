@@ -9,18 +9,20 @@ MAINNET DEPLOYMENT APPROVAL GATE V1: READY WITH NOTES
 DEPLOYMENT AUTHORIZATION: APPROVED FOR CONTRACT DEPLOYMENT ONLY
 APPROVED DEPLOYMENT SCOPE: BASE MAINNET + ETHEREUM MAINNET
 MAINNET CONTRACT DEPLOYMENT: DONE / VERIFIED / SAFE OFF
-PUBLIC LAUNCH: NOT READY / NOT APPROVED
-MAINNET ENV WIRING: NOT APPROVED
+MAINNET PUBLIC SURFACE: LIVE
+PRODUCTION MAINNET ENV: LIVE
 MAINNET REWARD CLAIM LAUNCH: NOT READY / NOT APPROVED
 METADATA LOCK: NOT APPROVED
-MINT OPENING: NOT APPROVED
+MINT OPENING: DONE / LIVE
 ```
 
 This document records the approval gate that preceded the Base Mainnet and Ethereum Mainnet contract deployment transactions.
 
 The approved contract deployment scope has now been completed and is recorded in `docs/mainnet/MAINNET_CONTRACT_DEPLOYMENT_COMPLETION_V1.md`.
 
-It did not authorize public launch, mainnet env wiring, mint opening, reward claim launch, metadata reveal, metadata lock, or `lockMetadata()`.
+It did not authorize reward claim launch, metadata reveal, metadata lock, or `lockMetadata()`.
+
+Later production mainnet env wiring and mint opening are documented in `docs/qa/MAINNET_PUBLIC_SURFACE_AND_MINT_OPENING_QA_V1.md`.
 
 ---
 
@@ -45,9 +47,10 @@ Worker jobs / boundary reward flow: DONE / PASS through GitHub Actions
 On-chain reward round creation and user reward claim: validated on testnet
 Base Mainnet contract deployment: DONE / VERIFIED / SAFE OFF
 Ethereum Mainnet contract deployment: DONE / VERIFIED / SAFE OFF
-Mainnet env wiring: not approved / not started
-Mainnet read-only QA: not started
-Controlled mainnet opening: not started
+Production mainnet env: live
+Mainnet production-domain browser QA: pass
+Controlled mainnet mint/staking opening: done / live
+Mainnet Reward Round Operations: pending mainnet database/indexer/proof support
 ```
 
 ---
@@ -104,19 +107,18 @@ Metadata strategy is now approved as:
 Option A — Deploy with pending revealed URI placeholders
 ```
 
-This approval is for contract deployment planning only. It does not authorize mainnet deployment by itself.
+This metadata approval was for contract deployment planning only. It did not authorize mainnet deployment by itself.
 
-Rules remain:
+Rules at contract deployment planning time:
 
 ```text
-mint phases must remain OFF
+mint phases had to remain OFF at deployment completion
 metadata must remain unlocked
-public launch remains not ready
 final metadata update/reveal/lock remains a later approval
 lockMetadata() must not be called until final Melting/Amanda revealed metadata is approved
 ```
 
-Stop if mainnet deployment is proposed without separate explicit deployment approval.
+Later production mainnet env wiring and mint opening were completed and are recorded separately. Metadata must remain unlocked and final metadata update/reveal/lock remains a later approval.
 
 Canonical metadata decision document:
 
@@ -370,14 +372,14 @@ MAINNET DEPLOYMENT APPROVAL GATE V1: READY WITH NOTES
 DEPLOYMENT AUTHORIZATION: APPROVED FOR CONTRACT DEPLOYMENT ONLY
 APPROVED DEPLOYMENT SCOPE: BASE MAINNET + ETHEREUM MAINNET
 MAINNET CONTRACT DEPLOYMENT: DONE / VERIFIED / SAFE OFF
-PUBLIC LAUNCH: NOT READY / NOT APPROVED
-MAINNET ENV WIRING: NOT APPROVED
+MAINNET PUBLIC SURFACE: LIVE
+PRODUCTION MAINNET ENV: LIVE
 MAINNET REWARD CLAIM LAUNCH: NOT READY / NOT APPROVED
 METADATA LOCK: NOT APPROVED
-MINT OPENING: NOT APPROVED
+MINT OPENING: DONE / LIVE
 ```
 
-Public launch, mainnet env wiring, mint opening, reward claim launch, metadata reveal, metadata lock, and `lockMetadata()` still require separate explicit approvals.
+Reward claim launch, metadata reveal, metadata lock, and `lockMetadata()` still require separate explicit approvals.
 
 P.S. Read this document freely for information and guidance. Do not redistribute or restate—no quotes, summaries, paraphrases, or derivatives—without prior written permission from [**Prof. NOTA**](https://nota.endhonesa.com/). Sharing the link is allowed. So, share the link, not the text. Do not discuss or re-tell the contents in any form—written, spoken, or recorded—without prior written permission.
 

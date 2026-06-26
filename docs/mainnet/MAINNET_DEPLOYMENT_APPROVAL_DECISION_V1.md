@@ -9,18 +9,20 @@ MAINNET DEPLOYMENT APPROVAL DECISION V1: APPROVED
 APPROVED DEPLOYMENT SCOPE: BASE MAINNET + ETHEREUM MAINNET
 MAINNET CONTRACT DEPLOYMENT: DONE / VERIFIED / SAFE OFF
 DEPLOYMENT AUTHORIZATION: APPROVED FOR CONTRACT DEPLOYMENT ONLY
-PUBLIC LAUNCH: NOT READY / NOT APPROVED
-MAINNET ENV WIRING: NOT APPROVED
+MAINNET PUBLIC SURFACE: LIVE
+PRODUCTION MAINNET ENV: LIVE
 MAINNET REWARD CLAIM LAUNCH: NOT READY / NOT APPROVED
 METADATA LOCK: NOT APPROVED
-MINT OPENING: NOT APPROVED
+MINT OPENING: DONE / LIVE
 ```
 
 This document records the final approval that allowed the mainnet contract deployment commands to be run.
 
 The approved contract deployment scope has now been completed and recorded in `docs/mainnet/MAINNET_CONTRACT_DEPLOYMENT_COMPLETION_V1.md`.
 
-It approved contract deployment only for the selected scope. It did not approve public launch, mainnet reward claim launch, metadata lock, mint opening, or mainnet env wiring.
+It approved contract deployment only for the selected scope. Later production mainnet env wiring and mint opening were completed and are recorded in `docs/qa/MAINNET_PUBLIC_SURFACE_AND_MINT_OPENING_QA_V1.md`.
+
+It does not approve mainnet reward claim launch, metadata lock, final metadata reveal/update/lock, or Reward Round Operations production data-plane launch.
 
 ---
 
@@ -60,11 +62,9 @@ no lockMetadata() before final Melting/Amanda metadata approval
 ## 3. Still Not Approved
 
 ```text
-Mainnet env wiring: NOT YET APPROVED
-Public launch: NOT APPROVED
 Mainnet reward claim launch: NOT APPROVED
 Metadata lock: NOT APPROVED
-Mint opening: NOT APPROVED
+Reward Round Operations production data plane: PENDING
 ```
 
 ---
@@ -86,7 +86,7 @@ Deployment scope:
 ```text
 [x] I approve running mainnet deployment commands.
 [x] I confirm this is contract deployment only, not public launch.
-[x] I confirm mint phases must remain OFF after deployment.
+[x] I confirm mint phases had to remain OFF at deployment completion.
 [x] I confirm metadata must remain unlocked.
 [x] I confirm `lockMetadata()` must not be called.
 [x] I confirm final Melting/Amanda revealed metadata remains a later gate.
@@ -267,7 +267,7 @@ Approved deployment scope:
 
 Approved by: Prof. NOTA
 Date: 2026-06-25
-Notes: Approved for contract deployment only, not public launch. Mint phases must remain OFF after deployment. Metadata must remain unlocked. lockMetadata() must not be called. Public launch is not approved. Mainnet reward claim launch is not approved. Stop immediately if any stop condition occurs.
+Notes: Approved for contract deployment only. At deployment completion, mint phases had to remain OFF. Later production mainnet env wiring and mint opening were completed and are recorded separately. Metadata must remain unlocked. lockMetadata() must not be called. Mainnet reward claim launch is not approved. Stop immediately if any stop condition occurs.
 ```
 
 ---
@@ -279,11 +279,11 @@ MAINNET DEPLOYMENT APPROVAL DECISION V1: APPROVED
 APPROVED DEPLOYMENT SCOPE: BASE MAINNET + ETHEREUM MAINNET
 MAINNET CONTRACT DEPLOYMENT: DONE / VERIFIED / SAFE OFF
 DEPLOYMENT AUTHORIZATION: APPROVED FOR CONTRACT DEPLOYMENT ONLY
-PUBLIC LAUNCH: NOT READY / NOT APPROVED
-MAINNET ENV WIRING: NOT APPROVED
+MAINNET PUBLIC SURFACE: LIVE
+PRODUCTION MAINNET ENV: LIVE
 MAINNET REWARD CLAIM LAUNCH: NOT READY / NOT APPROVED
 METADATA LOCK: NOT APPROVED
-MINT OPENING: NOT APPROVED
+MINT OPENING: DONE / LIVE
 ```
 
 P.S. Read this document freely for information and guidance. Do not redistribute or restate—no quotes, summaries, paraphrases, or derivatives—without prior written permission from [**Prof. NOTA**](https://nota.endhonesa.com/). Sharing the link is allowed. So, share the link, not the text. Do not discuss or re-tell the contents in any form—written, spoken, or recorded—without prior written permission.

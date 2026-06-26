@@ -1,13 +1,17 @@
 # OiOi Melting Dashboard — Mainnet Readiness Review v2
 
-This document is the readiness review before any Base Mainnet or Ethereum Mainnet deployment.
+This document began as the readiness review before Base Mainnet and Ethereum Mainnet deployment. It now also records the current mainnet public surface state.
 
-Mainnet deployment must not be treated as launch readiness.
+Mainnet contract deployment has been completed and the public mint/staking surface is live. Reward claim remains deferred.
 
 Current project decision:
 
 ```text
-Mainnet contract deployment is complete for Base Mainnet + Ethereum Mainnet and remains safe-off.
+Mainnet contract deployment is complete for Base Mainnet + Ethereum Mainnet.
+Production env is mainnet.
+Mainnet public surface is live.
+Mint phases are open.
+Reward claim remains deferred.
 ```
 
 ---
@@ -53,8 +57,12 @@ Mainnet contract deployment is complete for Base Mainnet + Ethereum Mainnet and 
 - Mainnet Deployment Approval Decision v1 approved for Base Mainnet + Ethereum Mainnet contract deployment only.
 - Base Mainnet contract deployment completed, verified, and read-checked.
 - Ethereum Mainnet contract deployment completed, verified, and read-checked.
-- Base Mainnet and Ethereum Mainnet mint phases remain OFF.
+- Base Mainnet and Ethereum Mainnet mint phases were safe-off at deployment completion.
+- Base Mainnet and Ethereum Mainnet mint phases are now open in production.
 - Base Mainnet and Ethereum Mainnet metadata remains unlocked.
+- Production domains serve mainnet.
+- Mainnet public surface and mint opening QA passed.
+- Admin mainnet operations QA passed.
 - Mainnet preparation checks passed:
   - repo clean
   - build/compile/test pass
@@ -68,16 +76,21 @@ Mainnet contract deployment is complete for Base Mainnet + Ethereum Mainnet and 
 ### Locked / Deferred
 
 ```text
-Mainnet contract deployment is complete, verified, read-checked, and safe-off.
+Mainnet contract deployment is complete, verified, and read-checked.
+Mainnet public mint/staking surface is live.
+Metadata remains unlocked.
 
-Public launch, mainnet env wiring, mainnet reward claim launch, metadata lock, and mint opening are not approved.
+Mainnet reward claim launch, metadata lock, final metadata reveal/update/lock, and Reward Round Operations production data-plane work remain deferred.
 ```
 
-### Pending After Mainnet Contract Deployment
+### Pending After Mainnet Public Surface Opening
 
-- Mainnet env wiring.
-- Mainnet read-only QA.
-- Controlled mainnet opening plan execution.
+- Mainnet Reward Round Operations / Production Reward Data Plane.
+- Mainnet Supabase/database separation or configuration for reward operations.
+- Mainnet GitHub Actions worker/indexer env configuration.
+- Mainnet reward calculation/proof generation validation.
+- Mainnet reward claim launch approval.
+- Final metadata update/reveal/lock approval.
 - Mainnet reward/indexer/proof validation before production reward claim launch.
 - Final Melting/Amanda revealed metadata update/reveal/lock approval.
 
@@ -109,7 +122,7 @@ Do not run any owner-only mainnet transaction from the wrong wallet.
 
 Do not wire or deploy mainnet frontend env with an unreviewed `.env`.
 
-Do not enable mint immediately after deployment.
+Do not enable mint immediately after deployment without the separate controlled opening step.
 
 Do not launch public frontend before read checks and browser QA pass.
 
@@ -119,7 +132,7 @@ Do not lock metadata while revealed metadata is pending.
 
 Metadata strategy is approved as Option A in `docs/mainnet/METADATA_STRATEGY_APPROVAL_DECISION_V1.md`.
 
-This metadata approval did not authorize public launch. Mint phases must remain OFF, metadata must remain unlocked, and `lockMetadata()` must not be called until final Melting/Amanda revealed metadata is approved.
+This metadata approval did not authorize mint opening by itself. Mint phases had to remain OFF at deployment completion. Later production mint opening was completed and documented separately. Metadata must remain unlocked, and `lockMetadata()` must not be called until final Melting/Amanda revealed metadata is approved.
 
 Do not delete or overwrite mainnet deployment records casually.
 
@@ -312,7 +325,7 @@ Mainnet deployment approval was granted for Base Mainnet + Ethereum Mainnet cont
 
 That approved contract deployment scope is now complete.
 
-Mint phases must remain OFF and public frontend must not open.
+Mint phases had to remain OFF at deployment completion. Later production mainnet env wiring and mint opening were completed and are recorded in `docs/qa/MAINNET_PUBLIC_SURFACE_AND_MINT_OPENING_QA_V1.md`.
 
 Mainnet reward claim must remain unavailable until the mainnet reward/indexer/proof flow is implemented/configured, run, verified, and explicitly approved.
 
@@ -358,7 +371,7 @@ npm run verify:args -- baseMainnet
 npm run deploy:read-check -- --network baseMainnet
 ```
 
-Do not enable mint.
+Historical deployment baseline: do not enable mint in the deployment transaction sequence itself.
 
 Commit:
 
@@ -386,7 +399,7 @@ npm run verify:args -- ethereumMainnet
 npm run deploy:read-check -- --network ethereumMainnet
 ```
 
-Do not enable mint.
+Historical deployment baseline: do not enable mint in the deployment transaction sequence itself.
 
 Commit:
 
@@ -457,23 +470,23 @@ BASE MAINNET FRONTEND READS: PASS
 ETHEREUM MAINNET FRONTEND READS: PASS
 ```
 
-The QA pass is read-only and does not approve public launch, mint opening, reward claim launch, metadata lock, or any contract state change.
+The later production-domain QA pass confirms the live mainnet public mint/staking/admin baseline. It does not approve reward claim launch, metadata lock, or final metadata reveal/update/lock.
 
 ---
 
 ## 14. Controlled Mainnet Opening
 
-Opening must be separate from deployment.
+Opening was separate from deployment and is completed for the mint/staking public surface.
 
-Recommended order:
+Completed opening order:
 
 1. Enable ROTY whitelist mint.
 2. Controlled mint.
-3. Enable ROTY public mint if ready.
+3. Enable ROTY public mint.
 4. Enable staking dashboard.
 5. Enable Melting gated mint.
 6. Enable Amanda gated mint.
-7. Enable reward claim only after production reward flow is ready.
+7. Reward claim remains deferred until production reward flow is ready.
 
 ---
 
@@ -489,13 +502,13 @@ MAINNET CONTRACT DEPLOYMENT COMPLETION V1: COMPLETE
 BASE MAINNET CONTRACT DEPLOYMENT: DONE / VERIFIED / SAFE OFF
 ETHEREUM MAINNET CONTRACT DEPLOYMENT: DONE / VERIFIED / SAFE OFF
 MAINNET DEPLOYMENT AUTHORIZATION: APPROVED FOR CONTRACT DEPLOYMENT ONLY
-PUBLIC LAUNCH: NOT READY / NOT APPROVED
+MAINNET PUBLIC SURFACE: LIVE
 READ-ONLY MAINNET ENV WIRING: APPROVED
-MAINNET READ-ONLY FRONTEND QA V1: PASSED FOR LOCALHOST READ-ONLY QA
-MAINNET ENV WIRING BEYOND READ-ONLY QA: NOT APPROVED
+MAINNET PRODUCTION-DOMAIN BROWSER QA: PASS
 MAINNET REWARD CLAIM LAUNCH: NOT READY / NOT APPROVED
 METADATA LOCK: NOT APPROVED
-MINT OPENING: NOT APPROVED
+MINT OPENING: DONE / LIVE
+REWARD ROUND OPERATIONS: PENDING MAINNET DATABASE / INDEXER / PROOF SUPPORT
 ```
 
 ---

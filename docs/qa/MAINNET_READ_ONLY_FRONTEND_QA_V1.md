@@ -8,16 +8,17 @@ Status:
 MAINNET READ-ONLY FRONTEND QA V1: PASSED FOR LOCALHOST READ-ONLY QA
 BASE MAINNET FRONTEND READS: PASS
 ETHEREUM MAINNET FRONTEND READS: PASS
-PUBLIC LAUNCH: NOT APPROVED
-MINT OPENING: NOT APPROVED
+MAINNET PUBLIC SURFACE: LIVE
+MINT OPENING: DONE / LIVE
 MAINNET REWARD CLAIM LAUNCH: NOT APPROVED
 METADATA LOCK: NOT APPROVED
-CONTRACT STATE CHANGES: NOT APPROVED
 ```
 
 This report records the read-only frontend QA result after mainnet env wiring was approved for QA only.
 
-It does not approve public launch, mint opening, reward claim launch, metadata reveal, metadata lock, `lockMetadata()`, or any contract state change.
+Later production-domain browser QA and mint opening passed and are recorded in `docs/qa/MAINNET_PUBLIC_SURFACE_AND_MINT_OPENING_QA_V1.md`.
+
+This report does not approve reward claim launch, metadata reveal, metadata lock, or `lockMetadata()`.
 
 ---
 
@@ -146,20 +147,17 @@ Ethereum Mainnet read-check: PASS
 
 ---
 
-## 5. Non-Approval Boundary
+## 5. Current Boundary
 
-This QA pass does not approve:
+This historical QA pass did not approve mint opening by itself. Later production mint opening was completed and documented separately.
 
-- Public launch.
-- Opening whitelist mint.
-- Opening public mint.
-- Opening gated mint.
+Still not approved:
+
 - Funding reward distributor.
 - Reward claim launch.
 - Metadata reveal.
 - Metadata lock.
 - Calling `lockMetadata()`.
-- Any contract state change.
 
 Mainnet reward claim launch still requires separate production indexer/reward/proof validation and explicit approval.
 
@@ -170,23 +168,23 @@ Mainnet reward claim launch still requires separate production indexer/reward/pr
 - The IPv4-first read-check retry is documented because local DNS/NAT64/IPv6 routing caused operator RPC timeouts.
 - The read-only frontend fix changed frontend read transport and target-chain read behavior only.
 - `.env.local` remains local/ignored and must not be committed.
-- Broader mainnet browser QA can expand beyond the confirmed surfaces in this report.
+- Broader production-domain mainnet browser QA later passed and is recorded in `docs/qa/MAINNET_PUBLIC_SURFACE_AND_MINT_OPENING_QA_V1.md`.
 
 ---
 
-## 7. Next Gate
+## 7. Current Next Task
 
 ```text
-Gate 5 - Controlled Mint Opening Plan / Approval
+Mainnet Reward Round Operations / Production Reward Data Plane
 ```
 
-Not yet approved:
+Current status:
 
-- Controlled mint opening itself.
-- Public launch.
-- Reward claim launch.
-- Metadata lock.
-- Contract state changes.
+- Mainnet public surface: live.
+- Mint opening: done / live.
+- Reward claim launch: deferred.
+- Metadata lock: not performed.
+- Reward Round Operations: pending mainnet database/indexer/proof support.
 
 ---
 
@@ -196,11 +194,10 @@ Not yet approved:
 MAINNET READ-ONLY FRONTEND QA V1: PASSED FOR LOCALHOST READ-ONLY QA
 BASE MAINNET FRONTEND READS: PASS
 ETHEREUM MAINNET FRONTEND READS: PASS
-PUBLIC LAUNCH: NOT APPROVED
-MINT OPENING: NOT APPROVED
+MAINNET PUBLIC SURFACE: LIVE
+MINT OPENING: DONE / LIVE
 MAINNET REWARD CLAIM LAUNCH: NOT APPROVED
 METADATA LOCK: NOT APPROVED
-CONTRACT STATE CHANGES: NOT APPROVED
 ```
 
 P.S. Read this document freely for information and guidance. Do not redistribute or restate—no quotes, summaries, paraphrases, or derivatives—without prior written permission from [**Prof. NOTA**](https://nota.endhonesa.com/). Sharing the link is allowed. So, share the link, not the text. Do not discuss or re-tell the contents in any form—written, spoken, or recorded—without prior written permission.

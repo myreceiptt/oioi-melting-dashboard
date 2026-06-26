@@ -93,7 +93,12 @@ The connected Web3 wallet address is the user identity.
 - Worker jobs / boundary reward flow passed through GitHub Actions.
 - Testnet Release Candidate Lock v1 passed.
 - Mainnet Deployment Approval Gate v1 documented as ready with notes.
-- Mainnet preparation checks passed, but deployment is not yet approved and remains intentionally deferred.
+- Base Mainnet and Ethereum Mainnet contract deployment completed, verified, and read-checked.
+- Production domains now serve mainnet.
+- Mainnet public surface is live.
+- Base Mainnet and Ethereum Mainnet mint phases are open.
+- Production browser QA passed for the public mint/staking/admin baseline.
+- Admin mainnet operations QA passed.
 
 ### Locked Decisions
 
@@ -112,7 +117,9 @@ The connected Web3 wallet address is the user identity.
 
 - `docs/qa/FULL_TESTNET_E2E_QA_V1.md` — canonical QA pass report.
 - `docs/qa/TESTNET_RELEASE_CANDIDATE_LOCK_V1.md` — Testnet Release Candidate lock report.
-- `docs/mainnet/MAINNET_DEPLOYMENT_APPROVAL_GATE_V1.md` — mainnet approval gate; deployment is not yet approved.
+- `docs/mainnet/MAINNET_DEPLOYMENT_APPROVAL_GATE_V1.md` — historical mainnet approval gate.
+- `docs/mainnet/MAINNET_CONTRACT_DEPLOYMENT_COMPLETION_V1.md` — mainnet contract deployment completion record.
+- `docs/qa/MAINNET_PUBLIC_SURFACE_AND_MINT_OPENING_QA_V1.md` — canonical production mainnet public surface and mint opening QA/status report.
 - `docs/TESTNET_PRODUCT_COMPLETION_PLAN.md` — current operational next-step checklist.
 - `URUTANSEHAT.md` — high-level sequence/status.
 - `docs/qa/TESTNET_ROUTE_DOMAIN_MAPPING.md` — canonical route/domain mapping reference.
@@ -120,11 +127,12 @@ The connected Web3 wallet address is the user identity.
 
 ### Pending / Next
 
-- Explicit mainnet deployment approval decision.
-- Mainnet deployment planning remains gated by approval.
-- Mainnet env wiring remains not started.
-- Mainnet read-only QA remains not started.
-- Controlled mainnet opening remains not started.
+- Mainnet Reward Round Operations / Production Reward Data Plane.
+- Mainnet Supabase/database separation or configuration for reward operations.
+- Mainnet GitHub Actions worker/indexer env configuration.
+- Mainnet reward calculation/proof generation validation.
+- Mainnet reward claim launch approval.
+- Final UI/UX polish pass.
 - Mainnet reward claim remains not production-ready until mainnet indexer/reward/proof flow is implemented, run, verified, and approved.
 
 ---
