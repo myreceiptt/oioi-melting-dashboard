@@ -132,12 +132,12 @@ async function main() {
   assertEqual(
     "ROTY whitelistMintEnabled",
     await roty.read.whitelistMintEnabled(),
-    false,
+    true,
   );
   assertEqual(
     "ROTY publicMintEnabled",
     await roty.read.publicMintEnabled(),
-    false,
+    true,
   );
   assertEqual(
     "ROTY merkleRoot",
@@ -226,7 +226,7 @@ async function main() {
   assertEqual(
     "Melting gatedMintEnabled",
     await melting.read.gatedMintEnabled(),
-    false,
+    true,
   );
 
   const [meltingRoyaltyReceiver, meltingRoyaltyAmount] =
@@ -299,7 +299,7 @@ async function main() {
   assertEqual(
     "Amanda gatedMintEnabled",
     await amanda.read.gatedMintEnabled(),
-    false,
+    true,
   );
 
   const [amandaRoyaltyReceiver, amandaRoyaltyAmount] =
