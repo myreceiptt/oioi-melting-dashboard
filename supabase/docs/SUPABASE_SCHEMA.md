@@ -147,6 +147,10 @@ Claimed
 rescue events if needed
 ```
 
+These events are the reconciliation source for long-term reward round state,
+including create/fund tx hashes, funded amount, claimed amount, pause state, and
+closed status.
+
 ### `current_nft_owners`
 
 Derived table rebuilt from `nft_transfer_events`.
@@ -174,6 +178,17 @@ Boundary metadata links the calculation to its submitted tapal batas.
 ### `reward_rounds`
 
 Stores planned/generated reward round metadata and synced on-chain state.
+
+Important SOP:
+
+```text
+Admin UI reads live on-chain state for active create/fund/pause/claim operations.
+created_tx_hash and funded_tx_hash are not required to be written immediately by the Admin UI.
+created_tx_hash, funded_tx_hash, funded_amount_wei, claimed_amount_wei, claim_paused, and long-term status are reconciled from reward_round_events.
+reward_rounds.status may temporarily remain calculated with null tx hashes after successful on-chain create/fund until RewardDistributor event indexing crosses those tx blocks.
+Do not manually update reward_rounds only to fill tx hashes.
+Do not submit Tapal Batas solely for tx hash reconciliation.
+```
 
 Important convention:
 
@@ -298,6 +313,10 @@ Reward-boundary flow:
 10. Admin creates reward round on-chain.
 11. Admin approves and funds $OiOi.
 12. Users claim from Reward Claim Panel.
+
+Reward event reconciliation after create/fund/claim can happen during a later
+worker/indexer pass. The live operation flow uses on-chain reads; Supabase is
+the calculation/proof/reconciliation/history layer.
 
 ---
 

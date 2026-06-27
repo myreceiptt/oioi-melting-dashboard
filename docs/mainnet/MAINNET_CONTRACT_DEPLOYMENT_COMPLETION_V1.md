@@ -127,7 +127,7 @@ This completion does not approve metadata reveal or lock.
 This completion does not approve `lockMetadata()`.
 ```
 
-Mainnet indexer/reward/proof flow still requires separate implementation/configuration/validation/approval before any production reward claim launch.
+Mainnet reward data-plane setup and first-round preparation were completed later and are recorded in `docs/mainnet/MAINNET_REWARD_ROUND_OPERATIONS_V1.md`. Production reward claim launch still requires controlled user claim verification and explicit approval.
 
 ---
 
@@ -137,8 +137,8 @@ Mainnet indexer/reward/proof flow still requires separate implementation/configu
 Gate 1: Read-only mainnet env wiring (completed)
 Gate 2: Mainnet read-only frontend QA (completed)
 Gate 3: Controlled mint opening / production public surface (completed)
-Gate 4: Mainnet indexer/reward/proof production validation (pending)
-Gate 5: Reward claim launch approval (pending)
+Gate 4: Mainnet reward data-plane setup and first reward round preparation (completed)
+Gate 5: Controlled user reward claim verification / reward claim launch approval (pending)
 Gate 6: Final metadata update/reveal/lock approval (pending)
 ```
 
@@ -170,7 +170,14 @@ BASE MAINNET FRONTEND READS: PASS
 ETHEREUM MAINNET FRONTEND READS: PASS
 ```
 
-The next major technical task is Mainnet Reward Round Operations / Production Reward Data Plane.
+Mainnet Reward Round Operations / Production Reward Data Plane status:
+
+```text
+docs/mainnet/MAINNET_REWARD_ROUND_OPERATIONS_V1.md
+```
+
+The next reward-related gate is controlled user claim verification / reward
+claim launch approval, not contract deployment.
 
 ---
 

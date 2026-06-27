@@ -22,7 +22,7 @@ The approved contract deployment scope has now been completed and recorded in `d
 
 It approved contract deployment only for the selected scope. Later production mainnet env wiring and mint opening were completed and are recorded in `docs/qa/MAINNET_PUBLIC_SURFACE_AND_MINT_OPENING_QA_V1.md`.
 
-It does not approve mainnet reward claim launch, metadata lock, final metadata reveal/update/lock, or Reward Round Operations production data-plane launch.
+It does not approve mainnet reward claim launch, metadata lock, or final metadata reveal/update/lock. Later mainnet Reward Round Operations data-plane setup and first-round preparation were completed separately and are recorded in `docs/mainnet/MAINNET_REWARD_ROUND_OPERATIONS_V1.md`.
 
 ---
 
@@ -64,7 +64,7 @@ no lockMetadata() before final Melting/Amanda metadata approval
 ```text
 Mainnet reward claim launch: NOT APPROVED
 Metadata lock: NOT APPROVED
-Reward Round Operations production data plane: PENDING
+Reward Round Operations production data plane: FOUNDATION DONE / CLAIM LAUNCH PENDING
 ```
 
 ---
@@ -90,8 +90,8 @@ Deployment scope:
 [x] I confirm metadata must remain unlocked.
 [x] I confirm `lockMetadata()` must not be called.
 [x] I confirm final Melting/Amanda revealed metadata remains a later gate.
-[x] I confirm mainnet reward claim remains unavailable.
-[x] I confirm mainnet indexer/reward/proof pipeline is not production-ready yet.
+[x] I confirm mainnet reward claim launch remains unavailable until separate approval.
+[x] I confirm mainnet indexer/reward/proof setup requires separate validation and approval before public claim launch.
 [x] I confirm deployment must stop if any stop condition occurs.
 ```
 

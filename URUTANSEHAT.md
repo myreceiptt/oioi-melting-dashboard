@@ -417,7 +417,7 @@
     - ✅ Mint status reflects enabled mainnet phases.
     - ✅ Staking dashboard/admin surface works on mainnet.
     - ✅ Admin mainnet operations QA passed for staking registry, mint phases, pricing, treasury, royalty, and metadata update/restore flows.
-    - ⏸ Reward Round Operations remain pending mainnet database/indexer/proof production support.
+    - ✅ Reward Round Operations database/indexer/proof foundation later completed for first mainnet reward round preparation.
 
 27. Controlled Mainnet Opening / Mint + Staking Surface — DONE / LIVE
     - ✅ Enable ROTY whitelist.
@@ -425,7 +425,7 @@
     - ✅ Enable ROTY public mint.
     - ✅ Enable staking dashboard.
     - ✅ Enable Melting/Amanda gated mint.
-    - ⏸ Enable reward claim only after production reward flow is ready.
+    - ⏸ Enable reward claim only after controlled mainnet user claim verification and explicit launch approval.
     - ✅ Base Mainnet mint phases open:
       - ROTY whitelist mint ON.
       - ROTY public mint ON.
@@ -438,17 +438,51 @@
       - Amanda gated mint ON.
     - ✅ Mainnet public surface and mint opening QA documented in `docs/qa/MAINNET_PUBLIC_SURFACE_AND_MINT_OPENING_QA_V1.md`.
 
-28. Mainnet Reward Round Operations / Production Reward Data Plane — PENDING
-    - ⏸ Supabase mainnet database/data-plane separation or configuration pending.
-    - ⏸ GitHub Actions mainnet worker/indexer env pending.
-    - ⏸ Mainnet worker jobs pending.
-    - ⏸ Mainnet indexer sync pending.
-    - ⏸ Mainnet reward calculation pending.
-    - ⏸ Mainnet proof generation pending.
-    - ⏸ Mainnet reward claim launch pending.
-    - ✅ Reward process is validated on testnet and remains the intended production design.
-    - ⏸ Existing Reward Round Operations/admin data is still testnet-oriented until mainnet support is implemented/configured/validated.
-    - ⏸ This does not block the already-live mainnet mint/public surface.
+28. Mainnet Reward Round Operations / Production Reward Data Plane — FOUNDATION DONE / CLAIM LAUNCH PENDING
+    - ✅ Mainnet Supabase schema/data-plane setup complete.
+    - ✅ Migrations `001` through `005` applied in the mainnet Supabase project.
+    - ✅ Sepolia static seed rows removed from mainnet Supabase.
+    - ✅ `baseMainnet` and `ethereumMainnet` chain rows seeded.
+    - ✅ 12 mainnet contract rows seeded.
+    - ✅ `NEXT_PUBLIC_APP_ENV=mainnet npm run supabase:check` succeeded.
+    - ✅ Mainnet app smoke checks passed:
+      - local mainnet app OK
+      - wallet connect OK
+      - Owned NFT API base OK
+      - Owned NFT API ethereum OK
+      - reward claim mainnet disabled guard OK
+    - ✅ Mainnet GitHub Actions secrets and variables added.
+    - ✅ No-job Mainnet Boundary Worker smoke succeeded.
+    - ✅ First mainnet boundary worker job succeeded:
+      - `0118f1d1-ea0f-44b3-a74e-9d4902ff22a2`
+      - `baseMainnet` target block `47893400`
+      - `ethereumMainnet` target block `25410046`
+      - all 10 `baseMainnet` targets succeeded
+      - all 10 `ethereumMainnet` targets succeeded
+    - ✅ First mainnet calculated reward rounds generated:
+      - `baseMainnet` round `1782576147`, 1 OiOi, allocation count 1
+      - `ethereumMainnet` round `1782576167`, 1 OiOi, allocation count 1
+    - ✅ First Base and Ethereum mainnet reward rounds created, approved, and funded on-chain.
+    - ✅ Base create tx recorded:
+      - `0xed3515501ab38fd1f345c4179b38185b38d51c2bd170774521cfd63eb567e399`
+      - block `47895688`
+    - ⏸ Base approve/fund tx hashes and Ethereum create/approve/fund tx hashes remain TODO unless separately recorded from reviewed evidence.
+    - ⏸ Controlled user claim verification on mainnet not yet documented.
+    - ⏸ Public reward claim enablement remains not approved unless separately approved.
+    - ⏸ Post-claim verification and RewardDistributor event reconciliation remain pending for a later worker/indexer pass.
+    - ✅ Reward Round SOP / Decision Log documented in `docs/mainnet/MAINNET_REWARD_ROUND_OPERATIONS_V1.md`.
+
+29. Reward Round SOP / Decision Log — LOCKED
+    - ✅ Admin UI reads live on-chain state for create/fund/pause/claim.
+    - ✅ Supabase stores calculation, allocation, Merkle root, proof data, and historical reconciliation.
+    - ✅ `created_tx_hash` and `funded_tx_hash` are reconciled from `reward_round_events`, not written immediately by Admin UI after transaction receipt.
+    - ✅ `reward_rounds.status = calculated`, `created_tx_hash = null`, and `funded_tx_hash = null` can be temporarily expected after successful on-chain create/fund if event indexing has not crossed those tx blocks.
+    - ✅ This temporary stale Supabase state is not considered a bug under the current SOP.
+    - ✅ Do not manually update Supabase only to fill tx hashes.
+    - ✅ Do not submit a new Tapal Batas solely for tx hash reconciliation.
+    - ✅ Event-only catch-up exists as an optional technical path, but it is not the default operator SOP.
+    - ✅ The next natural reward distribution cycle can reconcile earlier RewardDistributor events when the new Tapal Batas is higher than those tx blocks.
+    - ✅ Public/user claim readiness is documented separately from Supabase reconciliation status.
 
 ---
 

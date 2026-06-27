@@ -63,6 +63,11 @@ Reward claim remains deferred.
 - Production domains serve mainnet.
 - Mainnet public surface and mint opening QA passed.
 - Admin mainnet operations QA passed.
+- Mainnet Supabase reward data-plane setup completed.
+- Mainnet GitHub Actions worker readiness passed.
+- First mainnet boundary reward job succeeded.
+- First mainnet Base and Ethereum calculated reward rounds generated.
+- First mainnet Base and Ethereum reward rounds created, approved, and funded on-chain.
 - Mainnet preparation checks passed:
   - repo clean
   - build/compile/test pass
@@ -79,20 +84,25 @@ Reward claim remains deferred.
 Mainnet contract deployment is complete, verified, and read-checked.
 Mainnet public mint/staking surface is live.
 Metadata remains unlocked.
+Mainnet reward data-plane foundation is complete.
 
-Mainnet reward claim launch, metadata lock, final metadata reveal/update/lock, and Reward Round Operations production data-plane work remain deferred.
+Mainnet public reward claim launch, controlled user claim verification, metadata lock, and final metadata reveal/update/lock remain deferred or pending separate approval.
 ```
 
 ### Pending After Mainnet Public Surface Opening
 
-- Mainnet Reward Round Operations / Production Reward Data Plane.
-- Mainnet Supabase/database separation or configuration for reward operations.
-- Mainnet GitHub Actions worker/indexer env configuration.
-- Mainnet reward calculation/proof generation validation.
 - Mainnet reward claim launch approval.
+- Controlled user reward claim verification on mainnet, if not already evidenced in repo/docs.
+- Post-claim verification and later RewardDistributor event reconciliation.
+- Next reward distribution cycle using a new Tapal Batas.
 - Final metadata update/reveal/lock approval.
-- Mainnet reward/indexer/proof validation before production reward claim launch.
 - Final Melting/Amanda revealed metadata update/reveal/lock approval.
+
+Canonical mainnet reward operation status and SOP:
+
+```text
+docs/mainnet/MAINNET_REWARD_ROUND_OPERATIONS_V1.md
+```
 
 ---
 
@@ -110,7 +120,7 @@ Public launch requires:
 6. Mainnet read-only browser QA passes.
 7. Admin Dashboard is working.
 8. Mint opening is explicitly approved.
-9. Reward claim remains disabled unless production reward proof flow is ready.
+9. Reward claim remains disabled unless controlled mainnet user claim verification is documented and reward claim launch is explicitly approved.
 
 ---
 
@@ -126,7 +136,7 @@ Do not enable mint immediately after deployment without the separate controlled 
 
 Do not launch public frontend before read checks and browser QA pass.
 
-Do not treat reward claim as ready for mainnet until production mainnet indexer/reward calculation/proof flow is tested.
+Do not treat reward claim as ready for mainnet until controlled mainnet user claim verification is documented and reward claim launch is explicitly approved.
 
 Do not lock metadata while revealed metadata is pending.
 
@@ -142,7 +152,13 @@ Do not treat mainnet deployment as pressure to open mint.
 
 Do not treat Mainnet Deployment Approval Gate v1 as deployment authorization by itself.
 
-Do not launch mainnet reward claim until the mainnet indexer/reward/proof flow is implemented/configured, run, verified, and approved.
+Do not launch mainnet reward claim until controlled mainnet user claim verification is documented and reward claim launch is explicitly approved.
+
+Do not treat temporary stale Supabase reward round fields as a mainnet blocker
+when live on-chain state confirms create/fund status. Under the locked Reward
+Round SOP, `created_tx_hash`, `funded_tx_hash`, funded amount, claimed amount,
+pause state, and long-term DB status are reconciled from RewardDistributor
+events after event indexing crosses the relevant transaction blocks.
 
 ---
 
@@ -327,7 +343,7 @@ That approved contract deployment scope is now complete.
 
 Mint phases had to remain OFF at deployment completion. Later production mainnet env wiring and mint opening were completed and are recorded in `docs/qa/MAINNET_PUBLIC_SURFACE_AND_MINT_OPENING_QA_V1.md`.
 
-Mainnet reward claim must remain unavailable until the mainnet reward/indexer/proof flow is implemented/configured, run, verified, and explicitly approved.
+Mainnet reward claim must remain unavailable until controlled mainnet user claim verification is documented and reward claim launch is explicitly approved. The mainnet reward data-plane foundation and first-round preparation are complete, but public claim launch remains a separate gate.
 
 Canonical gate document:
 
@@ -486,7 +502,7 @@ Completed opening order:
 4. Enable staking dashboard.
 5. Enable Melting gated mint.
 6. Enable Amanda gated mint.
-7. Reward claim remains deferred until production reward flow is ready.
+7. Reward claim remains deferred until controlled mainnet user claim verification is documented and reward claim launch is explicitly approved.
 
 ---
 
@@ -508,7 +524,7 @@ MAINNET PRODUCTION-DOMAIN BROWSER QA: PASS
 MAINNET REWARD CLAIM LAUNCH: NOT READY / NOT APPROVED
 METADATA LOCK: NOT APPROVED
 MINT OPENING: DONE / LIVE
-REWARD ROUND OPERATIONS: PENDING MAINNET DATABASE / INDEXER / PROOF SUPPORT
+REWARD ROUND OPERATIONS: DATA PLANE FOUNDATION DONE / CLAIM LAUNCH PENDING
 ```
 
 ---

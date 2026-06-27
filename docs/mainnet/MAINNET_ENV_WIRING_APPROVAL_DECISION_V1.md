@@ -133,7 +133,7 @@ No production opening or write action is authorized by this document.
 
 Any later transition from read-only QA to controlled mint opening, reward claim launch, metadata update/reveal/lock, or public launch requires a separate explicit approval document.
 
-The next major technical task after production mint opening is Mainnet Reward Round Operations / Production Reward Data Plane.
+The next major technical task after production mint opening was Mainnet Reward Round Operations / Production Reward Data Plane. That data-plane foundation and first-round preparation were later completed and are recorded in `docs/mainnet/MAINNET_REWARD_ROUND_OPERATIONS_V1.md`. Reward claim launch remains not approved.
 
 ---
 

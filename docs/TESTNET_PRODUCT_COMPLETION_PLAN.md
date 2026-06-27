@@ -1,6 +1,6 @@
 # OiOi Melting Dashboard — Testnet Product Completion Plan v3
 
-This document is the operational checklist for the locked Testnet Release Candidate baseline and the documented mainnet approval gate.
+This document is the operational checklist for the locked Testnet Release Candidate baseline and the later documented mainnet setup gates.
 
 The product rehearsal now covers:
 
@@ -15,7 +15,7 @@ reward claim
 full browser E2E
 ```
 
-Mainnet deployment remains deferred after Mainnet Deployment Approval Gate v1 until explicit approval.
+Mainnet contract deployment, production env wiring, mint opening, and first reward data-plane preparation have since been completed through separate approval gates. Mainnet public reward claim launch and metadata lock remain not approved.
 
 ---
 
@@ -52,10 +52,17 @@ Mainnet deployment remains deferred after Mainnet Deployment Approval Gate v1 un
 ### Not Started
 
 ```text
-⏸ Mainnet contract deployment.
-⏸ Mainnet env wiring.
-⏸ Mainnet read-only QA.
-⏸ Controlled mainnet opening.
+✅ Mainnet contract deployment completed, verified, and safe-off.
+✅ Mainnet env wiring completed.
+✅ Mainnet read-only QA passed.
+✅ Controlled mainnet public mint/staking opening completed.
+✅ Mainnet Supabase data-plane setup completed.
+✅ First mainnet boundary worker job succeeded.
+✅ First mainnet calculated reward rounds generated.
+✅ First Base/Ethereum reward rounds created, approved, and funded on-chain.
+⏸ Controlled mainnet user reward claim verification.
+⏸ Mainnet reward claim launch approval.
+⏸ Metadata lock / final metadata reveal approval.
 ```
 
 ---
@@ -115,7 +122,7 @@ Reward event sync after create/fund/claim is optional reconciliation; admin/user
 ## 4. Current Next Major Task
 
 ```text
-Explicit mainnet deployment approval decision
+Controlled mainnet reward claim verification / launch approval planning
 ```
 
 Recently completed:
@@ -129,18 +136,18 @@ Full Testnet E2E QA v1 documented in docs/qa/FULL_TESTNET_E2E_QA_V1.md.
 Worker jobs / boundary reward flow passed through GitHub Actions.
 Testnet Release Candidate Lock v1 documented in docs/qa/TESTNET_RELEASE_CANDIDATE_LOCK_V1.md.
 Mainnet Deployment Approval Gate v1 documented in docs/mainnet/MAINNET_DEPLOYMENT_APPROVAL_GATE_V1.md.
+Mainnet Contract Deployment Completion v1 documented in docs/mainnet/MAINNET_CONTRACT_DEPLOYMENT_COMPLETION_V1.md.
+Mainnet Reward Round Operations v1 documented in docs/mainnet/MAINNET_REWARD_ROUND_OPERATIONS_V1.md.
 ```
 
-Required approval-sensitive work before mainnet deployment:
+Remaining approval-sensitive work:
 
 ```text
-Explicit mainnet approval.
-Metadata strategy approval.
-Deployer / treasury / royalty / token address confirmation.
-Mainnet env wiring plan.
-Mainnet read-only QA plan.
-Controlled mainnet opening plan.
-Mainnet reward/indexer/proof pipeline remains not production-ready until implemented/configured, run, verified, and approved after deployment.
+Controlled mainnet user reward claim verification.
+Mainnet reward claim launch approval.
+Post-claim verification and event reconciliation on a later worker cycle.
+Next reward distribution cycle using a new Tapal Batas.
+Final metadata update/reveal/lock approval.
 ```
 
 ---
@@ -167,12 +174,12 @@ Testnet Release Candidate Lock v1 passes. ✅
 
 ## 6. Mainnet Gate
 
-Mainnet deployment must wait until explicit approval after Mainnet Deployment Approval Gate v1.
+Mainnet contract deployment was approved later and is complete. This section remains as historical context from the testnet completion plan.
 
-Mainnet remains:
+Mainnet reward claim launch remains:
 
 ```text
-ready-but-deferred
+not approved
 ```
 
 Preparation already passed earlier:
@@ -186,15 +193,14 @@ deployer funding
 whitelist root
 ```
 
-Mainnet contract deployment is now complete, verified, read-checked, and safe-off.
+Mainnet contract deployment is complete, verified, read-checked, and safe-off.
 
 Mainnet still needs:
 
 ```text
-mainnet env wiring
-mainnet read-only QA
-controlled opening plan execution
-mainnet reward/indexer/proof validation before any production reward claim launch
+controlled user reward claim verification
+mainnet reward claim launch approval
+post-claim verification and event reconciliation on a later worker cycle
 final metadata update/reveal/lock approval
 ```
 

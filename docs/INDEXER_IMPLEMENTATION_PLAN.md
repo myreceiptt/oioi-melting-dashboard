@@ -55,6 +55,16 @@ Completed on testnet:
 ✅ On-chain reward round creation and user reward claim validated on testnet.
 ```
 
+Completed on mainnet foundation:
+
+```text
+✅ Mainnet Supabase schema and seed setup complete.
+✅ Mainnet GitHub Actions worker readiness pass.
+✅ First mainnet boundary worker job success.
+✅ First Base/Ethereum mainnet calculated reward rounds generated.
+✅ First Base/Ethereum mainnet reward rounds created, approved, and funded on-chain.
+```
+
 Retained legacy/manual tool:
 
 ```text
@@ -178,6 +188,23 @@ OiOiRewardDistributor events
 ```
 
 Event sync is idempotent and checkpointed.
+
+RewardDistributor event sync is also the reconciliation source for:
+
+```text
+created_tx_hash
+funded_tx_hash
+funded_amount_wei
+claimed_amount_wei
+claim_paused
+long-term reward_rounds.status
+```
+
+Admin UI does not need to write those fields immediately after a transaction
+receipt. The active create/fund/pause/claim flow reads live on-chain state.
+Supabase may temporarily show `status = calculated`, `created_tx_hash = null`,
+and `funded_tx_hash = null` until RewardDistributor event indexing crosses the
+relevant transaction blocks. This is expected under the current operator SOP.
 
 ### Derived state
 

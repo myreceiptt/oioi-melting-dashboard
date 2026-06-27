@@ -39,6 +39,9 @@ GitHub Actions scheduled worker exists.
 Dashboard wallet NFT cache exists.
 Boundary worker flow passed through GitHub Actions on testnet.
 On-chain reward round creation and user reward claim validated on testnet.
+Mainnet Supabase reward data-plane setup completed.
+First mainnet boundary worker job completed successfully.
+First Base/Ethereum mainnet reward rounds created, approved, and funded on-chain.
 ```
 
 Legacy diagnostic tool retained:
@@ -273,6 +276,18 @@ NEXT_PUBLIC_APP_ENV=mainnet:
 Mainnet reward claim remains disabled until the mainnet worker/proof/claim flow
 is run and separately approved.
 
+RewardDistributor event reconciliation:
+
+```text
+Admin UI reads live on-chain state for active create/fund/pause/claim operations.
+Supabase stores calculation, allocation, Merkle root, proof, and history.
+created_tx_hash and funded_tx_hash are reconciled from reward_round_events.
+Supabase reward_rounds can temporarily remain calculated with null tx hashes after successful on-chain create/fund.
+This is expected if event indexing has not crossed those transaction blocks.
+Do not manually update Supabase only to fill tx hashes.
+Do not submit Tapal Batas solely for tx hash reconciliation.
+```
+
 ---
 
 ## 11. Dashboard Wallet NFT Discovery
@@ -297,17 +312,19 @@ This keeps user-facing NFT display responsive without mutating reward calculatio
 
 Mainnet contract deployment is complete, verified, read-checked, and safe-off.
 
-Before any mainnet reward/indexer/proof production use:
+Current mainnet reward/indexer/proof foundation status:
 
 ```text
-manually record Base MAINNET FROM_BLOCK
-manually record Ethereum MAINNET FROM_BLOCK
-seed/verify Supabase contracts
-run mainnet read-only sync only after read-check passes
-do not open reward claim until production reward flow is tested
+Base/Ethereum MAINNET FROM_BLOCK values recorded in operator env
+mainnet Supabase schema/seed complete
+mainnet worker readiness pass
+first mainnet boundary worker job success
+first mainnet calculated reward rounds generated
+first Base/Ethereum reward rounds created, approved, and funded on-chain
+do not open reward claim until controlled user claim verification and explicit launch approval
 ```
 
-Production mainnet reward claim remains unavailable until the mainnet indexer/reward/proof flow is implemented/configured, run, verified, and explicitly approved.
+Production mainnet reward claim remains unavailable until controlled mainnet user claim verification is documented and reward claim launch is explicitly approved.
 
 ---
 
@@ -319,9 +336,9 @@ BOUNDARY WORKER: IMPLEMENTED
 GITHUB ACTIONS WORKER: IMPLEMENTED AND QA-PASSED
 REWARD CLAIM: IMPLEMENTED AND QA-PASSED ON TESTNET
 DASHBOARD NFT DISCOVERY: IMPLEMENTED
-MAINNET INDEXER: NOT STARTED
-MAINNET REWARD CLAIM: NOT PRODUCTION-READY
-NEXT MAJOR TASK: MAINNET ENV WIRING PLAN / MAINNET READ-ONLY QA
+MAINNET REWARD DATA-PLANE FOUNDATION: COMPLETE
+MAINNET REWARD CLAIM LAUNCH: NOT APPROVED
+NEXT MAJOR TASK: CONTROLLED MAINNET USER CLAIM VERIFICATION / CLAIM LAUNCH APPROVAL
 ```
 
 ---

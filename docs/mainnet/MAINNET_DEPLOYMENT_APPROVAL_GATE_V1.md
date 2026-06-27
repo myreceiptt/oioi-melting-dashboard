@@ -50,7 +50,7 @@ Ethereum Mainnet contract deployment: DONE / VERIFIED / SAFE OFF
 Production mainnet env: live
 Mainnet production-domain browser QA: pass
 Controlled mainnet mint/staking opening: done / live
-Mainnet Reward Round Operations: pending mainnet database/indexer/proof support
+Mainnet Reward Round Operations: data-plane foundation done / claim launch pending
 ```
 
 ---
@@ -128,18 +128,26 @@ docs/mainnet/METADATA_STRATEGY_APPROVAL_DECISION_V1.md
 
 ### Mainnet Reward / Indexer / Proof Pipeline
 
-Mainnet reward claim is not production-ready at this gate.
+At this gate, mainnet reward claim was not production-ready.
 
-Current reward/indexer implementation is testnet-validated, but mainnet support still requires post-deployment setup:
+Later mainnet reward data-plane setup and first-round preparation were completed and are recorded in:
 
 ```text
-mainnet indexer support must be implemented/configured after deployment
-mainnet FROM_BLOCK values must be recorded after deployment
-mainnet contracts must be seeded/verified in Supabase
-mainnet reward proof flow must be run and tested before reward claim launch
+docs/mainnet/MAINNET_REWARD_ROUND_OPERATIONS_V1.md
 ```
 
-Production reward claim remains unavailable until the mainnet reward/indexer/proof flow is implemented, run, verified, and explicitly approved.
+Current reward status:
+
+```text
+mainnet Supabase schema/seed: complete
+mainnet boundary worker first job: success
+first mainnet calculated rounds: generated
+first Base/Ethereum reward rounds: created, approved, and funded on-chain
+public reward claim launch: not approved
+controlled user claim verification: not yet documented
+```
+
+Production reward claim remains unavailable until controlled mainnet claim verification and explicit reward claim launch approval.
 
 ---
 
@@ -333,7 +341,7 @@ Suggested order:
 4. Confirm staking dashboard behavior.
 5. Enable Melting gated mint only if approved.
 6. Enable Amanda gated mint only if approved.
-7. Enable reward claim only after mainnet indexer/reward/proof flow is implemented, run, verified, and approved.
+7. Enable reward claim only after controlled mainnet user claim verification and explicit launch approval.
 ```
 
 Public launch is not ready at this gate.

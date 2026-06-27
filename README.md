@@ -99,10 +99,15 @@ The connected Web3 wallet address is the user identity.
 - Base Mainnet and Ethereum Mainnet mint phases are open.
 - Production browser QA passed for the public mint/staking/admin baseline.
 - Admin mainnet operations QA passed.
+- Mainnet Supabase reward data plane setup completed.
+- Mainnet GitHub Actions worker readiness passed.
+- First mainnet boundary reward job succeeded for Base Mainnet and Ethereum Mainnet.
+- First mainnet calculated reward rounds generated for Base Mainnet and Ethereum Mainnet.
+- First Base and Ethereum mainnet reward rounds created, approved, and funded on-chain.
 
 ### Locked Decisions
 
-- Mainnet deployment is deferred until explicit approval after Mainnet Deployment Approval Gate v1.
+- Mainnet contract deployment was approved, completed, verified, and read-checked.
 - Indexer + reward storage is Supabase Postgres-first.
 - Local JSON is not the primary indexer storage.
 - Supabase indexer sync is checkpointed, resumable, and worker-driven.
@@ -112,6 +117,11 @@ The connected Web3 wallet address is the user identity.
 - Admin Dashboard is implemented and remains the operational owner surface.
 - Every stage has its own testing checkpoint.
 - Full Testnet E2E QA v1 is the canonical QA pass report for the current Sepolia rehearsal surface.
+- Admin Reward Operations read live on-chain state for create/fund/pause/claim.
+- Supabase reward tx hashes and long-term status are reconciled from RewardDistributor events.
+- `created_tx_hash` and `funded_tx_hash` may remain null until a later event-indexer pass crosses the relevant transaction blocks.
+- Do not manually update Supabase only to fill reward tx hashes.
+- Do not submit a new Tapal Batas solely for tx hash reconciliation.
 
 ### Current Canonical Docs
 
@@ -119,6 +129,7 @@ The connected Web3 wallet address is the user identity.
 - `docs/qa/TESTNET_RELEASE_CANDIDATE_LOCK_V1.md` — Testnet Release Candidate lock report.
 - `docs/mainnet/MAINNET_DEPLOYMENT_APPROVAL_GATE_V1.md` — historical mainnet approval gate.
 - `docs/mainnet/MAINNET_CONTRACT_DEPLOYMENT_COMPLETION_V1.md` — mainnet contract deployment completion record.
+- `docs/mainnet/MAINNET_REWARD_ROUND_OPERATIONS_V1.md` — mainnet reward data-plane status and Reward Round SOP / Decision Log.
 - `docs/qa/MAINNET_PUBLIC_SURFACE_AND_MINT_OPENING_QA_V1.md` — canonical production mainnet public surface and mint opening QA/status report.
 - `docs/TESTNET_PRODUCT_COMPLETION_PLAN.md` — current operational next-step checklist.
 - `URUTANSEHAT.md` — high-level sequence/status.
@@ -127,13 +138,13 @@ The connected Web3 wallet address is the user identity.
 
 ### Pending / Next
 
-- Mainnet Reward Round Operations / Production Reward Data Plane.
-- Mainnet Supabase/database separation or configuration for reward operations.
-- Mainnet GitHub Actions worker/indexer env configuration.
-- Mainnet reward calculation/proof generation validation.
+- Controlled user reward claim verification on mainnet, if not already evidenced in repo/docs.
 - Mainnet reward claim launch approval.
+- Post-claim verification and later RewardDistributor event reconciliation.
+- Next reward distribution cycle using a new Tapal Batas.
+- Optional operator-friendly RewardDistributor event catch-up workflow.
 - Final UI/UX polish pass.
-- Mainnet reward claim remains not production-ready until mainnet indexer/reward/proof flow is implemented, run, verified, and approved.
+- Mainnet public reward claim remains disabled/not launched unless separately approved.
 
 ---
 
@@ -290,6 +301,19 @@ generate Merkle root/proofs
 create reward round on-chain from Admin UI
 approve and fund $OiOi
 claim from Reward Claim Panel
+```
+
+Reward Round SOP:
+
+```text
+Admin UI reads live on-chain state for create/fund/pause/claim.
+Supabase stores calculation, allocation, Merkle root, proof, and history.
+created_tx_hash and funded_tx_hash are reconciled from reward_round_events.
+Supabase reward_rounds may temporarily stay calculated with null tx hashes after successful on-chain create/fund.
+This is expected if RewardDistributor event indexing has not crossed those tx blocks.
+Do not manually update DB only to fill tx hashes.
+Do not submit Tapal Batas solely for tx hash reconciliation.
+Event-only catch-up is optional, not the default SOP.
 ```
 
 Canonical worker command:

@@ -159,7 +159,7 @@ Still not approved:
 - Metadata lock.
 - Calling `lockMetadata()`.
 
-Mainnet reward claim launch still requires separate production indexer/reward/proof validation and explicit approval.
+Mainnet reward claim launch still requires controlled mainnet user claim verification and explicit approval. The later reward data-plane foundation and first-round preparation are recorded separately.
 
 ---
 
@@ -172,19 +172,30 @@ Mainnet reward claim launch still requires separate production indexer/reward/pr
 
 ---
 
-## 7. Current Next Task
+## 7. Later Status
 
 ```text
 Mainnet Reward Round Operations / Production Reward Data Plane
 ```
 
-Current status:
+This was the next major task at the time of this read-only QA report. It was
+later completed as a data-plane foundation and first-round preparation step.
+
+Canonical later record:
+
+```text
+docs/mainnet/MAINNET_REWARD_ROUND_OPERATIONS_V1.md
+```
+
+Current boundary:
 
 - Mainnet public surface: live.
 - Mint opening: done / live.
-- Reward claim launch: deferred.
+- Reward data-plane foundation: done.
+- First mainnet calculated rounds: generated.
+- First Base/Ethereum reward rounds: created, approved, and funded on-chain.
+- Reward claim launch: deferred / not approved.
 - Metadata lock: not performed.
-- Reward Round Operations: pending mainnet database/indexer/proof support.
 
 ---
 

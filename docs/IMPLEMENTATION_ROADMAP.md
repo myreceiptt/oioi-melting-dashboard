@@ -6,8 +6,8 @@ Current execution path:
 
 ```text
 Mainnet public mint/staking surface live
-→ Mainnet Reward Round Operations / Production Reward Data Plane
-→ mainnet reward claim launch only after production reward support is implemented/configured/validated/approved
+→ Mainnet Reward Round Operations / Production Reward Data Plane foundation done
+→ controlled mainnet reward claim verification / launch approval
 → final metadata update/reveal/lock decision later
 ```
 
@@ -241,7 +241,7 @@ admin color pass
 Current next stage:
 
 ```text
-Controlled mint opening plan / approval
+Controlled mainnet reward claim verification / launch approval planning
 ```
 
 Canonical planning document:
@@ -266,7 +266,7 @@ MAINNET PUBLIC SURFACE: LIVE
 MINT OPENING: DONE / LIVE
 MAINNET REWARD CLAIM LAUNCH: NOT APPROVED
 METADATA LOCK: NOT APPROVED
-MAINNET REWARD ROUND OPERATIONS: PENDING MAINNET DATABASE / INDEXER / PROOF SUPPORT
+MAINNET REWARD ROUND OPERATIONS: DATA PLANE FOUNDATION DONE / CLAIM LAUNCH PENDING
 ```
 
 ---
@@ -352,20 +352,19 @@ metadata UNLOCKED
 Still not approved / not started:
 
 ```text
-controlled opening
-mainnet env wiring beyond read-only QA
 mainnet reward claim launch
 metadata lock
-public launch
+final metadata update/reveal/lock
+public reward claim launch
 ```
 
 Approval-sensitive items:
 
 ```text
 metadata strategy approved as Option A for contract deployment planning only
-mainnet reward/indexer/proof pipeline implementation and validation
+mainnet reward data-plane foundation completed and first rounds prepared
 mainnet public mint/staking surface live
-mainnet reward claim remains not production-ready
+mainnet reward claim launch remains not approved
 metadata lock remains not approved
 mint opening done / live
 ```
@@ -395,7 +394,7 @@ PRODUCTION MAINNET ENV: LIVE
 MAINNET REWARD CLAIM LAUNCH: NOT READY / NOT APPROVED
 METADATA LOCK: NOT APPROVED
 MINT OPENING: DONE / LIVE
-MAINNET REWARD ROUND OPERATIONS: PENDING MAINNET DATABASE / INDEXER / PROOF SUPPORT
+MAINNET REWARD ROUND OPERATIONS: DATA PLANE FOUNDATION DONE / CLAIM LAUNCH PENDING
 ```
 
 Final deployment approval form:
@@ -421,10 +420,27 @@ docs/qa/MAINNET_READ_ONLY_FRONTEND_QA_V1.md
 ## Current Next Step
 
 ```text
-Controlled mint opening plan / approval
+Controlled mainnet reward claim verification / approval planning
 ```
 
-Do not open mint, launch reward claim, reveal metadata, lock metadata, or launch publicly until each later gate is explicitly approved.
+Do not launch public reward claim, reveal metadata, or lock metadata until each later gate is explicitly approved.
+
+Mainnet reward round operations status:
+
+```text
+Mainnet Supabase schema and seed complete.
+Mainnet worker readiness pass.
+First mainnet boundary worker job success.
+First Base/Ethereum calculated reward rounds generated.
+First Base/Ethereum reward rounds created, approved, and funded on-chain.
+Reward claim public enablement remains not approved.
+```
+
+Canonical SOP / decision log:
+
+```text
+docs/mainnet/MAINNET_REWARD_ROUND_OPERATIONS_V1.md
+```
 
 ---
 

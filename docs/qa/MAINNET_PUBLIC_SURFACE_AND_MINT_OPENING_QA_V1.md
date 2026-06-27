@@ -13,13 +13,13 @@ PRODUCTION BROWSER QA: PASS
 ADMIN MAINNET OPERATIONS QA: PASS
 METADATA LOCK: NOT PERFORMED
 REWARD CLAIM: DEFERRED
-REWARD ROUND OPERATIONS: PENDING MAINNET DATABASE / INDEXER / PROOF SUPPORT
+REWARD ROUND OPERATIONS: DATA PLANE FOUNDATION DONE / CLAIM LAUNCH PENDING
 UI/UX POLISH: REMAINING
 ```
 
 This document records the current production/mainnet public surface and mint opening reality.
 
-It does not approve reward claim launch, metadata lock, final metadata reveal/update/lock, or mainnet reward data-plane operations.
+It does not approve reward claim launch, metadata lock, or final metadata reveal/update/lock.
 
 ---
 
@@ -165,35 +165,48 @@ Metadata remains unlocked until the final reveal/update/lock decision later.
 
 ## 8. Reward Round Operations Status
 
-Reward Round Operations are deferred for mainnet.
-
-This does not mean the reward flow is broken. The reward flow/process was validated on testnet:
+Reward Round Operations data-plane foundation was completed after this public
+surface QA:
 
 ```text
-create worker job with boundary/tapal-batas block
-run worker jobs via GitHub Actions schedule
-worker jobs sync/index/calculate reward data
-reward round initially exists off-chain in Supabase
-after worker job succeeds, reward round can be created on-chain
-next reward operations continue as designed
+mainnet Supabase schema and seed complete
+mainnet app smoke checks pass
+mainnet GitHub Actions worker readiness pass
+first mainnet boundary worker job success
+first Base/Ethereum calculated reward rounds generated
+first Base/Ethereum reward rounds created, approved, and funded on-chain
 ```
 
-Current mainnet blocker:
+Canonical record:
 
 ```text
-Supabase data currently used by Reward Round Operations is still testnet-oriented
-GitHub Actions worker jobs still use testnet environment/config
-existing reward round data and worker job data shown in admin are testnet-oriented
-mainnet database/data plane is not yet separated or configured
-mainnet reward/indexer/proof production flow has not been implemented/configured/validated yet
+docs/mainnet/MAINNET_REWARD_ROUND_OPERATIONS_V1.md
+```
+
+Locked SOP:
+
+```text
+Admin UI reads live on-chain state for create/fund/pause/claim.
+Supabase tx hashes and long-term status are reconciled from reward_round_events.
+reward_rounds may temporarily remain calculated with null tx hashes until event indexing crosses the tx blocks.
+Do not manually update Supabase only to fill tx hashes.
+Do not submit Tapal Batas solely for tx hash reconciliation.
+```
+
+Still not approved / not yet documented:
+
+```text
+public reward claim enablement
+controlled user claim verification on mainnet, if not already evidenced
+post-claim verification
+later RewardDistributor event reconciliation
 ```
 
 Final status:
 
 ```text
 REWARD CLAIM: DEFERRED
-REWARD ROUND OPERATIONS: PENDING MAINNET DATABASE / INDEXER / PROOF SUPPORT
-MAINNET REWARD WORK: NEXT MAJOR TECHNICAL TASK
+REWARD ROUND OPERATIONS: DATA PLANE FOUNDATION DONE / CLAIM LAUNCH PENDING
 ```
 
 This does not block the already-live mainnet mint/public surface.
@@ -204,8 +217,9 @@ This does not block the already-live mainnet mint/public surface.
 
 ```text
 UI/UX polish: remaining
-Mainnet Reward Round Operations / Production Reward Data Plane: pending
-Mainnet reward claim launch: deferred
+Mainnet reward claim launch: deferred / not approved
+Controlled user claim verification on mainnet: not yet documented
+Post-claim verification and later RewardDistributor event reconciliation: pending
 Final metadata reveal/update/lock decision: pending
 ```
 

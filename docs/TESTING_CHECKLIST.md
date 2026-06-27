@@ -287,27 +287,38 @@ Current status:
 ```text
 Testnet Release Candidate Lock v1 is complete and passed.
 Canonical RC lock report: docs/qa/TESTNET_RELEASE_CANDIDATE_LOCK_V1.md
-Current next stage is Mainnet deployment planning / approval gate.
+Mainnet contract deployment and public mint/staking surface are live.
+Mainnet reward data-plane setup and first reward round preparation are complete.
+Current reward next stage is controlled user claim verification / reward claim approval.
 ```
 
 ---
 
 ## 12. Mainnet Testing
 
-Mainnet deployment is deferred until explicit approval after Testnet Release Candidate Lock v1.
+Mainnet deployment was explicitly approved, completed, verified, and read-checked.
+Production domains now serve mainnet and the public mint/staking surface is
+live.
 
-After mainnet deployment:
+Completed:
 
 ```text
 verification
 read-check
 mainnet frontend env wiring
 mainnet read-only browser QA
-admin read-only state check
-mint phases remain OFF
+production-domain browser QA
+admin mainnet operations QA
+mainnet Supabase reward data-plane setup
+first mainnet boundary worker job
+first Base/Ethereum calculated reward rounds
+first Base/Ethereum reward round create/approve/fund on-chain
 ```
 
 Do not run mainnet functional mint tests unless intentionally minting real NFTs.
+
+Reward claim remains gated by separate approval and controlled user claim
+verification.
 
 ---
 
@@ -325,7 +336,17 @@ confirm explorer indexing
 confirm admin controls
 ```
 
-Reward claim opening requires production reward proof flow.
+Reward claim opening requires controlled production reward proof/claim
+verification and explicit approval.
+
+Reward Round SOP:
+
+```text
+Admin UI reads live on-chain state for create/fund/pause/claim.
+Supabase tx hashes and long-term status are reconciled from reward_round_events.
+Do not manually update Supabase only to fill tx hashes.
+Do not submit Tapal Batas solely for tx hash reconciliation.
+```
 
 ---
 

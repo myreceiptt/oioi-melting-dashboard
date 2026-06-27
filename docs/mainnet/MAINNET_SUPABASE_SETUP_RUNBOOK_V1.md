@@ -1,11 +1,24 @@
 # Mainnet Supabase Setup Runbook v1
 
-Status: PLAN / SAFE PREP ONLY
-Mainnet Supabase setup: NOT APPLIED BY THIS DOCUMENT
-Remote Supabase action: NOT PERFORMED
+Status: SETUP COMPLETE / RUNBOOK RETAINED FOR AUDIT
+Mainnet Supabase setup: COMPLETED AFTER THIS RUNBOOK WAS PREPARED
+Remote Supabase action: NOT PERFORMED BY THIS DOC EDIT
 Testnet data copy: PROHIBITED
-Worker execution: NOT APPROVED
-Mainnet reward claim launch: NOT APPROVED
+Worker execution: LATER APPROVED FOR MAINNET BOUNDARY REHEARSAL
+Mainnet reward claim launch: NOT APPROVED UNLESS SEPARATELY DECIDED
+
+Execution result:
+
+```text
+migrations 001 through 005 applied successfully
+Sepolia static seed rows removed from mainnet Supabase
+baseMainnet and ethereumMainnet chain rows seeded
+12 mainnet contract rows seeded
+NEXT_PUBLIC_APP_ENV=mainnet npm run supabase:check succeeded
+```
+
+The first mainnet boundary worker job and calculated reward rounds are recorded
+in `docs/mainnet/MAINNET_REWARD_ROUND_OPERATIONS_V1.md`.
 
 ## Purpose
 
@@ -462,9 +475,19 @@ wiring is explicitly approved, use read-only smoke checks:
 Do not treat an empty NFT list as a setup failure by itself. A clean mainnet
 cache starts empty and is populated by API-triggered wallet refreshes.
 
-## What Not To Run Yet
+Completed smoke checks:
 
-Do not run:
+```text
+local mainnet app OK
+wallet connect OK
+Owned NFT API base OK
+Owned NFT API ethereum OK
+reward claim mainnet disabled guard OK
+```
+
+## Historical "What Not To Run Yet" Before Setup Approval
+
+Before setup and worker approval, do not run:
 
 ```bash
 npm run indexer:boundary-worker
@@ -480,6 +503,12 @@ Do not submit a mainnet boundary block from the admin UI.
 Do not create or fund a mainnet reward round.
 Do not enable public mint or whitelist mint.
 Do not call `lockMetadata()`.
+
+Current status: the approved first mainnet boundary worker job has completed,
+and the first Base/Ethereum reward rounds have been created, approved, and
+funded on-chain. Do not use this historical section to block the completed,
+approved steps. Continue to block unapproved reward claim launch, metadata lock,
+and any manual DB edits.
 
 ## Stop Conditions
 
@@ -497,8 +526,9 @@ Stop immediately if:
 
 ## Next Step After Setup
 
-After manual schema setup and seed verification pass, the next step is a manual
-one-batch mainnet worker rehearsal. It must be separately approved before
-running.
+After manual schema setup and seed verification passed, the next approved step
+was a manual mainnet worker rehearsal. That worker flow has now succeeded for
+job `0118f1d1-ea0f-44b3-a74e-9d4902ff22a2`.
 
-The mainnet worker must remain manual-only at this stage. Do not add a schedule.
+The mainnet worker remains manual-only unless a separate schedule approval is
+recorded.

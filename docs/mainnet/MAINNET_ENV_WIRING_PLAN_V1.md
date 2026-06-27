@@ -56,6 +56,8 @@ $OiOi Ethereum: 0x1C696882b93d7241d09D55f52693cAD367A5bEaf
 
 Inventory source: code-level scan of `process.env`, `NEXT_PUBLIC_*`, Supabase, RPC, indexer, reward, deploy, and chain/address usage.
 
+The `Approval status` column below records the original env-wiring plan review state. Later production mainnet env wiring, controlled mint/staking opening, and mainnet reward data-plane setup were completed through separate documents. Reward claim launch remains not approved.
+
 | Variable | Scope | Current source/file | Proposed mainnet value/source | Required now? | Public safe? | Approval status | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | `NEXT_PUBLIC_APP_ENV` | Public frontend / Vercel Production | `lib/utils/env.ts`, `lib/wallet/chains.ts`, admin reward controls | `mainnet` | Phase A only after approval | Yes | NOT APPROVED | Switches app contracts/chains from Sepolia to mainnet. |
@@ -164,9 +166,12 @@ Reward claim remains disabled until approved.
 ```
 
 Mainnet indexer/reward env names are supported by the parallel mainnet data
-plane foundation. Production reward claim must still wait until mainnet
-Supabase schema/seed setup, indexing, reward calculation, proof generation, and
-claim QA are configured, run, verified, and explicitly approved.
+plane foundation. Mainnet Supabase schema/seed setup, first boundary worker
+job, reward calculation, proof generation, and first on-chain reward
+create/approve/fund operations were later completed and are recorded in
+`docs/mainnet/MAINNET_REWARD_ROUND_OPERATIONS_V1.md`. Production reward claim
+must still wait until controlled user claim verification and explicit reward
+claim launch approval.
 
 ### Phase D — Public Launch
 

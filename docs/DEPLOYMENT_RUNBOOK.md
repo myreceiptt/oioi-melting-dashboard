@@ -56,11 +56,11 @@ Do not “fix forward” on mainnet. Stop, inspect, and diagnose.
 
 Do not treat the approval gate document as approval by itself.
 
-Mainnet deployment commands were approved only for Base Mainnet + Ethereum Mainnet contract deployment and have been completed. Public launch, mainnet env wiring, reward claim launch, mint opening, and metadata lock are not approved.
+Mainnet deployment commands were approved only for Base Mainnet + Ethereum Mainnet contract deployment and have been completed. Later production env wiring and mint opening were completed separately. Reward claim launch and metadata lock remain not approved.
 
 Later production steps switched Vercel Production to mainnet and opened the public mint/staking surface. The current production status is recorded in `docs/qa/MAINNET_PUBLIC_SURFACE_AND_MINT_OPENING_QA_V1.md`.
 
-Do not launch mainnet reward claim until the mainnet indexer/reward/proof flow is implemented/configured, run, verified, and approved.
+Do not launch mainnet reward claim until controlled mainnet user claim verification is documented and reward claim launch is explicitly approved.
 
 Metadata strategy is approved as Option A for contract deployment planning only and tracked in:
 
@@ -297,8 +297,8 @@ metadata strategy is approved as Option A
 pending revealed URI placeholders may be deployed for the approved contract deployment scope
 metadata must remain unlocked until final metadata is approved
 final metadata update/reveal/lock remains a later approval
-mainnet reward claim is not production-ready at deployment time
-mainnet indexer/reward/proof flow must be implemented/configured and validated after deployment
+mainnet reward data-plane foundation was completed after deployment
+mainnet reward claim launch still requires controlled user claim verification and explicit approval
 ```
 
 Canonical approval gate:
@@ -415,9 +415,17 @@ run admin mainnet operations QA
 Still pending separate approval:
 
 ```text
-mainnet indexer/reward/proof production validation
 reward claim launch
+controlled user claim verification on mainnet, if not already evidenced
+post-claim verification and later RewardDistributor event reconciliation
 final metadata update/reveal/lock
+```
+
+Mainnet reward data-plane foundation and first reward round preparation are now
+documented in:
+
+```text
+docs/mainnet/MAINNET_REWARD_ROUND_OPERATIONS_V1.md
 ```
 
 ---
@@ -482,7 +490,52 @@ ROTY public mint: ON
 staking dashboard: live
 Melting gated mint: ON
 Amanda gated mint: ON
-reward claim: deferred until production reward flow is ready
+reward claim: deferred until controlled user claim verification and explicit launch approval
+```
+
+---
+
+## 15. Mainnet Reward Round Operations
+
+Mainnet reward data-plane setup and the first mainnet reward round preparation
+are complete:
+
+```text
+mainnet Supabase schema and seed: complete
+mainnet app smoke checks: pass
+mainnet GitHub Actions worker readiness: pass
+first mainnet boundary worker job: success
+first Base/Ethereum calculated reward rounds: generated
+first Base/Ethereum reward rounds: created, approved, and funded on-chain
+```
+
+Canonical record:
+
+```text
+docs/mainnet/MAINNET_REWARD_ROUND_OPERATIONS_V1.md
+```
+
+Locked SOP:
+
+```text
+Admin UI reads live on-chain state for create/fund/pause/claim.
+Supabase stores calculation, allocation, Merkle root, proof, and reconciliation history.
+created_tx_hash and funded_tx_hash are populated from reward_round_events after RewardDistributor event indexing.
+reward_rounds.status may temporarily remain calculated with null tx hashes after successful on-chain create/fund.
+This is expected and is not a bug under the current SOP.
+Do not manually update Supabase only to fill tx hashes.
+Do not submit Tapal Batas solely for tx hash reconciliation.
+Event-only catch-up is optional and not the default operator path.
+```
+
+Remaining:
+
+```text
+controlled user claim verification on mainnet, if not already evidenced
+public reward claim enablement approval
+post-claim verification
+later RewardDistributor event reconciliation
+next reward distribution cycle using a new Tapal Batas
 ```
 
 ---
