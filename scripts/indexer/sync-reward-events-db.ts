@@ -6,7 +6,7 @@ import {
   parseAbiItem,
   type Address,
 } from "viem";
-import { baseSepolia, sepolia } from "viem/chains";
+import { base, baseSepolia, mainnet, sepolia } from "viem/chains";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { createSupabaseServiceClient } from "@/lib/supabase/server.js";
 import {
@@ -142,13 +142,10 @@ type RewardClaimRow = {
 };
 
 function getViemChain(chainId: number) {
-  if (chainId === baseSepolia.id) {
-    return baseSepolia;
-  }
-
-  if (chainId === sepolia.id) {
-    return sepolia;
-  }
+  if (chainId === baseSepolia.id) return baseSepolia;
+  if (chainId === sepolia.id) return sepolia;
+  if (chainId === base.id) return base;
+  if (chainId === mainnet.id) return mainnet;
 
   throw new Error(`Unsupported chainId for DB reward sync: ${chainId}`);
 }
@@ -178,15 +175,14 @@ function getConfirmationDelay() {
 }
 
 function getIndexerToBlockEnv(config: IndexerNetworkConfig) {
-  if (config.key === "baseSepolia") {
-    return process.env.BASE_SEPOLIA_INDEXER_TO_BLOCK;
-  }
+  const envByNetwork = {
+    baseSepolia: process.env.BASE_SEPOLIA_INDEXER_TO_BLOCK,
+    ethereumSepolia: process.env.ETHEREUM_SEPOLIA_INDEXER_TO_BLOCK,
+    baseMainnet: process.env.BASE_MAINNET_INDEXER_TO_BLOCK,
+    ethereumMainnet: process.env.ETHEREUM_MAINNET_INDEXER_TO_BLOCK,
+  } satisfies Record<IndexerNetworkConfig["key"], string | undefined>;
 
-  if (config.key === "ethereumSepolia") {
-    return process.env.ETHEREUM_SEPOLIA_INDEXER_TO_BLOCK;
-  }
-
-  return undefined;
+  return envByNetwork[config.key];
 }
 
 function getRequestedToBlock({

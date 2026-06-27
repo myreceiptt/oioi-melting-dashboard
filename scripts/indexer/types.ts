@@ -1,4 +1,8 @@
-export type IndexerNetworkKey = "baseSepolia" | "ethereumSepolia";
+export type IndexerNetworkKey =
+  | "baseSepolia"
+  | "ethereumSepolia"
+  | "baseMainnet"
+  | "ethereumMainnet";
 
 export type CollectionKey = "roty" | "melting" | "amanda";
 

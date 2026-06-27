@@ -241,7 +241,37 @@ repeated runs eventually complete large jobs
 
 This is intentionally conservative and suitable for slow reward-boundary syncs.
 
-Current GitHub Actions worker configuration is Sepolia-oriented. Mainnet worker operation must not be assumed ready until mainnet deployment records, mainnet contract addresses, and mainnet `FROM_BLOCK` values are configured and verified.
+The existing scheduled workflow remains the Sepolia/testnet worker:
+
+```text
+.github/workflows/boundary-worker.yml
+```
+
+Mainnet uses a separate manual-only workflow:
+
+```text
+.github/workflows/mainnet-boundary-worker.yml
+```
+
+The mainnet workflow is intentionally not scheduled yet. It runs the same
+worker command only when manually dispatched, uses the mainnet Supabase data
+plane, and requires mainnet RPC and `FROM_BLOCK` values. Testnet history remains
+in the testnet Supabase project and must not be copied into mainnet.
+
+Reward chain mapping is environment-aware:
+
+```text
+NEXT_PUBLIC_APP_ENV=sepolia:
+  base -> baseSepolia
+  ethereum -> ethereumSepolia
+
+NEXT_PUBLIC_APP_ENV=mainnet:
+  base -> baseMainnet
+  ethereum -> ethereumMainnet
+```
+
+Mainnet reward claim remains disabled until the mainnet worker/proof/claim flow
+is run and separately approved.
 
 ---
 

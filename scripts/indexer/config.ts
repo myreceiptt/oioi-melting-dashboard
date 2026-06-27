@@ -36,24 +36,54 @@ export const INDEXER_NETWORKS: Record<IndexerNetworkKey, IndexerNetworkConfig> =
       ),
       rpcEnv: "ETHEREUM_SEPOLIA_RPC_URL",
     },
+    baseMainnet: {
+      key: "baseMainnet",
+      label: "Base Mainnet",
+      chainId: 8453,
+      deploymentRecordPath: path.join(
+        process.cwd(),
+        "deployments/base-mainnet/deployment.json",
+      ),
+      outputDir: path.join(
+        process.cwd(),
+        "scripts/indexer/output/base-mainnet",
+      ),
+      rpcEnv: "BASE_MAINNET_RPC_URL",
+    },
+    ethereumMainnet: {
+      key: "ethereumMainnet",
+      label: "Ethereum Mainnet",
+      chainId: 1,
+      deploymentRecordPath: path.join(
+        process.cwd(),
+        "deployments/ethereum-mainnet/deployment.json",
+      ),
+      outputDir: path.join(
+        process.cwd(),
+        "scripts/indexer/output/ethereum-mainnet",
+      ),
+      rpcEnv: "ETHEREUM_MAINNET_RPC_URL",
+    },
   };
+
+const SUPPORTED_NETWORK_KEYS = Object.keys(INDEXER_NETWORKS).join(", ");
 
 export function getIndexerNetworkConfig(
   networkKey: string | undefined,
 ): IndexerNetworkConfig {
   if (!networkKey) {
     throw new Error(
-      `Missing indexer network key. Use: baseSepolia or ethereumSepolia.`,
+      `Missing indexer network key. Use: ${SUPPORTED_NETWORK_KEYS}.`,
     );
   }
 
-  if (networkKey !== "baseSepolia" && networkKey !== "ethereumSepolia") {
+  if (!(networkKey in INDEXER_NETWORKS)) {
     throw new Error(
-      `Unsupported indexer network "${networkKey}". Use: baseSepolia or ethereumSepolia.`,
+      `Unsupported indexer network "${networkKey}". Use: ${SUPPORTED_NETWORK_KEYS}.`,
     );
   }
 
-  return INDEXER_NETWORKS[networkKey];
+  return INDEXER_NETWORKS[networkKey as IndexerNetworkKey];
 }
 
 function requireAddress(label: string, value: unknown): `0x${string}` {

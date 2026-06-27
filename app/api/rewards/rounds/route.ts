@@ -1,11 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { formatUnits } from "viem";
+import {
+  getRewardChainKey,
+  type RewardChainKey,
+} from "@/lib/rewards/environment";
 import { createSupabaseServiceClient } from "@/lib/supabase/server";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-type ChainKey = "baseSepolia" | "ethereumSepolia";
+type ChainKey = RewardChainKey;
 
 type RewardRoundRow = {
   chain_key: ChainKey;
@@ -22,12 +26,6 @@ type RewardRoundRow = {
   claim_paused: boolean;
   updated_at: string;
 };
-
-function getChainKey(chain: string | null): ChainKey | null {
-  if (chain === "base") return "baseSepolia";
-  if (chain === "ethereum") return "ethereumSepolia";
-  return null;
-}
 
 function jsonResponse(body: unknown, status = 200) {
   return NextResponse.json(body, {
@@ -46,7 +44,7 @@ export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const chain = searchParams.get("chain");
-    const chainKey = getChainKey(chain);
+    const chainKey = getRewardChainKey(chain);
 
     if (!chainKey) {
       return jsonResponse(

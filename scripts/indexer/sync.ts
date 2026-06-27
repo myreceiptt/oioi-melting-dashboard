@@ -6,7 +6,7 @@ import {
   parseAbiItem,
   type Address,
 } from "viem";
-import { baseSepolia, sepolia } from "viem/chains";
+import { base, baseSepolia, mainnet, sepolia } from "viem/chains";
 import { getIndexerNetworkConfig } from "./config.js";
 import {
   initializeEmptyDataFiles,
@@ -65,31 +65,37 @@ function getViemChain(chainId: number) {
     return sepolia;
   }
 
+  if (chainId === base.id) {
+    return base;
+  }
+
+  if (chainId === mainnet.id) {
+    return mainnet;
+  }
+
   throw new Error(`Unsupported chainId for indexer sync: ${chainId}`);
 }
 
 function getIndexerFromBlockEnv(config: IndexerNetworkConfig) {
-  if (config.key === "baseSepolia") {
-    return process.env.BASE_SEPOLIA_INDEXER_FROM_BLOCK;
-  }
+  const envByNetwork = {
+    baseSepolia: process.env.BASE_SEPOLIA_INDEXER_FROM_BLOCK,
+    ethereumSepolia: process.env.ETHEREUM_SEPOLIA_INDEXER_FROM_BLOCK,
+    baseMainnet: process.env.BASE_MAINNET_INDEXER_FROM_BLOCK,
+    ethereumMainnet: process.env.ETHEREUM_MAINNET_INDEXER_FROM_BLOCK,
+  } satisfies Record<IndexerNetworkConfig["key"], string | undefined>;
 
-  if (config.key === "ethereumSepolia") {
-    return process.env.ETHEREUM_SEPOLIA_INDEXER_FROM_BLOCK;
-  }
-
-  return undefined;
+  return envByNetwork[config.key];
 }
 
 function getIndexerToBlockEnv(config: IndexerNetworkConfig) {
-  if (config.key === "baseSepolia") {
-    return process.env.BASE_SEPOLIA_INDEXER_TO_BLOCK;
-  }
+  const envByNetwork = {
+    baseSepolia: process.env.BASE_SEPOLIA_INDEXER_TO_BLOCK,
+    ethereumSepolia: process.env.ETHEREUM_SEPOLIA_INDEXER_TO_BLOCK,
+    baseMainnet: process.env.BASE_MAINNET_INDEXER_TO_BLOCK,
+    ethereumMainnet: process.env.ETHEREUM_MAINNET_INDEXER_TO_BLOCK,
+  } satisfies Record<IndexerNetworkConfig["key"], string | undefined>;
 
-  if (config.key === "ethereumSepolia") {
-    return process.env.ETHEREUM_SEPOLIA_INDEXER_TO_BLOCK;
-  }
-
-  return undefined;
+  return envByNetwork[config.key];
 }
 
 function getRequestedToBlock({

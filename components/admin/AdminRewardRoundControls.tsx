@@ -971,8 +971,8 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
         },
         body: JSON.stringify({
           chains: {
-            baseSepolia: baseBoundaryBlockInput.trim(),
-            ethereumSepolia: ethereumBoundaryBlockInput.trim(),
+            base: baseBoundaryBlockInput.trim(),
+            ethereum: ethereumBoundaryBlockInput.trim(),
           },
           rewardAmountOiOi: boundaryRewardAmountInput.trim(),
         }),

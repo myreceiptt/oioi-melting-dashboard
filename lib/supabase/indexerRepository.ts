@@ -125,10 +125,14 @@ function getRequiredFromBlock({
     return Number(contract.deployment_block);
   }
 
-  const envName =
-    config.key === "baseSepolia"
-      ? "BASE_SEPOLIA_INDEXER_FROM_BLOCK"
-      : "ETHEREUM_SEPOLIA_INDEXER_FROM_BLOCK";
+  const envNameByNetwork = {
+    baseSepolia: "BASE_SEPOLIA_INDEXER_FROM_BLOCK",
+    ethereumSepolia: "ETHEREUM_SEPOLIA_INDEXER_FROM_BLOCK",
+    baseMainnet: "BASE_MAINNET_INDEXER_FROM_BLOCK",
+    ethereumMainnet: "ETHEREUM_MAINNET_INDEXER_FROM_BLOCK",
+  } satisfies Record<IndexerNetworkConfig["key"], string>;
+
+  const envName = envNameByNetwork[config.key];
 
   const envValue = process.env[envName];
 

@@ -1,6 +1,6 @@
 # Worker's Jobs
 
-Worker's Jobs run the reward boundary worker automatically from GitHub Actions.
+Worker's Jobs run the reward boundary worker from GitHub Actions.
 The workflow does not create a new indexing path. It runs the same command used
 locally:
 
@@ -11,9 +11,9 @@ npm run indexer:boundary-worker
 Each run processes one safe batch, writes progress to Supabase, then exits.
 The next scheduled run resumes from Supabase checkpoints and job target state.
 
-## Workflow
+## Sepolia Workflow
 
-The workflow file is:
+The Sepolia/testnet workflow file is:
 
 ```text
 .github/workflows/boundary-worker.yml
@@ -33,9 +33,38 @@ concurrency:
 This prevents two scheduled worker runs from processing the same job at the same
 time. Supabase `indexer_locks` still provides an additional database-level lock.
 
+This workflow remains the active Sepolia/testnet worker and is not reused for
+mainnet.
+
+## Mainnet Workflow
+
+The mainnet workflow file is:
+
+```text
+.github/workflows/mainnet-boundary-worker.yml
+```
+
+It is manual-only:
+
+```text
+workflow_dispatch only
+no schedule yet
+concurrency group mainnet-boundary-worker
+NEXT_PUBLIC_APP_ENV=mainnet
+runs npm run indexer:boundary-worker
+```
+
+Mainnet uses a separate Supabase project/data plane. It must not copy or reuse
+testnet Supabase rows. The mainnet workflow must be dispatched only after the
+mainnet Supabase migrations and required seed records are manually prepared.
+
+Mainnet reward claim remains disabled until the mainnet boundary worker,
+proof API, on-chain reward round creation, funding, and browser claim flow are
+validated and separately approved.
+
 ## GitHub Secrets
 
-Set these in GitHub repository settings:
+Set these Sepolia workflow secrets in GitHub repository settings:
 
 ```text
 SUPABASE_URL
@@ -71,9 +100,23 @@ INDEXER_CRON_SECRET
 the workflow environment makes the CLI worker compatible with the same secret
 guard used by the cron API path.
 
+Set these mainnet workflow secrets separately:
+
+```text
+MAINNET_SUPABASE_URL
+MAINNET_SUPABASE_SERVICE_ROLE_KEY
+BASE_MAINNET_RPC_URL
+ETHEREUM_MAINNET_RPC_URL
+MAINNET_INDEXER_CRON_SECRET
+```
+
+`MAINNET_SUPABASE_URL` may also be set as a GitHub Variable, but the service
+role key must stay in GitHub Secrets.
+
 ## GitHub Variables
 
-Set these in GitHub repository settings as Variables, not Secrets:
+Set these Sepolia workflow variables in GitHub repository settings as Variables,
+not Secrets:
 
 ```text
 NEXT_PUBLIC_APP_ENV=sepolia
@@ -105,6 +148,20 @@ INDEXER_WORKER_LOCK_TTL_SECONDS=120
 
 Replace the dummy `*_INDEXER_FROM_BLOCK` values with the earliest project
 deployment block for each chain.
+
+Set these mainnet workflow variables separately:
+
+```text
+BASE_MAINNET_INDEXER_FROM_BLOCK=
+ETHEREUM_MAINNET_INDEXER_FROM_BLOCK=
+INDEXER_BLOCK_RANGE=10
+INDEXER_REQUEST_DELAY_MS=250
+MAINNET_INDEXER_WORKER_BLOCK_SPAN=100
+INDEXER_WORKER_COMMAND_TIMEOUT_MS=55000
+INDEXER_WORKER_RETRY_DELAY_SECONDS=60
+INDEXER_WORKER_RATE_LIMIT_DELAY_SECONDS=300
+INDEXER_WORKER_LOCK_TTL_SECONDS=120
+```
 
 Keep `INDEXER_BLOCK_RANGE=10` for limited RPC providers. Increase
 `INDEXER_WORKER_BLOCK_SPAN` only after RPC usage is stable.

@@ -1,4 +1,5 @@
 import "dotenv/config";
+import { getBoundaryChainKeys } from "@/lib/rewards/environment.js";
 import { createSupabaseServiceClient } from "@/lib/supabase/server.js";
 
 type ChainRow = {
@@ -34,7 +35,7 @@ async function main() {
 
   const typedChains = (chains ?? []) as ChainRow[];
 
-  const expectedChains = new Set(["baseSepolia", "ethereumSepolia"]);
+  const expectedChains = new Set(getBoundaryChainKeys());
   const foundChains = new Set(typedChains.map((chain) => chain.chain_key));
   const missingChains = [...expectedChains].filter(
     (chainKey) => !foundChains.has(chainKey),

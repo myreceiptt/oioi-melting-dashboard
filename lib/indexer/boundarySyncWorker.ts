@@ -1,9 +1,14 @@
 import { randomUUID } from "node:crypto";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { createPublicClient, formatUnits, http, parseUnits } from "viem";
-import { baseSepolia, sepolia } from "viem/chains";
+import { base, baseSepolia, mainnet, sepolia } from "viem/chains";
+import {
+  getBoundaryChainKeys,
+  getRewardChainKey,
+  type RewardChainKey,
+} from "@/lib/rewards/environment";
 
-export type BoundaryChainKey = "baseSepolia" | "ethereumSepolia";
+export type BoundaryChainKey = RewardChainKey;
 
 type SyncJobStatus =
   | "queued"
@@ -131,8 +136,6 @@ type WorkerResult =
       error: string;
     };
 
-const CHAIN_KEYS: BoundaryChainKey[] = ["baseSepolia", "ethereumSepolia"];
-
 const SYNC_TASKS: BoundaryTaskKey[] = [
   "roty",
   "melting",
@@ -175,23 +178,29 @@ const CONTRACT_KEY_BY_TASK: Partial<Record<BoundaryTaskKey, string>> = {
 const FROM_BLOCK_ENV_BY_CHAIN: Record<BoundaryChainKey, string> = {
   baseSepolia: "BASE_SEPOLIA_INDEXER_FROM_BLOCK",
   ethereumSepolia: "ETHEREUM_SEPOLIA_INDEXER_FROM_BLOCK",
+  baseMainnet: "BASE_MAINNET_INDEXER_FROM_BLOCK",
+  ethereumMainnet: "ETHEREUM_MAINNET_INDEXER_FROM_BLOCK",
 };
 
 const TO_BLOCK_ENV_BY_CHAIN: Record<BoundaryChainKey, string> = {
   baseSepolia: "BASE_SEPOLIA_INDEXER_TO_BLOCK",
   ethereumSepolia: "ETHEREUM_SEPOLIA_INDEXER_TO_BLOCK",
+  baseMainnet: "BASE_MAINNET_INDEXER_TO_BLOCK",
+  ethereumMainnet: "ETHEREUM_MAINNET_INDEXER_TO_BLOCK",
 };
 
 const RPC_ENV_BY_CHAIN: Record<BoundaryChainKey, string> = {
   baseSepolia: "BASE_SEPOLIA_RPC_URL",
   ethereumSepolia: "ETHEREUM_SEPOLIA_RPC_URL",
+  baseMainnet: "BASE_MAINNET_RPC_URL",
+  ethereumMainnet: "ETHEREUM_MAINNET_RPC_URL",
 };
 
 const CHAIN_ALIAS: Record<string, BoundaryChainKey> = {
-  base: "baseSepolia",
   baseSepolia: "baseSepolia",
-  ethereum: "ethereumSepolia",
+  baseMainnet: "baseMainnet",
   ethereumSepolia: "ethereumSepolia",
+  ethereumMainnet: "ethereumMainnet",
 };
 
 function parsePositiveInt(value: string | undefined, fallback: number) {
@@ -231,6 +240,11 @@ function parseRewardAmountWei(value: unknown) {
 }
 
 function normalizeChainKey(value: string) {
+  const appChainKey = getRewardChainKey(value);
+  if (appChainKey) {
+    return appChainKey;
+  }
+
   const chainKey = CHAIN_ALIAS[value];
   if (!chainKey) {
     throw new Error(`Unsupported chain "${value}".`);
@@ -319,7 +333,10 @@ function getRpcUrl(chainKey: BoundaryChainKey) {
 }
 
 function getViemChain(chainKey: BoundaryChainKey) {
-  return chainKey === "baseSepolia" ? baseSepolia : sepolia;
+  if (chainKey === "baseSepolia") return baseSepolia;
+  if (chainKey === "ethereumSepolia") return sepolia;
+  if (chainKey === "baseMainnet") return base;
+  return mainnet;
 }
 
 function unixFromIso(value: string) {
@@ -736,13 +753,14 @@ export async function createBoundarySyncJob({
 
   const rewardAmountWei = parseRewardAmountWei(payload.rewardAmountOiOi);
   const chainTargets = new Map<BoundaryChainKey, number>();
+  const chainKeys = getBoundaryChainKeys();
 
   for (const [key, value] of Object.entries(chainsPayload)) {
     const chainKey = normalizeChainKey(key);
     chainTargets.set(chainKey, parseBlock(value, `${chainKey} target block`));
   }
 
-  for (const chainKey of CHAIN_KEYS) {
+  for (const chainKey of chainKeys) {
     if (!chainTargets.has(chainKey)) {
       throw new Error(`Missing target block for ${chainKey}.`);
     }
@@ -768,7 +786,7 @@ export async function createBoundarySyncJob({
 
   const plans = new Map<BoundaryChainKey, ChainBoundaryPlan>();
 
-  for (const chainKey of CHAIN_KEYS) {
+  for (const chainKey of chainKeys) {
     plans.set(
       chainKey,
       await buildChainBoundaryPlan({
@@ -803,7 +821,7 @@ export async function createBoundarySyncJob({
   const syncJob = job as SyncJobRow;
 
   try {
-    for (const chainKey of CHAIN_KEYS) {
+    for (const chainKey of chainKeys) {
       const plan = plans.get(chainKey)!;
       await insertTargets({ supabase, jobId: syncJob.id, plan });
       await insertBoundarySnapshot({

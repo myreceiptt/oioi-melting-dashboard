@@ -1,7 +1,12 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { parseUnits } from "viem";
+import {
+  getBoundaryChainKeys,
+  getRewardChainKey,
+  type RewardChainKey,
+} from "@/lib/rewards/environment";
 
-export type BoundaryChainKey = "baseSepolia" | "ethereumSepolia";
+export type BoundaryChainKey = RewardChainKey;
 
 type SyncJobStatus =
   | "queued"
@@ -100,8 +105,6 @@ type ChainBoundaryPlan = {
   targets: TargetInsertRow[];
 };
 
-const CHAIN_KEYS: BoundaryChainKey[] = ["baseSepolia", "ethereumSepolia"];
-
 const SYNC_TASKS: BoundaryTaskKey[] = [
   "roty",
   "melting",
@@ -144,13 +147,15 @@ const CONTRACT_KEY_BY_TASK: Partial<Record<BoundaryTaskKey, string>> = {
 const FROM_BLOCK_ENV_BY_CHAIN: Record<BoundaryChainKey, string> = {
   baseSepolia: "BASE_SEPOLIA_INDEXER_FROM_BLOCK",
   ethereumSepolia: "ETHEREUM_SEPOLIA_INDEXER_FROM_BLOCK",
+  baseMainnet: "BASE_MAINNET_INDEXER_FROM_BLOCK",
+  ethereumMainnet: "ETHEREUM_MAINNET_INDEXER_FROM_BLOCK",
 };
 
 const CHAIN_ALIAS: Record<string, BoundaryChainKey> = {
-  base: "baseSepolia",
   baseSepolia: "baseSepolia",
-  ethereum: "ethereumSepolia",
+  baseMainnet: "baseMainnet",
   ethereumSepolia: "ethereumSepolia",
+  ethereumMainnet: "ethereumMainnet",
 };
 
 function parsePositiveInt(value: string | undefined, fallback: number) {
@@ -190,6 +195,11 @@ function parseRewardAmountWei(value: unknown) {
 }
 
 function normalizeChainKey(value: string) {
+  const appChainKey = getRewardChainKey(value);
+  if (appChainKey) {
+    return appChainKey;
+  }
+
   const chainKey = CHAIN_ALIAS[value];
   if (!chainKey) {
     throw new Error(`Unsupported chain "${value}".`);
@@ -457,13 +467,14 @@ export async function createBoundarySyncJob({
 
   const rewardAmountWei = parseRewardAmountWei(payload.rewardAmountOiOi);
   const chainTargets = new Map<BoundaryChainKey, number>();
+  const chainKeys = getBoundaryChainKeys();
 
   for (const [key, value] of Object.entries(chainsPayload)) {
     const chainKey = normalizeChainKey(key);
     chainTargets.set(chainKey, parseBlock(value, `${chainKey} target block`));
   }
 
-  for (const chainKey of CHAIN_KEYS) {
+  for (const chainKey of chainKeys) {
     if (!chainTargets.has(chainKey)) {
       throw new Error(`Missing target block for ${chainKey}.`);
     }
@@ -489,7 +500,7 @@ export async function createBoundarySyncJob({
 
   const plans = new Map<BoundaryChainKey, ChainBoundaryPlan>();
 
-  for (const chainKey of CHAIN_KEYS) {
+  for (const chainKey of chainKeys) {
     plans.set(
       chainKey,
       await buildChainBoundaryPlan({
@@ -524,7 +535,7 @@ export async function createBoundarySyncJob({
   const syncJob = job as SyncJobRow;
 
   try {
-    for (const chainKey of CHAIN_KEYS) {
+    for (const chainKey of chainKeys) {
       const plan = plans.get(chainKey)!;
       await insertTargets({ supabase, jobId: syncJob.id, plan });
       await insertBoundarySnapshot({

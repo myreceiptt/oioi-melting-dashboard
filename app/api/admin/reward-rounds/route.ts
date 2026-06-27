@@ -1,11 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { formatUnits } from "viem";
+import {
+  getRewardChainKey,
+  type RewardChainKey,
+} from "@/lib/rewards/environment";
 import { createSupabaseServiceClient } from "@/lib/supabase/server";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-type ChainKey = "baseSepolia" | "ethereumSepolia";
+type ChainKey = RewardChainKey;
 
 type RewardRoundRow = {
   chain_key: ChainKey;
@@ -32,12 +36,6 @@ type RewardAllocationRow = {
   proof: string[];
   claimed: boolean;
 };
-
-function getChainKey(chain: string | null): ChainKey | null {
-  if (chain === "base") return "baseSepolia";
-  if (chain === "ethereum") return "ethereumSepolia";
-  return null;
-}
 
 function normalizeRoundId(value: string | null) {
   if (!value || value.trim() === "") return null;
@@ -97,7 +95,7 @@ export async function GET(request: NextRequest) {
 
     const chain = searchParams.get("chain");
     const requestedRoundId = normalizeRoundId(searchParams.get("roundId"));
-    const chainKey = getChainKey(chain);
+    const chainKey = getRewardChainKey(chain);
 
     if (!chainKey) {
       return jsonResponse(

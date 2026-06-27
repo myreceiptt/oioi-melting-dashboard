@@ -1,0 +1,67 @@
+name: Mainnet Boundary Worker
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: mainnet-boundary-worker
+  cancel-in-progress: false
+
+jobs:
+  boundary-worker:
+    name: Process one mainnet boundary worker batch
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      NEXT_PUBLIC_APP_ENV: mainnet
+      SUPABASE_URL: ${{ secrets.MAINNET_SUPABASE_URL || vars.MAINNET_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.MAINNET_SUPABASE_SERVICE_ROLE_KEY }}
+      MAINNET_SUPABASE_URL: ${{ secrets.MAINNET_SUPABASE_URL || vars.MAINNET_SUPABASE_URL }}
+      MAINNET_SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.MAINNET_SUPABASE_SERVICE_ROLE_KEY }}
+      BASE_MAINNET_RPC_URL: ${{ secrets.BASE_MAINNET_RPC_URL }}
+      ETHEREUM_MAINNET_RPC_URL: ${{ secrets.ETHEREUM_MAINNET_RPC_URL }}
+      BASE_MAINNET_INDEXER_FROM_BLOCK: ${{ vars.BASE_MAINNET_INDEXER_FROM_BLOCK }}
+      ETHEREUM_MAINNET_INDEXER_FROM_BLOCK: ${{ vars.ETHEREUM_MAINNET_INDEXER_FROM_BLOCK }}
+      INDEXER_CRON_SECRET: ${{ secrets.MAINNET_INDEXER_CRON_SECRET }}
+      INDEXER_BLOCK_RANGE: ${{ vars.INDEXER_BLOCK_RANGE || '10' }}
+      INDEXER_REQUEST_DELAY_MS: ${{ vars.INDEXER_REQUEST_DELAY_MS || '250' }}
+      INDEXER_WORKER_BLOCK_SPAN: ${{ vars.MAINNET_INDEXER_WORKER_BLOCK_SPAN || vars.INDEXER_WORKER_BLOCK_SPAN || '100' }}
+      INDEXER_WORKER_COMMAND_TIMEOUT_MS: ${{ vars.INDEXER_WORKER_COMMAND_TIMEOUT_MS || '55000' }}
+      INDEXER_WORKER_RETRY_DELAY_SECONDS: ${{ vars.INDEXER_WORKER_RETRY_DELAY_SECONDS || '60' }}
+      INDEXER_WORKER_RATE_LIMIT_DELAY_SECONDS: ${{ vars.INDEXER_WORKER_RATE_LIMIT_DELAY_SECONDS || '300' }}
+      INDEXER_WORKER_LOCK_TTL_SECONDS: ${{ vars.INDEXER_WORKER_LOCK_TTL_SECONDS || '120' }}
+
+    steps:
+      - name: Validate required mainnet environment
+        run: |
+          set -euo pipefail
+          required=(
+            MAINNET_SUPABASE_URL
+            MAINNET_SUPABASE_SERVICE_ROLE_KEY
+            BASE_MAINNET_RPC_URL
+            ETHEREUM_MAINNET_RPC_URL
+            BASE_MAINNET_INDEXER_FROM_BLOCK
+            ETHEREUM_MAINNET_INDEXER_FROM_BLOCK
+          )
+          for name in "${required[@]}"; do
+            if [ -z "${!name:-}" ]; then
+              echo "Missing required mainnet environment variable: ${name}"
+              exit 1
+            fi
+          done
+          echo "Required mainnet environment variables are configured."
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run one mainnet boundary worker batch
+        run: npm run indexer:boundary-worker

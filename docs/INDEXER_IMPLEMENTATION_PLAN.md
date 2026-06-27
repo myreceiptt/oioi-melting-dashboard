@@ -98,6 +98,8 @@ Use manual commands for diagnostics, recovery, and controlled local runs.
 Required server-side env:
 
 ```env
+NEXT_PUBLIC_APP_ENV=sepolia
+
 SUPABASE_URL=
 SUPABASE_SERVICE_ROLE_KEY=
 
@@ -126,13 +128,29 @@ ETHEREUM_SEPOLIA_INDEXER_TO_BLOCK=
 Mainnet values are filled only after mainnet contracts are deployed:
 
 ```env
+NEXT_PUBLIC_APP_ENV=mainnet
+
+MAINNET_SUPABASE_URL=
+MAINNET_SUPABASE_SERVICE_ROLE_KEY=
+
+BASE_MAINNET_RPC_URL=
+ETHEREUM_MAINNET_RPC_URL=
+
 BASE_MAINNET_INDEXER_FROM_BLOCK=
 ETHEREUM_MAINNET_INDEXER_FROM_BLOCK=
 BASE_MAINNET_INDEXER_TO_BLOCK=
 ETHEREUM_MAINNET_INDEXER_TO_BLOCK=
+
+NEXT_PUBLIC_MAINNET_REWARD_CLAIM_ENABLED=false
 ```
 
-Never expose `SUPABASE_SERVICE_ROLE_KEY` to browser code.
+Never expose `SUPABASE_SERVICE_ROLE_KEY` or
+`MAINNET_SUPABASE_SERVICE_ROLE_KEY` to browser code.
+
+When `NEXT_PUBLIC_APP_ENV=mainnet`, server reward/admin/proof/indexer paths use
+`MAINNET_SUPABASE_URL` and `MAINNET_SUPABASE_SERVICE_ROLE_KEY`. Missing mainnet
+Supabase env must fail closed and must not fall back to the testnet Supabase
+project.
 
 ---
 
@@ -231,9 +249,32 @@ uses concurrency group boundary-worker
 does not cancel an already running worker
 ```
 
-GitHub Secrets and Variables must be set one-by-one in repository settings.
+This workflow remains the Sepolia/testnet worker and is intentionally not
+modified for mainnet.
 
-Current workflow/configuration is Sepolia-oriented. Mainnet worker operation must be configured after mainnet deployment records, mainnet contract addresses, and mainnet `FROM_BLOCK` values exist.
+Mainnet uses a separate manual-only workflow:
+
+```text
+.github/workflows/mainnet-boundary-worker.yml
+```
+
+Behavior:
+
+```text
+manual dispatch only
+no schedule yet
+uses npm ci
+runs npm run indexer:boundary-worker
+uses concurrency group mainnet-boundary-worker
+uses NEXT_PUBLIC_APP_ENV=mainnet
+uses MAINNET_SUPABASE_URL and MAINNET_SUPABASE_SERVICE_ROLE_KEY
+requires BASE_MAINNET_RPC_URL and ETHEREUM_MAINNET_RPC_URL
+requires BASE_MAINNET_INDEXER_FROM_BLOCK and ETHEREUM_MAINNET_INDEXER_FROM_BLOCK
+```
+
+GitHub Secrets and Variables must be set one-by-one in repository settings.
+Mainnet worker operation is separate from Sepolia and must be manually
+dispatched only after the mainnet Supabase schema/seed setup is complete.
 
 ---
 
@@ -274,7 +315,7 @@ Mainnet indexer operation starts only after mainnet deployment and mainnet env w
 Production mainnet reward claim must remain unavailable until:
 
 ```text
-mainnet indexer support is implemented/configured
+mainnet Supabase schema is applied and seeded
 mainnet FROM_BLOCK values are recorded
 mainnet Supabase contract records are seeded/verified
 mainnet reward boundary flow is run

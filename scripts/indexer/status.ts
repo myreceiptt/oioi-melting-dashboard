@@ -1,7 +1,7 @@
 import "dotenv/config";
 import fs from "node:fs";
 import { createPublicClient, http } from "viem";
-import { baseSepolia, sepolia } from "viem/chains";
+import { base, baseSepolia, mainnet, sepolia } from "viem/chains";
 import { getIndexerNetworkConfig } from "./config.js";
 import {
   initializeEmptyDataFiles,
@@ -25,6 +25,14 @@ function getViemChain(chainId: number) {
 
   if (chainId === sepolia.id) {
     return sepolia;
+  }
+
+  if (chainId === base.id) {
+    return base;
+  }
+
+  if (chainId === mainnet.id) {
+    return mainnet;
   }
 
   throw new Error(`Unsupported chainId for indexer status: ${chainId}`);

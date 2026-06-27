@@ -27,6 +27,17 @@ const rewardClaimAbi = parseAbi([
   "function claim(uint256 roundId, uint256 amount, bytes32[] calldata proof)",
 ]);
 
+function isRewardClaimEnabled() {
+  const appEnv =
+    process.env.NEXT_PUBLIC_APP_ENV === "mainnet" ? "mainnet" : "sepolia";
+  const envName =
+    appEnv === "mainnet"
+      ? "NEXT_PUBLIC_MAINNET_REWARD_CLAIM_ENABLED"
+      : "NEXT_PUBLIC_SEPOLIA_REWARD_CLAIM_ENABLED";
+
+  return process.env[envName] === "true";
+}
+
 type RewardRoundData = {
   exists: boolean;
   claimPaused: boolean;
@@ -554,6 +565,7 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
       : false;
 
   const claimDisabledReason = (() => {
+    if (!isRewardClaimEnabled()) return "Reward claim is not live yet.";
     if (!isConnected) return "Connect wallet first.";
     if (rounds.length === 0)
       return "No proof-ready reward round is available on this chain yet.";

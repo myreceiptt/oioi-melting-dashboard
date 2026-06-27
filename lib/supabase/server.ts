@@ -1,9 +1,8 @@
 import { createClient } from "@supabase/supabase-js";
-import { getRequiredEnv } from "@/lib/utils/env";
+import { getRewardSupabaseEnv } from "@/lib/rewards/environment";
 
 export function createSupabaseServiceClient() {
-  const supabaseUrl = getRequiredEnv("SUPABASE_URL");
-  const serviceRoleKey = getRequiredEnv("SUPABASE_SERVICE_ROLE_KEY");
+  const { url: supabaseUrl, serviceRoleKey } = getRewardSupabaseEnv();
 
   return createClient(supabaseUrl, serviceRoleKey, {
     auth: {
