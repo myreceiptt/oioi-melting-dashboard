@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import type { Abi, Address, Hash } from "viem";
 import { isAddress, parseEther, parseUnits } from "viem";
 import {
@@ -30,6 +30,28 @@ type RescueContractConfig = {
   address: Address;
   abi: Abi;
 };
+
+type DetectedErc20Token = {
+  address: Address;
+  name: string;
+  symbol: string;
+  decimals: number;
+  balance_wei: string;
+  balance_formatted: string;
+};
+
+type RescueTokenBalancesApiResponse =
+  | {
+      ok: true;
+      chain: ChainSet;
+      collection: RescueContractConfig["key"];
+      contractAddress: Address;
+      tokens: DetectedErc20Token[];
+    }
+  | {
+      ok: false;
+      error: string;
+    };
 
 function isExpectedOwner(address: string | undefined) {
   return Boolean(address && sameAddress(address, EXPECTED_ADMIN_OWNER_ADDRESS));
@@ -111,6 +133,46 @@ function Field({
         type="text"
         value={value}
       />
+    </label>
+  );
+}
+
+function TokenBalanceSelect({
+  label,
+  description,
+  value,
+  tokens,
+  loading,
+  onChange,
+}: {
+  label: string;
+  description?: string;
+  value: string;
+  tokens: DetectedErc20Token[];
+  loading: boolean;
+  onChange: (value: string) => void;
+}) {
+  return (
+    <label className="grid gap-2">
+      <div className="font-medium text-black">{label}</div>
+      {description ? (
+        <p className="text-xs text-black/70">{description}</p>
+      ) : null}
+      <select
+        className="w-full rounded-2xl border border-white/10 bg-black px-4 py-3 font-mono text-sm text-white outline-none focus:border-white/30 disabled:cursor-not-allowed disabled:opacity-60"
+        disabled={loading}
+        onChange={(event) => onChange(event.target.value)}
+        value={value}>
+        <option value="">
+          {loading ? "Loading detected ERC20 balances..." : "Select token"}
+        </option>
+        {tokens.map((token) => (
+          <option key={token.address} value={token.address}>
+            {token.symbol} — {shortAddress(token.address)} —{" "}
+            {token.balance_formatted} {token.symbol}
+          </option>
+        ))}
+      </select>
     </label>
   );
 }
@@ -553,6 +615,13 @@ function ContractRescueControls({
   const [lastRequestedValue, setLastRequestedValue] = useState<string | null>(
     null,
   );
+  const [detectedErc20Tokens, setDetectedErc20Tokens] = useState<
+    DetectedErc20Token[]
+  >([]);
+  const [isDetectedTokensLoading, setIsDetectedTokensLoading] = useState(false);
+  const [detectedTokensError, setDetectedTokensError] = useState<string | null>(
+    null,
+  );
 
   const userIsExpectedOwner = useMemo(
     () => isExpectedOwner(connectedAddress),
@@ -615,15 +684,60 @@ function ContractRescueControls({
     },
   });
 
+  const fetchDetectedErc20Tokens = useCallback(async () => {
+    setIsDetectedTokensLoading(true);
+    setDetectedTokensError(null);
+
+    try {
+      const params = new URLSearchParams({
+        chain: chainSet,
+        collection: config.key,
+      });
+      const response = await fetch(
+        `/api/admin/rescue-token-balances?${params.toString()}`,
+        {
+          cache: "no-store",
+        },
+      );
+      const json = (await response.json()) as RescueTokenBalancesApiResponse;
+
+      if (!response.ok || json.ok === false) {
+        setDetectedErc20Tokens([]);
+        setDetectedTokensError(
+          json.ok === false
+            ? json.error
+            : "Failed to load detected ERC20 token balances.",
+        );
+        return;
+      }
+
+      setDetectedErc20Tokens(json.tokens);
+    } catch (error) {
+      setDetectedErc20Tokens([]);
+      setDetectedTokensError(
+        error instanceof Error
+          ? error.message
+          : "Failed to load detected ERC20 token balances.",
+      );
+    } finally {
+      setIsDetectedTokensLoading(false);
+    }
+  }, [chainSet, config.key]);
+
   function refetchReads() {
     void ownerRead.refetch();
     void nativeBalance.refetch();
+    void fetchDetectedErc20Tokens();
     if (tokenAddress) {
       void erc20DecimalsRead.refetch();
       void erc20SymbolRead.refetch();
       void erc20ContractBalanceRead.refetch();
     }
   }
+
+  useEffect(() => {
+    void fetchDetectedErc20Tokens();
+  }, [fetchDetectedErc20Tokens]);
 
   useEffect(() => {
     if (receipt.isSuccess) {
@@ -642,10 +756,19 @@ function ContractRescueControls({
   const erc20Recipient = isAddress(erc20RecipientInput.trim())
     ? (erc20RecipientInput.trim() as Address)
     : null;
+  const selectedDetectedToken = tokenAddress
+    ? detectedErc20Tokens.find((token) =>
+        sameAddress(token.address, tokenAddress),
+      )
+    : undefined;
   const erc20Decimals =
-    typeof erc20DecimalsRead.data === "number" ? erc20DecimalsRead.data : 18;
+    typeof erc20DecimalsRead.data === "number"
+      ? erc20DecimalsRead.data
+      : selectedDetectedToken?.decimals ?? 18;
   const erc20Symbol =
-    typeof erc20SymbolRead.data === "string" ? erc20SymbolRead.data : "token";
+    typeof erc20SymbolRead.data === "string" && erc20SymbolRead.data.trim()
+      ? erc20SymbolRead.data.trim()
+      : selectedDetectedToken?.symbol ?? "token";
   const erc20Amount = parseTokenAmount(erc20AmountInput, erc20Decimals);
   const erc20ContractBalance =
     typeof erc20ContractBalanceRead.data === "bigint"
@@ -662,7 +785,8 @@ function ContractRescueControls({
     nativeBalance.isFetching ||
     erc20DecimalsRead.isFetching ||
     erc20SymbolRead.isFetching ||
-    erc20ContractBalanceRead.isFetching;
+    erc20ContractBalanceRead.isFetching ||
+    isDetectedTokensLoading;
 
   const ethExceedsBalance =
     ethAmount !== null &&
@@ -747,6 +871,8 @@ function ContractRescueControls({
         `Recipient: ${erc20Recipient}`,
         `Amount: ${erc20AmountInput} ${erc20Symbol}`,
         `Contract token balance: ${formatTokenAmount({
+          decimals: erc20Decimals,
+          symbol: erc20Symbol,
           value: erc20ContractBalance,
         })}`,
       ],
@@ -878,8 +1004,42 @@ function ContractRescueControls({
         </p>
 
         <div className="mt-4 grid gap-4">
+          <TokenBalanceSelect
+            description="Detected by Alchemy from ERC20 token balances held by this NFT contract."
+            label="Detected ERC20 token"
+            loading={isDetectedTokensLoading}
+            onChange={setErc20TokenInput}
+            tokens={detectedErc20Tokens}
+            value={selectedDetectedToken?.address ?? ""}
+          />
+
+          {!isDetectedTokensLoading && detectedErc20Tokens.length === 0 ? (
+            <div className="rounded-2xl border border-black/10 bg-white/70 p-4 text-sm text-black/70">
+              No ERC20 token balances detected by Alchemy for this contract.
+              Use a custom token address only if you have verified one manually.
+            </div>
+          ) : null}
+
+          {selectedDetectedToken ? (
+            <div className="rounded-2xl border border-black/10 bg-white/70 px-4">
+              <ReadRow
+                label="Selected token"
+                value={`${selectedDetectedToken.name} (${selectedDetectedToken.symbol})`}
+              />
+              <ReadRow
+                label="Selected token address"
+                value={selectedDetectedToken.address}
+              />
+              <ReadRow
+                label="Detected token balance"
+                value={`${selectedDetectedToken.balance_formatted} ${selectedDetectedToken.symbol}`}
+              />
+            </div>
+          ) : null}
+
           <Field
-            label="ERC20 token"
+            description="Fallback for verified token addresses not returned by Alchemy."
+            label="Custom ERC20 token"
             onChange={setErc20TokenInput}
             placeholder="0x..."
             value={erc20TokenInput}
@@ -904,7 +1064,11 @@ function ContractRescueControls({
           <ReadRow label="Token valid" value={tokenAddress ? "Yes" : "No"} />
           <ReadRow
             label="Token balance in contract"
-            value={formatTokenAmount({ value: erc20ContractBalance })}
+            value={formatTokenAmount({
+              decimals: erc20Decimals,
+              symbol: erc20Symbol,
+              value: erc20ContractBalance,
+            })}
           />
           <ReadRow
             label="Recipient valid"
@@ -915,7 +1079,11 @@ function ContractRescueControls({
             value={
               erc20Amount === null
                 ? "Invalid"
-                : formatTokenAmount({ value: erc20Amount })
+                : formatTokenAmount({
+                    decimals: erc20Decimals,
+                    symbol: erc20Symbol,
+                    value: erc20Amount,
+                  })
             }
           />
           <ReadRow
@@ -968,6 +1136,13 @@ function ContractRescueControls({
         <ErrorMessageBlock
           message={writeError.message}
           title="Transaction failed"
+        />
+      ) : null}
+
+      {detectedTokensError ? (
+        <ErrorMessageBlock
+          message={detectedTokensError}
+          title="Detected ERC20 balances failed to load"
         />
       ) : null}
 
