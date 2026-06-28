@@ -573,14 +573,20 @@ function FinancialCollectionControls({
       />
 
       {writeError ? (
-        <div className="mt-5 rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
-          {writeError.message}
+        <div className="mt-5 min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-[#ff9b4a] p-4">
+          <h4 className="font-medium text-black">Transaction failed</h4>
+          <p className="mt-2 max-w-full break-all whitespace-pre-wrap text-sm text-black/70">
+            {writeError.message}
+          </p>
         </div>
       ) : null}
 
       {readError ? (
-        <div className="mt-5 rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
-          Read error: {readError.message}
+        <div className="mt-5 min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-[#ff9b4a] p-4">
+          <h4 className="font-medium text-black">Contract read failed</h4>
+          <p className="mt-2 max-w-full break-all whitespace-pre-wrap text-sm text-black/70">
+            {readError.message}
+          </p>
         </div>
       ) : null}
     </article>

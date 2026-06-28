@@ -429,6 +429,11 @@ function CollectionStakeCard({
     isWritePending,
     isConfirming,
   });
+  const selectedActionLabel = selectedNft?.canUnstake
+    ? "Unstake Selected NFT"
+    : selectedNft?.canStake
+      ? "Stake Selected NFT"
+      : "No write action is currently available for this selection.";
   const nextStepTone = getNextStepTone({
     selectedNft,
     isConnected,
@@ -639,15 +644,7 @@ function CollectionStakeCard({
         disabled={actionState.disabled}
         type="button"
         onClick={handleAction}>
-        {isWritePending
-          ? "Confirm in wallet..."
-          : isConfirming
-            ? "Waiting for confirmation..."
-            : actionState.action === "unstake"
-              ? "Unstake Selected NFT"
-              : actionState.action === "stake"
-                ? "Stake Selected NFT"
-                : "No write action is currently available for this selection."}
+        {selectedActionLabel}
       </button>
 
       {lastAction ? (
@@ -659,6 +656,12 @@ function CollectionStakeCard({
           <p className="mt-1 text-sm text-black/70">
             Requested value: {lastAction.collectionName} #{lastAction.tokenId}
           </p>
+        </div>
+      ) : null}
+
+      {lastAction && isWritePending ? (
+        <div className="mt-4 rounded-2xl border border-white/10 bg-yellow-300 p-4 text-sm text-black">
+          Waiting for wallet signature...
         </div>
       ) : null}
 

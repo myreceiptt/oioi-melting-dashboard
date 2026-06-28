@@ -38,11 +38,65 @@ function getEligibilityLabel(config: CollectionConfig) {
   return "Amanda requires a valid ROTY or Melting soft stake on this same chain.";
 }
 
+function TxStatus({
+  config,
+  txHash,
+  isConfirming,
+  isSuccess,
+}: {
+  config: CollectionConfig;
+  txHash: `0x${string}` | undefined;
+  isConfirming: boolean;
+  isSuccess: boolean;
+}) {
+  if (!txHash) {
+    return null;
+  }
+
+  return (
+    <div className="mt-6 min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-yellow-300 p-4 text-black">
+      <div className="font-medium">Transaction status</div>
+      <a
+        className="mt-2 block break-all font-mono text-sm text-black/70 underline underline-offset-4"
+        href={getTxUrl(config.chainSet, txHash)}
+        rel="noreferrer"
+        target="_blank">
+        <ResponsiveHash value={txHash} />
+      </a>
+      <p className="mt-2 text-sm text-black/70">
+        {isConfirming
+          ? "Waiting for confirmation..."
+          : isSuccess
+            ? "Mined successfully. Mint state will refresh from on-chain reads."
+            : "Submitted."}
+      </p>
+    </div>
+  );
+}
+
+function ErrorMessageBlock({
+  title,
+  message,
+}: {
+  title: string;
+  message: string;
+}) {
+  return (
+    <div className="mt-6 min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-[#ff9b4a] p-4">
+      <h3 className="font-medium text-black">{title}</h3>
+      <p className="mt-2 max-w-full break-all whitespace-pre-wrap text-sm text-black/70">
+        {message}
+      </p>
+    </div>
+  );
+}
+
 export function GatedMintPanel({ config }: { config: CollectionConfig }) {
   const { address, isConnected } = useAccount();
   const mintState = useMintReadState(config);
   const eligibility = useGatedEligibility(config);
   const [quantity, setQuantity] = useState(1);
+  const [lastAction, setLastAction] = useState(false);
 
   const {
     data: txHash,
@@ -77,6 +131,7 @@ export function GatedMintPanel({ config }: { config: CollectionConfig }) {
   const walletEligible = eligibility.eligible === true;
   const hasMintPrice = mintState.mintPrice !== undefined;
   const isRefreshing = mintState.isFetching || eligibility.isFetching;
+  const transactionInProgress = isWritePending || isConfirming;
 
   const disabledReason = (() => {
     if (!isConnected || !address) {
@@ -111,7 +166,7 @@ export function GatedMintPanel({ config }: { config: CollectionConfig }) {
       return "Mint price unavailable.";
     }
 
-    if (isWritePending || isConfirming) {
+    if (transactionInProgress) {
       return "Transaction in progress.";
     }
 
@@ -126,6 +181,8 @@ export function GatedMintPanel({ config }: { config: CollectionConfig }) {
     if (disabledReason || totalPrice === undefined) {
       return;
     }
+
+    setLastAction(true);
 
     writeContract({
       address: config.contractAddress,
@@ -225,48 +282,48 @@ export function GatedMintPanel({ config }: { config: CollectionConfig }) {
         </div>
 
         <button
-          className="cursor-pointer rounded-2xl bg-white px-5 py-3 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
+          className="cursor-pointer rounded-2xl bg-white px-5 py-3 text-center font-medium leading-snug whitespace-normal text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
           disabled={Boolean(disabledReason)}
           type="button"
           onClick={handleMint}>
-          {isWritePending
-            ? "Confirm in wallet..."
-            : isConfirming
-              ? "Waiting for confirmation..."
-              : `Mint ${config.symbol}`}
+          {disabledReason && !transactionInProgress
+            ? disabledReason
+            : `Mint ${config.symbol}`}
         </button>
-
-        {disabledReason ? (
-          <p className="text-sm text-black/70">{disabledReason}</p>
-        ) : null}
       </div>
 
-      {txHash ? (
-        <div className="mt-6 rounded-2xl border border-white/10 bg-yellow-300 p-4">
-          <div className="text-sm text-black">Transaction</div>
-          <a
-            className="mt-1 block break-all font-mono text-sm text-black/70 underline underline-offset-4"
-            href={getTxUrl(config.chainSet, txHash)}
-            rel="noreferrer"
-            target="_blank">
-            <ResponsiveHash value={txHash} />
-          </a>
+      {mintState.error ? (
+        <ErrorMessageBlock
+          message={mintState.error.message}
+          title="Contract read failed"
+        />
+      ) : null}
+
+      {eligibility.error ? (
+        <ErrorMessageBlock
+          message={eligibility.error.message}
+          title="Eligibility check failed"
+        />
+      ) : null}
+
+      {lastAction && isWritePending ? (
+        <div className="mt-4 rounded-2xl border border-white/10 bg-yellow-300 p-4 text-sm text-black">
+          Waiting for wallet signature...
         </div>
       ) : null}
 
-      {isSuccess ? (
-        <div className="mt-6 rounded-2xl border border-white/10 bg-[#b7f56d] p-4 text-black">
-          Gated mint transaction confirmed.
-        </div>
-      ) : null}
+      <TxStatus
+        config={config}
+        isConfirming={isConfirming}
+        isSuccess={isSuccess}
+        txHash={txHash}
+      />
 
       {writeError || receiptError ? (
-        <div className="mt-6 min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-[#ff9b4a] p-4">
-          <h3 className="font-medium text-black">Transaction failed</h3>
-          <p className="mt-2 max-w-full break-all whitespace-pre-wrap text-sm text-black/70">
-            {(writeError || receiptError)?.message}
-          </p>
-        </div>
+        <ErrorMessageBlock
+          message={(writeError || receiptError)?.message ?? ""}
+          title="Transaction failed"
+        />
       ) : null}
     </article>
   );

@@ -30,6 +30,59 @@ function clampQuantity(value: number, max: number) {
   return Math.floor(value);
 }
 
+function TxStatus({
+  config,
+  txHash,
+  isConfirming,
+  isSuccess,
+}: {
+  config: CollectionConfig;
+  txHash: `0x${string}` | undefined;
+  isConfirming: boolean;
+  isSuccess: boolean;
+}) {
+  if (!txHash) {
+    return null;
+  }
+
+  return (
+    <div className="mt-6 min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-yellow-300 p-4 text-black">
+      <div className="font-medium">Transaction status</div>
+      <a
+        className="mt-2 block break-all font-mono text-sm text-black/70 underline underline-offset-4"
+        href={getTxUrl(config.chainSet, txHash)}
+        rel="noreferrer"
+        target="_blank">
+        <ResponsiveHash value={txHash} />
+      </a>
+      <p className="mt-2 text-sm text-black/70">
+        {isConfirming
+          ? "Waiting for confirmation..."
+          : isSuccess
+            ? "Mined successfully. Mint state will refresh from on-chain reads."
+            : "Submitted."}
+      </p>
+    </div>
+  );
+}
+
+function ErrorMessageBlock({
+  title,
+  message,
+}: {
+  title: string;
+  message: string;
+}) {
+  return (
+    <div className="mt-6 min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-[#ff9b4a] p-4">
+      <h3 className="font-medium text-black">{title}</h3>
+      <p className="mt-2 max-w-full break-all whitespace-pre-wrap text-sm text-black/70">
+        {message}
+      </p>
+    </div>
+  );
+}
+
 export function RotyMintPanel({ config }: { config: CollectionConfig }) {
   const { address, isConnected } = useAccount();
   const mintState = useMintReadState(config);
@@ -74,6 +127,7 @@ export function RotyMintPanel({ config }: { config: CollectionConfig }) {
   const whitelistAlreadyClaimed = mintState.whitelistClaimed === true;
   const hasMintPrice = mintState.mintPrice !== undefined;
   const isRefreshing = mintState.isFetching || whitelistProof.isFetching;
+  const transactionInProgress = isWritePending || isConfirming;
 
   const publicDisabledReason = (() => {
     if (!isConnected || !address) {
@@ -100,7 +154,7 @@ export function RotyMintPanel({ config }: { config: CollectionConfig }) {
       return "Mint price unavailable.";
     }
 
-    if (isWritePending || isConfirming) {
+    if (transactionInProgress) {
       return "Transaction in progress.";
     }
 
@@ -140,7 +194,7 @@ export function RotyMintPanel({ config }: { config: CollectionConfig }) {
       return "This wallet already claimed whitelist mint.";
     }
 
-    if (isWritePending || isConfirming) {
+    if (transactionInProgress) {
       return "Transaction in progress.";
     }
 
@@ -274,20 +328,14 @@ export function RotyMintPanel({ config }: { config: CollectionConfig }) {
         </p>
 
         <button
-          className="cursor-pointer rounded-2xl bg-white px-5 py-3 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
+          className="cursor-pointer rounded-2xl bg-white px-5 py-3 text-center font-medium leading-snug whitespace-normal text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
           disabled={Boolean(whitelistDisabledReason)}
           type="button"
           onClick={handleWhitelistMint}>
-          {isWritePending && lastAction === "whitelist"
-            ? "Confirm in wallet..."
-            : isConfirming && lastAction === "whitelist"
-              ? "Waiting for confirmation..."
-              : "Whitelist Mint"}
+          {whitelistDisabledReason && !transactionInProgress
+            ? whitelistDisabledReason
+            : "Whitelist Mint"}
         </button>
-
-        {whitelistDisabledReason ? (
-          <p className="text-sm text-black/70">{whitelistDisabledReason}</p>
-        ) : null}
       </div>
 
       <div className="mt-5 grid gap-4 rounded-2xl border border-white/10 bg-white/70 p-4 text-black">
@@ -312,50 +360,48 @@ export function RotyMintPanel({ config }: { config: CollectionConfig }) {
         </div>
 
         <button
-          className="cursor-pointer rounded-2xl bg-white px-5 py-3 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
+          className="cursor-pointer rounded-2xl bg-white px-5 py-3 text-center font-medium leading-snug whitespace-normal text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
           disabled={Boolean(publicDisabledReason)}
           type="button"
           onClick={handlePublicMint}>
-          {isWritePending && lastAction === "public"
-            ? "Confirm in wallet..."
-            : isConfirming && lastAction === "public"
-              ? "Waiting for confirmation..."
-              : "Public Mint"}
+          {publicDisabledReason && !transactionInProgress
+            ? publicDisabledReason
+            : "Public Mint"}
         </button>
-
-        {publicDisabledReason ? (
-          <p className="text-sm text-black/70">{publicDisabledReason}</p>
-        ) : null}
       </div>
 
-      {txHash ? (
-        <div className="mt-6 rounded-2xl border border-white/10 bg-yellow-300 p-4">
-          <div className="text-sm text-black">Transaction</div>
-          <a
-            className="mt-1 block break-all font-mono text-sm text-black/70 underline underline-offset-4"
-            href={getTxUrl(config.chainSet, txHash)}
-            rel="noreferrer"
-            target="_blank">
-            <ResponsiveHash value={txHash} />
-          </a>
+      {mintState.error ? (
+        <ErrorMessageBlock
+          message={mintState.error.message}
+          title="Contract read failed"
+        />
+      ) : null}
+
+      {whitelistProof.error ? (
+        <ErrorMessageBlock
+          message={whitelistProof.error.message}
+          title="Whitelist proof lookup failed"
+        />
+      ) : null}
+
+      {lastAction && isWritePending ? (
+        <div className="mt-4 rounded-2xl border border-white/10 bg-yellow-300 p-4 text-sm text-black">
+          Waiting for wallet signature...
         </div>
       ) : null}
 
-      {isSuccess ? (
-        <div className="mt-6 rounded-2xl border border-white/10 bg-[#b7f56d] p-4 text-black">
-          {lastAction === "whitelist"
-            ? "Whitelist mint transaction confirmed."
-            : "Public mint transaction confirmed."}
-        </div>
-      ) : null}
+      <TxStatus
+        config={config}
+        isConfirming={isConfirming}
+        isSuccess={isSuccess}
+        txHash={txHash}
+      />
 
       {writeError || receiptError ? (
-        <div className="mt-6 min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-[#ff9b4a] p-4">
-          <h3 className="font-medium text-black">Transaction failed</h3>
-          <p className="mt-2 max-w-full break-all whitespace-pre-wrap text-sm text-black/70">
-            {(writeError || receiptError)?.message}
-          </p>
-        </div>
+        <ErrorMessageBlock
+          message={(writeError || receiptError)?.message ?? ""}
+          title="Transaction failed"
+        />
       ) : null}
     </article>
   );

@@ -472,6 +472,26 @@ function TxStatus({
   );
 }
 
+function ErrorMessageBlock({
+  title,
+  message,
+  className = "mt-4",
+}: {
+  title: string;
+  message: string;
+  className?: string;
+}) {
+  return (
+    <div
+      className={`${className} min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-[#ff9b4a] p-4`}>
+      <h4 className="font-medium text-black">{title}</h4>
+      <p className="mt-2 max-w-full break-all whitespace-pre-wrap text-sm text-black/70">
+        {message}
+      </p>
+    </div>
+  );
+}
+
 export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
   const {
     address: connectedAddress,
@@ -1654,9 +1674,10 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
         ) : null}
 
         {boundaryError ? (
-          <div className="mt-4 rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
-            {boundaryError}
-          </div>
+          <ErrorMessageBlock
+            message={boundaryError}
+            title="Boundary job submit failed"
+          />
         ) : null}
 
         <div className="mt-5 grid gap-4 md:grid-cols-4">
@@ -1684,9 +1705,10 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
         </div>
 
         {activeBoundaryJob?.error_message ? (
-          <div className="mt-4 rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
-            {activeBoundaryJob.error_message}
-          </div>
+          <ErrorMessageBlock
+            message={activeBoundaryJob.error_message}
+            title="Active boundary job error"
+          />
         ) : null}
 
         {activeBoundaryJob?.targets.length ? (
@@ -1711,9 +1733,11 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
                     {target.target_block ?? "—"}
                   </div>
                   {target.error_message ? (
-                    <div className="mt-2 rounded-xl bg-[#ff9b4a] p-2 text-xs text-black">
-                      {target.error_message}
-                    </div>
+                    <ErrorMessageBlock
+                      className="mt-2"
+                      message={target.error_message}
+                      title="Worker target error"
+                    />
                   ) : null}
                 </div>
               ))}
@@ -1771,9 +1795,11 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
               ))}
             </select>
             {roundsError ? (
-              <div className="mt-3 rounded-xl border border-white/10 bg-[#ff9b4a] p-3 text-sm text-black">
-                {roundsError}
-              </div>
+              <ErrorMessageBlock
+                className="mt-3"
+                message={roundsError}
+                title="Reward rounds failed to load"
+              />
             ) : null}
           </label>
 
@@ -1856,9 +1882,10 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
         )}
 
         {rewardReadError ? (
-          <div className="mt-4 rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
-            Reward read error: {rewardReadError.message}
-          </div>
+          <ErrorMessageBlock
+            message={rewardReadError.message}
+            title="Reward read failed"
+          />
         ) : null}
 
         <div className="mt-5 rounded-2xl border border-white/10 bg-yellow-300 p-4 text-black">
@@ -1912,9 +1939,10 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
         />
 
         {showSelectedRoundActionContext && writeError ? (
-          <div className="mt-4 wrap-break-word rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
-            {writeError.message}
-          </div>
+          <ErrorMessageBlock
+            message={writeError.message}
+            title="Transaction failed"
+          />
         ) : null}
 
         <details className="mt-5 rounded-2xl border border-white/10 bg-white/70 p-4 text-black">

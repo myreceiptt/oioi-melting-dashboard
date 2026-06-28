@@ -157,6 +157,26 @@ function TxStatus({
   );
 }
 
+function ErrorMessageBlock({
+  title,
+  message,
+  className = "mt-5",
+}: {
+  title: string;
+  message: string;
+  className?: string;
+}) {
+  return (
+    <div
+      className={`${className} min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-[#ff9b4a] p-4`}>
+      <h4 className="font-medium text-black">{title}</h4>
+      <p className="mt-2 max-w-full break-all whitespace-pre-wrap text-sm text-black/70">
+        {message}
+      </p>
+    </div>
+  );
+}
+
 function typedConfirm({
   title,
   body,
@@ -499,15 +519,17 @@ function RewardDistributorExcessRescue({ chainSet }: { chainSet: ChainSet }) {
       />
 
       {writeError ? (
-        <div className="mt-5 wrap-break-word rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
-          {writeError.message}
-        </div>
+        <ErrorMessageBlock
+          message={writeError.message}
+          title="Transaction failed"
+        />
       ) : null}
 
       {readError ? (
-        <div className="mt-5 wrap-break-word rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
-          Read error: {readError.message}
-        </div>
+        <ErrorMessageBlock
+          message={readError.message}
+          title="Contract read failed"
+        />
       ) : null}
     </article>
   );
@@ -943,15 +965,17 @@ function ContractRescueControls({
       />
 
       {writeError ? (
-        <div className="mt-5 wrap-break-word rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
-          {writeError.message}
-        </div>
+        <ErrorMessageBlock
+          message={writeError.message}
+          title="Transaction failed"
+        />
       ) : null}
 
       {readError ? (
-        <div className="mt-5 wrap-break-word rounded-2xl border border-white/10 bg-[#ff9b4a] p-4 text-sm text-black">
-          Read error: {readError.message}
-        </div>
+        <ErrorMessageBlock
+          message={readError.message}
+          title="Contract read failed"
+        />
       ) : null}
     </article>
   );
