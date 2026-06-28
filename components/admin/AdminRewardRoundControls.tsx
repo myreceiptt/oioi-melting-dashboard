@@ -5,6 +5,7 @@ import type { Hash } from "viem";
 import { formatUnits, isHex, parseUnits } from "viem";
 import {
   useAccount,
+  useBlockNumber,
   useReadContract,
   useWaitForTransactionReceipt,
   useWriteContract,
@@ -262,6 +263,13 @@ function blockInputValid(value: string) {
   return /^\d+$/.test(value.trim()) && BigInt(value.trim()) > 0n;
 }
 
+function latestBlockPlaceholder(
+  blockNumber: bigint | undefined,
+  fallback: string,
+) {
+  return blockNumber ? `${blockNumber.toString()} — latest block` : fallback;
+}
+
 function isActiveBoundaryJob(status: BoundarySyncStatus | undefined) {
   return status === "queued" || status === "running" || status === "paused";
 }
@@ -504,6 +512,16 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
     () => getTargetChainLabel(chainSet),
     [chainSet],
   );
+  const baseBoundaryChainId = useMemo(() => getTargetChainId("base"), []);
+  const ethereumBoundaryChainId = useMemo(
+    () => getTargetChainId("ethereum"),
+    [],
+  );
+  const baseBoundaryChainLabel = useMemo(() => getTargetChainLabel("base"), []);
+  const ethereumBoundaryChainLabel = useMemo(
+    () => getTargetChainLabel("ethereum"),
+    [],
+  );
   const connectedToTargetChain = connectedChainId === targetChainId;
 
   const [roundMode, setRoundMode] = useState<RoundMode>("existingSupabase");
@@ -538,6 +556,25 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
   const [boundarySubmitStatus, setBoundarySubmitStatus] = useState<
     string | null
   >(null);
+  const [latestBlockStatus, setLatestBlockStatus] = useState<string | null>(
+    null,
+  );
+
+  const baseLatestBlockRead = useBlockNumber({
+    chainId: baseBoundaryChainId,
+    query: {
+      retry: false,
+    },
+  });
+
+  const ethereumLatestBlockRead = useBlockNumber({
+    chainId: ethereumBoundaryChainId,
+    query: {
+      retry: false,
+    },
+  });
+  const latestBlockLoading =
+    baseLatestBlockRead.isFetching || ethereumLatestBlockRead.isFetching;
 
   const userIsExpectedOwner = useMemo(
     () => isExpectedOwner(connectedAddress),
@@ -958,6 +995,40 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
     }
   }
 
+  async function applyLatestBoundaryBlocks() {
+    setBoundaryError(null);
+    setLatestBlockStatus(null);
+
+    try {
+      const [baseResult, ethereumResult] = await Promise.all([
+        baseLatestBlockRead.refetch(),
+        ethereumLatestBlockRead.refetch(),
+      ]);
+      const baseBlock = baseResult.data ?? baseLatestBlockRead.data;
+      const ethereumBlock =
+        ethereumResult.data ?? ethereumLatestBlockRead.data;
+
+      if (!baseBlock || !ethereumBlock) {
+        setBoundaryError(
+          "Failed to read the latest Base and Ethereum blocks. Refresh the page or check RPC access before submitting.",
+        );
+        return;
+      }
+
+      setBaseBoundaryBlockInput(baseBlock.toString());
+      setEthereumBoundaryBlockInput(ethereumBlock.toString());
+      setLatestBlockStatus(
+        `Latest blocks loaded: ${baseBoundaryChainLabel} ${baseBlock.toString()} / ${ethereumBoundaryChainLabel} ${ethereumBlock.toString()}.`,
+      );
+    } catch (error) {
+      setBoundaryError(
+        error instanceof Error
+          ? error.message
+          : "Failed to read the latest Base and Ethereum blocks.",
+      );
+    }
+  }
+
   async function submitBoundarySyncJob() {
     if (boundarySubmitDisabled) {
       return;
@@ -967,8 +1038,8 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
       title: "Submit Block Tapal Batas",
       risk: "critical",
       lines: [
-        `Base Sepolia target block: ${baseBoundaryBlockInput.trim()}`,
-        `Ethereum Sepolia target block: ${ethereumBoundaryBlockInput.trim()}`,
+        `${baseBoundaryChainLabel} target block: ${baseBoundaryBlockInput.trim()}`,
+        `${ethereumBoundaryChainLabel} target block: ${ethereumBoundaryBlockInput.trim()}`,
         `Reward amount: ${boundaryRewardAmountInput} ${tokenSymbol}`,
         "This creates a queued Supabase job. Run the boundary worker until the job reaches success before creating the reward round on-chain.",
       ],
@@ -1632,14 +1703,20 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
             label="BASE boundary block"
             description="Final BASE block for the next reward round."
             onChange={setBaseBoundaryBlockInput}
-            placeholder="41832200"
+            placeholder={latestBlockPlaceholder(
+              baseLatestBlockRead.data,
+              "41832200",
+            )}
             value={baseBoundaryBlockInput}
           />
           <Field
             label="Ethereum boundary block"
             description="Final Ethereum block for the next reward round."
             onChange={setEthereumBoundaryBlockInput}
-            placeholder="10896262"
+            placeholder={latestBlockPlaceholder(
+              ethereumLatestBlockRead.data,
+              "10896262",
+            )}
             value={ethereumBoundaryBlockInput}
           />
           <Field
@@ -1652,13 +1729,22 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
         </div>
 
         <div className="mt-5 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-          <button
-            className="rounded-2xl bg-white px-5 py-4 text-sm font-semibold text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
-            disabled={boundarySubmitDisabled}
-            onClick={() => void submitBoundarySyncJob()}
-            type="button">
-            {isBoundarySubmitting ? "Submitting..." : "Submit The Jobs"}
-          </button>
+          <div className="flex flex-col gap-3 md:flex-row">
+            <button
+              className="w-full rounded-2xl border border-white/10 bg-black px-5 py-4 text-sm font-semibold text-white hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:opacity-40 md:w-auto"
+              disabled={latestBlockLoading}
+              onClick={() => void applyLatestBoundaryBlocks()}
+              type="button">
+              {latestBlockLoading ? "Loading blocks..." : "Use latest blocks"}
+            </button>
+            <button
+              className="w-full rounded-2xl bg-white px-5 py-4 text-sm font-semibold text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40 md:w-auto"
+              disabled={boundarySubmitDisabled}
+              onClick={() => void submitBoundarySyncJob()}
+              type="button">
+              {isBoundarySubmitting ? "Submitting..." : "Submit The Jobs"}
+            </button>
+          </div>
 
           <div className="text-sm text-white/70">
             {boundaryJobActive
@@ -1666,6 +1752,12 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
               : "Submit is available after both blocks and reward amount are valid."}
           </div>
         </div>
+
+        {latestBlockStatus ? (
+          <div className="mt-4 rounded-2xl border border-white/10 bg-white/70 p-4 text-sm text-black">
+            {latestBlockStatus}
+          </div>
+        ) : null}
 
         {boundarySubmitStatus ? (
           <div className="mt-4 rounded-2xl border border-white/10 bg-[#b7f56d] p-4 text-sm text-black">
