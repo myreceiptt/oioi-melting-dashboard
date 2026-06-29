@@ -8,7 +8,7 @@
 
 > Broadcast Date: January 20, 2022
 >
-> Broadcaster: **Cap’n ROTY BROI (ID 530)** (NFT Collection: The ROTY BROI on Polygon Blockchain - Archived)
+> Broadcaster: [**Cap’n ROTY BROI (ID 530)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
 >
 > Subject: The dead can't reveal any secret information.
 >
@@ -28,9 +28,9 @@
 > Subject: Rioting and looting, chaos happen.
 >
 > Message:\
-> In the land of **Dunno What Water** some people wearing masks, carrying crowbars and flags started rioting and looting, and chaos happened. There is a unique phenomenon, **The Melting Land** (NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active) on Earth has already begun...
+> In the land of **Dunno What Water** some people wearing masks, carrying crowbars and flags started rioting and looting, and chaos happened. There is a unique phenomenon, [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") on Earth has already begun...
 >
-> Commenter: **Cap’n ROTY BROI (ID 530)** (NFT Collection: The ROTY BROI on Polygon Blockchain - Archived)
+> Commenter: [**Cap’n ROTY BROI (ID 530)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
 >
 > Comment: Shiver Me Timbers!!!
 >
@@ -43,12 +43,14 @@
 > Subject: Riots got worse, phenomenon happens.
 >
 > Message:\
-> The riots continued and got worse in the land of **Dunno What Water**. Many people wearing masks carried away various kinds of loot. The unique phenomenon, **The Melting Land** (NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active) on Earth is continuously happening...
+> The riots continued and got worse in the land of **Dunno What Water**. Many people wearing masks carried away various kinds of loot. The unique phenomenon, [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") on Earth is continuously happening...
 >
-> Commenter: **Cap’n ROTY BROI (ID 530)** (NFT Collection: The ROTY BROI on Polygon Blockchain - Archived)
+> Commenter: [**Cap’n ROTY BROI (ID 530)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
 >
 > Comment: Aaaarrrrgggghhhh!!!
-
+>
+> ---
+>
 > Broadcast Date: February 10, 2022
 >
 > Broadcaster: A Resident of **Dunno What Water**
@@ -56,45 +58,47 @@
 > Subject: No places to tread on, all we have is sinking.
 >
 > Message:\
-> Panic swept the region of the land. All people from any strata are confused to save themselves. They wear any clothes and carry any things they can get. There is no more land to tread on. Everything has melted. Only **The Melting Land** (NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active) on Earth that sinking all civilizations ever built.
+> Panic swept the region of the land. All people from any strata are confused to save themselves. They wear any clothes and carry any things they can get. There is no more land to tread on. Everything has melted. Only [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") on Earth that sinking all civilizations ever built.
 >
-> Commenter: **Cap’n ROTY BROI (ID 530)** (NFT Collection: The ROTY BROI on Polygon Blockchain - Archived)
+> Commenter: [**Cap’n ROTY BROI (ID 530)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
 >
 > Comment: All Hand Hoy!!!
-
-> [**Cap’n ROTY BROI (ID 530)**](/02-the-creations.../waivfves-1/41.-the-roty-broi.md) Speech…
 >
-> ### [THE MELTING LAND](/02-the-creations.../waivfves-2/15.-the-melting-land.md)
+> ---
+>
+> [**Cap’n ROTY BROI (ID 530)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") Speech…
+>
+> ### [THE MELTING LAND](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active")
 >
 > So far, scientists have been aware of the fact that on Earth not only ice can melt, but even the land we step on can also melt. This fact is still kept secret to prevent the occurrence of chaos for mankind on Earth because in February 2022 it has been known that the land all over the surface of the Earth will melt completely without the consent of mankind.
 >
 > #### DUNNO WHAT WATER
 >
-> That secret fact is known by **Mr. BROY**, a resident in the land of **Dunno What Water**. The land of **Dunno What Water** is a country that is famous for its natural products in the form of a liquid without a name but is able to bring peace to the drinker. But that peace will no longer be felt by **Mr. BROY** because he knows that there is a phenomenon of [**The Melting Land**](/02-the-creations.../waivfves-2/15.-the-melting-land.md) on Earth.
+> That secret fact is known by **Mr. BROY**, a resident in the land of **Dunno What Water**. The land of **Dunno What Water** is a country that is famous for its natural products in the form of a liquid without a name but is able to bring peace to the drinker. But that peace will no longer be felt by **Mr. BROY** because he knows that there is a phenomenon of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") on Earth.
 >
-> #### [THE ROTY BROI ARK](/02-the-creations.../waivfves-1/41.-the-roty-broi.md)
+> #### [THE ROTY BROI ARK](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
 >
-> **Mr. BROY** found himself unable to find peace even though he had drunk liters of **Nameless Liquid**. So, **Mr. BROY** decided to build an ark that could survive when a unique phenomenon of [**The Melting Land**](/02-the-creations.../waivfves-2/15.-the-melting-land.md) on Earth occurred.
+> **Mr. BROY** found himself unable to find peace even though he had drunk liters of **Nameless Liquid**. So, **Mr. BROY** decided to build an ark that could survive when a unique phenomenon of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") on Earth occurred.
 >
-> **Mr. BROY** named the ark [**ROTY BROI**](/02-the-creations.../waivfves-1/41.-the-roty-broi.md) because it was inspired by the shape of [**BREAD (ROTI)**](/02-the-creations.../waivfves-1/43.-logo-pabrik-roti.md) in a [**LOGO PABRIK ROTI**](/02-the-creations.../waivfves-1/43.-logo-pabrik-roti.md) that resembles an ark for an emergency, a condition that seriously trapped, stuck, squeezed until pinched.
+> **Mr. BROY** named the ark [**ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") because it was inspired by the shape of [**BREAD (ROTI)**](https://rotilogo.endhonesa.com/ "NFT Collection: Logo Pabrik Roti (LPR) on Polygon Blockchain - Archived") in a [**LOGO PABRIK ROTI**](https://rotilogo.endhonesa.com/ "NFT Collection: Logo Pabrik Roti (LPR) on Polygon Blockchain - Archived") that resembles an ark for an emergency, a condition that seriously trapped, stuck, squeezed until pinched.
 >
 > #### PSEUDONYMOUS INVITATION
 >
-> Even on a limited basis, **Mr. BROY** has a purpose to invite and save mankind who likes to drink the **Nameless Liquid**, to participate and join in [**The ROTY BROI's ark**](/02-the-creations.../waivfves-1/41.-the-roty-broi.md), to sail [**The Melting Land**](/02-the-creations.../waivfves-2/15.-the-melting-land.md) on Earth. Besides that, **Mr. BROY** can also feel a little peace, a little restlessness can be put to sleep when he is busy building the ark.
+> Even on a limited basis, **Mr. BROY** has a purpose to invite and save mankind who likes to drink the **Nameless Liquid**, to participate and join in [**The ROTY BROI's ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), to sail [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") on Earth. Besides that, **Mr. BROY** can also feel a little peace, a little restlessness can be put to sleep when he is busy building the ark.
 >
 > Pseudonymous invitations have been created and provided by **Mr. BROY** in a very limited manner, there are only 1047 invitations, with unique illustrations, which were drawn by **Mr. BROY** himself.
 >
 > #### MINT THE INVITATION
 >
-> Whoever holds the invitation in their wallet can join [**The ROTY BROI's ark**](/02-the-creations.../waivfves-1/41.-the-roty-broi.md). Together we sail the sea of [**The Melting Land**](/02-the-creations.../waivfves-2/15.-the-melting-land.md) on Earth. Without having to worry about running out of the **Nameless Liquid** and ready to welcome a new leaf of life on the new surface of the Earth, which is eternal throughout time.
+> Whoever holds the invitation in their wallet can join [**The ROTY BROI's ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"). Together we sail the sea of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") on Earth. Without having to worry about running out of the **Nameless Liquid** and ready to welcome a new leaf of life on the new surface of the Earth, which is eternal throughout time.
 >
-> Get [**The ROTY BROI's ark**](/02-the-creations.../waivfves-1/41.-the-roty-broi.md) invitation, mint the invitation, hold it in your wallet, and make sure your fellow brothers are not left behind and forgotten.
+> Get [**The ROTY BROI's ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") invitation, mint the invitation, hold it in your wallet, and make sure your fellow brothers are not left behind and forgotten.
 
 ---
 
 #### The Melting Date
 
-> [**Cap'n ROTY BROI**](/02-the-creations.../waivfves-1/41.-the-roty-broi.md) Log...
+> [**Cap'n ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") Log...
 >
 > Melting Date: February 14, 2022
 >
