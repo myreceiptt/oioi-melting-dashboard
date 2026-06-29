@@ -2,7 +2,7 @@
 
 ## In The 0101 Universe…
 
-### There is The Melting Land... (NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active)
+### There is [The Melting Land](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active")
 
 #### Pseudonymous Invitations
 
@@ -33,7 +33,9 @@
 > Commenter: **Cap’n ROTY BROI (ID 530)** (NFT Collection: The ROTY BROI on Polygon Blockchain - Archived)
 >
 > Comment: Shiver Me Timbers!!!
-
+>
+> ---
+>
 > Broadcast Date: January 30, 2022
 >
 > Broadcaster: A Mass Media of **Dunno What Water**
