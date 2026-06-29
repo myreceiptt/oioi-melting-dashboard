@@ -305,7 +305,7 @@
     - ✅ Admin warnings/tooltips baseline.
     - ✅ Post-indexer/reward UX polish baseline.
     - ✅ Subdomain Surface Behavior v1.
-    - 🔜 Final visual QA pass.
+    - ✅ Final visual QA pass completed through later browser QA, mainnet public QA, and final production review.
 
 21. Subdomain Surface Behavior v1 — DONE
     - ✅ `softstaking.endhonesa.com` keeps `/` as the real home surface.
@@ -360,7 +360,7 @@
     - ✅ Metadata remains unlocked.
     - ✅ Later public launch, env wiring, mint opening, reward data-plane, and reward claim operations completed through separate gates.
     - ✅ Metadata strategy approved as Option A for contract deployment planning only.
-    - ⏸ Mainnet reward/indexer/proof flow requires post-deployment implementation/configuration and validation.
+    - ✅ Mainnet reward/indexer/proof flow was completed later through the mainnet data-plane setup, boundary worker run, on-chain funding, and public reward claim operation.
 
 24. Mainnet Contract Deployment — DONE / VERIFIED / SAFE OFF
     - ✅ Mainnet preparation mostly passed.
