@@ -105,11 +105,11 @@
 > Message:\
 > First of all, happy **Valentine's Day**, I hope that in the midst of this disaster, we will always **LOVE** and remember all those who did not survive.
 >
-> I'm [**Cap'n ROTY BROI (ID 530)**](/02-the-creations.../waivfves-1/41.-the-roty-broi.md). There are 1047 males onboard in this ark. They are all safe and survive from [**The Melting Land**](/02-the-creations.../waivfves-2/15.-the-melting-land.md). I'm one of them and my successor will be chosen by vote after I'm done creating this first log.
+> I'm [**Cap'n ROTY BROI (ID 530)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"). There are 1047 males onboard in this ark. They are all safe and survive from [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"). I'm one of them and my successor will be chosen by vote after I'm done creating this first log.
 >
-> Now we are sailing the surface of [**The Melting Land**](/02-the-creations.../waivfves-2/15.-the-melting-land.md) on Earth with all survivors who are all male and feel very grateful today. They survive, and they can celebrate **Valentine's Day** which is after the disaster occurred, **Valentine's Day** is still to be celebrated, and that is a sign that our **LOVE** is almost eternal, immutable in any conditions.
+> Now we are sailing the surface of [**The Melting Land**]c on Earth with all survivors who are all male and feel very grateful today. They survive, and they can celebrate **Valentine's Day** which is after the disaster occurred, **Valentine's Day** is still to be celebrated, and that is a sign that our **LOVE** is almost eternal, immutable in any conditions.
 >
-> But there is something fringe in theory. Almost all survivors said that the end of this month is February 29, 2022. They explain that since September 30, 2020, before [**The Melting Land**](/02-the-creations.../waivfves-2/15.-the-melting-land.md), an additional day added in the leap year started to happen on that date and will happen again on September 30, 2024, or every four years. They explain more, that February always has 29 days, and September has 29 days instead of 30, except in the leap year, September has 30 days.
+> But there is something fringe in theory. Almost all survivors said that the end of this month is February 29, 2022. They explain that since September 30, 2020, before [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), an additional day added in the leap year started to happen on that date and will happen again on September 30, 2024, or every four years. They explain more, that February always has 29 days, and September has 29 days instead of 30, except in the leap year, September has 30 days.
 >
 > Here I tried to make some conversions, I named it **Melting Date**, and I also created a new abbreviation, **B.M.** which means **Before Melting**...
 >
@@ -142,7 +142,7 @@
 >
 > Only me and **Mr. BROY** still admit that the end of this month is February 28, 2022, and still use the **Before Melting** calendar version. But we don't want to make a big deal out of it because they will make a big deal out of us both and kick us out of the ark if we still use the **Before Melting** calendar version.
 >
-> They really hated the **Before Melting** calendar version. That's why I suggested choosing a new [**Cap'n ROTY BROI**](/02-the-creations.../waivfves-1/41.-the-roty-broi.md) by voting. I'm afraid while being [**Cap'n ROTY BROI**](/02-the-creations.../waivfves-1/41.-the-roty-broi.md), I'm still using the **Before Melting** calendar version for any formal announcement, which will get me in trouble. That's also the reason for **Mr. BROY** to hide from the other passengers, I don't know why, he still uses the **Before Melting** calendar version for any of his work on paper.
+> They really hated the **Before Melting** calendar version. That's why I suggested choosing a new [**Cap'n ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") by voting. I'm afraid while being [**Cap'n ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), I'm still using the **Before Melting** calendar version for any formal announcement, which will get me in trouble. That's also the reason for **Mr. BROY** to hide from the other passengers, I don't know why, he still uses the **Before Melting** calendar version for any of his work on paper.
 
 ---
 
@@ -150,73 +150,87 @@
 
 > Broadcast Date: Unknown
 >
-> Broadcaster: [**Amanda**](/02-the-creations.../waivfves-2/14.-amanda-wives.md)
+> Broadcaster: [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active")
 >
 > Subject: Unknown
 >
 > Message:\
-> Hi, there. This is... This is [**Amanda**](/02-the-creations.../waivfves-2/14.-amanda-wives.md). Is anyone out there?
-
+> Hi, there. This is... This is [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"). Is anyone out there?
+>
+> ---
+>
 > Broadcast Date: Unknown
 >
-> Broadcaster: A Survivor of [**The Melting Land**](/02-the-creations.../waivfves-2/15.-the-melting-land.md)
+> Broadcaster: A Survivor of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active")
 >
 > Subject: Unknown
 >
 > Message:\
 > Hello! I'm trying to get in contact with anyone.
-
+>
+> ---
+>
 > Broadcast Date: Unknown
 >
-> Broadcaster: A Survivor of [**The Melting Land**](/02-the-creations.../waivfves-2/15.-the-melting-land.md)
+> Broadcaster: A Survivor of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active")
 >
 > Subject: Unknown
 >
 > Message:\
 > We've had some luck finding people with this transmission.
-
+>
+> ---
+>
 > Broadcast Date: Unknown
 >
-> Broadcaster: A Mass Media of [**The Melting Land**](/02-the-creations.../waivfves-2/15.-the-melting-land.md)
+> Broadcaster: A Mass Media of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active")
 >
 > Subject: Unknown
 >
 > Message:\
-> When there is no longer any land to stand on, everything becomes like a turbulent sea. Entire cities were lost, sinking in [**The Melting Land**](/02-the-creations.../waivfves-2/15.-the-melting-land.md).
-
+> When there is no longer any land to stand on, everything becomes like a turbulent sea. Entire cities were lost, sinking in [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active").
+>
+> ---
+>
 > Broadcast Date: Unknown
 >
-> Broadcaster: A Mass Media of [**The Melting Land**](/02-the-creations.../waivfves-2/15.-the-melting-land.md)
+> Broadcaster: A Mass Media of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active")
 >
 > Subject: Unknown
 >
 > Message:\
 > The United Nations Office for Disaster Risk Reduction reports today that help may never be soon...
-
+>
+> ---
+>
 > Broadcast Date: Unknown
 >
-> Broadcaster: A Mass Media of [**The Melting Land**](/02-the-creations.../waivfves-2/15.-the-melting-land.md)
+> Broadcaster: A Mass Media of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active")
 >
 > Subject: Unknown
 >
 > Message:\
-> ...various debris used as a place to stand and survive, amidst [**The Melting Land**](/02-the-creations.../waivfves-2/15.-the-melting-land.md).
-
+> ...various debris used as a place to stand and survive, amidst [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active").
+>
+> ---
+>
 > Broadcast Date: Unknown
 >
-> Broadcaster: A Mass Media of [**The Melting Land**](/02-the-creations.../waivfves-2/15.-the-melting-land.md)
+> Broadcaster: A Mass Media of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active")
 >
 > Subject: Unknown
 >
 > Message:\
 > The United Nations Office for Disaster Risk Reduction has created an announcement that instructs to build a survival ship that works as a kind of ark to make people who can survive able to live there.
-
-> [**Cap'n ROTY BROI**](/02-the-creations.../waivfves-1/41.-the-roty-broi.md) Log...
+>
+> ---
+>
+> [**Cap'n ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") Log...
 >
 > Melting Date: February 14, 2022
 >
 > Message:\
-> Hi, I'm the new [**Cap'n ROTY BROI (ID 547)**](/02-the-creations.../waivfves-1/41.-the-roty-broi.md) here. Well, thanks for voting me to be the new Cap'n...
+> Hi, I'm the new [**Cap'n ROTY BROI (ID 547)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") here. Well, thanks for voting me to be the new Cap'n...
 >
 > As you know, this isn't the end. Not even close. This is just the beginning. We've lost entire cities. There is no official authority to help. All governments collapsed in all countries. But others have found a rough way to survive their life.
 >
@@ -224,34 +238,34 @@
 >
 > Although we still don't know where we should go, this ark bought us some time which gave us a chance. Sailing nowhere to survive our life. By vote, we will continue to choose the one as a captain. By vote, we will always decide how to regulate our activities. By vote, we will always decide where our ark should sail on this journey.
 >
-> P.S. This message is specifically addressed to all [**Cap'n ROTY BROI**](/02-the-creations.../waivfves-1/41.-the-roty-broi.md), my successor. Always remember the fringes in theory that are recorded in all logs, pay attention to whether there are fringes in theory that happen, and put it in your daily log.
+> P.S. This message is specifically addressed to all [**Cap'n ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), my successor. Always remember the fringes in theory that are recorded in all logs, pay attention to whether there are fringes in theory that happen, and put it in your daily log.
 
 ---
 
 #### The Melting Archipelago
 
-> [**Cap'n ROTY BROI**](/02-the-creations.../waivfves-1/41.-the-roty-broi.md) Log...
+> [**Cap'n ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") Log...
 >
 > Melting Date: February 21, 2022
 >
 > Message:\
-> Hi, I'm [**Cap'n ROTY BROI (ID 547)**](/02-the-creations.../waivfves-1/41.-the-roty-broi.md)...
+> Hi, I'm [**Cap'n ROTY BROI (ID 547)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")...
 >
-> Today is 21 February 2022. For more than one week we have been adrift on the surface of [**Melting Land**](/02-the-creations.../waivfves-2/15.-the-melting-land.md)'s waves. There are no signs yet of concrete land for our ark to decide where to be sailed and anchored.
+> Today is 21 February 2022. For more than one week we have been adrift on the surface of [**Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active")'s waves. There are no signs yet of concrete land for our ark to decide where to be sailed and anchored.
 >
 > We are mostly skeptical from the beginning and feel desperate when we are aware of the condition. Only a few of us remain optimistic and still have faith in this journey. That makes me overwhelmed with various efforts to survive. But I still continue to discuss with all of us to determine how our activities would be, and how existing resources would be managed while we surviving on this ark.
 >
-> Although many of us are already pessimistic about what I'm doing, all that skepticism, despair, and pessimism were just thrown away every time we encountered lone survivors adrift amidst the waves of [**The Melting Land**](/02-the-creations.../waivfves-2/15.-the-melting-land.md). Each of them survived on whatever debris they could find.
+> Although many of us are already pessimistic about what I'm doing, all that skepticism, despair, and pessimism were just thrown away every time we encountered lone survivors adrift amidst the waves of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"). Each of them survived on whatever debris they could find.
 >
-> It is another fringe in theory that I found. All the lone survivors we encountered were females with the same name, [**Amanda**](/02-the-creations.../waivfves-2/14.-amanda-wives.md). It appears that I am the only one who realizes that this theory is on the fringe. Today, when we once again encounter a survivor, everyone involved in saving her, bringing her onto this ark, and taking care of her is not surprised to hear another female lone survivor say her name is [**Amanda**](/02-the-creations.../waivfves-2/14.-amanda-wives.md).
+> It is another fringe in theory that I found. All the lone survivors we encountered were females with the same name, [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"). It appears that I am the only one who realizes that this theory is on the fringe. Today, when we once again encounter a survivor, everyone involved in saving her, bringing her onto this ark, and taking care of her is not surprised to hear another female lone survivor say her name is [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active").
 >
-> [**Amanda**](/02-the-creations.../waivfves-2/14.-amanda-wives.md), who we saved this time, couldn't keep quiet, she was always shouting and saying, "_Who is your leader? Who is in charge of this ark? I want to meet and talk to your leader. I have to talk to your leader alone._" Until finally I allowed her to talk to me.
+> [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"), who we saved this time, couldn't keep quiet, she was always shouting and saying, "_Who is your leader? Who is in charge of this ark? I want to meet and talk to your leader. I have to talk to your leader alone._" Until finally I allowed her to talk to me.
 >
-> Turns out she brought me a bundle of maps, containing only 15 pages of different maps of the island, that she believes originally contained 20 pages of different maps of the island, and it is the maps of the concrete lands of the Earth's surface after [**The Melting Land**](/02-the-creations.../waivfves-2/15.-the-melting-land.md). [**ABSART IDSA Archipelago**](/02-the-creations.../waivfves-1/37.-woman-of-russian/37.1.-absart-idsa-archipelago.md) was written on the cover of that bundle of maps but she named that bundle of maps **The Melting Archipelago**.
+> Turns out she brought me a bundle of maps, containing only 15 pages of different maps of the island, that she believes originally contained 20 pages of different maps of the island, and it is the maps of the concrete lands of the Earth's surface after [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"). [**ABSART IDSA Archipelago**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/37.-woman-of-russian/37.1.-absart-idsa-archipelago "NFT Collection: ABSART IDSA Archipelago on Tezos Blockchain - Archived") was written on the cover of that bundle of maps but she named that bundle of maps **The Melting Archipelago**.
 >
 > She told me the details on each map and showed me some notes, one of it notes said that the first map was created on January 31, 2022, and the last map was created on June 21, 2022 (on June 22, 2022, **B.M.**), but the last five maps are gone. The date of the last map is another fringe in theory for me.
 >
-> But, with the belief of [**Amanda**](/02-the-creations.../waivfves-2/14.-amanda-wives.md), who we saved this time, which somehow all other [**Amandas**](/02-the-creations.../waivfves-2/14.-amanda-wives.md) also shared, we voted and decided to guide this ark sailing through [**The Melting Land**](/02-the-creations.../waivfves-2/15.-the-melting-land.md) to find that **Melting Archipelago** one by one. And this hard decision brings a very big hope for us all.
+> But, with the belief of [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"), who we saved this time, which somehow all other [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") also shared, we voted and decided to guide this ark sailing through [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") to find that **Melting Archipelago** one by one. And this hard decision brings a very big hope for us all.
 
 ---
 
@@ -377,7 +391,7 @@
 
 > init...
 >
-> [**(15) The Melting Land**](/02-the-creations.../waivfves-2/15.-the-melting-land.md)
+> [**(15) The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active")
 >
 > **...**
 
@@ -387,7 +401,7 @@
 
 > init...
 >
-> [**(14) Amanda Wives**](/02-the-creations.../waivfves-2/14.-amanda-wives.md)
+> [**(14) Amanda Wives**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active")
 >
 > **...**
 
