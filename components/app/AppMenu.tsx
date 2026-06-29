@@ -275,6 +275,12 @@ function buildMenuItems(currentSurface: MintSurface | null): MenuItem[] {
       target: appTarget,
     },
     {
+      activePath: "/lore",
+      href: getAppHref("/lore", useMainAppOrigin),
+      label: "Lore",
+      target: appTarget,
+    },
+    {
       activePath: "/mint",
       label: "Mint",
       children: buildMintChildren(currentSurface),
