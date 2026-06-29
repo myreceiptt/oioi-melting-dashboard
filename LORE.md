@@ -2,7 +2,7 @@
 
 ## In The 0101 Universe…
 
-### There is [The Melting Land](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active")
+### There is [The Melting Land](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active")…
 
 #### Pseudonymous Invitations
 
