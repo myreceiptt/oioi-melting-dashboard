@@ -1,5 +1,12 @@
 # OiOi Melting Dashboard — Mainnet Contract Deployment Completion v1
 
+> Current status note (2026-06-29): this is a historical contract-deployment
+> completion record. The current canonical project status is
+> `docs/PROJECT_FINAL_STATUS_AND_MAINTENANCE_V1.md`: complete, public,
+> operational, and in evergreen maintenance mode. Any "not approved",
+> "pending", or "not ready" wording below describes the state at the time this
+> document was written, not the current production state.
+
 Date: 2026-06-25
 
 Status:
@@ -138,8 +145,8 @@ Gate 1: Read-only mainnet env wiring (completed)
 Gate 2: Mainnet read-only frontend QA (completed)
 Gate 3: Controlled mint opening / production public surface (completed)
 Gate 4: Mainnet reward data-plane setup and first reward round preparation (completed)
-Gate 5: Controlled user reward claim verification / reward claim launch approval (pending)
-Gate 6: Final metadata update/reveal/lock approval (pending)
+Gate 5: Controlled user reward claim verification / reward claim launch approval (completed later)
+Gate 6: Final metadata update/reveal/lock operations (owner-controlled production maintenance)
 ```
 
 Canonical Gate 1 planning document:

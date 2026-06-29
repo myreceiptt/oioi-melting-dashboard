@@ -1,5 +1,12 @@
 # OiOi Melting Dashboard — Mainnet Env Wiring Approval Decision v1
 
+> Current status note (2026-06-29): this is a historical approval-gate
+> document. The current canonical project status is
+> `docs/PROJECT_FINAL_STATUS_AND_MAINTENANCE_V1.md`: complete, public,
+> operational, and in evergreen maintenance mode. Any "not approved",
+> "pending", or "not ready" wording below describes the gate status at the
+> time this document was written, not the current production state.
+
 Date: 2026-06-25
 
 Status:
@@ -133,7 +140,7 @@ No production opening or write action is authorized by this document.
 
 Any later transition from read-only QA to controlled mint opening, reward claim launch, metadata update/reveal/lock, or public launch requires a separate explicit approval document.
 
-The next major technical task after production mint opening was Mainnet Reward Round Operations / Production Reward Data Plane. That data-plane foundation and first-round preparation were later completed and are recorded in `docs/mainnet/MAINNET_REWARD_ROUND_OPERATIONS_V1.md`. Reward claim launch remains not approved.
+The next major technical task after production mint opening was Mainnet Reward Round Operations / Production Reward Data Plane. That data-plane foundation, first-round preparation, and later reward claim launch were completed and are recorded in later status documents. Use `docs/PROJECT_FINAL_STATUS_AND_MAINTENANCE_V1.md` for the current status.
 
 ---
 

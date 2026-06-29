@@ -1,5 +1,12 @@
 # OiOi Melting Dashboard — Metadata Strategy Approval Decision v1
 
+> Current status note (2026-06-29): this is a historical metadata strategy
+> decision. The current canonical project status is
+> `docs/PROJECT_FINAL_STATUS_AND_MAINTENANCE_V1.md`: complete, public,
+> operational, and in evergreen maintenance mode. Any "not approved",
+> "pending", or "not ready" wording below describes the decision state at the
+> time this document was written, not the current production state.
+
 Date: 2026-06-24
 
 Status:

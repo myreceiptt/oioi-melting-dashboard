@@ -1,5 +1,12 @@
 # Mainnet Reward Round Conversation Context v1
 
+> Current status note (2026-06-29): this is a historical mainnet reward-round
+> conversation-context record. The current canonical project status is
+> `docs/PROJECT_FINAL_STATUS_AND_MAINTENANCE_V1.md`: complete, public,
+> operational, and in evergreen maintenance mode. Any older "pending",
+> "remaining", "not approved", or "deferred" wording below describes the state
+> at the time this context was written.
+
 Date: 2026-06-28
 Scope: OiOi Melting Dashboard — Mainnet Reward Round, Supabase Data Plane, Worker, SOP, Documentation Alignment
 
@@ -548,7 +555,7 @@ The discussion concluded that `URUTANSEHAT.md` should distinguish:
 ```text
 1. truly remaining current work
 2. historical / superseded gate notes
-3. non-blocking evidence TODOs
+3. non-blocking missing evidence notes
 4. optional future improvements
 ```
 
@@ -558,7 +565,7 @@ It was meant to prevent old pending notes from making the project look endlessly
 
 ---
 
-## 14. True Remaining Items at That Point
+## 14. Historical Remaining Items at That Point
 
 The true remaining items were narrowed to:
 
@@ -572,13 +579,13 @@ The true remaining items were narrowed to:
 7. Metadata lock approval.
 ```
 
-Non-blocking evidence TODO:
+Non-blocking missing evidence note:
 
 ```text
-Missing Base approve/fund tx hashes and Ethereum create/approve/fund tx hashes may remain TODO unless reviewed evidence is available.
+Missing Base approve/fund tx hashes and Ethereum create/approve/fund tx hashes may remain unrecorded unless reviewed evidence is available.
 ```
 
-This tx hash evidence TODO should not be treated as a main blocker.
+This tx hash evidence note should not be treated as a main blocker.
 
 The current locked rule remained:
 

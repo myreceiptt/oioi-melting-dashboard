@@ -1,5 +1,11 @@
 # Full Testnet E2E QA v1
 
+> Current status note (2026-06-29): this is a historical testnet QA pass
+> record. The current canonical project status is
+> `docs/PROJECT_FINAL_STATUS_AND_MAINTENANCE_V1.md`: complete, public,
+> operational, and in evergreen maintenance mode. Any older mainnet "deferred"
+> language below describes the state at the time this document was written.
+
 ## Status
 
 - Date: 2026-06-24

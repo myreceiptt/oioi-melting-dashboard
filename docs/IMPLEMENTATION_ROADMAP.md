@@ -1,14 +1,16 @@
 # OiOi Melting Dashboard — Implementation Roadmap v3
 
-This roadmap reflects the current state after Sepolia contract validation, frontend implementation, Supabase reward pipeline implementation, GitHub Actions worker setup, BASE/dETH app shell work, Subdomain Surface Behavior v1, Full Testnet E2E QA v1, Testnet Release Candidate Lock v1, Mainnet Deployment Approval Gate v1, Mainnet Contract Deployment Completion v1, and Mainnet Public Surface / Mint Opening QA v1.
+This roadmap reflects the current final public state after Sepolia validation,
+Testnet Release Candidate Lock v1, mainnet deployment, mainnet public opening,
+mainnet reward round operations, and final documentation synchronization.
 
 Current execution path:
 
 ```text
-Mainnet public mint/staking surface live
-→ Mainnet Reward Round Operations / Production Reward Data Plane foundation done
-→ controlled mainnet reward claim verification / launch approval
-→ final metadata update/reveal/lock decision later
+Mainnet public surface live
+→ minting / staking / reward claim / admin operations live
+→ project complete
+→ evergreen maintenance mode
 ```
 
 ---
@@ -221,7 +223,7 @@ paused/funded/not-funded states
 
 ## Phase 9 — UI / Layout / App Shell
 
-Status: Completed for current testnet rehearsal; final visual review may continue during RC lock.
+Status: Completed.
 
 Completed:
 
@@ -238,10 +240,10 @@ dashboard color pass
 admin color pass
 ```
 
-Current next stage:
+Current stage:
 
 ```text
-Controlled mainnet reward claim verification / launch approval planning
+Evergreen maintenance.
 ```
 
 Canonical planning document:
@@ -256,17 +258,18 @@ Canonical read-only approval decision:
 docs/mainnet/MAINNET_ENV_WIRING_APPROVAL_DECISION_V1.md
 ```
 
-Status remains:
+Current production status:
 
 ```text
-READ-ONLY MAINNET ENV WIRING: APPROVED
-MAINNET READ-ONLY FRONTEND QA V1: PASSED FOR LOCALHOST READ-ONLY QA
+READ-ONLY MAINNET ENV WIRING: COMPLETED
+MAINNET READ-ONLY FRONTEND QA V1: PASSED
 PRODUCTION MAINNET ENV: LIVE
 MAINNET PUBLIC SURFACE: LIVE
 MINT OPENING: DONE / LIVE
-MAINNET REWARD CLAIM LAUNCH: NOT APPROVED
-METADATA LOCK: NOT APPROVED
-MAINNET REWARD ROUND OPERATIONS: DATA PLANE FOUNDATION DONE / CLAIM LAUNCH PENDING
+MAINNET REWARD CLAIM: LIVE / OPERATIONAL
+MAINNET REWARD ROUND OPERATIONS: LIVE / OPERATIONAL
+ADMIN OPERATIONS: LIVE / OPERATIONAL
+EVERGREEN MAINTENANCE: ACTIVE
 ```
 
 ---
@@ -322,7 +325,7 @@ Testnet Release Candidate Lock v1 documented ✅
 
 ## Phase 12 — Mainnet Deployment
 
-Status: Completed for contract deployment only; verified and safe-off.
+Status: Completed / live.
 
 Preparation already passed:
 
@@ -349,23 +352,26 @@ mint phases OFF
 metadata UNLOCKED
 ```
 
-Still not approved / not started:
+Completed later after contract deployment:
 
 ```text
-mainnet reward claim launch
-metadata lock
-final metadata update/reveal/lock
-public reward claim launch
+production env wiring
+mainnet read-only QA
+controlled public opening
+mainnet reward data-plane setup
+first mainnet boundary worker job
+first mainnet reward rounds
+reward claim launch and verification
+public mint/staking/reward surface
 ```
 
-Approval-sensitive items:
+Operational status:
 
 ```text
-metadata strategy approved as Option A for contract deployment planning only
-mainnet reward data-plane foundation completed and first rounds prepared
+metadata strategy and approval history documented
+mainnet reward data-plane completed and operational
 mainnet public mint/staking surface live
-mainnet reward claim launch remains not approved
-metadata lock remains not approved
+mainnet reward claim live
 mint opening done / live
 ```
 
@@ -373,7 +379,7 @@ mint opening done / live
 
 ## Phase 13 — Mainnet Deployment Approval Gate v1
 
-Status: Approved for Base Mainnet + Ethereum Mainnet contract deployment only.
+Status: Historical gate completed.
 
 Documented in:
 
@@ -384,17 +390,16 @@ docs/mainnet/MAINNET_DEPLOYMENT_APPROVAL_GATE_V1.md
 Gate status:
 
 ```text
-MAINNET DEPLOYMENT APPROVAL GATE V1: READY WITH NOTES
-DEPLOYMENT AUTHORIZATION: APPROVED FOR CONTRACT DEPLOYMENT ONLY
+MAINNET DEPLOYMENT APPROVAL GATE V1: COMPLETED HISTORICAL GATE
+DEPLOYMENT AUTHORIZATION: COMPLETED
 APPROVED DEPLOYMENT SCOPE: BASE MAINNET + ETHEREUM MAINNET
 MAINNET CONTRACT DEPLOYMENT: DONE / VERIFIED / SAFE OFF
 MAINNET PUBLIC SURFACE: LIVE
-READ-ONLY MAINNET ENV WIRING: APPROVED
+READ-ONLY MAINNET ENV WIRING: COMPLETED
 PRODUCTION MAINNET ENV: LIVE
-MAINNET REWARD CLAIM LAUNCH: NOT READY / NOT APPROVED
-METADATA LOCK: NOT APPROVED
+MAINNET REWARD CLAIM: LIVE / OPERATIONAL
 MINT OPENING: DONE / LIVE
-MAINNET REWARD ROUND OPERATIONS: DATA PLANE FOUNDATION DONE / CLAIM LAUNCH PENDING
+MAINNET REWARD ROUND OPERATIONS: LIVE / OPERATIONAL
 ```
 
 Final deployment approval form:
@@ -417,13 +422,14 @@ docs/qa/MAINNET_READ_ONLY_FRONTEND_QA_V1.md
 
 ---
 
-## Current Next Step
+## Current Final Stage
 
 ```text
-Controlled mainnet reward claim verification / approval planning
+Project complete, public, operational, and in evergreen maintenance mode.
 ```
 
-Do not launch public reward claim, reveal metadata, or lock metadata until each later gate is explicitly approved.
+Future work is maintenance, dependency updates, operational upkeep, content
+updates, and any later owner-approved product expansion.
 
 Mainnet reward round operations status:
 
@@ -433,13 +439,14 @@ Mainnet worker readiness pass.
 First mainnet boundary worker job success.
 First Base/Ethereum calculated reward rounds generated.
 First Base/Ethereum reward rounds created, approved, and funded on-chain.
-Reward claim public enablement remains not approved.
+Mainnet reward claim live and operational.
 ```
 
 Canonical SOP / decision log:
 
 ```text
 docs/mainnet/MAINNET_REWARD_ROUND_OPERATIONS_V1.md
+docs/PROJECT_FINAL_STATUS_AND_MAINTENANCE_V1.md
 ```
 
 ---

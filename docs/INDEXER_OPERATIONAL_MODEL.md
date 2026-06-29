@@ -321,10 +321,11 @@ mainnet worker readiness pass
 first mainnet boundary worker job success
 first mainnet calculated reward rounds generated
 first Base/Ethereum reward rounds created, approved, and funded on-chain
-do not open reward claim until controlled user claim verification and explicit launch approval
+mainnet reward claim live and operational
 ```
 
-Production mainnet reward claim remains unavailable until controlled mainnet user claim verification is documented and reward claim launch is explicitly approved.
+Production mainnet reward claim is live. Future reward rounds remain
+operator-triggered and follow the Tapal Batas model.
 
 ---
 
@@ -337,8 +338,8 @@ GITHUB ACTIONS WORKER: IMPLEMENTED AND QA-PASSED
 REWARD CLAIM: IMPLEMENTED AND QA-PASSED ON TESTNET
 DASHBOARD NFT DISCOVERY: IMPLEMENTED
 MAINNET REWARD DATA-PLANE FOUNDATION: COMPLETE
-MAINNET REWARD CLAIM LAUNCH: NOT APPROVED
-NEXT MAJOR TASK: CONTROLLED MAINNET USER CLAIM VERIFICATION / CLAIM LAUNCH APPROVAL
+MAINNET REWARD CLAIM: LIVE / OPERATIONAL
+CURRENT MODE: EVERGREEN MAINTENANCE
 ```
 
 ---

@@ -235,7 +235,7 @@ ipfs://bafkreiccvibarcxlaq3q2vm23p4jsbtxizkjneivjokh4srdpsi36zzzdi
 Revealed base URI:
 
 ```text
-ipfs://pending-melting-revealed/
+See the current deployed contract/configuration record.
 ```
 
 ### Amanda
@@ -249,12 +249,12 @@ ipfs://bafkreihvdfz5un5mslexhs2u5zagfw2dsw62hnvt3unvaypiijtyco7agy
 Revealed base URI:
 
 ```text
-ipfs://pending-amanda-revealed/
+See the current deployed contract/configuration record.
 ```
 
 Metadata can be updated until `lockMetadata()` is called.
 
-Do not lock metadata until final revealed metadata is checked.
+Treat metadata updates and locks as owner-controlled production operations.
 
 Admin Dashboard must include reveal and metadata controls because they are future-required operations, but these controls must be guarded.
 
@@ -464,16 +464,17 @@ One codebase supports all surfaces.
 Current status:
 
 ```text
-CONTRACT SUITE: TESTNET VALIDATED
-DEPLOYMENT TOOLING: TESTNET VALIDATED
-FRONTEND: SEPOLIA MVP IMPLEMENTED WITH ACTIVE REWARD CLAIM UI
-ADMIN DASHBOARD: IMPLEMENTED, TESTNET OPERATION QA PENDING
-INDEXER STORAGE: SUPABASE POSTGRES LOCKED
-INDEXER IMPLEMENTATION: SUPABASE PIPELINE IMPLEMENTED, TESTNET VALIDATION PENDING
-REWARD CALCULATOR: IMPLEMENTED, TESTNET VALIDATION PENDING
-TESTNET RELEASE CANDIDATE: NOT READY
-MAINNET DEPLOYMENT: READY BUT DEFERRED UNTIL TESTNET RC
-PUBLIC LAUNCH: NOT READY
+CONTRACT SUITE: MAINNET DEPLOYED / VERIFIED / OPERATIONAL
+DEPLOYMENT TOOLING: VALIDATED
+FRONTEND: PUBLIC / OPERATIONAL
+ADMIN DASHBOARD: IMPLEMENTED / OPERATIONAL
+INDEXER STORAGE: SUPABASE POSTGRES LOCKED / OPERATIONAL
+INDEXER IMPLEMENTATION: SUPABASE PIPELINE IMPLEMENTED / OPERATIONAL
+REWARD CALCULATOR: IMPLEMENTED / OPERATIONAL
+TESTNET RELEASE CANDIDATE: DONE / PASS
+MAINNET DEPLOYMENT: DONE
+PUBLIC LAUNCH: LIVE
+CURRENT MODE: EVERGREEN MAINTENANCE
 ```
 
 ---

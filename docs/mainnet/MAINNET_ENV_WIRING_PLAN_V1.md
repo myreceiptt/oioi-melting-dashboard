@@ -1,5 +1,12 @@
 # OiOi Melting Dashboard — Mainnet Env Wiring Plan v1
 
+> Current status note (2026-06-29): this is a historical env-wiring plan.
+> The current canonical project status is
+> `docs/PROJECT_FINAL_STATUS_AND_MAINTENANCE_V1.md`: complete, public,
+> operational, and in evergreen maintenance mode. Any "not approved",
+> "pending", or "not ready" wording below describes the planning status at the
+> time this document was written, not the current production state.
+
 Date: 2026-06-25
 
 Status:
@@ -56,7 +63,7 @@ $OiOi Ethereum: 0x1C696882b93d7241d09D55f52693cAD367A5bEaf
 
 Inventory source: code-level scan of `process.env`, `NEXT_PUBLIC_*`, Supabase, RPC, indexer, reward, deploy, and chain/address usage.
 
-The `Approval status` column below records the original env-wiring plan review state. Later production mainnet env wiring, controlled mint/staking opening, and mainnet reward data-plane setup were completed through separate documents. Reward claim launch remains not approved.
+The `Approval status` column below records the original env-wiring plan review state. Later production mainnet env wiring, controlled mint/staking opening, mainnet reward data-plane setup, and reward claim launch were completed through separate documents. Use `docs/PROJECT_FINAL_STATUS_AND_MAINTENANCE_V1.md` for the current status.
 
 | Variable | Scope | Current source/file | Proposed mainnet value/source | Required now? | Public safe? | Approval status | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- |

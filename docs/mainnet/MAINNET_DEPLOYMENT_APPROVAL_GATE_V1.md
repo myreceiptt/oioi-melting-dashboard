@@ -1,5 +1,12 @@
 # OiOi Melting Dashboard — Mainnet Deployment Approval Gate v1
 
+> Current status note (2026-06-29): this is a historical deployment approval
+> gate. The current canonical project status is
+> `docs/PROJECT_FINAL_STATUS_AND_MAINTENANCE_V1.md`: complete, public,
+> operational, and in evergreen maintenance mode. Any "not approved",
+> "pending", or "not ready" wording below describes the gate status at the
+> time this document was written, not the current production state.
+
 Date: 2026-06-24
 
 Status:
@@ -50,7 +57,7 @@ Ethereum Mainnet contract deployment: DONE / VERIFIED / SAFE OFF
 Production mainnet env: live
 Mainnet production-domain browser QA: pass
 Controlled mainnet mint/staking opening: done / live
-Mainnet Reward Round Operations: data-plane foundation done / claim launch pending
+Mainnet Reward Round Operations: data-plane foundation done; reward claim launch was completed later and is recorded in `docs/PROJECT_FINAL_STATUS_AND_MAINTENANCE_V1.md`
 ```
 
 ---

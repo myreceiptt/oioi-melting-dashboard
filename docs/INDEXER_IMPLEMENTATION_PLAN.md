@@ -327,27 +327,29 @@ browser claim fails for known eligible wallet
 
 ---
 
-## 9. Current Next Step
+## 9. Current Status
 
-The indexer/reward worker is implemented and QA-passed for testnet.
+The indexer/reward worker is implemented, QA-passed for testnet, and
+operational for mainnet.
 
-Current project next task:
+Current project mode:
 
 ```text
-Explicit mainnet deployment approval decision
+Evergreen maintenance.
 ```
 
-Mainnet indexer operation starts only after mainnet deployment and mainnet env wiring.
+Mainnet indexer operation has been set up through the separate mainnet data
+plane, schema, seed, and GitHub Actions worker flow.
 
-Production mainnet reward claim must remain unavailable until:
+Completed mainnet reward prerequisites:
 
 ```text
-mainnet Supabase schema is applied and seeded
-mainnet FROM_BLOCK values are recorded
-mainnet Supabase contract records are seeded/verified
-mainnet reward boundary flow is run
-mainnet proof API and browser claim are verified
-explicit reward-claim approval is given
+mainnet Supabase schema applied and seeded
+mainnet FROM_BLOCK values recorded
+mainnet Supabase contract records seeded/verified
+mainnet reward boundary flow run successfully
+mainnet proof/API/browser reward flow validated
+mainnet reward claim live and operational
 ```
 
 ---

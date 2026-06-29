@@ -1,6 +1,14 @@
 # OiOi Melting Dashboard — Testnet Product Completion Plan v3
 
-This document is the operational checklist for the locked Testnet Release Candidate baseline and the later documented mainnet setup gates.
+This document is the historical operational checklist for the locked Testnet
+Release Candidate baseline and the later documented mainnet setup gates. The
+current canonical project status is:
+
+```text
+PROJECT STATUS: COMPLETE / PUBLIC / OPERATIONAL
+CURRENT MODE: EVERGREEN MAINTENANCE
+CANONICAL STATUS: docs/PROJECT_FINAL_STATUS_AND_MAINTENANCE_V1.md
+```
 
 The product rehearsal now covers:
 
@@ -15,7 +23,10 @@ reward claim
 full browser E2E
 ```
 
-Mainnet contract deployment, production env wiring, mint opening, and first reward data-plane preparation have since been completed through separate approval gates. Mainnet public reward claim launch and metadata lock remain not approved.
+Mainnet contract deployment, production env wiring, mint opening, reward
+round operations, public reward claim, and production public surface launch
+have since been completed through separate approval gates and operational
+verification.
 
 ---
 
@@ -49,7 +60,7 @@ Mainnet contract deployment, production env wiring, mint opening, and first rewa
 ✅ Mainnet Deployment Approval Gate v1 documented as ready with notes.
 ```
 
-### Not Started
+### Later Completed After Testnet RC
 
 ```text
 ✅ Mainnet contract deployment completed, verified, and safe-off.
@@ -60,9 +71,8 @@ Mainnet contract deployment, production env wiring, mint opening, and first rewa
 ✅ First mainnet boundary worker job succeeded.
 ✅ First mainnet calculated reward rounds generated.
 ✅ First Base/Ethereum reward rounds created, approved, and funded on-chain.
-⏸ Controlled mainnet user reward claim verification.
-⏸ Mainnet reward claim launch approval.
-⏸ Metadata lock / final metadata reveal approval.
+✅ Mainnet reward claim launched and operationally validated.
+✅ Project finalized as public and operational.
 ```
 
 ---
@@ -119,10 +129,10 @@ Reward event sync after create/fund/claim is optional reconciliation; admin/user
 
 ---
 
-## 4. Current Next Major Task
+## 4. Current Mode
 
 ```text
-Controlled mainnet reward claim verification / launch approval planning
+Evergreen maintenance.
 ```
 
 Recently completed:
@@ -138,16 +148,18 @@ Testnet Release Candidate Lock v1 documented in docs/qa/TESTNET_RELEASE_CANDIDAT
 Mainnet Deployment Approval Gate v1 documented in docs/mainnet/MAINNET_DEPLOYMENT_APPROVAL_GATE_V1.md.
 Mainnet Contract Deployment Completion v1 documented in docs/mainnet/MAINNET_CONTRACT_DEPLOYMENT_COMPLETION_V1.md.
 Mainnet Reward Round Operations v1 documented in docs/mainnet/MAINNET_REWARD_ROUND_OPERATIONS_V1.md.
+Final public/maintenance status documented in docs/PROJECT_FINAL_STATUS_AND_MAINTENANCE_V1.md.
 ```
 
-Remaining approval-sensitive work:
+Current maintenance scope:
 
 ```text
-Controlled mainnet user reward claim verification.
-Mainnet reward claim launch approval.
-Post-claim verification and event reconciliation on a later worker cycle.
-Next reward distribution cycle using a new Tapal Batas.
-Final metadata update/reveal/lock approval.
+dependency updates
+deprecated tooling updates
+lint/build/test upkeep
+operational monitoring
+documentation upkeep
+future owner-approved content or product expansions
 ```
 
 ---
@@ -174,12 +186,14 @@ Testnet Release Candidate Lock v1 passes. ✅
 
 ## 6. Mainnet Gate
 
-Mainnet contract deployment was approved later and is complete. This section remains as historical context from the testnet completion plan.
+Mainnet deployment, public opening, reward operations, and reward claim were
+completed later. This section remains as historical context from the testnet
+completion plan.
 
-Mainnet reward claim launch remains:
+Current mainnet status:
 
 ```text
-not approved
+public and operational
 ```
 
 Preparation already passed earlier:
@@ -195,13 +209,13 @@ whitelist root
 
 Mainnet contract deployment is complete, verified, read-checked, and safe-off.
 
-Mainnet still needs:
+Current maintenance mode includes:
 
 ```text
-controlled user reward claim verification
-mainnet reward claim launch approval
-post-claim verification and event reconciliation on a later worker cycle
-final metadata update/reveal/lock approval
+regular health checks
+dependency updates
+operator review before any future product expansion
+documentation updates when operations change
 ```
 
 ---

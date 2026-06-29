@@ -1,5 +1,12 @@
 # OiOi Melting Dashboard - Codex Conversation Context v1
 
+> Current status note (2026-06-29): this is a historical conversation-context
+> record. The current canonical project status is
+> `docs/PROJECT_FINAL_STATUS_AND_MAINTENANCE_V1.md`: complete, public,
+> operational, and in evergreen maintenance mode. Any older "pending",
+> "remaining", "not approved", or "deferred" wording below describes the state
+> at the time this context was written.
+
 Date: 2026-06-29
 Project: OiOi Melting Dashboard
 Context Type: Codex Thread Conversation Context
@@ -498,7 +505,8 @@ On-chain operations reported:
 Important:
 
 - Do not invent missing transaction hashes.
-- If a tx hash was not captured in docs or conversation, leave it as TODO.
+- If a tx hash was not captured in docs or conversation, record it as not
+  captured in that historical context.
 - Mainnet public/user claim verification must be treated separately from funding/creation unless later documentation proves it happened.
 
 ---
@@ -544,7 +552,7 @@ Important practical rule:
 
 ---
 
-## 19. Current Pending Local Workspace Items At Time Of This Context
+## 19. Historical Local Workspace Items At Time Of This Context
 
 **Conversation-derived context; needs owner confirmation if workspace has changed.**
 
@@ -568,7 +576,7 @@ before making changes.
 
 ---
 
-## 20. True Remaining Items
+## 20. Historical Remaining Items At That Time
 
 **Repo-documented and conversation-derived.**
 

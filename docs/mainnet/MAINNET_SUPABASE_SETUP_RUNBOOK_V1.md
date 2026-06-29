@@ -5,7 +5,7 @@ Mainnet Supabase setup: COMPLETED AFTER THIS RUNBOOK WAS PREPARED
 Remote Supabase action: NOT PERFORMED BY THIS DOC EDIT
 Testnet data copy: PROHIBITED
 Worker execution: LATER APPROVED FOR MAINNET BOUNDARY REHEARSAL
-Mainnet reward claim launch: NOT APPROVED UNLESS SEPARATELY DECIDED
+Mainnet reward claim: LIVE / OPERATIONAL
 
 Execution result:
 
@@ -505,10 +505,10 @@ Do not enable public mint or whitelist mint.
 Do not call `lockMetadata()`.
 
 Current status: the approved first mainnet boundary worker job has completed,
-and the first Base/Ethereum reward rounds have been created, approved, and
-funded on-chain. Do not use this historical section to block the completed,
-approved steps. Continue to block unapproved reward claim launch, metadata lock,
-and any manual DB edits.
+the first Base/Ethereum reward rounds have been created, approved, and funded
+on-chain, and reward claim is live. Do not use this historical section to block
+completed, approved steps. Continue to block casual manual DB edits and any
+unreviewed sensitive production operation.
 
 ## Stop Conditions
 
@@ -522,7 +522,8 @@ Stop immediately if:
 - Any mainnet contract row mismatches the committed deployment records.
 - `MAINNET_SUPABASE_URL` or `MAINNET_SUPABASE_SERVICE_ROLE_KEY` is missing.
 - Worker execution is proposed before schema and seed verification.
-- Reward claim launch is proposed before mainnet proof flow validation.
+- Reward claim or reward distribution behavior is changed without operator
+  review.
 
 ## Next Step After Setup
 

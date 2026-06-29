@@ -289,7 +289,8 @@ Testnet Release Candidate Lock v1 is complete and passed.
 Canonical RC lock report: docs/qa/TESTNET_RELEASE_CANDIDATE_LOCK_V1.md
 Mainnet contract deployment and public mint/staking surface are live.
 Mainnet reward data-plane setup and first reward round preparation are complete.
-Current reward next stage is controlled user claim verification / reward claim approval.
+Mainnet reward claim is live and operational.
+Current mode is evergreen maintenance.
 ```
 
 ---

@@ -91,6 +91,8 @@ Current seeded chains:
 ```text
 baseSepolia
 ethereumSepolia
+baseMainnet
+ethereumMainnet
 ```
 
 ### `contracts`

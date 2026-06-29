@@ -8,15 +8,18 @@ Current rollout position:
 
 ```text
 1. Lock Testnet Contract Deployment — DONE
-2. Complete Testnet Frontend Application — IN PROGRESS
-   Next: Admin Dashboard Architecture v1
+2. Complete Testnet Frontend Application — DONE
+3. Admin Dashboard Architecture v1 — DONE
+4. Mainnet public/admin operations — LIVE
+5. Current mode — EVERGREEN MAINTENANCE
 ```
 
 ---
 
 ## 1. Decision Lock
 
-Admin Dashboard v1 is required before full Testnet Browser E2E.
+Admin Dashboard v1 was required before full Testnet Browser E2E and is now
+implemented, QA-passed, and operational.
 
 Admin Dashboard v1 must be:
 
@@ -1143,15 +1146,9 @@ Ethereum Sepolia admin QA passes
 
 ---
 
-## 14. Current Next Step
+## 14. Current Status
 
-After this document is committed:
-
-```text
-Admin ABI Expansion v1
-```
-
-Then:
+Completed:
 
 ```text
 Admin Routes + Shell v1
@@ -1160,6 +1157,8 @@ Admin Mint Phase Controls v1
 Admin Reward Controls v1
 Admin Metadata Controls v1
 Admin Dashboard Browser QA v1
+Mainnet admin operations
+Evergreen maintenance
 ```
 
 ---

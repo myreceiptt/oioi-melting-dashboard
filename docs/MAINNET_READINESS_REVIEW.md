@@ -1,8 +1,11 @@
 # OiOi Melting Dashboard — Mainnet Readiness Review v2
 
-This document began as the readiness review before Base Mainnet and Ethereum Mainnet deployment. It now also records the current mainnet public surface state.
+This document began as the readiness review before Base Mainnet and Ethereum
+Mainnet deployment. It now records the completed mainnet public/operational
+state and preserves earlier gate history for auditability.
 
-Mainnet contract deployment has been completed and the public mint/staking surface is live. Reward claim remains deferred.
+Mainnet contract deployment has been completed, the public mint/staking surface
+is live, reward round operations are live, and reward claim is operational.
 
 Current project decision:
 
@@ -11,7 +14,8 @@ Mainnet contract deployment is complete for Base Mainnet + Ethereum Mainnet.
 Production env is mainnet.
 Mainnet public surface is live.
 Mint phases are open.
-Reward claim remains deferred.
+Reward claim is live and operational.
+Current mode is evergreen maintenance.
 ```
 
 ---
@@ -68,6 +72,8 @@ Reward claim remains deferred.
 - First mainnet boundary reward job succeeded.
 - First mainnet Base and Ethereum calculated reward rounds generated.
 - First mainnet Base and Ethereum reward rounds created, approved, and funded on-chain.
+- Mainnet reward claim launched and operationally validated.
+- Project is complete, public, and operational.
 - Mainnet preparation checks passed:
   - repo clean
   - build/compile/test pass
@@ -78,25 +84,25 @@ Reward claim remains deferred.
   - deployer wallet funded
   - whitelist root finalized
 
-### Locked / Deferred
+### Current Final Status
 
 ```text
 Mainnet contract deployment is complete, verified, and read-checked.
 Mainnet public mint/staking surface is live.
-Metadata remains unlocked.
 Mainnet reward data-plane foundation is complete.
-
-Mainnet public reward claim launch, controlled user claim verification, metadata lock, and final metadata reveal/update/lock remain deferred or pending separate approval.
+Mainnet reward round operations are operational.
+Mainnet reward claim is live.
+Admin operations are live.
+Project is in evergreen maintenance mode.
 ```
 
-### Pending After Mainnet Public Surface Opening
+### Maintenance After Public Opening
 
-- Mainnet reward claim launch approval.
-- Controlled user reward claim verification on mainnet, if not already evidenced in repo/docs.
-- Post-claim verification and later RewardDistributor event reconciliation.
-- Next reward distribution cycle using a new Tapal Batas.
-- Final metadata update/reveal/lock approval.
-- Final Melting/Amanda revealed metadata update/reveal/lock approval.
+- Keep dependencies and tooling healthy.
+- Keep lint/build/test commands passing.
+- Run reward distributions when OiOi is available and an operator chooses a new Tapal Batas.
+- Keep Supabase reconciliation as part of normal worker/indexer operations.
+- Keep documentation updated when operational behavior changes.
 
 Canonical mainnet reward operation status and SOP:
 
@@ -106,11 +112,13 @@ docs/mainnet/MAINNET_REWARD_ROUND_OPERATIONS_V1.md
 
 ---
 
-## 2. Mainnet Deployment Is Not Launch
+## 2. Mainnet Deployment and Launch History
 
-Mainnet deployment only means contracts are deployed.
+Mainnet deployment originally meant contracts were deployed but public launch
+was not automatically authorized. That staged gate has completed. The current
+production app is public and operational.
 
-Public launch requires:
+Historical launch sequence:
 
 1. Testnet Release Candidate completed.
 2. Mainnet contracts deployed.
@@ -119,8 +127,8 @@ Public launch requires:
 5. Mainnet frontend environment is wired.
 6. Mainnet read-only browser QA passes.
 7. Admin Dashboard is working.
-8. Mint opening is explicitly approved.
-9. Reward claim remains disabled unless controlled mainnet user claim verification is documented and reward claim launch is explicitly approved.
+8. Mint opening is approved and completed.
+9. Reward round operations and reward claim are validated and completed.
 
 ---
 
@@ -136,9 +144,11 @@ Do not enable mint immediately after deployment without the separate controlled 
 
 Do not launch public frontend before read checks and browser QA pass.
 
-Do not treat reward claim as ready for mainnet until controlled mainnet user claim verification is documented and reward claim launch is explicitly approved.
+Reward claim is now live and operational. Treat future reward changes as
+operator-controlled production changes.
 
-Do not lock metadata while revealed metadata is pending.
+Do not run sensitive owner actions casually; treat future metadata, mint, reward,
+and rescue operations as operator-controlled production changes.
 
 Metadata strategy is approved as Option A in `docs/mainnet/METADATA_STRATEGY_APPROVAL_DECISION_V1.md`.
 
@@ -151,8 +161,6 @@ Do not treat `verify:args` as pre-deployment for a network that has no deploymen
 Do not treat mainnet deployment as pressure to open mint.
 
 Do not treat Mainnet Deployment Approval Gate v1 as deployment authorization by itself.
-
-Do not launch mainnet reward claim until controlled mainnet user claim verification is documented and reward claim launch is explicitly approved.
 
 Do not treat temporary stale Supabase reward round fields as a mainnet blocker
 when live on-chain state confirms create/fund status. Under the locked Reward
@@ -343,7 +351,9 @@ That approved contract deployment scope is now complete.
 
 Mint phases had to remain OFF at deployment completion. Later production mainnet env wiring and mint opening were completed and are recorded in `docs/qa/MAINNET_PUBLIC_SURFACE_AND_MINT_OPENING_QA_V1.md`.
 
-Mainnet reward claim must remain unavailable until controlled mainnet user claim verification is documented and reward claim launch is explicitly approved. The mainnet reward data-plane foundation and first-round preparation are complete, but public claim launch remains a separate gate.
+Mainnet reward claim was later launched and operationally validated. The
+mainnet reward data-plane foundation, first-round preparation, and public claim
+flow are now complete.
 
 Canonical gate document:
 
@@ -446,7 +456,8 @@ After each mainnet deployment:
 
 ## 13. Mainnet Env Wiring
 
-Read-only mainnet env wiring is approved for frontend QA only.
+Read-only mainnet env wiring was an intermediate approval stage before public
+opening. It is now historical context.
 
 Canonical env wiring plan:
 
@@ -460,7 +471,9 @@ Canonical read-only env wiring approval decision:
 docs/mainnet/MAINNET_ENV_WIRING_APPROVAL_DECISION_V1.md
 ```
 
-The approval covers read-only frontend QA only. Public launch, mint opening, reward claim launch, metadata lock, and contract state changes remain not approved.
+That approval originally covered read-only frontend QA only. Later public
+opening, minting, staking, reward operations, and reward claim were completed
+through separate steps and are now live.
 
 For the approved read-only QA scope:
 
@@ -475,7 +488,7 @@ NEXT_PUBLIC_BASE_*
 NEXT_PUBLIC_ETH_*
 ```
 
-Then deploy or preview with mainnet env for Mainnet Read-Only QA only.
+This historical step has been completed.
 
 Mainnet read-only frontend QA result:
 
@@ -486,7 +499,9 @@ BASE MAINNET FRONTEND READS: PASS
 ETHEREUM MAINNET FRONTEND READS: PASS
 ```
 
-The later production-domain QA pass confirms the live mainnet public mint/staking/admin baseline. It does not approve reward claim launch, metadata lock, or final metadata reveal/update/lock.
+The later production-domain QA pass confirmed the live mainnet public
+mint/staking/admin baseline. Reward operations and reward claim were completed
+after that gate.
 
 ---
 
@@ -502,7 +517,8 @@ Completed opening order:
 4. Enable staking dashboard.
 5. Enable Melting gated mint.
 6. Enable Amanda gated mint.
-7. Reward claim remains deferred until controlled mainnet user claim verification is documented and reward claim launch is explicitly approved.
+7. Reward claim was launched and operationally validated after the initial
+   controlled mint/staking opening.
 
 ---
 
@@ -521,10 +537,10 @@ MAINNET DEPLOYMENT AUTHORIZATION: APPROVED FOR CONTRACT DEPLOYMENT ONLY
 MAINNET PUBLIC SURFACE: LIVE
 READ-ONLY MAINNET ENV WIRING: APPROVED
 MAINNET PRODUCTION-DOMAIN BROWSER QA: PASS
-MAINNET REWARD CLAIM LAUNCH: NOT READY / NOT APPROVED
-METADATA LOCK: NOT APPROVED
+MAINNET REWARD CLAIM: LIVE / OPERATIONAL
 MINT OPENING: DONE / LIVE
-REWARD ROUND OPERATIONS: DATA PLANE FOUNDATION DONE / CLAIM LAUNCH PENDING
+REWARD ROUND OPERATIONS: LIVE / OPERATIONAL
+CURRENT MODE: EVERGREEN MAINTENANCE
 ```
 
 ---

@@ -12,14 +12,18 @@ ETHEREUM MAINNET MINT PHASES: OPEN
 PRODUCTION BROWSER QA: PASS
 ADMIN MAINNET OPERATIONS QA: PASS
 METADATA LOCK: NOT PERFORMED
-REWARD CLAIM: DEFERRED
-REWARD ROUND OPERATIONS: DATA PLANE FOUNDATION DONE / CLAIM LAUNCH PENDING
-UI/UX POLISH: REMAINING
+REWARD CLAIM: LIVE / OPERATIONAL
+REWARD ROUND OPERATIONS: LIVE / OPERATIONAL
+UI/UX POLISH: COMPLETED FOR PUBLIC BASELINE
 ```
 
-This document records the current production/mainnet public surface and mint opening reality.
+This document records the production/mainnet public surface and mint opening
+QA. Later reward operations and reward claim work have also completed; the
+current canonical final status is
+`docs/PROJECT_FINAL_STATUS_AND_MAINTENANCE_V1.md`.
 
-It does not approve reward claim launch, metadata lock, or final metadata reveal/update/lock.
+It remains a historical QA record and should be read together with the final
+status document.
 
 ---
 
@@ -193,34 +197,33 @@ Do not manually update Supabase only to fill tx hashes.
 Do not submit Tapal Batas solely for tx hash reconciliation.
 ```
 
-Still not approved / not yet documented:
+Later completed:
 
 ```text
 public reward claim enablement
-controlled user claim verification on mainnet, if not already evidenced
+controlled user claim verification on mainnet
 post-claim verification
-later RewardDistributor event reconciliation
+RewardDistributor event reconciliation SOP
 ```
 
 Final status:
 
 ```text
-REWARD CLAIM: DEFERRED
-REWARD ROUND OPERATIONS: DATA PLANE FOUNDATION DONE / CLAIM LAUNCH PENDING
+REWARD CLAIM: LIVE / OPERATIONAL
+REWARD ROUND OPERATIONS: LIVE / OPERATIONAL
 ```
 
 This does not block the already-live mainnet mint/public surface.
 
 ---
 
-## 9. Remaining Work
+## 9. Current Maintenance
 
 ```text
-UI/UX polish: remaining
-Mainnet reward claim launch: deferred / not approved
-Controlled user claim verification on mainnet: not yet documented
-Post-claim verification and later RewardDistributor event reconciliation: pending
-Final metadata reveal/update/lock decision: pending
+dependency and tooling upkeep
+operator review before any future sensitive production operation
+reward distributions only when OiOi is available and a new Tapal Batas is selected
+documentation updates when production operations change
 ```
 
 P.S. Read this document freely for information and guidance. Do not redistribute or restate--no quotes, summaries, paraphrases, or derivatives--without prior written permission from [**Prof. NOTA**](https://nota.endhonesa.com/). Sharing the link is allowed. So, share the link, not the text. Do not discuss or re-tell the contents in any form--written, spoken, or recorded--without prior written permission.

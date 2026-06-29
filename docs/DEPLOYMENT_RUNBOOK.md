@@ -56,11 +56,14 @@ Do not “fix forward” on mainnet. Stop, inspect, and diagnose.
 
 Do not treat the approval gate document as approval by itself.
 
-Mainnet deployment commands were approved only for Base Mainnet + Ethereum Mainnet contract deployment and have been completed. Later production env wiring and mint opening were completed separately. Reward claim launch and metadata lock remain not approved.
+Mainnet deployment commands were approved only for Base Mainnet + Ethereum
+Mainnet contract deployment and have been completed. Later production env
+wiring, mint opening, reward operations, and reward claim launch were completed
+separately.
 
-Later production steps switched Vercel Production to mainnet and opened the public mint/staking surface. The current production status is recorded in `docs/qa/MAINNET_PUBLIC_SURFACE_AND_MINT_OPENING_QA_V1.md`.
-
-Do not launch mainnet reward claim until controlled mainnet user claim verification is documented and reward claim launch is explicitly approved.
+Later production steps switched Vercel Production to mainnet and opened the
+public mint/staking/reward surface. The current production status is recorded
+in `docs/PROJECT_FINAL_STATUS_AND_MAINTENANCE_V1.md`.
 
 Metadata strategy is approved as Option A for contract deployment planning only and tracked in:
 
@@ -294,11 +297,11 @@ Approval-sensitive caveats:
 
 ```text
 metadata strategy is approved as Option A
-pending revealed URI placeholders may be deployed for the approved contract deployment scope
+placeholder revealed URI strategy was approved for the contract deployment scope
 metadata must remain unlocked until final metadata is approved
 final metadata update/reveal/lock remains a later approval
 mainnet reward data-plane foundation was completed after deployment
-mainnet reward claim launch still requires controlled user claim verification and explicit approval
+mainnet reward claim is live and operational
 ```
 
 Canonical approval gate:
@@ -412,13 +415,13 @@ run production-domain browser QA
 run admin mainnet operations QA
 ```
 
-Still pending separate approval:
+Completed later through separate operational gates:
 
 ```text
 reward claim launch
-controlled user claim verification on mainnet, if not already evidenced
-post-claim verification and later RewardDistributor event reconciliation
-final metadata update/reveal/lock
+controlled user claim verification on mainnet
+post-claim verification and RewardDistributor reconciliation SOP
+project final public/operational status
 ```
 
 Mainnet reward data-plane foundation and first reward round preparation are now
@@ -490,7 +493,7 @@ ROTY public mint: ON
 staking dashboard: live
 Melting gated mint: ON
 Amanda gated mint: ON
-reward claim: deferred until controlled user claim verification and explicit launch approval
+reward claim: live and operational
 ```
 
 ---
@@ -528,14 +531,13 @@ Do not submit Tapal Batas solely for tx hash reconciliation.
 Event-only catch-up is optional and not the default operator path.
 ```
 
-Remaining:
+Current maintenance:
 
 ```text
-controlled user claim verification on mainnet, if not already evidenced
-public reward claim enablement approval
-post-claim verification
-later RewardDistributor event reconciliation
-next reward distribution cycle using a new Tapal Batas
+run future reward distributions only when the operator chooses a new Tapal Batas
+let RewardDistributor events reconcile through normal worker/indexer operation
+keep documentation and dependencies maintained
+review any sensitive owner-only operation before execution
 ```
 
 ---

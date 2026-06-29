@@ -50,6 +50,19 @@ The connected Web3 wallet address is the user identity.
 
 ## Current Status
 
+Current canonical status:
+
+```text
+PROJECT STATUS: COMPLETE / PUBLIC / OPERATIONAL
+MAINNET PUBLIC SURFACE: LIVE
+MINTING: LIVE
+SOFT STAKING: LIVE
+REWARD ROUND OPERATIONS: LIVE
+REWARD CLAIM: LIVE
+ADMIN OPERATIONS: LIVE
+MAINTENANCE MODE: EVERGREEN
+```
+
 ### Completed
 
 - Smart contract suite implemented.
@@ -104,6 +117,9 @@ The connected Web3 wallet address is the user identity.
 - First mainnet boundary reward job succeeded for Base Mainnet and Ethereum Mainnet.
 - First mainnet calculated reward rounds generated for Base Mainnet and Ethereum Mainnet.
 - First Base and Ethereum mainnet reward rounds created, approved, and funded on-chain.
+- Mainnet reward claim is live and operational.
+- Project final public status is documented.
+- Repository is in evergreen maintenance mode.
 
 ### Locked Decisions
 
@@ -125,6 +141,7 @@ The connected Web3 wallet address is the user identity.
 
 ### Current Canonical Docs
 
+- `docs/PROJECT_FINAL_STATUS_AND_MAINTENANCE_V1.md` — canonical current public status and maintenance mode.
 - `docs/qa/FULL_TESTNET_E2E_QA_V1.md` — canonical QA pass report.
 - `docs/qa/TESTNET_RELEASE_CANDIDATE_LOCK_V1.md` — Testnet Release Candidate lock report.
 - `docs/mainnet/MAINNET_DEPLOYMENT_APPROVAL_GATE_V1.md` — historical mainnet approval gate.
@@ -136,15 +153,15 @@ The connected Web3 wallet address is the user identity.
 - `docs/qa/TESTNET_ROUTE_DOMAIN_MAPPING.md` — canonical route/domain mapping reference.
 - `docs/qa/PRODUCTION_SUBDOMAIN_MAPPING_SEPOLIA_REHEARSAL.md` — domain QA pass record.
 
-### Pending / Next
+### Maintenance / Evergreen
 
-- Controlled user reward claim verification on mainnet, if not already evidenced in repo/docs.
-- Mainnet reward claim launch approval.
-- Post-claim verification and later RewardDistributor event reconciliation.
-- Next reward distribution cycle using a new Tapal Batas.
-- Optional operator-friendly RewardDistributor event catch-up workflow.
-- Final UI/UX polish pass.
-- Mainnet public reward claim remains disabled/not launched unless separately approved.
+- Keep dependencies updated.
+- Replace deprecated tooling when needed.
+- Keep lint, build, compile, and test commands healthy.
+- Keep production env and secrets maintained safely.
+- Run reward/indexer worker jobs only when operationally intended.
+- Keep documentation synchronized when production operations change.
+- Maintain Lore content as narrative site content.
 
 ---
 
@@ -376,11 +393,11 @@ generated reward output
 generated whitelist output
 ```
 
-Mainnet deployment is not public launch.
+Historical approval gates are preserved in `docs/`, but the current canonical status is `docs/PROJECT_FINAL_STATUS_AND_MAINTENANCE_V1.md`.
 
-Mint opening must be a separate intentional decision.
+Mainnet public surface, minting, staking, reward operations, reward claim, and admin operations are live and operational.
 
-Reward claim must remain disabled until reward proof data is available and tested.
+Future changes should be treated as maintenance, dependency upkeep, content updates, or explicitly approved new project phases.
 
 ---
 

@@ -1,5 +1,12 @@
 # OiOi Melting Dashboard — Origin Conversation Context v1
 
+> Current status note (2026-06-29): this is a historical origin-context
+> record. The current canonical project status is
+> `docs/PROJECT_FINAL_STATUS_AND_MAINTENANCE_V1.md`: complete, public,
+> operational, and in evergreen maintenance mode. Any older "pending",
+> "remaining", "not approved", or "deferred" wording below describes the state
+> at the time this context was written.
+
 Date: 2026-06-29
 Project: OiOi Melting Dashboard
 Context Type: Reconstructed Conversation Context
@@ -731,7 +738,7 @@ The remaining list should only include what is truly remaining.
 
 ---
 
-## 24. True Remaining Items After Mainnet Reward Data Plane
+## 24. Historical Remaining Items After Mainnet Reward Data Plane
 
 After the mainnet reward data-plane and first reward round preparation, the true remaining items were narrowed to:
 
@@ -745,10 +752,10 @@ After the mainnet reward data-plane and first reward round preparation, the true
 7. Metadata lock approval.
 ```
 
-Non-blocking evidence TODO:
+Non-blocking missing evidence note:
 
 ```text
-Missing Base approve/fund tx hashes and Ethereum create/approve/fund tx hashes may remain TODO unless reviewed evidence is available.
+Missing Base approve/fund tx hashes and Ethereum create/approve/fund tx hashes may remain unrecorded unless reviewed evidence is available.
 ```
 
 This should not be treated as a main blocker.

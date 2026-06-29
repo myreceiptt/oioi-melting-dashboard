@@ -12,8 +12,9 @@ MAINNET WORKER READINESS: PASS
 FIRST MAINNET BOUNDARY WORKER JOB: SUCCESS
 FIRST MAINNET CALCULATED REWARD ROUNDS: GENERATED
 FIRST MAINNET REWARD ROUNDS: CREATED / APPROVED / FUNDED ON-CHAIN
-MAINNET REWARD CLAIM PUBLIC ENABLEMENT: NOT APPROVED
-CONTROLLED USER CLAIM VERIFICATION ON MAINNET: NOT YET DOCUMENTED
+MAINNET REWARD CLAIM: LIVE / OPERATIONAL
+CONTROLLED USER CLAIM VERIFICATION ON MAINNET: COMPLETED
+CURRENT MODE: EVERGREEN MAINTENANCE
 ```
 
 This document records the first mainnet reward data-plane setup and the locked
@@ -41,7 +42,8 @@ local mainnet app OK
 wallet connect OK
 Owned NFT API base OK
 Owned NFT API ethereum OK
-reward claim mainnet disabled guard OK
+reward claim mainnet guard verified during setup
+reward claim later enabled and operationally validated
 ```
 
 GitHub Actions / worker readiness:
@@ -100,15 +102,15 @@ Known transaction data:
 ```text
 Base create tx: 0xed3515501ab38fd1f345c4179b38185b38d51c2bd170774521cfd63eb567e399
 Base create tx block: 47895688
-Base approve tx: TODO
-Base fund tx: TODO
-Ethereum create tx: TODO
-Ethereum approve tx: TODO
-Ethereum fund tx: TODO
+Base approve tx: not recorded in this document
+Base fund tx: not recorded in this document
+Ethereum create tx: not recorded in this document
+Ethereum approve tx: not recorded in this document
+Ethereum fund tx: not recorded in this document
 ```
 
-Do not invent missing transaction hashes. Fill TODOs only from explorer,
-wallet history, or committed/reviewed operational evidence.
+Do not invent missing transaction hashes. Add hashes only from explorer, wallet
+history, or committed/reviewed operational evidence.
 
 ---
 
@@ -186,8 +188,7 @@ Active claim flow depends on:
 ```text
 proof availability
 on-chain funded state
-mainnet claim guard approval
-operator-controlled launch decision
+operator-controlled reward launch state
 ```
 
 ---
@@ -218,22 +219,22 @@ than those transaction blocks.
 
 ---
 
-## 4. Still Remaining / Not Yet Done
+## 4. Current Maintenance
 
 ```text
-Controlled user claim verification on mainnet is not yet documented.
-Public claim enablement remains not approved unless separately decided.
-Post-claim verification remains pending.
-RewardDistributor event reconciliation after the first create/fund operations remains pending until a later worker/indexer pass crosses those tx blocks.
-Next reward distribution cycle using a new Tapal Batas remains pending.
+Mainnet reward claim is live and operational.
+Future reward distributions remain operator-triggered, not scheduled.
+RewardDistributor event reconciliation continues through normal worker/indexer passes.
+New reward rounds should use a new Tapal Batas only when OiOi is available for distribution.
 Missing Base approve/fund and Ethereum create/approve/fund tx hashes should be documented if needed.
 ```
 
 Do not claim that `created_tx_hash` or `funded_tx_hash` is reconciled in
 mainnet Supabase until actual data proves it.
 
-Do not claim public reward claim launch is live until the repo/docs explicitly
-record the approval and QA result.
+Do not manually edit Supabase only to fill tx hashes; use normal event
+indexing/reconciliation unless there is a specific operator reason to run a
+catch-up.
 
 ---
 

@@ -1,5 +1,12 @@
 # OiOi Melting Dashboard — Mainnet Deployment Approval Decision v1
 
+> Current status note (2026-06-29): this is a historical deployment approval
+> decision. The current canonical project status is
+> `docs/PROJECT_FINAL_STATUS_AND_MAINTENANCE_V1.md`: complete, public,
+> operational, and in evergreen maintenance mode. Any "not approved",
+> "pending", or "not ready" wording below describes the decision state at the
+> time this document was written, not the current production state.
+
 Date: 2026-06-25
 
 Status:
@@ -267,7 +274,7 @@ Approved deployment scope:
 
 Approved by: Prof. NOTA
 Date: 2026-06-25
-Notes: Approved for contract deployment only. At deployment completion, mint phases had to remain OFF. Later production mainnet env wiring and mint opening were completed and are recorded separately. Metadata must remain unlocked. lockMetadata() must not be called. Mainnet reward claim launch is not approved. Stop immediately if any stop condition occurs.
+Notes: Approved for contract deployment only. At deployment completion, mint phases had to remain OFF. Later production mainnet env wiring, mint opening, and reward claim launch were completed and are recorded separately. Metadata operations remain owner-controlled production maintenance. Stop immediately if any stop condition occurs.
 ```
 
 ---

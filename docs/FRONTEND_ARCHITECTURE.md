@@ -131,12 +131,14 @@ copyright footer modal
 Current polish state:
 
 ```text
-UI/layout/footer/navbar implemented for current Sepolia rehearsal.
+UI/layout/footer/navbar implemented.
 Subdomain Surface Behavior v1 done.
 Full Testnet Browser QA v1 done/pass.
 Full Testnet Mutation QA v1 done/pass.
 Full Testnet E2E QA v1 done/pass.
-Next major task is Testnet Release Candidate preparation / RC lock.
+Mainnet public surface live.
+Minting, staking, reward claim, and admin surfaces live.
+Current mode is evergreen maintenance.
 ```
 
 ---

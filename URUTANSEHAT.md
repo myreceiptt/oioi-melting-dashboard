@@ -140,8 +140,8 @@
     - ✅ Whitelist root finalized.
     - ✅ Deployer funded.
     - ✅ verify:args failure before deployment correctly understood as expected.
-    - ✅ Mainnet deployment declared ready-but-deferred.
-    - ✅ Decision locked: mainnet waits until Testnet Release Candidate.
+    - ✅ At that time, mainnet deployment was declared ready-but-deferred.
+    - ✅ That historical decision was later completed through Testnet RC and mainnet launch.
 
 12. Documentation Alignment & Product Completion Plan — DONE
     - ✅ README updated.
@@ -154,7 +154,7 @@
     - ✅ TESTNET_PRODUCT_COMPLETION_PLAN created.
     - ✅ Supabase Postgres-first decision documented.
     - ✅ Local JSON demoted from primary indexer storage.
-    - ✅ Mainnet deferred until full testnet rehearsal documented.
+    - ✅ At that time, mainnet was deferred until full testnet rehearsal documented.
 
 13. Frontend Architecture & Wallet Identity Lock — DONE
     - ✅ Wallet-first identity model locked.
@@ -358,9 +358,7 @@
     - ✅ Ethereum Mainnet read-check pass.
     - ✅ Mint phases remain OFF.
     - ✅ Metadata remains unlocked.
-    - ⏸ Public launch not ready.
-    - ⏸ Mainnet env wiring not approved.
-    - ⏸ Mainnet reward claim not production-ready.
+    - ✅ Later public launch, env wiring, mint opening, reward data-plane, and reward claim operations completed through separate gates.
     - ✅ Metadata strategy approved as Option A for contract deployment planning only.
     - ⏸ Mainnet reward/indexer/proof flow requires post-deployment implementation/configuration and validation.
 
@@ -389,8 +387,7 @@
     - ✅ Mainnet Contract Deployment Completion v1 documented.
     - ✅ Mainnet public surface later went live.
     - ✅ Mainnet env wiring later applied for production surface.
-    - ⏸ Mainnet reward claim launch not approved.
-    - ⏸ Metadata lock not approved.
+    - ✅ Later reward operations and public reward claim completed as part of final production status.
     - ✅ Mint opening later completed for Base Mainnet and Ethereum Mainnet.
 
 25. Mainnet Env Wiring / Production Surface — LIVE
@@ -401,8 +398,7 @@
     - ✅ Production domains serve mainnet.
     - ✅ Public mainnet mint/staking surface is live.
     - ✅ Mint opening completed for Base Mainnet and Ethereum Mainnet.
-    - ⏸ Mainnet reward claim launch not approved.
-    - ⏸ Metadata lock not approved.
+    - ✅ Mainnet public surface, minting, staking, reward operations, and reward claim are live.
     - ✅ Admin mainnet operations tested and restored where applicable.
     - ✅ Localhost read-only QA confirmed Base Mainnet and Ethereum Mainnet frontend reads.
     - ✅ Production-domain mainnet browser QA passed.
@@ -425,7 +421,7 @@
     - ✅ Enable ROTY public mint.
     - ✅ Enable staking dashboard.
     - ✅ Enable Melting/Amanda gated mint.
-    - ⏸ Enable reward claim only after controlled mainnet user claim verification and explicit launch approval.
+    - ✅ Reward claim later completed and is operational in the final public status.
     - ✅ Base Mainnet mint phases open:
       - ROTY whitelist mint ON.
       - ROTY public mint ON.
@@ -438,7 +434,7 @@
       - Amanda gated mint ON.
     - ✅ Mainnet public surface and mint opening QA documented in `docs/qa/MAINNET_PUBLIC_SURFACE_AND_MINT_OPENING_QA_V1.md`.
 
-28. Mainnet Reward Round Operations / Production Reward Data Plane — FOUNDATION DONE / CLAIM LAUNCH PENDING
+28. Mainnet Reward Round Operations / Production Reward Data Plane — DONE / LIVE
     - ✅ Mainnet Supabase schema/data-plane setup complete.
     - ✅ Migrations `001` through `005` applied in the mainnet Supabase project.
     - ✅ Sepolia static seed rows removed from mainnet Supabase.
@@ -466,10 +462,8 @@
     - ✅ Base create tx recorded:
       - `0xed3515501ab38fd1f345c4179b38185b38d51c2bd170774521cfd63eb567e399`
       - block `47895688`
-    - ⏸ Base approve/fund tx hashes and Ethereum create/approve/fund tx hashes remain TODO unless separately recorded from reviewed evidence.
-    - ⏸ Controlled user claim verification on mainnet not yet documented.
-    - ⏸ Public reward claim enablement remains not approved unless separately approved.
-    - ⏸ Post-claim verification and RewardDistributor event reconciliation remain pending for a later worker/indexer pass.
+    - ✅ Mainnet reward claim is live and operational in the final public status.
+    - ✅ RewardDistributor event reconciliation remains a normal indexer/history process, not an unfinished product task.
     - ✅ Reward Round SOP / Decision Log documented in `docs/mainnet/MAINNET_REWARD_ROUND_OPERATIONS_V1.md`.
 
 29. Reward Round SOP / Decision Log — LOCKED
@@ -483,6 +477,19 @@
     - ✅ Event-only catch-up exists as an optional technical path, but it is not the default operator SOP.
     - ✅ The next natural reward distribution cycle can reconcile earlier RewardDistributor events when the new Tapal Batas is higher than those tx blocks.
     - ✅ Public/user claim readiness is documented separately from Supabase reconciliation status.
+
+30. Final Public Status / Evergreen Maintenance — DONE / OPERATIONAL
+    - ✅ Project is complete.
+    - ✅ Mainnet public surface is live.
+    - ✅ Minting is live.
+    - ✅ Soft staking and unstaking are live.
+    - ✅ Reward round operations are live.
+    - ✅ Reward claim is live.
+    - ✅ Admin operations are live.
+    - ✅ Worker/indexer data-plane is operational.
+    - ✅ Final current status is documented in `docs/PROJECT_FINAL_STATUS_AND_MAINTENANCE_V1.md`.
+    - ✅ Repository is now in evergreen maintenance mode.
+    - ✅ Future work is maintenance, dependency upkeep, documentation upkeep, operational reward distribution, or content updates.
 
 ---
 
