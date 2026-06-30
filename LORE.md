@@ -242,7 +242,7 @@
 
 ---
 
-#### The Melting Archipelago
+#### [The Melting Archipelago](https://docs.endhonesa.com/02-the-creations.../waivfves-1/37.-woman-of-russian/37.1.-absart-idsa-archipelago "NFT Collection: ABSART IDSA Archipelago on Tezos Blockchain - Archived")
 
 > [**Cap'n ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") Log...
 >
@@ -261,7 +261,7 @@
 >
 > [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"), who we saved this time, couldn't keep quiet, she was always shouting and saying, "_Who is your leader? Who is in charge of this ark? I want to meet and talk to your leader. I have to talk to your leader alone._" Until finally I allowed her to talk to me.
 >
-> Turns out she brought me a bundle of maps, containing only 15 pages of different maps of the island, that she believes originally contained 20 pages of different maps of the island, and it is the maps of the concrete lands of the Earth's surface after [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"). [**ABSART IDSA Archipelago**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/37.-woman-of-russian/37.1.-absart-idsa-archipelago "NFT Collection: ABSART IDSA Archipelago on Tezos Blockchain - Archived") was written on the cover of that bundle of maps but she named that bundle of maps **The Melting Archipelago**.
+> Turns out she brought me a bundle of maps, containing only 15 pages of different maps of the island, that she believes originally contained 20 pages of different maps of the island, and it is the maps of the concrete lands of the Earth's surface after [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"). [**ABSART IDSA Archipelago**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/37.-woman-of-russian/37.1.-absart-idsa-archipelago "NFT Collection: ABSART IDSA Archipelago on Tezos Blockchain - Archived") was written on the cover of that bundle of maps but she named that bundle of maps [**The Melting Archipelago**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/37.-woman-of-russian/37.1.-absart-idsa-archipelago "NFT Collection: ABSART IDSA Archipelago on Tezos Blockchain - Archived").
 >
 > She told me the details on each map and showed me some notes, one of it notes said that the first map was created on January 31, 2022, and the last map was created on June 21, 2022 (on June 22, 2022, **B.M.**), but the last five maps are gone. The date of the last map is another fringe in theory for me.
 >
@@ -271,11 +271,226 @@
 
 #### The Melting BOMB
 
-> init...
+> [**Cap'n ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") Log...
 >
-> [**(36) Drop NFT Not BOMB™**](/02-the-creations.../waivfves-1/36.-d.nft.n.bomb-tm.md)
+> Melting Date: February 24, 2022
 >
-> **...**
+> Message:
+> Hi, I'm the new [**Cap'n ROTY BROI (ID 996)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")...
+>
+> I was chosen by vote after [**Cap'n ROTY BROI (ID 547)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") admitted that what we are facing now is no longer only a natural disaster.
+>
+> The Melting Land is already enough to make all living beings lose their footing. There is no more land to stand on. There is no more sea that behaves like sea. There is no more clear border between land and water. Everything is melting, sinking, shaking, and swallowing what was once called civilization.
+>
+> States have collapsed. Governments have disappeared from the surface. The old international authorities are silent, broken, unreachable, or maybe already drowned. The names of countries still exist in our memories, but their hands can no longer reach those who are floating on debris, boats, balloons, broken roofs, survival ships, and whatever can still carry life above [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active").
+>
+> But today, we heard something that should never have happened in the middle of this disaster.
+>
+> A very loud explosion.
+>
+> A BOMB.
+>
+> At first, all passengers of [**The ROTY BROI Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") thought that another piece of the old world had collapsed into the Melting waves. But the sound did not come from the land. There was no land left to collapse.
+>
+> The sound came from war.
+>
+> One of the [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") was standing near the edge of [**The ROTY BROI Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") when the explosion happened.
+>
+> She was not the [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") who brought the maps. Or maybe she was. I could no longer be certain, because every [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") had the same face, the same name, and yet each of them carried a different way of surviving.
+>
+> This [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") wore something that looked like a torn communication officer uniform. She did not scream when the explosion shook the air. She only closed her eyes, listened to the echo, and said:
+>
+> "_That was not the land collapsing._"
+>
+> Another [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"), the one who kept holding the bundle of maps, answered from behind her:
+>
+> "_No. That was sent._"
+>
+> No one asked how she knew.
+>
+> Or maybe everyone wanted to ask, but no one had enough courage to hear the answer.
+>
+> For me, it was another fringe in theory.
+>
+> The land was melting. Time was already broken. The same woman kept appearing from the waves with the same name. And now, before any of us could understand the maps, war had found us in the middle of nowhere.
+>
+> Far across the moving surface of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), a highly advanced ark built by Russia fired a bomb toward another ark that was later known as an ark of Ukraine.
+>
+> I repeat this because my anger still needs a shape:
+>
+> In the middle of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), when every living being is already struggling not to sink, someone still chose to drop a bomb.
+>
+> This is another fringe in theory.
+>
+> When the world was whole, they said war happened because people fought over land. Now there is no land, and war still found a way to float.
+>
+> [**Cap'n ROTY BROI (ID 547)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") gathered us and spoke honestly. He said he could lead in emergency. He could defend. He could think through panic. He could continue the journey to find [**The Melting Archipelago**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/37.-woman-of-russian/37.1.-absart-idsa-archipelago "NFT Collection: ABSART IDSA Archipelago on Tezos Blockchain - Archived"). But he was not prepared to lead us through a war born inside a disaster.
+>
+> He was a fighter, not a war strategist.
+>
+> He was a captain for survival, not for geopolitical madness.
+>
+> During the long discussion, the [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") did not speak as one voice.
+>
+> That made me more afraid.
+>
+> Until that day, their mystery had always been in their sameness. Same name. Same body. Same face. Same sudden appearance among the waves of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active").
+>
+> But when the bomb fell, their differences became clearer.
+>
+> One [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said we must continue toward [**The Melting Archipelago**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/37.-woman-of-russian/37.1.-absart-idsa-archipelago "NFT Collection: ABSART IDSA Archipelago on Tezos Blockchain - Archived") no matter what happened.
+>
+> Another [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said no ark would ever reach any archipelago if it ignored the bombs falling between the waves.
+>
+> Another [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said nothing. She only took a piece of charcoal and wrote three words on broken wood:
+>
+> [**DROP NFT NOT BOMB**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/36.-d.nft.n.bomb-tm "NFT Collection: Drop NFT Not BOMB™ on Tezos Blockchain - Archived")
+>
+> When [**Cap'n ROTY BROI (ID 547)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") admitted that he was not the right person to lead us through a war inside a disaster, the [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") did not argue.
+>
+> They only looked at each other.
+>
+> Then, one by one, they voted.
+>
+> I still do not know whether they voted as different people, or as one mystery scattered into many bodies.
+>
+> But their votes were counted like everyone else's.
+>
+> That is how I became [**Cap'n ROTY BROI (ID 996)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived").
+>
+> So we voted again.
+>
+> I was chosen.
+>
+> I did not ask for this anger, but I will not throw it away. Anger is dangerous when it becomes a bomb. But anger can become a message when it is tied to a sail.
+>
+> That is what we did.
+>
+> We took down the old sailcloth of [**The ROTY BROI Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") and covered the ark with a larger sailcloth carrying one message:
+>
+> [**DROP NFT NOT BOMB**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/36.-d.nft.n.bomb-tm "NFT Collection: Drop NFT Not BOMB™ on Tezos Blockchain - Archived")
+>
+> We chose that message because all 1047 men onboard are here because of invitations. They minted the invitations. They held them in their wallets. Those invitations allowed them to become passengers of this ark.
+>
+> An NFT did not kill them.
+>
+> An NFT did not sink them.
+>
+> An NFT did not destroy an ark.
+>
+> An NFT became an invitation, a sign, a memory, a ticket, a proof that someone could still be saved.
+>
+> So if anything must be dropped into this broken world, drop invitations. Drop messages. Drop artworks. Drop maps. Drop food. Drop help. Drop anything that may save one more life.
+>
+> [**Drop NFT, not BOMB.**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/36.-d.nft.n.bomb-tm "NFT Collection: Drop NFT Not BOMB™ on Tezos Blockchain - Archived")
+>
+> After we raised the sail, every passenger helped spread the message.
+>
+> Some wrote the message on pieces of cloth and tied them to debris. Some placed notes inside bottles and released them to the waves of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"). Some shouted it to the wind. Some painted it on broken boards. Some tied it to birds that still remembered the sky. Some whispered it to snakes, fish, and other creatures that still survived between the melting waves.
+>
+> We did not know whether the message would reach anyone.
+>
+> But it did.
+>
+> The first reply did not come from a flag.
+>
+> It came through a broken transmission.
+>
+> The voice was unclear at first, swallowed by static, wind, and the sound of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") pushing against everything that still floated.
+>
+> Then we heard it.
+>
+> "_This is [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active")._"
+>
+> Everyone on the ark froze.
+>
+> Because the voice did not come from any [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") onboard.
+>
+> The transmission came from another vessel.
+>
+> Then another message arrived through a bottle. The handwriting looked too familiar.
+>
+> Another reply came from something tied to a bird. The knot was made in the same strange way one of our [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") tied the maps.
+>
+> I asked the [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") onboard whether they knew the [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") from the other vessel.
+>
+> They answered differently.
+>
+> One said, "_Not yet._"
+>
+> One said, "_Maybe._"
+>
+> One said, "_She heard the same thing._"
+>
+> I asked what she heard.
+>
+> The [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") with the torn communication officer uniform pointed at the sailcloth and said:
+>
+> "_That._"
+>
+> [**DROP NFT NOT BOMB**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/36.-d.nft.n.bomb-tm "NFT Collection: Drop NFT Not BOMB™ on Tezos Blockchain - Archived")
+>
+> That was when I began to understand that the message was not only traveling from ark to ark.
+>
+> It was also traveling through [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active").
+>
+> Around ten arks, ships, balloons, and other survival vessels answered us.
+>
+> They were not the same as us. Some carried artists. Some carried collectors. Some carried families. Some carried people who had never met each other before the disaster. Some carried those who had only one thing in common: they did not want the end of the world to become an excuse for more killing.
+>
+> We exchanged messages in every possible way.
+>
+> We agreed to move closer.
+>
+> We agreed to gather.
+>
+> We agreed to build something larger than each of us.
+>
+> But not all of them arrived.
+>
+> With [**The ROTY BROI Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), eleven vessels tried to converge. Only seven became one. Six of them reached us. Four were destroyed on the way, shattered by bombs and swallowed by [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active").
+>
+> We mourned them.
+>
+> Then we joined what remained.
+>
+> Seven vessels became one greater ark.
+>
+> We still call it:
+>
+> [**The ROTY BROI Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
+>
+> Not because the others disappeared into our name, but because every ark that joined us carried the same message into the same survival body.
+>
+> The message became louder.
+>
+> The sail became wider.
+>
+> The ark became stronger.
+>
+> The passengers became more than passengers. They became messengers.
+>
+> Across [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), people began to understand that rescue must become greater than revenge. Help must travel farther than hatred. A message must be dropped before a bomb is dropped.
+>
+> War may still happen.
+>
+> Bombs may still fall.
+>
+> We are not naive.
+>
+> We are particles that can be scattered, broken, and carried away by the waves. But if we keep calling each other, if we keep voting, if we keep sending messages, if we keep building arks instead of destroying them, then we can return to our true form:
+>
+> **living beings defending life.**
+>
+> To all my successors, and to all who read this log:
+>
+> If you must drop something, drop what can save.
+>
+> [**Drop NFT, not BOMB.**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/36.-d.nft.n.bomb-tm "NFT Collection: Drop NFT Not BOMB™ on Tezos Blockchain - Archived")
+>
+> [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived"), anytime you hear us yelling:
+>
+> [**OiOi!!!!**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived")
 
 ---
 
