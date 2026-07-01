@@ -677,7 +677,7 @@
 >
 > In the margin of one record, someone had written:
 >
-> `**Jajang-STD**`
+> **`Jajang-STD`**
 >
 > No one admitted writing it.
 >
