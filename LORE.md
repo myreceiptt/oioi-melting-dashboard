@@ -523,7 +523,7 @@
 >
 > Then another one leaped from the remains of a roof to a drifting door.
 >
-> Then one landed on the outer side of [**The ROTY BROI's Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), shook the melting water from its feet, looked at us, and jumped away again as if the disaster was only a game it had not yet lost.
+> Then one landed on the outer side of [**The ROTY BROI's Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), shook some mud from its feet, looked at us, and jumped away again as if the disaster was only a game it had not yet lost.
 >
 > I wanted to say, "Rabbit."
 >
@@ -747,7 +747,7 @@
 >
 > Maybe fortune is not something [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") gives.
 >
-> Maybe fortune is something we is become capable of receiving after we choose to keep paying attention.
+> Maybe fortune is something we become capable of receiving after we choose to keep paying attention.
 >
 > [**Luffy The Rabbit**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived")
 
