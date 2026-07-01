@@ -275,12 +275,12 @@
 >
 > Melting Date: February 24, 2022
 >
-> Message:
+> Message:  
 > Hi, I'm the new [**Cap'n ROTY BROI (ID 996)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")...
 >
 > I was chosen by vote after [**Cap'n ROTY BROI (ID 547)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") admitted that what we are facing now is no longer only a natural disaster.
 >
-> The Melting Land is already enough to make all living beings lose their footing. There is no more land to stand on. There is no more sea that behaves like sea. There is no more clear border between land and water. Everything is melting, sinking, shaking, and swallowing what was once called civilization.
+> [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") is already enough to make all living beings lose their footing. There is no more land to stand on. There is no more sea that behaves like sea. There is no more clear border between land and water. Everything is melting, sinking, shaking, and swallowing what was once called civilization.
 >
 > States have collapsed. Governments have disappeared from the surface. The old international authorities are silent, broken, unreachable, or maybe already drowned. The names of countries still exist in our memories, but their hands can no longer reach those who are floating on debris, boats, balloons, broken roofs, survival ships, and whatever can still carry life above [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active").
 >
@@ -290,11 +290,11 @@
 >
 > A BOMB.
 >
-> At first, all passengers of [**The ROTY BROI Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") thought that another piece of the old world had collapsed into the Melting waves. But the sound did not come from the land. There was no land left to collapse.
+> At first, all passengers of [**The ROTY BROI's Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") thought that another piece of the old world had collapsed into the waves of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"). But the sound did not come from the land. There was no land left to collapse.
 >
 > The sound came from war.
 >
-> One of the [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") was standing near the edge of [**The ROTY BROI Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") when the explosion happened.
+> One of the [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") was standing near the edge of [**The ROTY BROI's Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") when the explosion happened.
 >
 > She was not the [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") who brought the maps. Or maybe she was. I could no longer be certain, because every [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") had the same face, the same name, and yet each of them carried a different way of surviving.
 >
@@ -366,7 +366,7 @@
 >
 > That is what we did.
 >
-> We took down the old sailcloth of [**The ROTY BROI Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") and covered the ark with a larger sailcloth carrying one message:
+> We took down the old sailcloth of [**The ROTY BROI's Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") and covered the ark with a larger sailcloth carrying one message:
 >
 > [**DROP NFT NOT BOMB**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/36.-d.nft.n.bomb-tm "NFT Collection: Drop NFT Not BOMB™ on Tezos Blockchain - Archived")
 >
@@ -448,7 +448,7 @@
 >
 > But not all of them arrived.
 >
-> With [**The ROTY BROI Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), eleven vessels tried to converge. Only seven became one. Six of them reached us. Four were destroyed on the way, shattered by bombs and swallowed by [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active").
+> With [**The ROTY BROI's Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), eleven vessels tried to converge. Only seven became one. Six of them reached us. Four were destroyed on the way, shattered by bombs and swallowed by [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active").
 >
 > We mourned them.
 >
@@ -458,7 +458,7 @@
 >
 > We still call it:
 >
-> [**The ROTY BROI Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
+> [**The ROTY BROI's Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
 >
 > Not because the others disappeared into our name, but because every ark that joined us carried the same message into the same survival body.
 >
