@@ -370,7 +370,7 @@
 >
 > [**DROP NFT NOT BOMB**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/36.-d.nft.n.bomb-tm "NFT Collection: Drop NFT Not BOMB™ on Tezos Blockchain - Archived")
 >
-> We chose that message because all 1047 men onboard are here because of invitations. They minted the invitations. They held them in their wallets. Those invitations allowed them to become passengers of this ark.
+> We chose that message because all 1047 men onboard are here through NFT-verified invitations. They minted the invitations. They held them in their wallets. Those invitations allowed them to become passengers of this ark.
 >
 > An NFT did not kill them.
 >
