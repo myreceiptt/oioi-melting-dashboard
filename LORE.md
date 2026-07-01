@@ -358,10 +358,6 @@
 >
 > That is how I became [**Cap'n ROTY BROI (ID 996)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived").
 >
-> So we voted again.
->
-> I was chosen.
->
 > I did not ask for this anger, but I will not throw it away. Anger is dangerous when it becomes a bomb. But anger can become a message when it is tied to a sail.
 >
 > That is what we did.
@@ -496,11 +492,264 @@
 
 #### The Melting Rabbit
 
-> init...
+> [**Cap'n ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") Log...
 >
-> [**(33) Luffy The Rabbit**](/02-the-creations.../waivfves-1/33.-luffy-the-rabbit.md)
+> Melting Date: May 31, 2022
 >
-> **...**
+> Message:  
+> Hi, I'm [**Cap'n ROTY BROI (ID 996)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")...
+>
+> I write this log on May 31, 2022, not because I am certain this happened today.
+>
+> I write May 31 because everyone remembers that it happened in May, but no one agrees on the date. Some said it was May 13. Some said it was May 15. Some insisted that both dates were true. Some no longer cared, because after [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), a date is no longer always a place where time can stand.
+>
+> So I choose the last day of May.
+>
+> At least this log will not let May disappear.
+>
+> The waves of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") were still roaring. The sound of bombs still came from far away. Sometimes the air still carried the sharp sound of bullets, even when we could no longer see who fired them, who received them, and what kind of land they thought they were fighting for.
+>
+> But the message from our sail kept spreading.
+>
+> [**DROP NFT NOT BOMB**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/36.-d.nft.n.bomb-tm "NFT Collection: Drop NFT Not BOMB™ on Tezos Blockchain - Archived")
+>
+> Some vessels answered it. Some followed it. Some only watched it from far away. Some may have rejected it. But the message had already become part of the wind. Once a message enters the wind, no captain can fully command where it goes.
+>
+> Then the rabbits appeared.
+>
+> At first, I thought I saw a small creature jumping between broken boards.
+>
+> Then another one appeared on a floating tire.
+>
+> Then another one leaped from the remains of a roof to a drifting door.
+>
+> Then one landed on the outer side of [**The ROTY BROI's Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), shook the melting water from its feet, looked at us, and jumped away again as if the disaster was only a game it had not yet lost.
+>
+> I wanted to say, "Rabbit."
+>
+> But no one said rabbit.
+>
+> Everyone pointed and shouted the same name:
+>
+> "_[**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived")!_"
+>
+> "_[**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived")!_"
+>
+> "_There is [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived")!_"
+>
+> "_Look, that is [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived")!_"
+>
+> I do not know who taught them the name.
+>
+> I do not know whether the name came from memory, gossip, fear, hope, or another fringe in theory.
+>
+> But from that moment, I wrote them in this log as:
+>
+> [**Luffy The Rabbit**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived")
+>
+> The strange thing was not only that they survived.
+>
+> The strange thing was that everyone seemed to believe that seeing [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") meant access to something good.
+>
+> Some said [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") brings luck.
+>
+> Some said [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") opens a path.
+>
+> Some said [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") said L is not luck itself, but a key to a future profit.
+>
+> Some said whoever could care for [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") would one day receive something valuable.
+>
+> Some said whoever only tried to catch [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") for greed would receive nothing but bitten fingers and shame.
+>
+> As usual, no one could prove anything.
+>
+> As usual, everyone talked as if the gossip was already a system.
+>
+> I listened to all of them and could only write my own conclusion:
+>
+> Maybe [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") is a prayer that learned how to jump.
+>
+> Maybe [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") is hope with ears.
+>
+> Maybe [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") is the shape of our desire to still believe that something good can appear, even when the ground has melted, the sea has lost its name, and war keeps trying to enter the disaster.
+>
+> The [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") did not look surprised.
+>
+> That made me suspicious.
+>
+> They did not run after [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") like many of the passengers did. They did not shout with the same hunger. They did not argue about which [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") was more lucky. They only watched, sometimes smiled, sometimes ignored them, sometimes looked as if they had already seen all of this before.
+>
+> One passenger shouted from the side of the ark:
+>
+> "_There is [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") jumping onto the pile of used tires!_"
+>
+> One [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") answered without turning her head:
+>
+> "_That is the [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") that has been trying to climb this ark since yesterday._"
+>
+> Everyone became silent for a few seconds.
+>
+> Then everyone started talking again, because silence never lasts long on an ark filled with survivors.
+>
+> Another afternoon, near the stern of the ark, while the wind was less cruel and the waves were pretending to be gentle, one [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") suddenly asked:
+>
+> "_Have you seen the [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") biting a carrot and wearing a hot dog hat?_"
+>
+> Everyone who had been exchanging stories about seeing, saving, chasing, catching, feeding, and keeping [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") immediately stopped talking.
+>
+> No one knew whether she was joking.
+>
+> No one knew whether she was warning us.
+>
+> No one knew whether carrot and hot dog should exist together in any reasonable theory.
+>
+> For me, it was another fringe in theory.
+>
+> After that, the passengers began to record every [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") they saw.
+>
+> What was on its head.
+>
+> What was on its body.
+>
+> What it was biting.
+>
+> Whether it jumped toward us or away from us.
+>
+> Whether it stayed on the ark or disappeared into the waves.
+>
+> Whether an [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") recognized it.
+>
+> Whether it had already been seen before.
+>
+> Whether it brought laughter, argument, work, or prayer.
+>
+> Some [**Luffys**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") wore something like hats.
+>
+> Some wore something like shirts.
+>
+> Some looked wrapped in pieces Some looked wrapped of cloth, hoodies, or strange little costumes that should not survive this kind of world.
+>
+> Some bit carrots.
+>
+> Some bit things that were not carrots.
+>
+> Some bit nothing, but still looked as if they were hiding a secret between their teeth.
+>
+> We kept the list.
+>
+> We compared the stories.
+>
+> We removed duplicates.
+>
+> We argued.
+>
+> We voted.
+>
+> We argued again.
+>
+> We asked the [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active").
+>
+> The [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") answered in ways that made the list more accurate and less understandable at the same time.
+>
+> At the end, the number did not grow beyond 47.
+>
+> Only [**47 Luffys**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived").
+>
+> Forty-seven, and each of them felt like one of one.
+>
+> No two [**Luffys**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") were truly the same.
+>
+> Even when two passengers swore they saw the same one, an [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") would sometimes say:
+>
+> "_Same [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived"). Different hunger._"
+>
+> Or:
+>
+> "_Different [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived"). Same jump._"
+>
+> Or:
+>
+> "_Do not count only the ears._"
+>
+> I do not know what those answers mean.
+>
+> I recorded them anyway.
+>
+> In the margin of one record, someone had written:
+>
+> _Jajang-STD_
+>
+> No one admitted writing it.
+>
+> One passenger said it was a name.
+>
+> Another said it was a mark.
+>
+> Another said it was a standard.
+>
+> One [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") looked at it for a long time and said:
+>
+> "_That is how some creatures remember who drew their way out._"
+>
+> Then she refused to explain more.
+>
+> In another piece of wet paper, under the list of [**47 Luffys**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived"), there was a strange note:
+>
+> _25.5 SOL_
+>
+> Again, no one admitted writing it.
+>
+> We did not know whether SOL meant sun, salt, signal, soul, sale, or something from a universe that had not yet introduced itself.
+>
+> But the number kept being repeated in gossip.
+>
+> Some said it was the volume of luck.
+>
+> Some said it was the weight of attention.
+>
+> Some said it was how far the story of [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") had traveled.
+>
+> Some said it was proof that if people kept watching, caring, talking, playing, and believing, even a rabbit could move value across the waves.
+>
+> Until this log is written, I still do not know what kind of luck [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") brings.
+>
+> I do not know the shape of the profit.
+>
+> I do not know whether keeping [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") makes someone rich, safe, healthy, loved, remembered, or simply less hopeless.
+>
+> But perhaps that is the important part.
+>
+> Perhaps the value is not only in value is not only in the luck.
+>
+> Perhaps the value is in the hope that luck may still exist.
+>
+> Because that hope made people pay attention.
+>
+> That hope made them care.
+>
+> That hope made them protect something smaller than themselves.
+>
+> That hope made them count, draw, compare, speak, laugh, argue, vote, learn, work, play, and pray.
+>
+> And in a world where land has melted, governments have collapsed, bombs still fall, and the future is only a rumor carried by waves, anything that can make living beings continue to think, move, care, and grow is already more valuable care, and grow is already than we can fully measure.
+>
+> To all my successors, and to all who read this log:
+>
+> If you see [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived"), do not only chase it.
+>
+> Notice it.
+>
+> Learn how it jumps.
+>
+> Learn what it carries.
+>
+> Learn why everyone calls it by name before anyone calls it a rabbit.
+>
+> Maybe fortune is not something [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") gives.
+>
+> Maybe fortune is something we is become capable of receiving after we choose to keep paying attention.
+>
+> [**Luffy The Rabbit**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived")
 
 ---
 
