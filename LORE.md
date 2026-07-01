@@ -695,7 +695,7 @@
 >
 > In another piece of wet paper, under the list of [**47 Luffys**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived"), there was a strange note:
 >
-> _25.5 SOL_
+> **`25.5 SOL`**
 >
 > Again, no one admitted writing it.
 >
