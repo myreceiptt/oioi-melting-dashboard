@@ -58,7 +58,7 @@
 > Subject: No places to tread on, all we have is sinking.
 >
 > Message:\
-> Panic swept the region of the land. All people from any strata are confused to save themselves. They wear any clothes and carry any things they can get. There is no more land to tread on. Everything has melted. Only [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") on Earth that sinking all civilizations ever built.
+> Panic swept the region of the land. All people from any strata are confused to save themselves. They wear any clothes and carry any things they can get. There is no more land to tread on. Everything has melted. Only [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") on Earth is sinking every civilization ever built.
 >
 > Commenter: [**Cap’n ROTY BROI (ID 530)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
 >
@@ -66,7 +66,7 @@
 >
 > ---
 >
-> [**Cap’n ROTY BROI (ID 530)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") Speech…
+> [**Cap’n ROTY BROI (ID 530)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") Speech...
 >
 > ### [THE MELTING LAND](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active")
 >
@@ -107,7 +107,7 @@
 >
 > I'm [**Cap'n ROTY BROI (ID 530)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"). There are 1047 males onboard in this ark. They are all safe and survive from [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"). I'm one of them and my successor will be chosen by vote after I'm done creating this first log.
 >
-> Now we are sailing the surface of [**The Melting Land**]c on Earth with all survivors who are all male and feel very grateful today. They survive, and they can celebrate **Valentine's Day** which is after the disaster occurred, **Valentine's Day** is still to be celebrated, and that is a sign that our **LOVE** is almost eternal, immutable in any conditions.
+> Now we are sailing the surface of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") on Earth with all survivors who are all male and feel very grateful today. They survive, and they can celebrate **Valentine's Day** which is after the disaster occurred, **Valentine's Day** is still to be celebrated, and that is a sign that our **LOVE** is almost eternal, immutable in any conditions.
 >
 > But there is something fringe in theory. Almost all survivors said that the end of this month is February 29, 2022. They explain that since September 30, 2020, before [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), an additional day added in the leap year started to happen on that date and will happen again on September 30, 2024, or every four years. They explain more, that February always has 29 days, and September has 29 days instead of 30, except in the leap year, September has 30 days.
 >
@@ -221,7 +221,7 @@
 > Subject: Unknown
 >
 > Message:\
-> The United Nations Office for Disaster Risk Reduction has created an announcement that instructs to build a survival ship that works as a kind of ark to make people who can survive able to live there.
+> The United Nations Office for Disaster Risk Reduction has created an announcement that instructs to build a survival ship that works as a kind of ark, so the people who survive can live there.
 >
 > ---
 >
@@ -253,7 +253,7 @@
 >
 > Today is 21 February 2022. For more than one week we have been adrift on the surface of [**Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active")'s waves. There are no signs yet of concrete land for our ark to decide where to be sailed and anchored.
 >
-> We are mostly skeptical from the beginning and feel desperate when we are aware of the condition. Only a few of us remain optimistic and still have faith in this journey. That makes me overwhelmed with various efforts to survive. But I still continue to discuss with all of us to determine how our activities would be, and how existing resources would be managed while we surviving on this ark.
+> We are mostly skeptical from the beginning and feel desperate when we are aware of the condition. Only a few of us remain optimistic and still have faith in this journey. That makes me overwhelmed with various efforts to survive. But I still continue to discuss with all of us to determine how our activities would be, and how existing resources would be managed while we are surviving on this ark.
 >
 > Although many of us are already pessimistic about what I'm doing, all that skepticism, despair, and pessimism were just thrown away every time we encountered lone survivors adrift amidst the waves of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"). Each of them survived on whatever debris they could find.
 >
@@ -263,7 +263,7 @@
 >
 > Turns out she brought me a bundle of maps, containing only 15 pages of different maps of the island, that she believes originally contained 20 pages of different maps of the island, and it is the maps of the concrete lands of the Earth's surface after [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"). [**ABSART IDSA Archipelago**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/37.-woman-of-russian/37.1.-absart-idsa-archipelago "NFT Collection: ABSART IDSA Archipelago on Tezos Blockchain - Archived") was written on the cover of that bundle of maps but she named that bundle of maps [**The Melting Archipelago**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/37.-woman-of-russian/37.1.-absart-idsa-archipelago "NFT Collection: ABSART IDSA Archipelago on Tezos Blockchain - Archived").
 >
-> She told me the details on each map and showed me some notes, one of it notes said that the first map was created on January 31, 2022, and the last map was created on June 21, 2022 (on June 22, 2022, **B.M.**), but the last five maps are gone. The date of the last map is another fringe in theory for me.
+> She told me the details on each map and showed me some notes, one of the notes said that the first map was created on January 31, 2022, and the last map was created on June 21, 2022 (on June 22, 2022, **B.M.**), but the last five maps are gone. The date of the last map is another fringe in theory for me.
 >
 > But, with the belief of [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"), who we saved this time, which somehow all other [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") also shared, we voted and decided to guide this ark sailing through [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") to find that [**Melting Archipelago**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/37.-woman-of-russian/37.1.-absart-idsa-archipelago "NFT Collection: ABSART IDSA Archipelago on Tezos Blockchain - Archived") one by one. And this hard decision brings a very big hope for us all.
 
@@ -275,7 +275,7 @@
 >
 > Melting Date: February 24, 2022
 >
-> Message:  
+> Message:\
 > Hi, I'm the new [**Cap'n ROTY BROI (ID 996)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")...
 >
 > I was chosen by vote after [**Cap'n ROTY BROI (ID 547)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") admitted that what we are facing now is no longer only a natural disaster.
@@ -496,7 +496,7 @@
 >
 > Melting Date: May 31, 2022
 >
-> Message:  
+> Message:\
 > Hi, I'm [**Cap'n ROTY BROI (ID 996)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")...
 >
 > I write this log on May 31, 2022, not because I am certain this happened today.
@@ -759,7 +759,7 @@
 >
 > Source: Unknown
 >
-> Message:
+> Message:\
 > We do not need gold today. We do not need flags. We do not need a throne. We do not need a border.
 >
 > We need food.
@@ -768,7 +768,7 @@
 >
 > Source: Broken radio call
 >
-> Message:
+> Message:\
 > Is anyone out there still eating? Please answer. What do you eat now? What do you cook? What do you feed your children? What do you feed your old people? What do you feed those who cannot chew?
 >
 > Please answer.
@@ -777,7 +777,7 @@
 >
 > Source: Scratched wood found attached to the side of [**The ROTY BROI's Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
 >
-> Message:
+> Message:\
 > Do not look at your friend like food.
 >
 > Not yet.
@@ -788,7 +788,7 @@
 >
 > Source: A bottle note
 >
-> Message:
+> Message:\
 > We saw one of us offer a part of himself to someone he loved.
 >
 > We are not writing this to shame him.
@@ -799,7 +799,7 @@
 >
 > Source: Unknown [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active")
 >
-> Message:
+> Message:\
 > The capsules are almost gone.
 >
 > We need to learn how to make food again before food becomes only a memory.
@@ -810,7 +810,7 @@
 >
 > Melting Date: Unknown, after May 31, 2022
 >
-> Message:
+> Message:\
 > Hi, I'm [**Cap'n ROTY BROI (ID 996)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")...
 >
 > I do not know the exact date of this log.
@@ -1379,7 +1379,7 @@
 
 ### There is The Rich Island…
 
-#### The Farmers of [BANANOW.LAND](/02-the-creations.../waivfves-1/22.-bananow-nfts.md)
+#### The Farmers of [BANANOW LAND](/02-the-creations.../waivfves-1/22.-bananow-nfts.md)
 
 > init...
 >
