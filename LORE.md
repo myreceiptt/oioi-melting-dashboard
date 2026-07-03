@@ -294,123 +294,51 @@
 >
 > The sound came from war.
 >
-> One of the [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") was standing near the edge of [**The ROTY BROI's Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") when the explosion happened.
+> One of the [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") was standing near the edge of [**The ROTY BROI's Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") when the explosion happened. She was not the [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") who brought the maps. Or maybe she was. I could no longer be certain, because every [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") had the same face, the same name, and yet each of them carried a different way of surviving.
 >
-> She was not the [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") who brought the maps. Or maybe she was. I could no longer be certain, because every [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") had the same face, the same name, and yet each of them carried a different way of surviving.
+> This [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") wore something that looked like a torn communication officer uniform. She did not scream when the explosion shook the air. She only closed her eyes, listened to the echo, and said, "_That was not the land collapsing._"
 >
-> This [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") wore something that looked like a torn communication officer uniform. She did not scream when the explosion shook the air. She only closed her eyes, listened to the echo, and said:
+> Another [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"), the one who kept holding the bundle of maps, answered from behind her, "_No. That was sent._"
 >
-> "_That was not the land collapsing._"
+> No one asked how she knew. Or maybe everyone wanted to ask, but no one had enough courage to hear the answer. For me, it was another fringe in theory. The land was melting. Time was already broken. The same woman kept appearing from the waves with the same name.
 >
-> Another [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"), the one who kept holding the bundle of maps, answered from behind her:
+> And now, before any of us could understand the maps, war had found us in the middle of nowhere. Far across the moving surface of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), a highly advanced ark built by Russia fired a bomb toward another ark that was later known as an ark of Ukraine.
 >
-> "_No. That was sent._"
+> I repeat this because my anger still needs a shape. In the middle of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), when every living being is already struggling not to sink, someone still chose to drop a bomb. This is another fringe in theory. When the world was whole, they said war happened because people fought over land. Now there is no land, and war still found a way to float.
 >
-> No one asked how she knew.
+> [**Cap'n ROTY BROI (ID 547)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") gathered us and spoke honestly. He said he could lead in emergency. He could defend. He could think through panic. He could continue the journey to find [**The Melting Archipelago**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/37.-woman-of-russian/37.1.-absart-idsa-archipelago "NFT Collection: ABSART IDSA Archipelago on Tezos Blockchain - Archived"). But he was not prepared to lead us through a war born inside a disaster. He was a fighter, not a war strategist. He was a captain for survival, not for geopolitical madness.
 >
-> Or maybe everyone wanted to ask, but no one had enough courage to hear the answer.
+> During the long discussion, the [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") did not speak as one voice. That made me more afraid. Until that day, their mystery had always been in their sameness. Same name. Same body. Same face. Same sudden appearance among the waves of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active").
 >
-> For me, it was another fringe in theory.
->
-> The land was melting. Time was already broken. The same woman kept appearing from the waves with the same name. And now, before any of us could understand the maps, war had found us in the middle of nowhere.
->
-> Far across the moving surface of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), a highly advanced ark built by Russia fired a bomb toward another ark that was later known as an ark of Ukraine.
->
-> I repeat this because my anger still needs a shape:
->
-> In the middle of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), when every living being is already struggling not to sink, someone still chose to drop a bomb.
->
-> This is another fringe in theory.
->
-> When the world was whole, they said war happened because people fought over land. Now there is no land, and war still found a way to float.
->
-> [**Cap'n ROTY BROI (ID 547)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") gathered us and spoke honestly. He said he could lead in emergency. He could defend. He could think through panic. He could continue the journey to find [**The Melting Archipelago**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/37.-woman-of-russian/37.1.-absart-idsa-archipelago "NFT Collection: ABSART IDSA Archipelago on Tezos Blockchain - Archived"). But he was not prepared to lead us through a war born inside a disaster.
->
-> He was a fighter, not a war strategist.
->
-> He was a captain for survival, not for geopolitical madness.
->
-> During the long discussion, the [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") did not speak as one voice.
->
-> That made me more afraid.
->
-> Until that day, their mystery had always been in their sameness. Same name. Same body. Same face. Same sudden appearance among the waves of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active").
->
-> But when the bomb fell, their differences became clearer.
->
-> One [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said we must continue toward [**The Melting Archipelago**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/37.-woman-of-russian/37.1.-absart-idsa-archipelago "NFT Collection: ABSART IDSA Archipelago on Tezos Blockchain - Archived") no matter what happened.
->
-> Another [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said no ark would ever reach any archipelago if it ignored the bombs falling between the waves.
->
-> Another [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said nothing. She only took a piece of charcoal and wrote three words on broken wood:
+> But when the bomb fell, their differences became clearer. One [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said we must continue toward [**The Melting Archipelago**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/37.-woman-of-russian/37.1.-absart-idsa-archipelago "NFT Collection: ABSART IDSA Archipelago on Tezos Blockchain - Archived") no matter what happened. Another [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said no ark would ever reach any archipelago if it ignored the bombs falling between the waves. Another [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said nothing. She only took a piece of charcoal and wrote three words on broken wood:
 >
 > [**DROP NFT NOT BOMB**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/36.-d.nft.n.bomb-tm "NFT Collection: Drop NFT Not BOMB™ on Tezos Blockchain - Archived")
 >
-> When [**Cap'n ROTY BROI (ID 547)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") admitted that he was not the right person to lead us through a war inside a disaster, the [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") did not argue.
+> When [**Cap'n ROTY BROI (ID 547)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") admitted that he was not the right person to lead us through a war inside a disaster, the [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") did not argue. They only looked at each other. Then, one by one, they voted.
 >
-> They only looked at each other.
+> I still do not know whether they voted as different people, or as one mystery scattered into many bodies. But their votes were counted like everyone else's. That is how I became [**Cap'n ROTY BROI (ID 996)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived").
 >
-> Then, one by one, they voted.
->
-> I still do not know whether they voted as different people, or as one mystery scattered into many bodies.
->
-> But their votes were counted like everyone else's.
->
-> That is how I became [**Cap'n ROTY BROI (ID 996)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived").
->
-> I did not ask for this anger, but I will not throw it away. Anger is dangerous when it becomes a bomb. But anger can become a message when it is tied to a sail.
->
-> That is what we did.
->
-> We took down the old sailcloth of [**The ROTY BROI's Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") and covered the ark with a larger sailcloth carrying one message:
+> I did not ask for this anger, but I will not throw it away. Anger is dangerous when it becomes a bomb. But anger can become a message when it is tied to a sail. That is what we did. We took down the old sailcloth of [**The ROTY BROI's Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") and covered the ark with a larger sailcloth carrying one message:
 >
 > [**DROP NFT NOT BOMB**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/36.-d.nft.n.bomb-tm "NFT Collection: Drop NFT Not BOMB™ on Tezos Blockchain - Archived")
 >
 > We chose that message because all 1047 men onboard are here through NFT-verified invitations. They minted the invitations. They held them in their wallets. Those invitations allowed them to become passengers of this ark.
 >
-> An NFT did not kill them.
->
-> An NFT did not sink them.
->
-> An NFT did not destroy an ark.
->
-> An NFT became an invitation, a sign, a memory, a ticket, a proof that someone could still be saved.
->
-> So if anything must be dropped into this broken world, drop invitations. Drop messages. Drop artworks. Drop maps. Drop food. Drop help. Drop anything that may save one more life.
+> An NFT did not kill them. An NFT did not sink them. An NFT did not destroy an ark. An NFT became an invitation, a sign, a memory, a ticket, a proof that someone could still be saved. So if anything must be dropped into this broken world, drop invitations. Drop messages. Drop artworks. Drop maps. Drop food. Drop help. Drop anything that may save one more life.
 >
 > [**Drop NFT, not BOMB.**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/36.-d.nft.n.bomb-tm "NFT Collection: Drop NFT Not BOMB™ on Tezos Blockchain - Archived")
 >
-> After we raised the sail, every passenger helped spread the message.
+> After we raised the sail, every passenger helped spread the message. Some wrote the message on pieces of cloth and tied them to debris. Some placed notes inside bottles and released them to the waves of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"). Some shouted it to the wind. Some painted it on broken boards. Some tied it to birds that still remembered the sky. Some whispered it to snakes, fish, and other creatures that still survived between the melting waves.
 >
-> Some wrote the message on pieces of cloth and tied them to debris. Some placed notes inside bottles and released them to the waves of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"). Some shouted it to the wind. Some painted it on broken boards. Some tied it to birds that still remembered the sky. Some whispered it to snakes, fish, and other creatures that still survived between the melting waves.
->
-> We did not know whether the message would reach anyone.
->
-> But it did.
->
-> The first reply did not come from a flag.
->
-> It came through a broken transmission.
->
-> The voice was unclear at first, swallowed by static, wind, and the sound of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") pushing against everything that still floated.
->
-> Then we heard it.
+> We did not know whether the message would reach anyone. But it did. The first reply did not come from a flag. It came through a broken transmission. The voice was unclear at first, swallowed by static, wind, and the sound of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") pushing against everything that still floated. Then we heard it.
 >
 > "_This is [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active")._"
 >
-> Everyone on the ark froze.
+> Everyone on the ark froze. Because the voice did not come from any [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") onboard. The transmission came from another vessel.
 >
-> Because the voice did not come from any [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") onboard.
+> Then another message arrived through a bottle. The handwriting looked too familiar. Another reply came from something tied to a bird. The knot was made in the same strange way one of our [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") tied the maps.
 >
-> The transmission came from another vessel.
->
-> Then another message arrived through a bottle. The handwriting looked too familiar.
->
-> Another reply came from something tied to a bird. The knot was made in the same strange way one of our [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") tied the maps.
->
-> I asked the [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") onboard whether they knew the [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") from the other vessel.
->
-> They answered differently.
+> I asked the [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") onboard whether they knew the [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") from the other vessel. They answered differently.
 >
 > One said, "_Not yet._"
 >
@@ -418,75 +346,29 @@
 >
 > One said, "_She heard the same thing._"
 >
-> I asked what she heard.
->
-> The [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") with the torn communication officer uniform pointed at the sailcloth and said:
->
-> "_That._"
+> I asked what she heard. The [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") with the torn communication officer uniform pointed at the sailcloth and said, "_That._"
 >
 > [**DROP NFT NOT BOMB**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/36.-d.nft.n.bomb-tm "NFT Collection: Drop NFT Not BOMB™ on Tezos Blockchain - Archived")
 >
-> That was when I began to understand that the message was not only traveling from ark to ark.
+> That was when I began to understand that the message was not only traveling from ark to ark. It was also traveling through [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active").
 >
-> It was also traveling through [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active").
+> Around ten arks, ships, balloons, and other survival vessels answered us. They were not the same as us. Some carried artists. Some carried collectors. Some carried families. Some carried people who had never met each other before the disaster. Some carried those who had only one thing in common: they did not want the end of the world to become an excuse for more killing.
 >
-> Around ten arks, ships, balloons, and other survival vessels answered us.
+> We exchanged messages in every possible way. We agreed to move closer. We agreed to gather. We agreed to build something larger than each of us. But not all of them arrived.
 >
-> They were not the same as us. Some carried artists. Some carried collectors. Some carried families. Some carried people who had never met each other before the disaster. Some carried those who had only one thing in common: they did not want the end of the world to become an excuse for more killing.
+> With [**The ROTY BROI's Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), eleven vessels tried to converge. Only seven became one. Six of them reached us. Four were destroyed on the way, shattered by bombs and swallowed by [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"). We mourned them.
 >
-> We exchanged messages in every possible way.
+> Then we joined what remained. Seven vessels became one greater ark. We still call it [**The ROTY BROI's Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"). Not because the others disappeared into our name, but because every ark that joined us carried the same message into the same survival body.
 >
-> We agreed to move closer.
->
-> We agreed to gather.
->
-> We agreed to build something larger than each of us.
->
-> But not all of them arrived.
->
-> With [**The ROTY BROI's Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), eleven vessels tried to converge. Only seven became one. Six of them reached us. Four were destroyed on the way, shattered by bombs and swallowed by [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active").
->
-> We mourned them.
->
-> Then we joined what remained.
->
-> Seven vessels became one greater ark.
->
-> We still call it:
->
-> [**The ROTY BROI's Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
->
-> Not because the others disappeared into our name, but because every ark that joined us carried the same message into the same survival body.
->
-> The message became louder.
->
-> The sail became wider.
->
-> The ark became stronger.
->
-> The passengers became more than passengers. They became messengers.
+> The message became louder. The sail became wider. The ark became stronger. The passengers became more than passengers. They became messengers.
 >
 > Across [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), people began to understand that rescue must become greater than revenge. Help must travel farther than hatred. A message must be dropped before a bomb is dropped.
 >
-> War may still happen.
+> War may still happen. Bombs may still fall. We are not naive. We are particles that can be scattered, broken, and carried away by the waves. But if we keep calling each other, if we keep voting, if we keep sending messages, if we keep building arks instead of destroying them, then we can return to our true form, **living beings defending life.**
 >
-> Bombs may still fall.
+> To all my successors, and to all who read this log. If you must drop something, drop what can save. [**Drop NFT, not BOMB.**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/36.-d.nft.n.bomb-tm "NFT Collection: Drop NFT Not BOMB™ on Tezos Blockchain - Archived")
 >
-> We are not naive.
->
-> We are particles that can be scattered, broken, and carried away by the waves. But if we keep calling each other, if we keep voting, if we keep sending messages, if we keep building arks instead of destroying them, then we can return to our true form:
->
-> **living beings defending life.**
->
-> To all my successors, and to all who read this log:
->
-> If you must drop something, drop what can save.
->
-> [**Drop NFT, not BOMB.**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/36.-d.nft.n.bomb-tm "NFT Collection: Drop NFT Not BOMB™ on Tezos Blockchain - Archived")
->
-> [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived"), anytime you hear us yelling:
->
-> [**OiOi!!!!**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived")
+> [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived"), anytime you hear us yelling, [**OiOi!!!!**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived")
 
 ---
 
@@ -499,37 +381,17 @@
 > Message:\
 > Hi, I'm [**Cap'n ROTY BROI (ID 996)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")...
 >
-> I write this log on May 31, 2022, not because I am certain this happened today.
+> I write this log on May 31, 2022, not because I am certain this happened today. I write May 31 because everyone remembers that it happened in May, but no one agrees on the date. Some said it was May 13. Some said it was May 15. Some insisted that both dates were true. Some no longer cared, because after [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), a date is no longer always a place where time can stand. So I choose the last day of May. At least this log will not let May disappear.
 >
-> I write May 31 because everyone remembers that it happened in May, but no one agrees on the date. Some said it was May 13. Some said it was May 15. Some insisted that both dates were true. Some no longer cared, because after [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), a date is no longer always a place where time can stand.
->
-> So I choose the last day of May.
->
-> At least this log will not let May disappear.
->
-> The waves of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") were still roaring. The sound of bombs still came from far away. Sometimes the air still carried the sharp sound of bullets, even when we could no longer see who fired them, who received them, and what kind of land they thought they were fighting for.
->
-> But the message from our sail kept spreading.
+> The waves of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") were still roaring. The sound of bombs still came from far away. Sometimes the air still carried the sharp sound of bullets, even when we could no longer see who fired them, who received them, and what kind of land they thought they were fighting for. But the message from our sail kept spreading.
 >
 > [**DROP NFT NOT BOMB**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/36.-d.nft.n.bomb-tm "NFT Collection: Drop NFT Not BOMB™ on Tezos Blockchain - Archived")
 >
 > Some vessels answered it. Some followed it. Some only watched it from far away. Some may have rejected it. But the message had already become part of the wind. Once a message enters the wind, no captain can fully command where it goes.
 >
-> Then the rabbits appeared.
+> Then the rabbits appeared. At first, I thought I saw a small creature jumping between broken boards. Then another one appeared on a floating tire. Then another one leaped from the remains of a roof to a drifting door. Then one landed on the outer side of [**The ROTY BROI's Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), shook some mud from its feet, looked at us, and jumped away again as if the disaster was only a game it had not yet lost.
 >
-> At first, I thought I saw a small creature jumping between broken boards.
->
-> Then another one appeared on a floating tire.
->
-> Then another one leaped from the remains of a roof to a drifting door.
->
-> Then one landed on the outer side of [**The ROTY BROI's Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), shook some mud from its feet, looked at us, and jumped away again as if the disaster was only a game it had not yet lost.
->
-> I wanted to say, "Rabbit."
->
-> But no one said rabbit.
->
-> Everyone pointed and shouted the same name:
+> I wanted to say "rabbit", but no one said "rabbit". Everyone pointed and shouted the same name:
 >
 > "_[**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived")!_"
 >
@@ -539,211 +401,67 @@
 >
 > "_Look, that is [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived")!_"
 >
-> I do not know who taught them the name.
+> I do not know who taught them the name. I do not know whether the name came from memory, gossip, fear, hope, or another fringe in theory. But from that moment, I wrote them in this log as [**Luffy The Rabbit**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived").
 >
-> I do not know whether the name came from memory, gossip, fear, hope, or another fringe in theory.
+> The strange thing was not only that they survived. The strange thing was that everyone seemed to believe that seeing [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") meant access to something good.
 >
-> But from that moment, I wrote them in this log as:
+> Some said [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") brings luck. Some said [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") opens a path. Some said [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") is not luck itself, but a key to a future profit. Some said whoever could care for [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") would one day receive something valuable. Some said whoever only tried to catch [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") for greed would receive nothing but bitten fingers and shame.
 >
-> [**Luffy The Rabbit**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived")
+> As usual, no one could prove anything. As usual, everyone talked as if the gossip was already a system.
 >
-> The strange thing was not only that they survived.
+> I listened to all of them and could only write my own conclusion. Maybe [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") is a prayer that learned how to jump. Maybe [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") is hope with ears. Maybe [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") is the shape of our desire to still believe that something good can appear, even when the ground has melted, the sea has lost its name, and war keeps trying to enter the disaster.
 >
-> The strange thing was that everyone seemed to believe that seeing [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") meant access to something good.
->
-> Some said [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") brings luck.
->
-> Some said [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") opens a path.
->
-> Some said [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") is not luck itself, but a key to a future profit.
->
-> Some said whoever could care for [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") would one day receive something valuable.
->
-> Some said whoever only tried to catch [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") for greed would receive nothing but bitten fingers and shame.
->
-> As usual, no one could prove anything.
->
-> As usual, everyone talked as if the gossip was already a system.
->
-> I listened to all of them and could only write my own conclusion:
->
-> Maybe [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") is a prayer that learned how to jump.
->
-> Maybe [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") is hope with ears.
->
-> Maybe [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") is the shape of our desire to still believe that something good can appear, even when the ground has melted, the sea has lost its name, and war keeps trying to enter the disaster.
->
-> The [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") did not look surprised.
->
-> That made me suspicious.
+> The [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") did not look surprised. That made me suspicious.
 >
 > They did not run after [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") like many of the passengers did. They did not shout with the same hunger. They did not argue about which [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") was more lucky. They only watched, sometimes smiled, sometimes ignored them, sometimes looked as if they had already seen all of this before.
 >
-> One passenger shouted from the side of the ark:
+> One passenger shouted from the side of the ark, "_There is [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") jumping onto the pile of used tires!_"
 >
-> "_There is [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") jumping onto the pile of used tires!_"
+> One [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") answered without turning her head, "_That is the [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") that has been trying to climb this ark since yesterday._"
 >
-> One [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") answered without turning her head:
+> Everyone became silent for a few seconds. Then everyone started talking again, because silence never lasts long on an ark filled with survivors.
 >
-> "_That is the [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") that has been trying to climb this ark since yesterday._"
+> Another afternoon, near the stern of the ark, while the wind was less cruel and the waves were pretending to be gentle, one [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") suddenly asked, "_Have you seen the [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") biting a carrot and wearing a hot dog hat?_"
 >
-> Everyone became silent for a few seconds.
+> Everyone who had been exchanging stories about seeing, saving, chasing, catching, feeding, and keeping [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") immediately stopped talking. No one knew whether she was joking. No one knew whether she was warning us. No one knew whether carrot and hot dog should exist together in any reasonable theory. For me, it was another fringe in theory.
 >
-> Then everyone started talking again, because silence never lasts long on an ark filled with survivors.
+> After that, the passengers began to record every [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") they saw. What was on its head. What was on its body. What it was biting. Whether it jumped toward us or away from us. Whether it stayed on the ark or disappeared into the waves. Whether an [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") recognized it. Whether it had already been seen before. Whether it brought laughter, argument, work, or prayer.
 >
-> Another afternoon, near the stern of the ark, while the wind was less cruel and the waves were pretending to be gentle, one [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") suddenly asked:
+> Some [**Luffys**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") wore something like hats. Some wore something like shirts. Some looked wrapped in pieces of cloth, hoodies, or strange little costumes that should not survive this kind of world. Some bit carrots. Some bit things that were not carrots. Some bit nothing, but still looked as if they were hiding a secret between their teeth.
 >
-> "_Have you seen the [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") biting a carrot and wearing a hot dog hat?_"
+> We kept the list. We compared the stories. We removed duplicates. We argued. We voted. We argued again.
 >
-> Everyone who had been exchanging stories about seeing, saving, chasing, catching, feeding, and keeping [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") immediately stopped talking.
+> We asked the [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"). The [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") answered in ways that made the list more accurate and less understandable at the same time.
 >
-> No one knew whether she was joking.
+> At the end, the number did not grow beyond 47. Only [**47 Luffys**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived"). Forty-seven, and each of them felt like one of one. No two [**Luffys**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") were truly the same.
 >
-> No one knew whether she was warning us.
+> Even when two passengers swore they saw the same one, an [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") would sometimes say, "_Same [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived"). Different hunger._"
 >
-> No one knew whether carrot and hot dog should exist together in any reasonable theory.
+> Or, "_Different [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived"). Same jump._"
 >
-> For me, it was another fringe in theory.
+> Or, "_Do not count only the ears._"
 >
-> After that, the passengers began to record every [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") they saw.
+> I do not know what those answers mean. I recorded them anyway.
 >
-> What was on its head.
+> In the margin of one record, someone had written, **`Jajang-STD`**.
 >
-> What was on its body.
->
-> What it was biting.
->
-> Whether it jumped toward us or away from us.
->
-> Whether it stayed on the ark or disappeared into the waves.
->
-> Whether an [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") recognized it.
->
-> Whether it had already been seen before.
->
-> Whether it brought laughter, argument, work, or prayer.
->
-> Some [**Luffys**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") wore something like hats.
->
-> Some wore something like shirts.
->
-> Some looked wrapped in pieces of cloth, hoodies, or strange little costumes that should not survive this kind of world.
->
-> Some bit carrots.
->
-> Some bit things that were not carrots.
->
-> Some bit nothing, but still looked as if they were hiding a secret between their teeth.
->
-> We kept the list.
->
-> We compared the stories.
->
-> We removed duplicates.
->
-> We argued.
->
-> We voted.
->
-> We argued again.
->
-> We asked the [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active").
->
-> The [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") answered in ways that made the list more accurate and less understandable at the same time.
->
-> At the end, the number did not grow beyond 47.
->
-> Only [**47 Luffys**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived").
->
-> Forty-seven, and each of them felt like one of one.
->
-> No two [**Luffys**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") were truly the same.
->
-> Even when two passengers swore they saw the same one, an [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") would sometimes say:
->
-> "_Same [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived"). Different hunger._"
->
-> Or:
->
-> "_Different [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived"). Same jump._"
->
-> Or:
->
-> "_Do not count only the ears._"
->
-> I do not know what those answers mean.
->
-> I recorded them anyway.
->
-> In the margin of one record, someone had written:
->
-> **`Jajang-STD`**
->
-> No one admitted writing it.
->
-> One passenger said it was a name.
->
-> Another said it was a mark.
->
-> Another said it was a standard.
->
-> One [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") looked at it for a long time and said:
->
-> "_That is how some creatures remember who drew their way out._"
+> No one admitted writing it. One passenger said it was a name. Another said it was a mark. Another said it was a standard. One [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") looked at it for a long time and said, "_That is how some creatures remember who drew their way out._"
 >
 > Then she refused to explain more.
 >
-> In another piece of wet paper, under the list of [**47 Luffys**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived"), there was a strange note:
+> In another piece of wet paper, under the list of [**47 Luffys**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived"), there was a strange note, **`25.5 SOL`**.
 >
-> **`25.5 SOL`**
+> Again, no one admitted writing it. We did not know whether SOL meant sun, salt, signal, soul, sale, or something from a universe that had not yet introduced itself. But the number kept being repeated in gossip. Some said it was the volume of luck. Some said it was the weight of attention. Some said it was how far the story of [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") had traveled. Some said it was proof that if people kept watching, caring, talking, playing, and believing, even a rabbit could move value across the waves.
 >
-> Again, no one admitted writing it.
+> Until this log is written, I still do not know what kind of luck [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") brings. I do not know the shape of the profit. I do not know whether keeping [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") makes someone rich, safe, healthy, loved, remembered, or simply less hopeless.
 >
-> We did not know whether SOL meant sun, salt, signal, soul, sale, or something from a universe that had not yet introduced itself.
+> But perhaps that is the important part. Perhaps the value is not only in the luck. Perhaps the value is in the hope that luck may still exist.
 >
-> But the number kept being repeated in gossip.
->
-> Some said it was the volume of luck.
->
-> Some said it was the weight of attention.
->
-> Some said it was how far the story of [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") had traveled.
->
-> Some said it was proof that if people kept watching, caring, talking, playing, and believing, even a rabbit could move value across the waves.
->
-> Until this log is written, I still do not know what kind of luck [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") brings.
->
-> I do not know the shape of the profit.
->
-> I do not know whether keeping [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") makes someone rich, safe, healthy, loved, remembered, or simply less hopeless.
->
-> But perhaps that is the important part.
->
-> Perhaps the value is not only in the luck.
->
-> Perhaps the value is in the hope that luck may still exist.
->
-> Because that hope made people pay attention.
->
-> That hope made them care.
->
-> That hope made them protect something smaller than themselves.
->
-> That hope made them count, draw, compare, speak, laugh, argue, vote, learn, work, play, and pray.
+> Because that hope made people pay attention. That hope made them care. That hope made them protect something smaller than themselves. That hope made them count, draw, compare, speak, laugh, argue, vote, learn, work, play, and pray.
 >
 > And in a world where land has melted, governments have collapsed, bombs still fall, and the future is only a rumor carried by waves, anything that can make living beings continue to think, move, care, and grow is already more valuable than we can fully measure.
 >
-> To all my successors, and to all who read this log:
->
-> If you see [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived"), do not only chase it.
->
-> Notice it.
->
-> Learn how it jumps.
->
-> Learn what it carries.
->
-> Learn why everyone calls it by name before anyone calls it a rabbit.
+> To all my successors, and to all who read this log. If you see [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived"), do not only chase it. Notice it. Learn how it jumps. Learn what it carries. Learn why everyone calls it by name before anyone calls it a rabbit.
 >
 > Maybe fortune is not something [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") gives.
 >
@@ -760,52 +478,38 @@
 > Source: Unknown
 >
 > Message:\
-> We do not need gold today. We do not need flags. We do not need a throne. We do not need a border.
->
-> We need food.
+> We do not need gold today. We do not need flags. We do not need a throne. We do not need a border. We need food.
 >
 > ---
 >
 > Source: Broken radio call
 >
 > Message:\
-> Is anyone out there still eating? Please answer. What do you eat now? What do you cook? What do you feed your children? What do you feed your old people? What do you feed those who cannot chew?
->
-> Please answer.
+> Is anyone out there still eating? Please answer. What do you eat now? What do you cook? What do you feed your children? What do you feed your old people? What do you feed those who cannot chew? Please answer.
 >
 > ---
 >
 > Source: Scratched wood found attached to the side of [**The ROTY BROI's Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
 >
 > Message:\
-> Do not look at your friend like food.
->
-> Not yet.
->
-> Please.
+> Do not look at your friend like food. Not yet. Please.
 >
 > ---
 >
 > Source: A bottle note
 >
 > Message:\
-> We saw one of us offer a part of himself to someone he loved.
->
-> We are not writing this to shame him.
->
-> We are writing this because hunger has started to speak louder than us.
+> We saw one of us offer a part of himself to someone he loved. We are not writing this to shame him. We are writing this because hunger has started to speak louder than us.
 >
 > ---
 >
 > Source: Unknown [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active")
 >
 > Message:\
-> The capsules are almost gone.
+> The capsules are almost gone. We need to learn how to make food again before food becomes only a memory.
 >
-> We need to learn how to make food again before food becomes only a memory.
-
----
-
+> ---
+>
 > [**Cap'n ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") Log...
 >
 > Melting Date: Unknown, after May 31, 2022
@@ -813,519 +517,143 @@
 > Message:\
 > Hi, I'm [**Cap'n ROTY BROI (ID 996)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")...
 >
-> I do not know the exact date of this log.
+> I do not know the exact date of this log. I only know that this happened after the rabbits, after the songs of [**DROP NFT NOT BOMB**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/36.-d.nft.n.bomb-tm "NFT Collection: Drop NFT Not BOMB™ on Tezos Blockchain - Archived") had entered the wind, after the seven vessels became one greater ark, and after we began to understand that surviving a disaster is not the same as living through it.
 >
-> I only know that this happened after the rabbits, after the songs of [**DROP NFT NOT BOMB**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/36.-d.nft.n.bomb-tm "NFT Collection: Drop NFT Not BOMB™ on Tezos Blockchain - Archived") had entered the wind, after the seven vessels became one greater ark, and after we began to understand that surviving a disaster is not the same as living through it.
+> At first, [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") stole the ground from under our feet. Then war stole the silence from our ears. Then hunger began to steal the shape of our thoughts.
 >
-> At first, [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") stole the ground from under our feet.
+> Hunger is not like a bomb. A bomb falls once, destroys what it hits, and leaves smoke behind. Hunger stays. Hunger waits inside the stomach. Hunger sits beside every discussion. Hunger listens to every vote. Hunger watches every friendship. Hunger changes the way one living being looks at another living being.
 >
-> Then war stole the silence from our ears.
+> That was the most terrifying part. Not the waves. Not the bombs. Not even the absence of land. The most terrifying part was the moment when some eyes began to ask a question that no mouth wanted to say:
 >
-> Then hunger began to steal the shape of our thoughts.
+> **What can still be eaten?**
 >
-> Hunger is not like a bomb.
+> We received messages from outside [**The ROTY BROI's Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") asking the same thing. Some came through broken radio calls. Some came through bottles. Some came scratched into plastic containers. Some were written on cloth tied to floating branches. Some were nothing but voices recorded on devices that still had a little battery left. All of them carried the same fear:
 >
-> A bomb falls once, destroys what it hits, and leaves smoke behind.
+> **food was disappearing.**
 >
-> Hunger stays.
+> Seeds were wet. Flour had spoiled. Rice had become mud. Salt had become too much and not enough at the same time. Fish no longer knew where water ended and land began. Birds became rare. The rabbits called [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") had already become a wound in our memory.
 >
-> Hunger waits inside the stomach.
+> We failed them. We saw them as luck, as play, as hope, as something small that made us laugh. Then hunger came, and many began to see them as meat. Some argued that they were easier to accept. Some said they were clean. Some said they were allowed. Some said they were safer for the heart than eating what was forbidden.
 >
-> Hunger sits beside every discussion.
+> But we did not build a future from them. We consumed what should have been protected. We took before we learned how to breed. We ate before we understood how to keep life continuing.
 >
-> Hunger listens to every vote.
+> By the time this regret became clear, almost no one could say with certainty that [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") still remained. That is another fringe in theory, fortune can disappear when treated only as food.
 >
-> Hunger watches every friendship.
+> The [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") had emergency capsules. Some said the capsules were made for war. Some said they were made for deep forests. Some said they were made for soldiers, astronauts, sailors, or people who were forced to be far away from civilization. Some [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") called them food. Some [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") refused to call them food.
 >
-> Hunger changes the way one living being looks at another living being.
+> One [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said, "_A capsule can delay hunger. It cannot rebuild a kitchen._"
 >
-> That was the most terrifying part.
+> Another [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said, "_A kitchen is not a room. A kitchen is a civilization trying not to eat itself._"
 >
-> Not the waves.
->
-> Not the bombs.
->
-> Not even the absence of land.
->
-> The most terrifying part was the moment when some eyes began to ask a question that no mouth wanted to say:
->
-> What can still be eaten?
->
-> We received messages from outside [**The ROTY BROI's Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") asking the same thing.
->
-> Some came through broken radio calls.
->
-> Some came through bottles.
->
-> Some came scratched into plastic containers.
->
-> Some were written on cloth tied to floating branches.
->
-> Some were nothing but voices recorded on devices that still had a little battery left.
->
-> All of them carried the same fear:
->
-> food was disappearing.
->
-> Seeds were wet.
->
-> Flour had spoiled.
->
-> Rice had become mud.
->
-> Salt had become too much and not enough at the same time.
->
-> Fish no longer knew where water ended and land began.
->
-> Birds became rare.
->
-> The rabbits called [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") had already become a wound in our memory.
->
-> We failed them.
->
-> We saw them as luck, as play, as hope, as something small that made us laugh. Then hunger came, and many began to see them as meat. Some argued that they were easier to accept. Some said they were clean. Some said they were allowed. Some said they were safer for the heart than eating what was forbidden.
->
-> But we did not build a future from them.
->
-> We consumed what should have been protected.
->
-> We took before we learned how to breed.
->
-> We ate before we understood how to keep life continuing.
->
-> By the time this regret became clear, almost no one could say with certainty that [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") still remained.
->
-> That is another fringe in theory:
->
-> fortune can disappear when treated only as food.
->
-> The [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") had emergency capsules.
->
-> Some said the capsules were made for war.
->
-> Some said they were made for deep forests.
->
-> Some said they were made for soldiers, astronauts, sailors, or people who were forced to be far away from civilization.
->
-> Some [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") called them food.
->
-> Some [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") refused to call them food.
->
-> One [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said:
->
-> "_A capsule can delay hunger. It cannot rebuild a kitchen._"
->
-> Another [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said:
->
-> "_A kitchen is not a room. A kitchen is a civilization trying not to eat itself._"
->
-> Their capsules ran low.
->
-> Their discussions became longer.
->
-> They crushed what remained.
->
-> They dried what could still be dried.
->
-> They mixed powders.
->
-> They tested bitter things.
->
-> They argued over smell, poison, salt, rot, and memory.
->
-> They tried to make something that could replace food, but the more they tried, the clearer it became:
->
-> we did not only need something to swallow.
+> Their capsules ran low. Their discussions became longer. They crushed what remained. They dried what could still be dried. They mixed powders. They tested bitter things. They argued over smell, poison, salt, rot, and memory. They tried to make something that could replace food, but the more they tried, the clearer it became, "We did not only need something to swallow."
 >
 > We needed something that could continue.
 >
-> Then the messages changed.
+> Then the messages changed. At first, they came as rumor. Then as repeated signal. Then as confirmed fragments from many directions.
 >
-> At first, they came as rumor.
+> There were living creatures under [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"). Not fish. Not snakes. Not drowned birds. Pigs.
 >
-> Then as repeated signal.
+> Somehow, in the depths of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), there were air pockets. Some were empty. Some carried old smells of trapped rooms. Some carried the breath of animals that should have died with the farms, forests, and villages.
 >
-> Then as confirmed fragments from many directions.
+> Inside some of those air pockets, pigs had survived. Some were alone. Some were in groups. Some looked like farm pigs. Some looked like wild pigs. Some looked as if they had become something between memory and mud.
 >
-> There were living creatures under [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active").
->
-> Not fish.
->
-> Not snakes.
->
-> Not drowned birds.
->
-> Pigs.
->
-> Somehow, in the depths of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), there were air pockets.
->
-> Some were empty.
->
-> Some carried old smells of trapped rooms.
->
-> Some carried the breath of animals that should have died with the farms, forests, and villages.
->
-> Inside some of those air pockets, pigs had survived.
->
-> Some were alone.
->
-> Some were in groups.
->
-> Some looked like farm pigs.
->
-> Some looked like wild pigs.
->
-> Some looked as if they had become something between memory and mud.
->
-> The first discovery did not come from a formal search.
->
-> It came from a shout.
->
-> Those who stayed above the surface shouted to those who dived below:
+> The first discovery did not come from a formal search. It came from a shout. Those who stayed above the surface shouted to those who dived below:
 >
 > "_BOII! BOII!_"
 >
-> The divers disappeared into the thick surface of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active").
+> The divers disappeared into the thick surface of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"). We waited. The ropes shook. The mud bubbled. Some came back coughing with nothing. Some came back crying after finding only empty air pockets. Then, from below, a reply came, "_OiOi! OiOi!_"
 >
-> We waited.
+> They had found them. Pigs inside an air pocket.
 >
-> The ropes shook.
+> After that, the call became a system. From above, "_BOII! BOII!_"
 >
-> The mud bubbled.
+> From below, if life was found, "_OiOi! OiOi!_"
 >
-> Some came back coughing with nothing.
+> That is how the name spread through the ark, [**PIGGY BOII OIOI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi "NFT Collection: PIGGY BOII OIOI on Solana Blockchain - Archived").
 >
-> Some came back crying after finding only empty air pockets.
+> Not just pigs. Not only meat. Not only animals trapped under mud. They became a call and response. A sign that something living was still hidden below the death of the surface.
 >
-> Then, from below, a reply came:
+> But finding them did not immediately save us. Finding them almost split us apart. The debate became harder than the dive. Some passengers said pigs were forbidden. Some said disaster had changed the law of survival. Some said emergency allowed what ordinary days refused. Some said faith should not be rewritten by hunger. Some said refusing the only renewable food source would turn piety into mass death. Some said we still had no right to decide while even one [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") might remain. Some said that was exactly the mistake, "We had already turned [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") into food before turning it into a future."
 >
-> "_OiOi! OiOi!_"
+> For hours, the ark was full of voices. Halal. Haram. Emergency. Faith. Hunger. Breeding. Shame. Survival. Death.
 >
-> They had found them.
+> No word stood alone. Every word carried a stomach behind it. Every stomach carried a belief above it.
 >
-> Pigs inside an air pocket.
+> I did not want to make a law from anger. I did not want to make a law from hunger. I did not want to make a law that forced one mouth to betray what kept that mouth human. But I also could not lead an ark where living beings slowly began to imagine each other as food.
 >
-> After that, the call became a system.
+> So we discussed. We argued. We listened. We failed to listen. We returned to the discussion.
 >
-> From above:
+> We asked the [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"). They did not answer as one voice. One [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said, "_Do not ask hunger to become moral. Build a system before hunger becomes king._"
 >
-> "_BOII! BOII!_"
+> Another [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said, "_Emergency does not erase belief. Emergency tests whether belief can protect life without becoming cruelty._"
 >
-> From below, if life was found:
+> Another [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said, "_If you eat everything, you end the story. If you breed what can live, you write the next page._"
 >
-> "_OiOi! OiOi!_"
+> Then one [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"), the same one who had once asked about the [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") biting a carrot and wearing a hot dog hat, said, "_You already know what happens when you do not think beyond the first meal._"
 >
-> That is how the name spread through the ark:
+> No one answered her. Because she was right.
 >
-> [**PIGGY BOII OIOI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi "NFT Collection: PIGGY BOII OIOI on Solana Blockchain - Archived")
->
-> Not just pigs.
->
-> Not only meat.
->
-> Not only animals trapped under mud.
->
-> They became a call and response.
->
-> A sign that something living was still hidden below the death of the surface.
->
-> But finding them did not immediately save us.
->
-> Finding them almost split us apart.
->
-> The debate became harder than the dive.
->
-> Some passengers said pigs were forbidden.
->
-> Some said disaster had changed the law of survival.
->
-> Some said emergency allowed what ordinary days refused.
->
-> Some said faith should not be rewritten by hunger.
->
-> Some said refusing the only renewable food source would turn piety into mass death.
->
-> Some said we still had no right to decide while even one [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") might remain.
->
-> Some said that was exactly the mistake:
->
-> we had already turned [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") into food before turning it into a future.
->
-> For hours, the ark was full of voices.
->
-> Halal.
->
-> Haram.
->
-> Emergency.
->
-> Faith.
->
-> Hunger.
->
-> Breeding.
->
-> Shame.
->
-> Survival.
->
-> Death.
->
-> No word stood alone.
->
-> Every word carried a stomach behind it.
->
-> Every stomach carried a belief above it.
->
-> I did not want to make a law from anger.
->
-> I did not want to make a law from hunger.
->
-> I did not want to make a law that forced one mouth to betray what kept that mouth human.
->
-> But I also could not lead an ark where living beings slowly began to imagine each other as food.
->
-> So we discussed.
->
-> We argued.
->
-> We listened.
->
-> We failed to listen.
->
-> We returned to the discussion.
->
-> We asked the [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active").
->
-> They did not answer as one voice.
->
-> One [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said:
->
-> "_Do not ask hunger to become moral. Build a system before hunger becomes king._"
->
-> Another [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said:
->
-> "_Emergency does not erase belief. Emergency tests whether belief can protect life without becoming cruelty._"
->
-> Another [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said:
->
-> "_If you eat everything, you end the story. If you breed what can live, you write the next page._"
->
-> Then one [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"), the same one who had once asked about the [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") biting a carrot and wearing a hot dog hat, said:
->
-> "_You already know what happens when you do not think beyond the first meal._"
->
-> No one answered her.
->
-> Because she was right.
->
-> We voted.
->
-> The decision was not simple.
->
-> The vote did not erase anyone's belief.
->
-> The vote did not command every mouth to eat.
->
-> The vote established an emergency law for the ark:
+> We voted. The decision was not simple. The vote did not erase anyone's belief. The vote did not command every mouth to eat. The vote established an emergency law for the ark:
 >
 > [**PIGGY BOII OIOI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi "NFT Collection: PIGGY BOII OIOI on Solana Blockchain - Archived") would be rescued, protected, bred, and used as survival food under emergency agreement.
 >
-> We would not repeat the mistake of [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived").
->
-> We would not consume without continuing.
->
-> We would not hunt without breeding.
->
-> We would not turn hunger into a government.
+> We would not repeat the mistake of [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived"). We would not consume without continuing. We would not hunt without breeding. We would not turn hunger into a government.
 >
 > We celebrated the decision, not because pigs became food, but because a conflict that could have broken the ark became an agreement that kept the ark alive.
 >
-> Messages were sent outward.
+> Messages were sent outward. The call spread, "_BOII! BOII!_"
 >
-> The call spread:
+> The answer spread, "_OiOi! OiOi!_"
 >
-> "_BOII! BOII!_"
->
-> The answer spread:
->
-> "_OiOi! OiOi!_"
->
-> Other vessels tried to do the same.
->
-> Some succeeded for a while.
->
-> Most failed.
+> Other vessels tried to do the same. Some succeeded for a while. Most failed.
 >
 > Outside [**The ROTY BROI's Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), many could still find [**PIGGY BOII OIOI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi "NFT Collection: PIGGY BOII OIOI on Solana Blockchain - Archived") in the air pockets under [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), but almost none could keep them breeding.
 >
-> The animals weakened.
+> The animals weakened. Some stopped eating. Some refused the water. Some became sick after being brought above the surface. Some escaped back into the mud. Some died before giving life to another generation.
 >
-> Some stopped eating.
+> But on our ark, they lived. On our ark, they bred. On our ark, they became healthier than we expected. This success made me suspicious.
 >
-> Some refused the water.
+> The [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") knew something. I saw it in the way they watched the water. I saw it in the way they tasted what they gave to the animals. I saw it in the way they stopped some passengers from changing the recycling barrels.
 >
-> Some became sick after being brought above the surface.
+> I asked them. At first, they were silent. Then the [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") with the torn communication officer uniform said, "_Your ark does not only carry survivors._"
 >
-> Some escaped back into the mud.
+> I asked what else it carried. Another [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") answered, "_Dunno What Water._"
 >
-> Some died before giving life to another generation.
+> I understood before she said the rest. The recycled water of [**The ROTY BROI's Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") had been contaminated by traces of **Nameless Liquid**. The liquid from the land of **Dunno What Water**. The liquid that once brought peace to those who drank it. The liquid that could not save **Mr. BROY** from fear, but perhaps could help the ark keep something alive.
 >
-> But on our ark, they lived.
+> That is why [**PIGGY BOII OIOI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi "NFT Collection: PIGGY BOII OIOI on Solana Blockchain - Archived") lived better here. That is why they calmed faster. That is why they bred. That is why our survival began to look like a secret.
 >
-> On our ark, they bred.
+> I asked whether we should tell everyone. The [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") looked at each other. One said, "_If this becomes gossip, they will drink the system before the system can feed them._"
 >
-> On our ark, they became healthier than we expected.
+> Another said, "_Peace water must become infrastructure, not panic._"
 >
-> This success made me suspicious.
+> Another said, "_Keep it between the captain and the [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") until the ark learns how to protect what protects it._"
 >
-> The [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") knew something.
+> So I kept the secret. I write it here because a log is not gossip. A log is a burden passed to the next captain.
 >
-> I saw it in the way they watched the water.
+> To my successors: Protect the water. Protect the breeding. Protect those who cannot eat what others eat. Protect the agreement. Protect the difference between emergency and greed.
 >
-> I saw it in the way they tasted what they gave to the animals.
->
-> I saw it in the way they stopped some passengers from changing the recycling barrels.
->
-> I asked them.
->
-> At first, they were silent.
->
-> Then the [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") with the torn communication officer uniform said:
->
-> "_Your ark does not only carry survivors._"
->
-> I asked what else it carried.
->
-> Another [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") answered:
->
-> "_Dunno What Water._"
->
-> I understood before she said the rest.
->
-> The recycled water of [**The ROTY BROI's Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") had been contaminated by traces of **Nameless Liquid**.
->
-> The liquid from the land of **Dunno What Water**.
->
-> The liquid that once brought peace to those who drank it.
->
-> The liquid that could not save **Mr. BROY** from fear, but perhaps could help the ark keep something alive.
->
-> That is why [**PIGGY BOII OIOI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi "NFT Collection: PIGGY BOII OIOI on Solana Blockchain - Archived") lived better here.
->
-> That is why they calmed faster.
->
-> That is why they bred.
->
-> That is why our survival began to look like a secret.
->
-> I asked whether we should tell everyone.
->
-> The [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") looked at each other.
->
-> One said:
->
-> "_If this becomes gossip, they will drink the system before the system can feed them._"
->
-> Another said:
->
-> "_Peace water must become infrastructure, not panic._"
->
-> Another said:
->
-> "_Keep it between the captain and the [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") until the ark learns how to protect what protects it._"
->
-> So I kept the secret.
->
-> I write it here because a log is not gossip.
->
-> A log is a burden passed to the next captain.
->
-> To my successors:
->
-> Protect the water.
->
-> Protect the breeding.
->
-> Protect those who cannot eat what others eat.
->
-> Protect the agreement.
->
-> Protect the difference between emergency and greed.
->
-> Outside, the messages became more desperate.
->
-> Some vessels sent locations, asking us to come and save them.
->
-> But the shape of Earth had changed.
->
-> The old coordinates lied.
->
-> The old maps drowned.
->
-> Directions turned into guesses.
+> Outside, the messages became more desperate. Some vessels sent locations, asking us to come and save them. But the shape of Earth had changed. The old coordinates lied. The old maps drowned. Directions turned into guesses.
 >
 > Messages arrived by accident, luck, wind, animal, bottle, broken signal, and whatever force still allowed one life to call another life.
 >
-> We tried to find them.
->
-> We failed many times.
->
-> Some may still be waiting.
->
-> Some may no longer be able to wait.
+> We tried to find them. We failed many times. Some may still be waiting. Some may no longer be able to wait.
 >
 > Until this log is written, I fear that outside [**The ROTY BROI's Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), [**PIGGY BOII OIOI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi "NFT Collection: PIGGY BOII OIOI on Solana Blockchain - Archived") is becoming harder to find.
 >
-> The air pockets are emptying.
+> The air pockets are emptying. The hunters are growing tired. The breeders are failing. Hunger is returning to the eyes.
 >
-> The hunters are growing tired.
+> This is what I learned: Food is not only food. Food is law. Food is faith. Food is argument. Food is technology. Food is memory. Food is infrastructure. Food is the first economy after the end of land.
 >
-> The breeders are failing.
->
-> Hunger is returning to the eyes.
->
-> This is what I learned:
->
-> Food is not only food.
->
-> Food is law.
->
-> Food is faith.
->
-> Food is argument.
->
-> Food is technology.
->
-> Food is memory.
->
-> Food is infrastructure.
->
-> Food is the first economy after the end of land.
->
-> If we cannot produce food, we will consume each other.
->
-> If we cannot agree on food, our votes will become knives.
->
-> If we cannot protect what can keep living, survival will end after one meal.
+> If we cannot produce food, we will consume each other. If we cannot agree on food, our votes will become knives. If we cannot protect what can keep living, survival will end after one meal.
 >
 > [**PIGGY BOII OIOI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi "NFT Collection: PIGGY BOII OIOI on Solana Blockchain - Archived") taught us that life below the surface can still answer when called correctly.
 >
-> From above:
+> From above, "_BOII! BOII!_"
 >
-> "_BOII! BOII!_"
+> From below, "_OiOi! OiOi!_"
 >
-> From below:
->
-> "_OiOi! OiOi!_"
->
-> To all my successors, and to all who read this log:
->
-> Do not wait until hunger becomes your captain.
->
-> Build the system before the stomach writes the law.
->
-> Feed the living without killing the future.
+> To all my successors, and to all who read this log. Do not wait until hunger becomes your captain. Build the system before the stomach writes the law. Feed the living without killing the future.
 >
 > [**PIGGY BOII OIOI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi "NFT Collection: PIGGY BOII OIOI on Solana Blockchain - Archived")
 
