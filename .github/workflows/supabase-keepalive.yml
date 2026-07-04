@@ -1,0 +1,55 @@
+name: Supabase Keepalive
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "47 3 * * *"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: supabase-keepalive
+  cancel-in-progress: false
+
+jobs:
+  keepalive:
+    name: Read testnet Supabase
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL || vars.SUPABASE_URL || secrets.NEXT_PUBLIC_SUPABASE_URL || vars.NEXT_PUBLIC_SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
+    steps:
+      - name: Validate testnet Supabase environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          required=(
+            SUPABASE_URL
+            SUPABASE_SERVICE_ROLE_KEY
+          )
+          for name in "${required[@]}"; do
+            if [ -z "${!name:-}" ]; then
+              echo "::error title=Missing testnet Supabase keepalive environment::${name} is not configured."
+              exit 1
+            fi
+          done
+          echo "Required testnet Supabase keepalive environment is configured."
+
+      - name: Run read-only keepalive query
+        shell: bash
+        run: |
+          set -euo pipefail
+          supabase_url="${SUPABASE_URL%/}"
+          output_file="/tmp/supabase-keepalive.json"
+
+          curl --fail --silent --show-error \
+            "${supabase_url}/rest/v1/chains?select=chain_key&limit=1" \
+            --header "apikey: ${SUPABASE_SERVICE_ROLE_KEY}" \
+            --header "Authorization: Bearer ${SUPABASE_SERVICE_ROLE_KEY}" \
+            --output "${output_file}"
+
+          bytes="$(wc -c < "${output_file}")"
+          echo "Testnet Supabase read-only keepalive completed (${bytes} bytes)."
