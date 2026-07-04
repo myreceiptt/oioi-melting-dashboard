@@ -2,11 +2,12 @@
 
 import { useEffect, useMemo, useState } from "react";
 import type { Hash } from "viem";
-import { formatUnits, isHex, parseUnits } from "viem";
+import { formatUnits, getAddress, isHex, parseUnits } from "viem";
 import {
   useAccount,
   useBlockNumber,
   useReadContract,
+  useSignMessage,
   useWaitForTransactionReceipt,
   useWriteContract,
 } from "wagmi";
@@ -22,6 +23,11 @@ import {
   formatTokenAmount,
   shortAddress,
 } from "@/lib/utils/format";
+import {
+  createGithubActionsDispatchMessage,
+  getGithubActionsWorkflowLabel,
+  type GithubActionsWorkflowKind,
+} from "@/lib/admin/githubActionsDispatch";
 
 type RoundMode = "createNew" | "existingSupabase";
 
@@ -137,6 +143,18 @@ type BoundarySyncApiResponse =
   | {
       ok: true;
       jobs: BoundarySyncJob[];
+    }
+  | {
+      ok: false;
+      error: string;
+    };
+
+type GithubActionsDispatchApiResponse =
+  | {
+      ok: true;
+      environment: string;
+      workflow: string;
+      message: string;
     }
   | {
       ok: false;
@@ -501,11 +519,14 @@ function ErrorMessageBlock({
 }
 
 export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
+  const appEnv =
+    process.env.NEXT_PUBLIC_APP_ENV === "mainnet" ? "mainnet" : "sepolia";
   const {
     address: connectedAddress,
     chainId: connectedChainId,
     isConnected,
   } = useAccount();
+  const { signMessageAsync } = useSignMessage();
   const addresses = getContractAddresses(chainSet);
   const targetChainId = useMemo(() => getTargetChainId(chainSet), [chainSet]);
   const targetChainLabel = useMemo(
@@ -559,6 +580,13 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
   const [latestBlockStatus, setLatestBlockStatus] = useState<string | null>(
     null,
   );
+  const [isWorkflowDispatching, setIsWorkflowDispatching] = useState(false);
+  const [workflowDispatchStatus, setWorkflowDispatchStatus] = useState<
+    string | null
+  >(null);
+  const [workflowDispatchError, setWorkflowDispatchError] = useState<
+    string | null
+  >(null);
 
   const baseLatestBlockRead = useBlockNumber({
     chainId: baseBoundaryChainId,
@@ -663,6 +691,8 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
     !blockInputValid(ethereumBoundaryBlockInput) ||
     boundaryRewardAmount === null ||
     boundaryRewardAmount <= 0n;
+  const workflowDispatchDisabled =
+    !isConnected || !userIsExpectedOwner || isWorkflowDispatching;
 
   const rewardAmount = parseTokenAmount(rewardAmountInput, tokenDecimals);
   const fundAmount = parseTokenAmount(fundAmountInput, tokenDecimals);
@@ -1090,6 +1120,85 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
       );
     } finally {
       setIsBoundarySubmitting(false);
+    }
+  }
+
+  async function runGithubActionsWorkflow(
+    workflowKind: GithubActionsWorkflowKind,
+  ) {
+    if (workflowDispatchDisabled || !connectedAddress) {
+      return;
+    }
+
+    const workflowLabel = getGithubActionsWorkflowLabel(workflowKind);
+    const environmentLabel = appEnv === "mainnet" ? "Mainnet" : "Testnet";
+    const confirmed = window.confirm(
+      [
+        workflowKind === "boundaryWorker"
+          ? "CRITICAL OPERATOR ACTION"
+          : "OPERATOR ACTION",
+        `Run ${environmentLabel} ${workflowLabel}`,
+        "",
+        workflowKind === "boundaryWorker"
+          ? "This dispatches one GitHub Actions boundary worker batch. It may process queued reward boundary work in the current app environment."
+          : "This dispatches one read-only Supabase keepalive workflow in the current app environment.",
+        "",
+        `Environment: ${appEnv}`,
+        "Only continue if this is intentional.",
+      ].join("\n"),
+    );
+
+    if (!confirmed) {
+      return;
+    }
+
+    setIsWorkflowDispatching(true);
+    setWorkflowDispatchStatus(null);
+    setWorkflowDispatchError(null);
+
+    try {
+      const signerAddress = getAddress(connectedAddress);
+      const timestamp = new Date().toISOString();
+      const message = createGithubActionsDispatchMessage({
+        address: signerAddress,
+        appEnv,
+        timestamp,
+        workflowKind,
+      });
+      const signature = await signMessageAsync({ message });
+      const response = await fetch("/api/admin/github-actions/run-workflow", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          address: signerAddress,
+          signature,
+          timestamp,
+          workflowKind,
+        }),
+      });
+      const json =
+        (await response.json()) as GithubActionsDispatchApiResponse;
+
+      if (!response.ok || json.ok === false) {
+        setWorkflowDispatchError(
+          json.ok === false
+            ? json.error
+            : "GitHub Actions workflow dispatch failed.",
+        );
+        return;
+      }
+
+      setWorkflowDispatchStatus(json.message);
+    } catch (error) {
+      setWorkflowDispatchError(
+        error instanceof Error
+          ? error.message
+          : "GitHub Actions workflow dispatch failed.",
+      );
+    } finally {
+      setIsWorkflowDispatching(false);
     }
   }
 
@@ -1744,6 +1853,24 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
               type="button">
               {isBoundarySubmitting ? "Submitting..." : "Submit The Jobs"}
             </button>
+            <button
+              className="w-full rounded-2xl border border-white/10 bg-black px-5 py-4 text-sm font-semibold text-white hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:opacity-40 md:w-auto"
+              disabled={workflowDispatchDisabled}
+              onClick={() => void runGithubActionsWorkflow("boundaryWorker")}
+              type="button">
+              {isWorkflowDispatching
+                ? "Dispatching..."
+                : `Run ${appEnv === "mainnet" ? "Mainnet" : "Testnet"} Boundary Worker`}
+            </button>
+            <button
+              className="w-full rounded-2xl border border-white/10 bg-black px-5 py-4 text-sm font-semibold text-white hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:opacity-40 md:w-auto"
+              disabled={workflowDispatchDisabled}
+              onClick={() => void runGithubActionsWorkflow("supabaseKeepalive")}
+              type="button">
+              {isWorkflowDispatching
+                ? "Dispatching..."
+                : `Run ${appEnv === "mainnet" ? "Mainnet" : "Testnet"} Supabase Keepalive`}
+            </button>
           </div>
 
           <div className="text-sm text-white/70">
@@ -1769,6 +1896,19 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
           <ErrorMessageBlock
             message={boundaryError}
             title="Boundary job submit failed"
+          />
+        ) : null}
+
+        {workflowDispatchStatus ? (
+          <div className="mt-4 rounded-2xl border border-white/10 bg-[#b7f56d] p-4 text-sm text-black">
+            {workflowDispatchStatus}
+          </div>
+        ) : null}
+
+        {workflowDispatchError ? (
+          <ErrorMessageBlock
+            message={workflowDispatchError}
+            title="GitHub Actions dispatch failed"
           />
         ) : null}
 
