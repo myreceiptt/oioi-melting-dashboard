@@ -663,7 +663,7 @@
 
 > init...
 >
-> [**(28.1) Liquid Armor**](/02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor.md)
+> [**(28.1) Liquid Armor**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor "NFT Collection: Liquid Armor on Solana Blockchain - Archived")
 >
 > **...**
 
@@ -673,7 +673,7 @@
 
 > init...
 >
-> [**(26.1) Satans PFP**](/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp.md)
+> [**(26.1) Satans PFP**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived")
 >
 > **...**
 
@@ -683,7 +683,7 @@
 
 > init...
 >
-> [**Polygon $OiOi FTs**](/02-the-creations.../waivfves-1/polygon-usdoioi-fts.md)
+> [**Polygon $OiOi FTs**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived")
 >
 > **...**
 
@@ -697,7 +697,7 @@
 
 > init...
 >
-> [**(24) Conserve Roty Broi**](/02-the-creations.../waivfves-1/24.-conserve-roty-broi.md)
+> [**(24) Conserve Roty Broi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived")
 >
 > **...**
 
@@ -707,11 +707,11 @@
 
 ### There is The Rich Island…
 
-#### The Farmers of [BANANOW LAND](/02-the-creations.../waivfves-1/22.-bananow-nfts.md)
+#### The Farmers of [BANANOW LAND](https://land.endhonesa.com/nfts "NFT Collection: BANANOW BASED NFTs on BASE Blockchain - Active")
 
 > init...
 >
-> [**(22) BANANOW NFTs**](/02-the-creations.../waivfves-1/22.-bananow-nfts.md)
+> [**(22) BANANOW NFTs**](https://land.endhonesa.com/nfts "NFT Collection: BANANOW BASED NFTs on BASE Blockchain - Active")
 >
 > **...**
 
@@ -721,7 +721,7 @@
 
 > init...
 >
-> [**Tezos $OiOi FTs**](/02-the-creations.../waivfves-1/tezos-usdoioi-fts.md)
+> [**Tezos $OiOi FTs**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/tezos-usdoioi-fts "FT Drop: Tezos $OiOi on Tezos Blockchain - Archived")
 >
 > **...**
 
@@ -731,7 +731,7 @@
 
 > init...
 >
-> [**(16) ROTY BASE dETH**](/02-the-creations.../waivfves-1/16.-roty-base-deth.md)
+> [**(16) ROTY BASE dETH**](https://softstaking.endhonesa.com/ "NFT Collection: ROTY BASE on BASE Blockchain - Active, and ROTY dETH on Ethereum Blockchain - Active")
 >
 > **...**
 
@@ -741,7 +741,7 @@
 
 > init...
 >
-> [**Ethereum $OiOi FTs**](/02-the-creations.../waivfves-1/ethereum-usdoioi-fts.md)
+> [**Ethereum $OiOi FTs**](https://softstaking.endhonesa.com/ "FT Drop: BASE $OiOi on BASE Blockchain - Active, and Ethereum $OiOi on Ethereum Blockchain - Active")
 >
 > **...**
 
