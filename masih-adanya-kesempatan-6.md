@@ -674,11 +674,188 @@ coverY: 0
 
 #### Zirah Meleleh
 
-> init...
+> Catatan [**Kapten ROTY BROI**](../../02-the-creations.../waivfves-1/41.-the-roty-broi.md)...
 >
-> [**(28.1) Liquid Armor**](../../02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor.md)
+> Tanggal Meleleh: Tidak diketahui, setelah pembiakan pertama [**PIGGY BOII OIOI**](../../02-the-creations.../waivfves-1/28.-piggy-boii-oioi/)
 >
-> **...**
+> Pesan:\
+> Hai, aku [**Kapten ROTY BROI (ID 996)**](../../02-the-creations.../waivfves-1/41.-the-roty-broi.md)...
+>
+> Aku tidak tahu tanggal pasti catatan ini. Aku hanya tahu bahwa ini terjadi setelah rasa lapar mengajari kami untuk membangun sistem sebelum perut menulis hukum. Kami telah belajar bahwa makanan bukan hanya makanan. Makanan adalah hukum, keyakinan, perdebatan, teknologi, ingatan, infrastruktur, dan ekonomi pertama setelah berakhirnya daratan.
+>
+> Tapi setelah makanan, muncul pertanyaan lain. Bagaimana kami melindungi apa yang sedang kami usahakan agar tetap hidup?
+>
+> [**PIGGY BOII OIOI**](../../02-the-creations.../waivfves-1/28.-piggy-boii-oioi/) memberi kami makanan yang bisa terus berlanjut. Air daur ulang [**Bahtera ROTY BROI**](../../02-the-creations.../waivfves-1/41.-the-roty-broi.md), yang terkontaminasi jejak **Cairan Tanpa Nama**, memberi kehidupan itu kesempatan untuk berkembang biak. Kesepakatan yang kami buat mencegah rasa lapar menjadi raja. Tapi semua itu masih membutuhkan tangan, penyelam, tukang perbaikan, penjaga, pengangkut, peternak, juru masak, tenaga medis, dan pembawa pesan. Mereka semua lelah. Mereka semua rapuh. Mereka semua masih bisa dihancurkan oleh gelombang, lumpur, logam, kepanikan, bom, dan niat buruk dari makhluk hidup lainnya.
+>
+> Saat itulah [**Penumpang ROTY BROI (ID 536)**](../../02-the-creations.../waivfves-1/41.-the-roty-broi.md) menjadi keanehan lain dalam teori.
+>
+> Sebelum [**Daratan Meleleh**](../../02-the-creations.../waivfves-2/15.-the-melting-land.md), dia adalah seorang ilmuwan. Bukan ilmuwan yang lembut. Dia menghabiskan sebagian besar hidupnya untuk meneliti alat-alat militer, senjata, dan sistem yang bisa melukai, menghentikan, menghancurkan, atau membunuh manusia dengan lebih efisien. Dia bilang dia membuat semua itu karena orang lain tetap akan membuatnya. Dia bilang dia hanya ingin memahami apa yang orang lain takut pahami. Dia mengatakan banyak hal yang terdengar cukup cerdas untuk menyembunyikan penyesalan.
+>
+> Ketika bencana terjadi, dia tidak membawa senjatanya. Dia tidak membawa risetnya. Dia tidak membawa mesin, catatan, prototipe, atau apa pun yang dulu dia percaya membuatnya berkuasa. Dia masuk ke bahtera ini dengan mengenakan kaos polos abu-abu, celana dalam, tanpa sepatu, dan topeng las yang sempat dia ambil saat berlari dari rumahnya. Hampir seluruh tubuhnya dipenuhi tattoo. Kedua lengannya penuh tinta. Dada, punggung, kaki, dan kulitnya membawa tanda-tanda seperti seseorang pernah mencoba mengubah tubuhnya menjadi buku catatan sebelum dunia meleleh.
+>
+> Dia juga merindukan asap. Di dunia lama, dia suka mengisap sesuatu yang dia sebut asap untuk berpikir. Dia bilang itu membantunya berkonsentrasi. Dia bilang itu membuat pikirannya melambat di tempat yang tepat dan menjadi lebih cepat di tempat-tempat di mana mesin biasanya menyembunyikan rahasianya.
+>
+> Aku tidak pernah tahu apakah itu benar, alasan, atau hanya kebiasaan lain yang bertahan lebih lama daripada peradaban. Tapi aku tahu dia merindukan ritualnya. Dia merindukan pulang dari ruang kerjanya, masuk ke bathtub, merendam tubuhnya di dalam air, menyalakan asap, dan memikirkan proyek-proyek yang tidak pernah dimaksudkan untuk menyelamatkan siapa pun.
+>
+> Di bahtera, air diawasi seperti kehidupan itu sendiri. Tidak ada yang bebas mandi. Tidak ada yang mencuci tanpa alasan. Tidak ada yang membuang air sedikit pun tanpa menimbulkan kemarahan, kecurigaan, atau diskusi yang bisa berlangsung berjam-jam. Air dikumpulkan, disaring, didaur ulang, dihitung, dijaga, dibawa, diperdebatkan, dan didistribusikan kepada divisi-divisi yang membutuhkannya untuk memasak, minum, membersihkan luka, menjaga hewan tetap hidup, mengolah makanan, dan menjaga bahtera agar tidak berubah menjadi kuburan terapung.
+>
+> Suatu hari, [**Penumpang ROTY BROI (ID 536)**](../../02-the-creations.../waivfves-1/41.-the-roty-broi.md) mendapat tugas membantu membawa tong-tong air daur ulang ke salah satu titik pengisian. Aku tidak tahu apakah dia sudah merencanakannya sejak awal atau godaan itu baru muncul ketika dia melihat tong kosong yang menunggu untuk diisi. Dia masuk ke dalamnya sebelum air datang. Ketika air daur ulang masuk ke dalam tong, dia membiarkan dirinya duduk di dalamnya.
+>
+> Dia kemudian mengatakan kepadaku bahwa dia tidak merasa sedang membuang apa pun. Air itu masih berada di dalam tong. Tubuhnya hanya meminjam rasa air sebelum air itu melanjutkan tugasnya. Itu bodoh, egois, manusiawi, dan bisa dimengerti dengan cara yang paling buruk. Sejak hari daratan meleleh, dia belum pernah merasakan tubuhnya dikelilingi air. Dia hanya merasakan keringat, lumpur, rasa lapar, logam, asap dari bom yang jauh, dan berat topeng las yang membuatnya terlihat seperti pekerja yang kabur dari ruang kerja yang sudah tidak ada.
+>
+> Salah satu [**Amanda**](../../02-the-creations.../waivfves-2/14.-amanda-wives.md) menemukannya. Dia tidak berteriak. Itu membuat situasinya terasa lebih buruk bagi penumpang itu. Dia hanya berdiri di dekat tong dan berkata, "_Air itu bukan bak mandi._"
+>
+> Dia menjawab dari dalam tong bahwa dia tidak sedang membuangnya.
+>
+> [**Amanda**](../../02-the-creations.../waivfves-2/14.-amanda-wives.md) berkata, "_Kamu sedang memasukkan dirimu sendiri ke dalam sistem._"
+>
+> Dia mengatakan bahwa sistem bisa mendaur ulang kotoran.
+>
+> [**Amanda**](../../02-the-creations.../waivfves-2/14.-amanda-wives.md) berkata, "_Sistem bisa mendaur ulang kotoran. Sistem tidak bisa mendaur ulang alasanmu sebelum semua orang meminumnya._"
+>
+> Setelah itu dia diam.
+>
+> [**Amanda**](../../02-the-creations.../waivfves-2/14.-amanda-wives.md) menjelaskan bahwa air itu harus didaur ulang lagi karena keringat, kotoran, kulit, dan apa pun yang dibawa tubuhnya telah masuk ke dalamnya. [**Amanda**](../../02-the-creations.../waivfves-2/14.-amanda-wives.md) tidak berbicara dengan amarah. Dia berbicara seperti seseorang yang sedang mencoba melindungi bahtera agar tidak menjadi kejam karena sebuah kesalahan bodoh. Itulah sebabnya dia keluar dari tong.
+>
+> Lalu hal mustahil pertama terjadi. Air di tubuhnya mengering terlalu cepat. Bukan seperti penguapan. Bukan seperti panas. Air itu menghilang seolah-olah kulitnya telah menelan kebasahan dan menolak untuk mengakuinya.
+>
+> Dia meraih celana dalam dan kaos abu-abunya. Sebelum dia mengenakan kembali topeng lasnya, tattoo di seluruh tubuhnya mulai bergerak. Tinta itu tidak memudar. Tinta itu terbangun. Garis-garis meluncur di bawah kulitnya. Bentuk-bentuk melengkung di sekitar lengannya. Tanda-tanda gelap berkumpul di dada, bahu, tulang belakang, lutut, dan tangannya. Sebagian tinta naik dari tubuhnya seperti benang cair. Sebagian tetap berada di bawah kulit dan menarik sisanya menjadi pola. Topeng las itu bergetar di tangannya, lalu ikut bergabung dalam gerakan itu seolah-olah tinta tersebut mengenalinya sebagai bagian dari dirinya.
+>
+> [**Amanda**](../../02-the-creations.../waivfves-2/14.-amanda-wives.md) memintanya untuk tidak panik. Dia panik. Tinta itu mengencang.
+>
+> [**Amanda**](../../02-the-creations.../waivfves-2/14.-amanda-wives.md) memintanya untuk bernapas. Dia mencoba. Tinta itu melunak.
+>
+> [**Amanda**](../../02-the-creations.../waivfves-2/14.-amanda-wives.md) memintanya untuk memikirkan perlindungan, bukan senjata. Dia menatap [**Amanda**](../../02-the-creations.../waivfves-2/14.-amanda-wives.md) melalui topeng yang setengah terbentuk dan berkata bahwa dia tidak lagi tahu perbedaannya.
+>
+> Tinta itu menjawab sebelum dia menjawab. Tinta itu membentuk zirah. Bukan pakaian. Bukan logam. Bukan kulit.
+>
+> Sesuatu di antara cairan, tattoo, ingatan, darah, dan kebutuhan. Zirah itu menutupi tubuhnya tanpa menyembunyikan kebenaran tentang dirinya. Zirah itu menyatu dengan topeng las dan membentuknya kembali menjadi pelindung wajah. Zirah itu menyisakan sebagian kaos abu-abunya terlihat untuk sesaat, lalu menarik dirinya mengelilingi kain itu seolah-olah bahkan kain tersebut telah menjadi saksi.
+>
+> Zirah itu terlihat siap untuk perang, tetapi tidak terasa seperti perang. Zirah itu terasa seperti tubuh yang akhirnya diberi batas yang memahami penyesalan.
+>
+> Aku dipanggil setelah pembentukan pertama itu selesai. Ketika aku tiba, [**Penumpang ROTY BROI (ID 536)**](../../02-the-creations.../waivfves-1/41.-the-roty-broi.md) berdiri di dalam sebuah ruang tertutup bersama satu [**Amanda**](../../02-the-creations.../waivfves-2/14.-amanda-wives.md), beberapa wadah tersegel, sebuah alat kecil yang belum pernah kulihat sebelumnya, dan tong air yang telah dia kontaminasi. Dia terlihat malu, terpukau, ketakutan, dan hidup dengan cara yang belum pernah kulihat darinya.
+>
+> [**Amanda**](../../02-the-creations.../waivfves-2/14.-amanda-wives.md) sudah mengambil sampel kecil dari zirah itu. Dia berkata, "_Tinta mengingat bentuk. Darah mengingat pemilik. Cairan Tanpa Nama mengingat kedamaian. Bersama-sama, mereka sedang mencoba memutuskan apa arti perlindungan._"
+>
+> Itu penjelasan pertamanya. Itu belum cukup. Maka [**Penumpang ROTY BROI (ID 536)**](../../02-the-creations.../waivfves-1/41.-the-roty-broi.md) mulai mengujinya. Dia mengetahui bahwa zirah itu tidak terbuat dari air saja. Air daur ulang yang terkontaminasi **Cairan Tanpa Nama** hanyalah medium hidupnya. Tinta tattoo membawa bentuk, simbol, kebiasaan, ingatan, dan identitas. Darahnya memberi zirah itu tubuh yang sah. Ketakutannya hampir mengubahnya menjadi senjata. Perintah [**Amanda**](../../02-the-creations.../waivfves-2/14.-amanda-wives.md) untuk memikirkan perlindungan telah menariknya menjauh dari arah itu.
+>
+> Di ruang tertutup itu, mereka menemukan aturan pertama:
+>
+> **cairan hanya bisa menjadi zirah ketika ia diberi bentuk, tubuh, dan niat.**
+>
+> Mereka menggambar sketsa-sketsa kecil menggunakan tinta yang dicampur dengan sedikit darah dari orang yang akan mengenakan zirah tersebut. Mereka meletakkan sketsa-sketsa itu di dekat air yang terkontaminasi **Cairan Tanpa Nama**. Sketsa-sketsa itu bereaksi. Sebagian menggulung. Sebagian mengeras. Sebagian larut. Sebagian menjadi lembaran gelap yang tidak berguna. Sebagian mencoba membentuk pelat kecil, sarung tangan, topeng, pelindung, tali pengikat, segel, sepatu, atau alat. Ketika darah itu bukan milik pemakainya, zirah menolak tubuh tersebut. Ketika seseorang mencoba mengenakan sesuatu yang bukan miliknya, zirah itu menjadi berat, lalu basah, lalu tidak menjadi apa pun selain air bernoda.
+>
+> Itulah aturan kedua:
+>
+> **perlindungan tidak bisa dicuri tanpa kembali menjadi cairan biasa.**
+>
+> [**Penumpang ROTY BROI (ID 536)**](../../02-the-creations.../waivfves-1/41.-the-roty-broi.md) tertawa ketika dia memahami aturan itu. Lalu dia menangis. Dia berkata bahwa pekerjaan lamanya selalu menjadi kebalikannya. Di dunia lama, jika sebuah senjata dicuri, senjata itu tetap bekerja. Jika sebuah bom dicuri, bom itu tetap meledak. Jika sebuah mesin kekerasan berpindah tangan, mesin itu tidak bertanya apakah tangan tersebut sah. Mesin itu hanya menuruti pemicunya.
+>
+> Dia berkata, "_Senjata tidak peduli siapa yang memegangnya. Itulah sebabnya aku terus membuat monster._"
+>
+> Lalu dia berkata, "_Ini tidak boleh menjadi seperti itu._"
+>
+> Dia menjadikan itu sebagai syaratnya. Dia hanya akan melanjutkan riset itu jika zirah tersebut bisa dibentuk untuk melawan masa lalunya sendiri. Dia tidak ingin kembali berguna dengan menjadi orang yang sama menggunakan bahan yang lebih baik. Dia tidak ingin bahtera merayakannya sebagai ilmuwan yang akhirnya memberi kami senjata. Dia ingin penemuan itu menjadi koreksi. Maka dia bekerja pada niat.
+>
+> **Cairan Tanpa Nama** pernah membawa kedamaian bagi mereka yang meminumnya. Cairan itu tidak bisa menyelamatkan **Pak BROY** dari ketakutan, tetapi mungkin cairan itu masih bisa mengajari materi untuk menolak jenis kekerasan tertentu.
+>
+> [**Penumpang ROTY BROI (ID 536)**](../../02-the-creations.../waivfves-1/41.-the-roty-broi.md) mulai menguji zirah itu dengan gerakan, perintah, ketakutan, kemarahan, dan tujuan. Ketika dia membayangkan melindungi seseorang, zirah itu mengencang di tempat yang tepat. Ketika dia membayangkan mengangkat beban, sendi-sendinya menjadi lebih kuat. Ketika dia membayangkan menyelam melalui lumpur tebal, topeng itu menutup lebih rapat. Ketika dia membayangkan memukul seseorang dengan kebencian, zirah di sekitar tangannya melunak sampai dia hampir tidak bisa mengangkatnya. Ketika dia membayangkan membunuh, zirah itu menjadi berat, hangat, dan tidak berguna.
+>
+> [**Penumpang ROTY BROI (ID 536)**](../../02-the-creations.../waivfves-1/41.-the-roty-broi.md) menatap tangannya sendiri cukup lama. Zirah itu tidak pecah. Zirah itu tidak meledak. Zirah itu tidak menghukumnya. Zirah itu hanya melunak, kehilangan bentuknya, dan kembali menuju cairan setiap kali niatnya bergerak terlalu dekat kepada mencelakai.
+>
+> Dia berbisik, "_Ini masih cair._"
+>
+> Lalu dia menyentuh pelat di sekitar dadanya dan berkata, "_Tapi ini zirah._"
+>
+> Dia terdiam, seolah-olah sebuah nama hampir mencapai mulutnya. Sebelum dia sempat mengatakannya, [**Amanda**](../../02-the-creations.../waivfves-2/14.-amanda-wives.md) berkata, "_[**Liquid Armor**](../../02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor.md)._"
+>
+> [**Penumpang ROTY BROI (ID 536)**](../../02-the-creations.../waivfves-1/41.-the-roty-broi.md) menatapnya. Untuk sesaat, dia terlihat lebih takut pada nama itu daripada pada zirah itu sendiri. Lalu dia berkata, "_Tepat sekali. Itu yang tadi terlintas di pikiranku._"
+>
+> Sejak saat itu, kami berhenti menyebutnya hanya sebagai zirah, tinta, kulit, alat, atau kecelakaan.
+>
+> Kami menyebutnya:
+>
+> [**Liquid Armor**](../../02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor.md)
+>
+> Itulah aturan ketiga:
+>
+> **zirah itu melindungi kehidupan, tetapi melelehkan niat untuk mencelakai.**
+>
+> Zirah itu tidak membuat pemakainya suci. Zirah itu tidak menghapus amarah. Zirah itu tidak menghilangkan rasa takut. Zirah itu tidak membuat siapa pun bijaksana. Zirah itu hanya menolak menjadi jalan yang bersih antara niat jahat dan rasa sakit makhluk hidup lainnya.
+>
+> Tentu saja, bahtera menjadi riuh ketika orang-orang mengetahui apa yang terjadi. Sebagian menginginkan [**Liquid Armor**](../../02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor.md) untuk para penyelam. Sebagian menginginkannya untuk tim perbaikan. Sebagian menginginkannya untuk mereka yang membawa air. Sebagian menginginkannya untuk mereka yang menjaga [**PIGGY BOII OIOI**](../../02-the-creations.../waivfves-1/28.-piggy-boii-oioi/). Sebagian menginginkannya karena mereka takut pada bom berikutnya. Sebagian menginginkannya karena mereka ingin merasa kuat. Sebagian menginginkannya karena kulit mereka sudah terlalu banyak terluka oleh lumpur, tali, karat, dan kerja. Sebagian menginginkannya karena mereka tidak percaya kepada orang lain. Sebagian menginginkannya karena mereka ingin orang lain percaya kepada mereka. Sebagian menginginkannya karena alasan yang tidak bisa mereka ucapkan dengan lantang.
+>
+> Maka kami berdebat lagi. Kami pernah berdebat tentang makanan. Kami pernah berdebat tentang keyakinan. Kami pernah berdebat tentang voting. Kami pernah berdebat tentang peta, bom, kelinci, babi, dan air. Sekarang kami berdebat tentang perlindungan.
+>
+> Aku tidak ingin ada pasukan di dalam bahtera. Aku tidak ingin ada kelas manusia berzirah yang berdiri di atas manusia yang tidak berzirah. Aku tidak ingin kekerasan lama kembali dengan mengenakan kulit yang lebih baik. Tapi aku juga tidak bisa mengabaikan apa yang bisa dilakukan oleh [**Liquid Armor**](../../02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor.md).
+>
+> Penggunaan terkendali pertama terjadi pada para penyelam. Seorang penyelam yang mengenakan [**Liquid Armor**](../../02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor.md) awal masuk ke sebuah kantong udara kecil di bawah [**Daratan Meleleh**](../../02-the-creations.../waivfves-2/15.-the-melting-land.md). [**Liquid Armor**](../../02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor.md) itu menutup rapat di sekitar mata dan mulutnya, mengencang di sekitar rusuknya, melindungi kulitnya dari puing-puing tajam, dan membantunya kembali dengan dua hewan kecil yang mungkin akan hilang. Ketika dia panik, [**Liquid Armor**](../../02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor.md) itu menjadi cukup kaku untuk menjaga tubuhnya agar tidak terlipat. Ketika dia menarik terlalu keras dan hampir menghancurkan apa yang dia bawa, sarung tangannya melunak sampai genggamannya menjadi hati-hati.
+>
+> Penggunaan kedua terjadi di lambung bahtera. Seorang tukang perbaikan yang mengenakan [**Liquid Armor**](../../02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor.md) memanjat ke bagian luar [**Bahtera ROTY BROI**](../../02-the-creations.../waivfves-1/41.-the-roty-broi.md) saat badai lumpur, kayu patah, dan serpihan logam menerjang. [**Liquid Armor**](../../02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor.md) itu tidak membuatnya kebal, tetapi menahan luka-luka yang seharusnya diterima kulitnya. Zirah itu menumbuhkan kait sementara ketika dia perlu menahan sisi bahtera. Zirah itu menutup rapat di sekitar kakinya ketika permukaan menjadi terlalu licin. Ketika gelombang mencoba menariknya pergi, [**Liquid Armor**](../../02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor.md) itu menyebar seperti jaring gelap di punggungnya dan membuatnya tetap terikat pada tali.
+>
+> Penggunaan ketiga terjadi di divisi makanan. Seseorang yang mengenakan [**Liquid Armor**](../../02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor.md) yang lebih ringan membawa pakan, air, dan [**PIGGY BOII OIOI**](../../02-the-creations.../waivfves-1/28.-piggy-boii-oioi/) yang sakit tanpa menghancurkan mereka, menjatuhkan mereka, atau mengontaminasi wadah yang salah. [**Liquid Armor**](../../02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor.md) belajar kelembutan dari pengulangan. Zirah itu menjadi lebih keras di dekat bahaya, lebih lembut di dekat napas, dan hampir seperti kain ketika menyentuh kehidupan yang baru lahir.
+>
+> Penggunaan keempat terjadi ketika dua laki-laki bertengkar soal air. Salah satu dari mereka mengenakan [**Liquid Armor**](../../02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor.md). Itu adalah ujian yang paling kutakuti. Dia mengangkat lengannya dengan niat untuk memukul. [**Liquid Armor**](../../02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor.md) itu meleleh dari sikunya sampai pergelangan tangannya. Tidak cukup untuk menyakitinya. Cukup untuk membuat pukulan itu gagal. Dia berteriak bahwa [**Liquid Armor**](../../02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor.md) telah mengkhianatinya. [**Amanda**](../../02-the-creations.../waivfves-2/14.-amanda-wives.md) berkata, "_Tidak. Ia mengingat mengapa ia dilahirkan._"
+>
+> Setelah itu, kami melakukan voting. Keputusan itu tidak sederhana. Voting itu tidak membuat semua orang setara dalam kekuatan. Voting itu tidak membuat semua orang aman. Voting itu tidak menghapus rasa takut. Voting itu menetapkan hukum baru bagi bahtera:
+>
+> [**Liquid Armor**](../../02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor.md) tidak akan menjadi cabang militer.
+>
+> Ia akan menjadi sistem penyelamatan. Tidak ada [**Liquid Armor**](../../02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor.md) yang dibuat tanpa catatan. Tidak ada [**Liquid Armor**](../../02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor.md) yang dibuat tanpa persetujuan dari orang yang darahnya digunakan. Tidak ada [**Liquid Armor**](../../02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor.md) yang diberikan untuk pembalasan dendam. Tidak ada [**Liquid Armor**](../../02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor.md) yang digunakan untuk menguasai mereka yang tidak berzirah.
+>
+> Setiap [**Liquid Armor**](../../02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor.md) harus terikat pada pekerjaan yang melindungi kehidupan: menyelam, memperbaiki, membawa, memasak, membiakkan, menyembuhkan, menjaga air, menjaga makanan, membimbing anak-anak dan orang-orang tua dari kendaraan-kendaraan yang telah bergabung dengan kami, dan melindungi para pembawa pesan yang masih membawa [**DROP NFT NOT BOMB**](../../02-the-creations.../waivfves-1/36.-d.nft.n.bomb-tm.md) melewati bahaya.
+>
+> Banyak sketsa digambar. Tidak semuanya terbentuk. Sebagian desain ditolak karena terlalu mirip senjata. Sebagian desain gagal karena pemakainya menginginkan kekuatan lebih daripada perlindungan. Sebagian desain larut karena darah dan niat tidak sepakat. Sebagian desain dibiarkan belum selesai karena [**Amanda**](../../02-the-creations.../waivfves-2/14.-amanda-wives.md) berkata, "_Tidak semua zirah yang mungkin dibuat pantas untuk dilahirkan._"
+>
+> Kalimat itu mengganggu [**Penumpang ROTY BROI (ID 536)**](../../02-the-creations.../waivfves-1/41.-the-roty-broi.md) selama berhari-hari. Dia berkata bahwa dunia lama mencintai perilisan setiap senjata yang mungkin dibuat hanya karena senjata itu bisa dibuat. Dia berkata dunia lama menyebutnya kemajuan. Dia berkata mungkin kemajuan bukanlah membuat semua hal menjadi mungkin. Mungkin kemajuan adalah belajar hal-hal mungkin apa saja yang seharusnya tetap tidak dibuat.
+>
+> Para [**Amanda**](../../02-the-creations.../waivfves-2/14.-amanda-wives.md) mengawasi proses itu dengan saksama. Seperti biasa, mereka tidak berbicara sebagai satu suara. Satu [**Amanda**](../../02-the-creations.../waivfves-2/14.-amanda-wives.md) berkata, "_Zirah yang tidak bisa dicuri bukan hanya zirah. Ia adalah ingatan yang menolak tangan yang salah._"
+>
+> [**Amanda**](../../02-the-creations.../waivfves-2/14.-amanda-wives.md) yang lain berkata, "_Jika perlindungan bisa dikosongkan, itu tidak pernah benar-benar menjadi perlindungan. Itu hanya tempat penyimpanan yang menunggu pencuri._"
+>
+> [**Amanda**](../../02-the-creations.../waivfves-2/14.-amanda-wives.md) yang lain berkata, "_Tubuh adalah dompet. Darah adalah tanda tangan. Niat adalah kunci._"
+>
+> Aku menuliskannya meskipun aku tidak sepenuhnya memahaminya. Mungkin para kapten masa depan akan memahaminya.
+>
+> Yang kutahu adalah ini:
+>
+> [**Liquid Armor**](../../02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor.md) mengubah bahtera. Para penyelam lebih sering kembali. Para tukang perbaikan bertahan lebih lama. Tong-tong air menjadi lebih aman. Divisi makanan bekerja dengan lebih sedikit cedera.
+>
+> [**PIGGY BOII OIOI**](../../02-the-creations.../waivfves-1/28.-piggy-boii-oioi/) dilindungi tanpa diperlakukan seperti harta karun yang dimiliki oleh segelintir orang.
+>
+> Anak-anak dari kendaraan-kendaraan yang bergabung berhenti menangis setiap kali badai menghantam sisi bahtera, karena para pekerja berzirah bisa berdiri di luar dan membuat bahtera terasa tidak terlalu sendirian.
+>
+> Mereka yang tidak bisa memakan apa yang dimakan orang lain dilindungi selama distribusi. Mereka yang terlalu lemah untuk membawa tidak diperlakukan sebagai beban. Mereka yang ingin membantu tetapi tubuhnya sudah rusak menemukan cara baru untuk bekerja dengan bentuk [**Liquid Armor**](../../02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor.md) yang lebih ringan.
+>
+> Bahtera tidak menjadi damai. Tapi menjadi lebih sulit bagi kepanikan untuk berubah menjadi kekejaman. Itu penting.
+>
+> Aku bertanya kepada [**Penumpang ROTY BROI (ID 536)**](../../02-the-creations.../waivfves-1/41.-the-roty-broi.md) apakah dia merasa ditebus. Dia berkata tidak. Dia berkata penebusan terdengar terlalu bersih. Dia berkata dia tidak ingin mencuci masa lalunya seperti kotoran dari kulit. Dia ingin tetap mengingat apa yang pernah dibantu oleh tangannya untuk dibuat, agar tangannya tidak mengulangi dirinya sendiri ketika semua orang memujinya karena berguna. Lalu dia menyentuh zirah di sekitar dadanya dan berkata, "_Ini bukan pengampunanku. Ini pengekanganku._"
+>
+> Itu adalah keanehan lain dalam teori:
+>
+> terkadang perlindungan bukanlah sesuatu yang membuat seseorang bertarung lebih baik.
+>
+> Terkadang perlindungan adalah sesuatu yang mencegah seseorang menjadi apa yang dulu dia dilatih untuk menjadi.
+>
+> Inilah yang kupelajari:
+>
+> Zirah bukan hanya zirah. Zirah adalah ingatan. Zirah adalah pengekangan. Zirah adalah kerja. Zirah adalah persetujuan. Zirah adalah infrastruktur. Zirah adalah batas antara rasa takut dan kekerasan. Zirah adalah sistem yang bertanya kepada tubuh apa yang sedang ia coba lindungi.
+>
+> Jika zirah hanya membuat yang kuat menjadi lebih kuat, ia menjadi jenis bom yang lain. Jika zirah hanya melindungi tubuh dan bukan niat, ia menjadi seragam bagi kekejaman lama. Jika zirah bisa dicuri dan tetap mematuhi pencurinya, ia bukan perlindungan. Ia adalah bahaya dengan desain yang lebih baik.
+>
+> Tapi jika zirah melindungi yang hidup, menolak tangan yang salah, melelehkan niat untuk mencelakai, dan membantu mereka yang lelah untuk terus melakukan pekerjaan menjaga yang lain tetap hidup, maka mungkin zirah bisa menjadi bagian dari bahtera, bukan senjata lain di dalamnya.
+>
+> Untuk semua penerusku, dan untuk semua yang membaca catatan ini:
+>
+> Jangan membangun zirah karena kalian takut menjadi lemah.
+>
+> Bangunlah perlindungan karena kehidupan masih meminta untuk dibawa.
+>
+> Jangan biarkan rasa takut merancang senjata kalian. Biarkan kepedulian merancang batas kalian. Biarkan tangan yang ingin mencelakai menjadi berat. Biarkan niat untuk membunuh meleleh sebelum mencapai makhluk hidup lainnya.
+>
+> Lindungi air. Lindungi makanan. Lindungi kerja. Lindungi yang lemah tanpa mengubah perlindungan menjadi takhta. Lindungi yang hidup tanpa melatih masa depan untuk memuja perang.
+>
+> [**Liquid Armor**](../../02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor.md)
 
 ***
 
