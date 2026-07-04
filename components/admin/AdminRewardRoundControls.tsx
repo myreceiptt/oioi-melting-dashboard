@@ -1728,8 +1728,8 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
           />
         </div>
 
-        <div className="mt-5 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-          <div className="flex flex-col gap-3 md:flex-row">
+        <div className="mt-5 flex flex-col gap-3">
+          <div className="flex flex-col gap-3">
             <button
               className="w-full rounded-2xl border border-white/10 bg-black px-5 py-4 text-sm font-semibold text-white hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:opacity-40 md:w-auto"
               disabled={latestBlockLoading}
