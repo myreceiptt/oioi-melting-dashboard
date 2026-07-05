@@ -53,7 +53,8 @@ function ReadCard({
               className="grid rounded-xl px-4 py-2 text-center text-sm hover:bg-(--oioi-accent) disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-black"
               disabled={isRefreshing}
               onClick={onRefresh}
-              type="button">
+              type="button"
+            >
               {isRefreshing ? "Refreshing..." : "Refresh"}
             </button>
           </div>
@@ -232,7 +233,8 @@ function NftAdminReadCard({
         reads.forEach((read) => {
           void read.refetch();
         });
-      }}>
+      }}
+    >
       <ReadRow
         label="Owner"
         value={shortAddress(ownerAddress)}
@@ -341,7 +343,8 @@ function RotyPhaseReadCard({ address }: { address: Address }) {
         reads.forEach((read) => {
           void read.refetch();
         });
-      }}>
+      }}
+    >
       <ReadRow
         label="Whitelist mint enabled"
         value={formatBool(asBool(whitelistMintEnabled.data))}
@@ -414,7 +417,8 @@ function GatedMintPhaseReadCard({
         reads.forEach((read) => {
           void read.refetch();
         });
-      }}>
+      }}
+    >
       <ReadRow
         label="Gated mint enabled"
         value={formatBool(asBool(gatedMintEnabled.data))}
@@ -508,7 +512,8 @@ function StakingAdminReadCard({
         reads.forEach((read) => {
           void read.refetch();
         });
-      }}>
+      }}
+    >
       <ReadRow
         label="Owner"
         value={shortAddress(ownerAddress)}
@@ -609,7 +614,8 @@ function RewardDistributorAdminReadCard({ address }: { address: Address }) {
         reads.forEach((read) => {
           void read.refetch();
         });
-      }}>
+      }}
+    >
       <ReadRow
         label="Owner"
         value={shortAddress(ownerAddress)}
@@ -744,7 +750,8 @@ function OioiAdminReadCard({
         reads.forEach((read) => {
           void read.refetch();
         });
-      }}>
+      }}
+    >
       <ReadRow label="Name" value={asString(name.data) ?? "—"} />
       <ReadRow label="Symbol" value={asString(symbol.data) ?? "—"} />
       <ReadRow label="Decimals" value={formatNumber(asBigInt(decimals.data))} />

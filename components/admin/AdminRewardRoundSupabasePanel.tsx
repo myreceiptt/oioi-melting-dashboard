@@ -187,7 +187,8 @@ export function AdminRewardRoundSupabasePanel({
           className="rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-medium hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-40"
           disabled={isLoading}
           onClick={() => void fetchRounds()}
-          type="button">
+          type="button"
+        >
           {isLoading ? "Refreshing..." : "Refresh rounds"}
         </button>
       </div>
@@ -207,7 +208,8 @@ export function AdminRewardRoundSupabasePanel({
         <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
           <label
             className="text-sm text-white/60"
-            htmlFor={`round-${chainSet}`}>
+            htmlFor={`round-${chainSet}`}
+          >
             Existing reward rounds
           </label>
 
@@ -215,7 +217,8 @@ export function AdminRewardRoundSupabasePanel({
             className="mt-2 w-full rounded-2xl border border-white/10 bg-black px-4 py-3 text-sm"
             id={`round-${chainSet}`}
             onChange={(event) => setSelectedRoundId(event.target.value)}
-            value={selectedRoundId}>
+            value={selectedRoundId}
+          >
             {rounds.length === 0 ? (
               <option value="">No rounds found</option>
             ) : null}
@@ -223,7 +226,8 @@ export function AdminRewardRoundSupabasePanel({
             {rounds.map((round) => (
               <option
                 key={String(round.round_id)}
-                value={String(round.round_id)}>
+                value={String(round.round_id)}
+              >
                 {String(round.round_id)} — {round.status}
               </option>
             ))}
@@ -234,7 +238,8 @@ export function AdminRewardRoundSupabasePanel({
               className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-medium hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-40"
               disabled={!selectedRound}
               onClick={() => void copySelectedRound()}
-              type="button">
+              type="button"
+            >
               Copy selected round values
             </button>
 

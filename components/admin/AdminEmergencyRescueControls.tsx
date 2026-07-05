@@ -162,7 +162,8 @@ function TokenBalanceSelect({
         className="w-full rounded-2xl border border-white/10 bg-black px-4 py-3 font-mono text-sm text-white outline-none focus:border-white/30 disabled:cursor-not-allowed disabled:opacity-60"
         disabled={loading}
         onChange={(event) => onChange(event.target.value)}
-        value={value}>
+        value={value}
+      >
         <option value="">
           {loading ? "Loading detected ERC20 balances..." : "Select token"}
         </option>
@@ -202,7 +203,8 @@ function TxStatus({
         className="mt-2 block break-all font-mono underline underline-offset-4"
         href={getTxUrl(chainSet, txHash)}
         rel="noreferrer"
-        target="_blank">
+        target="_blank"
+      >
         <ResponsiveHash value={txHash} />
       </a>
 
@@ -230,7 +232,8 @@ function ErrorMessageBlock({
 }) {
   return (
     <div
-      className={`${className} min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-[#ff9b4a] p-4`}>
+      className={`${className} min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-[#ff9b4a] p-4`}
+    >
       <h4 className="font-medium text-black">{title}</h4>
       <p className="mt-2 max-w-full break-all whitespace-pre-wrap text-sm text-black/70">
         {message}
@@ -462,7 +465,8 @@ function RewardDistributorExcessRescue({ chainSet }: { chainSet: ChainSet }) {
             className="rounded-xl px-4 py-2 text-sm hover:bg-(--oioi-accent) disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-black"
             disabled={isRefreshing}
             onClick={refetchReads}
-            type="button">
+            type="button"
+          >
             {isRefreshing ? "Refreshing..." : "Refresh"}
           </button>
         </div>
@@ -551,7 +555,8 @@ function RewardDistributorExcessRescue({ chainSet }: { chainSet: ChainSet }) {
           className="rounded-2xl bg-[#ff9b4a] px-5 py-4 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
           disabled={actionDisabled}
           onClick={() => void rescueExcessOioi()}
-          type="button">
+          type="button"
+        >
           Rescue Excess $OiOi
         </button>
       </div>
@@ -914,7 +919,8 @@ function ContractRescueControls({
             className="rounded-xl px-4 py-2 text-sm hover:bg-(--oioi-accent) disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-black"
             disabled={isRefreshing}
             onClick={refetchReads}
-            type="button">
+            type="button"
+          >
             {isRefreshing ? "Refreshing..." : "Refresh"}
           </button>
         </div>
@@ -991,7 +997,8 @@ function ContractRescueControls({
             className="rounded-2xl bg-[#ff9b4a] px-5 py-4 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
             disabled={rescueEthDisabled}
             onClick={() => void rescueEth()}
-            type="button">
+            type="button"
+          >
             Rescue ETH
           </button>
         </div>
@@ -1102,7 +1109,8 @@ function ContractRescueControls({
             className="rounded-2xl bg-[#ff9b4a] px-5 py-4 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
             disabled={rescueErc20Disabled}
             onClick={() => void rescueErc20()}
-            type="button">
+            type="button"
+          >
             Rescue ERC20
           </button>
         </div>

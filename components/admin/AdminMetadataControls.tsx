@@ -115,7 +115,8 @@ function TxStatus({
         className="mt-2 block break-all font-mono underline underline-offset-4"
         href={getTxUrl(chainSet, txHash)}
         rel="noreferrer"
-        target="_blank">
+        target="_blank"
+      >
         <ResponsiveHash value={txHash} />
       </a>
 
@@ -457,7 +458,8 @@ function MetadataCollectionControls({
             className="grid rounded-xl px-4 py-2 text-center text-sm hover:bg-(--oioi-accent) disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-black"
             disabled={isRefreshing}
             onClick={refetchMetadataReads}
-            type="button">
+            type="button"
+          >
             {isRefreshing
               ? "Refreshing..."
               : `Locked: ${formatBool(metadataLocked)}`}
@@ -522,7 +524,8 @@ function MetadataCollectionControls({
             className="cursor-pointer rounded-2xl bg-white px-5 py-3 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
             disabled={actionDisabledBase || unrevealedInput.trim() === ""}
             onClick={() => void setUnrevealedURI()}
-            type="button">
+            type="button"
+          >
             Set Unrevealed URI
           </button>
         </div>
@@ -544,7 +547,8 @@ function MetadataCollectionControls({
             className="cursor-pointer rounded-2xl bg-white px-5 py-3 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
             disabled={actionDisabledBase || revealedBaseInput.trim() === ""}
             onClick={() => void setRevealedBaseURI()}
-            type="button">
+            type="button"
+          >
             Set Revealed Base URI
           </button>
         </div>
@@ -566,7 +570,8 @@ function MetadataCollectionControls({
             className="cursor-pointer rounded-2xl bg-white px-5 py-3 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
             disabled={actionDisabledBase}
             onClick={() => void setBaseExtension()}
-            type="button">
+            type="button"
+          >
             Set Base Extension
           </button>
         </div>
@@ -585,7 +590,8 @@ function MetadataCollectionControls({
                 revealedBaseUriIsPending
               }
               onClick={() => void setRevealed(true)}
-              type="button">
+              type="button"
+            >
               Reveal Metadata
             </button>
 
@@ -593,7 +599,8 @@ function MetadataCollectionControls({
               className="cursor-pointer rounded-2xl bg-white px-5 py-3 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
               disabled={actionDisabledBase || revealed === false}
               onClick={() => void setRevealed(false)}
-              type="button">
+              type="button"
+            >
               Set Unrevealed
             </button>
           </div>
@@ -609,7 +616,8 @@ function MetadataCollectionControls({
             className="cursor-pointer rounded-2xl bg-white px-5 py-3 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
             disabled={actionDisabledBase}
             onClick={() => void lockMetadata()}
-            type="button">
+            type="button"
+          >
             Lock Metadata
           </button>
         </div>

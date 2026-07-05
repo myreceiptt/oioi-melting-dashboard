@@ -43,7 +43,8 @@ export function AppCopyright() {
               current === "Copyright" ? "Copyleft" : "Copyright",
             )
           }
-          type="button">
+          type="button"
+        >
           {label}
         </button>
         <span className="hidden py-2 px-3 text-white/70 sm:block">
@@ -53,7 +54,8 @@ export function AppCopyright() {
           aria-label="Open Prof. NOTA Inc. icon"
           className="cursor-pointer rounded-xl bg-black py-2 px-3 hover:bg-(--oioi-accent)"
           onClick={() => setModalOpen(true)}
-          type="button">
+          type="button"
+        >
           <Image
             alt="Prof. NOTA Inc."
             className="h-5 w-5 rounded-full"
@@ -71,7 +73,8 @@ export function AppCopyright() {
                 : "Prof. NOTA Inc.",
             )
           }
-          type="button">
+          type="button"
+        >
           {company}
         </button>
       </div>
@@ -84,7 +87,8 @@ export function AppCopyright() {
                 <button
                   className="cursor-pointer rounded-xl px-4 py-2 text-sm hover:bg-(--oioi-accent)"
                   onClick={() => setModalOpen(false)}
-                  type="button">
+                  type="button"
+                >
                   Close
                 </button>
               </div>
@@ -109,7 +113,8 @@ export function AppCopyright() {
                     current === "Copyright" ? "Copyleft" : "Copyright",
                   )
                 }
-                type="button">
+                type="button"
+              >
                 {label}
               </button>
               <div className="rounded-xl bg-black px-4 py-2 text-white/70">
@@ -119,14 +124,16 @@ export function AppCopyright() {
                 className="rounded-xl bg-black px-4 py-2 text-white hover:bg-(--oioi-accent)"
                 href="https://nota.endhonesa.com/"
                 rel="noreferrer"
-                target="_blank">
+                target="_blank"
+              >
                 Prof. NOTA Inc.
               </a>
               <a
                 className="rounded-xl bg-black px-4 py-2 text-white hover:bg-(--oioi-accent)"
                 href="https://endhonesa.com"
                 rel="noreferrer"
-                target="_blank">
+                target="_blank"
+              >
                 ENDHONESA.COM
               </a>
             </div>

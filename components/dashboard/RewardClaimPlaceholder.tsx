@@ -109,7 +109,8 @@ export function RewardClaimPlaceholder({ chainSet }: { chainSet: ChainSet }) {
               className="mt-1 block break-all font-mono text-sm underline underline-offset-4"
               href={getAddressUrl(chainSet, addresses.rewardDistributor)}
               rel="noreferrer"
-              target="_blank">
+              target="_blank"
+            >
               <ResponsiveHash value={addresses.rewardDistributor} />
             </a>
           </div>
@@ -120,7 +121,8 @@ export function RewardClaimPlaceholder({ chainSet }: { chainSet: ChainSet }) {
               className="mt-1 block break-all font-mono text-sm underline underline-offset-4"
               href={getAddressUrl(chainSet, addresses.oioi)}
               rel="noreferrer"
-              target="_blank">
+              target="_blank"
+            >
               <ResponsiveHash value={addresses.oioi} />
             </a>
           </div>
@@ -194,7 +196,8 @@ export function RewardClaimPlaceholder({ chainSet }: { chainSet: ChainSet }) {
         <button
           className="mt-5 w-full cursor-not-allowed rounded-2xl border border-white/10 px-5 py-3 font-medium opacity-40"
           disabled
-          type="button">
+          type="button"
+        >
           Claim $OiOi — Coming Soon
         </button>
       </article>

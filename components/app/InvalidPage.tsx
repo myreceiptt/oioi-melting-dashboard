@@ -27,7 +27,8 @@ export function InvalidPage({
           <div className="mt-6">
             <Link
               className="inline-block cursor-pointer rounded-2xl bg-white px-5 py-3 font-medium text-black hover:bg-(--oioi-accent) hover:text-white"
-              href={href}>
+              href={href}
+            >
               {actionLabel}
             </Link>
           </div>

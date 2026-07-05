@@ -17,7 +17,8 @@ export function ResponsiveHash({
     <>
       <span className={`max-[519px]:hidden ${className ?? ""}`}>{value}</span>
       <span
-        className={`hidden max-[519px]:inline ${shortClassName ?? className ?? ""}`}>
+        className={`hidden max-[519px]:inline ${shortClassName ?? className ?? ""}`}
+      >
         {shortMiddle(value)}
       </span>
     </>

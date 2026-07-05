@@ -58,7 +58,8 @@ function CollectionStakeSummary({
             void approved.refetch();
             void hasValidStake.refetch();
           }}
-          type="button">
+          type="button"
+        >
           {approved.isFetching || hasValidStake.isFetching
             ? "Refreshing..."
             : "Refresh"}

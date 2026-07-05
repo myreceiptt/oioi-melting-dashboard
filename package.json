@@ -37,7 +37,7 @@
     "build": "next build",
     "start": "next start",
     "lint:frontend": "eslint .",
-    "format": "prettier --write",
+    "format": "prettier --write .",
     "format:check": "prettier --check .",
     "whitelist:frontend": "tsx scripts/whitelist/export-frontend-proofs.ts",
     "indexer:sync": "tsx scripts/indexer/sync.ts",

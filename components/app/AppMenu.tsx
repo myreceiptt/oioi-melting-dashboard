@@ -360,7 +360,8 @@ function MenuLinkItem({
       href={item.href}
       onClick={onNavigate}
       rel={item.target === "_blank" ? "noreferrer" : undefined}
-      target={item.target}>
+      target={item.target}
+    >
       {item.label}
     </Link>
   );
@@ -437,7 +438,8 @@ export function AppMenu() {
           aria-label="Open main menu"
           className="inline-flex cursor-pointer rounded-xl bg-black px-4 py-2 text-sm font-semibold text-white hover:bg-(--oioi-accent)"
           onClick={() => setMobileOpen((current) => !current)}
-          type="button">
+          type="button"
+        >
           Menu
         </button>
       </div>
@@ -461,7 +463,8 @@ export function AppMenu() {
                     rel={item.target === "_blank" ? "noreferrer" : undefined}
                     target={item.target}
                     key={item.label}
-                    onClick={closeMobileMenu}>
+                    onClick={closeMobileMenu}
+                  >
                     {item.label}
                   </Link>
                 );
@@ -482,7 +485,8 @@ export function AppMenu() {
                         current === item.label ? null : item.label,
                       )
                     }
-                    type="button">
+                    type="button"
+                  >
                     <span>{item.label}</span>
                     <span>{groupOpen ? "-" : "+"}</span>
                   </button>
@@ -585,7 +589,8 @@ export function AppMenu() {
                 href={item.href}
                 rel={item.target === "_blank" ? "noreferrer" : undefined}
                 target={item.target}
-                key={item.label}>
+                key={item.label}
+              >
                 {item.label}
               </Link>
             );
@@ -605,7 +610,8 @@ export function AppMenu() {
                     current === item.label ? null : item.label,
                   )
                 }
-                type="button">
+                type="button"
+              >
                 {item.label}
               </button>
 

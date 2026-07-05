@@ -159,7 +159,8 @@ function TxStatus({
         className="mt-2 block break-all font-mono underline underline-offset-4"
         href={getTxUrl(chainSet, txHash)}
         rel="noreferrer"
-        target="_blank">
+        target="_blank"
+      >
         <ResponsiveHash value={txHash} />
       </a>
 
@@ -260,8 +261,7 @@ function FinancialCollectionControls({
     typeof treasuryRead.data === "string" ? treasuryRead.data : undefined;
 
   const royaltyInfo = royaltyInfoRead.data as
-    | readonly [Address, bigint]
-    | undefined;
+    readonly [Address, bigint] | undefined;
   const royaltyReceiver = royaltyInfo?.[0];
   const royaltyAmountForOneEth = royaltyInfo?.[1];
   const readError =
@@ -426,7 +426,8 @@ function FinancialCollectionControls({
             className="grid rounded-xl px-4 py-2 text-center text-sm hover:bg-(--oioi-accent) disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-black"
             disabled={isRefreshing}
             onClick={refetchFinancialReads}
-            type="button">
+            type="button"
+          >
             {isRefreshing ? "Refreshing..." : "Refresh"}
           </button>
         </div>
@@ -483,7 +484,8 @@ function FinancialCollectionControls({
             className="cursor-pointer rounded-2xl bg-white px-5 py-3 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
             disabled={actionDisabledBase || parsedMintPrice === null}
             onClick={() => void setMintPrice()}
-            type="button">
+            type="button"
+          >
             Set Mint Price
           </button>
         </div>
@@ -505,7 +507,8 @@ function FinancialCollectionControls({
             className="cursor-pointer rounded-2xl bg-white px-5 py-3 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
             disabled={actionDisabledBase || !parsedTreasury}
             onClick={() => void setTreasury()}
-            type="button">
+            type="button"
+          >
             Set Treasury
           </button>
         </div>
@@ -542,7 +545,8 @@ function FinancialCollectionControls({
               parsedRoyaltyFeeNumerator === null
             }
             onClick={() => void setDefaultRoyalty()}
-            type="button">
+            type="button"
+          >
             Set Default Royalty
           </button>
         </div>

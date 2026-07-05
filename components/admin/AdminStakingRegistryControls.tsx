@@ -74,7 +74,8 @@ function TxStatus({
         className="mt-2 block break-all font-mono underline underline-offset-4"
         href={getTxUrl(chainSet, txHash)}
         rel="noreferrer"
-        target="_blank">
+        target="_blank"
+      >
         <ResponsiveHash value={txHash} />
       </a>
       <div className="mt-1 text-black/70">
@@ -226,7 +227,8 @@ function StakingCollectionControl({
             className="grid rounded-xl px-4 py-2 text-center text-sm hover:bg-(--oioi-accent) disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-black"
             disabled={isRefreshing}
             onClick={refetchReads}
-            type="button">
+            type="button"
+          >
             {isRefreshing
               ? "Refreshing..."
               : `Approved: ${formatBool(approved)}`}
@@ -274,7 +276,8 @@ function StakingCollectionControl({
           className="cursor-pointer rounded-2xl bg-white px-5 py-4 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
           disabled={actionDisabledBase || approved === true}
           onClick={() => void setCollectionApproved(true)}
-          type="button">
+          type="button"
+        >
           Approve Collection
         </button>
 
@@ -282,7 +285,8 @@ function StakingCollectionControl({
           className="cursor-pointer rounded-2xl bg-white px-5 py-4 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
           disabled={actionDisabledBase || approved === false}
           onClick={() => void setCollectionApproved(false)}
-          type="button">
+          type="button"
+        >
           Unapprove Collection
         </button>
       </div>

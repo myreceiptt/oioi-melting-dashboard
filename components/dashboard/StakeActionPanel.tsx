@@ -68,7 +68,8 @@ function StatusPill({
 
   return (
     <span
-      className={`rounded-full border px-3 py-1 text-xs font-medium ${className}`}>
+      className={`rounded-full border px-3 py-1 text-xs font-medium ${className}`}
+    >
       {label}
     </span>
   );
@@ -262,7 +263,8 @@ function NftAsset({
   if (nft.media.assetType === "audio") {
     return (
       <div
-        className={`flex h-full w-full items-center justify-center bg-black/40 p-4 ${className}`}>
+        className={`flex h-full w-full items-center justify-center bg-black/40 p-4 ${className}`}
+      >
         <audio className="w-full" controls src={nft.media.assetUrl} />
       </div>
     );
@@ -299,7 +301,8 @@ function NftModal({
             <button
               className="cursor-pointer rounded-xl px-4 py-2 text-sm hover:bg-(--oioi-accent)"
               type="button"
-              onClick={onClose}>
+              onClick={onClose}
+            >
               Close
             </button>
           </div>
@@ -343,7 +346,8 @@ function TxStatus({
         className="mt-2 block break-all font-mono text-sm text-black/70 underline underline-offset-4"
         href={getTxUrl(chainSet, txHash)}
         rel="noreferrer"
-        target="_blank">
+        target="_blank"
+      >
         <ResponsiveHash value={txHash} />
       </a>
       <p className="mt-2 text-sm text-black/70">
@@ -522,7 +526,8 @@ function CollectionStakeCard({
             className="cursor-pointer rounded-xl px-4 py-2 text-sm hover:bg-(--oioi-accent) disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-black"
             disabled={loading}
             type="button"
-            onClick={() => void onRefresh(true)}>
+            onClick={() => void onRefresh(true)}
+          >
             {loading ? "Refreshing..." : "Refresh"}
           </button>
         </div>
@@ -565,10 +570,12 @@ function CollectionStakeCard({
                     event.preventDefault();
                     setSelectedTokenId(nft.tokenId);
                   }}
-                  onClick={() => setSelectedTokenId(nft.tokenId)}>
+                  onClick={() => setSelectedTokenId(nft.tokenId)}
+                >
                   <div
                     className="aspect-square overflow-hidden bg-black/40"
-                    onDoubleClick={() => setModalNft(nft)}>
+                    onDoubleClick={() => setModalNft(nft)}
+                  >
                     <NftThumbnail nft={nft} />
                   </div>
                   <div className="p-4">
@@ -587,7 +594,8 @@ function CollectionStakeCard({
                       onClick={(event) => {
                         event.stopPropagation();
                         setModalNft(nft);
-                      }}>
+                      }}
+                    >
                       View asset
                     </button>
                   </div>
@@ -634,7 +642,8 @@ function CollectionStakeCard({
       ) : null}
 
       <div
-        className={`mt-5 rounded-2xl p-4 ${STATUS_TONE_CLASSES[nextStepTone]}`}>
+        className={`mt-5 rounded-2xl p-4 ${STATUS_TONE_CLASSES[nextStepTone]}`}
+      >
         <h3 className="font-medium">Next step</h3>
         <p className="mt-2 text-sm text-black/70">{actionState.message}</p>
       </div>
@@ -643,7 +652,8 @@ function CollectionStakeCard({
         className="mt-4 w-full cursor-pointer rounded-2xl bg-white px-5 py-4 font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40 disabled:hover:bg-white disabled:hover:text-black"
         disabled={actionState.disabled}
         type="button"
-        onClick={handleAction}>
+        onClick={handleAction}
+      >
         {selectedActionLabel}
       </button>
 
@@ -736,14 +746,16 @@ function CollectionStakeCard({
             className="cursor-pointer rounded-2xl bg-white px-5 py-3 text-sm text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-white disabled:hover:text-black"
             disabled={!manualTokenId || isWritePending || isConfirming}
             type="button"
-            onClick={handleManualStake}>
+            onClick={handleManualStake}
+          >
             Manual Stake
           </button>
           <button
             className="cursor-pointer rounded-2xl bg-white px-5 py-3 text-sm text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-white disabled:hover:text-black"
             disabled={!manualTokenId || isWritePending || isConfirming}
             type="button"
-            onClick={handleManualUnstake}>
+            onClick={handleManualUnstake}
+          >
             Manual Unstake
           </button>
         </div>
