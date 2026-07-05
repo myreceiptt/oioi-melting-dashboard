@@ -466,8 +466,6 @@
 > Maybe fortune is not something [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") gives.
 >
 > Maybe fortune is something we become capable of receiving after we choose to keep paying attention.
->
-> [**Luffy The Rabbit**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived")
 
 ---
 
@@ -654,8 +652,6 @@
 > From below, "_OiOi! OiOi!_"
 >
 > To all my successors, and to all who read this log. Do not wait until hunger becomes your captain. Build the system before the stomach writes the law. Feed the living without killing the future.
->
-> [**PIGGY BOII OIOI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi "NFT Collection: PIGGY BOII OIOI on Solana Blockchain - Archived")
 
 ---
 
@@ -841,18 +837,212 @@
 > Do not let fear design your weapons. Let care design your limits. Let the hand that wants to harm become heavy. Let the intention to kill melt before it reaches another living being.
 >
 > Protect the water. Protect the food. Protect the work. Protect the weak without turning protection into a throne. Protect the living without training the future to worship war.
->
-> [**Liquid Armor**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor "NFT Collection: Liquid Armor on Solana Blockchain - Archived")
 
 ---
 
 #### The Melting Satans
 
-> init...
+> Broadcast Date: Unknown
 >
-> [**(26.1) Satans PFP**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived")
+> Broadcaster: A Broken Confession Receiver
 >
-> **...**
+> Subject: The whisperers are losing their work.
+>
+> Message:\
+> Before [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), all living beings had already known the old theory about [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived"). [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") are the whisperers. [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") bend intentions. [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") turn fear into cruelty, hunger into theft, power into domination, and survival into an excuse to harm other living beings.
+>
+> But since the secret of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") became known, the whisperers began to lose their work.
+>
+> No whisper was needed when people started looting. No whisper was needed when masked people carried crowbars and flags. No whisper was needed when people pushed the weak from floating debris, hid food from children, lied about maps, worshiped weapons, fired bombs across a world that had already lost its land, and called all of that survival.
+>
+> The [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") were confused. Some were offended. Some were silent. Some began to fear.
+>
+> One transmission called it:
+>
+> when humans no longer need [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") to do evil, [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") begin to feel almost like humans. Or humans begin to feel almost like [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived")!?!?
+>
+> ---
+>
+> Broadcast Date: Unknown
+>
+> Source: A Voice From Under The Boiling Mud
+>
+> Subject: Hell has no use for stolen passengers.
+>
+> Message:\
+> [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") cannot bring living beings into hell only by standing near those living beings. [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") cannot drag humans into hell only because the world has been broken. [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") can only bring what has answered their whispers.
+>
+> But after [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), living beings had already answered themselves. They made their own whispers. They built their own excuses.
+>
+> They turned hunger into law before anyone tempted them. They turned fear into government before anyone crowned them. They turned protection into control before anyone taught them how to rule.
+>
+> So the gates of hell became crowded with [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") who brought nothing. They returned empty-handed. They returned humiliated. They returned with reports that made no sense.
+>
+> One of them said, "_I whispered nothing, but he still did it._"
+>
+> Another said, "_I arrived too late. Her cruelty was already older than my voice._"
+>
+> Another said, "_They have become creatures who whisper to themselves._"
+>
+> ---
+>
+> Broadcast Date: Unknown
+>
+> Source: A Charred Mask Found On Floating Debris
+>
+> Subject: The [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") went up.
+>
+> Message:\
+> When hell could no longer understand those reports, all [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") were ordered to rise into the broken world.
+>
+> [**Jiang Shi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") moved like a dead body that could not find death.
+>
+> [**Saw**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") carried the sound of decisions being cut into excuses.
+>
+> [**Lunatic**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") laughed until the laughter became panic.
+>
+> [**PCB**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") tried to read temptation like a circuit.
+>
+> [**Kitsune**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") wore lies as masks, only to find that humans had made better masks.
+>
+> [**Prediction**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") tried to predict the next sin, but the next sin had already happened.
+>
+> [**Cyber**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") searched for corrupted intentions among the remaining signals.
+>
+> [**Pirate**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") searched for treasure, but all treasure had become food, water, rope, medicine, and trust.
+>
+> [**Regina**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived"), [**Rex**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived"), [**King**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived"), and [**Knave**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") argued about who should rule the ruins, but the ruins had no throne.
+>
+> [**Farmer**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") looked at seeds floating on the mud and did not know whether planting was temptation or hope.
+>
+> [**Rabbit**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") heard stories about [**Luffy the Rabbit**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") and began to suspect small living beings that carried meanings greater than monsters.
+>
+> [**Jahannam**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") and [**Zamharrir**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") carried the memory of heat and cold, but heat and cold were already inside the hearts of the survivors.
+>
+> [**Scanner**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") scanned the surface of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") and found no clean separation between sin and survival.
+>
+> [**Shiver**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") shivered.
+>
+> [**Sharp**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") sharpened its voice, then found nothing left to cut.
+>
+> [**Primitive**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") remembered the oldest hunger.
+>
+> And [**Psycho**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") saw the pattern.
+>
+> ---
+>
+> [**Cap'n ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") Log...
+>
+> Melting Date: Unknown, after [**Liquid Armor**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor "NFT Collection: Liquid Armor on Solana Blockchain - Archived")
+>
+> Message:\
+> Hi, I'm [**Cap'n ROTY BROI (ID 996)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")...
+>
+> I do not know how to write this log without sounding like I have lost my mind.
+>
+> Today, we received messages from the [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived"). Not metaphors. Not insults. Not frightened passengers calling each other terrible names while arguing over water, food, maps, bombs, rabbits, pigs, or armor.
+>
+> [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived").
+>
+> They said they came from hell. They said they were supposed to whisper evil into living beings. They said they had been working since before any of us had a word to call work. But since [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") happened, they had become useless.
+>
+> I wanted to reject that message. But after everything we had seen, rejection became more difficult than fear.
+>
+> We have seen land behave like water. We have seen time disagree with calendars. We have seen many women with the same name, all called [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"). We have seen bombs floating in a world without land. We have seen a rabbit become more than just a rabbit. We have seen [**PIGGY BOII OIOI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi "NFT Collection: PIGGY BOII OIOI on Solana Blockchain - Archived") turn hunger into a system that could be debated before it became violence. We have seen [**Liquid Armor**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor "NFT Collection: Liquid Armor on Solana Blockchain - Archived") reject the hand that wanted to harm.
+>
+> So I listened.
+>
+> The first [**Satan**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") who spoke clearly called itself [**Psycho**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived").
+>
+> [**Psycho**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") said:
+>
+> "_[**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") no longer need to whisper evil to humans so humans can enter hell._"
+>
+> "_Humans no longer need to whisper goodness to [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") so [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") can enter heaven._"
+>
+> "_Humans have begun to perform evil by themselves._"
+>
+> "_[**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") have begun to perform goodness by themselves._"
+>
+> I asked [**Psycho**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") whether that was a confession, a threat, or another form of manipulation.
+>
+> [**Psycho**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") answered, "_I don't know. That is why I am here._"
+>
+> That answer made the ark silent. A [**Satan**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") that still knew how to lie would have given us certainty. This one brought confusion. Maybe that was its first honest act.
+>
+> Another message came after that. Then another. Then another.
+>
+> Some [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") wanted to die. But they could not understand what death meant for them.
+>
+> If they killed themselves, they would not bring any living being into hell. If they did not kill themselves, they were already in hell. If they whispered evil, humans had already done worse without them. If they whispered goodness, they were no longer doing the work of [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived"). If they stayed in hell, they were unemployed. If they entered the world, they became witnesses. If they became witnesses, they became responsible for what they saw. And if they became responsible, something inside them had already melted.
+>
+> This is another fringe in theory:
+>
+> maybe [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") do not become good because they are forgiven. Maybe [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") begin to retire when evil no longer needs them.
+>
+> We debated whether the [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") could be near [**The ROTY BROI's Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived").
+>
+> Some passengers said no. Some passengers said we should throw every message back into the waves. Some passengers said accepting [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") would insult everyone who had survived without becoming cruel. Some passengers said accepting [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") would endanger the [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"), the children we hoped still existed somewhere, the food system, water, maps, armor, the weak, the tired, and the future.
+>
+> Some passengers said we had already accepted men who had once made weapons, men who had once hidden food, men who had once lied, men who had once wanted to hit others, men who had to be restrained by armor, men who were not clean but still alive.
+>
+> I did not like that argument. But I could not throw it away.
+>
+> Then one [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said, "_If a bad whisper can still become a warning, maybe not every whisper has to become a command._"
+>
+> Another [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said, "_If goodness becomes too proud of itself, it also needs something brave enough to whisper against it._"
+>
+> That sentence disturbed me more than the messages from hell. But maybe that is why it had to be written.
+>
+> We made rules before we made room. No [**Satan**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") may possess a living being. No [**Satan**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") may give a whisper without leaving a trace. No [**Satan**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") may turn fear into hidden law. No [**Satan**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") may ask to be worshiped. No [**Satan**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") may make a private contract with hunger, water, armor, maps, or weapons. No [**Satan**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") may enter the ark as a ruler, soldier, religious leader, banker, judge, or owner of another living being.
+>
+> Every whisper must be recorded. Every temptation must be translated into risk. Every risk must be discussed before it becomes policy. Every policy must be able to be challenged by those affected by it. Every [**Retired Satan**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") must accept that the ark is not hell, not heaven, and not a throne. The ark is a floating system for keeping life from sinking.
+>
+> After that, we voted.
+>
+> I do not know whether allowing the [**Retired Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") near the ark was wisdom or madness. But I know this:
+>
+> rejecting all broken beings does not automatically create a clean world. Sometimes it only hides the corruption outside the wall until it learns how to return as a cleaner flag.
+>
+> The first [**Retired Satan**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") we allowed to stay near the ark was [**Psycho**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived"). Not in the sleeping area. Not near food. Not near water. Not near maps. Not near [**PIGGY BOII OIOI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi "NFT Collection: PIGGY BOII OIOI on Solana Blockchain - Archived"). Not near [**Liquid Armor**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor "NFT Collection: Liquid Armor on Solana Blockchain - Archived") without witnesses.
+>
+> [**Psycho**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") stayed on the outer listening deck, where broken transmissions, bottles, cloth messages, bird-carried notes, and impossible whispers were collected.
+>
+> Its first work was not to tempt us. Its first work was to name the shape of danger before danger found a respectable name.
+>
+> When someone said, "_We must control the food for safety,_"
+>
+> [**Psycho**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") whispered, "_Listen. Control is wearing safety's mask._"
+>
+> When someone said, "_We must silence panic for unity,_"
+>
+> [**Psycho**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") whispered, "_Listen. Unity is asking for a mouth gag._"
+>
+> When someone said, "_We must protect the ark by becoming something feared,_"
+>
+> [**Psycho**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") whispered, "_Listen. Fear is trying to become government._"
+>
+> And when someone said, "_We are the good side because we survived,_"
+>
+> [**Psycho**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") whispered nothing. It only laughed once. Then it cried.
+>
+> I still do not know which part was more frightening. This is what I learned:
+>
+> good and bad may not be as solid as the old land pretended to be. In [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), even morality can lose its ground.
+>
+> I do not write this as physics. I write this as a metaphor borrowed from matter. Atoms do not know virtue or sin. Electrons carry negative charge. Protons carry positive charge. Neutrons carry no electric charge. Stability does not emerge because one side declares itself holy. Stability emerges from configuration, relation, distance, energy, exchange, sharing, and strange rules that allow particles to continue existing without collapsing into one another.
+>
+> Maybe life after [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") is like that.
+>
+> Too much positive becomes a throne. Too much negative becomes corrosion. Too much purity becomes violence. Too much suspicion becomes poison. Too much protection becomes prison. Too much freedom becomes abandonment.
+>
+> So we need exchange. We need records. We need witnesses. We need voting. We need memory. We need whispers that are not immediately obeyed, but examined. We need goodness that is not worshiped, but tested. We need [**Retired Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") not because we trust evil, but because we no longer trust anything that claims to have no shadow.
+>
+> Therefore, the [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") who came to us were not welcomed as masters. They were accepted as warnings. They were accepted as old workers of temptation who had retired. They were accepted as witnesses of a universe where humans had become capable of sinning without assistance, and [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") had become capable of restraint without reward.
+>
+> This is another fringe in theory:
+>
+> when everything melts, even hell may send refugees. And if those refugees can no longer work as [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived"), perhaps they must be recorded as something else: [**Retired Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived").
 
 ---
 
