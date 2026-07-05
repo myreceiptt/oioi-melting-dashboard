@@ -24,10 +24,7 @@ const TRANSFER_PAGE_LIMIT = 3;
 const ALCHEMY_MAX_COUNT = "0x3e8";
 
 type ChainKey =
-  | "baseSepolia"
-  | "ethereumSepolia"
-  | "baseMainnet"
-  | "ethereumMainnet";
+  "baseSepolia" | "ethereumSepolia" | "baseMainnet" | "ethereumMainnet";
 type MediaType = "image" | "video" | "audio" | "html" | "unknown";
 
 type DashboardCacheRow = {

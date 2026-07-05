@@ -34,7 +34,8 @@ export function ChainGuard({
           className="mt-4 rounded-xl bg-white px-4 py-2 text-sm font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:opacity-50 cursor-pointer"
           disabled={isPending}
           type="button"
-          onClick={() => switchChain({ chainId: requiredChain.id })}>
+          onClick={() => switchChain({ chainId: requiredChain.id })}
+        >
           Switch to {requiredChain.name}
         </button>
       </div>

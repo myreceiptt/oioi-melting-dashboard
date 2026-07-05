@@ -6,12 +6,7 @@ export type AdminRiskLevel = "info" | "low" | "medium" | "high" | "critical";
 export type AdminConfirmationType = "none" | "confirm" | "typed-confirmation";
 
 export type AdminContractGroup =
-  | "roty"
-  | "melting"
-  | "amanda"
-  | "staking"
-  | "rewardDistributor"
-  | "oioi";
+  "roty" | "melting" | "amanda" | "staking" | "rewardDistributor" | "oioi";
 
 export type AdminContractKind =
   | "roty base deth"

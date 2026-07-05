@@ -27,7 +27,8 @@ export default function AdminHomePage() {
         <div className="rounded-3xl border border-white/10 bg-black p-2">
           <Link
             className="block w-full rounded-2xl p-4 hover:bg-(--oioi-accent)"
-            href="/admin/base">
+            href="/admin/base"
+          >
             <div className="text-xl font-semibold">BASE Admin</div>
             <p className="mt-2 text-sm text-white/70">
               Manage BASE contracts based on the current environment.
@@ -38,7 +39,8 @@ export default function AdminHomePage() {
         <div className="rounded-3xl border border-white/10 bg-black p-2">
           <Link
             className="block w-full rounded-2xl p-4 hover:bg-(--oioi-accent)"
-            href="/admin/ethereum">
+            href="/admin/ethereum"
+          >
             <div className="text-xl font-semibold">dETH Admin</div>
             <p className="mt-2 text-sm text-white/70">
               Manage Ethereum contracts based on the current environment.

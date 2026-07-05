@@ -176,9 +176,11 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(circle at top right,
+    radial-gradient(
+      circle at top right,
       color-mix(in srgb, var(--oioi-bg) 62%, white 12%) 0,
-      transparent 34rem),
+      transparent 34rem
+    ),
     linear-gradient(180deg, var(--oioi-bg) 0%, var(--oioi-bg-soft) 100%);
   color: var(--oioi-text);
   font-family: var(--oioi-font);
@@ -233,9 +235,7 @@ textarea {
   }
 
   .bg-yellow-500\/15 {
-    background-color: color-mix(in srgb,
-        var(--oioi-warning-bg) 84%,
-        white 6%);
+    background-color: color-mix(in srgb, var(--oioi-warning-bg) 84%, white 6%);
   }
 
   .bg-green-500\/10 {
@@ -243,9 +243,7 @@ textarea {
   }
 
   .bg-green-500\/15 {
-    background-color: color-mix(in srgb,
-        var(--oioi-success-bg) 84%,
-        white 6%);
+    background-color: color-mix(in srgb, var(--oioi-success-bg) 84%, white 6%);
   }
 
   .bg-red-500\/10 {
@@ -253,9 +251,7 @@ textarea {
   }
 
   .bg-red-500\/15 {
-    background-color: color-mix(in srgb,
-        var(--oioi-danger-bg) 84%,
-        white 6%);
+    background-color: color-mix(in srgb, var(--oioi-danger-bg) 84%, white 6%);
   }
 
   .bg-blue-500\/10 {
@@ -271,9 +267,7 @@ textarea {
   }
 
   .bg-orange-500\/15 {
-    background-color: color-mix(in srgb,
-        var(--oioi-caution-bg) 84%,
-        white 6%);
+    background-color: color-mix(in srgb, var(--oioi-caution-bg) 84%, white 6%);
   }
 
   .border-white\/10 {
@@ -342,21 +336,15 @@ textarea {
 
   .hover\:bg-yellow-500\/15:hover,
   .hover\:bg-yellow-500\/20:hover {
-    background-color: color-mix(in srgb,
-        var(--oioi-warning-bg) 78%,
-        white 10%);
+    background-color: color-mix(in srgb, var(--oioi-warning-bg) 78%, white 10%);
   }
 
   .hover\:bg-green-500\/20:hover {
-    background-color: color-mix(in srgb,
-        var(--oioi-success-bg) 78%,
-        white 10%);
+    background-color: color-mix(in srgb, var(--oioi-success-bg) 78%, white 10%);
   }
 
   .hover\:bg-red-500\/20:hover {
-    background-color: color-mix(in srgb,
-        var(--oioi-danger-bg) 78%,
-        white 10%);
+    background-color: color-mix(in srgb, var(--oioi-danger-bg) 78%, white 10%);
   }
 
   .hover\:bg-blue-500\/20:hover {
@@ -374,7 +362,6 @@ textarea {
 }
 
 @layer base {
-
   button:not(:disabled),
   a[href],
   select:not(:disabled) {
@@ -462,5 +449,4 @@ textarea {
     background-color: var(--oioi-field);
     border-color: var(--oioi-border);
   }
-
 }

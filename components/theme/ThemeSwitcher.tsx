@@ -25,7 +25,8 @@ export function ThemeSwitcher() {
     <div
       aria-label="ESTETIKA theme switcher"
       className="inline-flex gap-1 rounded-2xl border border-white/10 bg-black p-1"
-      role="group">
+      role="group"
+    >
       {themeOptions.map((option) => {
         const isActive = activeTheme === option.value;
         const themeColor = themeButtonColor[option.value];
@@ -49,7 +50,8 @@ export function ThemeSwitcher() {
                     "--oioi-theme-switcher-hover": themeColor,
                   } as React.CSSProperties)
             }
-            type="button">
+            type="button"
+          >
             {option.label}
           </button>
         );

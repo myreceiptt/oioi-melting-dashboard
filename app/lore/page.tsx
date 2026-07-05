@@ -71,7 +71,8 @@ export default function LorePage() {
         {loreSections.map((section) => (
           <article
             className="rounded-3xl border border-white/10 bg-black p-6"
-            key={section.title}>
+            key={section.title}
+          >
             <div className="grid gap-5 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-stretch">
               <div className="flex min-h-64 items-center justify-center rounded-2xl border border-white/10 bg-white/70 p-6 text-center text-black">
                 <div>

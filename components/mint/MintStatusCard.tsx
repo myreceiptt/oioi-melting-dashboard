@@ -75,7 +75,8 @@ export function MintStatusCard({ config }: { config: CollectionConfig }) {
               className="cursor-pointer rounded-xl px-4 py-2 text-sm hover:bg-(--oioi-accent) disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-black"
               disabled={isRefreshing}
               type="button"
-              onClick={handleRefresh}>
+              onClick={handleRefresh}
+            >
               {isRefreshing ? "Refreshing..." : "Refresh"}
             </button>
           </div>

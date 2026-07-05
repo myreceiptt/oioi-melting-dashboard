@@ -11,12 +11,7 @@ import {
 export type BoundaryChainKey = RewardChainKey;
 
 type SyncJobStatus =
-  | "queued"
-  | "running"
-  | "paused"
-  | "success"
-  | "failed"
-  | "cancelled";
+  "queued" | "running" | "paused" | "success" | "failed" | "cancelled";
 
 type TargetStatus =
   | "queued"

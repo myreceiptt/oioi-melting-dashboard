@@ -1,10 +1,7 @@
 import { getAppEnv, getRequiredEnv, type AppEnv } from "@/lib/utils/env";
 
 export type RewardChainKey =
-  | "baseSepolia"
-  | "ethereumSepolia"
-  | "baseMainnet"
-  | "ethereumMainnet";
+  "baseSepolia" | "ethereumSepolia" | "baseMainnet" | "ethereumMainnet";
 
 export type RewardChainParam = "base" | "ethereum";
 

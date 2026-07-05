@@ -7,10 +7,7 @@ import type {
 } from "@/scripts/indexer/types.js";
 
 type IndexerRunKind =
-  | "sync"
-  | "rebuild"
-  | "reward_calculation"
-  | "proof_generation";
+  "sync" | "rebuild" | "reward_calculation" | "proof_generation";
 type IndexerRunStatus = "running" | "success" | "failed";
 type CheckpointStatus = "idle" | "syncing" | "success" | "failed" | "paused";
 

@@ -23,7 +23,8 @@ export function ConnectWalletButton() {
         <button
           className="mt-3 rounded-xl bg-white px-4 py-2 text-sm text-black hover:bg-(--oioi-accent) hover:text-white cursor-pointer"
           type="button"
-          onClick={() => disconnect()}>
+          onClick={() => disconnect()}
+        >
           Disconnect
         </button>
       </div>
@@ -35,7 +36,8 @@ export function ConnectWalletButton() {
       <button
         className="rounded-2xl bg-white px-5 py-3 font-medium text-black hover:bg-(--oioi-accent) hover:text-white cursor-pointer"
         type="button"
-        onClick={() => setOpen(true)}>
+        onClick={() => setOpen(true)}
+      >
         Connect Wallet
       </button>
 
@@ -53,7 +55,8 @@ export function ConnectWalletButton() {
                 <button
                   className="cursor-pointer rounded-xl px-3 py-1 text-white transition hover:bg-(--oioi-accent)"
                   type="button"
-                  onClick={() => setOpen(false)}>
+                  onClick={() => setOpen(false)}
+                >
                   ×
                 </button>
               </div>
@@ -63,7 +66,8 @@ export function ConnectWalletButton() {
               {connectors.map((connector) => (
                 <div
                   key={connector.uid}
-                  className="rounded-2xl border border-white/10 bg-black p-1">
+                  className="rounded-2xl border border-white/10 bg-black p-1"
+                >
                   <button
                     className="cursor-pointer w-full rounded-xl px-4 py-3 text-left text-white hover:bg-(--oioi-accent) disabled:opacity-10"
                     disabled={isPending}
@@ -71,7 +75,8 @@ export function ConnectWalletButton() {
                     onClick={() => {
                       connect({ connector });
                       setOpen(false);
-                    }}>
+                    }}
+                  >
                     {connector.name}
                   </button>
                 </div>

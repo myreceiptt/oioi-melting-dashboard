@@ -116,12 +116,14 @@ export default function HomePage() {
           {mintLinks.map((link) => (
             <div
               key={link.href}
-              className="rounded-3xl border border-white/10 bg-black p-2">
+              className="rounded-3xl border border-white/10 bg-black p-2"
+            >
               <Link
                 href={link.href}
                 target={link.target}
                 rel={link.target === "_blank" ? "noreferrer" : undefined}
-                className="block w-full rounded-2xl p-4 hover:bg-(--oioi-accent)">
+                className="block w-full rounded-2xl p-4 hover:bg-(--oioi-accent)"
+              >
                 <h3 className="text-lg font-semibold">{link.title}</h3>
                 <p className="mt-2 text-sm text-white/70">{link.description}</p>
               </Link>
@@ -143,10 +145,12 @@ export default function HomePage() {
           {dashboardLinks.map((link) => (
             <div
               key={link.href}
-              className="rounded-3xl border border-white/10 bg-black p-2">
+              className="rounded-3xl border border-white/10 bg-black p-2"
+            >
               <Link
                 href={link.href}
-                className="block w-full rounded-2xl p-4 hover:bg-(--oioi-accent)">
+                className="block w-full rounded-2xl p-4 hover:bg-(--oioi-accent)"
+              >
                 <h3 className="text-lg font-semibold">{link.title}</h3>
                 <p className="mt-2 text-sm text-white/70">{link.description}</p>
               </Link>
@@ -168,10 +172,12 @@ export default function HomePage() {
           {adminLinks.map((link) => (
             <div
               key={link.href}
-              className="rounded-3xl border border-white/10 bg-black p-2">
+              className="rounded-3xl border border-white/10 bg-black p-2"
+            >
               <Link
                 href={link.href}
-                className="block w-full rounded-2xl p-4 hover:bg-(--oioi-accent)">
+                className="block w-full rounded-2xl p-4 hover:bg-(--oioi-accent)"
+              >
                 <h3 className="text-lg font-semibold">{link.title}</h3>
                 <p className="mt-2 text-sm text-white/70">{link.description}</p>
               </Link>

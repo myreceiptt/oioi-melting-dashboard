@@ -27,7 +27,8 @@ export default function DashboardPage() {
         <div className="rounded-3xl border border-white/10 bg-black p-2">
           <Link
             className="block w-full rounded-2xl p-4 hover:bg-(--oioi-accent)"
-            href="/dashboard/base">
+            href="/dashboard/base"
+          >
             <div className="text-xl font-semibold">BASE Dashboard</div>
             <p className="mt-2 text-sm text-white/70">
               Manage BASE assets based on the current reward round.
@@ -38,7 +39,8 @@ export default function DashboardPage() {
         <div className="rounded-3xl border border-white/10 bg-black p-2">
           <Link
             className="block w-full rounded-2xl p-4 hover:bg-(--oioi-accent)"
-            href="/dashboard/ethereum">
+            href="/dashboard/ethereum"
+          >
             <div className="text-xl font-semibold">dETH Dashboard</div>
             <p className="mt-2 text-sm text-white/70">
               Manage Ethereum assets based on the current reward round.

@@ -60,7 +60,8 @@ function TxStatus({
         className="mt-2 block break-all font-mono text-sm text-black/70 underline underline-offset-4"
         href={getTxUrl(config.chainSet, txHash)}
         rel="noreferrer"
-        target="_blank">
+        target="_blank"
+      >
         <ResponsiveHash value={txHash} />
       </a>
       <p className="mt-2 text-sm text-black/70">
@@ -215,7 +216,8 @@ export function GatedMintPanel({ config }: { config: CollectionConfig }) {
             className="cursor-pointer rounded-xl px-4 py-2 text-sm hover:bg-(--oioi-accent) disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-black"
             disabled={isRefreshing}
             type="button"
-            onClick={handleRefresh}>
+            onClick={handleRefresh}
+          >
             {isRefreshing ? "Refreshing..." : "Refresh"}
           </button>
         </div>
@@ -285,7 +287,8 @@ export function GatedMintPanel({ config }: { config: CollectionConfig }) {
           className="cursor-pointer rounded-2xl bg-white px-5 py-3 text-center font-medium leading-snug whitespace-normal text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40"
           disabled={Boolean(disabledReason)}
           type="button"
-          onClick={handleMint}>
+          onClick={handleMint}
+        >
           {disabledReason && !transactionInProgress
             ? disabledReason
             : `Mint ${config.symbol}`}

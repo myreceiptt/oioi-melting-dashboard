@@ -12,9 +12,7 @@ type PhasePlan = {
   contractLabel: string;
   address: `0x${string}`;
   functionName:
-    | "setWhitelistMintEnabled"
-    | "setPublicMintEnabled"
-    | "setGatedMintEnabled";
+    "setWhitelistMintEnabled" | "setPublicMintEnabled" | "setGatedMintEnabled";
   current: boolean;
   desired: boolean;
   rollback: string;
