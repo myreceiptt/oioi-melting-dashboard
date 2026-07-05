@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getMintSurfaceByHost } from "@/lib/app/surfaceRoutes";
+import { getMintSurfaceByHost } from "./lib/app/surfaceRoutes";
 
 export function proxy(request: NextRequest) {
   const mintSurface = getMintSurfaceByHost(request.headers.get("host"));

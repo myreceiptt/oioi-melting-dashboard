@@ -517,21 +517,21 @@ function FinancialCollectionControls({
             marketplace royalty reads.
           </p>
           <div className="grid gap-4 md:grid-cols-2">
-          <Field
-            label="New royalty receiver"
-            description="Address that receives future royalty."
-            onChange={setRoyaltyReceiverInput}
-            placeholder={royaltyReceiver ?? "0x..."}
-            value={royaltyReceiverInput}
-          />
+            <Field
+              label="New royalty receiver"
+              description="Address that receives future royalty."
+              onChange={setRoyaltyReceiverInput}
+              placeholder={royaltyReceiver ?? "0x..."}
+              value={royaltyReceiverInput}
+            />
 
-          <Field
-            label="New royalty percent"
-            description="Example: 11 for 11%. Supports up to 2 decimals."
-            onChange={setRoyaltyPercentInput}
-            placeholder="11"
-            value={royaltyPercentInput}
-          />
+            <Field
+              label="New royalty percent"
+              description="Example: 11 for 11%. Supports up to 2 decimals."
+              onChange={setRoyaltyPercentInput}
+              placeholder="11"
+              value={royaltyPercentInput}
+            />
           </div>
 
           <button

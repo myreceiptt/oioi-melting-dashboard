@@ -241,7 +241,7 @@ npm run deploy:reward-distributor -- --network ethereumMainnet
 
 Post-deployment verification has passed for both deployment records.
 
-### Base Mainnet
+### Base Mainnet Verification
 
 ```bash
 npm run verify:args -- baseMainnet
@@ -249,7 +249,7 @@ npm run deploy:read-check -- --network baseMainnet
 npm run deploy:restore-mint-phases -- --network baseMainnet
 ```
 
-### Ethereum Mainnet
+### Ethereum Mainnet Verification
 
 ```bash
 npm run verify:args -- ethereumMainnet

@@ -90,9 +90,7 @@ async function alchemyRequest<T>({
   };
 
   if (!response.ok || json.error || json.result === undefined) {
-    throw new Error(
-      json.error?.message ?? `Alchemy ${method} request failed.`,
-    );
+    throw new Error(json.error?.message ?? `Alchemy ${method} request failed.`);
   }
 
   return json.result;
@@ -111,11 +109,7 @@ function parseTokenBalance(value: string | null) {
 }
 
 function normalizeDecimals(value: unknown) {
-  if (
-    typeof value === "number" &&
-    Number.isSafeInteger(value) &&
-    value >= 0
-  ) {
+  if (typeof value === "number" && Number.isSafeInteger(value) && value >= 0) {
     return value;
   }
 

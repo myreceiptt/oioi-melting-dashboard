@@ -8,17 +8,19 @@ export type RewardChainKey =
 
 export type RewardChainParam = "base" | "ethereum";
 
-const CHAIN_KEYS_BY_ENV: Record<AppEnv, Record<RewardChainParam, RewardChainKey>> =
-  {
-    sepolia: {
-      base: "baseSepolia",
-      ethereum: "ethereumSepolia",
-    },
-    mainnet: {
-      base: "baseMainnet",
-      ethereum: "ethereumMainnet",
-    },
-  };
+const CHAIN_KEYS_BY_ENV: Record<
+  AppEnv,
+  Record<RewardChainParam, RewardChainKey>
+> = {
+  sepolia: {
+    base: "baseSepolia",
+    ethereum: "ethereumSepolia",
+  },
+  mainnet: {
+    base: "baseMainnet",
+    ethereum: "ethereumMainnet",
+  },
+};
 
 const BOUNDARY_CHAIN_KEYS_BY_ENV: Record<AppEnv, RewardChainKey[]> = {
   sepolia: ["baseSepolia", "ethereumSepolia"],

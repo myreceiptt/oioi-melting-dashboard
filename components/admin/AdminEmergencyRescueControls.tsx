@@ -764,11 +764,11 @@ function ContractRescueControls({
   const erc20Decimals =
     typeof erc20DecimalsRead.data === "number"
       ? erc20DecimalsRead.data
-      : selectedDetectedToken?.decimals ?? 18;
+      : (selectedDetectedToken?.decimals ?? 18);
   const erc20Symbol =
     typeof erc20SymbolRead.data === "string" && erc20SymbolRead.data.trim()
       ? erc20SymbolRead.data.trim()
-      : selectedDetectedToken?.symbol ?? "token";
+      : (selectedDetectedToken?.symbol ?? "token");
   const erc20Amount = parseTokenAmount(erc20AmountInput, erc20Decimals);
   const erc20ContractBalance =
     typeof erc20ContractBalanceRead.data === "bigint"
@@ -1015,8 +1015,8 @@ function ContractRescueControls({
 
           {!isDetectedTokensLoading && detectedErc20Tokens.length === 0 ? (
             <div className="rounded-2xl border border-black/10 bg-white/70 p-4 text-sm text-black/70">
-              No ERC20 token balances detected by Alchemy for this contract.
-              Use a custom token address only if you have verified one manually.
+              No ERC20 token balances detected by Alchemy for this contract. Use
+              a custom token address only if you have verified one manually.
             </div>
           ) : null}
 

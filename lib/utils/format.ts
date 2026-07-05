@@ -42,11 +42,7 @@ export function shortAddress(address: string | undefined) {
   return `${address.slice(0, 6)}…${address.slice(-4)}`;
 }
 
-export function shortMiddle(
-  value: string | undefined,
-  head = 9,
-  tail = 4,
-) {
+export function shortMiddle(value: string | undefined, head = 9, tail = 4) {
   if (!value) {
     return "—";
   }

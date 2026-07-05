@@ -4,29 +4,25 @@ const loreSections = [
   {
     eyebrow: "Chapter 01",
     title: "The ROTY BROI Ark",
-    body:
-      "This section is reserved for the opening story of The ROTY BROI ark, the vessel, the first invitation, and the beginning of the survival route through The Melting Land Universe.",
+    body: "This section is reserved for the opening story of The ROTY BROI ark, the vessel, the first invitation, and the beginning of the survival route through The Melting Land Universe.",
     imageAlt: "Placeholder for The ROTY BROI ark lore artwork",
   },
   {
     eyebrow: "Chapter 02",
     title: "BANANOW Land",
-    body:
-      "This section is reserved for the story of BANANOW Land, the land discovered after the voyage, and the early signs that the universe was wider than the wreckage left behind.",
+    body: "This section is reserved for the story of BANANOW Land, the land discovered after the voyage, and the early signs that the universe was wider than the wreckage left behind.",
     imageAlt: "Placeholder for BANANOW Land lore artwork",
   },
   {
     eyebrow: "Chapter 03",
     title: "The ROTY BASE dETH Memorial",
-    body:
-      "This section is reserved for the monument built from the remains of The ROTY BROI ark, where memory, chain, and survival become part of the same memorial surface.",
+    body: "This section is reserved for the monument built from the remains of The ROTY BROI ark, where memory, chain, and survival become part of the same memorial surface.",
     imageAlt: "Placeholder for The ROTY BASE dETH memorial artwork",
   },
   {
     eyebrow: "Chapter 04",
     title: "The Melting Land",
-    body:
-      "This section is reserved for the wider story of The Melting Land itself, the condition of the world, the people who remain, and the collections that carry the memory forward.",
+    body: "This section is reserved for the wider story of The Melting Land itself, the condition of the world, the people who remain, and the collections that carry the memory forward.",
     imageAlt: "Placeholder for The Melting Land lore artwork",
   },
 ];
@@ -96,9 +92,7 @@ export default function LorePage() {
                 <p className="text-sm uppercase tracking-[0.3em] text-white/70">
                   {section.eyebrow}
                 </p>
-                <h2 className="mt-3 text-3xl font-semibold">
-                  {section.title}
-                </h2>
+                <h2 className="mt-3 text-3xl font-semibold">{section.title}</h2>
                 <p className="mt-4 text-sm leading-7 text-white/70">
                   {section.body}
                 </p>

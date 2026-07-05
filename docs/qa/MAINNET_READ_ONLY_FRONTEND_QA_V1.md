@@ -88,20 +88,20 @@ Fix applied before this QA report:
 
 ## 3. Manual Frontend QA Result
 
-| Surface | Result | Notes |
-| --- | --- | --- |
-| `/mint/roty/base` | PASS | Base Mainnet read-only frontend reads returned. |
-| `/mint/roty/ethereum` | PASS | Ethereum Mainnet read-only frontend reads returned after the frontend read fix. |
-| Dashboard Base read-only panel | PASS | Base Mainnet dashboard read surface returned. |
-| Dashboard Ethereum read-only panel | PASS | Ethereum Mainnet dashboard read surface returned. |
-| `/mint/melting/base` | NOT CHECKED | Outside the confirmed manual evidence for this report. |
-| `/mint/melting/ethereum` | NOT CHECKED | Outside the confirmed manual evidence for this report. |
-| `/mint/amanda/base` | NOT CHECKED | Outside the confirmed manual evidence for this report. |
-| `/mint/amanda/ethereum` | NOT CHECKED | Outside the confirmed manual evidence for this report. |
-| Admin Base read-only panel | NOT CHECKED | Outside the confirmed manual evidence for this report. |
-| Admin Ethereum read-only panel | NOT CHECKED | Outside the confirmed manual evidence for this report. |
-| No Sepolia address shown in mainnet mode | NOT CHECKED | Must be included in later broader mainnet browser QA. |
-| No transaction prompt during read-only QA | NOT CHECKED | Must be included in later broader mainnet browser QA. |
+| Surface                                   | Result      | Notes                                                                           |
+| ----------------------------------------- | ----------- | ------------------------------------------------------------------------------- |
+| `/mint/roty/base`                         | PASS        | Base Mainnet read-only frontend reads returned.                                 |
+| `/mint/roty/ethereum`                     | PASS        | Ethereum Mainnet read-only frontend reads returned after the frontend read fix. |
+| Dashboard Base read-only panel            | PASS        | Base Mainnet dashboard read surface returned.                                   |
+| Dashboard Ethereum read-only panel        | PASS        | Ethereum Mainnet dashboard read surface returned.                               |
+| `/mint/melting/base`                      | NOT CHECKED | Outside the confirmed manual evidence for this report.                          |
+| `/mint/melting/ethereum`                  | NOT CHECKED | Outside the confirmed manual evidence for this report.                          |
+| `/mint/amanda/base`                       | NOT CHECKED | Outside the confirmed manual evidence for this report.                          |
+| `/mint/amanda/ethereum`                   | NOT CHECKED | Outside the confirmed manual evidence for this report.                          |
+| Admin Base read-only panel                | NOT CHECKED | Outside the confirmed manual evidence for this report.                          |
+| Admin Ethereum read-only panel            | NOT CHECKED | Outside the confirmed manual evidence for this report.                          |
+| No Sepolia address shown in mainnet mode  | NOT CHECKED | Must be included in later broader mainnet browser QA.                           |
+| No transaction prompt during read-only QA | NOT CHECKED | Must be included in later broader mainnet browser QA.                           |
 
 Read-only frontend QA status for the confirmed scope:
 

@@ -900,10 +900,7 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
         )}
 
         {proofError ? (
-          <ErrorMessageBlock
-            message={proofError}
-            title="Proof lookup failed"
-          />
+          <ErrorMessageBlock message={proofError} title="Proof lookup failed" />
         ) : null}
 
         {rewardReadError ? (

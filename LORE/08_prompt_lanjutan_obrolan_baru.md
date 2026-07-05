@@ -18,14 +18,23 @@ Urutan lore yang sudah ada:
 
 ```md
 #### Pseudonymous Invitations
+
 #### The Melting Date
+
 #### The Melting Journey
+
 #### The Melting Archipelago
+
 #### The Melting BOMB
+
 #### The Melting Rabbit
+
 #### The Melting Pigs
+
 #### The Melting Armor
+
 #### The Melting Satans
+
 #### The Melting Money
 ```
 
@@ -33,14 +42,23 @@ Padanan Indonesia:
 
 ```md
 #### Undangan Dengan Nama Samaran
+
 #### Penanggalan Meleleh
+
 #### Perjalanan Meleleh
+
 #### Kepulauan Meleleh
+
 #### BOM Meleleh
+
 #### Kelinci Meleleh
+
 #### Babi Meleleh
+
 #### Zirah Meleleh
+
 #### Setan Meleleh
+
 #### Uang Meleleh
 ```
 
@@ -80,6 +98,7 @@ Konsep raw Prof. NOTA:
   - Nameless Liquid menjadi medium kedamaian, pembiakan, dan perlindungan.
   - Liquid Armor menjadi protection system yang menolak tangan salah dan melelehkan niat jahat.
 - Psycho menyadari pembalikan:
+
   ```text
   Setan tidak lagi perlu membisiki negatif pada manusia.
   Manusia juga tidak lagi perlu membisiki positif pada setan.
@@ -87,6 +106,7 @@ Konsep raw Prof. NOTA:
   Manusia sudah dengan sendirinya negatif.
   Setan sudah dengan sendirinya positif.
   ```
+
 - Tapi positif/negatif harus dijelaskan sebagai metafora fisika, bukan moral mutlak:
   - elektron negatif bukan jahat,
   - proton positif bukan suci,

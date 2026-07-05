@@ -1035,8 +1035,7 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
         ethereumLatestBlockRead.refetch(),
       ]);
       const baseBlock = baseResult.data ?? baseLatestBlockRead.data;
-      const ethereumBlock =
-        ethereumResult.data ?? ethereumLatestBlockRead.data;
+      const ethereumBlock = ethereumResult.data ?? ethereumLatestBlockRead.data;
 
       if (!baseBlock || !ethereumBlock) {
         setBoundaryError(
@@ -1178,8 +1177,7 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
           workflowKind,
         }),
       });
-      const json =
-        (await response.json()) as GithubActionsDispatchApiResponse;
+      const json = (await response.json()) as GithubActionsDispatchApiResponse;
 
       if (!response.ok || json.ok === false) {
         setWorkflowDispatchError(

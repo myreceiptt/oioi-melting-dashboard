@@ -4,11 +4,7 @@ import { getAddress } from "viem";
 import { DEPLOYER_ADDRESS, getDeployConfig } from "./00-config.js";
 import { readDeploymentRecord } from "./deployment-state.js";
 
-type PhaseKey =
-  | "rotyWhitelist"
-  | "rotyPublic"
-  | "meltingGated"
-  | "amandaGated";
+type PhaseKey = "rotyWhitelist" | "rotyPublic" | "meltingGated" | "amandaGated";
 
 type PhasePlan = {
   key: PhaseKey;
@@ -123,11 +119,7 @@ async function main() {
     amanda: (await amanda.read.metadataLocked()) as boolean,
   };
 
-  if (
-    metadataStates.roty ||
-    metadataStates.melting ||
-    metadataStates.amanda
-  ) {
+  if (metadataStates.roty || metadataStates.melting || metadataStates.amanda) {
     throw new Error(
       `Metadata lock detected. Refusing mint phase changes. ${JSON.stringify(
         metadataStates,
@@ -164,7 +156,8 @@ async function main() {
       gasEstimate: await roty.estimateGas.setWhitelistMintEnabled([
         desired.rotyWhitelist,
       ]),
-      execute: () => roty.write.setWhitelistMintEnabled([desired.rotyWhitelist]),
+      execute: () =>
+        roty.write.setWhitelistMintEnabled([desired.rotyWhitelist]),
     });
   }
 

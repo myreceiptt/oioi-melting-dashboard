@@ -46,7 +46,9 @@ export function AppCopyright() {
           type="button">
           {label}
         </button>
-        <span className="hidden py-2 px-3 text-white/70 sm:block">{timestamp}</span>
+        <span className="hidden py-2 px-3 text-white/70 sm:block">
+          {timestamp}
+        </span>
         <button
           aria-label="Open Prof. NOTA Inc. icon"
           className="cursor-pointer rounded-xl bg-black py-2 px-3 hover:bg-(--oioi-accent)"

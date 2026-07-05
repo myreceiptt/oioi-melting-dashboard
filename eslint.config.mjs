@@ -11,10 +11,5 @@ export default defineConfig([
       "react-hooks/set-state-in-effect": "off",
     },
   },
-  globalIgnores([
-    ".next/**",
-    "artifacts/**",
-    "cache/**",
-    "node_modules/**",
-  ]),
+  globalIgnores([".next/**", "artifacts/**", "cache/**", "node_modules/**"]),
 ]);

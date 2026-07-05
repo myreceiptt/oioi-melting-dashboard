@@ -47,8 +47,7 @@ export function useGatedEligibility(config: CollectionConfig) {
       isLoading: rotyEligibility.isLoading,
       isFetching: rotyEligibility.isFetching,
       error: rotyEligibility.error,
-      refetch: () =>
-        address ? rotyEligibility.refetch() : Promise.resolve(),
+      refetch: () => (address ? rotyEligibility.refetch() : Promise.resolve()),
       eligible: rotyEligibility.data as boolean | undefined,
       reason: "Melting requires a valid ROTY soft stake on the same chain.",
     };
@@ -58,8 +57,7 @@ export function useGatedEligibility(config: CollectionConfig) {
     isLoading: amandaEligibility.isLoading,
     isFetching: amandaEligibility.isFetching,
     error: amandaEligibility.error,
-    refetch: () =>
-      address ? amandaEligibility.refetch() : Promise.resolve(),
+    refetch: () => (address ? amandaEligibility.refetch() : Promise.resolve()),
     eligible: amandaEligibility.data as boolean | undefined,
     reason:
       "Amanda requires a valid ROTY or Melting soft stake on the same chain.",

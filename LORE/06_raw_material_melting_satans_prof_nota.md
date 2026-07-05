@@ -26,6 +26,7 @@ Tapi semua itu seakan-akan sia-sia, dan menjadi keputus asaan bagi para setan, k
 Setan-setan yang sudah tidak kuasa ingin bunuh diri, semakin tidak mampu menalar itu semua, bunuh diri mereka tidak akan berimbas apa-apa, mereka tidak akan bisa masuk neraka dengan membawa manusia.
 
 Hingga setan Psycho menyadari atau mungkin terbawa suasana atau keadaan atau apapun itu, sehingga menjadikannya bisa membalik semuanya:
+
 ```
 Setan tidak lagi perlu membisiki negatif pada manusia.
 Manusia juga tidak lagi perlu membisiki positif pada setan.
