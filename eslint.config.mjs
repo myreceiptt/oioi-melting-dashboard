@@ -13,6 +13,7 @@ export default defineConfig([
     rules: {
       "@typescript-eslint/no-unused-vars": "off",
       "no-unused-vars": "off",
+      // These React compiler-adjacent rules are too noisy for current wagmi/Next client state patterns.
       "react-hooks/immutability": "off",
       "react-hooks/set-state-in-effect": "off",
       "unused-imports/no-unused-imports": "error",
@@ -27,5 +28,13 @@ export default defineConfig([
       ],
     },
   },
-  globalIgnores([".next/**", "artifacts/**", "cache/**", "node_modules/**"]),
+  globalIgnores([
+    ".next/**",
+    "artifacts/**",
+    "build/**",
+    "cache/**",
+    "coverage/**",
+    "node_modules/**",
+    "out/**",
+  ]),
 ]);

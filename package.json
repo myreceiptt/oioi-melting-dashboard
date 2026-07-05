@@ -37,6 +37,8 @@
     "build": "next build",
     "start": "next start",
     "lint:frontend": "eslint .",
+    "typecheck:frontend": "tsc --noEmit",
+    "validate:frontend": "npm run lint:frontend && npm run typecheck:frontend && npm run build",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "whitelist:frontend": "tsx scripts/whitelist/export-frontend-proofs.ts",
