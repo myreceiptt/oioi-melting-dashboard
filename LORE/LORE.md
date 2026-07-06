@@ -559,13 +559,13 @@
 >
 > "_BOII! BOII!_"
 >
-> The divers disappeared into the thick surface of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"). We waited. The ropes shook. The mud bubbled. Some came back coughing with nothing. Some came back crying after finding only empty air pockets. Then, from below, a reply came, "_OiOi! OiOi!_"
+> The divers disappeared into the thick surface of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"). We waited. The ropes shook. The mud bubbled. Some came back coughing with nothing. Some came back crying after finding only empty air pockets. Then, from below, a reply came, "_[**OiOi! OiOi!**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived")_"
 >
 > They had found them. Pigs inside an air pocket.
 >
 > After that, the call became a system. From above, "_BOII! BOII!_"
 >
-> From below, if life was found, "_OiOi! OiOi!_"
+> From below, if life was found, "_[**OiOi! OiOi!**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived")_"
 >
 > That is how the name spread through the ark, [**PIGGY BOII OIOI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi "NFT Collection: PIGGY BOII OIOI on Solana Blockchain - Archived").
 >
@@ -601,7 +601,7 @@
 >
 > Messages were sent outward. The call spread, "_BOII! BOII!_"
 >
-> The answer spread, "_OiOi! OiOi!_"
+> The answer spread, "_[**OiOi! OiOi!**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived")_"
 >
 > Other vessels tried to do the same. Some succeeded for a while. Most failed.
 >
@@ -649,7 +649,7 @@
 >
 > From above, "_BOII! BOII!_"
 >
-> From below, "_OiOi! OiOi!_"
+> From below, "_[**OiOi! OiOi!**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived")_"
 >
 > To all my successors, and to all who read this log. Do not wait until hunger becomes your captain. Build the system before the stomach writes the law. Feed the living without killing the future.
 
@@ -1048,11 +1048,246 @@
 
 #### The Melting Money
 
-> init...
+> Recovered Broadcast Fragments...
 >
-> [**Polygon $OiOi FTs**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived")
+> Source: An Old Market That No Longer Knew Price
 >
-> **...**
+> Broadcast Date: May 13, 2022
+>
+> Subject: The numbers still exist, but they are no longer obeyed.
+>
+> Message:\
+> Someone came carrying a bundle of wet money.
+>
+> The papers were not completely destroyed. Some of the numbers could still be read. Some of the images could still be seen. Some of the signatures still clung to them like remains of power that had not yet understood that the land beneath it had melted.
+>
+> He did not ask for much. He only asked for food.
+>
+> No one answered. Not because everyone was cruel. Not because there was no food at all. Not because we did not understand what money was. Precisely because we had once understood money too well, until we forgot what it was supposed to serve.
+>
+> He said, "_I can pay._"
+>
+> One survivor answered, "_Pay to whom?_"
+>
+> He said, "_To the owner of the food._"
+>
+> The survivor asked again, "_Who owns the food if what keeps it alive is water, hands, feed, time, pens, guards, divers, voting, and an agreement so hunger does not become the leader?_"
+>
+> The man fell silent. The money was still in his hand. But his hand no longer looked like it was holding value. His hand looked like it was holding the past.
+>
+> ---
+>
+> Recovered Broadcast Fragments...
+>
+> Source: A Wallet Found Floating Between Two Planks
+>
+> Broadcast Date: June 19, 2022
+>
+> Subject: I worked to eat, then forgot to eat.
+>
+> Message:\
+> Before [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), many people worked so they could live. Then they forgot to live.
+>
+> Many people worked so they could eat. Then they forgot to eat.
+>
+> Many people worked so they could sleep. Then they lost sleep.
+>
+> Many people worked so they could protect the body. Then the body was drained until it no longer had time to be protected.
+>
+> Many people worked so they could buy clothes. Then some took off their clothes to get money.
+>
+> Many people worked so they would not be hungry. Then some chose to be hungry all day as long as they still held money, rather than being full all day but holding no money at all.
+>
+> In the old world, that was called choice. On [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), it began to look like a disease that once wore the name of freedom.
+>
+> ---
+>
+> [**Cap'n ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") Log...
+>
+> Melting Date: Unknown, after the [**Retired Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") were accepted as warnings
+>
+> Message:\
+> Hi, I'm [**Cap'n ROTY BROI (ID 996)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")...
+>
+> [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived").
+>
+> I am writing that word today not because the word is new. Precisely because the word had been among us for too long until it was never considered necessary to record.
+>
+> I said it when greeting. Passengers answered with it when called. I said it when listening to someone speak. I said it when I agreed. I said it when I did not fully understand yet, but wanted to show that I was listening.
+>
+> Sometimes it meant yes. Sometimes it meant what. Sometimes it meant ready. Sometimes it meant continue. Sometimes it meant I am here. Sometimes it meant I have not sunk.
+>
+> Not everything important always enters the log. Breath is not always recorded. Blinking is not always recorded. A person who listens is not always recorded.
+>
+> But when breath stops, everyone knows. When eyes no longer blink, everyone knows. When someone is called and does not answer, everyone knows.
+>
+> So it is with [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived"). While it was heard, we did not realize it as a system. When it was no longer heard, we began to fear.
+>
+> I know, one day, perhaps there will be readers who think [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") was born from [**PIGGY BOII OIOI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi "NFT Collection: PIGGY BOII OIOI on Solana Blockchain - Archived"). That is not entirely true. [**PIGGY BOII OIOI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi "NFT Collection: PIGGY BOII OIOI on Solana Blockchain - Archived") was not the birth of [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived"). [**PIGGY BOII OIOI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi "NFT Collection: PIGGY BOII OIOI on Solana Blockchain - Archived") was the moment [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") became proof for the first time.
+>
+> Before that, [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") was a habit. After that, [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") became a sign that a call did not return empty-handed.
+>
+> From above, we shouted, "_BOII! BOII!_"
+>
+> From below, if there was nothing, only mud answered. But when life was found, when something was still breathing beneath the death of the surface, when a rope could still pull hope back home, from below came the sound, "_[**OiOi! OiOi!**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived")_"
+>
+> Since then, [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") was no longer only a sound passing between conversations. It became a sign that something answered. It became a sign that a call had found a result. It became a sign that work did not return as emptiness. It became a sign that there was still life that could be called out from beneath a melting world.
+>
+> After food became the first law, protection became the first boundary, and the [**Retired Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") became the first warnings, we faced a question we could no longer postpone, how do we record answers?
+>
+> Not price. Not wealth. Not ownership over life.
+>
+> Answer.
+>
+> Who guards the water when everyone sleeps? Who repairs the hull when the storm makes iron and wood sound like broken teeth? Who dives and returns with something still alive? Who cares for [**PIGGY BOII OIOI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi "NFT Collection: PIGGY BOII OIOI on Solana Blockchain - Archived") without turning it into private property? Who wears [**Liquid Armor**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor "NFT Collection: Liquid Armor on Solana Blockchain - Archived") to work, not to stand higher than those without armor? Who carries the message so help falls before bombs do? Who remains on the ark when their invitation could be taken away, sold, exchanged, or forgotten?
+>
+> We already had 1047 invitations. But an invitation proves that there was once a door. An invitation does not always prove that someone still stays, still guards, still answers, still remains part of the survival body we call [**The ROTY BROI's Ark**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived").
+>
+> Then an idea appeared, simple at first, tether the invitation. Do not surrender it. Do not erase it. Do not seize it. Tether it. Like a small boat that still belongs to its owner, but whose rope is tied to the ark so everyone knows it has not left.
+>
+> Every tethered invitation became a sign that its holder still chose to remain in the journey. Every sign that stayed tethered allowed the ark to count who could still be called. Every call that was answered allowed the record to say, [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived").
+>
+> We made the first counting board from crate remains, glass shards, wire, nails, charcoal, and parts of old tools that no longer knew what industry had given birth to them.
+>
+> On that board, names were not written like old names. What was written was the mark of the invitation, the turn, the work, the witness, and the answer.
+>
+> If someone was called to keep watch and answered, [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") was recorded. If someone was called to carry water and came, [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") was recorded. If someone was called to help the weak and did not make the weak feel like a burden, [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") was recorded. If someone only shouted to look busy, there was no [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived"). If someone stood near work to look like they were working, there was no [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived"). If someone came after everything was finished only to be photographed by memory, there was no [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived"). If someone was too weak to answer but remained present, a witness could answer for them. If someone could not speak but their body was still working to keep life alive, the record could answer with legitimate silence.
+>
+> Because [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") is not merely a throat sound. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") is a call that finds presence. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") is work that does not return as emptiness. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") is a sign that someone is still tethered to shared life.
+>
+> But not long after that, the first mistake began to appear. Not on the counting board. In our eyes.
+>
+> Some people began to ask how many [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") they had. Some people began comparing [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") the way people used to compare money. Some began to feel more useful only because their records were longer. Some began to feel unseen because their records were shorter. Some began doing something not because it needed to be guarded, but because they wanted to be heard when [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") was distributed. Some began holding hunger longer, because they did not want to leave a turn that might be recorded. Some began trading sleep for records. Some began bargaining with the protection of their own bodies for records. Some began speaking like saints while counting themselves.
+>
+> I saw that and felt the old world trying to climb onto the ark in new clothing. Old money did not come as wet paper. Old money came as a way of thinking. It entered not through a wallet. It entered through the desire to turn numbers into a mirror of self-worth.
+>
+> One [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") noticed me staring at the counting board for too long. She said, "_You are making a sound become heavy._"
+>
+> I asked what she meant. She pointed at the board, "_[**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") used to keep conversation alive. Now some people are starting to carry it like a stone._"
+>
+> I said that without records, work would disappear. She answered, "_True. But if a record becomes hungry, it will begin to eat work._"
+>
+> I did not answer. That [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") continued, "_Do not let [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") become old money with a new voice._"
+>
+> I asked how. She said, "_Start by not calling it price._"
+>
+> That night, [**Psycho**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") laughed from the listening deck. I asked whether there was a new whisper. [**Psycho**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") said, "_No. This is an old whisper. You only gave it a cuter name._"
+>
+> I told it to explain and [**Psycho**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") said:
+>
+> "_If someone works because life needs to be guarded, that is work._"
+>
+> "_If someone works because they want to be recorded, it may still be useful, but it has begun to smell like a market._"
+>
+> "_If someone pretends to guard in order to receive an answer, that is not work. That is prayer to a number._"
+>
+> I asked whether all rewards were bad. [**Psycho**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") answered, "_Reward is not a [**Satan**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived"). But [**Satan**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") likes to hide where humans stop examining why they want to be rewarded._"
+>
+> Then it added:
+>
+> "_If [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") trains them to guard, take care of [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived")._"
+>
+> "_If [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") trains them to look like they are guarding, watch [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived")._"
+>
+> "_If [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") makes them forget to eat so they can feel valuable, let [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") melt before humans melt with it._"
+>
+> We almost dismantled the counting board. But one passenger who had rarely spoken stood up. He said, "_Do not destroy the record only because we are afraid the record will be worshiped._"
+>
+> Another said, "_If it is not recorded, the strong will claim they worked the most. Those close to the captain will be heard most often. The silent will disappear._"
+>
+> Another one said, "_If it is recorded, those who are skilled at chasing records will control the board._"
+>
+> Another said again, "_If there is no [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived"), we return to stories from mouth to mouth._"
+>
+> Another one said again, "_If there is [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived"), we can return to being a market._"
+>
+> Then we debated as usual. Water had made us debate. Food had made us debate. Bombs had made us debate. Rabbits had made us debate. Pigs had made us debate. Armor had made us debate. [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") had made us debate. Now answers also made us debate. Maybe that is the sign that something has become important enough to become dangerous.
+>
+> After voting, we did not throw [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") away. We lowered it.
+>
+> [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not become the price of a body. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not become the price of hunger. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not become the price of silence. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not buy someone's protection away from their own body. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not make someone feel more alive than others. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not replace food. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not replace water. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not replace witnesses. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not replace voting. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not replace responsibility. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not become captain. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not become master.
+>
+> [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may only become a sign of answer. Answer to a call. Answer to work. Answer to presence. Answer to an invitation that remains tethered. Answer to life that has not stopped answering.
+>
+> But the first counting board had a gap. I will not write the shape of that gap. There is a hole that, if named too clearly, turns into a door. There is a weakness that, if announced as a story, becomes a map for the wrong hands.
+>
+> What my successors need to know is only this, not every [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") that looks like an answer truly comes from an answer. There is [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") that appears from the wrong echo. There is [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") recorded without a rightful call. There is [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") that almost made the counting board believe in a voice that never worked.
+>
+> We closed that board. We moved the records. We built a new board.
+>
+> Not everyone was happy. Some said we were erasing the past. Some said we were stealing their answers. Some said the gap should be announced so everyone would know. I answered "_We will remember that there was once a gap. But we will not give that gap a second body._"
+>
+> [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said, "_Migration is not forgiveness. Migration is an admission that the first design was not mature enough to hold human hunger for numbers._"
+>
+> I kept that sentence.
+>
+> After the new board stood, we thought things would get better. It turned out not to be that simple. Outside the ark, the season turned cold. Not cold air. Cold trust.
+>
+> People who once shouted about the future began to leave. Small markets that once glowed began to go out. Many calls were no longer answered. Many promises became wet boards. Many people said that all of this was only temporary, only a game, only a dream too expensive, only a season that once made people believe that images, invitations, signs, and records could become something.
+>
+> In an exchange pool far from the ark, something that had once been used as a paired foothold began to weaken. A stone that once felt like a foundation turned into wet sand. Wet sand turned into mud. Mud turned into something that could no longer be stepped on.
+>
+> They called it a market going down. I called it another melting land. Not [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") that sank cities. This was [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") that sank the belief that numbers would always save themselves.
+>
+> Some passengers were disappointed. They asked what [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") was for if out there no one considered it valuable. I did not answer right away. Because part of me also wanted to ask the same thing.
+>
+> Then one [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") took an empty plate and placed it in front of the counting board. She asked, "_Is this plate food?_"
+>
+> We answered no and she asked, "_Is this plate useless?_"
+>
+> We answered no again, then she said, "_A plate does not feed. But without a plate, food can spill, scatter, be fought over, or fall into the mud._"
+>
+> Then she pointed at [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived").
+>
+> "_Do not make this food._"
+>
+> "_Do not throw this away like trash._"
+>
+> "_Teach this to become a plate._"
+>
+> Since that day, I stopped asking whether [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") could save us. I began asking whether [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") could help us not forget who helped save us.
+>
+> That was our most useful mistake. We made an answer into an object too quickly. We made an object into a record too quickly. We made a record look like money too quickly. We hoped too quickly that new money would not carry the old disease.
+>
+> But maybe some things must fail small so they do not become a great disaster.
+>
+> The first board taught us that rewards can leak. The new board taught us that migration is not merely moving place, but moving understanding.
+>
+> The cold season outside taught us that value that does not touch life will easily lose its voice. [**PIGGY BOII OIOI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi "NFT Collection: PIGGY BOII OIOI on Solana Blockchain - Archived") taught us that [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") means there is a result. [**Liquid Armor**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor "NFT Collection: Liquid Armor on Solana Blockchain - Archived") taught us that tools must reject the wrong hand and intention. [**Retired Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") taught us that rewards must also be suspected when they begin to sound too clean.
+>
+> So we wrote a new law, [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") is not money to buy life. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") is a record that life was once answered.
+>
+> [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") is not the price of a human. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") is a sign that humans can still be called without disappearing into numbers.
+>
+> [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") is not proof that someone is more valuable. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") is proof that an invitation is still tethered to work, witnesses, and memory.
+>
+> [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") is not a reason to be hungry. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") must return to meaning nothing if it makes people forget to eat.
+>
+> [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") is not a reason to remove the protection of the body. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") must melt if it begins asking the body to prove its value by losing protection.
+>
+> [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") is not a throne. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") is an answer that may not sit above those who answer.
+>
+> This is what I learned, old money melted because it pretended to be land for too long. New money can also melt if it believes too quickly that it is different.
+>
+> Numbers are not evil. Records are not evil. Rewards are not evil. Tokens are not evil. But all of them can become a way home for the old disease if humans stop asking, what was answered? Who was called? Who worked? Who witnessed? Who was too weak to answer but still must not disappear? Who began pretending to be present? Who began to be hungry for the sake of records? Who began to be naked for numbers? Who began turning a call of life into a dead market?
+>
+> If those questions are no longer asked, [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") will become old money. If those questions continue to be asked, perhaps [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") can still become something lower than money, and because of that more useful than money. Because what we need is not an object standing above life. What we need is a small sign that helps life keep answering one another, [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived").
+>
+> P.S.:
+>
+> There is one more thing I still do not understand. After the new board stood, some records began to appear with light that did not come from the ark's lamps. As if light appeared from inside the new board itself. There were even some marks that looked as if they were written from inside the board.
+>
+> There was the shadow of an island. There was sunlight that was not the same as the heat of hell. There was the smell of salt, cloth, white walls, faces looking at artworks, and bodies standing inside a room that did not sway like an ark.
+>
+> Some passengers thought it was a hallucination caused by the cold season of trust. Some [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") did not answer when asked.
+>
+> [**Psycho**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") only said, "_If money melts, look at what still wants to be conserved._"
+>
+> I do not know what that means. But I feel this log is no longer being read only by us. As if there are other humans from inside that record reading us like a story. As if there is another life as real as our own. As if we too are beginning to look back at it, and do not know who is becoming a story for whom.
+>
+> Is it a message or a record sent by life on one of the islands from [**The Melting Archipelago**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/37.-woman-of-russian/37.1.-absart-idsa-archipelago "NFT Collection: ABSART IDSA Archipelago on Tezos Blockchain - Archived") that we are searching for? If that is true, then in the next log, when that island is found, do not rush to call it land. Do not rush to call it reality. Do not rush to call it savior, protection, or even mistake.
+>
+> Just record it first. Because after money melts, perhaps what remains is not wealth. Perhaps what remains is something that must be guarded so it does not sink with everything else, [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived").
 
 ---
 
