@@ -17,7 +17,7 @@
 >
 > Commenter: A Resident of **Dunno What Water**
 >
-> Comment: Aye, Aye, Captain!!!
+> Comment: Aye, aye, Captain!!!
 >
 > ---
 >
@@ -32,7 +32,7 @@
 >
 > Commenter: [**Cap’n ROTY BROI (ID 530)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
 >
-> Comment: Shiver Me Timbers!!!
+> Comment: Shiver me timbers!!!
 >
 > ---
 >
@@ -62,7 +62,7 @@
 >
 > Commenter: [**Cap’n ROTY BROI (ID 530)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
 >
-> Comment: All Hand Hoy!!!
+> Comment: All hand hoy!!!
 >
 > ---
 >
@@ -152,7 +152,7 @@
 >
 > Broadcaster: [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active")
 >
-> Subject: Unknown
+> Subject: Unknown.
 >
 > Message:\
 > Hi, there. This is... This is [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"). Is anyone out there?
@@ -163,7 +163,7 @@
 >
 > Broadcaster: A Survivor of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active")
 >
-> Subject: Unknown
+> Subject: Unknown.
 >
 > Message:\
 > Hello! I'm trying to get in contact with anyone.
@@ -174,7 +174,7 @@
 >
 > Broadcaster: A Survivor of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active")
 >
-> Subject: Unknown
+> Subject: Unknown.
 >
 > Message:\
 > We've had some luck finding people with this transmission.
@@ -185,7 +185,7 @@
 >
 > Broadcaster: A Mass Media of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active")
 >
-> Subject: Unknown
+> Subject: Unknown.
 >
 > Message:\
 > When there is no longer any land to stand on, everything becomes like a turbulent sea. Entire cities were lost, sinking in [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active").
@@ -196,7 +196,7 @@
 >
 > Broadcaster: A Mass Media of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active")
 >
-> Subject: Unknown
+> Subject: Unknown.
 >
 > Message:\
 > The United Nations Office for Disaster Risk Reduction reports today that help may never be soon...
@@ -207,7 +207,7 @@
 >
 > Broadcaster: A Mass Media of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active")
 >
-> Subject: Unknown
+> Subject: Unknown.
 >
 > Message:\
 > ...various debris used as a place to stand and survive, amidst [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active").
@@ -218,7 +218,7 @@
 >
 > Broadcaster: A Mass Media of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active")
 >
-> Subject: Unknown
+> Subject: Unknown.
 >
 > Message:\
 > The United Nations Office for Disaster Risk Reduction has created an announcement that instructs to build a survival ship that works as a kind of ark, so the people who survive can live there.
@@ -473,35 +473,43 @@
 
 > Recovered Fragments...
 >
-> Source: Unknown
+> Source: Unknown.
 >
 > Message:\
 > We do not need gold today. We do not need flags. We do not need a throne. We do not need a border. We need food.
 >
 > ---
 >
-> Source: Broken radio call
+> Recovered Fragments...
+>
+> Source: Broken radio call.
 >
 > Message:\
 > Is anyone out there still eating? Please answer. What do you eat now? What do you cook? What do you feed your children? What do you feed your old people? What do you feed those who cannot chew? Please answer.
 >
 > ---
 >
-> Source: Scratched wood found attached to the side of [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
+> Recovered Fragments...
+>
+> Source: Scratched wood found attached to the side of [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived").
 >
 > Message:\
 > Do not look at your friend like food. Not yet. Please.
 >
 > ---
 >
-> Source: A bottle note
+> Recovered Fragments...
+>
+> Source: A bottle note.
 >
 > Message:\
 > We saw one of us offer a part of himself to someone he loved. We are not writing this to shame him. We are writing this because hunger has started to speak louder than us.
 >
 > ---
 >
-> Source: Unknown [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active")
+> Recovered Fragments...
+>
+> Source: Unknown [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active").
 >
 > Message:\
 > The capsules are almost gone. We need to learn how to make food again before food becomes only a memory.
@@ -510,7 +518,7 @@
 >
 > [**Cap'n ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") Log...
 >
-> Melting Date: Unknown, after May 31, 2022
+> Melting Date: Unknown (after May 31, 2022)
 >
 > Message:\
 > Hi, I'm [**Cap'n ROTY BROI (ID 996)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")...
@@ -659,7 +667,7 @@
 
 > [**Cap'n ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") Log...
 >
-> Melting Date: Unknown, after the first breeding of [**PIGGY BOII OIOI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi "NFT Collection: PIGGY BOII OIOI on Solana Blockchain - Archived")
+> Melting Date: Unknown (after the first breeding of [**PIGGY BOII OIOI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi "NFT Collection: PIGGY BOII OIOI on Solana Blockchain - Archived"))
 >
 > Message:\
 > Hi, I'm [**Cap'n ROTY BROI (ID 996)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")...
@@ -865,7 +873,7 @@
 >
 > Broadcast Date: Unknown
 >
-> Source: A Voice From Under The Boiling Mud
+> Source: A voice from under the boiling mud.
 >
 > Subject: Hell has no use for stolen passengers.
 >
@@ -888,7 +896,7 @@
 >
 > Broadcast Date: Unknown
 >
-> Source: A Charred Mask Found On Floating Debris
+> Source: A charred mask found on floating debris.
 >
 > Subject: The [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") went up.
 >
@@ -933,7 +941,7 @@
 >
 > [**Cap'n ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") Log...
 >
-> Melting Date: Unknown, after [**Liquid Armor**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor "NFT Collection: Liquid Armor on Solana Blockchain - Archived")
+> Melting Date: Unknown (after [**Liquid Armor**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor "NFT Collection: Liquid Armor on Solana Blockchain - Archived"))
 >
 > Message:\
 > Hi, I'm [**Cap'n ROTY BROI (ID 996)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")...
@@ -1052,7 +1060,7 @@
 >
 > Broadcast Date: May 13, 2022
 >
-> Source: An Old Market That No Longer Knew Price
+> Source: An old market that no longer knew price.
 >
 > Subject: The numbers still exist, but they are no longer obeyed.
 >
@@ -1081,7 +1089,7 @@
 >
 > Broadcast Date: June 19, 2022
 >
-> Source: A Wallet Found Floating Between Two Planks
+> Source: A wallet found floating between two planks.
 >
 > Subject: I worked to eat, then forgot to eat.
 >
@@ -1104,7 +1112,7 @@
 >
 > [**Cap'n ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") Log...
 >
-> Melting Date: Unknown, after the [**Retired Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") were accepted as warnings
+> Melting Date: Unknown (after the [**Retired Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") were accepted as warnings)
 >
 > Message:\
 > Hi, I'm [**Cap'n ROTY BROI (ID 996)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")...
@@ -1299,9 +1307,9 @@
 
 > [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") Log...
 >
-> Melting Date: Unknown, after money melted
+> Melting Date: Unknown (after money melted)
 >
-> Recorder: [**Amanda (ID 27)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"), who Saw the Light Radiating From the New [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") Board
+> Recorder: [**Amanda (ID 27)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") (who saw the light radiating from the new [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") board)
 >
 > Location: In front of the new [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") board that began to radiate light.
 >
@@ -1328,7 +1336,7 @@
 >
 > [**Cap'n ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") Log...
 >
-> Melting Date: Unknown, after money melted
+> Melting Date: Unknown (after money melted)
 >
 > Message:\
 > Hi, I'm [**Cap'n ROTY BROI (ID 996)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")...
@@ -1349,9 +1357,9 @@
 >
 > [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") Log...
 >
-> Melting Date: Unknown, after money melted
+> Melting Date: Unknown (after money melted)
 >
-> Recorder: [**Amanda (ID 22)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"), who Held Salt at the Tip of Her Finger
+> Recorder: [**Amanda (ID 22)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") (who held salt at the tip of her finger)
 >
 > Location: The deck facing the light from the new [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") board.
 >
@@ -1374,11 +1382,11 @@
 >
 > Print Date: August 5, 2022 B.M.
 >
-> Source: A leaflet distributed at **TERUPA**
+> Source: A leaflet distributed at **TERUPA**.
 >
 > Writer: [**Prof. NOTA v10.0**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active")
 >
-> Subject: **Nameless Liquid**
+> Subject: **Nameless Liquid**.
 >
 > Message:\
 > Dear local residents at the **TERUPA** festival.
@@ -1432,7 +1440,7 @@
 >
 > Melting Date: August 6, 2022 (August 7, 2022 B.M.)
 >
-> Recorder: [**Amanda (ID 30)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"), who Read the Letter Before the Paper Dried
+> Recorder: [**Amanda (ID 30)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") (who read the letter before the paper dried)
 >
 > Message:\
 > At **TERUPA**, [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") did not arrive as a large wooden ship splitting the streets of Denpasar. It arrived as a collection of images, stories, small food, drinks, letters, conversations, and gazes. In the **Universe of Reality**, not every arrival must crack the ground. Some arrivals only need to make someone stop in front of a work, read, ask, and go home with an anxiety unlike the one they had when they came.
@@ -1472,11 +1480,11 @@
 >
 > Print Date: September 15, 2022 B.M.
 >
-> Source: The old account of [**Prof. NOTA**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active") in the **0101 Universe**
+> Source: The old account of [**Prof. NOTA**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active") in the **0101 Universe**.
 >
 > Writer: [**Prof. NOTA**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active")
 >
-> Subject: [**CONSERVE ROTY BROI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived")
+> Subject: [**CONSERVE ROTY BROI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived").
 >
 > Message:\
 > GM GM **OiOi!!!**
@@ -1511,7 +1519,7 @@
 >
 > Melting Date: September 29, 2022 (September 30, 2022 B.M.)
 >
-> Recorder: [**Amanda (ID 6)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"), who Realized the Word Derivative Does Not Always Mean Lower
+> Recorder: [**Amanda (ID 6)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") (who realized the word derivative does not always mean lower)
 >
 > Message:\
 > In the **0101 Universe**, that announcement looked like a roadmap, promotion, holder invitation, and project information. In the **Universe of Reality**, that announcement looked like a continuation of the activity of a human who came to Bali island carrying an NFT story. But in our place, that announcement sounded like a new way to mourn. They called it a derivative collection. We heard it as derivative, but not as something lower. A derivative is the way a work admits it does not want to hold memory alone.
@@ -1532,11 +1540,11 @@
 >
 > Print Date: September 30, 2022 B.M.
 >
-> Source: A leaflet for local residents in BALI, the Island of the Gods
+> Source: A leaflet for local residents in BALI, the Island of the Gods.
 >
 > Writer: [**Prof. NOTA**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active")
 >
-> Subject: [**CONSERVE ROTY BROI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived")
+> Subject: [**CONSERVE ROTY BROI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived").
 >
 > Message:\
 > Dear local residents in BALI, the Island of the Gods.
@@ -1584,7 +1592,7 @@
 >
 > Melting Date: October 5, 2022 (October 5, 2022 B.M.)
 >
-> Recorder: [**Amanda (ID 12)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"), who Measured the Hexagon With Suspicion
+> Recorder: [**Amanda (ID 12)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") (who measured the hexagon with suspicion)
 >
 > Message:\
 > The twelve [**Hexagonal Canvases**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived") first looked like media for works. White, empty, not yet declaring their artists, not yet revealing their artworks, only present as spaces that waited. In the **0101 Universe**, they were represented by twelve one-of-one NFTs. In the first stage, each NFT only displayed a photograph of an empty canvas. The artwork was unrevealed. The artist was also unrevealed. The canvas number was already there, but the body of the work had not yet declared itself.
@@ -1624,7 +1632,7 @@
 >
 > Melting Date: October 18, 2022 (October 18, 2022 B.M.)
 >
-> Recorder: [**Amanda (ID 12)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"), who First Called the [**Hexagonal Canvases**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived") Portals
+> Recorder: [**Amanda (ID 12)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") (who first called the [**Hexagonal Canvases**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived") portals)
 >
 > Message:\
 > We did not discover the portal function on the first day. At first, we only found small mismatches. There were records that did not sync between the canvas photograph and the aura of the invitation. There was a [**The ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") NFT ID that felt as if it were calling another character. There was light that appeared briefly when an artist's name was read together with a certain NFT ID. There was a shadow that seemed to come neither from the **Universe of Reality** nor from [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"). There were several times when [**Prof. NOTA v10.0**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active") saw something at the edge of his eye that could not be explained as exhaustion.
@@ -1666,7 +1674,7 @@
 >
 > Melting Date: October 31, 2022 (October 31, 2022 B.M.)
 >
-> Recorder: [**Amanda (ID 6)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"), who Kept Names in Two Columns
+> Recorder: [**Amanda (ID 6)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") (who kept names in two columns)
 >
 > Message:\
 > The twelve one-of-one NFTs in the [**CONSERVE ROTY BROI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived") collection are now in the wallets of their respective owners. Those that were not sold are not lost either. They are stored in an archive wallet created by [**Prof. NOTA v10.0**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active") for conservation and protection. In the **0101 Universe**, a wallet is a place to store proof, but across universes, a wallet can also become a waiting room. Not everything that waits means dead. Not everything unsold means not working.
@@ -1702,7 +1710,7 @@
 >
 > Melting Date: December 14, 2022 (December 14, 2022 B.M.)
 >
-> Recorder: [**Amanda (ID 8)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"), who Spoke With [**Prof. NOTA v10.0**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active") About Avatar
+> Recorder: [**Amanda (ID 8)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") (who spoke with [**Prof. NOTA v10.0**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active") about avatar)
 >
 > Message:\
 > [**Prof. NOTA v10.0**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active") asked whether **HFP** was a fringe. I answered that fringe is only the name a universe gives to a mechanism that has not yet become habit. In the **Universe of Reality**, humans are used to using images, photos, animations, accounts, usernames, and works as avatars to appear in the **0101 Universe**. They consider it normal because they have long practiced that direction. Humans enter the screen, and then the screen stores human traces.
@@ -1742,7 +1750,7 @@
 >
 > Melting Date: December 21, 2022 (December 21, 2022 B.M.)
 >
-> Recorder: [**Amanda (ID 8)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"), who Stood Between the Door to Go and the Door to Return
+> Recorder: [**Amanda (ID 8)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") (who stood between the door to go and the door to return)
 >
 > Message:\
 > The return of [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") was not done like ordinary sailing. We did not lower the sails toward the sea. We did not wait for wind. We did not read the map of [**The Melting Archipelago**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/37.-woman-of-russian/37.1.-absart-idsa-archipelago "NFT Collection: ABSART IDSA Archipelago on Tezos Blockchain - Archived"). We read matching.
@@ -1862,7 +1870,7 @@
 >
 > Melting Date: January 5, 2023 (January 5, 2023 B.M.)
 >
-> Recorder: [**Amanda (ID 47)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"), who Closes This Section Without Closing Its Door
+> Recorder: [**Amanda (ID 47)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") (who closes this section without closing its door)
 >
 > Message:\
 > After [**The Melting Conservation**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived"), the direction of the journey did not return to a single line. [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") returned to [**The Melting Land Universe**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), but our records now face many universes. The **0101 Universe** is no longer singular. The **Universe of Reality** can no longer pretend that all other universes are safe imaginations. [**The Melting Land Universe**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") can no longer pretend that its disaster belongs only to itself.
