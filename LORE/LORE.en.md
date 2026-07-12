@@ -25,7 +25,7 @@
 >
 > Broadcaster: A Mass Media of **Dunno What Water**
 >
-> Subject: Rioting and looting, chaos happen.
+> Subject: Rioting and looting, chaos happens.
 >
 > Message:\
 > In the land of **Dunno What Water** some people wearing masks, carrying crowbars and flags started rioting and looting, and chaos happened. There is a unique phenomenon, [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") on Earth has already begun...
@@ -55,14 +55,14 @@
 >
 > Broadcaster: A Resident of **Dunno What Water**
 >
-> Subject: No places to tread on, all we have is sinking.
+> Subject: No place to tread on, all we have is sinking.
 >
 > Message:\
 > Panic swept the region of the land. All people from any strata are confused to save themselves. They wear any clothes and carry any things they can get. There is no more land to tread on. Everything has melted. Only [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") on Earth is sinking every civilization ever built.
 >
 > Commenter: [**Cap’n ROTY BROI (ID 530)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
 >
-> Comment: All hand hoy!!!
+> Comment: All hands ahoy!!!
 >
 > ---
 >
@@ -74,7 +74,7 @@
 >
 > #### DUNNO WHAT WATER
 >
-> That secret fact is known by **Mr. BROY**, a resident in the land of **Dunno What Water**. The land of **Dunno What Water** is a country that is famous for its natural products in the form of a **Nameless Liquid**, but it is able to bring peace to the drinker. But that peace will no longer be felt by **Mr. BROY** because he knows that there is a phenomenon of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") on Earth.
+> That secret fact is known by **Mr. BROY**, a resident in the land of **Dunno What Water**. The land of **Dunno What Water** is a country that is famous for its natural products in the form of **Nameless Liquid**, but it is able to bring peace to the drinker. But that peace will no longer be felt by **Mr. BROY** because he knows that there is a phenomenon of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") on Earth.
 >
 > #### [THE ROTY BROI ARK](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
 >
@@ -105,7 +105,7 @@
 > Message:\
 > First of all, happy **Valentine's Day**, I hope that in the midst of this disaster, we will always **LOVE** and remember all those who did not survive.
 >
-> I'm [**Cap'n ROTY BROI (ID 530)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"). There are 1047 males onboard in this ark. They are all safe and survive from [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"). I'm one of them and my successor will be chosen by vote after I'm done creating this first log.
+> I'm [**Cap'n ROTY BROI (ID 530)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"). There are 1047 males onboard in this ark. They are all safe and survived [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"). I'm one of them and my successor will be chosen by vote after I'm done creating this first log.
 >
 > Now we are sailing the surface of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") on Earth with all survivors who are all male and feel very grateful today. They survive, and they can celebrate **Valentine's Day** which is after the disaster occurred, **Valentine's Day** is still to be celebrated, and that is a sign that our **LOVE** is almost eternal, immutable in any conditions.
 >
@@ -251,7 +251,7 @@
 > Message:\
 > Hi, I'm [**Cap'n ROTY BROI (ID 547)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")...
 >
-> Today is 21 February 2022. For more than one week we have been adrift on the surface of [**Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active")'s waves. There are no signs yet of concrete land for our ark to decide where to be sailed and anchored.
+> Today is 21 February 2022. For more than one week we have been adrift on the surface of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active")'s waves. There are no signs yet of concrete land for our ark to decide where to be sailed and anchored.
 >
 > We are mostly skeptical from the beginning and feel desperate when we are aware of the condition. Only a few of us remain optimistic and still have faith in this journey. That makes me overwhelmed with various efforts to survive. But I still continue to discuss with all of us to determine how our activities would be, and how existing resources would be managed while we are surviving on this ark.
 >
@@ -2778,7 +2778,7 @@
 >
 > Melting Date: January 30, 2023 (January 30, 2023 B.M.)
 >
-> Sender: [**ROTY BROI (ID 410)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
+> Sender: [**ROTY BROI Passenger (ID 410)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
 >
 > Subject: The second loudspeaker horn is useful.
 >
