@@ -68,27 +68,27 @@
 >
 > Rede von [**Käpt’n ROTY BROI (ID 530)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")...
 >
-> ### PHÄNOMEN [DAS SCHMELZENDE LAND](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active")
+> **PHÄNOMEN [DAS SCHMELZENDE LAND](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active")**
 >
 > Bisher haben Wissenschaftler erkannt, dass auf der Erde nicht nur Eis schmelzen kann, sondern sogar das Land, auf dem wir stehen, ebenfalls schmelzen kann. Diese Tatsache wird noch geheim gehalten, um das Entstehen von Chaos für die Menschheit auf der Erde zu verhindern, denn im Februar 2022 wurde bekannt, dass das Land auf der gesamten Oberfläche der Erde vollständig schmelzen wird, ohne die Zustimmung der Menschheit.
 >
-> #### LAND WEIẞ-NICHT-WELCHES-WASSER
+> **LAND WEIẞ-NICHT-WELCHES-WASSER**
 >
 > Diese geheime Tatsache kennt **Herr BROY**, ein Bewohner im Land **Weiß-nicht-welches-Wasser**. Das Land **Weiß-nicht-welches-Wasser** ist ein Land, das für seine Naturprodukte in Form von **Namenlose Flüssigkeit** bekannt ist, einer Flüssigkeit, die demjenigen, der sie trinkt, Ruhe bringen kann. Doch dieser Frieden wird von **Herr BROY** nicht mehr empfunden werden, weil er weiß, dass es auf der Erde das Phänomen [**Das schmelzende Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") gibt.
 >
-> #### [DIE ROTY-BROI-ARCHE](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
+> [**DIE ROTY-BROI-ARCHE**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
 >
 > **Herr BROY** stellte fest, dass er keinen Frieden finden konnte, obwohl er literweise **Namenlose Flüssigkeit** getrunken hatte. Also beschloss **Herr BROY**, eine Arche zu bauen, die überleben konnte, wenn auf der Erde das einzigartige Phänomen [**Das schmelzende Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") geschieht.
 >
 > **Herr BROY** nannte die Arche [**ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), weil sie von der Form von [**BREAD (ROTI)**](https://rotilogo.endhonesa.com/ "NFT Collection: Logo Pabrik Roti (LPR) on Polygon Blockchain - Archived") in einem [**BREADS FACTORY LOGO**](https://rotilogo.endhonesa.com/ "NFT Collection: Logo Pabrik Roti (LPR) on Polygon Blockchain - Archived") inspiriert war, die einer Arche für einen Notfall ähnelt, für einen Zustand, in dem man schwer gefangen ist, feststeckt, zusammengedrückt und schließlich eingeklemmt wird.
 >
-> #### PSEUDONYME EINLADUNG
+> **PSEUDONYME EINLADUNG**
 >
 > Auch wenn nur in begrenztem Umfang, hat **Herr BROY** das Ziel, die Menschheit, die gern **Namenlose Flüssigkeit** trinkt, einzuladen und zu retten, damit sie an [**der ROTY-BROI-ARCHE**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") teilnimmt und sich ihr anschließt, um [**Das schmelzende Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") auf der Erde zu befahren. Außerdem kann auch **Herr BROY** ein wenig Frieden spüren; ein wenig Unruhe kann schlafen gelegt werden, wenn er damit beschäftigt ist, die Arche zu bauen.
 >
 > Pseudonyme Einladungen wurden von **Herr BROY** in sehr begrenzter Form erstellt und bereitgestellt. Es gibt nur 1047 Einladungen mit einzigartigen Illustrationen, die von **Herr BROY** selbst gezeichnet wurden.
 >
-> #### DIE EINLADUNG MINTEN
+> **DIE EINLADUNG MINTEN**
 >
 > Wer die Einladung in seiner Wallet hält, kann sich [**der ROTY-BROI-ARCHE**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") anschließen. Gemeinsam befahren wir das Meer von [**Das schmelzende Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") auf der Erde. Ohne sich Sorgen machen zu müssen, dass **Namenlose Flüssigkeit** ausgeht, und bereit, ein neues Blatt des Lebens auf der neuen Oberfläche der Erde willkommen zu heißen, die durch alle Zeit hindurch ewig ist.
 >

@@ -68,27 +68,27 @@
 >
 > Pidato [**Kapten ROTY BROI (ID 530)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")...
 >
-> ### FENOMENA [DARATAN MELELEH](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active")
+> **FENOMENA [DARATAN MELELEH](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active")**
 >
 > Selama ini para ilmuwan telah menyadari bahwa di Bumi tidak hanya es yang bisa meleleh, bahkan daratan yang kita injak juga bisa meleleh. Fakta tersebut masih dirahasiakan untuk mencegah terjadinya kekacauan bagi umat manusia di Bumi karena pada bulan Februari 2022 telah diketahui bahwa daratan di seluruh permukaan Bumi akan meleleh seluruhnya tanpa persetujuan umat manusia.
 >
-> #### NEGERI ENTAH AIR APA
+> **NEGERI ENTAH AIR APA**
 >
 > Fakta rahasia itulah yang diketahui oleh **Pak BROY**, seorang warga-penduduk di negeri **Entah Air Apa**. Negeri **Entah Air Apa** merupakan negara yang terkenal dengan hasil alam berupa **Cairan Tanpa Nama** yang mampu membawa ketenangan bagi yang meminumnya. Namun kedamaian itu tidak lagi dirasakan oleh **Pak BROY** karena beliau mengetahui bahwa ada fenomena [**Daratan Meleleh**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") di Bumi.
 >
-> #### [BAHTERA ROTY BROI](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
+> [**BAHTERA ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
 >
 > **Pak BROY** mendapati dirinya tidak dapat menemukan kedamaian meskipun dia telah meminum berliter-liter **Cairan Tanpa Nama**. Maka, **Pak BROY** memutuskan untuk membangun sebuah bahtera yang mampu bertahan ketika terjadi fenomena unik [**Daratan Meleleh**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") di Bumi.
 >
 > **Pak BROY** menamakan bahtera itu [**ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") karena terinspirasi dari bentuk [**ROTI**](https://rotilogo.endhonesa.com/ "NFT Collection: Logo Pabrik Roti (LPR) on Polygon Blockchain - Archived") pada [**LOGO PABRIK ROTI**](https://rotilogo.endhonesa.com/ "NFT Collection: Logo Pabrik Roti (LPR) on Polygon Blockchain - Archived") yang menyerupai bahtera untuk keadaan darurat, kondisi terjebak parah, tersangkut, terhimpit hingga terjepit.
 >
-> #### UNDANGAN DENGAN NAMA SAMARAN
+> **UNDANGAN DENGAN NAMA SAMARAN**
 >
 > Meski secara terbatas, **Pak BROY** mempunyai tujuan untuk mengajak dan menyelamatkan umat manusia yang gemar meminum **Cairan Tanpa Nama**, untuk berpartisipasi dan bergabung dalam [**BAHTERA ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), untuk mengarungi [**Daratan Meleleh**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") di Bumi. Selain itu **Pak BROY** juga bisa merasakan sedikit kedamaian, sedikit kegelisahan bisa ditiadakan ketika sedang sibuk membangun bahtera.
 >
 > Undangan pseudonim (nama samaran) dibuat dan disediakan oleh **Pak BROY** dengan sangat terbatas, hanya ada 1047 undangan, dengan ilustrasi unik yang digambar sendiri oleh **Pak BROY**.
 >
-> #### CETAK UNDANGANNYA
+> **CETAK UNDANGANNYA**
 >
 > Siapa pun yang memegang undangan di dompetnya dapat bergabung dengan [**BAHTERA ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"). Bersama-sama kita mengarungi lautan [**Daratan Meleleh**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") di Bumi. Tanpa harus khawatir akan kehabisan **Cairan Tanpa Nama** dan siap menyambut lembaran kehidupan baru di permukaan Bumi baru yang abadi sepanjang masa.
 >

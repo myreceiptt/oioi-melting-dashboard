@@ -68,27 +68,27 @@
 >
 > [**Cap’n ROTY BROI (ID 530)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") Speech...
 >
-> ### [THE MELTING LAND](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active")
+> [**THE MELTING LAND**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active")
 >
 > So far, scientists have been aware of the fact that on Earth not only ice can melt, but even the land we step on can also melt. This fact is still kept secret to prevent the occurrence of chaos for mankind on Earth because in February 2022 it has been known that the land all over the surface of the Earth will melt completely without the consent of mankind.
 >
-> #### DUNNO WHAT WATER
+> **DUNNO WHAT WATER**
 >
 > That secret fact is known by **Mr. BROY**, a resident in the land of **Dunno What Water**. The land of **Dunno What Water** is a country that is famous for its natural products in the form of **Nameless Liquid**, but it is able to bring peace to the drinker. But that peace will no longer be felt by **Mr. BROY** because he knows that there is a phenomenon of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") on Earth.
 >
-> #### [THE ROTY BROI ARK](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
+> [**THE ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
 >
 > **Mr. BROY** found himself unable to find peace even though he had drunk liters of **Nameless Liquid**. So, **Mr. BROY** decided to build an ark that could survive when a unique phenomenon of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") on Earth occurred.
 >
 > **Mr. BROY** named the ark [**ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") because it was inspired by the shape of [**BREAD (ROTI)**](https://rotilogo.endhonesa.com/ "NFT Collection: Logo Pabrik Roti (LPR) on Polygon Blockchain - Archived") in a [**BREADS FACTORY LOGO**](https://rotilogo.endhonesa.com/ "NFT Collection: Logo Pabrik Roti (LPR) on Polygon Blockchain - Archived") that resembles an ark for an emergency, a condition that seriously trapped, stuck, squeezed until pinched.
 >
-> #### PSEUDONYMOUS INVITATION
+> **PSEUDONYMOUS INVITATION**
 >
 > Even on a limited basis, **Mr. BROY** has a purpose to invite and save mankind who likes to drink the **Nameless Liquid**, to participate and join in [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), to sail [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") on Earth. Besides that, **Mr. BROY** can also feel a little peace, a little restlessness can be put to sleep when he is busy building the ark.
 >
 > Pseudonymous invitations have been created and provided by **Mr. BROY** in a very limited manner, there are only 1047 invitations, with unique illustrations, which were drawn by **Mr. BROY** himself.
 >
-> #### MINT THE INVITATION
+> **MINT THE INVITATION**
 >
 > Whoever holds the invitation in their wallet can join [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"). Together we sail the sea of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") on Earth. Without having to worry about running out of the **Nameless Liquid** and ready to welcome a new leaf of life on the new surface of the Earth, which is eternal throughout time.
 >
