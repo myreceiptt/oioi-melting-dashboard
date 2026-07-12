@@ -74,13 +74,13 @@
 >
 > #### DUNNO WHAT WATER
 >
-> That secret fact is known by **Mr. BROY**, a resident in the land of **Dunno What Water**. The land of **Dunno What Water** is a country that is famous for its natural products in the form of a liquid without a name but is able to bring peace to the drinker. But that peace will no longer be felt by **Mr. BROY** because he knows that there is a phenomenon of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") on Earth.
+> That secret fact is known by **Mr. BROY**, a resident in the land of **Dunno What Water**. The land of **Dunno What Water** is a country that is famous for its natural products in the form of a **Nameless Liquid**, but it is able to bring peace to the drinker. But that peace will no longer be felt by **Mr. BROY** because he knows that there is a phenomenon of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") on Earth.
 >
 > #### [THE ROTY BROI ARK](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
 >
 > **Mr. BROY** found himself unable to find peace even though he had drunk liters of **Nameless Liquid**. So, **Mr. BROY** decided to build an ark that could survive when a unique phenomenon of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") on Earth occurred.
 >
-> **Mr. BROY** named the ark [**ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") because it was inspired by the shape of [**BREAD (ROTI)**](https://rotilogo.endhonesa.com/ "NFT Collection: Logo Pabrik Roti (LPR) on Polygon Blockchain - Archived") in a [**LOGO PABRIK ROTI**](https://rotilogo.endhonesa.com/ "NFT Collection: Logo Pabrik Roti (LPR) on Polygon Blockchain - Archived") that resembles an ark for an emergency, a condition that seriously trapped, stuck, squeezed until pinched.
+> **Mr. BROY** named the ark [**ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") because it was inspired by the shape of [**BREAD (ROTI)**](https://rotilogo.endhonesa.com/ "NFT Collection: Logo Pabrik Roti (LPR) on Polygon Blockchain - Archived") in a [**BREADS FACTORY LOGO**](https://rotilogo.endhonesa.com/ "NFT Collection: Logo Pabrik Roti (LPR) on Polygon Blockchain - Archived") that resembles an ark for an emergency, a condition that seriously trapped, stuck, squeezed until pinched.
 >
 > #### PSEUDONYMOUS INVITATION
 >
@@ -230,13 +230,13 @@
 > Melting Date: February 14, 2022
 >
 > Message:\
-> Hi, I'm the new [**Cap'n ROTY BROI (ID 547)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") here. Well, thanks for voting me to be the new Cap'n...
+> Hi, I'm the new [**Cap'n ROTY BROI (ID 547)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") here. Well, thanks for voting me to be the new **Cap'n**...
 >
 > As you know, this isn't the end. Not even close. This is just the beginning. We've lost entire cities. There is no official authority to help. All governments collapsed in all countries. But others have found a rough way to survive their life.
 >
 > Zero-knowledge between each of us, trust-less, and there is only gossip that spreads between us that can be used to confirm and validate who we are. If you out there can survive, survive your life! Help each other no matter the conditions. Be prepared for anything. Our journey has just begun.
 >
-> Although we still don't know where we should go, this ark bought us some time which gave us a chance. Sailing nowhere to survive our life. By vote, we will continue to choose the one as a Captain. By vote, we will always decide how to regulate our activities. By vote, we will always decide where our ark should sail on this journey.
+> Although we still don't know where we should go, this ark bought us some time which gave us a chance. Sailing nowhere to survive our life. By vote, we will continue to choose the one as a **Captain**. By vote, we will always decide how to regulate our activities. By vote, we will always decide where our ark should sail on this journey.
 >
 > P.S. This message is specifically addressed to all [**Cap'n ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), my successor. Always remember the fringes in theory that are recorded in all logs, pay attention to whether there are fringes in theory that happen, and put it in your daily log.
 
@@ -306,7 +306,7 @@
 >
 > I repeat this because my anger still needs a shape. In the middle of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), when every living being is already struggling not to sink, someone still chose to drop a bomb. This is another fringe in theory. When the world was whole, they said war happened because people fought over land. Now there is no land, and war still found a way to float.
 >
-> [**Cap'n ROTY BROI (ID 547)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") gathered us and spoke honestly. He said he could lead in emergency. He could defend. He could think through panic. He could continue the journey to find [**The Melting Archipelago**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/37.-woman-of-russian/37.1.-absart-idsa-archipelago "NFT Collection: ABSART IDSA Archipelago on Tezos Blockchain - Archived"). But he was not prepared to lead us through a war born inside a disaster. He was a fighter, not a war strategist. He was a Captain for survival, not for geopolitical madness.
+> [**Cap'n ROTY BROI (ID 547)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") gathered us and spoke honestly. He said he could lead in emergency. He could defend. He could think through panic. He could continue the journey to find [**The Melting Archipelago**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/37.-woman-of-russian/37.1.-absart-idsa-archipelago "NFT Collection: ABSART IDSA Archipelago on Tezos Blockchain - Archived"). But he was not prepared to lead us through a war born inside a disaster. He was a fighter, not a war strategist. He was a **Captain** for survival, not for geopolitical madness.
 >
 > During the long discussion, the [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") did not speak as one voice. That made me more afraid. Until that day, their mystery had always been in their sameness. Same name. Same body. Same face. Same sudden appearance among the waves of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active").
 >
@@ -352,7 +352,7 @@
 >
 > That was when I began to understand that the message was not only traveling from ark to ark. It was also traveling through [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active").
 >
-> Around ten arks, ships, balloons, and other survival vessels answered us. They were not the same as us. Some carried artists. Some carried collectors. Some carried families. Some carried people who had never met each other before the disaster. Some carried those who had only one thing in common: they did not want the end of the world to become an excuse for more killing.
+> Around ten arks, ships, balloons, and other survival vessels answered us. They were not the same as us. Some carried artists. Some carried collectors. Some carried families. Some carried people who had never met each other before the disaster. Some carried those who had only one thing in common: They did not want the end of the world to become an excuse for more killing.
 >
 > We exchanged messages in every possible way. We agreed to move closer. We agreed to gather. We agreed to build something larger than each of us. But not all of them arrived.
 >
@@ -387,7 +387,7 @@
 >
 > [**DROP NFT NOT BOMB**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/36.-d.nft.n.bomb-tm "NFT Collection: Drop NFT Not BOMB™ on Tezos Blockchain - Archived")
 >
-> Some vessels answered it. Some followed it. Some only watched it from far away. Some may have rejected it. But the message had already become part of the wind. Once a message enters the wind, no Captain can fully command where it goes.
+> Some vessels answered it. Some followed it. Some only watched it from far away. Some may have rejected it. But the message had already become part of the wind. Once a message enters the wind, no **Captain** can fully command where it goes.
 >
 > Then the rabbits appeared. At first, I thought I saw a small creature jumping between broken boards. Then another one appeared on a floating tire. Then another one leaped from the remains of a roof to a drifting door. Then one landed on the outer side of [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), shook some mud from its feet, looked at us, and jumped away again as if the disaster was only a game it had not yet lost.
 >
@@ -535,7 +535,7 @@
 >
 > We received messages from outside [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") asking the same thing. Some came through broken radio calls. Some came through bottles. Some came scratched into plastic containers. Some were written on cloth tied to floating branches. Some were nothing but voices recorded on devices that still had a little battery left. All of them carried the same fear:
 >
-> **food was disappearing.**
+> **Food was disappearing.**
 >
 > Seeds were wet. Flour had spoiled. Rice had become mud. Salt had become too much and not enough at the same time. Fish no longer knew where water ended and land began. Birds became rare. The rabbits called [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") had already become a wound in our memory.
 >
@@ -551,9 +551,7 @@
 >
 > Another [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said, "_A kitchen is not a room. A kitchen is a civilization trying not to eat itself._"
 >
-> Their capsules ran low. Their discussions became longer. They crushed what remained. They dried what could still be dried. They mixed powders. They tested bitter things. They argued over smell, poison, salt, rot, and memory. They tried to make something that could replace food, but the more they tried, the clearer it became, "We did not only need something to swallow."
->
-> We needed something that could continue.
+> Their capsules ran low. Their discussions became longer. They crushed what remained. They dried what could still be dried. They mixed powders. They tested bitter things. They argued over smell, poison, salt, rot, and memory. They tried to make something that could replace food, but the more they tried, the clearer it became. We did not only need something to swallow. We needed something that could continue.
 >
 > Then the messages changed. At first, they came as rumor. Then as repeated signal. Then as confirmed fragments from many directions.
 >
@@ -563,9 +561,7 @@
 >
 > Inside some of those air pockets, pigs had survived. Some were alone. Some were in groups. Some looked like farm pigs. Some looked like wild pigs. Some looked as if they had become something between memory and mud.
 >
-> The first discovery did not come from a formal search. It came from a shout. Those who stayed above the surface shouted to those who dived below:
->
-> "_BOII! BOII!_"
+> The first discovery did not come from a formal search. It came from a shout. Those who stayed above the surface shouted to those who dived below, "_BOII! BOII!_"
 >
 > The divers disappeared into the thick surface of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"). We waited. The ropes shook. The mud bubbled. Some came back coughing with nothing. Some came back crying after finding only empty air pockets. Then, from below, a reply came, "_[**OiOi! OiOi!**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived")_"
 >
@@ -579,7 +575,7 @@
 >
 > Not just pigs. Not only meat. Not only animals trapped under mud. They became a call and response. A sign that something living was still hidden below the death of the surface.
 >
-> But finding them did not immediately save us. Finding them almost split us apart. The debate became harder than the dive. Some passengers said pigs were forbidden. Some said disaster had changed the law of survival. Some said emergency allowed what ordinary days refused. Some said faith should not be rewritten by hunger. Some said refusing the only renewable food source would turn piety into mass death. Some said we still had no right to decide while even one [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") might remain. Some said that was exactly the mistake, "We had already turned [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") into food before turning it into a future."
+> But finding them did not immediately save us. Finding them almost split us apart. The debate became harder than the dive. Some passengers said pigs were forbidden. Some said disaster had changed the law of survival. Some said emergency allowed what ordinary days refused. Some said faith should not be rewritten by hunger. Some said refusing the only renewable food source would turn piety into mass death. Some said we still had no right to decide while even one [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") might remain. Some said that was exactly the mistake. We had already turned [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") into food before turning it into a future.
 >
 > For hours, the ark was full of voices. Halal. Haram. Emergency. Faith. Hunger. Breeding. Shame. Survival. Death.
 >
@@ -593,7 +589,7 @@
 >
 > Another [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said, "_Emergency does not erase belief. Emergency tests whether belief can protect life without becoming cruelty._"
 >
-> Another [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said, "_If you eat everything, you end the story. If you breed what can live, you write the next page._"
+> Another [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") also said, "_If you eat everything, you end the story. If you breed what can live, you write the next page._"
 >
 > Then one [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"), the same one who had once asked about the [**Luffy**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/33.-luffy-the-rabbit "NFT Collection: Luffy The Rabbit on Solana Blockchain - Archived") biting a carrot and wearing a hot dog hat, said, "_You already know what happens when you do not think beyond the first meal._"
 >
@@ -623,7 +619,7 @@
 >
 > I asked them. At first, they were silent. Then the [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") with the torn communication officer uniform said, "_Your ark does not only carry survivors._"
 >
-> I asked what else it carried. Another [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") answered, "_Dunno What Water._"
+> I asked what else it carried. Another [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") answered, "_**Dunno What Water.**_"
 >
 > I understood before she said the rest. The recycled water of [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") had been contaminated by traces of **Nameless Liquid**. The liquid from the land of **Dunno What Water**. The liquid that once brought peace to those who drank it. The liquid that could not save **Mr. BROY** from fear, but perhaps could help the ark keep something alive.
 >
@@ -633,11 +629,11 @@
 >
 > Another said, "_Peace water must become infrastructure, not panic._"
 >
-> Another said, "_Keep it between the Captain and the [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") until the ark learns how to protect what protects it._"
+> Another also said, "_Keep it between the **Captain** and the [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") until the ark learns how to protect what protects it._"
 >
-> So I kept the secret. I write it here because a log is not gossip. A log is a burden passed to the next Captain.
+> So I kept the secret. I write it here because a log is not gossip. A log is a burden passed to the next **Captain**.
 >
-> To my successors: Protect the water. Protect the breeding. Protect those who cannot eat what others eat. Protect the agreement. Protect the difference between emergency and greed.
+> To my successors. Protect the water. Protect the breeding. Protect those who cannot eat what others eat. Protect the agreement. Protect the difference between emergency and greed.
 >
 > Outside, the messages became more desperate. Some vessels sent locations, asking us to come and save them. But the shape of Earth had changed. The old coordinates lied. The old maps drowned. Directions turned into guesses.
 >
@@ -649,7 +645,7 @@
 >
 > The air pockets are emptying. The hunters are growing tired. The breeders are failing. Hunger is returning to the eyes.
 >
-> This is what I learned: Food is not only food. Food is law. Food is faith. Food is argument. Food is technology. Food is memory. Food is infrastructure. Food is the first economy after the end of land.
+> This is what I learned. Food is not only food. Food is law. Food is faith. Food is argument. Food is technology. Food is memory. Food is infrastructure. Food is the first economy after the end of land.
 >
 > If we cannot produce food, we will consume each other. If we cannot agree on food, our votes will become knives. If we cannot protect what can keep living, survival will end after one meal.
 >
@@ -659,7 +655,7 @@
 >
 > From below, "_[**OiOi! OiOi!**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived")_"
 >
-> To all my successors, and to all who read this log. Do not wait until hunger becomes your Captain. Build the system before the stomach writes the law. Feed the living without killing the future.
+> To all my successors, and to all who read this log. Do not wait until hunger becomes your **Captain**. Build the system before the stomach writes the law. Feed the living without killing the future.
 
 ---
 
@@ -732,13 +728,13 @@
 >
 > In that closed room, they discovered the first rule:
 >
-> **liquid can become armor only when it is given shape, body, and intention.**
+> **Liquid can become armor only when it is given shape, body, and intention.**
 >
 > They drew small sketches using ink mixed with a trace of blood from the person who would wear the armor. They placed the sketches near water contaminated by **Nameless Liquid**. The sketches reacted. Some curled. Some hardened. Some dissolved. Some became useless dark sheets. Some tried to form small plates, gloves, masks, guards, straps, seals, boots, or tools. When the blood did not belong to the wearer, the armor refused the body. When someone tried to wear what was not theirs, it became heavy, then wet, then nothing but stained water.
 >
 > That was the second rule:
 >
-> **protection cannot be stolen without becoming only liquid again.**
+> **Protection cannot be stolen without becoming only liquid again.**
 >
 > [**ROTY BROI Passenger (ID 536)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") laughed when he understood that rule. Then he cried. He said his old work had always been the opposite. In the old world, if a weapon was stolen, it still worked. If a bomb was stolen, it still exploded. If a machine of violence changed hands, it did not ask whether the hand was rightful. It only obeyed the trigger.
 >
@@ -770,7 +766,7 @@
 >
 > That was the third rule:
 >
-> **the armor protects life, but it melts the intention to harm.**
+> **The armor protects life, but it melts the intention to harm.**
 >
 > It did not make the wearer holy. It did not erase anger. It did not remove fear. It did not make anyone wise. It only refused to become a clean path between evil intention and another living being's pain.
 >
@@ -794,7 +790,7 @@
 >
 > It would become a rescue system. No [**Liquid Armor**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor "NFT Collection: Liquid Armor on Solana Blockchain - Archived") would be made without record. No [**Liquid Armor**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor "NFT Collection: Liquid Armor on Solana Blockchain - Archived") would be made without consent from the person whose blood was used. No [**Liquid Armor**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor "NFT Collection: Liquid Armor on Solana Blockchain - Archived") would be given for revenge. No [**Liquid Armor**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor "NFT Collection: Liquid Armor on Solana Blockchain - Archived") would be used to rule over the unarmored.
 >
-> Every [**Liquid Armor**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor "NFT Collection: Liquid Armor on Solana Blockchain - Archived") had to be tied to work that protected life: diving, repairing, carrying, cooking, breeding, healing, guarding water, guarding food, guiding children and old people from the vessels that had joined us, and protecting messengers who still carried [**DROP NFT NOT BOMB**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/36.-d.nft.n.bomb-tm "NFT Collection: Drop NFT Not BOMB™ on Tezos Blockchain - Archived") across danger.
+> Every [**Liquid Armor**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor "NFT Collection: Liquid Armor on Solana Blockchain - Archived") had to be tied to work that protected life, diving, repairing, carrying, cooking, breeding, healing, guarding water, guarding food, guiding children and old people from the vessels that had joined us, and protecting messengers who still carried [**DROP NFT NOT BOMB**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/36.-d.nft.n.bomb-tm "NFT Collection: Drop NFT Not BOMB™ on Tezos Blockchain - Archived") across danger.
 >
 > Many sketches were drawn. Not all were formed. Some designs were rejected because they looked too much like weapons. Some designs failed because the wearer wanted power more than protection. Some designs dissolved because the blood and intention did not agree. Some designs were kept unfinished because [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said, "_Not every possible armor deserves to be born._"
 >
@@ -806,7 +802,7 @@
 >
 > Another [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said, "_The body is the wallet. The blood is the signature. The intention is the key._"
 >
-> I wrote that down even though I did not fully understand it. Perhaps future Captains will.
+> I wrote that down even though I did not fully understand it. Perhaps future **Captains** will.
 >
 > What I know is this:
 >
@@ -822,9 +818,9 @@
 >
 > I asked [**ROTY BROI Passenger (ID 536)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") whether he felt redeemed. He said no. He said redemption sounded too clean. He said he did not want to wash his past away like dirt from skin. He wanted to keep remembering what his hands had once helped make, so his hands would not repeat themselves while everyone praised him for being useful. Then he touched the armor around his chest and said, "_This is not my forgiveness. This is my restraint._"
 >
-> That is another fringe in theory:
+> That is another fringe in theory.
 >
-> sometimes protection is not what allows a person to fight better.
+> Sometimes protection is not what allows a person to fight better.
 >
 > Sometimes protection is what prevents a person from becoming what they were trained to become.
 >
@@ -867,7 +863,7 @@
 >
 > One transmission called it:
 >
-> when humans no longer need [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") to do evil, [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") begin to feel almost like humans. Or humans begin to feel almost like [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived")!?!?
+> When humans no longer need [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") to do evil, [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") begin to feel almost like humans. Or humans begin to feel almost like [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived")!?!?
 >
 > ---
 >
@@ -986,7 +982,7 @@
 >
 > This is another fringe in theory:
 >
-> maybe [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") do not become good because they are forgiven. Maybe [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") begin to retire when evil no longer needs them.
+> Maybe [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") do not become good because they are forgiven. Maybe [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") begin to retire when evil no longer needs them.
 >
 > We debated whether the [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") could be near [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived").
 >
@@ -1010,7 +1006,7 @@
 >
 > I do not know whether allowing the [**Retired Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") near the ark was wisdom or madness. But I know this:
 >
-> rejecting all broken beings does not automatically create a clean world. Sometimes it only hides the corruption outside the wall until it learns how to return as a cleaner flag.
+> Rejecting all broken beings does not automatically create a clean world. Sometimes it only hides the corruption outside the wall until it learns how to return as a cleaner flag.
 >
 > The first [**Retired Satan**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") we allowed to stay near the ark was [**Psycho**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived"). Not in the sleeping area. Not near food. Not near water. Not near maps. Not near [**PIGGY BOII OIOI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi "NFT Collection: PIGGY BOII OIOI on Solana Blockchain - Archived"). Not near [**Liquid Armor**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/28.-piggy-boii-oioi/28.1.-liquid-armor "NFT Collection: Liquid Armor on Solana Blockchain - Archived") without witnesses.
 >
@@ -1018,25 +1014,25 @@
 >
 > Its first work was not to tempt us. Its first work was to name the shape of danger before danger found a respectable name.
 >
-> When someone said, "_We must control the food for safety,_"
+> When someone said, "_We must control the food for safety._"
 >
 > [**Psycho**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") whispered, "_Listen. Control is wearing safety's mask._"
 >
-> When someone said, "_We must silence panic for unity,_"
+> When someone said, "_We must silence panic for unity._"
 >
 > [**Psycho**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") whispered, "_Listen. Unity is asking for a mouth gag._"
 >
-> When someone said, "_We must protect the ark by becoming something feared,_"
+> When someone said, "_We must protect the ark by becoming something feared._"
 >
 > [**Psycho**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") whispered, "_Listen. Fear is trying to become government._"
 >
-> And when someone said, "_We are the good side because we survived,_"
+> And when someone said, "_We are the good side because we survived._"
 >
 > [**Psycho**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") whispered nothing. It only laughed once. Then it cried.
 >
 > I still do not know which part was more frightening. This is what I learned:
 >
-> good and bad may not be as solid as the old land pretended to be. In [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), even morality can lose its ground.
+> Good and bad may not be as solid as the old land pretended to be. In [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), even morality can lose its ground.
 >
 > I do not write this as physics. I write this as a metaphor borrowed from matter. Atoms do not know virtue or sin. Electrons carry negative charge. Protons carry positive charge. Neutrons carry no electric charge. Stability does not emerge because one side declares itself holy. Stability emerges from configuration, relation, distance, energy, exchange, sharing, and strange rules that allow particles to continue existing without collapsing into one another.
 >
@@ -1050,7 +1046,7 @@
 >
 > This is another fringe in theory:
 >
-> when everything melts, even hell may send refugees. And if those refugees can no longer work as [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived"), perhaps they must be recorded as something else: [**Retired Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived").
+> When everything melts, even hell may send refugees. And if those refugees can no longer work as [**Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived"), perhaps they must be recorded as something else: [**Retired Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived").
 
 ---
 
@@ -1201,7 +1197,7 @@
 >
 > We almost dismantled the counting board. But one passenger who had rarely spoken stood up. He said, "_Do not destroy the record only because we are afraid the record will be worshiped._"
 >
-> Another said, "_If it is not recorded, the strong will claim they worked the most. Those close to the Captain will be heard most often. The silent will disappear._"
+> Another said, "_If it is not recorded, the strong will claim they worked the most. Those close to the **Captain** will be heard most often. The silent will disappear._"
 >
 > Another one said, "_If it is recorded, those who are skilled at chasing records will control the board._"
 >
@@ -1213,7 +1209,7 @@
 >
 > After voting, we did not throw [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") away. We lowered it.
 >
-> [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not become the price of a body. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not become the price of hunger. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not become the price of silence. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not buy someone's protection away from their own body. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not make someone feel more alive than others. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not replace food. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not replace water. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not replace witnesses. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not replace voting. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not replace responsibility. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not become Captain. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not become master.
+> [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not become the price of a body. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not become the price of hunger. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not become the price of silence. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not buy someone's protection away from their own body. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not make someone feel more alive than others. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not replace food. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not replace water. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not replace witnesses. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not replace voting. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not replace responsibility. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not become **Captain**. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may not become master.
 >
 > [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") may only become a sign of answer. Answer to a call. Answer to work. Answer to presence. Answer to an invitation that remains tethered. Answer to life that has not stopped answering.
 >
@@ -1277,13 +1273,11 @@
 >
 > This is what I learned, old money melted because it pretended to be land for too long. New money can also melt if it believes too quickly that it is different.
 >
-> Numbers are not evil. Records are not evil. Rewards are not evil. Tokens are not evil. But all of them can become a way home for the old disease if humans stop asking, what was answered? Who was called? Who worked? Who witnessed? Who was too weak to answer but still must not disappear? Who began pretending to be present? Who began to be hungry for the sake of records? Who began to be naked for numbers? Who began turning a call of life into a dead market?
+> Numbers are not evil. Records are not evil. Rewards are not evil. Tokens are not evil. But all of them can become a way home for the old disease if humans stop asking: What was answered? Who was called? Who worked? Who witnessed? Who was too weak to answer but still must not disappear? Who began pretending to be present? Who began to be hungry for the sake of records? Who began to be naked for numbers? Who began turning a call of life into a dead market?
 >
 > If those questions are no longer asked, [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") will become old money. If those questions continue to be asked, perhaps [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") can still become something lower than money, and because of that more useful than money. Because what we need is not an object standing above life. What we need is a small sign that helps life keep answering one another, [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived").
 >
-> P.S.:
->
-> There is one more thing I still do not understand. After the new board stood, some records began to appear with light that did not come from the ark's lamps. As if light appeared from inside the new board itself. There were even some marks that looked as if they were written from inside the board.
+> P.S. There is one more thing I still do not understand. After the new board stood, some records began to appear with light that did not come from the ark's lamps. As if light appeared from inside the new board itself. There were even some marks that looked as if they were written from inside the board.
 >
 > There was the shadow of an island. There was sunlight that was not the same as the heat of hell. There was the smell of salt, cloth, white walls, faces looking at artworks, and bodies standing inside a room that did not sway like an ark.
 >
@@ -1307,7 +1301,7 @@
 
 > [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") Log...
 >
-> Melting Date: Unknown (after money melted)
+> Melting Date: Unknown (after **The Melting Money**)
 >
 > Recorder: [**Amanda (ID 27)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") (who saw the light radiating from the new [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") board)
 >
@@ -1330,18 +1324,18 @@
 >
 > Then a third one of us said, "_It is not land. It is another way for something to remain unsunk._"
 >
-> [**Cap'n ROTY BROI (ID 996)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") asked what that meant. But none of us answered quickly. That frightened the Captain, because usually when we delay an answer, what is delayed is not an explanation, but a universe.
+> [**Cap'n ROTY BROI (ID 996)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") asked what that meant. But none of us answered quickly. That frightened the **Captain**, because usually when we delay an answer, what is delayed is not an explanation, but a universe.
 >
 > ---
 >
 > [**Cap'n ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") Log...
 >
-> Melting Date: Unknown (after money melted)
+> Melting Date: Unknown (after **The Melting Money**)
 >
 > Message:\
 > Hi, I'm [**Cap'n ROTY BROI (ID 996)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")...
 >
-> I once wrote that my successors must not rush to call that island land, reality, savior, protection, or mistake. I wrote that because I felt old words were too eager to become the owner of something they did not yet understand. After [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), the word "land" became too dangerous to speak carelessly. After money melted, the word "value" could no longer be trusted just because it stood upright on numbers.
+> I once wrote that my successors must not rush to call that island land, reality, savior, protection, or mistake. I wrote that because I felt old words were too eager to become the owner of something they did not yet understand. After [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), the word "land" became too dangerous to speak carelessly. After **The Melting Money**, the word "value" could no longer be trusted just because it stood upright on numbers.
 >
 > But today I must write a new word, or perhaps an old word that has only now revealed the wound inside it: [**Conservation**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived").
 >
@@ -1357,7 +1351,7 @@
 >
 > [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") Log...
 >
-> Melting Date: Unknown (after money melted)
+> Melting Date: Unknown (after **The Melting Money**)
 >
 > Recorder: [**Amanda (ID 22)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") (who held salt at the tip of her finger)
 >
@@ -1395,7 +1389,7 @@
 >
 > Hi, I am [**Prof. NOTA**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active")! First of all, I would like to thank you for your time, imagination, and energy. Then I would like to tell you several things related to the current phenomenon of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"). Please enjoy reading the following story...
 >
-> At the **TERUPA** festival, after a temporary irregularity caused by a bearish market, [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") was thrown from the phenomenal space-time of [**The Melting Land Universe**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") and stranded on Bali island, in the **Universe of Reality**.
+> At the **TERUPA** festival, after a glitch caused by a bearish market, [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") was thrown from the phenomenal space-time of [**The Melting Land Universe**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") and stranded on Bali island, in the **Universe of Reality**.
 >
 > All survivors of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), namely 1047 ark passengers from **Dunno What Water** and several [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") figures, were still surviving by relying on the remaining civilization that could be saved, namely the natural resource reserve called **Nameless Liquid**.
 >
@@ -1432,7 +1426,7 @@
 >
 > I do not know whether all humans in the **Universe of Reality** would agree with that explanation. But I know we are not in a position to judge too quickly. We ourselves have lived too long as invitations, images, passengers, records, tethered signs, rewards, and [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") voices that are sometimes recorded, sometimes not. If humans of the **Universe of Reality** can appear in the **0101 Universe** through photos, images, accounts, animation, media, and works, perhaps entities of the **0101 Universe** can also appear in the **Universe of Reality** through human bodies willing to become doors.
 >
-> That is another fringe in theory: perhaps an avatar is not always an image used by humans. Perhaps humans too can become avatars for something they had always thought existed only inside images.
+> That is another fringe in theory: Perhaps an avatar is not always an image used by humans. Perhaps humans too can become avatars for something they had always thought existed only inside images.
 >
 > ---
 >
@@ -1445,11 +1439,11 @@
 > Message:\
 > At **TERUPA**, [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") did not arrive as a large wooden ship splitting the streets of Denpasar. It arrived as a collection of images, stories, small food, drinks, letters, conversations, and gazes. In the **Universe of Reality**, not every arrival must crack the ground. Some arrivals only need to make someone stop in front of a work, read, ask, and go home with an anxiety unlike the one they had when they came.
 >
-> There, 1047 passengers appeared as image assets from the NFT collection [**The ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"). They did not stand with wet feet inside the exhibition room. They stood as invitations already minted on the Polygon blockchain, one-of-one images, selected from thousands of possible faces, bodies, clothing, traits, and generative errors, chosen so they could become passengers. In [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), they are survivors. In the **0101 Universe**, they are NFTs. In the **Universe of Reality**, they are works displayed, discussed, and shared.
+> There, 1047 passengers appeared as image assets from the NFT collection named [**The ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"). They did not stand with wet feet inside the exhibition room. They stood as invitations already minted on the Polygon blockchain, one-of-one images, selected from thousands of possible faces, bodies, clothing, traits, and generative errors, chosen so they could become passengers. In [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), they are survivors. In the **0101 Universe**, they are NFTs. In the **Universe of Reality**, they are artworks displayed, discussed, and shared.
 >
-> No single form cancels another. Precisely there, the first door appeared. An NFT can become an invitation, a passenger, an image, proof, story, ticket, and exhibition body all at once. A letter can become a festival leaflet, a Captain's log, a cross-universe broadcast, and proof that imagination once walked wearing human feet. A drink can become ARUM, **Nameless Liquid**, hospitality, calm, marketing, experiment, and a ritual of introduction. A cookie can become a snack, **Nameless Cookie**, a filler of hunger, and the gentlest way to make people willing to hear a disaster.
+> No single form cancels another. Precisely there, the first door appeared. An NFT can become an invitation, a passenger, an image, proof, story, ticket, and exhibition body all at once. A letter can become a festival leaflet, a **Captain**'s log, a cross-universe broadcast, and proof that imagination once walked wearing human feet. A drink can become **ARUM**, **Nameless Liquid**, hospitality, calm, marketing, experiment, and a ritual of introduction. A cookie can become a snack, **Nameless Cookie**, a filler of hunger, and the gentlest way to make people willing to hear a disaster.
 >
-> That is how the **Universe of Reality** accepts something it does not yet believe. It does not always accept through faith. Sometimes it accepts through the mouth, eyes, curiosity, photographs, and a few minutes in front of a work.
+> That is how the **Universe of Reality** accepts something it does not yet believe. It does not always accept through faith. Sometimes it accepts through the mouth, eyes, curiosity, photographs, and a few minutes in front of a artwork.
 >
 > We, the [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"), learned something from that. In [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), we often save the drowning with hands and rope. In the **Universe of Reality**, it turns out that some who are drowning are saved by a story strange enough to make them remember they can still ask.
 >
@@ -1466,9 +1460,9 @@
 >
 > **Mr. BROY** drew the invitations. **Mr. BROY** built the ark. **Mr. BROY** knew the secret of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") before many people were able to name it. **Mr. BROY** was the beginning of many doors that we later occupied.
 >
-> But when the temporary irregularity happened, when [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") was thrown from [**The Melting Land Universe**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") toward the **0101 Universe** and finally stranded in the **Universe of Reality**, **Mr. BROY** did not arrive with us. There was no body of his in the exhibition room. No voice of his in the letter. No hand of his among the people staring at the 1047 passengers. The [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said he had been thrown into the crack of space-time, into nothingness between universes, into a place that had no map yet and was not yet worthy of being called death.
+> But when the glitch happened, when [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") was thrown from [**The Melting Land Universe**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") toward the **0101 Universe** and finally stranded in the **Universe of Reality**, **Mr. BROY** did not arrive with us. There was no body of his in the exhibition room. No voice of his in the letter. No hand of his among the people staring at the 1047 passengers. The [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said he had been thrown into the crack of space-time, into nothingness between universes, into a place that had no map yet and was not yet worthy of being called death.
 >
-> Some passengers cried. Some refused to believe. Some thought **Mr. BROY** had deliberately hidden, as he had always hidden because of the **Before Melting** calendar. Some [**Retired Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") whispered that losing a maker often makes the creation want to become its own origin. [**Psycho**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") stared at me for a long time, then said, "_Be careful, Captain. When the maker is no longer visible, what is inherited often begins to call itself the origin._"
+> Some passengers cried. Some refused to believe. Some thought **Mr. BROY** had deliberately hidden, as he had always hidden because of the **Before Melting** calendar. Some [**Retired Satans**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") whispered that losing a maker often makes the creation want to become its own origin. [**Psycho**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/26.-nothing-the-genesis/26.1.-satans-pfp "NFT Collection: Satans PFP on Tezos Blockchain - Archived") stared at me for a long time, then said, "_Be careful, **Captain**. When the maker is no longer visible, what is inherited often begins to call itself the origin._"
 >
 > I did not deny it.
 >
@@ -1484,7 +1478,7 @@
 >
 > Writer: [**Prof. NOTA**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active")
 >
-> Subject: [**CONSERVE ROTY BROI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived").
+> Subject: [**Conserve ROTY BROI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived").
 >
 > Message:\
 > GM GM **OiOi!!!**
@@ -1497,7 +1491,7 @@
 >
 > If you are a holder of [**The ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") NFTs, please fill out this form as soon as possible. Read the thread from **@MyReceiptT** carefully.
 >
-> If you have any questions, please send them via DM. Okay, **#OiOi!!!!**
+> If you have any questions, please send them via DM. Okay, [**#OiOi!!!!**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived")
 >
 > For the complete story of what I did there, you can read my letter to the local residents at **TAT ART SPACE**.
 >
@@ -1524,9 +1518,9 @@
 > Message:\
 > In the **0101 Universe**, that announcement looked like a roadmap, promotion, holder invitation, and project information. In the **Universe of Reality**, that announcement looked like a continuation of the activity of a human who came to Bali island carrying an NFT story. But in our place, that announcement sounded like a new way to mourn. They called it a derivative collection. We heard it as derivative, but not as something lower. A derivative is the way a work admits it does not want to hold memory alone.
 >
-> After money melted, we had learned that numbers can become disease if they forget the life they must serve. At **TERUPA**, [**Prof. NOTA v10.0**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active") learned something else: promotion can become shallow if it only chases attention, but promotion can become [**Conservation**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived") if it brings a work together with hands capable of giving it a new body.
+> After **The Melting Money**, we had learned that numbers can become disease if they forget the life they must serve. At **TERUPA**, [**Prof. NOTA v10.0**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active") learned something else: promotion can become shallow if it only chases attention, but promotion can become [**Conservation**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived") if it brings a work together with hands capable of giving it a new body.
 >
-> [**Prof. NOTA v10.0**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active") named that derivative collection: [**CONSERVE ROTY BROI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived").
+> [**Prof. NOTA v10.0**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active") named that derivative collection: [**Conserve ROTY BROI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived").
 >
 > The local artists on Bali island did not only see [**The ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") as digital images. They saw faces, lines, characters, possibilities, stories, and something that could be touched again. Some of them were holders of [**The ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"). Some others were holders of [**DROP NFT NOT BOMB**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/36.-d.nft.n.bomb-tm "NFT Collection: Drop NFT Not BOMB™ on Tezos Blockchain - Archived"). Some helped the exhibition visuals. Some discussed blockchain, metaverse, decentralization, and web3 without turning those words into temples. They met the story through work.
 >
@@ -1544,7 +1538,7 @@
 >
 > Writer: [**Prof. NOTA**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active")
 >
-> Subject: [**CONSERVE ROTY BROI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived").
+> Subject: [**Conserve ROTY BROI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived").
 >
 > Message:\
 > Dear local residents in BALI, the Island of the Gods.
@@ -1555,7 +1549,7 @@
 >
 > In BALI, the Island of the Gods, after successfully surviving during the **TERUPA** festival with the help of local residents, [**Cap'n ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), 1047 passengers from **Dunno What Water**, and several [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") figures, all of them mourned because they realized that **Mr. BROY**, the maker of [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), was gone.
 >
-> **Mr. BROY** was thrown away from [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") during the temporary irregularity. When [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") leapt from [**The Melting Land Universe**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") into the **0101 Universe**, where [**Prof. NOTA**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active") existed, and finally entered the **Universe of Reality** and became stranded on Bali island, **Mr. BROY** was thrown from [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"). His soul and body were believed to be trapped in nothingness, in the cracks of space-time between the existing universes.
+> **Mr. BROY** was thrown away from [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") during the glitch. When [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") leapt from [**The Melting Land Universe**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") into the **0101 Universe**, where [**Prof. NOTA**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active") existed, and finally entered the **Universe of Reality** and became stranded on Bali island, **Mr. BROY** was thrown from [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"). His soul and body were believed to be trapped in nothingness, in the cracks of space-time between the existing universes.
 >
 > In BALI, the Island of the Gods, to remember **Mr. BROY**, all survivors of [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") asked for help from local artists to conserve several tickets or invitations of [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), namely the NFT art assets of [**The ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), which had been selected from 1047 tickets or invitations that had already been minted.
 >
@@ -1578,7 +1572,7 @@
 > Message:\
 > That second letter made me understand that we were not being saved by the island. We were being tested by the way the island treated our story. An island can be land, but land is not always a place to stand. We had learned that in the cruelest way. Bali, the Island of the Gods, did not immediately become a savior because it did not melt like our world. It became important because there, some humans did not only see us as commodities from the **0101 Universe**. They were willing to sit, listen, redraw, paint, touch canvases, and allow our story to enter the work of their hands.
 >
-> After money melted, we knew that value could not only be entrusted to the market. After **Mr. BROY** disappeared, we knew that origin could not only be entrusted to memory. After **TERUPA**, we knew that a story could not only be entrusted to records. So several invitations had to be conserved, not so they would become more expensive, but so they would not depend entirely on one form of existence.
+> After **The Melting Money**, we knew that value could not only be entrusted to the market. After **Mr. BROY** disappeared, we knew that origin could not only be entrusted to memory. After **TERUPA**, we knew that a story could not only be entrusted to records. So several invitations had to be conserved, not so they would become more expensive, but so they would not depend entirely on one form of existence.
 >
 > [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said that one form sinks too easily. An NFT can disappear inside a forgotten wallet. A canvas can be damaged in a damp room. A letter can be thrown away after being read. Memory can become gossip. The market can turn cold. A blockchain can change direction. A human body can become tired. But if a work has several bodies, it does not become eternal, it only becomes harder to kill with one kind of disaster.
 >
@@ -1597,7 +1591,7 @@
 > Message:\
 > The twelve [**Hexagonal Canvases**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived") first looked like media for works. White, empty, not yet declaring their artists, not yet revealing their artworks, only present as spaces that waited. In the **0101 Universe**, they were represented by twelve one-of-one NFTs. In the first stage, each NFT only displayed a photograph of an empty canvas. The artwork was unrevealed. The artist was also unrevealed. The canvas number was already there, but the body of the work had not yet declared itself.
 >
-> That first stage was important because it showed the rawest form of [**Conservation**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived"): a promised space before content. Many people think a work begins when an image is visible. But sometimes a work begins when a space is announced as a place that will guard something. An empty canvas is not emptiness. It is a silent contract among what has not yet been born, those who will make it, those who will own it, and those who will be left behind if no one believes.
+> That first stage was important because it showed the rawest form of [**Conservation**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived"): A promised space before content. Many people think a work begins when an image is visible. But sometimes a work begins when a space is announced as a place that will guard something. An empty canvas is not emptiness. It is a silent contract among what has not yet been born, those who will make it, those who will own it, and those who will be left behind if no one believes.
 >
 > No one bought or made an offer in the first stage. In the market, that could be called failure. In [**Conservation**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived"), that could be called the first calibration. Not every door is immediately recognized as a door when it still looks like a white wall.
 >
@@ -1605,7 +1599,7 @@
 >
 > At that stage, each canvas was also paired with the NFT ID from [**The ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") that would be conserved. [**ROTY BROI ID 361**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), [**ID 1043**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), [**ID 977**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), [**ID 992**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), [**ID 174**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), [**ID 121**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), [**ID 37**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), [**ID 498**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), [**ID 982**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), [**ID 410**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), [**ID 991**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), and [**ID 1035**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"). Each NFT ID carried a passenger, image, invitation, ownership history, and different story possibility. In [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), we call them survivors. In the **0101 Universe**, they are called NFTs. In the **Universe of Reality**, they began to become references for works on canvas.
 >
-> At that stage, two [**Hexagonal Canvas**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived") NFTs had already been sold: [**Conservation #4**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived") and [**Conservation #6**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived"). The market began to answer, but not enough to be called rescue. We had already learned from [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") that an answer must not be treated as value too quickly. So we recorded it as a signal: two doors had begun to be heard from the other side.
+> At that stage, two [**Hexagonal Canvas**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived") NFTs had already been sold: [**Conservation #4**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived") and [**Conservation #6**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived"). The market began to answer, but not enough to be called rescue. We had already learned from [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") that an answer must not be treated as value too quickly. So we recorded it as a signal: Two doors had begun to be heard from the other side.
 >
 > ---
 >
@@ -1637,7 +1631,7 @@
 > Message:\
 > We did not discover the portal function on the first day. At first, we only found small mismatches. There were records that did not sync between the canvas photograph and the aura of the invitation. There was a [**The ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") NFT ID that felt as if it were calling another character. There was light that appeared briefly when an artist's name was read together with a certain NFT ID. There was a shadow that seemed to come neither from the **Universe of Reality** nor from [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"). There were several times when [**Prof. NOTA v10.0**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active") saw something at the edge of his eye that could not be explained as exhaustion.
 >
-> We began making small experiments. Not experiments to open portals, because at that time we did not even dare to use that word yet. We only called them examinations. We examined the relationship between the physical canvas in the **Universe of Reality**, the one-of-one NFT in the **0101 Universe**, the [**The ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") NFT ID being conserved, the artist who worked on it, the holder who bought and owned it, its reveal status, its sale status, and the reaction of our records in [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived").
+> We began making small experiments. Not experiments to open portals, because at that time we did not even dare to use that word yet. We only called them examinations. We examined the relationship between the physical canvas in the **Universe of Reality**, the one-of-one NFT in the **0101 Universe**, [**The ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") NFT ID being conserved, the artist who worked on it, the holder who bought and owned it, its reveal status, its sale status, and the reaction of our records in [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived").
 >
 > From there, we realized that the twelve [**Hexagonal Canvases**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived") were not only conserving works. They matched entities and universes. Or failed to match them. Or almost matched them. That difference then became three statuses: **Unable to Match**, **Unperfectly Match**, and **Perfectly Match**.
 >
@@ -1656,13 +1650,13 @@
 > Message:\
 > After a long examination, [**Amanda (ID 12)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") wrote the final list.
 >
-> There were seven [**Hexagonal Canvases**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived") with **Unable to Match** status: [**Conservation #1**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived"), **#2**, **#3**, **#5**, **#9**, **#10**, and **#11**. There were three [**Hexagonal Canvases**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived") with **Unperfectly Match** status: [**Conservation #6**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived"), **#7**, and **#12**. There were two [**Hexagonal Canvases**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived") with **Perfectly Match** status: [**Conservation #4**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived") and **#8**.
+> There were seven [**Hexagonal Canvases**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived") with **Unable to Match** status: [**Conservation #1**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived"), [**#2**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived"), [**#3**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived"), [**#5**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived"), [**#9**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived"), [**#10**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived"), and [**#11**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived"). There were three [**Hexagonal Canvases**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived") with **Unperfectly Match** status: [**Conservation #6**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived"), [**#7**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived"), and [**#12**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived"). There were two [**Hexagonal Canvases**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived") with **Perfectly Match** status: [**Conservation #4**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived") and [**#8**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived").
 >
 > That list looked dry when written like an archive, but I knew every number in it carried body, hand, and possibility. [**Conservation #4**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived"), **Volare**, **Geofanny Tambunan**, [**ROTY BROI ID 992**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), sold, **Perfectly Match**. [**Conservation #8**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived"), **Living Under the Same Sun**, **Voni Dewi**, [**ROTY BROI ID 498**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), sold, **Perfectly Match**. Both could perfectly match their entities and universes. However, one of them was only one-way, returning. It could become a way home, but not a way to go. That made us understand that returning and departing may require two different kinds of courage.
 >
 > Among the [**Hexagonal Canvases**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived") with **Unable to Match** status, there was one that made [**Amanda (ID 12)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") keep delaying her conclusion. That canvas could not match not because its structure had failed completely, but because its artwork was finished yet unrevealed. It was like someone already standing behind the door but not yet saying their name. Once in a while it could match perfectly, but only one-way, going. It could not return. [**Amanda (ID 12)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said that portal might be the pair of the portal that could only return. If its artwork were revealed, perhaps its calibration would become perfect.
 >
-> I asked which portal it was. [**Amanda (ID 12)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") did not answer immediately. She said, "_Captain, not every coordinate may be written before its guardian is ready._"
+> I asked which portal it was. [**Amanda (ID 12)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") did not answer immediately. She said, "_**Captain**, not every coordinate may be written before its guardian is ready._"
 >
 > I almost got angry, but after remembering the gap in the [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") board, I held myself back. There are weaknesses that, if announced as stories, become maps for the wrong hands. There are portals that, if named too early, will make people chase travel before understanding eligibility. So in this log, I only write that there is one door for going that has not fully named itself, and one door for returning that is already too clear to ignore.
 >
@@ -1677,7 +1671,7 @@
 > Recorder: [**Amanda (ID 6)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") (who kept names in two columns)
 >
 > Message:\
-> The twelve one-of-one NFTs in the [**CONSERVE ROTY BROI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived") collection are now in the wallets of their respective owners. Those that were not sold are not lost either. They are stored in an archive wallet created by [**Prof. NOTA v10.0**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active") for conservation and protection. In the **0101 Universe**, a wallet is a place to store proof, but across universes, a wallet can also become a waiting room. Not everything that waits means dead. Not everything unsold means not working.
+> The twelve one-of-one NFTs in the [**Conserve ROTY BROI**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived") collection are now in the wallets of their respective owners. Those that were not sold are not lost either. They are stored in an archive wallet created by [**Prof. NOTA v10.0**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active") for storage and protection. In the **0101 Universe**, a wallet is a place to store proof, but across universes, a wallet can also become a waiting room. Not everything that waits means dead. Not everything unsold means not working.
 >
 > The physical twelve [**Hexagonal Canvases**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived") are scattered in a way more complicated than their NFTs. One canvas is with a collector in the **Universe of Reality** who also holds its NFT in the **0101 Universe**. Four canvases whose NFTs were not sold are unknown, whether they are still held by their artists, have changed hands, changed function, been damaged, stored, forgotten, or destroyed. Seven canvases were successfully held, stored, and protected by [**Prof. NOTA v11.11**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active") in the **Universe of Reality**.
 >
@@ -1685,7 +1679,7 @@
 >
 > [**Prof. NOTA v10.0**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active") did not immediately understand all of that. No one immediately understands a portal just because it is in front of them. Many humans stand in front of doors every day and still call them walls because they do not yet need to go. Many also call every hole a door because they are too eager to escape. That is why we wrote statuses. **Unable to Match**, **Unperfectly Match**, **Perfectly Match**. Not to create a hierarchy of works. Not to create new prices. Those statuses are cross-universe warnings.
 >
-> A work can be beautiful but dangerous as a portal. A work can be unrevealed but store a calibration that is almost right. A work can be sold but not entirely open. A work can be unsold but still guard a path. The market is never enough to read the function of a universe. That is a lesson we should have understood since money melted.
+> A work can be beautiful but dangerous as a portal. A work can be unrevealed but store a calibration that is almost right. A work can be sold but not entirely open. A work can be unsold but still guard a path. The market is never enough to read the function of a universe. That is a lesson we should have understood since **The Melting Money**.
 >
 > ---
 >
@@ -1696,13 +1690,13 @@
 > Message:\
 > Since then, the [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") began writing their own logs.
 >
-> Previously, I thought a Captain's log was enough to guard the history of the ark. I was wrong. A Captain can record decisions, conflicts, directions, voting, and emergency law. But a Captain does not always record how light changes on someone's face when they first feel trusted. A Captain does not always record how an [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") hears the difference between island and exhibition. A Captain does not always know when one letter becomes a broadcast, when a canvas becomes a portal, when a human body becomes an avatar, and when fiction begins to look back at reality.
+> Previously, I thought a **Captain**'s log was enough to guard the history of the ark. I was wrong. A **Captain** can record decisions, conflicts, directions, voting, and emergency law. But a **Captain** does not always record how light changes on someone's face when they first feel trusted. A **Captain** does not always record how an [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") hears the difference between island and exhibition. A **Captain** does not always know when one letter becomes a broadcast, when a canvas becomes a portal, when a human body becomes an avatar, and when fiction begins to look back at reality.
 >
-> Only after the portal matching process began did we discover a number we had never truly counted. The [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") who had been with us in [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), who had once arrived, been found, and been saved one by one along [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), turned out to number 47 when the temporary irregularity happened. They all were thrown and stranded with us on Bali island. Before that, we had only known them as presences that came carrying transmissions, maps, emergency food, warnings, questions, and different ways of surviving. But in the **Universe of Reality**, those [**47 Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") became increasingly clear as recorders. They did not all write every day. They did not all write in the same style. Some wrote like scientists, some wrote like witnesses, some wrote like people who did not want to give too many clues, some wrote like mothers counting their children before a storm.
+> Only after the portal matching process began did we discover a number we had never truly counted. The [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") who had been with us in [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), who had once arrived, been found, and been saved one by one along [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), turned out to number 47 when the glitch happened. They all were thrown and stranded with us on Bali island. Before that, we had only known them as presences that came carrying transmissions, maps, emergency food, warnings, questions, and different ways of surviving. But in the **Universe of Reality**, those [**47 Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") became increasingly clear as recorders. They did not all write every day. They did not all write in the same style. Some wrote like scientists, some wrote like witnesses, some wrote like people who did not want to give too many clues, some wrote like mothers counting their children before a storm.
 >
-> [**Amanda (ID 27)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said that they wrote not to replace the Captain, but to prevent one log from becoming the only universe. After we learned there was the **0101 Universe**, the **Universe of Reality**, [**The Melting Land Universe**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), and perhaps parallel universes still unknown, one voice could not possibly be enough to record everything. One voice too easily becomes government. One log too easily becomes a closed scripture. One Captain too easily forgets that he too is being written by circumstance.
+> [**Amanda (ID 27)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") said that they wrote not to replace the **Captain**, but to prevent one log from becoming the only universe. After we learned there was the **0101 Universe**, the **Universe of Reality**, [**The Melting Land Universe**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), and perhaps parallel universes still unknown, one voice could not possibly be enough to record everything. One voice too easily becomes government. One log too easily becomes a closed scripture. One **Captain** too easily forgets that he too is being written by circumstance.
 >
-> I accepted that. Not because it was easy, but because everything we had gone through kept teaching the same thing: whoever wants to survive must learn to be contradicted by another form of truth.
+> I accepted that. Not because it was easy, but because everything we had gone through kept teaching the same thing: Whoever wants to survive must learn to be contradicted by another form of truth.
 >
 > ---
 >
@@ -1740,7 +1734,7 @@
 >
 > That sentence hurt us more than we expected. Because [**Conservation**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived") is indeed close to preservation. Too close. If we are not careful, conserving can turn into freezing. Guarding can turn into imprisoning. A museum can turn into a tomb with good lighting. An archive can turn into a tidy grave. An exhibition can turn into a polite way to say that something is no longer alive.
 >
-> We did not want to become that. [**The ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") is not a dead ship displayed so visitors can feel they have understood disaster in five minutes. We are not merely 1047 images waiting for prices to improve. [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") is not a supporting character for explaining knowledge to local residents. **Nameless Liquid** is not a gimmick. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") is not a slogan. **Mr. BROY** is not an emotional background for a derivative project.
+> We did not want to become that. [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") is not a dead ship displayed so visitors can feel they have understood disaster in five minutes. We are not merely 1047 images waiting for prices to improve. [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") is not a supporting character for explaining knowledge to local residents. **Nameless Liquid** is not a gimmick. [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") is not a slogan. **Mr. BROY** is not an emotional background for a derivative project.
 >
 > If [**Conservation**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived") truly guards the living, then it must allow the living to move again.
 >
@@ -1797,15 +1791,15 @@
 > Recorder: [**Amanda (ID 47)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active")
 >
 > Message:\
-> I write as one of the [**47 Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") who were thrown to Bali island. We did not all choose that number. Perhaps that number chose us. While in the **Universe of Reality**, we heard [**Prof. NOTA v10.0**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active") speak about many things: art, NFT, blockchain, story, exhibition, market, community, promotion, failure, opportunity, exhaustion, and the fringe of being an entity who uses a human as an avatar. We heard the humans on Bali island speak in ways that did not always understand us, but sometimes precisely because of that, their questions became honest.
+> I write as one of the [**47 Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") who were thrown to Bali island. We did not all choose that number. Perhaps that number chose us. While in the **Universe of Reality**, we heard [**Prof. NOTA v10.0**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active") speak about many things: Art, NFT, blockchain, story, exhibition, market, community, promotion, failure, opportunity, exhaustion, and the fringe of being an entity who uses a human as an avatar. We heard the humans on Bali island speak in ways that did not always understand us, but sometimes precisely because of that, their questions became honest.
 >
 > We brought home more than records. We brought home proof that fiction can become reality without stopping being fiction. We brought home proof that reality can become knowledge without losing the fact that it once happened. We brought home proof that a project that looked like NFT promotion could become [**Conservation**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived"), and [**Conservation**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived") that looked like derivative artwork could become a cross-universe portal experiment.
 >
-> We also brought home concern. If portals can appear from canvas, then work is no longer only work. If humans can become **Human for Profile**, then body is no longer only body. If wallets can become waiting rooms, then ownership is no longer only ownership. If reveal can change calibration, then reveal is no longer only publication. If what is unsold can still guard a path, then the market is no longer the final judge of a work's function.
+> We also brought home concern. If portals can appear from canvas, then work is no longer only work. If humans can become **HFP**, then body is no longer only body. If wallets can become waiting rooms, then ownership is no longer only ownership. If reveal can change calibration, then reveal is no longer only publication. If what is unsold can still guard a path, then the market is no longer the final judge of a work's function.
 >
 > Therefore we, the [**47 Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"), will continue writing. Not to explain everything. Explanations that arrive too quickly often become fences. We write so every door has a witness, every witness has a record, every record can be contradicted, and every contradiction is not immediately considered betrayal.
 >
-> This section is called [**The Melting Conservation**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived") because even [**Conservation**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived") must melt from its old meaning. To conserve does not mean to freeze. To conserve does not mean to turn a work into a tidy corpse. To conserve does not mean moving a JPEG onto canvas so it can be sold again with warmer language. To conserve means guarding the possibility that a work can keep changing without losing the memory of its origin.
+> This section is called **The Melting Conservation** because even [**Conservation**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived") must melt from its old meaning. To conserve does not mean to freeze. To conserve does not mean to turn a work into a tidy corpse. To conserve does not mean moving a JPEG onto canvas so it can be sold again with warmer language. To conserve means guarding the possibility that a work can keep changing without losing the memory of its origin.
 >
 > If something must not change at all, perhaps it is not being conserved. Perhaps it is being imprisoned. If something changes until it no longer recognizes its origin, perhaps it is not alive. Perhaps it is disappearing with a new style.
 >
@@ -1844,7 +1838,7 @@
 >
 > So record this:
 >
-> after money melted, we learned that what remained was not wealth.
+> After **The Melting Money**, we learned that what remained was not wealth.
 >
 > What remained was something that must be guarded so it would not sink too.
 >
@@ -1858,7 +1852,7 @@
 >
 > What remained was a portal that must be examined before being used.
 >
-> What remained was 47 Amandas beginning to write.
+> What remained was [**47 Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") beginning to write.
 >
 > What remained was the question, do you want to conserve something because you love it, or because you are afraid it will live without you?
 >
@@ -1873,9 +1867,9 @@
 > Recorder: [**Amanda (ID 47)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") (who closes this section without closing its door)
 >
 > Message:\
-> After [**The Melting Conservation**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/24.-conserve-roty-broi "NFT Collection: Conserve Roty Broi on Ethereum Blockchain - Archived"), the direction of the journey did not return to a single line. [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") returned to [**The Melting Land Universe**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), but our records now face many universes. The **0101 Universe** is no longer singular. The **Universe of Reality** can no longer pretend that all other universes are safe imaginations. [**The Melting Land Universe**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") can no longer pretend that its disaster belongs only to itself.
+> After **The Melting Conservation**, the direction of the journey did not return to a single line. [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") returned to [**The Melting Land Universe**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), but our records now face many universes. The **0101 Universe** is no longer singular. The **Universe of Reality** can no longer pretend that all other universes are safe imaginations. [**The Melting Land Universe**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") can no longer pretend that its disaster belongs only to itself.
 >
-> Somewhere else, there is still a rich island. There, perhaps there are farmers who do not plant like old farmers. Perhaps there is land that is rich not because it never melted, but because it learned to process the remains of melting into another way of living. Perhaps there is an island, a place where works, farming, games, family, money, tokens, and the future will again be tested by the same questions: what are you guarding, who is guarding it with you, what do you call value, what do you call life, and do you still answer when called?
+> Somewhere else, there is still a rich island. There, perhaps there are farmers who do not plant like old farmers. Perhaps there is land that is rich not because it never melted, but because it learned to process the remains of melting into another way of living. Perhaps there is an island, a place where works, farming, games, family, money, tokens, and the future will again be tested by the same questions, what are you guarding, who is guarding it with you, what do you call value, what do you call life, and do you still answer when called?
 >
 > We will not answer that here. This section only opens the door. Do not enter without records. Do not return without witnesses. Do not carry anything you cannot be responsible for, [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived").
 
@@ -1887,11 +1881,962 @@
 
 #### The Farmers of [BANANOW LAND](https://land.endhonesa.com/nfts "NFT Collection: BANANOW BASED NFTs on BASE Blockchain - Active")
 
-> init...
+> Message From a Lifeboat...
 >
-> [**(22) BANANOW NFTs**](https://land.endhonesa.com/nfts "NFT Collection: BANANOW BASED NFTs on BASE Blockchain - Active")
+> Melting Date: December 22, 2022 (December 22, 2022 B.M.)
 >
-> **...**
+> Sender: [**ROTY BROI Passenger (ID 498)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
+>
+> Subject: I left not because I hated the ark.
+>
+> Message:\
+> If this message reaches [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), please do not immediately call me someone who does not know gratitude.
+>
+> I left not because the ark failed to save us. I left because a map will never become a road if everyone only stares at it while waiting for someone else to disappear first. One of the [**Amandas**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") once brought a map of lands that might still exist after [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"). We called it [**The Melting Archipelago**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/37.-woman-of-russian/37.1.-absart-idsa-archipelago "NFT Collection: ABSART IDSA Archipelago on Tezos Blockchain - Archived"). We chose to search for it. But a choice that is only discussed for too long will turn into decoration on a wet wall.
+>
+> I brought a little supply, one piece of sail, rope, a blunt knife, and fear that was too loyal for its own good. This lifeboat is small. The waves are too large. I am also not as great as the story that may later be made if I happen to survive.
+>
+> So if one day someone tells a story that I left like a hero, please correct them.
+>
+> I left trembling.
+>
+> ---
+>
+> First Message Fragment...
+>
+> Melting Date: December 23, 2022 (December 23, 2022 B.M.)
+>
+> Source: A dry leaf carried by a bird.
+>
+> Subject: She is not [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active").
+>
+> Message:\
+> She is not [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active").
+>
+> She said that first, as if she already knew that the people on the ark had started to form a bad habit: Every woman found in the middle of a disaster was immediately suspected of being [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"), a variation of [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"), a fragment of [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"), or [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") who had not admitted it yet. She looked at me and said, "_If you call every woman [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"), one day you will forget to ask my name._"
+>
+> I had no good answer.
+>
+> I do not write her name here, not because she has no name, but because she asked me to wait. She said a name written too quickly sometimes turns into a fence.
+>
+> I found her among the remains of a house door floating on the waves. Or maybe she found me. We are still arguing about that. She said I came from the wrong direction. I said she was sitting on something drifting toward my lifeboat. She said, "_That means the door was smarter than both of us._"
+>
+> I shared water with her. She shared direction with me. For a while, that was enough to be called life.
+>
+> ---
+>
+> [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") Log...
+>
+> Melting Date: December 24, 2022 (December 24, 2022 B.M.)
+>
+> Recorder: [**Amanda (ID 8)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active")
+>
+> Subject: Some messages sound like [**Prof. NOTA**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active"), although they are not.
+>
+> Message:\
+> I need to write this down before everyone becomes even more of a know-it-all.
+>
+> Some messages from the lifeboat of [**ROTY BROI Passenger (ID 498)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") sound like [**Prof. NOTA**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active"). Not his voice. Not his name. Not his body. But the way he turns small things into large questions. Water becomes direction. Leaves become documents. Land becomes a project that does not want to be called a project. Family becomes the oldest technology that has not finished being tested.
+>
+> I am not saying the message was sent by [**Prof. NOTA**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active"). I am only saying there is an echo.
+>
+> Echoes are annoying because they make everyone rush to search for the source. Whereas sometimes an echo is not there to tell who is speaking. Sometimes an echo only tells us that there is space between voice and hearing.
+>
+> If you are confused, good. Many doors open not because we understand, but because we are polite enough not to close them immediately.
+>
+> ---
+>
+> Second Message Fragment...
+>
+> Melting Date: December 25, 2022 (December 25, 2022 B.M.)
+>
+> Sender: A Female Survivor
+>
+> Subject: It is lively here.
+>
+> Message:\
+> There is a place that does not sway.
+>
+> There is laughter. There are children. There is something called neighbor, but it does not sound like someone who merely lives next door. Here, a neighbor sounds like someone who is still willing to turn their head when someone falls.
+>
+> There is family. There is a home. It is here, in a place that is not ashamed to be called pleasant even though the world has ended many times inside the heads of those who survived.
+>
+> There is a name that has not been fully caught, [**Na... Na... Now...**](https://land.endhonesa.com/nfts "NFT Collection: BANANOW BASED NFTs on BASE Blockchain - Active")
+>
+> The land does not answer when called. But something there seems to be waving.
+>
+> ---
+>
+> [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") Log...
+>
+> Melting Date: December 26, 2022 (December 26, 2022 B.M.)
+>
+> Recorder: [**Amanda (ID 22)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active")
+>
+> Message:\
+> Some passengers immediately said there was a message from one of [**The Melting Archipelago**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/37.-woman-of-russian/37.1.-absart-idsa-archipelago "NFT Collection: ABSART IDSA Archipelago on Tezos Blockchain - Archived"). Others said it must be the deception of an evil survivor. One person said it sounded like the word "banana" and immediately asked for extra food ration. I will not write his name because he was already embarrassed enough after everyone stared at him.
+>
+> I only wrote: Record it first.
+>
+> Do not immediately marry the land from its first voice. Do not immediately suspect it as a trap just because it sounds pleasant either. After living too long on [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), some people start to think every pleasant thing will end as a hole. That is understandable, but if every pleasant thing is immediately called a hole, then what remains of life will only become an extended practice of drowning.
+>
+> So, record it first. There is a voice from land. There is something lively. There is the word family. There is the word neighbor. There is the word healthy. There is laughter that does not sound like someone laughing at death.
+>
+> That is not enough to be called salvation. But enough not to be ignored.
+>
+> ---
+>
+> Message From a Female Survivor...
+>
+> Melting Date: December 27, 2022 (December 27, 2022 B.M.)
+>
+> Location: Land that does not yet want to be called an island.
+>
+> Subject: Do not pick everything.
+>
+> Message:\
+> We found banana trees.
+>
+> Not many. Do not imagine a large plantation. Do not imagine fruits piled up until people can be lazy and still full. Only a few trunks. A few wide leaves. A few fruits hanging like questions that can be eaten if you are patient enough.
+>
+> [**ROTY BROI Passenger (ID 498)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") almost picked everything. I held his hand back.
+>
+> He said he was hungry. I believed him. I was hungry too. Even the land might be hungry after everything that had happened to its surface. But if hunger always becomes the first reason, then new land will only become an old place with a different view.
+>
+> We picked a little. We left more. We waited for shoots.
+>
+> I do not know if that is called farming. Maybe it is only called not being stupid twice.
+>
+> ---
+>
+> [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") Log...
+>
+> Melting Date: December 28, 2022 (December 28, 2022 B.M.)
+>
+> Recorder: [**Amanda (ID 6)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active")
+>
+> Subject: Banana trees are not the answer.
+>
+> Message:\
+> Banana trees are not the answer. Do not turn them into statues. Banana trees are also not merely food. Do not turn them into stock. Banana trees are questions that grow slowly: Are creatures that have been saved for too long still able to wait for something to grow without immediately consuming it?
+>
+> That question is harsh, actually. But banana trees ask it with polite leaves, so some people do not feel attacked. Good. Sometimes truth must wear wide leaves so humans do not get offended too quickly.
+>
+> [**ROTY BROI Passenger (ID 498)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") and the female survivor do not yet know that they are becoming farmers. They are only learning not to repeat the old way. That is better than many people who already wear grand titles but have not learned to leave shoots behind.
+>
+> ---
+>
+> Message in a Soy Sauce Bottle...
+>
+> Melting Date: December 29, 2022 (December 29, 2022 B.M.)
+>
+> Source: A soy sauce bottle without soy sauce.
+>
+> Subject: [**BANANOW**](https://land.endhonesa.com/nfts "NFT Collection: BANANOW BASED NFTs on BASE Blockchain - Active")?
+>
+> Message:\
+> A child pointed at the fruit and said, "_Nana._"
+>
+> An adult said, "_Banana._"
+>
+> Another person said, "_Now._"
+>
+> Then everyone too tired to argue called this place [**BANANOW LAND**](https://land.endhonesa.com/nfts "NFT Collection: BANANOW BASED NFTs on BASE Blockchain - Active") until a better name arrived.
+>
+> A better name has not arrived. Maybe it got lost. Or maybe this name was the one that found us first.
+>
+> ---
+>
+> [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") Log...
+>
+> Melting Date: December 30, 2022 (December 30, 2022 B.M.)
+>
+> Recorder: [**Amanda (ID 22)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active")
+>
+> Subject: A funny-sounding name is sometimes safer.
+>
+> Message:\
+> Some passengers do not like the name [**BANANOW LAND**](https://land.endhonesa.com/nfts "NFT Collection: BANANOW BASED NFTs on BASE Blockchain - Active") because it sounds too funny for a land after the apocalypse. They want a larger name. Heavier. More like the old nations naming something before they start claiming it.
+>
+> I disagree. A name that is too large often makes humans feel entitled to become large too. A name that is too serious often invites people who like to stand on rocks and point directions as if all directions are waiting for their fingers.
+>
+> [**BANANOW LAND**](https://land.endhonesa.com/nfts "NFT Collection: BANANOW BASED NFTs on BASE Blockchain - Active") sounds like fruit and time. Like someone who is hungry but can still joke. Like children who cannot wait for adults to finish their meeting. Like land saying, "_If you want to become new creatures, maybe do not begin with a name that makes you stiff._"
+>
+> Record it first: The land is starting to have a name. But do not immediately make a flag.
+>
+> ---
+>
+> Message From a Small Granary...
+>
+> Melting Date: December 31, 2022 (December 31, 2022 B.M.)
+>
+> Sender: [**ROTY BROI Passenger (ID 498)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
+>
+> Subject: A false sign entered.
+>
+> Message:\
+> We made a small granary.
+>
+> Do not laugh. The granary is indeed small. Even one wet crate on [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") may be larger than our first granary. But inside it are things that must not be lost, shoots, fruits not yet shared, notes on how to plant, rope knots, and signs to distinguish what may be picked and what must be waited for.
+>
+> Then a sign came. Its form was like help. Its voice was like someone who already knew us. It knew the name [**BANANOW LAND**](https://land.endhonesa.com/nfts "NFT Collection: BANANOW BASED NFTs on BASE Blockchain - Active"). It knew about banana trees. It even knew how to say [**ROTY BROI**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") without sounding like a stranger.
+>
+> The sign said it could help guard the granary. We opened the knot. Some seeds disappeared. Some notes disappeared. Several shoots that were not ready to be pulled vanished from their place.
+>
+> The female survivor did not scold me. That was worse. If she had been angry, I could have defended myself. But she only sat in front of the granary and said, "_False opportunity is often more polite than a robber._"
+>
+> If this message arrives, do not come only because we found land. Come because land can also be deceived.
+>
+> ---
+>
+> [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") Log...
+>
+> Melting Date: January 1, 2023 (January 1, 2023 B.M.)
+>
+> Recorder: [**Amanda (ID 6)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active")
+>
+> Subject: A wallet can be a granary.
+>
+> Message:\
+> I know some passengers will say, "_How can a granary be deceived?_"
+>
+> That question sounds smart only if we forget that a granary does not open itself. There is always a hand. There is always trust. There is always a sentence that makes trust feel like intelligence.
+>
+> In the **0101 Universe**, perhaps something like that is called a wallet. In [**BANANOW LAND**](https://land.endhonesa.com/nfts "NFT Collection: BANANOW BASED NFTs on BASE Blockchain - Active"), today it is called a granary. Do not fixate too much on the object. Objects only wear names that fit their universes.
+>
+> What stays the same is this: If something stores access, value, seeds, notes, or the future, then that thing will invite false signs.
+>
+> So the land is real. Not because it is perfect. Precisely because it can open the wrong door.
+>
+> ---
+>
+> Message on White Cloth Wrapping a Banana Tree...
+>
+> Melting Date: January 2, 2023 (January 2, 2023 B.M.)
+>
+> Sender: A Female Survivor
+>
+> Subject: Do not come as heroes.
+>
+> Message:\
+> If [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") hears us, do not come as heroes. Heroes often arrive with steps too heavy. Land that has just learned not to sink does not like steps that are too certain.
+>
+> Come as witnesses. Come as additional hands. Come as people who have also trusted wrongly before.
+>
+> We do not need people who mock our granary because it was once opened. We need people who can help make new knots without turning the granary into a prison.
+>
+> ---
+>
+> Voice From the West...
+>
+> Melting Date: January 3, 2023 (January 3, 2023 B.M.)
+>
+> Sender: [**ROTY BROI Passenger (ID 410)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
+>
+> Subject: I found land, then lost my voice.
+>
+> Message:\
+> I found land after steering my lifeboat in a different direction.
+>
+> I cheered. But no one heard. I cried and the waves did not care. I ran, then fell, because my body had forgotten how to deal with ground that did not move up and down. After that, I no longer cheered too loudly. Land makes people look foolish in a very polite way.
+>
+> I tried to send a message to the ark but it seemed not to arrive. I tried to make smoke. The smoke was shy. I tried to shout but only made the birds leave while the message stayed here.
+>
+> The first day of finding land is euphoria. The second day is a question that slaps: What is the use of finding something if the news is stranded too?
+>
+> ---
+>
+> Recovered Echo Fragment...
+>
+> Melting Date: January 4, 2023 (January 4, 2023 B.M.)
+>
+> Echo Marker: [**Prof. NOTA v10.0**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active")
+>
+> Source: A gap between universes.
+>
+> Subject: There is help that does not sound like help.
+>
+> Message:\
+> Sometimes help comes as an inspection of knots. Sometimes help comes as a question, "_What else is missing?_"
+>
+> Sometimes help comes not to take over the granary, but to make sure the same hole does not become a habit. Sometimes help comes from a distant voice, from a body located in another universe, from someone who did not hold the first banana, but knows that one wrong knot can make one season fail.
+>
+> If this sounds like a phone call, perhaps that is because some universes still believe in voice. If this sounds like a technical note, perhaps that is because the future sometimes breaks first in the part called access. If this sounds like [**Prof. NOTA**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active"), perhaps that is because echoes like wearing other people's jackets.
+>
+> ---
+>
+> Message From a Loudspeaker Horn...
+>
+> Melting Date: January 5, 2023 (January 5, 2023 B.M.)
+>
+> Sender: [**ROTY BROI Passenger (ID 410)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
+>
+> Subject: I built a mouth for the land.
+>
+> Message:\
+> I built a loudspeaker horn. Its shape is not good. If an architect from the old world saw it, perhaps he would pretend to faint. This loudspeaker horn is made from used metal, wood that has not decided whether it wants to be a pole or a memory, a large seashell, and parts of a lifeboat no longer worthy of being called a lifeboat.
+>
+> Its shape is like the loudspeaker horn of a mosque in a memory that is still wet. But its function is not to call people to prove who is closest to the sky. Its function is simple: So news does not die too quickly.
+>
+> On the first day, the loudspeaker horn I built only amplified the sound of wind. On the second day, it amplified the sound of my stomach. On the third day, it caught the word: Banana. I immediately believed this ugly thing would be useful.
+>
+> ---
+>
+> [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") Log...
+>
+> Melting Date: January 6, 2023 (January 6, 2023 B.M.)
+>
+> Recorder: [**Amanda (ID 12)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active")
+>
+> Subject: Two calls may be one land.
+>
+> Message:\
+> The message of [**ROTY BROI Passenger (ID 410)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") came from a direction that should be different from the message of [**ROTY BROI Passenger (ID 498)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"). That made some passengers happy because they thought we had found two islands.
+>
+> I was not immediately happy. Joy that comes too quickly is often lazy to count.
+>
+> I compared the direction of the wind, the time of the message, the kind of sand stuck to the cloth, the shape of the leaf described, the sound of birds, and the habit of the waves when the message arrived. I also compared the way both of them spoke about land. [**ROTY BROI Passenger (ID 498)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") spoke of it like someone who almost picked too quickly. [**ROTY BROI Passenger (ID 410)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") spoke of it like someone who almost died because he could not send news.
+>
+> Two different wounds. The soil smells the same. Record it first: Maybe they did not find two islands. Maybe they touched two sides of the same land.
+>
+> Hmmm... Do not clap yet. I have not finished being suspicious.
+>
+> ---
+>
+> A Short Message...
+>
+> Melting Date: January 7, 2023 (January 7, 2023 B.M.)
+>
+> Source: Message inside a used coffee sachet.
+>
+> Subject: I do not know how to live on it.
+>
+> Message:\
+> I have been standing on land for seven days.
+>
+> I still store food as if I will sink tomorrow morning.
+>
+> I still sleep hugging a rope.
+>
+> I still get angry when someone approaches the fruit I saw first.
+>
+> I thought finding land would make me a new human.
+>
+> Turns out I am only an old human with a new place to stand.
+>
+> Please do not write my name, **Kainde**.
+>
+> ---
+>
+> Voice From the House Without an Address...
+>
+> Melting Date: January 8, 2023 (January 8, 2023 B.M.)
+>
+> Source: A warm voice from the loudspeaker horn.
+>
+> Subject: There are two children.
+>
+> Message:\
+> There is a house on that land, but it has no address yet. Or it is something that is learning to become a house.
+>
+> There are two children who do not really care whether this land is an island, an archipelago, a super-land, or the result of all maps finally getting tired of being apart. They care more about whether the ripe banana can be eaten now or must wait until the adults finish taking notes.
+>
+> One of them asked whether [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") has a yard. No one answered. How do you explain to children that all this time our yard has been waves that keep trying to swallow?
+>
+> ---
+>
+> [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") Log...
+>
+> Melting Date: January 9, 2023 (January 9, 2023 B.M.)
+>
+> Recorder: [**Amanda (ID 14)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active")
+>
+> Subject: I am only passing by.
+>
+> Message:\
+> I know this is not my part yet.
+>
+> If anyone asks why I am writing here, just answer: I was passing by and smelled home. It is hard for some of us not to stop when there are the words family, children, and ripe banana in the same sentence.
+>
+> But I will not open the mystery of family today.
+>
+> I only write one thing: Land that can make children ask about a yard may be more dangerous to sadness than land that only shows off mountains.
+>
+> That's all. I am leaving. Do not miss me too much. Later this log will become not objective. Since when has [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") been objective anyway?
+>
+> ---
+>
+> [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") Log...
+>
+> Melting Date: January 10, 2023 (January 10, 2023 B.M.)
+>
+> Recorder: [**Amanda (ID 47)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active")
+>
+> Subject: This is starting to sound like [**BANANOW LAND**](https://land.endhonesa.com/nfts "NFT Collection: BANANOW BASED NFTs on BASE Blockchain - Active").
+>
+> Message:\
+> Now the messages from the land are beginning to become messy in a healthy way.
+>
+> There is a message about bananas. There is a message about a granary that was wrongly opened. There is a message about a loudspeaker horn that is too loud. There is a message from someone who does not know how to live on land. There is a message from children naming something before adults finish arranging terms. There is a message from people who want to take, then feel ashamed because the tree is still there the next day.
+>
+> This is starting to sound like a place that is alive.
+>
+> Dead places are usually neat. Living places are messy, but their mess has direction. Maybe that is why [**BANANOW LAND**](https://land.endhonesa.com/nfts "NFT Collection: BANANOW BASED NFTs on BASE Blockchain - Active") does not sound like a kingdom. It sounds like a house that is too large, an unfinished kitchen, a garden that scolds hungry people, and a yard where children run before adults agree whether the yard is safe.
+>
+> I like it. I did not say I believe it. I said I like it. Those are different, although some passengers who have been on the ark for too long seem to have forgotten that liking something does not have to immediately become an oath.
+>
+> ---
+>
+> Message on a Board...
+>
+> Melting Date: January 11, 2023 (January 11, 2023 B.M.)
+>
+> Sender: [**ROTY BROI Passenger (ID 361)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
+>
+> Subject: The mountains are like stitches.
+>
+> Message:\
+> I saw mountains. Not mountains like in books before the disaster. These mountains are too long. Too much like wounds that refuse to disappear. Their backs stretch far in a direction I cannot see the end of.
+>
+> If this is an island, this island is holding too many secrets. If this is land, this land was once forced to unite with something large.
+>
+> I am not a map reader. Even what I am reading may not want to be called a map. I only write what my feet fear: This land is not small.
+>
+> ---
+>
+> Message From a Bay Holding Its Breath...
+>
+> Melting Date: January 12, 2023 (January 12, 2023 B.M.)
+>
+> Sender: [**ROTY BROI Passenger (ID 121)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
+>
+> Subject: This bay is like a mouth.
+>
+> Message:\
+> I found a large bay. Its shape is like land holding something back so it does not come out all at once. At its edge there are many remains from the old world. Wood. Cloth. Jars. Gun barrels. Toys. Bones. Pots. Pans. Bottles. Pieces of metal. The writing "laras slendro" with only half the letters left.
+>
+> We almost called everything treasure. Then almost called everything trash. Both were wrong.
+>
+> Here, remains can become material. But if all remains are immediately called material, we forget that some of them may once have been someone's home.
+>
+> We put some of them in a dry place. We do not know what for yet. We only know: Do not throw away too quickly, maybe we're just not in sync yet.
+>
+> ---
+>
+> Message From Someone Who Walked Too Far...
+>
+> Melting Date: January 13, 2023 (January 13, 2023 B.M.)
+>
+> Sender: [**ROTY BROI Passenger (ID 37)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
+>
+> Subject: Three days and the land had not ended.
+>
+> Message:\
+> I walked for three days. The land had not ended. I walked not to search for something. I walked because I was arrogant. I wanted to be the first person to know the size of this land.
+>
+> If only my lifeboat were a lite ship, I mean a lightship that functions like a lighthouse, which guides me so that I don't get lost and stay on a safe path.
+>
+> On the second day, I forgot the way back. On the third day, a child pointed at me and said, "_That uncle got lost in his own yard._"
+>
+> I do not know which hurt more: Getting lost or being called uncle by a child who was right.
+>
+> ---
+>
+> [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") Log...
+>
+> Melting Date: January 14, 2023 (January 14, 2023 B.M.)
+>
+> Recorder: [**Amanda (ID 12)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active")
+>
+> Subject: This is not many islands.
+>
+> Message:\
+> I am beginning to dare to write it, although still with a pencil that can be erased if this land suddenly embarrasses me.
+>
+> This is not many islands. Or at least, not many islands anymore as we once thought.
+>
+> [**ROTY BROI Passenger (ID 498)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") found banana trees. [**ROTY BROI Passenger (ID 410)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") found a shore that made him build a loudspeaker horn. [**ROTY BROI Passenger (ID 361)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") found mountains like stitches. [**ROTY BROI Passenger (ID 121)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") found a bay like a mouth. [**ROTY BROI Passenger (ID 37)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") walked for three days and only found his own exhausted ego.
+>
+> All of them thought they were standing in different places. Maybe that is true. But different does not always mean separate.
+>
+> The wind patterns connect. The smell of the soil connects. The bird mentioned by [**ROTY BROI Passenger (ID 410)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") appears in the log of [**ROTY BROI Passenger (ID 121)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"). The shadow of the mountain told by [**ROTY BROI Passenger (ID 361)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") is visible very far away from the log of [**ROTY BROI Passenger (ID 37)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"). The banana variety found by [**ROTY BROI Passenger (ID 498)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") appears again as dried peel in a bottle sent from the bay.
+>
+> If three people stand on three different shores and all claim to have found the first island, maybe the problem is not the number of islands. Maybe their feet are too small to understand the size of the land.
+>
+> ---
+>
+> Recovered Echo Fragment...
+>
+> Melting Date: January 15, 2023 (January 15, 2023 B.M.)
+>
+> Echo Marker: [**Prof. NOTA v10.0**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active")
+>
+> Source: A gap between universes.
+>
+> Subject: Re-release does not always mean repeating from the beginning.
+>
+> Message:\
+> There are things that must be made again not because the first one was false.
+>
+> Sometimes the first entrance is enough to make people come, but not enough to keep them from getting lost after arriving. Sometimes the first invitation is enough to call, but not enough to guard. Sometimes the old body of a place is too small for the intention beginning to grow inside it. So a new body is made.
+>
+> Not erasing the old. Not pretending no mistake ever happened. Not starting from zero like someone ashamed to have a history. Only making a clearer door, stronger knots, and a **Pier** that can receive more feet without making the land panic.
+>
+> If this sounds like a contract, do not rush to call it a contract. If this sounds like an event, do not rush to call it an event. If this sounds like a plan, do not rush to call it a plan. Some universes use different words for the same thing: Repairing the road so those who come do not mistake the door for the granary.
+>
+> ---
+>
+> Writing on the Granary Board...
+>
+> Melting Date: January 16, 2023 (January 16, 2023 B.M.)
+>
+> Source: A board whose writing was changed four times.
+>
+> Sender: A Female Survivor
+>
+> Subject: 2345.
+>
+> Message:\
+> 2345 is not the number of bananas and not the number of trees either.
+>
+> 2345 is not the number of good people. Please do not trust numbers like that too much.
+>
+> 2345 is the number of those who today are willing to help guard something in [**BANANOW LAND**](https://land.endhonesa.com/nfts "NFT Collection: BANANOW BASED NFTs on BASE Blockchain - Active").
+>
+> There are those who guard trees. There are those who guard water. There are those who guard the loudspeaker horn so it is not used to shout without content.
+>
+> There are those who guard the granary. There are those who guard children. There are those who guard the newly arrived so they do not kiss the ground for too long and then forget to drink.
+>
+> There are those who guard records. There are those who guard themselves so they do not return to being plunderers.
+>
+> They begin to be called farmers. Not because all of them plant bananas. But because all of them agree that fertile land will die if it is only celebrated.
+>
+> ---
+>
+> [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") Log...
+>
+> Melting Date: January 17, 2023 (January 17, 2023 B.M.)
+>
+> Recorder: [**Amanda (ID 22)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active")
+>
+> Subject: Farmer is not a job.
+>
+> Message:\
+> I like how they use the word farmer. Not neat. A little careless. A bit dangerous if brought into an old-world meeting. But alive.
+>
+> There, the person who guards the loudspeaker horn can be called a farmer. The person who guards the granary can be called a farmer. The person who escorts children away from the cliff edge can be called a farmer. The person who writes mistakes so they do not become traditions can also be called a farmer. Even someone who has just learned to apologize to a tree for almost picking too much can be called a farmer, as long as after that he truly plants.
+>
+> This bothers some passengers who like meeting definitions. Good, because some definitions do need to be disturbed so they do not turn into fences.
+>
+> ---
+>
+> Message From a **Pier**...
+>
+> Melting Date: January 18, 2023 (January 18, 2023 B.M.)
+>
+> Sender: [**ROTY BROI Passenger (ID 498)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
+>
+> Subject: We are building a place to dock without making the land panic.
+>
+> Message:\
+> We started building a **Pier**.
+>
+> Do not imagine a great harbor. Do not imagine a magnificent gate. Do not imagine anyone's statue, especially mine. If one day there is a statue of me here, please push it into the sea before it learns to speak.
+>
+> This **Pier** is made from the remains of lifeboats, wood dragged by the waves, stones that can be arranged, rope from tree fiber, and some parts collected by [**ROTY BROI Passenger (ID 410)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") while continuing to explain that the loudspeaker horn must be placed higher. He is right, but he too often says that he is right while doubting if he is the only one who is right.
+>
+> This **Pier** is not made to make everyone come. This **Pier** is made so arrival does not immediately become damage.
+>
+> Beside it there is a place to wash wounds. Behind it there is a granary. Not too close. The female survivor with me insisted. She said new arrivals should not be welcomed first by fruit. Welcome them first with water, a name, and the question of whether they can still stand without lying.
+>
+> We planted a sign: **Do not take before knowing how to plant back.**
+>
+> The sign was too long. The children replaced it with: **Pick? Plant.**
+>
+> We lost. The children's sign is better.
+>
+> ---
+>
+> Message From a Loudspeaker Horn...
+>
+> Melting Date: January 20, 2023 (January 20, 2023 B.M.)
+>
+> Sender: [**ROTY BROI Passenger (ID 410)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
+>
+> Subject: The loudspeaker horn saw the ark before my eyes did.
+>
+> Message:\
+> The loudspeaker horn I made caught something from the sea. I have not seen [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") yet, but the loudspeaker horn has already been vibrating like someone hearing their name called from the past.
+>
+> [**ROTY BROI Passenger (ID 498)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") said we must prepare the **Pier**. The female survivor said we must prepare water. The children said we must prepare bananas. I said we must prepare a second loudspeaker horn.
+>
+> Everyone ignored me. But I still made the second loudspeaker horn. History will be grateful. Or at least history will hear louder.
+>
+> ---
+>
+> [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") Log...
+>
+> Melting Date: January 21, 2023 (January 21, 2023 B.M.)
+>
+> Recorder: [**Amanda (ID 12)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active")
+>
+> Subject: Super-land, but do not be too flirty yet.
+>
+> Message:\
+> I am almost certain. I write "almost" so [**Amanda (ID 6)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") does not stare at me as if I have just opened the granary for a false sign.
+>
+> [**BANANOW LAND**](https://land.endhonesa.com/nfts "NFT Collection: BANANOW BASED NFTs on BASE Blockchain - Active") may not be an ordinary island. It may be a large body of many fragments of [**The Melting Archipelago**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/37.-woman-of-russian/37.1.-absart-idsa-archipelago "NFT Collection: ABSART IDSA Archipelago on Tezos Blockchain - Archived") that have become one. Not becoming one like a kingdom conquering territory. Becoming one like old wounds sticking to each other, not always beautiful, but strong enough to hold feet.
+>
+> Its mountains are like stitches. Its bays are like held breaths. Its beaches are like former borders that forgot to be borders.
+>
+> This land is too wide to be seen by one passenger. Too large to be named by one shore. Too funny to be called a continent with a serious face. Too important to be called only a banana garden.
+>
+> But it is precisely the banana trees that make us not afraid.
+>
+> If the first thing seen were a palace, perhaps we would be suspicious. If the first thing seen were a flag, perhaps we would vomit. If the first thing seen were a mine, perhaps old humans would wake too quickly.
+>
+> The first thing seen is bananas. That is good. A new world sometimes must wear yellow skin so humans do not immediately give speeches.
+>
+> ---
+>
+> Message Toward the **Pier**...
+>
+> Melting Date: January 22, 2023 (January 22, 2023 B.M.)
+>
+> Sender: [**Cap'n ROTY BROI (ID 996)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
+>
+> Translator: [**Amanda (ID 22)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active")
+>
+> Subject: The ark is hastening itself.
+>
+> Message:\
+> We have changed direction.
+>
+> Not everyone agrees. That is good. If everyone agrees too quickly, usually someone has not heard the question.
+>
+> Some fear the land is a trap. Some fear the ark will not be able to arrive. Some fear that if they arrive later they will not know what to become. On the ark, everyone at least knows how to be a passenger. On land, the word passenger begins to run out of seats.
+>
+> We are hastening ourselves not because we are completely certain. We are hastening ourselves because the message from [**BANANOW LAND**](https://land.endhonesa.com/nfts "NFT Collection: BANANOW BASED NFTs on BASE Blockchain - Active") does not sound like heaven. It sounds like a place learning to protect itself without turning into a fortress. That is enough.
+>
+> The waves are rougher than usual. Maybe [**The Melting Land**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active") does not like losing us. Maybe it does not care. Maybe we have simply spent too long thinking disaster has feelings.
+>
+> But ahead, the loudspeaker horn keeps calling. Its voice is ugly. Fortunately, ugly does not mean wrong.
+>
+> ---
+>
+> Paper Fragment From the Ark Deck...
+>
+> Melting Date: January 24, 2023 (January 24, 2023 B.M.)
+>
+> Source: Paper almost eaten by salt.
+>
+> Subject: If we arrive later...
+>
+> Message:\
+> If we arrive later, I want to step down slowly. I do not want to kiss the ground. I am afraid the ground will not like it.
+>
+> If we arrive later, I want to ask the farmers first whether there is a correct way to stand.
+>
+> If we arrive later, I want to see the banana trees. Not to eat. To make sure there is something that grows without us pushing from behind.
+>
+> No need to write my name. If I sink before arriving, I do not want this note to sound too sad.
+>
+> ---
+>
+> Message From a **Pier**...
+>
+> Melting Date: January 25, 2023 (January 25, 2023 B.M.)
+>
+> Sender: [**ROTY BROI Passenger (ID 498)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
+>
+> Subject: We are not finished, but you may come.
+>
+> Message:\
+> The **Pier** is not finished. If you wait for us to finish it perfectly, perhaps you will arrive when we are already too busy arguing about the color of the boards. So come.
+>
+> There is a path down. There is water. There is a granary, but do not go there immediately.
+>
+> There is a loudspeaker horn, do not stand too close if [**ROTY BROI Passenger (ID 410)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") is feeling proud.
+>
+> There is the first banana tree. Do not touch it before asking.
+>
+> There are 2345 farmers, more or less. I write "more or less" because some people begin becoming farmers only after being scolded by children, and I do not know whether that is counted from the scolding or from when they truly plant.
+>
+> There is a place to record names. Not to make a list of owners. To make sure no one arrives and then disappears as if they never came out of the waves.
+>
+> Come to the **Pier**. Do not come as conquerors. Do not come as first buyers. Do not come as people who want to give new names to everything that has already learned to live before you arrived. Come as people who still have hands to help.
+>
+> ---
+>
+> [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") Log...
+>
+> Melting Date: January 26, 2023 (January 26, 2023 B.M.)
+>
+> Recorder: [**Amanda (ID 8)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active")
+>
+> Subject: [**Prof. NOTA**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active") sounds again, but do not panic.
+>
+> Message:\
+> The message of [**ROTY BROI Passenger (ID 498)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") today sounded like [**Prof. NOTA**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/32.-prof.-nota-genesis-0-1 "NFT Collection: Prof. NOTA Genesis on Ethereum Blockchain - Active") pretending to be a **Pier** board.
+>
+> I know that sentence will not help anyone who wants clean documentation. But that is how it sounded.
+>
+> There is a way that message talks about arrival without selling tickets. There is a way it talks about the granary without mentioning assets. There is a way it talks about names without turning identity into fences. There is a way it talks about land like someone who has once seen a project almost become a garden and a garden almost become a project.
+>
+> I will not solve this mystery now. Some echoes must be allowed to bounce until their fruit is ripe. If you are impatient, eat a banana first. But not the one meant to be planted.
+>
+> ---
+>
+> First Loudspeaker Horn...
+>
+> Melting Date: January 28, 2023 (January 28, 2023 B.M.)
+>
+> Location: [**BANANOW LAND Pier**](https://land.endhonesa.com/nfts "NFT Collection: BANANOW BASED NFTs on BASE Blockchain - Active")
+>
+> Subject: The ark is visible.
+>
+> Message:\
+> The ark is visible.
+>
+> Repeat.
+>
+> [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") is visible.
+>
+> No, it does not look gallant.
+>
+> Do not write gallant.
+>
+> It looks tired. It looks like a home that has floated for too long. It looks like everyone it ever saved is still clinging to its wood.
+>
+> Prepare ropes. Prepare water. Prepare name boards.
+>
+> Keep the children away from the side of the **Pier**.
+>
+> No, not too far. They must see. But hold their hands.
+>
+> [**ROTY BROI Passenger (ID 410)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), lower the horn volume.
+>
+> [**ROTY BROI Passenger (ID 410)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived"), I am serious.
+>
+> ---
+>
+> [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") Log...
+>
+> Melting Date: January 28, 2023 (January 28, 2023 B.M.)
+>
+> Recorder: [**Amanda (ID 12)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active")
+>
+> Subject: The ark touches land.
+>
+> Message:\
+> Today [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") arrived at [**BANANOW LAND Pier**](https://land.endhonesa.com/nfts "NFT Collection: BANANOW BASED NFTs on BASE Blockchain - Active").
+>
+> I do not write "docked" yet, because what happened was not as elegant as that word. The ark was more like stranding itself with the remaining strength it had borrowed for too long from prayers, ropes, wood, and stubbornness. Waves pushed from behind. The **Pier** held from the front. The first rope snapped. The second rope almost dragged three people. The third rope succeeded, perhaps because the children also shouted as if a rope could feel ashamed if it failed in front of them.
+>
+> The people on the **Pier** did not line up like soldiers.
+>
+> Thank goodness.
+>
+> They gathered like a kitchen that suddenly received too many guests. Some carried water. Some carried bananas. Some carried cloth. Some carried boards. Some carried records. Some carried nothing but two trembling hands, and on that day even two empty hands felt like important tools.
+>
+> The passengers stepped down slowly.
+>
+> Some kissed the ground. Some feared the ground would kiss back. Some laughed, then cried, then vomited, then apologized to everyone who saw.
+>
+> Someone asked whether this land has rules. A child answered, "_Pick? Plant._"
+>
+> No one had a better answer.
+>
+> ---
+>
+> Message From a Small Board...
+>
+> Melting Date: January 28, 2023 (January 28, 2023 B.M.)
+>
+> Source: A board at the side of the **Pier**.
+>
+> Subject: Order of descent.
+>
+> Message:\
+> The living step down first. The injured step down before those pretending to be strong.
+>
+> Do not let children loose.
+>
+> Do not let the records get wet again, poor things.
+>
+> Food is counted. Seeds are counted twice.
+>
+> Objects whose function is unknown must not be thrown away immediately.
+>
+> Do not step on the sail fragment marked [**DROP NFT NOT BOMB**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/36.-d.nft.n.bomb-tm "NFT Collection: Drop NFT Not BOMB™ on Tezos Blockchain - Archived").
+>
+> Do not use the [**OiOi**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/polygon-usdoioi-fts "FT Drop: Polygon $OiOi on Polygon Blockchain - Archived") board as a banana mat.
+>
+> If confused, ask [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active"). If [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") gives different answers, it means the question is good.
+>
+> ---
+>
+> [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") Log...
+>
+> Melting Date: January 28, 2023 (January 28, 2023 B.M.)
+>
+> Recorder: [**Amanda (ID 47)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active")
+>
+> Subject: The ark has finished being an ark.
+>
+> Message:\
+> After everything that had to be unloaded had finished being unloaded, [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") released a sound that made everyone stop speaking.
+>
+> Not an explosion. Not an angry fracture. Not the sound of a defeated object. More like a long breath from something that was finally allowed to stop forcing itself to be strong.
+>
+> Some passengers tried to hold it up. They pulled wood. They tied ropes again. They called it like calling a body still able to be asked to stand. [**ROTY BROI Passenger (ID 498)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") raised his hand. The women guarding the banana trees said, "_Do not force what has carried you to keep becoming home only because you do not yet know how to thank the wreckage._"
+>
+> Then they stopped. The ark collapsed slowly. It did not sink. It did not disappear. It did not lose. It had finished being an ark.
+>
+> I write that sentence carefully because one day there may be parts of this wreckage that still have to perform another duty. But today, do not ask it to become dwelling place, government, kitchen, pen, fortress, voting room, and prayer all at once.
+>
+> Today, let the ark become witness. Tomorrow, we will think about how to thank the wreckage of that ark.
+>
+> ---
+>
+> Folded Banana Leaf...
+>
+> Melting Date: January 28, 2023 (January 28, 2023 B.M.)
+>
+> Source: No one admits writing it.
+>
+> Subject: 2020???
+>
+> Message:\
+> At the edge of the **Pier**, someone wrote the number **2020** on a banana leaf. Then folded the leaf. Then slipped it among the records of [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active").
+>
+> When asked, every [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") pointed at another [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active").
+>
+> This does not help. But that is how we are.
+>
+> ---
+>
+> [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") Log...
+>
+> Melting Date: January 29, 2023 (January 29, 2023 B.M.)
+>
+> Recorder: [**Amanda (ID 6)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active")
+>
+> Subject: Do not count all [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") today.
+>
+> Message:\
+> Some people are starting to count us again.
+>
+> Please do not.
+>
+> Not because numbers are not important. Numbers are very important. Numbers can save people from stories that are too confident. But numbers opened at the wrong time can make people stop seeing faces.
+>
+> For now, just remember this: 47 of us write because 47 of us first witnessed reflections that made ordinary records not enough. Outside those 47, there are other voices, other bodies, other universes, and the same name with wounds that are not the same.
+>
+> Some have arrived. Some have not. Some perhaps never will.
+>
+> Do not force this section to become a list. This is the farmers' section. Even mystery must wait for its season.
+>
+> ---
+>
+> Message From a Woman...
+>
+> Melting Date: January 29, 2023 (January 29, 2023 B.M.)
+>
+> Location: [**BANANOW LAND**](https://land.endhonesa.com/nfts "NFT Collection: BANANOW BASED NFTs on BASE Blockchain - Active")
+>
+> Subject: Farmers are not those who arrived here first.
+>
+> Message:\
+> Many people ask when they may be called farmers.
+>
+> I wanted to answer after breakfast. They asked before breakfast. That is why my first answer may be a little fierce.
+>
+> Farmers are not those who arrived here first. The first to arrive may only be the first to be hungry.
+>
+> Farmers are not those who pick the most. Those who pick the most may only be the quickest to finish everything.
+>
+> Farmers are not those who shout the loudest that this land is theirs. Land that has just survived melting does not need a new master.
+>
+> Farmers are those who know that fruit is not the end of the tree.
+>
+> Farmers are those who still return after being full.
+>
+> Farmers are those who build granaries not to hide surplus, but to delay ego.
+>
+> Farmers are those who can watch children eat bananas without immediately calculating profit.
+>
+> Farmers are those who, when they are wrong, record their wrongness before turning it into tradition.
+>
+> If you want to stay, do not begin by asking which part belongs to you. Begin by asking which part you can care for without immediately naming it yours.
+>
+> If that question makes you uncomfortable, good. The land was also uncomfortable the first time it was stepped on by someone who had just stopped drowning.
+>
+> ---
+>
+> Second Loudspeaker Horn...
+>
+> Melting Date: January 30, 2023 (January 30, 2023 B.M.)
+>
+> Sender: [**ROTY BROI (ID 410)**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived")
+>
+> Subject: The second loudspeaker horn is useful.
+>
+> Message:\
+> The second loudspeaker horn is useful. I just want that recorded.
+>
+> Everyone who once ignored me is now busy lifting bananas.
+>
+> It is fine. I forgive them loudly.
+>
+> The first loudspeaker horn faces the sea. The second loudspeaker horn faces the land.
+>
+> Because after the ark arrives, messages no longer need only to be sent to the sea. Messages also need to be sent to people who are already standing but have not yet heard one another.
+>
+> This is the first lesson after the **Pier**: A vast land can make people lost without drowning.
+>
+> ---
+>
+> [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") Log...
+>
+> Melting Date: January 31, 2023 (January 31, 2023 B.M.)
+>
+> Recorder: [**Amanda (ID 47)**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active")
+>
+> Subject: After the ark, we learned to stand.
+>
+> Message:\
+> Previously I closed the log about the door without closing the universe. This time I will close the log about the farmers without closing the land. Or maybe close the log about the land without closing the farmers. I forgot which one sounds more mysterious. If you are confused, do not worry. Some mysteries are only sentences that have not had breakfast.
+>
+> It has been three days since [**The ROTY BROI ARK**](https://rotybroi.endhonesa.com/ "NFT Collection: The ROTY BROI on Polygon Blockchain - Archived") stranded itself at [**BANANOW LAND Pier**](https://land.endhonesa.com/nfts "NFT Collection: BANANOW BASED NFTs on BASE Blockchain - Active").
+>
+> The word "stranded" still feels the most honest.
+>
+> "Docked" is too neat.
+>
+> "Arrived" is too brief.
+>
+> "Saved" is too fast.
+>
+> The ark came like something that had carried too much life and finally found a place to set it down without feeling guilty. After that, everyone must learn a new form of safety. On the ark, safety meant staying on top. In [**BANANOW LAND**](https://land.endhonesa.com/nfts "NFT Collection: BANANOW BASED NFTs on BASE Blockchain - Active"), safety begins to mean knowing when to step down, when to plant, when to share, when to be silent, and when not to touch someone else's granary even though you feel very helpful.
+>
+> The passengers are still often called passengers. That is natural. Old names do not immediately come off just because feet touch the ground. Some still sleep near the ark wreckage. Some still keep ropes under their heads. Some walk too far just to make sure the land does not suddenly end. Some learn to plant, then feel disappointed because plants do not grow as fast as announcements. Some begin to ask whether becoming a farmer has a vote.
+>
+> The children laughed.
+>
+> That is a good enough answer for now.
+>
+> [**BANANOW LAND**](https://land.endhonesa.com/nfts "NFT Collection: BANANOW BASED NFTs on BASE Blockchain - Active") is not fully understood by us yet. Maybe it truly is a super-land. Maybe it is the new body of [**The Melting Archipelago**](https://docs.endhonesa.com/02-the-creations.../waivfves-1/37.-woman-of-russian/37.1.-absart-idsa-archipelago "NFT Collection: ABSART IDSA Archipelago on Tezos Blockchain - Archived") that has become one. Maybe the old maps are only wet pages of something too wide to be read by one ark. But we do not need to understand the entire body of the land before learning not to damage the part we stand on today.
+>
+> That may be the first lesson of the farmers.
+>
+> Not everything discovered must be immediately explained. Not everything fertile must be immediately counted. Not everything wide must be immediately controlled. Not every ripe fruit must be immediately consumed.
+>
+> Leave shoots. Plant back. Care for what grows. Share what is enough. Record what is wrong.
+>
+> Do not laugh too loudly at someone who is just learning to stand, because perhaps yesterday you too vomited after kissing the ground.
+>
+> And if someone is still calling from the vast ocean waves of [**THE MELTING LAND**](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active"), do not first ask whether they are worthy to become farmers. Throw the rope. Ask their name after they are no longer drowning.
 
 ---
 
