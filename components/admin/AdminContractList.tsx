@@ -27,8 +27,7 @@ function riskBadgeClass(risk: string) {
 function ActionPill({ label, risk }: { label: string; risk: string }) {
   return (
     <span
-      className={`rounded-full border px-3 py-1 text-xs ${riskBadgeClass(risk)}`}
-    >
+      className={`rounded-full border px-3 py-1 text-xs ${riskBadgeClass(risk)}`}>
       {label}
     </span>
   );
@@ -56,9 +55,8 @@ export function AdminContractList({
 
       {contracts.map((contract) => (
         <article
-          className="rounded-3xl border border-white/10 bg-black p-6"
-          key={contract.key}
-        >
+          className="min-w-0 rounded-3xl border border-white/10 bg-black p-6"
+          key={contract.key}>
           <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
             <div>
               <p className="text-sm uppercase tracking-[0.25em] text-white/70">
@@ -75,8 +73,7 @@ export function AdminContractList({
                 className="grid rounded-xl px-4 py-2 text-center text-sm hover:bg-(--oioi-accent)"
                 href={getAddressUrl(chainSet, contract.address)}
                 rel="noreferrer"
-                target="_blank"
-              >
+                target="_blank">
                 View {contract.explorerLabel}
               </a>
             </div>

@@ -391,8 +391,7 @@ function StatusPill({
 
   return (
     <span
-      className={`mt-2 inline-flex rounded-full border px-3 py-1 text-xs font-medium ${toneClass}`}
-    >
+      className={`mt-2 inline-flex rounded-full border px-3 py-1 text-xs font-medium ${toneClass}`}>
       {label}
     </span>
   );
@@ -480,8 +479,7 @@ function TxStatus({
         className="mt-2 block break-all font-mono underline underline-offset-4"
         href={getTxUrl(chainSet, txHash)}
         rel="noreferrer"
-        target="_blank"
-      >
+        target="_blank">
         <ResponsiveHash value={txHash} />
       </a>
 
@@ -511,8 +509,7 @@ function ErrorMessageBlock({
 }) {
   return (
     <div
-      className={`${className} min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-[#ff9b4a] p-4`}
-    >
+      className={`${className} min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-[#ff9b4a] p-4`}>
       <h4 className="font-medium text-black">{title}</h4>
       <p className="mt-2 max-w-full break-all whitespace-pre-wrap text-sm text-black/70">
         {message}
@@ -1778,7 +1775,7 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
         </p>
       </section>
 
-      <article className="rounded-3xl border border-white/10 bg-black p-6">
+      <article className="min-w-0 rounded-3xl border border-white/10 bg-black p-6">
         <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
           <div>
             <p className="text-sm uppercase tracking-[0.25em] text-white/40">
@@ -1802,8 +1799,7 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
               className="rounded-xl px-4 py-2 text-sm hover:bg-(--oioi-accent) disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-black"
               disabled={isBoundaryLoading}
               onClick={() => void fetchBoundaryJobs()}
-              type="button"
-            >
+              type="button">
               {isBoundaryLoading ? "Refreshing..." : "Refresh"}
             </button>
           </div>
@@ -1845,24 +1841,21 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
               className="w-full rounded-2xl border border-white/10 bg-black px-5 py-4 text-sm font-semibold text-white hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:opacity-40 md:w-auto"
               disabled={latestBlockLoading}
               onClick={() => void applyLatestBoundaryBlocks()}
-              type="button"
-            >
+              type="button">
               {latestBlockLoading ? "Loading blocks..." : "Use latest blocks"}
             </button>
             <button
               className="w-full rounded-2xl bg-white px-5 py-4 text-sm font-semibold text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40 md:w-auto"
               disabled={boundarySubmitDisabled}
               onClick={() => void submitBoundarySyncJob()}
-              type="button"
-            >
+              type="button">
               {isBoundarySubmitting ? "Submitting..." : "Submit The Jobs"}
             </button>
             <button
               className="w-full rounded-2xl border border-white/10 bg-black px-5 py-4 text-sm font-semibold text-white hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:opacity-40 md:w-auto"
               disabled={workflowDispatchDisabled}
               onClick={() => void runGithubActionsWorkflow("boundaryWorker")}
-              type="button"
-            >
+              type="button">
               {isWorkflowDispatching
                 ? "Dispatching..."
                 : `Run ${appEnv === "mainnet" ? "Mainnet" : "Testnet"} Boundary Worker`}
@@ -1871,8 +1864,7 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
               className="w-full rounded-2xl border border-white/10 bg-black px-5 py-4 text-sm font-semibold text-white hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:opacity-40 md:w-auto"
               disabled={workflowDispatchDisabled}
               onClick={() => void runGithubActionsWorkflow("supabaseKeepalive")}
-              type="button"
-            >
+              type="button">
               {isWorkflowDispatching
                 ? "Dispatching..."
                 : `Run ${appEnv === "mainnet" ? "Mainnet" : "Testnet"} Supabase Keepalive`}
@@ -1958,8 +1950,7 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
               {activeBoundaryJob.targets.map((target) => (
                 <div
                   className="rounded-xl border border-white/10 bg-black p-3 text-sm text-white"
-                  key={target.id}
-                >
+                  key={target.id}>
                   <div className="flex items-center justify-between gap-3">
                     <span className="font-mono">{target.chain_key}</span>
                     <StatusPill label={target.status} />
@@ -1985,7 +1976,7 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
         ) : null}
       </article>
 
-      <article className="rounded-3xl border border-white/10 bg-black p-6">
+      <article className="min-w-0 rounded-3xl border border-white/10 bg-black p-6">
         <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
           <div>
             <p className="text-sm uppercase tracking-[0.25em] text-white/40">
@@ -2006,8 +1997,7 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
                 void fetchRounds({ preserveSelection: true });
                 refetchRewardReads();
               }}
-              type="button"
-            >
+              type="button">
               {isRoundsLoading || isRewardReadsRefreshing
                 ? "Refreshing..."
                 : "Refresh"}
@@ -2019,13 +2009,12 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
           <label className="block">
             <div className="font-medium">Existing reward round</div>
             <select
-              className="mt-3 w-full rounded-2xl border border-white/10 bg-black px-4 py-3 text-sm text-white outline-none focus:border-white/30"
+              className="mt-3 w-full cursor-pointer rounded-2xl border border-white/10 bg-black px-4 py-3 text-sm text-white outline-none hover:bg-(--oioi-accent) focus:border-white/30 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-black"
               disabled={isRoundsLoading || rounds.length === 0}
               onChange={(event) =>
                 setSelectedSupabaseRoundId(event.target.value)
               }
-              value={selectedSupabaseRoundId}
-            >
+              value={selectedSupabaseRoundId}>
               {rounds.length === 0 ? (
                 <option value="">No rounds found</option>
               ) : null}
@@ -2138,8 +2127,7 @@ export function AdminRewardRoundControls({ chainSet }: { chainSet: ChainSet }) {
           <button
             className={`mt-5 w-full rounded-2xl border px-5 py-4 text-center font-medium disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40 ${nextActionClass}`}
             onClick={nextAction.handler}
-            type="button"
-          >
+            type="button">
             {nextAction.label}
           </button>
         ) : (

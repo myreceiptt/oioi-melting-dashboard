@@ -229,8 +229,7 @@ function StatusPill({
 
   return (
     <span
-      className={`mt-2 inline-flex rounded-full border px-3 py-1 text-xs font-medium ${toneClass}`}
-    >
+      className={`mt-2 inline-flex rounded-full border px-3 py-1 text-xs font-medium ${toneClass}`}>
       {label}
     </span>
   );
@@ -300,8 +299,7 @@ function TxStatus({
         className="mt-2 block break-all font-mono text-black/70 underline underline-offset-4"
         href={getTxUrl(chainSet, txHash)}
         rel="noreferrer"
-        target="_blank"
-      >
+        target="_blank">
         <ResponsiveHash value={txHash} />
       </a>
 
@@ -759,7 +757,7 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
           given to you. Please check and claim by yourself.
         </p>
       </section>
-      <article className="rounded-3xl border border-white/10 bg-black p-6">
+      <article className="min-w-0 rounded-3xl border border-white/10 bg-black p-6">
         <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
           <div>
             <p className="text-sm uppercase tracking-[0.25em] text-white/70">
@@ -781,8 +779,7 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
                 isRoundsLoading || isProofLoading || isRewardReadsRefreshing
               }
               onClick={refreshClaimPanel}
-              type="button"
-            >
+              type="button">
               {isRoundsLoading || isProofLoading || isRewardReadsRefreshing
                 ? "Refreshing..."
                 : "Refresh"}
@@ -801,15 +798,14 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
           <label className="block">
             <div className="font-medium">Available reward round</div>
             <select
-              className="mt-3 w-full rounded-xl border border-white/10 bg-black px-3 py-3 text-sm outline-none focus:border-white/40"
+              className="mt-3 w-full cursor-pointer rounded-2xl border border-white/10 bg-black px-4 py-3 text-sm text-white outline-none hover:bg-(--oioi-accent) focus:border-white/30 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-black"
               disabled={
                 isRoundsLoading ||
                 roundFundingReads.isLoading ||
                 fundedRounds.length === 0
               }
               onChange={(event) => setSelectedRoundId(event.target.value)}
-              value={selectedRoundId}
-            >
+              value={selectedRoundId}>
               {fundedRounds.length === 0 ? (
                 <option value="">
                   {roundFundingReads.isLoading
@@ -915,8 +911,7 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
         ) : null}
 
         <div
-          className={`mt-5 rounded-2xl border border-white/10 p-4 text-black ${nextStepClass}`}
-        >
+          className={`mt-5 rounded-2xl border border-white/10 p-4 text-black ${nextStepClass}`}>
           <div className="font-medium">Next step</div>
           <p className="mt-2 text-sm text-black/70">
             {claimDisabledReason ?? "This wallet is ready to claim."}
@@ -927,8 +922,7 @@ export function RewardClaimPanel({ chainSet }: { chainSet: ChainSet }) {
           className="mt-5 w-full cursor-pointer rounded-2xl bg-white px-5 py-4 text-center font-medium text-black hover:bg-(--oioi-accent) hover:text-white disabled:cursor-not-allowed disabled:bg-white disabled:text-black disabled:opacity-40 disabled:hover:bg-white disabled:hover:text-black"
           disabled={claimDisabled}
           onClick={() => void claimReward()}
-          type="button"
-        >
+          type="button">
           Claim $OiOi
         </button>
 
