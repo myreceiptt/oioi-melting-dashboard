@@ -11,6 +11,10 @@ import {
   MINT_SURFACES,
   type MintSurface,
 } from "@/lib/app/surfaceRoutes";
+import {
+  LORE_LANGUAGES,
+  type LoreLanguageCode,
+} from "@/lib/lore/loreLanguages";
 
 type LinkTarget = "_blank" | "_self";
 
@@ -31,6 +35,95 @@ type MenuGroup = {
 
 type MenuItem = MenuLink | MenuGroup;
 
+const LORE_MENU_SURFACES = [
+  {
+    href: "/lore#lore-surface-1-1",
+    label: "In The 0101 Universe...",
+    chapters: [
+      {
+        label: "Pseudonymous Invitations",
+        slug: "pseudonymous-invitations",
+      },
+      {
+        label: "The Melting Date",
+        slug: "the-melting-date",
+      },
+      {
+        label: "The Melting Journey",
+        slug: "the-melting-journey",
+      },
+      {
+        label: "The Melting Archipelago",
+        slug: "the-melting-archipelago",
+      },
+      {
+        label: "The Melting BOMB",
+        slug: "the-melting-bomb",
+      },
+      {
+        label: "The Melting Rabbit",
+        slug: "the-melting-rabbit",
+      },
+      {
+        label: "The Melting Pigs",
+        slug: "the-melting-pigs",
+      },
+      {
+        label: "The Melting Armor",
+        slug: "the-melting-armor",
+      },
+      {
+        label: "The Melting Satans",
+        slug: "the-melting-satans",
+      },
+      {
+        label: "The Melting Money",
+        slug: "the-melting-money",
+      },
+    ],
+  },
+  {
+    href: "/lore#lore-surface-2-1",
+    label: "In The Universe of Reality...",
+    chapters: [
+      {
+        label: "The Melting Conservation",
+        slug: "the-melting-conservation",
+      },
+    ],
+  },
+  {
+    href: "/lore#lore-surface-3-1",
+    label: "Back to The 0101 Universes...",
+    chapters: [
+      {
+        label: "The Farmers of BANANOW LAND",
+        slug: "the-farmers-of-bananow-land",
+      },
+      {
+        label: "The Anti-Forked Currency",
+        slug: "the-anti-forked-currency",
+      },
+      {
+        label: "Those Who Did Not Survive",
+        slug: "those-who-did-not-survive",
+      },
+      {
+        label: "The Highly Programmable Money",
+        slug: "the-highly-programmable-money",
+      },
+      {
+        label: "Acceptance and Moving Forward",
+        slug: "acceptance-and-moving-forward",
+      },
+      {
+        label: "Happy Life of Fair Family",
+        slug: "happy-life-of-fair-family",
+      },
+    ],
+  },
+] as const;
+
 function readClientHost() {
   if (typeof window === "undefined") {
     return "";
@@ -39,8 +132,38 @@ function readClientHost() {
   return window.location.hostname;
 }
 
+function getLoreLanguage(value: string | null): LoreLanguageCode {
+  return LORE_LANGUAGES.some((language) => language.code === value)
+    ? (value as LoreLanguageCode)
+    : "en";
+}
+
+function readClientLoreLanguage(): LoreLanguageCode {
+  if (typeof window === "undefined") {
+    return "en";
+  }
+
+  return getLoreLanguage(
+    new URLSearchParams(window.location.search).get("lang"),
+  );
+}
+
 function getAppHref(pathname: string, useMainAppOrigin: boolean) {
   return useMainAppOrigin ? getMainAppHref(pathname) : pathname;
+}
+
+function getLoreHref(
+  pathname: string,
+  language: LoreLanguageCode,
+  useMainAppOrigin: boolean,
+) {
+  const [path, hash = ""] = pathname.split("#");
+  const separator = path.includes("?") ? "&" : "?";
+  const localizedPath = `${path}${separator}lang=${language}${
+    hash ? `#${hash}` : ""
+  }`;
+
+  return getAppHref(localizedPath, useMainAppOrigin);
 }
 
 function getAppTarget(useMainAppOrigin: boolean): LinkTarget {
@@ -93,6 +216,29 @@ function buildMintChildren(currentSurface: MintSurface | null): MenuGroup[] {
       ],
     };
   });
+}
+
+function buildLoreChildren(
+  language: LoreLanguageCode,
+  useMainAppOrigin: boolean,
+): MenuGroup[] {
+  const target = getAppTarget(useMainAppOrigin);
+
+  return LORE_MENU_SURFACES.map((surface) => ({
+    href: getLoreHref(surface.href, language, useMainAppOrigin),
+    label: surface.label,
+    target,
+    children: surface.chapters.map((chapter) => ({
+      activePath: `/lore/chapter/${chapter.slug}`,
+      href: getLoreHref(
+        `/lore/chapter/${chapter.slug}`,
+        language,
+        useMainAppOrigin,
+      ),
+      label: chapter.label,
+      target,
+    })),
+  }));
 }
 
 function buildDashboardChildren(useMainAppOrigin: boolean): MenuGroup[] {
@@ -263,7 +409,10 @@ function buildAdminChildren(useMainAppOrigin: boolean): MenuGroup[] {
   ];
 }
 
-function buildMenuItems(currentSurface: MintSurface | null): MenuItem[] {
+function buildMenuItems(
+  currentSurface: MintSurface | null,
+  loreLanguage: LoreLanguageCode,
+): MenuItem[] {
   const useMainAppOrigin = currentSurface !== null;
   const appTarget = getAppTarget(useMainAppOrigin);
 
@@ -276,9 +425,10 @@ function buildMenuItems(currentSurface: MintSurface | null): MenuItem[] {
     },
     {
       activePath: "/lore",
-      href: getAppHref("/lore", useMainAppOrigin),
+      href: getLoreHref("/lore", loreLanguage, useMainAppOrigin),
       label: "Lore",
       target: appTarget,
+      children: buildLoreChildren(loreLanguage, useMainAppOrigin),
     },
     {
       activePath: "/mint",
@@ -360,8 +510,7 @@ function MenuLinkItem({
       href={item.href}
       onClick={onNavigate}
       rel={item.target === "_blank" ? "noreferrer" : undefined}
-      target={item.target}
-    >
+      target={item.target}>
       {item.label}
     </Link>
   );
@@ -371,6 +520,7 @@ export function AppMenu() {
   const pathname = usePathname();
   const navRef = useRef<HTMLElement | null>(null);
   const [currentHost, setCurrentHost] = useState("");
+  const [loreLanguage, setLoreLanguage] = useState<LoreLanguageCode>("en");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMobileGroup, setOpenMobileGroup] = useState<string | null>(null);
   const [openDesktopGroup, setOpenDesktopGroup] = useState<string | null>(null);
@@ -384,8 +534,8 @@ export function AppMenu() {
     [currentHost, pathname],
   );
   const menuItems = useMemo(
-    () => buildMenuItems(currentSurface),
-    [currentSurface],
+    () => buildMenuItems(currentSurface, loreLanguage),
+    [currentSurface, loreLanguage],
   );
 
   function closeMobileMenu() {
@@ -399,6 +549,35 @@ export function AppMenu() {
 
   useEffect(() => {
     setCurrentHost(readClientHost());
+    setLoreLanguage(readClientLoreLanguage());
+  }, []);
+
+  useEffect(() => {
+    function handleLoreLanguageChange(event: Event) {
+      if (!(event instanceof CustomEvent)) {
+        return;
+      }
+
+      setLoreLanguage(getLoreLanguage(String(event.detail?.language ?? "")));
+    }
+
+    function handleHistoryChange() {
+      setLoreLanguage(readClientLoreLanguage());
+    }
+
+    window.addEventListener(
+      "oioi:lore-language-change",
+      handleLoreLanguageChange,
+    );
+    window.addEventListener("popstate", handleHistoryChange);
+
+    return () => {
+      window.removeEventListener(
+        "oioi:lore-language-change",
+        handleLoreLanguageChange,
+      );
+      window.removeEventListener("popstate", handleHistoryChange);
+    };
   }, []);
 
   useEffect(() => {
@@ -438,8 +617,7 @@ export function AppMenu() {
           aria-label="Open main menu"
           className="inline-flex cursor-pointer rounded-xl bg-black px-4 py-2 text-sm font-semibold text-white hover:bg-(--oioi-accent)"
           onClick={() => setMobileOpen((current) => !current)}
-          type="button"
-        >
+          type="button">
           Menu
         </button>
       </div>
@@ -463,8 +641,7 @@ export function AppMenu() {
                     rel={item.target === "_blank" ? "noreferrer" : undefined}
                     target={item.target}
                     key={item.label}
-                    onClick={closeMobileMenu}
-                  >
+                    onClick={closeMobileMenu}>
                     {item.label}
                   </Link>
                 );
@@ -485,8 +662,7 @@ export function AppMenu() {
                         current === item.label ? null : item.label,
                       )
                     }
-                    type="button"
-                  >
+                    type="button">
                     <span>{item.label}</span>
                     <span>{groupOpen ? "-" : "+"}</span>
                   </button>
@@ -589,8 +765,7 @@ export function AppMenu() {
                 href={item.href}
                 rel={item.target === "_blank" ? "noreferrer" : undefined}
                 target={item.target}
-                key={item.label}
-              >
+                key={item.label}>
                 {item.label}
               </Link>
             );
@@ -610,8 +785,7 @@ export function AppMenu() {
                     current === item.label ? null : item.label,
                   )
                 }
-                type="button"
-              >
+                type="button">
                 {item.label}
               </button>
 

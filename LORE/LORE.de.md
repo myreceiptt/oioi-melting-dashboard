@@ -1,8 +1,12 @@
 # Das schmelzende Land Universe
 
+Wenn ihr da draußen überleben könnt, rettet euer Leben! Helft einander, egal wie die Bedingungen sind. Seid auf alles vorbereitet. Unsere Reise hat gerade erst begonnen.
+
 ## Im 0101-Universum…
 
 ### Es gibt das Phänomen [Das schmelzende Land](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active")…
+
+Bisher haben Wissenschaftler erkannt, dass auf der Erde nicht nur Eis schmelzen kann, sondern sogar das Land, auf dem wir stehen, ebenfalls schmelzen kann.
 
 #### Pseudonyme Einladungen
 
@@ -1297,6 +1301,8 @@
 
 ### Dort gibt es eine Insel der Götter…
 
+Ich dachte, dass vielleicht etwas versuchte, vor der Art gerettet zu werden, wie wir Rettung verstehen.
+
 #### Die schmelzende Konservierung
 
 > Log von [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active")...
@@ -1878,6 +1884,8 @@
 ## Zurück zu den 0101-Universen…
 
 ### Dort gibt es die reiche Insel…
+
+Es gibt Familie. Es gibt ein Zuhause. Es ist hier, an einem Ort, der sich nicht schämt, angenehm genannt zu werden, obwohl die Welt in den Köpfen der Überlebenden viele Male geendet hat.
 
 #### Die Bauern von [BANANOW LAND](https://land.endhonesa.com/nfts "NFT Collection: BANANOW BASED NFTs on BASE Blockchain - Active")
 

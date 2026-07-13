@@ -1,8 +1,12 @@
 # Semesta Daratan Meleleh
 
+Jika kalian di luar sana bisa bertahan, selamatkan hidup kalian! Saling membantu apa pun kondisinya. Bersiaplah untuk apa pun. Perjalanan kami baru saja dimulai.
+
 ## Di Semesta 0101…
 
 ### Ada Fenomena [Daratan Meleleh](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active")…
+
+Selama ini para ilmuwan telah menyadari bahwa di Bumi tidak hanya es yang bisa meleleh, bahkan daratan yang kita injak juga bisa meleleh.
 
 #### Undangan Dengan Nama Samaran
 
@@ -1297,6 +1301,8 @@
 
 ### Ada Sebuah Pulau Dewata…
 
+Aku berpikir bahwa mungkin ada sesuatu yang sedang mencoba diselamatkan dari cara kami memahami keselamatan.
+
 #### Konservasi Meleleh
 
 > Catatan [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active")...
@@ -1881,6 +1887,8 @@
 ## Kembali Ke Semesta-Semesta 0101…
 
 ### Ada Pulau yang Gemah Ripah…
+
+Ada keluarga. Ada rumah. Ada di sini, di tempat yang tidak malu disebut menyenangkan meskipun dunia sudah pernah berakhir berkali-kali dalam kepala orang-orang yang selamat.
 
 #### Para Petani di [BANANOW LAND](https://land.endhonesa.com/nfts "NFT Collection: BANANOW BASED NFTs on BASE Blockchain - Active")
 

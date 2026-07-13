@@ -1,8 +1,12 @@
 # The Melting Land Universe
 
+If you out there can survive, survive your life! Help each other no matter the conditions. Be prepared for anything. Our journey has just begun.
+
 ## In The 0101 Universe…
 
 ### There is [The Melting Land](https://softstaking.endhonesa.com/ "NFT Collection: The Melting BASE on BASE Blockchain - Active, and The Melting dETH on Ethereum Blockchain - Active")…
+
+So far, scientists have been aware of the fact that on Earth not only ice can melt, but even the land we step on can also melt.
 
 #### Pseudonymous Invitations
 
@@ -1297,6 +1301,8 @@
 
 ### There is The Island of God…
 
+I thought that perhaps something was trying to be saved from the way we understood salvation.
+
 #### The Melting Conservation
 
 > [**Amanda**](https://softstaking.endhonesa.com/ "NFT Collection: Amanda BASE on BASE Blockchain - Active, and Amanda dETH on Ethereum Blockchain - Active") Log...
@@ -1878,6 +1884,8 @@
 ## Back to The 0101 Universes…
 
 ### There is The Rich Island…
+
+There is family. There is a home. It is here, in a place that is not ashamed to be called pleasant even though the world has ended many times inside the heads of those who survived.
 
 #### The Farmers of [BANANOW LAND](https://land.endhonesa.com/nfts "NFT Collection: BANANOW BASED NFTs on BASE Blockchain - Active")
 

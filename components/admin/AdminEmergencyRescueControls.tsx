@@ -447,7 +447,7 @@ function RewardDistributorExcessRescue({ chainSet }: { chainSet: ChainSet }) {
   }
 
   return (
-    <article className="rounded-3xl border border-white/10 bg-black p-6">
+    <article className="min-w-0 rounded-3xl border border-white/10 bg-black p-6">
       <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
         <div>
           <p className="text-sm uppercase tracking-[0.25em] text-white/40">
@@ -901,7 +901,7 @@ function ContractRescueControls({
   }
 
   return (
-    <article className="rounded-3xl border border-white/10 bg-black p-6">
+    <article className="min-w-0 rounded-3xl border border-white/10 bg-black p-6">
       <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
         <div>
           <p className="text-sm uppercase tracking-[0.25em] text-white/40">
