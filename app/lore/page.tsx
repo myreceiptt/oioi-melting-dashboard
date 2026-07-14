@@ -5,12 +5,6 @@ import { LoreLanguageSwitcher } from "@/components/lore/LoreLanguageSwitcher";
 import { getLoreIndex, getLorePlainText } from "@/lib/lore/loreContent";
 import type { LoreLanguageCode } from "@/lib/lore/loreLanguages";
 
-export const metadata: Metadata = {
-  title: "The Melting Land Universe",
-  description:
-    "If you out there can survive, survive your life! Help each other no matter the conditions. Be prepared for anything. Our journey has just begun. — Prof. NOTA v10.0",
-};
-
 type LorePageProps = {
   searchParams: Promise<{
     lang?: string;
@@ -57,6 +51,18 @@ const AUTHOR_NOTES: Record<
     title: "Jadi, bagaimana menurutmu...",
   },
 };
+
+export async function generateMetadata({
+  searchParams,
+}: LorePageProps): Promise<Metadata> {
+  const { lang } = await searchParams;
+  const lore = await getLoreIndex(lang);
+
+  return {
+    description: getLorePlainText(lore.intro),
+    title: getLorePlainText(lore.title),
+  };
+}
 
 export default async function LorePage({ searchParams }: LorePageProps) {
   const { lang } = await searchParams;

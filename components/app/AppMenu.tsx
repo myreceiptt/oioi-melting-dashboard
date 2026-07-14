@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useAccount } from "wagmi";
 import {
   getEffectivePathname,
   getMainAppHref,
@@ -11,6 +12,7 @@ import {
   MINT_SURFACES,
   type MintSurface,
 } from "@/lib/app/surfaceRoutes";
+import { isExpectedAdminOwner } from "@/lib/admin/adminOwner";
 import {
   LORE_LANGUAGES,
   type LoreLanguageCode,
@@ -412,11 +414,12 @@ function buildAdminChildren(useMainAppOrigin: boolean): MenuGroup[] {
 function buildMenuItems(
   currentSurface: MintSurface | null,
   loreLanguage: LoreLanguageCode,
+  showAdminMenu: boolean,
 ): MenuItem[] {
   const useMainAppOrigin = currentSurface !== null;
   const appTarget = getAppTarget(useMainAppOrigin);
 
-  return [
+  const items: MenuItem[] = [
     {
       activePath: useMainAppOrigin ? undefined : "/",
       href: getAppHref("/", useMainAppOrigin),
@@ -442,14 +445,19 @@ function buildMenuItems(
       target: appTarget,
       children: buildDashboardChildren(useMainAppOrigin),
     },
-    {
+  ];
+
+  if (showAdminMenu) {
+    items.push({
       activePath: "/admin",
       href: getAppHref("/admin", useMainAppOrigin),
       label: "Admin",
       target: appTarget,
       children: buildAdminChildren(useMainAppOrigin),
-    },
-  ];
+    });
+  }
+
+  return items;
 }
 
 function hasChildren(item: MenuItem): item is MenuGroup {
@@ -518,6 +526,7 @@ function MenuLinkItem({
 
 export function AppMenu() {
   const pathname = usePathname();
+  const { address } = useAccount();
   const navRef = useRef<HTMLElement | null>(null);
   const [currentHost, setCurrentHost] = useState("");
   const [loreLanguage, setLoreLanguage] = useState<LoreLanguageCode>("en");
@@ -533,9 +542,10 @@ export function AppMenu() {
     () => getEffectivePathname(currentHost, pathname),
     [currentHost, pathname],
   );
+  const showAdminMenu = isExpectedAdminOwner(address);
   const menuItems = useMemo(
-    () => buildMenuItems(currentSurface, loreLanguage),
-    [currentSurface, loreLanguage],
+    () => buildMenuItems(currentSurface, loreLanguage, showAdminMenu),
+    [currentSurface, loreLanguage, showAdminMenu],
   );
 
   function closeMobileMenu() {

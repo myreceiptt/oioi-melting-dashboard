@@ -1,4 +1,3 @@
-import type { Address } from "viem";
 import type { ChainSet } from "@/lib/chains/chainConfig";
 import { getContractAddresses } from "@/lib/contracts/addresses";
 import type {
@@ -17,9 +16,9 @@ import {
   stakingReadActions,
   stakingWriteActions,
 } from "@/lib/admin/adminActions";
+import { EXPECTED_ADMIN_OWNER_ADDRESS } from "@/lib/admin/adminOwner";
 
-export const EXPECTED_ADMIN_OWNER_ADDRESS =
-  "0x29bF68E3969E0b6686ea55B7C48241ba3f6B9bA0" as Address;
+export { EXPECTED_ADMIN_OWNER_ADDRESS };
 
 function createAdminContractConfig({
   key,
