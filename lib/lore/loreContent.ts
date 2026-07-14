@@ -1,4 +1,4 @@
-import { readFile } from "node:fs/promises";
+import { access, readFile } from "node:fs/promises";
 import path from "node:path";
 import {
   LORE_LANGUAGES,
@@ -35,6 +35,8 @@ export type LoreDocument = {
 
 const DEFAULT_LORE_LANGUAGE: LoreLanguageCode = "en";
 const LORE_EXCERPT_LENGTH = 474;
+const LORE_FALLBACK_IMAGE_SRC = "/lore/og-image.gif";
+const LORE_IMAGE_EXTENSIONS = ["png", "jpg", "jpeg", "webp", "gif", "svg"];
 
 function getLoreLanguage(code: LoreLanguageCode) {
   return LORE_LANGUAGES.find((language) => language.code === code);
@@ -63,6 +65,22 @@ async function readLoreMarkdown(language: LoreLanguageCode) {
   } catch {
     return readFile(path.join(process.cwd(), "LORE", "LORE.en.md"), "utf8");
   }
+}
+
+export async function getLoreChapterImageSrc(slug: string) {
+  for (const extension of LORE_IMAGE_EXTENSIONS) {
+    const relativeSrc = `/lore/${slug}.${extension}`;
+    const imagePath = path.join(process.cwd(), "public", relativeSrc);
+
+    try {
+      await access(imagePath);
+      return relativeSrc;
+    } catch {
+      // Try the next supported image extension before falling back.
+    }
+  }
+
+  return LORE_FALLBACK_IMAGE_SRC;
 }
 
 export function getLorePlainText(value: string) {

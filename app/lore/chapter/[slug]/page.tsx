@@ -1,10 +1,12 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { InvalidPage } from "@/components/app/InvalidPage";
 import { LoreLanguageSwitcher } from "@/components/lore/LoreLanguageSwitcher";
 import { LoreMarkdown } from "@/components/lore/LoreMarkdown";
 import {
   getLoreChapter,
+  getLoreChapterImageSrc,
   getLorePlainText,
   normalizeLoreLanguage,
 } from "@/lib/lore/loreContent";
@@ -67,6 +69,7 @@ export default async function LoreChapterPage({
   }
 
   const { chapter, document } = chapterResult;
+  const chapterImageSrc = await getLoreChapterImageSrc(chapter.slug);
   const surfaceIndex = document.surfaces.findIndex(
     (surface) => surface.title === chapter.surfaceTitle,
   );
@@ -99,6 +102,17 @@ export default async function LoreChapterPage({
 
       <section className="grid gap-5 scroll-mt-30" id="contract-list">
         <section className="rounded-3xl border border-white/10 bg-black p-6">
+          <div className="mb-8 overflow-hidden rounded-2xl border border-white/10 bg-(--oioi-accent)">
+            <Image
+              alt={`${getLorePlainText(chapter.title)} lore artwork`}
+              className="aspect-2/1 w-full object-cover"
+              height={1280}
+              priority
+              src={chapterImageSrc}
+              unoptimized
+              width={2560}
+            />
+          </div>
           <hr className="my-8 border-white/10" />
           <LoreMarkdown content={chapter.body} />
         </section>

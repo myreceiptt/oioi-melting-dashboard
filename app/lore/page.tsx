@@ -2,7 +2,11 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { LoreLanguageSwitcher } from "@/components/lore/LoreLanguageSwitcher";
-import { getLoreIndex, getLorePlainText } from "@/lib/lore/loreContent";
+import {
+  getLoreChapterImageSrc,
+  getLoreIndex,
+  getLorePlainText,
+} from "@/lib/lore/loreContent";
 import type { LoreLanguageCode } from "@/lib/lore/loreLanguages";
 
 type LorePageProps = {
@@ -68,6 +72,17 @@ export default async function LorePage({ searchParams }: LorePageProps) {
   const { lang } = await searchParams;
   const lore = await getLoreIndex(lang);
   const authorNotes = AUTHOR_NOTES[lore.language];
+  const chapterImageEntries = await Promise.all(
+    lore.surfaces.flatMap((surface) =>
+      surface.sections.flatMap((section) =>
+        section.chapters.map(async (chapter) => [
+          chapter.slug,
+          await getLoreChapterImageSrc(chapter.slug),
+        ] as const),
+      ),
+    ),
+  );
+  const chapterImageSrcBySlug = new Map(chapterImageEntries);
 
   return (
     <main className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10">
@@ -130,7 +145,10 @@ export default async function LorePage({ searchParams }: LorePageProps) {
                         priority={
                           surfaceIndex === 0 && chapter.chapterNumber === 1
                         }
-                        src="/lore/og-image.gif"
+                        src={
+                          chapterImageSrcBySlug.get(chapter.slug) ??
+                          "/lore/og-image.gif"
+                        }
                         unoptimized
                         width={2560}
                       />
