@@ -1,5 +1,13 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { ConnectWalletButton } from "@/components/wallet/ConnectWalletButton";
+
+export const metadata: Metadata = {
+  other: {
+    "talentapp:project_verification":
+      "a4de0e5f9b81297d35894d7e4f5f7299eeb07f9443e0863ee8709d2160d5473b269109979ed545667cf91699d13d5acf800f3afa9ee27bc66f9c3364cc1f55cd",
+  },
+};
 
 const mintLinks = [
   {
